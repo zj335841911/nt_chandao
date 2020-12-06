@@ -38,6 +38,7 @@
 | 14 | [项目](#属性-项目（ROOT）) | ROOT | 外键值 | 否 | 是 | 是 |
 | 15 | [所属项目](#属性-所属项目（ROOTNAME）) | ROOTNAME | 外键值文本 | 否 | 是 | 是 |
 | 16 | [上级模块](#属性-上级模块（PARENTNAME）) | PARENTNAME | 外键值文本 | 否 | 是 | 是 |
+| 17 | [数据选择排序](#属性-数据选择排序（ORDERPK）) | ORDERPK | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-类型（task）（TYPE）
 #### 属性说明
@@ -738,6 +739,47 @@ String
 | 关系属性 | [名称（NAME）](../ibiz/ProjectModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-数据选择排序（ORDERPK）
+#### 属性说明
+数据选择排序
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [名称（NAME）](../ibiz/ProjectModule/#属性-名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1175,6 +1217,31 @@ GROUP BY
 	tt.root 
 	) 
 	) AS `NAME`,
+	(CONCAT_ws(
+	'',
+ case when	(
+SELECT
+	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) is not null then (
+SELECT
+	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) else t1.`ORDER` end)) as ORDERPK,
 	t1.`ORDER`,
 	t1.`PARENT`,
 	t1.`PATH`,
@@ -1204,6 +1271,21 @@ GROUP BY
 	tt.root 
 	) 
 	) AS `NAME`,
+		(CONCAT_WS(
+	'',
+	(
+SELECT
+	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'task' 
+GROUP BY
+	tt.root
+LIMIT 0,1	
+	) 
+	)) AS `ORDERPK`,
 	t1.`ORDER`,
 	t1.`PARENT`,
 	t1.`PATH`,
@@ -1220,6 +1302,7 @@ FROM
 	'0' as deleted,
 	0 as id,
 	'/' as `name`,
+	'0' as ORDERPK,
 	0 as `order`,
   0 as parent,
   ',0,' as path,

@@ -22,7 +22,7 @@ public class UserYearWorkStatsExService extends UserYearWorkStatsServiceImpl {
     }
 
     /**
-     * 自定义行为[GetUserYearAction]用户扩展
+     * [GetUserYearAction:获取用户所选年度的动作] 行为扩展
      * @param et
      * @return
      */
@@ -32,7 +32,7 @@ public class UserYearWorkStatsExService extends UserYearWorkStatsServiceImpl {
         return super.getUserYearAction(et);
     }
     /**
-     * 自定义行为[UpdateTitleByYear]用户扩展
+     * [UpdateTitleByYear:更新标题] 行为扩展
      * @param et
      * @return
      */

@@ -48,7 +48,7 @@ export class TaskTreeEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskTreeEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -136,7 +136,7 @@ export class TaskTreeEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskTreeEditViewBase
      */ 
-    protected viewName: string = "TaskTreeEditView";
+    protected viewName: string = 'TaskTreeEditView';
 
 
     /**

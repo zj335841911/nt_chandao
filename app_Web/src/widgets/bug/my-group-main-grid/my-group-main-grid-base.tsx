@@ -365,6 +365,15 @@ export class MyGroupMainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'severity',
+            label: '级别',
+            langtag: 'entities.bug.mygroupmain_grid.columns.severity',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'pri',
             label: 'P',
             langtag: 'entities.bug.mygroupmain_grid.columns.pri',
@@ -574,6 +583,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'id':false,
+        'severity':false,
         'pri':false,
         'confirmed':false,
         'productname':false,
@@ -856,7 +866,7 @@ export class MyGroupMainGridBase extends GridControlBase {
     * @memberof MyGroupMainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','confirmed','productname','projectname','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','isfavorites'];
+        let allColumns:Array<any> = ['id','severity','pri','confirmed','productname','projectname','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','isfavorites'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -936,6 +946,7 @@ export class MyGroupMainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 id:'',
+                severity:'',
                 pri:'',
                 confirmed:'',
                 productname:'',
@@ -993,6 +1004,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             id:'',
+            severity:'',
             pri:'',
             confirmed:'',
             productname:'',
@@ -1086,6 +1098,7 @@ export class MyGroupMainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 id:'',
+                severity:'',
                 pri:'',
                 confirmed:'',
                 productname:'',

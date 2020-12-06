@@ -48,7 +48,7 @@ export class ProjectMainView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectMainView_EditBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ProjectMainView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectMainView_EditBase
      */ 
-    protected viewName: string = "ProjectMainView_Edit";
+    protected viewName: string = 'ProjectMainView_Edit';
 
 
     /**

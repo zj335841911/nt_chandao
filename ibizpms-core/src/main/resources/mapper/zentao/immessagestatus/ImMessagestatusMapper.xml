@@ -10,8 +10,8 @@
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="ImMessagestatusResultMap" type="cn.ibizlab.pms.core.zentao.domain.ImMessagestatus" autoMapping="true">
-            
-		
+
+
     </resultMap>
 
 

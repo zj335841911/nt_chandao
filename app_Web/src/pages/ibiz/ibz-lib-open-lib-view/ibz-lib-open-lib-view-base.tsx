@@ -127,7 +127,7 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzLibOpenLibViewBase
      */ 
-    protected viewName: string = "IbzLibOpenLibView";
+    protected viewName: string = 'IbzLibOpenLibView';
 
 
     /**

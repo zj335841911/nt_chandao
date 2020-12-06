@@ -76,7 +76,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         this.internalUpdate(et);
         double consumed = task.getConsumed()+et.getConsumed() - oldEstimate.getConsumed();
         List<JSONObject> lastEstimate = taskEstimateService.select(String.format("select * from zt_TaskEstimate where task = %1$s ORDER BY id desc",task.getId()),null);
-        double left = (lastEstimate.size() != 0 && et.getId() == lastEstimate.get(0).getLongValue("id") ) ? et.getLeft() : task.getLeft();
+        double left = (lastEstimate.size() != 0 && et.getId() == lastEstimate.get(0).getLongValue(FIELD_ID) ) ? et.getLeft() : task.getLeft();
         LocalDateTime now = LocalDateTime.now();
         Task data = new Task();
         data.setConsumed(consumed);
@@ -91,7 +91,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
             data.setAssignedto(task.getOpenedby());
         }
 
-        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",oldEstimate.getTask()).eq("type","task").orderByDesc("`order`"));
+        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq(FIELD_ROOT,oldEstimate.getTask()).eq(FIELD_TYPE,StaticDict.Team__type.TASK.getValue()).orderByDesc("`order`"));
         if (teamLists.size() != 0){
             double oldConsumed = 0;
             for (Team team : teamLists) {
@@ -103,8 +103,8 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
             newTeamInfo.setConsumed(oldConsumed+et.getConsumed() - oldEstimate.getConsumed());
             newTeamInfo.setLeft(left);
             Map<String,Object> param = new HashMap<>();
-            param.put("root",oldEstimate.getTask());
-            param.put("type", StaticDict.Team__type.TASK.getValue());
+            param.put(FIELD_ROOT,oldEstimate.getTask());
+            param.put(FIELD_TYPE, StaticDict.Team__type.TASK.getValue());
             param.put("account",oldEstimate.getAccount());
             teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
             List<TaskTeam> teams = task.getTaskteam();
@@ -134,7 +134,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         newTask.setLeft(data.getLeft());
         newTask.setStatus(data.getStatus());
         List<History> changes = ChangeUtil.diff(oldTask,newTask);
-        Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(),et.getTask(),StaticDict.Action__type.EDITESTIMATE.getValue(),et.getWork(),"",null,true);
+        Action action1 = actionHelper.create(StaticDict.Team__type.TASK.getValue(),et.getTask(),StaticDict.Action__type.EDITESTIMATE.getValue(),et.getWork(),"",null,true);
         actionHelper.logHistory(action1.getId(),changes);
 
         return true;
@@ -146,7 +146,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
     public boolean delete(Long key) {
         TaskEstimate taskEstimate = this.get(key);
         Task task = taskHelper.get(taskEstimate.getTask());
-        this.remove(new QueryWrapper<TaskEstimate>().eq("id",key));
+        this.remove(new QueryWrapper<TaskEstimate>().eq(FIELD_ID,key));
         List<JSONObject> estimateLists = taskEstimateService.select(String.format("select * from zt_TASKESTIMATE where task = %1$s order by date desc,id desc limit 0,1",taskEstimate.getTask()),null);
         TaskEstimate lastEstimate = null;
         if (estimateLists.size() != 0){
@@ -159,7 +159,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         data.setLeft(left);
         data.setStatus((left == 0 && consumed != 0) ? StaticDict.Task__status.DONE.getValue() : task.getStatus());
 
-        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",task.getId()).eq("type","task"));
+        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq(FIELD_ROOT,task.getId()).eq(FIELD_TYPE,StaticDict.Team__type.TASK.getValue()));
         if (teamLists.size() != 0){
             double oldConsumed = 0;
             for (Team team : teamLists) {
@@ -171,9 +171,9 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
             newTeamInfo.setConsumed(oldConsumed - taskEstimate.getConsumed());
             newTeamInfo.setLeft(left);
             Map<String,Object> param = new HashMap<>();
-            param.put("root",taskEstimate.getTask());
-            param.put("type", StaticDict.Team__type.TASK.getValue());
-            param.put("account",taskEstimate.getAccount());
+            param.put(FIELD_ROOT,taskEstimate.getTask());
+            param.put(FIELD_TYPE, StaticDict.Team__type.TASK.getValue());
+            param.put(FIELD_ACCOUNT,taskEstimate.getAccount());
 
             teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
             List<TaskTeam> teams = task.getTaskteam();

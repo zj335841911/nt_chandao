@@ -51,7 +51,7 @@ export class IbzLibGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzLibGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -99,9 +99,9 @@ export class IbzLibGridViewBase extends GridViewBase {
             name: 'grid',
             type: 'GRID',
         },
-        view_searchform: {
-            name: 'searchform',
-            type: 'SEARCHFORM',
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
         },
     };
 
@@ -140,7 +140,7 @@ export class IbzLibGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzLibGridViewBase
      */ 
-    protected viewName: string = "IbzLibGridView";
+    protected viewName: string = 'IbzLibGridView';
 
 
     /**
@@ -179,7 +179,6 @@ export class IbzLibGridViewBase extends GridViewBase {
                 this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            searchform: this.$refs.searchform,
             keyPSDEField: 'ibzlib',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -261,39 +260,6 @@ export class IbzLibGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
-    }
-
-    /**
-     * searchform 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof IbzLibGridViewBase
-     */
-    public searchform_save($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof IbzLibGridViewBase
-     */
-    public searchform_search($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof IbzLibGridViewBase
-     */
-    public searchform_load($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**

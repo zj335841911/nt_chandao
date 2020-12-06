@@ -116,6 +116,7 @@ export class MainEditFormBase extends EditFormControlBase {
         name: null,
         pri: null,
         estimate: null,
+        color: null,
         desc: null,
         noticeusers: null,
         files: null,
@@ -384,6 +385,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         desc: new FormItemModel({
     caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -441,7 +449,7 @@ export class MainEditFormBase extends EditFormControlBase {
 }),
 
         mailtopk: new FormItemModel({
-    caption: '属性', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -553,6 +561,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, 'mailtoconact')) {
             const details: string[] = ['mailto'];
             this.updateFormItems('GetUserConcat', this.data, details, true);
@@ -576,5 +585,16 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('story')) {
             this.data['story'] = this.viewparams['story'];
         }
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

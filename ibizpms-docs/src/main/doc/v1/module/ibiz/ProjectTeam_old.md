@@ -27,12 +27,14 @@ hide members
 |总计可用|TOTAL|INT|&nbsp;|
 |项目编号|ROOT|PICKUP|&nbsp;|
 |用户|USERNAME|TEXT|&nbsp;|
+|任务数|TASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |加盟日|默认规则|默认规则|
 |用户|默认规则|内容长度必须小于等于[30]|
+|可用工时/天|可用工时/天必须小于等于24|数值必须大于等于[0.0]且小于等于[24.0]|
 |可用工时/天|默认规则|默认规则|
 |预计剩余|默认规则|默认规则|
 |可用工日|默认规则|默认规则|
@@ -46,6 +48,7 @@ hide members
 |总计可用|默认规则|默认规则|
 |项目编号|默认规则|默认规则|
 |用户|默认规则|内容长度必须小于等于[200]|
+|任务数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -65,6 +68,25 @@ hide members
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
+* 获取项目的可用工日 (GetProjectDays)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+项目团队 -> 项目: 获取项目详情
+项目团队 -> 项目团队: 设置项目参数
+项目 -> 项目团队: 回填
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|1|获取项目详情 |
+|1|开始 | 
+|2|设置项目参数 |
+|3|回填 |
+<center>获取项目的可用工日</center>
 * 获取成员角色 (GetUserRole)
   
    
@@ -89,6 +111,7 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_Default))|否|&nbsp;|
 |RowEditDefault|行编辑查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_RowEditDefault))|否|&nbsp;|
+|TaskCntEstimateConsumedLeft|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_TaskCntEstimateConsumedLeft))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_View))|否|&nbsp;|
 
 * **数据集合**
@@ -97,6 +120,7 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |RowEditDefault|行编辑查询|RowEditDefault|否|&nbsp;|
+|TaskCntEstimateConsumedLeft|数据查询|TaskCntEstimateConsumedLeft|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

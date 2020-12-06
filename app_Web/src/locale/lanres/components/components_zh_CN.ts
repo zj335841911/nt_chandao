@@ -252,4 +252,11 @@ export default {
         or: '或',
         imgMsg1: '从素材库选择',
     },
+    appAfterTime:{
+        minutesAgo: '分钟前',
+        hoursAgo: '小时前',
+        dayAgo: '天前',
+        monthsAgo: '月前',
+        yearsAgo: '年前'
+    }
 };

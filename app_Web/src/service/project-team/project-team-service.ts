@@ -62,7 +62,9 @@ export default class ProjectTeamService extends ProjectTeamServiceBase {
             res.then((response) => {
                 if (response.data instanceof Array) {
                     response.data.forEach((item:any) =>{
-                        item.srfuf = '0';
+                        if(!item.id) {
+                            item.srfuf = '0';
+                        }
                     });
                 }
             }).catch(response => {
@@ -75,7 +77,9 @@ export default class ProjectTeamService extends ProjectTeamServiceBase {
         res.then((response) => {
             if (response.data instanceof Array) {
                 response.data.forEach((item:any) =>{
-                    item.srfuf = '0';
+                    if(!item.id) {
+                        item.srfuf = '0';
+                    }
                 });
             }
         }).catch(response => {

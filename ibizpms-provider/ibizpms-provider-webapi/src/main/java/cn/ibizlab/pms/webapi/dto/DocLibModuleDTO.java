@@ -171,6 +171,32 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String modulename;
 
+    /**
+     * 属性 [DOCQTYPE]
+     *
+     */
+    @JSONField(name = "docqtype")
+    @JsonProperty("docqtype")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String docqtype;
+
+    /**
+     * 属性 [ISFAVOURITES]
+     *
+     */
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isfavourites;
+
+    /**
+     * 属性 [DOCCNT]
+     *
+     */
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+
 
     /**
      * 设置 [NAME]

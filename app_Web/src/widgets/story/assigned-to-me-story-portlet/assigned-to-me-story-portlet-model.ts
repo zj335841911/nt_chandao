@@ -213,6 +213,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

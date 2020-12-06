@@ -109,7 +109,6 @@ export default class MoreMyFavouriteModel {
           name: 'doc',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

@@ -57,16 +57,6 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'username',
-          prop: 'username',
-          dataType: 'TEXT',
-        },
-        {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
@@ -77,9 +67,21 @@ export default class Main_EditRowModel {
           dataType: 'TEXT',
         },
         {
+          name: 'join',
+          prop: 'join',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
           name: 'srfmajortext',
           prop: 'account',
           dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -87,10 +89,14 @@ export default class Main_EditRowModel {
           dataType: 'ACID',
         },
         {
-          name: 'srfkey',
+          name: 'id',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
+        },
+        {
+          name: 'username',
+          prop: 'username',
+          dataType: 'TEXT',
         },
         {
           name: 'projectteam',

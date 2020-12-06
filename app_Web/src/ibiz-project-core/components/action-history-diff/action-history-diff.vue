@@ -3,6 +3,8 @@
 </template>
 <script lang="tsx">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
+import { Environment } from '@/environments/environment';
+import ElImageViewer from 'element-ui/packages/image/src/image-viewer.vue';
 
 /**
  * 操作历史记录
@@ -44,6 +46,10 @@ export default class ActionHistoryDiff extends Vue {
     public contentWatch(): void {
         if (!Object.is(this.content, '')) {
             this.html = this.content.replace('\n', '<br/>');
+            this.html = this.content.replace(
+                /\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g,
+                 `${Environment.BaseUrl}${Environment.ExportFile}/$1`
+            );
         }
     }
 

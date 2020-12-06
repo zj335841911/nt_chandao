@@ -48,7 +48,7 @@ export class TaskForwardViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskForwardViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class TaskForwardViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskForwardViewBase
      */ 
-    protected viewName: string = "TaskForwardView";
+    protected viewName: string = 'TaskForwardView';
 
 
     /**

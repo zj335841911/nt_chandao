@@ -142,6 +142,13 @@ public class File extends EntityMP implements Serializable {
     @JSONField(name = "strsize")
     @JsonProperty("strsize")
     private String strsize;
+    /**
+     * 文档类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doclibtype")
+    @JsonProperty("doclibtype")
+    private String doclibtype;
 
 
 

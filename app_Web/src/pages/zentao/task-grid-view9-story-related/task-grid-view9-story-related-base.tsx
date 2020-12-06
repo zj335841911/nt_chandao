@@ -51,7 +51,7 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      * @type {string}
      * @memberof TaskGridView9_StoryRelatedBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -142,7 +142,7 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      * @type {string}
      * @memberof TaskGridView9_StoryRelatedBase
      */ 
-    protected viewName: string = "TaskGridView9_StoryRelated";
+    protected viewName: string = 'TaskGridView9_StoryRelated';
 
 
     /**

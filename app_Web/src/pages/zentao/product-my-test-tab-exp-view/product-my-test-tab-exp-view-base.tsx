@@ -109,7 +109,7 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof ProductMyTestTabExpViewBase
      */ 
-    protected viewName: string = "ProductMyTestTabExpView";
+    protected viewName: string = 'ProductMyTestTabExpView';
 
 
     /**

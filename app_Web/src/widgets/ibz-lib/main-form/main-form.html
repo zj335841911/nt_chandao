@@ -1,18 +1,26 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='ibzlib_main'
+    class="app-form"
+    ref="form"
+    id="ibzlib_main"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.name.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='name'
+    name="name"
     :itemRules="this.rules().name"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzlib.main_form.details.name')"
     uiStyle="DEFAULT"
@@ -20,7 +28,8 @@
     :isShowCaption="true"
     :error="detailsModel.name.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -33,11 +42,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.desc.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='desc'
+    name="desc"
     :itemRules="this.rules().desc"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzlib.main_form.details.desc')"
     uiStyle="DEFAULT"
@@ -45,7 +62,8 @@
     :isShowCaption="true"
     :error="detailsModel.desc.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box v-model="data.desc" :textareaId="this.$util.createUUID()"  :disabled="detailsModel.desc.disabled" type='textarea' textareaStyle="height:200px;" ></input-box>
 
 </app-form-item>

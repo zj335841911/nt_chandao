@@ -121,12 +121,6 @@ export default class MainModel {
           name: 'projectteam',
           prop: 'id',
         },
-      {
-        name: 'n_account_eq',
-        prop: 'n_account_eq',
-        dataType: 'TEXT',
-      },
-
         {
           name:'size',
           prop:'size'

@@ -51,7 +51,7 @@ export class FileProjectGridViewFileBase extends GridViewBase {
      * @type {string}
      * @memberof FileProjectGridViewFileBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -146,7 +146,7 @@ export class FileProjectGridViewFileBase extends GridViewBase {
      * @type {string}
      * @memberof FileProjectGridViewFileBase
      */ 
-    protected viewName: string = "FileProjectGridViewFile";
+    protected viewName: string = 'FileProjectGridViewFile';
 
 
     /**

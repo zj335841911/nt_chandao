@@ -70,6 +70,7 @@ public interface IProjectService extends IService<Project> {
     Page<Project> searchMyProject(ProjectSearchContext context);
     Page<Project> searchProjectTeam(ProjectSearchContext context);
     Page<Project> searchStoryProject(ProjectSearchContext context);
+    Page<Project> searchUnDoneProject(ProjectSearchContext context);
     List<Project> selectByParent(Long id);
     void removeByParent(Long id);
     /**

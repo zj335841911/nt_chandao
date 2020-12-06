@@ -180,6 +180,7 @@ export default {
 			release_active: "激活",
 			release_terminal: "停止维护",
 			release_quickedit: "编辑",
+			copy: "拷贝",
 			release_remove: "删除",
 		},
 	},
@@ -207,6 +208,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 };

@@ -107,7 +107,9 @@ export class PlanNewEditFormBase extends EditFormControlBase {
         project: null,
         title: null,
         pri: null,
+        storypoints: null,
         estimate: null,
+        color: null,
         spec: null,
         verify: null,
         files: null,
@@ -340,8 +342,22 @@ export class PlanNewEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        storypoints: new FormItemModel({
+    caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         estimate: new FormItemModel({
     caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -477,6 +493,8 @@ export class PlanNewEditFormBase extends EditFormControlBase {
 
 
 
+
+
         if (Object.is(name, 'mailto')) {
             const details: string[] = ['mailto'];
             this.updateFormItems('GetUserConcat', this.data, details, true);
@@ -494,5 +512,16 @@ export class PlanNewEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('neednotreview')) {
             this.data['neednotreview'] = '1';
         }
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof PlanNewBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='todo_calendarmain'
+    class="app-form info-form-mode"
+    ref="form"
+    id="todo_calendarmain"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.todo.calendarmain_form.details.grouppanel1')"
@@ -29,13 +37,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.todo.calendarmain_form.details.id')"
     uiStyle="DEFAULT"
@@ -43,20 +59,30 @@
     :isShowCaption="true"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
+>
     <app-form-item
-    name='status'
+    name="status"
     :itemRules="this.rules().status"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.todo.calendarmain_form.details.status')"
     uiStyle="DEFAULT"
@@ -64,20 +90,30 @@
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
-tag='Todo__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Todo__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 19, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.name.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 19, offset: 0 }"
+>
     <app-form-item
-    name='name'
+    name="name"
     :itemRules="this.rules().name"
-    class=''
+    class=""
 
     :caption="$t('entities.todo.calendarmain_form.details.name')"
     uiStyle="DEFAULT"
@@ -85,20 +121,30 @@ tag='Todo__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :isShowCaption="true"
     :error="detailsModel.name.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.todo.calendarmain_form.details.pri')"
     uiStyle="DEFAULT"
@@ -106,20 +152,30 @@ tag='Todo__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='pri' :value="data.pri" dataType="INT"     :precision="0"
-tag='Pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.date.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='date'
+    name="date"
     :itemRules="this.rules().date"
-    class=''
+    class=""
 
     :caption="$t('entities.todo.calendarmain_form.details.date')"
     uiStyle="DEFAULT"
@@ -127,20 +183,30 @@ tag='Pri' codelistType='STATIC' :data="data" :context="context" :viewparams="vie
     :isShowCaption="true"
     :error="detailsModel.date.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='date' :value="data.date" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.begin.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='begin'
+    name="begin"
     :itemRules="this.rules().begin"
-    class=''
+    class=""
 
     :caption="$t('entities.todo.calendarmain_form.details.begin')"
     uiStyle="DEFAULT"
@@ -148,20 +214,30 @@ tag='Pri' codelistType='STATIC' :data="data" :context="context" :viewparams="vie
     :isShowCaption="true"
     :error="detailsModel.begin.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='begin' :value="data.begin" dataType="NSCODELIST"     :precision="0"
-tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.end.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='end'
+    name="end"
     :itemRules="this.rules().end"
-    class=''
+    class=""
 
     :caption="$t('entities.todo.calendarmain_form.details.end')"
     uiStyle="DEFAULT"
@@ -169,21 +245,31 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :isShowCaption="true"
     :error="detailsModel.end.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='end' :value="data.end" dataType="NSCODELIST"     :precision="0"
-tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 20, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.todo.calendarmain_form.details.grouppanel3')"
@@ -199,78 +285,126 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_assigntocz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_assigntocz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
 
-    </i-button>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_finishcz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
-
-    </i-button>
+</i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_activatecz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-magic'}" />
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_finishcz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
 
-    </i-button>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_closecz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-close'}" />
-
-    </i-button>
+</i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_edit1cz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_activatecz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-magic'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button6_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_deletecz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-remove'}" />
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_closecz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-close'}" />
 
-    </i-button>
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button5.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_edit1cz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button6.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button6_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_deletecz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-remove'}" />
+
+</i-button>
 
 </i-col>
     
@@ -278,12 +412,20 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel4"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.todo.calendarmain_form.details.grouppanel4')"
@@ -299,13 +441,21 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.desc.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='desc'
+    name="desc"
     :itemRules="this.rules().desc"
-    class=''
+    class=""
 
     :caption="$t('entities.todo.calendarmain_form.details.desc')"
     uiStyle="DEFAULT"
@@ -313,7 +463,8 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :isShowCaption="true"
     :error="detailsModel.desc.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <html-container :content="data.desc"></html-container>
 </app-form-item>
 
@@ -323,12 +474,20 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.todo.calendarmain_form.details.grouppanel2')"
@@ -344,14 +503,22 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='todo' 
+    paramItem="todo" 
     :parentdata='{"srfparentdename":"ZT_TODO","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -359,12 +526,12 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='todo'
+    parameterName="todo"
     parentName="Todo"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-add-comment-history-list-view' 
+    viewname="action-add-comment-history-list-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

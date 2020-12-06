@@ -49,6 +49,8 @@ public interface IProductSumService extends IService<ProductSum> {
     Page<ProductSum> searchDefault(ProductSumSearchContext context);
     Page<ProductSum> searchProductBugcnt_QA(ProductSumSearchContext context);
     Page<ProductSum> searchProductCreateStory(ProductSumSearchContext context);
+    Page<ProductSum> searchProductStoryHoursSum(ProductSumSearchContext context);
+    Page<ProductSum> searchProductStorySum(ProductSumSearchContext context);
     Page<ProductSum> searchProductStorycntAndPlancnt(ProductSumSearchContext context);
     /**
      * 自定义查询SQL

@@ -87,7 +87,7 @@ export class ListControlBase extends MDControlBase {
      * @memberof ListControlBase
      */
     public refresh(args?: any) {
-        this.isAddBehind = true;
+        this.isAddBehind = false;
         this.load(args);
     }
 

@@ -22,7 +22,7 @@ public class TestTaskExService extends TestTaskServiceImpl {
     }
 
     /**
-     * 自定义行为[Activate]用户扩展
+     * [Activate:激活] 行为扩展
      * @param et
      * @return
      */
@@ -32,7 +32,7 @@ public class TestTaskExService extends TestTaskServiceImpl {
         return super.activate(et);
     }
     /**
-     * 自定义行为[Block]用户扩展
+     * [Block:阻塞] 行为扩展
      * @param et
      * @return
      */
@@ -42,7 +42,7 @@ public class TestTaskExService extends TestTaskServiceImpl {
         return super.block(et);
     }
     /**
-     * 自定义行为[Close]用户扩展
+     * [Close:关闭] 行为扩展
      * @param et
      * @return
      */
@@ -52,7 +52,7 @@ public class TestTaskExService extends TestTaskServiceImpl {
         return super.close(et);
     }
     /**
-     * 自定义行为[LinkCase]用户扩展
+     * [LinkCase:关联测试用例] 行为扩展
      * @param et
      * @return
      */
@@ -62,7 +62,7 @@ public class TestTaskExService extends TestTaskServiceImpl {
         return super.linkCase(et);
     }
     /**
-     * 自定义行为[Start]用户扩展
+     * [Start:开始] 行为扩展
      * @param et
      * @return
      */
@@ -72,7 +72,7 @@ public class TestTaskExService extends TestTaskServiceImpl {
         return super.start(et);
     }
     /**
-     * 自定义行为[UnlinkCase]用户扩展
+     * [UnlinkCase:关联测试用例] 行为扩展
      * @param et
      * @return
      */

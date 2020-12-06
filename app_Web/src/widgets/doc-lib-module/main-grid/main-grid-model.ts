@@ -67,6 +67,9 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

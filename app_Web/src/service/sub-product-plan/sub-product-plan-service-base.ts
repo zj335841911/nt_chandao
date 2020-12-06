@@ -450,6 +450,26 @@ export default class SubProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * searchCurProductPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async searchCurProductPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/searchcurproductplan`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/searchcurproductplan`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -472,6 +492,26 @@ export default class SubProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/searchdefault`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/searchdefault`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchDefaultParent接口方法
      *
      * @param {*} [context={}]
@@ -483,13 +523,33 @@ export default class SubProductPlanServiceBase extends EntityService {
     public async FetchDefaultParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
             return res;
         }
         if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
             return res;
+        }
+    }
+
+    /**
+     * searchDefaultParent接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async searchDefaultParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/searchdefaultparent`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/searchdefaultparent`,tempData,isloading);
         }
     }
 
@@ -516,6 +576,26 @@ export default class SubProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * searchPlanCodeList接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async searchPlanCodeList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/searchplancodelist`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/searchplancodelist`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchProjectPlan接口方法
      *
      * @param {*} [context={}]
@@ -534,6 +614,26 @@ export default class SubProductPlanServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchprojectplan`,tempData,isloading);
             return res;
+        }
+    }
+
+    /**
+     * searchProjectPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async searchProjectPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/searchprojectplan`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/searchprojectplan`,tempData,isloading);
         }
     }
 

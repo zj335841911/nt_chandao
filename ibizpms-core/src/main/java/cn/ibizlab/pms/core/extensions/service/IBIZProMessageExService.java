@@ -31,7 +31,7 @@ public class IBIZProMessageExService extends IBIZProMessageServiceImpl {
     @Transactional(readOnly = true)
     public IBIZProMessage markDone(IBIZProMessage et) {
         try {
-            ibizproMessageFeignClient.markDone(et.getIbizpromessageid(), et);
+            ibizproMessageFeignClient.markDone("pms", et);
         }catch (RuntimeException e) {
             log.error(e.getMessage());
             log.error("待办操作失败！");

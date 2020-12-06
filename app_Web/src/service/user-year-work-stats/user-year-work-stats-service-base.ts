@@ -260,6 +260,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/useryearworkstats/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchMonthFinishTaskAndBug接口方法
      *
      * @param {*} [context={}]
@@ -272,6 +286,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthfinishtaskandbug`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMonthFinishTaskAndBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async searchMonthFinishTaskAndBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/useryearworkstats/searchmonthfinishtaskandbug`,tempData,isloading);
     }
 
     /**
@@ -290,6 +318,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     }
 
     /**
+     * searchMonthOpenedBugAndCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async searchMonthOpenedBugAndCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/useryearworkstats/searchmonthopenedbugandcase`,tempData,isloading);
+    }
+
+    /**
      * FetchMonthOpenedStory接口方法
      *
      * @param {*} [context={}]
@@ -302,5 +344,19 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthopenedstory`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMonthOpenedStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async searchMonthOpenedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/useryearworkstats/searchmonthopenedstory`,tempData,isloading);
     }
 }

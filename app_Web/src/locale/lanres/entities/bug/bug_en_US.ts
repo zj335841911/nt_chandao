@@ -75,6 +75,7 @@ export default {
     noticeusers: "消息通知用户",
     mailtopk: "抄送给",
     mailtoconact: "联系人",
+    delayresolve: "延期解决",
   },
 	views: {
 		plansubgridview: {
@@ -149,9 +150,17 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
+		storytobugeditview: {
+			caption: "Bug",
+      		title: "Bug",
+		},
 		stepsinfoeditview: {
 			caption: "重现步骤",
       		title: "Bug编辑视图",
+		},
+		bugkanbanview: {
+			caption: "Bug实体看板视图",
+      		title: "Bug看板视图",
 		},
 		gridview9_storyformbug: {
 			caption: "来源Bug",
@@ -217,6 +226,10 @@ export default {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
+		tasktobugeditview: {
+			caption: "Bug",
+      		title: "Bug",
+		},
 		mainmygridview: {
 			caption: "Bug",
       		title: "bug表格视图",
@@ -279,6 +292,7 @@ export default {
 			id: "", 
 			title: "", 
 			steps: "", 
+			color: "标题颜色", 
 		},
 		uiactions: {
 		},
@@ -306,6 +320,7 @@ export default {
 			title: "Bug标题", 
 			steps: "重现步骤", 
 			comment: "备注", 
+			color: "标题颜色", 
 			files: "附件", 
 			product: "所属产品", 
 			productname: "产品", 
@@ -479,6 +494,53 @@ export default {
 		uiactions: {
 		},
 	},
+	storytobug_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			group1: "bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品", 
+			branch: "", 
+			product: "所属产品", 
+			modulename: "所属模块", 
+			module: "所属模块", 
+			projectname: "项目", 
+			project: "所属项目", 
+			openedbuild: "影响版本", 
+			assignedto: "指派给", 
+			deadline: "截止日期", 
+			type: "Bug类型", 
+			os: "操作系统", 
+			browser: "浏览器", 
+			title: "Bug标题", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			color: "标题颜色", 
+			steps: "重现步骤", 
+			mailtopk: "抄送给", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
+			mailto: "抄送给", 
+			mailtoconact: "", 
+			keywords: "关键词", 
+			story: "相关需求", 
+			caseversion: "用例版本", 
+			case: "相关用例", 
+			id: "Bug编号", 
+			task: "相关任务", 
+		},
+		uiactions: {
+		},
+	},
 	main_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -509,6 +571,7 @@ export default {
 			title: "Bug标题", 
 			severity: "严重程度", 
 			pri: "优先级", 
+			color: "", 
 			steps: "重现步骤", 
 			storyname: "相关需求", 
 			taskname: "相关任务", 
@@ -566,6 +629,53 @@ export default {
 			case: "相关用例", 
 			id: "Bug编号", 
 			task: "相关任务", 
+		},
+		uiactions: {
+		},
+	},
+	tasktobug_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			group1: "bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			productname: "产品", 
+			branch: "", 
+			product: "所属产品", 
+			modulename: "所属模块", 
+			module: "所属模块", 
+			projectname: "项目", 
+			project: "所属项目", 
+			openedbuild: "影响版本", 
+			assignedto: "指派给", 
+			deadline: "截止日期", 
+			type: "Bug类型", 
+			os: "操作系统", 
+			browser: "浏览器", 
+			title: "Bug标题", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			color: "标题颜色", 
+			steps: "重现步骤", 
+			mailtopk: "抄送给", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
+			mailto: "抄送给", 
+			mailtoconact: "", 
+			keywords: "关键词", 
+			story: "相关需求", 
+			caseversion: "用例版本", 
+			case: "相关用例", 
+			task: "相关任务", 
+			id: "Bug编号", 
 		},
 		uiactions: {
 		},
@@ -685,6 +795,7 @@ export default {
 			openedbuild: "影响版本", 
 			resolvedby: "由谁解决", 
 			resolveddate: "于", 
+			delayresolve: "", 
 			resolvedbuild: "解决版本", 
 			resolution: "解决方案", 
 			closedby: "由谁关闭", 
@@ -1051,6 +1162,7 @@ export default {
 		nodata: "",
 		columns: {
 			id: "ID",
+			severity: "级别",
 			pri: "P",
 			confirmed: "确认",
 			title: "Bug标题",
@@ -1159,7 +1271,7 @@ export default {
 		nodata: "",
 		columns: {
 			id: "ID",
-			pri: "级别",
+			pri: "P",
 			title: "Bug标题",
 			status: "状态",
 		},
@@ -1170,6 +1282,7 @@ export default {
 		nodata: "",
 		columns: {
 			id: "ID",
+			severity: "级别",
 			pri: "P",
 			confirmed: "确认",
 			productname: "产品",
@@ -1222,6 +1335,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	storytobugeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -1252,6 +1371,12 @@ export default {
 			tip: "Filter",
 		},
 	},
+	tasktobugeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	projectgridviewtoolbar_toolbar: {
 		deuiaction3_create: {
 			caption: "新建",
@@ -1268,6 +1393,16 @@ export default {
 		deuiaction4: {
 			caption: "Filter",
 			tip: "Filter",
+		},
+	},
+	bugkanbanviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 	usr2gridviewtoolbar_toolbar: {
@@ -1459,5 +1594,10 @@ export default {
 	},
 	curuserresolvebug_chart: {
 		nodata: "无",
+	},
+	bugkanban_kanban: {
+		nodata: "",
+		uiactions: {
+		},
 	},
 };

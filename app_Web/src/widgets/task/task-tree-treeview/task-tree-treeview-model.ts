@@ -216,6 +216,18 @@ export default class TaskTreeModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
+      {
+        name: 'myconsumed',
+      },
+      {
+        name: 'mytotaltime',
+      },
+      {
+        name: 'assignedtozj',
+      },
     ]
   }
 

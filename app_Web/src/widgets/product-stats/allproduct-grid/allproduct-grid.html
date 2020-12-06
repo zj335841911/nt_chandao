@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.productstats.allproduct_grid.nodata')}} 
@@ -23,84 +23,91 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.allproduct_grid.columns.name')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="product"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.name}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('currproject')">
                 <el-table-column show-overflow-tooltip :prop="'currproject'" :label="$t('entities.productstats.allproduct_grid.columns.currproject')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.currproject')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.currproject}}</span>
+                            <span>{{row.currproject}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('productplancnt')">
                 <el-table-column show-overflow-tooltip :prop="'productplancnt'" :label="$t('entities.productstats.allproduct_grid.columns.productplancnt')" :width="90"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.productplancnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.productplancnt}}</span>
+                            <span>{{row.productplancnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('releasecnt')">
                 <el-table-column show-overflow-tooltip :prop="'releasecnt'" :label="$t('entities.productstats.allproduct_grid.columns.releasecnt')" :width="90"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.releasecnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.releasecnt}}</span>
+                            <span>{{row.releasecnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('activestorycnt')">
                 <el-table-column show-overflow-tooltip :prop="'activestorycnt'" :label="$t('entities.productstats.allproduct_grid.columns.activestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.activestorycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.activestorycnt}}</span>
+                            <span>{{row.activestorycnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('activebugcnt')">
                 <el-table-column show-overflow-tooltip :prop="'activebugcnt'" :label="$t('entities.productstats.allproduct_grid.columns.activebugcnt')" :width="115"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productstats.allproduct_grid.columns.activebugcnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.activebugcnt}}</span>
+                            <span>{{row.activebugcnt}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -108,8 +115,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

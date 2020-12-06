@@ -16,10 +16,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 @Slf4j
 @Primary
@@ -38,8 +44,15 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchDefault");
-        context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
-        return super.searchDefault(context);
+        try {
+            context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
+            return super.searchDefault(context);
+        }catch(Exception e) {
+            List<SysEmployee> list = new ArrayList<>();
+            Page<SysEmployee> page = new PageImpl<SysEmployee>(list);
+            return page;
+        }
+
     }
 
     @Override
@@ -154,6 +167,22 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             // 任务团队
             log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
             context.setN_username_in(getAccounts(StaticDict.Team__type.TASK.getValue(), params.get("id")));
+        }
+        return super.searchDefault(context);
+    }
+
+    @Override
+    public Page<SysEmployee> searchProjectTeamTaskUserTemp(SysEmployeeSearchContext context){
+        log.info("SysEmployeeExService：searchProjectTeamTaskUserTemp");
+        Map<String,Object> params = context.getParams();
+        if((params.get("multiple") == null && params.get("project") != null) || (params.get("multiple") != null && "0".equals(params.get("multiple")))) {
+            // 项目团队
+            log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("project").toString());
+            context.setN_username_in(params.get("allTeamAccount").toString().replace(",",";"));
+        }else {
+            // 任务团队
+            log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
+            context.setN_username_in(params.get("allTeamAccount").toString().replace(",",";"));
         }
         return super.searchDefault(context);
     }

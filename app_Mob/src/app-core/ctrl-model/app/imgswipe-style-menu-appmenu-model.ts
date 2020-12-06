@@ -31,6 +31,7 @@ export class ImgswipeStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ImgswipeStyleMenu-menuitem1',
 },
         {
 	id: '0BBD0F57-698A-4E5A-892D-4A7D9902533B',
@@ -49,6 +50,7 @@ export class ImgswipeStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ImgswipeStyleMenu-menuitem2',
 },
         {
 	id: '2ECD49D6-8C64-4A11-B4E9-6B17ABD4D1B1',
@@ -67,6 +69,7 @@ export class ImgswipeStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ImgswipeStyleMenu-menuitem3',
 },
     ];
 

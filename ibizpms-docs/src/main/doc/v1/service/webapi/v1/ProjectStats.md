@@ -256,6 +256,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取项目任务统计(任务状态)
+#### 访问路径
+/projectstats/fetchprojecttaskcountbytaskstatus
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象列表 |
+
+### 查询项目任务统计(任务状态)
+#### 访问路径
+/projectstats/searchprojecttaskcountbytaskstatus
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取任务工时消耗剩余查询
 #### 访问路径
 /projectstats/fetchtasktime
@@ -324,7 +360,13 @@ POST
 | 25 | status | String | 允许 | 状态 |
 | 26 | order1 | Integer | 允许 | 项目排序 |
 | 27 | istop | Integer | 允许 | 是否置顶 |
-| 28 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 28 | closedtaskcnt | Integer | 允许 | 已关闭任务数 |
+| 29 | canceltaskcnt | Integer | 允许 | 已取消任务数 |
+| 30 | pausetaskcnt | Integer | 允许 | 已暂停任务数 |
+| 31 | waittaskcnt | Integer | 允许 | 未开始任务数 |
+| 32 | doingtaskcnt | Integer | 允许 | 进行中任务数 |
+| 33 | donetaskcnt | Integer | 允许 | 已完成任务数 |
+| 34 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

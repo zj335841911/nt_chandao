@@ -1,26 +1,26 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='bug_dashboardbuglife'
+    class="app-form info-form-mode"
+    ref="form"
+    id="bug_dashboardbuglife"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
+    <input style="display:none;">
+    <row>
     <tabs
         :animated="false"
         size="small"
-        name='dashboardbuglife'
+        name="dashboardbuglife"
         :value="detailsModel.form.activiedPage" 
         @on-click="detailsModel.form.clickPage($event)"
     >
         <tab-pane
             v-show="detailsModel.formpage1.visible"
-            name='formpage1'
+            name="formpage1"
             :index="0"
-            tab='dashboardbuglife'
-            class=''  
+            tab="dashboardbuglife"
+            class=""  
             :label="(h) =>{
                 return h('span',{
                     class:'caption'
@@ -29,12 +29,20 @@
                 ])
             }"
         >
-                <i-col class="form-layout-container" v-show="detailsModel.buggroup1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.buggroup1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.buggroup1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.buggroup1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.dashboardbuglife_form.details.buggroup1')"
@@ -50,14 +58,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.dashboardbuglife_form.details.grouppanel2')"
@@ -73,13 +89,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.openedby.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='openedby'
+    name="openedby"
     :itemRules="this.rules().openedby"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.openedby')"
     uiStyle="DEFAULT"
@@ -87,20 +111,30 @@
     :isShowCaption="true"
     :error="detailsModel.openedby.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='openedby' :value="data.openedby" dataType="SSCODELIST"     :precision="0"
-tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.openeddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 17, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.openeddate.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 17, offset: 0 }"
+>
     <app-form-item
-    name='openeddate'
+    name="openeddate"
     :itemRules="this.rules().openeddate"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.openeddate')"
     uiStyle="DEFAULT"
@@ -108,10 +142,12 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.openeddate.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='openeddate' :value="data.openeddate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -122,11 +158,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.openedbuild.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='openedbuild'
+    name="openedbuild"
     :itemRules="this.rules().openedbuild"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.openedbuild')"
     uiStyle="DEFAULT"
@@ -134,21 +178,31 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.openedbuild.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='openedbuild' :value="data.openedbuild" dataType="SMCODELIST"     :precision="0"
-tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.dashboardbuglife_form.details.grouppanel3')"
@@ -164,13 +218,21 @@ tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :vi
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.resolvedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.resolvedby.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='resolvedby'
+    name="resolvedby"
     :itemRules="this.rules().resolvedby"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.resolvedby')"
     uiStyle="DEFAULT"
@@ -178,20 +240,30 @@ tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :vi
     :isShowCaption="true"
     :error="detailsModel.resolvedby.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='resolvedby' :value="data.resolvedby" dataType="SSCODELIST"     :precision="0"
-tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.resolveddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 17, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.resolveddate.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='resolveddate'
+    name="resolveddate"
     :itemRules="this.rules().resolveddate"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.resolveddate')"
     uiStyle="DEFAULT"
@@ -199,10 +271,43 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.resolveddate.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='resolveddate' :value="data.resolveddate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.delayresolve.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 7, offset: 0 }"
+    :xl="{ span: 7, offset: 0 }"
+>
+    <app-form-item
+    name="delayresolve"
+    :itemRules="this.rules().delayresolve"
+    class="textcenterred"
+
+    :caption="$t('entities.bug.dashboardbuglife_form.details.delayresolve')"
+    uiStyle="DEFAULT"
+    :labelWidth="5"
+    :isShowCaption="true"
+    :error="detailsModel.delayresolve.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
+>
+    
+<app-span name='delayresolve' :value="data.delayresolve" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -213,11 +318,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.resolvedbuild.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='resolvedbuild'
+    name="resolvedbuild"
     :itemRules="this.rules().resolvedbuild"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.resolvedbuild')"
     uiStyle="DEFAULT"
@@ -225,20 +338,30 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.resolvedbuild.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='resolvedbuild' :value="data.resolvedbuild" dataType="SSCODELIST"     :precision="0"
-tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.resolution.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='resolution'
+    name="resolution"
     :itemRules="this.rules().resolution"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.resolution')"
     uiStyle="DEFAULT"
@@ -246,21 +369,31 @@ tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :vi
     :isShowCaption="true"
     :error="detailsModel.resolution.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='resolution' :value="data.resolution" dataType="SSCODELIST"     :precision="0"
-tag='Bug__resolution' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Bug__resolution' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel4"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.dashboardbuglife_form.details.grouppanel4')"
@@ -276,13 +409,21 @@ tag='Bug__resolution' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.closedby.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='closedby'
+    name="closedby"
     :itemRules="this.rules().closedby"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.closedby')"
     uiStyle="DEFAULT"
@@ -290,20 +431,30 @@ tag='Bug__resolution' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.closedby.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='closedby' :value="data.closedby" dataType="SSCODELIST"     :precision="0"
-tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.closeddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 17, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.closeddate.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 17, offset: 0 }"
+>
     <app-form-item
-    name='closeddate'
+    name="closeddate"
     :itemRules="this.rules().closeddate"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.closeddate')"
     uiStyle="DEFAULT"
@@ -311,10 +462,12 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.closeddate.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='closeddate' :value="data.closeddate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -325,11 +478,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.lasteditedby.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='lasteditedby'
+    name="lasteditedby"
     :itemRules="this.rules().lasteditedby"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.lasteditedby')"
     uiStyle="DEFAULT"
@@ -337,20 +498,30 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.lasteditedby.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='lasteditedby' :value="data.lasteditedby" dataType="SSCODELIST"     :precision="0"
-tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.lastediteddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 17, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.lastediteddate.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 17, offset: 0 }"
+>
     <app-form-item
-    name='lastediteddate'
+    name="lastediteddate"
     :itemRules="this.rules().lastediteddate"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.lastediteddate')"
     uiStyle="DEFAULT"
@@ -358,10 +529,12 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.lastediteddate.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='lastediteddate' :value="data.lastediteddate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -377,10 +550,10 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
         </tab-pane> 
         <tab-pane
             v-show="detailsModel.formpage2.visible"
-            name='formpage2'
+            name="formpage2"
             :index="1"
-            tab='dashboardbuglife'
-            class=''  
+            tab="dashboardbuglife"
+            class=""  
             :label="(h) =>{
                 return h('span',{
                     class:'caption'
@@ -389,12 +562,20 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
                 ])
             }"
         >
-                <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.dashboardbuglife_form.details.grouppanel1')"
@@ -410,13 +591,21 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.linkbug.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.linkbug.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='linkbug'
+    name="linkbug"
     :itemRules="this.rules().linkbug"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.linkbug')"
     uiStyle="DEFAULT"
@@ -424,20 +613,30 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.linkbug.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='linkbug' :value="data.linkbug" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.casename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.casename.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='casename'
+    name="casename"
     :itemRules="this.rules().casename"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.dashboardbuglife_form.details.casename')"
     uiStyle="DEFAULT"
@@ -445,7 +644,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.casename.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker 
   :formState="formState"

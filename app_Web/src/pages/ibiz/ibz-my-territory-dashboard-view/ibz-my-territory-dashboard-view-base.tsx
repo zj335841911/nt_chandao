@@ -109,7 +109,7 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryDashboardViewBase
      */ 
-    protected viewName: string = "IbzMyTerritoryDashboardView";
+    protected viewName: string = 'IbzMyTerritoryDashboardView';
 
 
     /**

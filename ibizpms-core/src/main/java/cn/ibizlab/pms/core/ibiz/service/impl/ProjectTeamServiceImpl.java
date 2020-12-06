@@ -54,7 +54,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetUserRoleLogic getuserroleLogic;
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetProjectDaysLogic getprojectdaysLogic;
 
     protected int batchSize = 500;
 
@@ -118,6 +118,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Override
     public ProjectTeam getDraft(ProjectTeam et) {
+        getprojectdaysLogic.execute(et);
         return et;
     }
 
@@ -128,7 +129,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public ProjectTeam getUserRole(ProjectTeam et) {
-        getuserroleLogic.execute(et);
         //自定义代码
         return et;
     }
@@ -228,6 +228,15 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     public Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchRowEditDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 数据查询
+     */
+    @Override
+    public Page<ProjectTeam> searchTaskCntEstimateConsumedLeft(ProjectTeamSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchTaskCntEstimateConsumedLeft(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

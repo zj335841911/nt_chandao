@@ -51,7 +51,7 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductLifeRoadMapListViewBase
      */ 
-    protected dataControl: string = "list";
+    protected dataControl: string = 'list';
 
     /**
      * 实体服务对象
@@ -132,7 +132,7 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductLifeRoadMapListViewBase
      */ 
-    protected viewName: string = "ProductLifeRoadMapListView";
+    protected viewName: string = 'ProductLifeRoadMapListView';
 
 
     /**

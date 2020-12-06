@@ -100,10 +100,6 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
-		moreundoneprojectgridview9: {
-			caption: "未完成项目",
-      		title: "项目表格视图",
-		},
 		mainmygridview: {
 			caption: "项目",
       		title: "项目",
@@ -303,6 +299,7 @@ export default {
 	},
 	dashboardinfo_form: {
 		details: {
+			grouppanel9: "分组面板", 
 			group1: "project基本信息", 
 			druipart1: "", 
 			grouppanel6: "关联产品", 
@@ -324,7 +321,7 @@ export default {
 			srfsourcekey: "", 
 			id: "项目编号", 
 			code: "项目代号", 
-			name: "项目名称", 
+			name: "", 
 			desc: "", 
 			type: "项目类型", 
 			status: "项目状态", 
@@ -499,17 +496,6 @@ export default {
 		uiactions: {
 		},
 	},
-	moreundoneproject_grid: {
-		nodata: "",
-		columns: {
-			name: "项目名称",
-			doclibcnt: "文档数量",
-			openedby: "由谁添加",
-			openeddate: "添加时间",
-		},
-		uiactions: {
-		},
-	},
 	main2_grid: {
 		nodata: "",
 		columns: {
@@ -518,6 +504,17 @@ export default {
 			code: "项目代号",
 			status: "项目状态",
 			end: "结束日期",
+		},
+		uiactions: {
+		},
+	},
+	moreundoneproject_grid: {
+		nodata: "",
+		columns: {
+			name: "项目名称",
+			doclibcnt: "文档数量",
+			openedby: "由谁添加",
+			openeddate: "添加时间",
 		},
 		uiactions: {
 		},
@@ -574,6 +571,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -594,6 +595,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	mainmygridviewtoolbar_toolbar: {
 		deuiaction3_create: {
@@ -607,6 +612,16 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	usr2gridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
@@ -634,8 +649,10 @@ export default {
 		},
 	},
 	moreundoneprogridviewtoolbar_toolbar: {
-	},
-	moreundoneprojectgridview9toolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	exp_list: {
 		nodata: "",

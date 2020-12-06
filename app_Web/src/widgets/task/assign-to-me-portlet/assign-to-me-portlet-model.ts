@@ -216,6 +216,18 @@ export default class AssignToMeModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
+      {
+        name: 'myconsumed',
+      },
+      {
+        name: 'mytotaltime',
+      },
+      {
+        name: 'assignedtozj',
+      },
     ]
   }
 

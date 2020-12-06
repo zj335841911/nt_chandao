@@ -1,10 +1,10 @@
 <studio-view viewName="caseexceditview" viewTitle="执行结果" class='deeditview case-exc-edit-view'>
-    <template slot='title'>
-    <span class='caption-image'>
-            <i class='
-    fa fa-star-o    '></i>
+    <template slot="title">
+    <span class="caption-image">
+            <i class="
+    fa fa-star-o    "></i>
         </span>
-    <span class='caption-info'>{{viewCaption}}</span>
+    <span class="caption-info">{{viewCaption}}</span>
     </template>
         <view_form 
                 :viewState="viewState"  
@@ -20,9 +20,9 @@
                 createAction="Create"
                 WFSubmitAction=""
                 WFStartAction=""
-                style='' 
+                style="" 
                 name="form"  
-                ref='form' 
+                ref="form" 
                 @save="form_save($event)"  
                 @remove="form_remove($event)"  
                 @load="form_load($event)"  

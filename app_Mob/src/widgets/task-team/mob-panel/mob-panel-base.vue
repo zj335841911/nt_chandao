@@ -5,7 +5,8 @@
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
-                    <ion-icon name="person-add-sharp" style="font-size: 18px;"></ion-icon>
+                    
+                
                 
                 
                 </ion-col>
@@ -48,8 +49,7 @@ import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldM
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobBase extends Vue implements ControlInterface {
 
@@ -170,7 +170,7 @@ export default class MobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
    /**
      * 生命周期

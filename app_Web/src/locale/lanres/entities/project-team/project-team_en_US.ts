@@ -15,11 +15,16 @@ export default {
     total: "总计可用",
     root: "项目编号",
     username: "用户",
+    taskcnt: "任务数",
   },
 	views: {
 		maingridview: {
 			caption: "项目团队",
       		title: "项目团队表格视图",
+		},
+		listview: {
+			caption: "项目团队",
+      		title: "项目团队列表视图",
 		},
 		maingridview_editrow: {
 			caption: "项目团队",
@@ -75,14 +80,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main2_searchform: {
-		details: {
-			formpage1: "常规条件", 
-			n_account_eq: "用户", 
-		},
-		uiactions: {
-		},
-	},
 	maingridview_editrowtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -91,6 +88,16 @@ export default {
 		deuiaction3: {
 			caption: "保存行",
 			tip: "保存行",
+		},
+	},
+	listviewtoolbar_toolbar: {
+		deuiaction3_managermember: {
+			caption: "团队管理",
+			tip: "团队管理",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 	maingridviewtoolbar_toolbar: {
@@ -109,6 +116,11 @@ export default {
 		deuiaction4: {
 			caption: "Filter",
 			tip: "Filter",
+		},
+	},
+	projectteampc_list: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

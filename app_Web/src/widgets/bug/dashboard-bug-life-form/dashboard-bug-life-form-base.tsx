@@ -98,6 +98,7 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
         openedbuild: null,
         resolvedby: null,
         resolveddate: null,
+        delayresolve: null,
         resolvedbuild: null,
         resolution: null,
         closedby: null,
@@ -251,6 +252,13 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        delayresolve: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'delayresolve', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         resolvedbuild: new FormItemModel({
     caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -391,6 +399,7 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'closeddate')) {
             let ret = false;
             const _closeddate = this.data.closeddate;
@@ -414,5 +423,16 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
 
 
 
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof DashboardBugLifeBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

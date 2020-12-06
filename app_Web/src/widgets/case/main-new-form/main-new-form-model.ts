@@ -106,6 +106,11 @@ export default class MainNewModel {
         dataType: 'NSCODELIST',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'precondition',
         prop: 'precondition',
         dataType: 'LONGTEXT',

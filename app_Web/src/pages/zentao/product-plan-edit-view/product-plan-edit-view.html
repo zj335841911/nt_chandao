@@ -1,9 +1,9 @@
 <studio-view viewName="productplaneditview" viewTitle="计划" class='deeditview product-plan-edit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{viewCaption}}</span>
+    <template slot="title">
+    <span class="caption-info">{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
         <view_form 
                 :viewState="viewState"  
@@ -19,9 +19,9 @@
                 createAction="Create"
                 WFSubmitAction=""
                 WFStartAction=""
-                style='' 
+                style="" 
                 name="form"  
-                ref='form' 
+                ref="form" 
                 @save="form_save($event)"  
                 @remove="form_remove($event)"  
                 @load="form_load($event)"  

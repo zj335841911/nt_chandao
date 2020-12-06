@@ -170,6 +170,7 @@ export default {
 			productplan_relationbug: "关联Bug",
 			productplan_mainedit: "编辑",
 			productplan_newsubplan: "子计划",
+			copy: "拷贝",
 			productplan_delete: "删除",
 		},
 	},
@@ -205,6 +206,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 };

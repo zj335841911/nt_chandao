@@ -22,7 +22,7 @@ public class IbiLoginExService extends IbiLoginServiceImpl {
     }
 
     /**
-     * 自定义行为[GetUser]用户扩展
+     * [GetUser:获取ZT账户登录信息] 行为扩展
      * @param et
      * @return
      */
@@ -31,7 +31,7 @@ public class IbiLoginExService extends IbiLoginServiceImpl {
         return super.getUser(et);
     }
     /**
-     * 自定义行为[Ztlogin]用户扩展
+     * [Ztlogin:ZT登录] 行为扩展
      * @param et
      * @return
      */

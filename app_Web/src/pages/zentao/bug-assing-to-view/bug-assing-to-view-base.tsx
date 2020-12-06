@@ -48,7 +48,7 @@ export class BugAssingToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugAssingToViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class BugAssingToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugAssingToViewBase
      */ 
-    protected viewName: string = "BugAssingToView";
+    protected viewName: string = 'BugAssingToView';
 
 
     /**

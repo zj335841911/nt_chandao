@@ -136,6 +136,11 @@ export default class MainModel {
         dataType: 'NSCODELIST',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'steps',
         prop: 'steps',
         dataType: 'LONGTEXT',

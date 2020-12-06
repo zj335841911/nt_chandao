@@ -96,6 +96,15 @@ export default class IbzMyTerritoryUIServiceBase extends UIService {
      * @memberof  IbzMyTerritoryUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibzmyterritories',
+            component: 'ibz-my-territory-edit-view',
+            openmode: '',
+            title: '我的地盘',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

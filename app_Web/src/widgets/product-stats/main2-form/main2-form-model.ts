@@ -84,11 +84,6 @@ export default class Main2Model {
         dataType: 'INT',
       },
       {
-        name: 'productplancnt',
-        prop: 'productplancnt',
-        dataType: 'INT',
-      },
-      {
         name: 'custom1',
         prop: 'productplancnt',
         dataType: 'INT',
@@ -100,21 +95,6 @@ export default class Main2Model {
       },
       {
         name: 'formitemex1',
-      },
-      {
-        name: 'unendproductplancnt',
-        prop: 'unendproductplancnt',
-        dataType: 'INT',
-      },
-      {
-        name: 'postponedprojectcnt',
-        prop: 'postponedprojectcnt',
-        dataType: 'INT',
-      },
-      {
-        name: 'resprojectcnt',
-        prop: 'resprojectcnt',
-        dataType: 'INT',
       },
       {
         name: 'custom3',
@@ -130,13 +110,8 @@ export default class Main2Model {
         name: 'formitemex2',
       },
       {
-        name: 'undoneresprojectcnt',
-        prop: 'undoneresprojectcnt',
-        dataType: 'INT',
-      },
-      {
-        name: 'releasecnt',
-        prop: 'releasecnt',
+        name: 'postponedprojectcnt',
+        prop: 'postponedprojectcnt',
         dataType: 'INT',
       },
       {
@@ -151,6 +126,31 @@ export default class Main2Model {
       },
       {
         name: 'formitemex3',
+      },
+      {
+        name: 'productplancnt',
+        prop: 'productplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'unendproductplancnt',
+        prop: 'unendproductplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'resprojectcnt',
+        prop: 'resprojectcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'undoneresprojectcnt',
+        prop: 'undoneresprojectcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'releasecnt',
+        prop: 'releasecnt',
+        dataType: 'INT',
       },
       {
         name: 'normalreleasecnt',

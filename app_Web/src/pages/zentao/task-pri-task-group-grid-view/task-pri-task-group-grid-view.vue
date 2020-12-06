@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskPriTaskGroupGridViewBase } from './task-pri-task-group-grid-view-base';
 import view_grid from '@widgets/task/pri-task-group-grid/pri-task-group-grid.vue';
-import view_searchform from '@widgets/task/default-searchform/default-searchform.vue';
+import view_searchbar from '@widgets/task/custom-searchbar/custom-searchbar.vue';
 
 /**
  * 任务表格视图（优先级分组）视图
@@ -16,7 +16,7 @@ import view_searchform from '@widgets/task/default-searchform/default-searchform
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()

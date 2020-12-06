@@ -114,6 +114,8 @@ export default class SystemAPP {
                 Object.assign(itemdata,{text:item.pssysappname});
                 Object.assign(itemdata,{label:item.pssysappname});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

@@ -214,6 +214,33 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_ud3f2f43_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u8403ebe_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -282,6 +309,35 @@ export class MainGridGridBase extends GridControlBase {
         }
     }
 
+    /**
+     * 拷贝
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof CaseMainMyGridViewBase
+     */
+    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.newdata && _this.newdata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { case: args[0].case });
+            }
+            if(!params) params = {};
+            Object.assign(params,{copymode:true});
+            _this.newdata([{ ...data }], params, $event, xData);
+        } else {
+            Object.assign(this.viewparams,{copymode:true});
+        }
+    }
+
 
     /**
      * 界面行为模型
@@ -296,6 +352,7 @@ export class MainGridGridBase extends GridControlBase {
         MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         Refresh: { name: 'Refresh',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
         NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         caseFavorite: { name: 'caseFavorite',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
         CaseNFavorite: { name: 'CaseNFavorite',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
@@ -371,7 +428,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.maingrid_grid.columns.title',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -743,6 +800,12 @@ export class MainGridGridBase extends GridControlBase {
             langtag: 'entities.case.maingrid_grid.exportColumns.isfavorites',
             show: true,
         },
+        {
+            name: 'color',
+            label: '标题颜色',
+            langtag: 'entities.case.maingrid_grid.exportColumns.color',
+            show: true,
+        },
     ]
 
     /**
@@ -820,6 +883,14 @@ export class MainGridGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+            {
+                name: 'color',
+                srfkey: 'Testcase__color',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
@@ -848,6 +919,9 @@ export class MainGridGridBase extends GridControlBase {
         }
         if(Object.is('NewBugByCaseResult', tag)) {
             this.grid_uagridcolumn1_uc64fb7f_click(row, tag, $event);
+        }
+        if(Object.is('Copy', tag)) {
+            this.grid_uagridcolumn1_ud3f2f43_click(row, tag, $event);
         }
         if(Object.is('caseFavorite', tag)) {
             this.grid_uagridcolumn1_u8403ebe_click(row, tag, $event);
@@ -977,6 +1051,9 @@ export class MainGridGridBase extends GridControlBase {
                 NewBugByCaseResult:{
                     visible: false
                 },
+                Copy:{
+                    visible: false
+                },
                 caseFavorite:{
                     visible: false
                 },
@@ -1032,6 +1109,9 @@ export class MainGridGridBase extends GridControlBase {
                 visible: false
             },
             NewBugByCaseResult:{
+                visible: false
+            },
+            Copy:{
                 visible: false
             },
             caseFavorite:{
@@ -1125,6 +1205,9 @@ export class MainGridGridBase extends GridControlBase {
                     visible: false
                 },
                 NewBugByCaseResult:{
+                    visible: false
+                },
+                Copy:{
                     visible: false
                 },
                 caseFavorite:{

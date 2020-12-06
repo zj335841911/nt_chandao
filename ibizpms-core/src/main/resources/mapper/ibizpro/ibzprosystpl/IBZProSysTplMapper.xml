@@ -15,8 +15,8 @@
 		<result property="ibizpublic" column="public" />
 		<result property="ibizSourceobject" column="ibiz_sourceobject" />
 		<result property="file" column="file" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztFile" javaType="cn.ibizlab.pms.core.zentao.domain.File" column="file" select="cn.ibizlab.pms.core.zentao.mapper.FileMapper.selectById" fetchType="lazy"></association>
     </resultMap>

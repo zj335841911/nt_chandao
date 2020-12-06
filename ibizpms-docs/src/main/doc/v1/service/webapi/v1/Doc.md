@@ -205,6 +205,44 @@ PUT
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [DocDTO](#DocDTO)：文档实体传输对象 |
 
+### 仅收藏文档
+#### 访问路径
+/docs/{doc_id}/onlycollectdoc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | doc_id | Long | 文档主键ID |
+| 2 | docdto | [DocDTO](#DocDTO) | 文档实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [DocDTO](#DocDTO)：文档实体传输对象 |
+
+### 仅取消收藏文档
+#### 访问路径
+/docs/{doc_id}/onlyuncollectdoc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | doc_id | Long | 文档主键ID |
+| 2 | docdto | [DocDTO](#DocDTO) | 文档实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [DocDTO](#DocDTO)：文档实体传输对象 |
+
 ### 保存文档
 #### 访问路径
 /docs/save
@@ -265,7 +303,7 @@ POST
 /docs/fetchchilddoclibdoc
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -301,7 +339,7 @@ POST
 /docs/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -334,10 +372,46 @@ POST
 
 ### 获取文档库文档
 #### 访问路径
-/docs/fetchdoclibdoc
+/docs/fetchdoclibanddoc
 
 #### 请求方法
 GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
+
+### 查询文档库文档
+#### 访问路径
+/docs/searchdoclibanddoc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取文档库文档
+#### 访问路径
+/docs/fetchdoclibdoc
+
+#### 请求方法
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -373,7 +447,7 @@ POST
 /docs/fetchdocmoduledoc
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -440,9 +514,81 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取文件夹文档（子目录）
+#### 访问路径
+/docs/fetchmoduledocchild
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
+
+### 查询文件夹文档（子目录）
+#### 访问路径
+/docs/searchmoduledocchild
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取我的收藏
 #### 访问路径
 /docs/fetchmyfavourite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
+
+### 查询我的收藏
+#### 访问路径
+/docs/searchmyfavourite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取我的收藏
+#### 访问路径
+/docs/fetchmyfavouritesonlydoc
 
 #### 请求方法
 GET
@@ -460,7 +606,79 @@ GET
 
 ### 查询我的收藏
 #### 访问路径
-/docs/searchmyfavourite
+/docs/searchmyfavouritesonlydoc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取子目录文档
+#### 访问路径
+/docs/fetchnotrootdoc
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
+
+### 查询子目录文档
+#### 访问路径
+/docs/searchnotrootdoc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取根目录文档
+#### 访问路径
+/docs/fetchrootdoc
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
+
+### 查询根目录文档
+#### 访问路径
+/docs/searchrootdoc
 
 #### 请求方法
 POST
@@ -515,7 +733,8 @@ POST
 | 32 | recentaddcnt | Integer | 允许 | 最近添加数量 |
 | 33 | mydoccnt | Integer | 允许 | 我的文档数量 |
 | 34 | myfavouritecnt | Integer | 允许 | 我的收藏数量 |
-| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 35 | doccnt | Integer | 允许 | 文档数 |
+| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -48,7 +48,7 @@ export class CaseOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof CaseOptionViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -153,7 +153,7 @@ export class CaseOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof CaseOptionViewBase
      */ 
-    protected viewName: string = "CaseOptionView";
+    protected viewName: string = 'CaseOptionView';
 
 
     /**

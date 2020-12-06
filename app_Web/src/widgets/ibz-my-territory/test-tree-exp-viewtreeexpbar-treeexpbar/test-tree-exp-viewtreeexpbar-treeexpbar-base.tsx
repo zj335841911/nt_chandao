@@ -115,9 +115,30 @@ export class TestTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
                 deKeyField:'bugstats'
 			};
         }
+        if (Object.is(expmode, 'BUGRESOLVEDBY')) {
+            return {  
+                viewname: 'bug-stats-bug-resolved-by-grid-view', 
+                parentdata: {},
+                deKeyField:'bugstats'
+			};
+        }
         if (Object.is(expmode, 'BUGOPENENDBY')) {
             return {  
                 viewname: 'bug-stats-grid-view', 
+                parentdata: {},
+                deKeyField:'bugstats'
+			};
+        }
+        if (Object.is(expmode, 'PRODUCTBUGSTATUSSUM')) {
+            return {  
+                viewname: 'bug-stats-product-bug-status-grid-view', 
+                parentdata: {},
+                deKeyField:'bugstats'
+			};
+        }
+        if (Object.is(expmode, 'PRODUCTBUGRESOLUTIONSTATS')) {
+            return {  
+                viewname: 'bug-stats-product-bug-resolution-grid-view', 
                 parentdata: {},
                 deKeyField:'bugstats'
 			};

@@ -14,12 +14,14 @@ import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.Arrays;
 import java.util.List;
 
@@ -67,8 +69,6 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     @Autowired
     BugHelper bugHelper;
 
-    private static String MULTIPLE_CHOICE = ",";
-
     /**
      * 只关联产品
      */
@@ -90,7 +90,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public boolean create(Action et) {
         et.setComment(et.getComment() == null ? "" : et.getComment());
         String noticeusers = et.getNoticeusers();
-        this.create(et.getObjecttype(), et.getObjectid(), StaticDict.Action__type.COMMENTED.getValue(), et.getComment(),"",null,true);
+        this.create(et.getObjecttype(), et.getObjectid(), StaticDict.Action__type.COMMENTED.getValue(), et.getComment(), "", null, true);
         send(noticeusers, et);
         return true;
     }
@@ -111,44 +111,37 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         try {
             String noticeuserss = "";
             if(touser!= null && !"".equals(touser)) {
-                noticeuserss += touser + ";";
+                noticeuserss += touser + MULTIPLE_CHOICE;
             }
             JSONObject param = new JSONObject();
-            if(noticeusers != null & !"".equals(noticeusers)) {
-                noticeuserss += noticeusers.replaceAll(",", ";");
+            if(noticeusers != null && !"".equals(noticeusers)) {
+                noticeuserss += noticeusers;
             }
-            if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
-                noticeuserss += ccuser.replaceAll(",", ";");
+            if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() == 0) {
+                noticeuserss += ccuser;
             }
-            else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
-                noticeuserss += ";" + ccuser.replaceAll(",", ";");
+            else if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() > 0) {
+                noticeuserss += MULTIPLE_CHOICE + ccuser;
             }
-            if("".equals(noticeuserss)) {
+            if(noticeuserss.length() == 0) {
                 return;
             }
-
             IBIZProMessage ibizProMessage = new IBIZProMessage();
-            if("".equals(noticeuserss)) {
-                ibizProMessage.setCc("");
-            }else {
-                ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
-            }
 
-            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
+            ibizProMessage.setCc(noticeuserss);
 
-            if("".equals(ibizProMessage.getCc())) {
-                return;
-            }
+            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUsername());
+
             ibizProMessage.setType(StaticDict.Message__type.TOREAD.getValue());
             ibizProMessage.setIbizpromessagename(name);
-            param.put("objectid", id);
-            param.put("objecttype", type);
-            param.put("objectsourcepath", path);
-            param.put("objecttextname", logicname);
-            param.put("actiontextname", actiontextname);
+            param.put(PARAM_OBJECT_ID, id);
+            param.put(PARAM_OBJECT_TYPE, type);
+            param.put(PARAM_OBJECT_SOURCE_PATH, path);
+            param.put(PARAM_OBJECT_TEXT_NAME, logicname);
+            param.put(PARAM_ACTION_TEXT_NAME, actiontextname);
             ibizProMessage.setParam(param.toJSONString());
             iibizProMessageService.send(ibizProMessage);
-            log.info("待办消息发送成功！");
+            log.info("待阅消息发送成功！");
         }catch (RuntimeException e) {
             log.error(e.getMessage());
             log.error("待阅消息发送失败！");
@@ -170,38 +163,29 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public void sendTodo(Long id, String name, String noticeusers, String touser, String ccuser, String logicname, String type, String path, String actiontextname) {
         try {
             String noticeuserss = "";
+            if(touser!= null && !"".equals(touser)) {
+                noticeuserss += touser + MULTIPLE_CHOICE;
+            }
             JSONObject param = new JSONObject();
-            if(noticeusers != null & !"".equals(noticeusers)) {
-                noticeuserss += noticeusers.replaceAll(MULTIPLE_CHOICE, ";");
+            if(noticeusers != null && !"".equals(noticeusers)) {
+                noticeuserss += noticeusers;
             }
-            if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
-                noticeuserss += ccuser.replaceAll(MULTIPLE_CHOICE, ";");
+            if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() == 0) {
+                noticeuserss += ccuser;
             }
-            else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
-                noticeuserss += ";" + ccuser.replaceAll(MULTIPLE_CHOICE, ";");
+            else if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() > 0) {
+                noticeuserss += MULTIPLE_CHOICE + ccuser;
             }
-            if("".equals(touser) && "".equals(noticeuserss)) {
+            if(noticeuserss.length() == 0) {
                 return;
             }
-
             IBIZProMessage ibizProMessage = new IBIZProMessage();
-            if("".equals(noticeuserss)) {
-                ibizProMessage.setCc("");
-            }else {
-                ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
-            }
-            if("".equals(touser)) {
-                ibizProMessage.setTo("");
-            }else {
-                ibizProMessage.setTo(userHelper.toUser(touser));
-            }
 
-            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
+            ibizProMessage.setCc(noticeuserss);
 
-            if("".equals(ibizProMessage.getCc()) && "".equals(ibizProMessage.getTo())) {
-                return;
-            }
-            ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
+            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUsername());
+
+            ibizProMessage.setType(StaticDict.Message__type.TOREAD.getValue());
             ibizProMessage.setIbizpromessagename(name);
             param.put("objectid", id);
             param.put("objecttype", type);
@@ -214,6 +198,35 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         }catch (RuntimeException e) {
             log.error(e.getMessage());
             log.error("待办消息发送失败！");
+        }
+    }
+
+
+    public void sendMarkDone(Long id, String name, String toUser,String logicname, String type, String path, String actiontextname){
+        try {
+            if (toUser == null || toUser.equals("")){
+                return;
+            }
+            User to = userHelper.getOne(new QueryWrapper<User>().eq("account",toUser));
+            User from = userHelper.getOne(new QueryWrapper<User>().eq("account",AuthenticationUser.getAuthenticationUser().getUsername()));
+
+            IBIZProMessage ibizProMessage = new IBIZProMessage();
+            ibizProMessage.setTo(to.getId().toString());
+
+            ibizProMessage.setFrom(from.toString());
+            ibizProMessage.setIbizpromessagename(name);
+            ibizProMessage.setType("已办");
+            JSONObject param = new JSONObject();
+            param.put(PARAM_OBJECT_ID, id);
+            param.put(PARAM_OBJECT_TYPE, type);
+            param.put(PARAM_OBJECT_SOURCE_PATH, path);
+            param.put(PARAM_OBJECT_TEXT_NAME, logicname);
+            param.put(PARAM_ACTION_TEXT_NAME, actiontextname);
+            ibizProMessage.setParam(param.toJSONString());
+            iibizProMessageService.markDone(ibizProMessage);
+        }catch (RuntimeException e){
+            log.error(e.getMessage());
+            log.error("已办消息发送失败！");
         }
     }
 
@@ -233,27 +246,25 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     }
 
     /**
-     *
      * @param noticeusers
      * @param et
      */
     public void send(String noticeusers, Action et) {
-        if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
+        if (StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
             Task task = taskHelper.get(et.getObjectid());
             sendToread(task.getId(), task.getName(), noticeusers, task.getAssignedto(), task.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.COMMENTED.getText());
-        }else if(StaticDict.Action__object_type.STORY.getValue().equals(et.getObjecttype())) {
+        } else if (StaticDict.Action__object_type.STORY.getValue().equals(et.getObjecttype())) {
             Story story = storyHelper.get(et.getObjectid());
-            sendToread(story.getId(), story.getTitle(), noticeusers,story.getAssignedto(), story.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, StaticDict.Action__type.COMMENTED.getText());
-        } else if(StaticDict.Action__object_type.BUG.getValue().equals(et.getObjecttype())) {
+            sendToread(story.getId(), story.getTitle(), noticeusers, story.getAssignedto(), story.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, StaticDict.Action__type.COMMENTED.getText());
+        } else if (StaticDict.Action__object_type.BUG.getValue().equals(et.getObjecttype())) {
             Bug bug = bugHelper.get(et.getObjectid());
             sendToread(bug.getId(), bug.getTitle(), noticeusers, bug.getAssignedto(), bug.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.COMMENTED.getText());
-        }else {
+        } else {
             log.info("其他暂不支持！");
         }
     }
 
     /**
-     *
      * @param objectType
      * @param objectID
      * @param actionType
@@ -297,10 +308,11 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             et.setProduct(MULTIPLE_CHOICE + products + MULTIPLE_CHOICE);
             et.setProject(objectID);
         } else if (Arrays.deepToString(processType).contains(objectType)) {
-            JSONObject jsonObject = getProductAndProject(objectType,objectID);
-            et.setProduct(jsonObject.getString("product"));
-            et.setProject(jsonObject.getLongValue("project"));
+            JSONObject jsonObject = getProductAndProject(objectType, objectID);
+            et.setProduct(jsonObject.getString(StaticDict.Action__object_type.PRODUCT.getValue()));
+            et.setProject(jsonObject.getLongValue(StaticDict.Action__object_type.PROJECT.getValue()));
             log.info(processType + "product、project设置未实现");
+
         }
         super.create(et);
         return et;
@@ -308,61 +320,60 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
 
 
     /**
-     *
      * @param objectType
      * @param objectId
      * @return
      */
     public JSONObject getProductAndProject(String objectType, Long objectId) {
         String fields = "";
-        if(PRODUCT_IN.contains(objectType)) {
+        if (PRODUCT_IN.contains(objectType)) {
             fields = "CONCAT_WS('',',',product,',') as product";
-        } else if(StaticDict.Action__object_type.TASK.getValue().equals(objectType)) {
+        } else if (StaticDict.Action__object_type.TASK.getValue().equals(objectType)) {
             fields = "project, story";
-        } else if(PRODUCT_PROJECT_IN.contains(objectType)) {
+        } else if (PRODUCT_PROJECT_IN.contains(objectType)) {
             fields = "CONCAT_WS('',',',product,',') as product, project";
-        } else if(StaticDict.Action__object_type.RELEASE.getValue().equals(objectType)) {
+        } else if (StaticDict.Action__object_type.RELEASE.getValue().equals(objectType)) {
             fields = "CONCAT_WS('',',',product,',') as product, build";
         }
 
 
-        String sql = String.format("select %1$s from zt_%2$s where id = %3$s ",fields, objectType,objectId);
+        String sql = String.format("select %1$s from zt_%2$s where id = %3$s ", fields, objectType, objectId);
 
         List<JSONObject> jsonObjectList = projectProductService.select(sql, null);
         JSONObject record = jsonObjectList.get(0);
 
-        if(objectType.equals(StaticDict.Action__object_type.STORY.getValue())) {
+        if (objectType.equals(StaticDict.Action__object_type.STORY.getValue())) {
             String storySql = String.format("select project from zt_projectstory where story = %1$s ORDER BY project desc", objectId);
             List<JSONObject> list = projectProductService.select(storySql, null);
-            if(list.size() > 0) {
-                record.put("project", list.get(0).getLongValue("project"));
-            }else {
-                record.put("project", 0L);
+            if (list.size() > 0) {
+                record.put(StaticDict.Action__object_type.PROJECT.getValue(), list.get(0).getLongValue(StaticDict.Action__object_type.PROJECT.getValue()));
+            } else {
+                record.put(StaticDict.Action__object_type.PROJECT.getValue(), 0L);
             }
-        }else if(objectType.equals(StaticDict.Action__object_type.RELEASE.getValue())) {
-            String releaseSql = String.format("select project from zt_build where id = %1$s ",record.getLongValue("build"));
+        } else if (objectType.equals(StaticDict.Action__object_type.RELEASE.getValue())) {
+            String releaseSql = String.format("select project from zt_build where id = %1$s ", record.getLongValue(StaticDict.Action__object_type.BUILD.getValue()));
             List<JSONObject> list = projectProductService.select(releaseSql, null);
-            if(list.size() > 0) {
-                record.put("project", list.get(0).getLongValue("project"));
-            }else {
-                record.put("project", 0L);
+            if (list.size() > 0) {
+                record.put(StaticDict.Action__object_type.PROJECT.getValue(), list.get(0).getLongValue(StaticDict.Action__object_type.PROJECT.getValue()));
+            } else {
+                record.put(StaticDict.Action__object_type.PROJECT.getValue(), 0L);
             }
-        }else if(objectType.equals(StaticDict.Action__object_type.TASK.getValue())) {
-            if(record.getLongValue("story") != 0L) {
-                String storySql = String.format("select CONCAT_WS('',',',product,',') as product from zt_story where id = %1$s ", record.getLongValue("story"));
+        } else if (objectType.equals(StaticDict.Action__object_type.TASK.getValue())) {
+            if (record.getLongValue(StaticDict.Action__object_type.STORY.getValue()) != 0L) {
+                String storySql = String.format("select CONCAT_WS('',',',product,',') as product from zt_story where id = %1$s ", record.getLongValue(StaticDict.Action__object_type.STORY.getValue()));
                 List<JSONObject> list = projectProductService.select(storySql, null);
-                if(list.size() > 0) {
-                    record.put("product", list.get(0).getString("product"));
-                }else {
-                    record.put("product", ",0,");
+                if (list.size() > 0) {
+                    record.put(StaticDict.Action__object_type.PRODUCT.getValue(), list.get(0).getString(StaticDict.Action__object_type.PRODUCT.getValue()));
+                } else {
+                    record.put(StaticDict.Action__object_type.PRODUCT.getValue(), ",0,");
                 }
-            }else {
-                String projectProductSql = String.format("select CONCAT_WS('',',',ifnull(GROUP_CONCAT(product ORDER BY product asc),0),',') as product from zt_projectproduct where project = %1$s GROUP BY project ", record.getLongValue("project"));
+            } else {
+                String projectProductSql = String.format("select CONCAT_WS('',',',ifnull(GROUP_CONCAT(product ORDER BY product asc),0),',') as product from zt_projectproduct where project = %1$s GROUP BY project ", record.getLongValue(StaticDict.Action__object_type.PROJECT.getValue()));
                 List<JSONObject> list = projectProductService.select(projectProductSql, null);
-                if(list.size() > 0) {
-                    record.put("product", list.get(0).getString("product"));
-                }else {
-                    record.put("product", ",0,");
+                if (list.size() > 0) {
+                    record.put(StaticDict.Action__object_type.PRODUCT.getValue(), list.get(0).getString(StaticDict.Action__object_type.PRODUCT.getValue()));
+                } else {
+                    record.put(StaticDict.Action__object_type.PRODUCT.getValue(), ",0,");
                 }
             }
         }

@@ -161,7 +161,7 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Todomaindashboardview_linkBase
      */ 
-    protected viewName: string = "Todomaindashboardview_link";
+    protected viewName: string = 'Todomaindashboardview_link';
 
 
     /**

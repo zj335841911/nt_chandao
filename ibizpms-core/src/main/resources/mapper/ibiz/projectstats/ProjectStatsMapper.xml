@@ -11,8 +11,8 @@
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="ProjectStatsResultMap" type="cn.ibizlab.pms.core.ibiz.domain.ProjectStats" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
-            
-		
+
+
     </resultMap>
 
 
@@ -25,7 +25,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by order1  desc , id   desc
+		 order by `order1`  desc , `id`   desc
      </select>
 
     <!--数据集合[NoOpenProduct]-->
@@ -37,7 +37,16 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by order1  desc , id   desc
+		 order by `order1`  desc , `id`   desc
+     </select>
+
+    <!--数据集合[ProjectTaskCountByTaskStatus]-->
+	 <select id="searchProjectTaskCountByTaskStatus"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
+         select t1.* from (
+                <include refid="ProjectTaskCountByTaskStatus" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
     <!--数据集合[TaskTime]-->
@@ -62,6 +71,11 @@
 					 WHERE 	t1.DELETED = '0'
 						 AND ( t1.`STATUS` <> 'closed' )
 						 AND ((t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  and t3.type = 'project')) or t1.acl = 'open')
+			]]>
+    </sql>
+    <!--数据查询[ProjectTaskCountByTaskStatus]-->
+    <sql id="ProjectTaskCountByTaskStatus" databaseId="mysql">
+		<![CDATA[ SELECT t1.project,t1.projectname  as name, SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closedtaskcnt, SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt, SUM(IF(t1.`status` = 'done',t1.ss,0)) as doneTaskcnt, SUM(IF(t1.`status` = 'pause',t1.ss,0)) as pauseTaskcnt, SUM(IF(t1.`status` = 'wait',t1.ss,0)) as waitTaskcnt, SUM(IF(t1.`status` = 'doing',t1.ss,0)) as doingTaskcnt, COUNT(1) as taskcnt, t1.deleted from ( select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
 			]]>
     </sql>
     <!--数据查询[TaskTime]-->

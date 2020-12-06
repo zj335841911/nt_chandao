@@ -33,6 +33,7 @@
 | 13 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | 整型 | 否 | 否 | 是 |
 | 14 | [项目编号](#属性-项目编号（ROOT）) | ROOT | 外键值 | 否 | 是 | 是 |
 | 15 | [用户](#属性-用户（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 16 | [任务数](#属性-任务数（TASKCNT）) | TASKCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-加盟日（JOIN）
 #### 属性说明
@@ -689,6 +690,47 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-任务数（TASKCNT）
+#### 属性说明
+任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -764,7 +806,9 @@ GetDraft
 后台及前台
 
 #### 逻辑附加
-无
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [获取项目的可用工日<br>（GetProjectDays）](#逻辑处理-获取项目的可用工日（GetProjectDays）) | 执行之后 | 是 |  |
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -788,9 +832,7 @@ CheckKey
 后台及前台
 
 #### 逻辑附加
-| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| ---- | ---- | ---- | ---- | ---- |
-| 1 | [获取成员角色<br>（GetUserRole）](#逻辑处理-获取成员角色（GetUserRole）) | 执行之前 | 是 |  |
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -807,8 +849,23 @@ Save
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
-| 1 | [获取成员角色](#逻辑处理-获取成员角色（GetUserRole）) | GetUserRole | 后台 |
+| 1 | [获取项目的可用工日](#逻辑处理-获取项目的可用工日（GetProjectDays）) | GetProjectDays | 后台 |
+| 2 | [获取成员角色](#逻辑处理-获取成员角色（GetUserRole）) | GetUserRole | 后台 |
 
+### 逻辑处理-获取项目的可用工日（GetProjectDays）
+#### 说明
+获取项目的可用工日
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 获取项目详情 | Deaction1 | 实体行为 |
+| 2 | 设置项目参数 | Prepareparam1 | 准备参数 |
+| 3 | 回填 | Prepareparam2 | 准备参数 |
+| 4 | 开始 | Begin | 开始 |
 ### 逻辑处理-获取成员角色（GetUserRole）
 #### 说明
 获取成员角色
@@ -842,7 +899,8 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [行编辑查询](#数据查询-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [数据查询](#数据查询-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -916,7 +974,7 @@ FROM
 	SELECT
 	t1.`ACCOUNT`,
 	0 AS `CONSUMED`,
-	45 AS `DAYS`,
+	((select tt.days from zt_project tt where tt.id = #{srf.datacontext.root})) AS `DAYS`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,
@@ -938,7 +996,7 @@ FROM
 	SELECT
 	t2.`ACCOUNT`,
 	0 AS `CONSUMED`,
-	45 AS `DAYS`,
+	((select tt.days from zt_project tt where tt.id = #{srf.datacontext.root})) AS `DAYS`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,
@@ -957,6 +1015,89 @@ FROM
 	left join zt_group t3 on t2.role = t3.role
 	where t1.id = #{srf.datacontext.dept} and t2.account is not null and t2.account not in (select  t.account from zt_team t where t.root = #{srf.datacontext.root} and t.type = 'project')
 	) t1
+```
+### 数据查询-数据查询（TaskCntEstimateConsumedLeft）
+#### 说明
+数据查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.account,
+	t1.days,
+	t1.hours,
+	t1.id,
+	t1.`join`,
+	t1.limited,
+	t1.`order`,
+	t1.role,
+	t1.root,
+	( t1.days * t1.hours ) AS total,
+	t1.type,
+	( SELECT t.realname FROM zt_user t WHERE t.account = t1.account ) AS username,
+	(
+SELECT
+	count( t2.id ) 
+FROM
+	zt_task t2 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND (
+	t2.assignedTo = t1.account 
+	OR t2.finishedBy = t1.account 
+	OR t2.id IN ( SELECT t.root FROM zt_team t WHERE t.type = 'task' AND t.account = t1.account ) 
+	) 
+	) AS taskcnt,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.LEFT IS NOT NULL THEN tt.LEFT ELSE t2.LEFT END ), 1) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS `left`,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ), 1)
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS `estimate`,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ), 1)
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS consumed 
+FROM
+	zt_team t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -996,6 +1137,7 @@ FROM `zt_team` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [行编辑查询](#数据集合-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
+| 3 | [数据查询](#数据集合-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1025,6 +1167,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [行编辑查询（RowEditDefault）](#数据查询-行编辑查询（RowEditDefault）) |
+### 数据集合-数据查询（TaskCntEstimateConsumedLeft）
+#### 说明
+数据查询
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [数据查询（TaskCntEstimateConsumedLeft）](#数据查询-数据查询（TaskCntEstimateConsumedLeft）) |
 
 ## 数据导入
 无

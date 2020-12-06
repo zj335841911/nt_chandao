@@ -102,6 +102,34 @@ export class StoryTaskGroupGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u228da18_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_TaskToBug(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u94afee5_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -270,6 +298,33 @@ export class StoryTaskGroupGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_ufbbe2a3_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_ue92fc99_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -318,6 +373,35 @@ export class StoryTaskGroupGridBase extends GridControlBase {
         curUIService.Task_TaskNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
+    /**
+     * 拷贝
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TaskStoryTaskGroupGridViewBase
+     */
+    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.newdata && _this.newdata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { task: args[0].task });
+            }
+            if(!params) params = {};
+            Object.assign(params,{copymode:true});
+            _this.newdata([{ ...data }], params, $event, xData);
+        } else {
+            Object.assign(this.viewparams,{copymode:true});
+        }
+    }
+
 
     /**
      * 界面行为模型
@@ -327,6 +411,7 @@ export class StoryTaskGroupGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
+        TaskToBug: { name: 'TaskToBug',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', actiontarget: 'SINGLEKEY'},
         confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', actiontarget: 'SINGLEKEY'},
         MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
         StartTask: { name: 'StartTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
@@ -335,6 +420,7 @@ export class StoryTaskGroupGridBase extends GridControlBase {
         DoneTask: { name: 'DoneTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         NewSubTask: { name: 'NewSubTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
         TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
@@ -743,6 +829,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
         if(Object.is('AssignTask', tag)) {
             this.grid_assignedto_click(row, tag, $event);
         }
+        if(Object.is('TaskToBug', tag)) {
+            this.grid_uagridcolumn1_u228da18_click(row, tag, $event);
+        }
         if(Object.is('confirmStoryChange', tag)) {
             this.grid_uagridcolumn1_u94afee5_click(row, tag, $event);
         }
@@ -760,6 +849,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
         }
         if(Object.is('NewSubTask', tag)) {
             this.grid_uagridcolumn1_ua6566df_click(row, tag, $event);
+        }
+        if(Object.is('Copy', tag)) {
+            this.grid_uagridcolumn1_ufbbe2a3_click(row, tag, $event);
         }
         if(Object.is('TaskFavorites', tag)) {
             this.grid_uagridcolumn1_ue92fc99_click(row, tag, $event);
@@ -875,6 +967,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
                 consumed:'',
                 left:'',
                 deadline:'',
+                TaskToBug:{
+                    visible: false
+                },
                 confirmStoryChange:{
                     visible: false
                 },
@@ -891,6 +986,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
                     visible: false
                 },
                 NewSubTask:{
+                    visible: false
+                },
+                Copy:{
                     visible: false
                 },
                 TaskFavorites:{
@@ -936,6 +1034,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
             consumed:'',
             left:'',
             deadline:'',
+            TaskToBug:{
+                visible: false
+            },
             confirmStoryChange:{
                 visible: false
             },
@@ -952,6 +1053,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
                 visible: false
             },
             NewSubTask:{
+                visible: false
+            },
+            Copy:{
                 visible: false
             },
             TaskFavorites:{
@@ -1033,6 +1137,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
                 consumed:'',
                 left:'',
                 deadline:'',
+                TaskToBug:{
+                    visible: false
+                },
                 confirmStoryChange:{
                     visible: false
                 },
@@ -1049,6 +1156,9 @@ export class StoryTaskGroupGridBase extends GridControlBase {
                     visible: false
                 },
                 NewSubTask:{
+                    visible: false
+                },
+                Copy:{
                     visible: false
                 },
                 TaskFavorites:{

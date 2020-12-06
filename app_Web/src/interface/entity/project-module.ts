@@ -133,4 +133,12 @@ export interface ProjectModule {
      * @memberof ProjectModule
      */
     parentname?: any;
+
+    /**
+     * 数据选择排序
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    orderpk?: any;
 }

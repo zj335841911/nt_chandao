@@ -51,7 +51,7 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {string}
      * @memberof IbzMyTerritoryListView9Base
      */ 
-    protected dataControl: string = "list";
+    protected dataControl: string = 'list';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {string}
      * @memberof IbzMyTerritoryListView9Base
      */ 
-    protected viewName: string = "IbzMyTerritoryListView9";
+    protected viewName: string = 'IbzMyTerritoryListView9';
 
 
     /**

@@ -102,6 +102,11 @@ export default class MyGroupMainModel {
           dataType: 'ACID',
         },
         {
+          name: 'severity',
+          prop: 'severity',
+          dataType: 'NSCODELIST',
+        },
+        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
@@ -229,6 +234,11 @@ export default class MyGroupMainModel {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

@@ -88,6 +88,11 @@ export default class MyGroupMainModel {
           prop: 'ischild',
           dataType: 'TEXT',
         },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
@@ -147,37 +152,12 @@ export default class MyGroupMainModel {
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'tobug',
-          prop: 'tobug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'srfkey',
@@ -186,14 +166,19 @@ export default class MyGroupMainModel {
           isEditable:true
         },
         {
-          name: 'product',
-          prop: 'product',
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'tobug',
+          prop: 'tobug',
           dataType: 'PICKUP',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
         },
         {
           name: 'duplicatestory',
@@ -204,6 +189,31 @@ export default class MyGroupMainModel {
           name: 'isfavorites',
           prop: 'isfavorites',
           dataType: 'TEXT',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
         },
         {
           name: 'ischild',

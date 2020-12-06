@@ -103,6 +103,14 @@ export default class AppSpan extends Vue {
     @Prop() public viewparams!: any;
 
     /**
+     * 标题
+     *
+     * @type {*}
+     * @memberof AppSpan
+     */
+    @Prop() public caption?: any;
+
+    /**
      * 监控表单属性 data 值
      *
      * @memberof AppSpan
@@ -207,7 +215,16 @@ export default class AppSpan extends Vue {
                 );
             }
         }
-
-        return <span class="app-span">{this.text}</span>;
+        if(this.caption){
+            return (
+            <span>
+                {this.caption}：
+                <span class="app-span">{this.text}</span>
+            </span>
+            
+            )
+        } else {
+            return <span class="app-span">{this.text}</span>;
+        }
     }
 }

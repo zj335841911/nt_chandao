@@ -389,140 +389,98 @@ export class PivotTableGridBase extends MainControlBase {
             label: '编号',
             langtag: 'entities.task.pivottable_grid.columns.id',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('id', val);
-            }
+            util: 'PX'
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.task.pivottable_grid.columns.pri',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('pri', val);
-            }
+            util: 'PX'
         },
         {
             name: 'name',
             label: '任务名称',
             langtag: 'entities.task.pivottable_grid.columns.name',
             show: true,
-            util: 'STAR',
-            render: (val: any) => {
-                return this.renderColValue('name', val);
-            }
+            util: 'STAR'
         },
         {
             name: 'status',
             label: '任务状态',
             langtag: 'entities.task.pivottable_grid.columns.status',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('status', val);
-            }
+            util: 'PX'
         },
         {
             name: 'type',
             label: '任务类型',
             langtag: 'entities.task.pivottable_grid.columns.type',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('type', val);
-            }
+            util: 'PX'
         },
         {
             name: 'assignedto',
             label: '指派给',
             langtag: 'entities.task.pivottable_grid.columns.assignedto',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('assignedto', val);
-            }
+            util: 'PX'
         },
         {
             name: 'estimate',
             label: '最初预计',
             langtag: 'entities.task.pivottable_grid.columns.estimate',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('estimate', val);
-            }
+            util: 'PX'
         },
         {
             name: 'left',
             label: '预计剩余',
             langtag: 'entities.task.pivottable_grid.columns.left',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('left', val);
-            }
+            util: 'PX'
         },
         {
             name: 'consumed',
             label: '总计消耗',
             langtag: 'entities.task.pivottable_grid.columns.consumed',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('consumed', val);
-            }
+            util: 'PX'
         },
         {
             name: 'productname',
             label: '产品',
             langtag: 'entities.task.pivottable_grid.columns.productname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('productname', val);
-            }
+            util: 'PX'
         },
         {
             name: 'projectname',
             label: '所属项目',
             langtag: 'entities.task.pivottable_grid.columns.projectname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('projectname', val);
-            }
+            util: 'PX'
         },
         {
             name: 'storyname',
             label: '相关需求',
             langtag: 'entities.task.pivottable_grid.columns.storyname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('storyname', val);
-            }
+            util: 'PX'
         },
         {
             name: 'modulename',
             label: '所属模块',
             langtag: 'entities.task.pivottable_grid.columns.modulename',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('modulename', val);
-            }
+            util: 'PX'
         },
         {
             name: 'parentname',
             label: '父任务',
             langtag: 'entities.task.pivottable_grid.columns.parentname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('parentname', val);
-            }
+            util: 'PX'
         },
     ]
 
@@ -533,44 +491,6 @@ export class PivotTableGridBase extends MainControlBase {
      * @memberof PivotTable
      */
     public gridItemsModel: any[] = [];
-
-    /**
-     * 绘制列值
-     *
-     * @type {*}
-     * @memberof PivotTable
-     */
-    public renderColValue(name: string, value: any) {
-        if(Object.is('pri', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('Task__pri');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
-            }
-        }
-        if(Object.is('status', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('Task__status');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
-            }
-        }
-        if(Object.is('type', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('Task__type');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
-            }
-        }
-        if(Object.is('assignedto', name)) {
-            let items = this.dCodeList['UserRealName'];
-            if(items) {
-                for(let i = 0; i < items.length; i++) {
-                    if(Object.is(items[i].value, value)) {
-                        return items[i].text;
-                    }
-                }
-            }
-        }
-        return value;
-    }
 
     /**
      * 获取代码项
@@ -585,22 +505,6 @@ export class PivotTableGridBase extends MainControlBase {
             }
         }
         return codelist.emptytext;
-    }
-
-    /**
-     * 准备动态代码表数据集合
-     *
-     * @memberof PivotTable
-     */
-    public async readyDCodelist() {
-        let keys: string[] = [
-            'UserRealName'
-        ];
-        for (let key of keys) {
-            let items = await this.codeListService.getItems('UserRealName');
-            this.dCodeList[key] = items;
-        }
-        
     }
 
     /**
@@ -706,7 +610,7 @@ export class PivotTableGridBase extends MainControlBase {
         Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
         Object.assign(arg,{viewparams:tempViewParams});
         const post: Promise<any> = this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
-        post.then((response: any) => {
+        post.then(async (response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.errorMessage) {
                     this.$Notice.error({ title: '错误', desc: response.errorMessage });
@@ -715,7 +619,7 @@ export class PivotTableGridBase extends MainControlBase {
             }
             const data: any = response.data;
             this.totalrow = response.total;
-            this.items = JSON.parse(JSON.stringify(data));
+            this.items = await this.formatGridData(JSON.parse(JSON.stringify(data)));
             // 清空selections,gridItemsModel
             this.selections = [];
             this.gridItemsModel = [];
@@ -1034,6 +938,80 @@ export class PivotTableGridBase extends MainControlBase {
         return jsonData.map((v:any) => filterVal.map((j:any) => v[j]))
     }   
 
+    /**
+     * 表格数据代码表翻译
+     *
+     * @public
+     * @param {any} data 表格数据
+     * @memberof PivotTableBase
+     */
+    public async formatGridData(data:any){
+        let codelistColumns:Array<any> = [
+          {
+            name: 'pri',
+            srfkey: 'Task__pri',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
+          {
+            name: 'status',
+            srfkey: 'Task__status',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
+          {
+            name: 'type',
+            srfkey: 'Task__type',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
+          {
+            name: 'assignedto',
+            srfkey: 'UserRealName',
+            codelistType : 'DYNAMIC',
+            textSeparator: ',',
+            renderMode: 'string',
+            valueSeparator: ",",
+          },
+        ];
+        let _this = this;
+        if(codelistColumns.length >0){
+            for (const codelist of codelistColumns) {
+                let items = await _this.codeListService.getDataItems({type:codelist.codelistType,tag:codelist.srfkey});
+                data.forEach((row:any)=>{
+                    row[codelist.name] = _this.getCodeListItemValue(items, row[codelist.name]);
+                });
+            }
+        }
+        return data;
+    }
+
+    /**
+     * 代码表转化
+     *
+     * @public
+     * @param {any} items 代码表所有数据
+     * @param {any} value 当前数据当前项代码表值
+     * @memberof PivotTableBase
+     */
+    public getCodeListItemValue(items:any,value:any){
+        if(items && items.length >0){
+            for(let i=0;i<items.length;i++){
+                if(items[i].value === value){
+                    return items[i].text;
+                }
+            }
+            return value;
+        }else{
+            return value;
+        }
+    }
 
     /**
      * 解析代码表和vlaue，设置items
@@ -1127,7 +1105,6 @@ export class PivotTableGridBase extends MainControlBase {
      *  @memberof PivotTable
      */    
     public afterCreated(){
-        this.readyDCodelist();
         this.setColState();
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {

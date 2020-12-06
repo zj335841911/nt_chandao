@@ -388,6 +388,34 @@ export default class CaseStepServiceBase extends EntityService {
     }
 
     /**
+     * searchCurTest接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseStepServiceBase
+     */
+    public async searchCurTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/searchcurtest`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casesteps/searchcurtest`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casesteps/searchcurtest`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchcurtest`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -416,6 +444,34 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
             return res;
+        }
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseStepServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/searchdefault`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casesteps/searchdefault`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casesteps/searchdefault`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchdefault`,tempData,isloading);
         }
     }
 
@@ -452,6 +508,34 @@ export default class CaseStepServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault1接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseStepServiceBase
+     */
+    public async searchDefault1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/searchdefault1`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casesteps/searchdefault1`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casesteps/searchdefault1`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchdefault1`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchMob接口方法
      *
      * @param {*} [context={}]
@@ -480,6 +564,34 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
             return res;
+        }
+    }
+
+    /**
+     * searchMob接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseStepServiceBase
+     */
+    public async searchMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/searchmob`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casesteps/searchmob`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casesteps/searchmob`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchmob`,tempData,isloading);
         }
     }
 
@@ -516,6 +628,34 @@ export default class CaseStepServiceBase extends EntityService {
     }
 
     /**
+     * searchVersion接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseStepServiceBase
+     */
+    public async searchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/searchversion`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casesteps/searchversion`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casesteps/searchversion`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchversion`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchVersions接口方法
      *
      * @param {*} [context={}]
@@ -544,6 +684,34 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
             return res;
+        }
+    }
+
+    /**
+     * searchVersions接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseStepServiceBase
+     */
+    public async searchVersions(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/searchversions`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casesteps/searchversions`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casesteps/searchversions`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchversions`,tempData,isloading);
         }
     }
 

@@ -71,6 +71,11 @@ export default class StepsInfoModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'bug',
         prop: 'id',
         dataType: 'FONTKEY',

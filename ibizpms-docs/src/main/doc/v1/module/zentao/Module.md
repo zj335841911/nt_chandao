@@ -41,6 +41,7 @@
 | 14 | [上级模块](#属性-上级模块（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
 | 15 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 | 16 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
+| 17 | [数据选择排序](#属性-数据选择排序（ORDERPK）) | ORDERPK | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-所属根（ROOT）
 #### 属性说明
@@ -738,6 +739,47 @@ String
 | 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-数据选择排序（ORDERPK）
+#### 属性说明
+数据选择排序
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -875,12 +917,13 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [BugModule](#数据查询-BugModule（BugModule）) | BugModule | 否 |
-| 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 3 | [文档目录查询](#数据查询-文档目录查询（DocModule）) | DocModule | 否 |
-| 4 | [产品线](#数据查询-产品线（Line）) | Line | 否 |
-| 5 | [需求模块](#数据查询-需求模块（StoryModule）) | StoryModule | 否 |
-| 6 | [任务模块](#数据查询-任务模块（TaskModule）) | TaskModule | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [数据查询](#数据查询-数据查询（BugModuleCodeList）) | BugModuleCodeList | 否 |
+| 3 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 4 | [文档目录查询](#数据查询-文档目录查询（DocModule）) | DocModule | 否 |
+| 5 | [产品线](#数据查询-产品线（Line）) | Line | 否 |
+| 6 | [需求模块](#数据查询-需求模块（StoryModule）) | StoryModule | 否 |
+| 7 | [任务模块](#数据查询-任务模块（TaskModule）) | TaskModule | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-BugModule（BugModule）
 #### 说明
@@ -901,39 +944,113 @@ SELECT
 	t1.`GRADE`,
 	t1.`ID`,
 	CONCAT(
-	'/',
- case when	(
+		'/',
+	CASE
+			
+			WHEN (
+			SELECT
+				GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+			FROM
+				zt_module tt 
+			WHERE
+				FIND_IN_SET( tt.id, t1.path ) 
+				AND tt.type = 'story' 
+			GROUP BY
+				tt.root 
+				LIMIT 0,
+				1 
+				) IS NOT NULL THEN
+				(
+				SELECT
+					GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+				FROM
+					zt_module tt 
+				WHERE
+					FIND_IN_SET( tt.id, t1.path ) 
+					AND tt.type = 'story' 
+				GROUP BY
+					tt.root 
+					LIMIT 0,
+					1 
+				) ELSE t1.`name` 
+			END 
+			) AS `NAME`,
+			(
+				CONCAT_ws(
+					'',
+				CASE
+						
+						WHEN (
+						SELECT
+							GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+						FROM
+							zt_module tt 
+						WHERE
+							FIND_IN_SET( tt.id, t1.path ) 
+							AND tt.type = 'story' 
+						GROUP BY
+							tt.root 
+							LIMIT 0,
+							1 
+							) IS NOT NULL THEN
+							(
+							SELECT
+								GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+							FROM
+								zt_module tt 
+							WHERE
+								FIND_IN_SET( tt.id, t1.path ) 
+								AND tt.type = 'story' 
+							GROUP BY
+								tt.root 
+								LIMIT 0,
+								1 
+							) ELSE t1.`ORDER` 
+						END 
+						)) AS ORDERPK,
+					t1.`ORDER`,
+					t1.`OWNER`,
+				CASE
+						
+						WHEN t1.`PARENT` = 0 THEN
+						NULL ELSE t1.parent 
+					END AS parent,
+					t11.`NAME` AS `PARENTNAME`,
+					t1.`PATH`,
+					t1.`ROOT`,
+					t1.`SHORT`,
+					t1.`TYPE` 
+				FROM
+				`zt_module` t1
+	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
+```
+### 数据查询-数据查询（BugModuleCodeList）
+#### 说明
+数据查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`name` end
-	) AS `NAME`,
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	CONCAT( '/', t1.`name` ) AS `NAME`,
 	t1.`ORDER`,
 	t1.`OWNER`,
-	t1.`PARENT`,
+	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
 	t11.`NAME` AS `PARENTNAME`,
 	t1.`PATH`,
 	t1.`ROOT`,
 	t1.`SHORT`,
-	t1.`TYPE` 
+	t1.`TYPE`
 FROM
 	`zt_module` t1
 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
@@ -984,44 +1101,61 @@ LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 #### SQL
 - MYSQL5
 ```SQL
-select t1.* from (select '0' as DELETED, 0 as ID,'/' as name,0 as PARENT,',0,' as path, ${srfdatacontext('doclib','{"defname":"ROOT","dename":"ZT_MODULE"}')} as root,'doc' as type UNION
-
 SELECT
-	t1.`DELETED`,
-	t1.`ID`,
-	CONCAT(
-	'/',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+	t1.* 
 FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'doc' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'doc' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`name` end
-	) AS `NAME`,
-	t1.`PARENT`,
-	t1.`PATH`,
-	t1.`ROOT`,
-	t1.`TYPE` 
-FROM
-	`zt_module` t1
-	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID) t1
+	(
+	SELECT
+		'0' AS DELETED,
+		0 AS ID,
+		'/' AS NAME,
+		0 AS PARENT,
+		',0,' AS path,
+		$ { srfdatacontext ( 'doclib', '{"defname":"ROOT","dename":"ZT_MODULE"}' )} AS root,
+		'doc' AS type UNION
+	SELECT
+		t1.`DELETED`,
+		t1.`ID`,
+		CONCAT(
+			'/',
+		CASE
+				
+				WHEN (
+				SELECT
+					GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+				FROM
+					zt_module tt 
+				WHERE
+					FIND_IN_SET( tt.id, t1.path ) 
+					AND tt.type = 'doc' 
+				GROUP BY
+					tt.root 
+					LIMIT 0,
+					1 
+					) IS NOT NULL THEN
+					(
+					SELECT
+						GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+					FROM
+						zt_module tt 
+					WHERE
+						FIND_IN_SET( tt.id, t1.path ) 
+						AND tt.type = 'doc' 
+					GROUP BY
+						tt.root 
+						LIMIT 0,
+						1 
+					) ELSE t1.`name` 
+				END 
+				) AS `NAME`,
+				t1.`PARENT`,
+				t1.`PATH`,
+				t1.`ROOT`,
+				t1.`TYPE` 
+			FROM
+				`zt_module` t1
+			LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
+	) t1
 ```
 ### 数据查询-产品线（Line）
 #### 说明
@@ -1161,10 +1295,11 @@ LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [BugModule](#数据集合-BugModule（BugModule）) | BugModule | 否 |
-| 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 3 | [文档目录](#数据集合-文档目录（DocModule）) | DocModule | 否 |
-| 4 | [产品线](#数据集合-产品线（Line）) | Line | 否 |
-| 5 | [需求模块](#数据集合-需求模块（StoryModule）) | StoryModule | 否 |
+| 2 | [数据集](#数据集合-数据集（BugModuleCodeList）) | BugModuleCodeList | 否 |
+| 3 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 4 | [文档目录](#数据集合-文档目录（DocModule）) | DocModule | 否 |
+| 5 | [产品线](#数据集合-产品线（Line）) | Line | 否 |
+| 6 | [需求模块](#数据集合-需求模块（StoryModule）) | StoryModule | 否 |
 
 ### 数据集合-BugModule（BugModule）
 #### 说明
@@ -1180,6 +1315,20 @@ BugModule
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [BugModule（BugModule）](#数据查询-BugModule（BugModule）) |
+### 数据集合-数据集（BugModuleCodeList）
+#### 说明
+数据集
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [数据查询（BugModuleCodeList）](#数据查询-数据查询（BugModuleCodeList）) |
 ### 数据集合-DEFAULT（Default）
 #### 说明
 DEFAULT

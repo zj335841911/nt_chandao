@@ -489,16 +489,16 @@ export class TestTaskServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/testtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/testtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testtasks/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/testtasks/fetchdefault`,tempData,isloading);
         return res;
     }
 

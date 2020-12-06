@@ -187,6 +187,20 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EmpLoyeeloadServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/employeeloads/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchGETWOERKLOAD接口方法
      *
      * @param {*} [context={}]
@@ -199,6 +213,20 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/employeeloads/fetchgetwoerkload`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchGETWOERKLOAD接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EmpLoyeeloadServiceBase
+     */
+    public async searchGETWOERKLOAD(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/employeeloads/searchgetwoerkload`,tempData,isloading);
     }
 
     /**

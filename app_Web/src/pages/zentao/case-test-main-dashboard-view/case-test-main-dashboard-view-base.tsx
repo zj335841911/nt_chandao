@@ -127,7 +127,7 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof CaseTestMainDashboardViewBase
      */ 
-    protected viewName: string = "CaseTestMainDashboardView";
+    protected viewName: string = 'CaseTestMainDashboardView';
 
 
     /**

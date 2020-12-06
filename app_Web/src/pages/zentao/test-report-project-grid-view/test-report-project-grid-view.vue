@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestReportProjectGridViewBase } from './test-report-project-grid-view-base';
 import view_grid from '@widgets/test-report/project-main-grid/project-main-grid.vue';
+import view_searchbar from '@widgets/test-report/custom-searchbar/custom-searchbar.vue';
 
 /**
  * 测试报告表格视图视图
@@ -15,6 +16,7 @@ import view_grid from '@widgets/test-report/project-main-grid/project-main-grid.
 @Component({
     components: {
         view_grid, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()

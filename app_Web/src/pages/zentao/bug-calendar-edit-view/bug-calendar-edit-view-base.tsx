@@ -48,7 +48,7 @@ export class BugCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugCalendarEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -136,7 +136,7 @@ export class BugCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugCalendarEditViewBase
      */ 
-    protected viewName: string = "BugCalendarEditView";
+    protected viewName: string = 'BugCalendarEditView';
 
 
     /**

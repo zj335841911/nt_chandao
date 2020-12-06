@@ -22,7 +22,7 @@ public class ProductExService extends ProductServiceImpl {
     }
 
     /**
-     * 自定义行为[Close]用户扩展
+     * [Close:关闭] 行为扩展
      * @param et
      * @return
      */

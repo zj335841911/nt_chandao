@@ -222,8 +222,8 @@
     :disabled="detailsModel.files.disabled" 
     :context="context" 
     :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
+    :uploadParam='{objecttype:"story",objectid:"0",version:"%version%"}' 
+    :exportParam='{objecttype:"story",objectid:"0",version:"%version%"}' 
     @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
@@ -298,8 +298,7 @@ import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobChageFormBase extends Vue implements ControlInterface {
 
@@ -420,7 +419,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 工作流审批意见控件绑定值
@@ -1909,9 +1908,6 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      * @memberof MobChageForm
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('neednotreview')) {
-                    this.data['neednotreview'] = '0';
-                }
     }
 
         /**

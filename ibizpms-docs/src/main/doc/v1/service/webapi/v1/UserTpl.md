@@ -220,28 +220,65 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[UserTplDTO](#UserTplDTO)>：用户模板实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取我的模板
+#### 访问路径
+/usertpls/fetchmyusertpl
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [UserTplSearchContext](#UserTplSearchContext) | 用户模板查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[UserTplDTO](#UserTplDTO)>：用户模板实体传输对象列表 |
+
+### 查询我的模板
+#### 访问路径
+/usertpls/searchmyusertpl
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [UserTplSearchContext](#UserTplSearchContext) | 用户模板查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[UserTplDTO](#UserTplDTO)>：用户模板实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### UserTplDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | title | String | 不可 | title |
+| 1 | title | String | 不可 | 模板标题 |
 | 2 | id | Long | 不可 | id |
 | 3 | content | String | 允许 | content |
 | 4 | type | String | 允许 | type |
 | 5 | account | String | 允许 | account |
-| 6 | ibizpublic | String | 允许 | public |
+| 6 | ibizpublic | String | 允许 | 公开 |
 | 7 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### UserTplSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
-| 2 | n_public_eq | String | 允许 | 条件字段：public<br>条件组合方式：`=` |
-| 3 | customcond | String | 允许 | 自定义查询条件 |
-| 4 | customparams | String | 允许 | 自定义查询参数 |
-| 5 | query | String | 允许 | 快速搜索 |
-| 6 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 7 | page | int | 允许 | 当前页数<br>默认值0 |
-| 8 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 9 | sort | String | 允许 | 排序 |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 3 | n_public_eq | String | 允许 | 条件字段：public<br>条件组合方式：`=` |
+| 4 | customcond | String | 允许 | 自定义查询条件 |
+| 5 | customparams | String | 允许 | 自定义查询参数 |
+| 6 | query | String | 允许 | 快速搜索 |
+| 7 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 8 | page | int | 允许 | 当前页数<br>默认值0 |
+| 9 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 10 | sort | String | 允许 | 排序 |

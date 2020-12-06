@@ -64,6 +64,10 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IDocCurUserIsFLogic curuserisfLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -102,6 +106,8 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public Doc get(Long key) {
+        Doc tempET = new Doc();
+        tempET.set("id", key);
         Doc et = getById(key);
         if (et == null) {
             et = new Doc();
@@ -109,6 +115,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         }
         else {
         }
+        curuserisfLogic.execute(et);
         return et;
     }
 
@@ -139,6 +146,20 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public Doc getDocStatus(Doc et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Doc onlyCollectDoc(Doc et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Doc onlyUnCollectDoc(Doc et) {
         //自定义代码
         return et;
     }
@@ -244,6 +265,15 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
      * 查询集合 文档库文档
      */
     @Override
+    public Page<Doc> searchDocLibAndDoc(DocSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDocLibAndDoc(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 文档库文档
+     */
+    @Override
     public Page<Doc> searchDocLibDoc(DocSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDocLibDoc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
@@ -268,11 +298,47 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     }
 
     /**
+     * 查询集合 文件夹文档（子目录）
+     */
+    @Override
+    public Page<Doc> searchModuleDocChild(DocSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchModuleDocChild(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 我的收藏
      */
     @Override
     public Page<Doc> searchMyFavourite(DocSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchMyFavourite(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<Doc> searchMyFavouritesOnlyDoc(DocSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchMyFavouritesOnlyDoc(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 子目录文档
+     */
+    @Override
+    public Page<Doc> searchNotRootDoc(DocSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchNotRootDoc(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根目录文档
+     */
+    @Override
+    public Page<Doc> searchRootDoc(DocSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchRootDoc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

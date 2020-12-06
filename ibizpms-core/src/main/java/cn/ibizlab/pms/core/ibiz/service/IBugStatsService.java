@@ -46,11 +46,18 @@ public interface IBugStatsService extends IService<BugStats> {
     boolean checkKey(BugStats et);
     boolean save(BugStats et);
     void saveBatch(List<BugStats> list);
+    Page<BugStats> searchBugCountInResolution(BugStatsSearchContext context);
+    Page<BugStats> searchBugResolvedBy(BugStatsSearchContext context);
     Page<BugStats> searchBugassignedTo(BugStatsSearchContext context);
     Page<BugStats> searchDefault(BugStatsSearchContext context);
+    Page<BugStats> searchProductBugResolutionStats(BugStatsSearchContext context);
+    Page<BugStats> searchProductBugStatusSum(BugStatsSearchContext context);
     Page<BugStats> searchProductCreateBug(BugStatsSearchContext context);
+    Page<BugStats> searchProjectBugStatusCount(BugStatsSearchContext context);
     List<BugStats> selectByProduct(Long id);
     void removeByProduct(Long id);
+    List<BugStats> selectByProject(Long id);
+    void removeByProject(Long id);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

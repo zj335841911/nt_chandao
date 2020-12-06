@@ -159,7 +159,7 @@ export class StoryMPickupView3Base extends MPickupViewBase {
      * @type {string}
      * @memberof StoryMPickupView3Base
      */ 
-    protected viewName: string = "StoryMPickupView3";
+    protected viewName: string = 'StoryMPickupView3';
 
 
     /**

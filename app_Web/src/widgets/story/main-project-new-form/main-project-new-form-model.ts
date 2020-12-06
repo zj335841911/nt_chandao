@@ -126,9 +126,19 @@ export default class MainProjectNewModel {
         dataType: 'NSCODELIST',
       },
       {
+        name: 'storypoints',
+        prop: 'storypoints',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'estimate',
         prop: 'estimate',
         dataType: 'FLOAT',
+      },
+      {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'spec',

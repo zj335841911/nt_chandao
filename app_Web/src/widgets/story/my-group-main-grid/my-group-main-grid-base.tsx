@@ -74,6 +74,34 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u818e62a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_StoryToBug(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u7b97712_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -158,34 +186,6 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7480d3d_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_OpenBaseInfoEditView(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public grid_uagridcolumn1_u5aaa4ae_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -232,6 +232,33 @@ export class MyGroupMainGridBase extends GridControlBase {
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
         curUIService.Story_SubStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u1980bfd_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -290,6 +317,35 @@ export class MyGroupMainGridBase extends GridControlBase {
         curUIService.Story_StoryNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
+    /**
+     * 拷贝
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof StoryMainMyGridViewBase
+     */
+    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.newdata && _this.newdata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { story: args[0].story });
+            }
+            if(!params) params = {};
+            Object.assign(params,{copymode:true});
+            _this.newdata([{ ...data }], params, $event, xData);
+        } else {
+            Object.assign(this.viewparams,{copymode:true});
+        }
+    }
+
 
     /**
      * 界面行为模型
@@ -298,12 +354,13 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @memberof MyGroupMainBase
      */  
     public ActionModel: any = {
+        StoryToBug: { name: 'StoryToBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CREATE_BUT', actiontarget: 'SINGLEKEY'},
         ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', actiontarget: 'SINGLEKEY'},
         ReviewStory: { name: 'ReviewStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', actiontarget: 'SINGLEKEY'},
         CloseStory: { name: 'CloseStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', actiontarget: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', actiontarget: 'SINGLEKEY'},
         SubStory: { name: 'SubStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         StoryFavorites: { name: 'StoryFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
         StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
@@ -729,6 +786,12 @@ export class MyGroupMainGridBase extends GridControlBase {
             langtag: 'entities.story.mygroupmain_grid.exportColumns.ischild',
             show: true,
         },
+        {
+            name: 'color',
+            label: '标题颜色',
+            langtag: 'entities.story.mygroupmain_grid.exportColumns.color',
+            show: true,
+        },
     ]
 
     /**
@@ -790,6 +853,14 @@ export class MyGroupMainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+            {
+                name: 'color',
+                srfkey: 'Story__color',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
@@ -804,6 +875,9 @@ export class MyGroupMainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('StoryToBug', tag)) {
+            this.grid_uagridcolumn1_u818e62a_click(row, tag, $event);
+        }
         if(Object.is('ChangeStoryDetail', tag)) {
             this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
         }
@@ -813,14 +887,14 @@ export class MyGroupMainGridBase extends GridControlBase {
         if(Object.is('CloseStory', tag)) {
             this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
         }
-        if(Object.is('OpenBaseInfoEditView', tag)) {
-            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
-        }
         if(Object.is('OpenCaseCreateView', tag)) {
             this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
         }
         if(Object.is('SubStory', tag)) {
             this.grid_uagridcolumn1_u1c090d0_click(row, tag, $event);
+        }
+        if(Object.is('Copy', tag)) {
+            this.grid_uagridcolumn1_u1980bfd_click(row, tag, $event);
         }
         if(Object.is('StoryFavorites', tag)) {
             this.grid_uagridcolumn1_ucfd61f1_click(row, tag, $event);
@@ -934,6 +1008,9 @@ export class MyGroupMainGridBase extends GridControlBase {
                 status:'',
                 stage:'',
                 modulename:'',
+                StoryToBug:{
+                    visible: false
+                },
                 ChangeStoryDetail:{
                     visible: false
                 },
@@ -943,13 +1020,13 @@ export class MyGroupMainGridBase extends GridControlBase {
                 CloseStory:{
                     visible: false
                 },
-                OpenBaseInfoEditView:{
-                    visible: false
-                },
                 OpenCaseCreateView:{
                     visible: false
                 },
                 SubStory:{
+                    visible: false
+                },
+                Copy:{
                     visible: false
                 },
                 StoryFavorites:{
@@ -993,6 +1070,9 @@ export class MyGroupMainGridBase extends GridControlBase {
             status:'',
             stage:'',
             modulename:'',
+            StoryToBug:{
+                visible: false
+            },
             ChangeStoryDetail:{
                 visible: false
             },
@@ -1002,13 +1082,13 @@ export class MyGroupMainGridBase extends GridControlBase {
             CloseStory:{
                 visible: false
             },
-            OpenBaseInfoEditView:{
-                visible: false
-            },
             OpenCaseCreateView:{
                 visible: false
             },
             SubStory:{
+                visible: false
+            },
+            Copy:{
                 visible: false
             },
             StoryFavorites:{
@@ -1088,6 +1168,9 @@ export class MyGroupMainGridBase extends GridControlBase {
                 status:'',
                 stage:'',
                 modulename:'',
+                StoryToBug:{
+                    visible: false
+                },
                 ChangeStoryDetail:{
                     visible: false
                 },
@@ -1097,13 +1180,13 @@ export class MyGroupMainGridBase extends GridControlBase {
                 CloseStory:{
                     visible: false
                 },
-                OpenBaseInfoEditView:{
-                    visible: false
-                },
                 OpenCaseCreateView:{
                     visible: false
                 },
                 SubStory:{
+                    visible: false
+                },
+                Copy:{
                     visible: false
                 },
                 StoryFavorites:{

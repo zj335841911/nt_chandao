@@ -144,7 +144,6 @@ export default class TypeTaskGroupModel {
           name: 'task',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

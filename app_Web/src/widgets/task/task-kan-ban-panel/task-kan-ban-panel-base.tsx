@@ -96,6 +96,34 @@ export class TaskKanBanPanelBase extends PanelControlBase {
         curUIService.Task_AssignTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public itemlayoutpanel_button2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_Forward(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
 
     /**
      * 详情模型集合
@@ -108,15 +136,19 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 ,
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
 ,
-        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visible: true,disabled: false} })
-,
-        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
-,
         deadline: new PanelFieldModel({ caption: '截止日期', itemType: 'FIELD',visible: true, disabled: false, name: 'deadline', panel: this })
 ,
-        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem2', panel: this })
+        delay: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: false, disabled: false, name: 'delay', panel: this })
 ,
         container4: new PanelContainerModel({ caption: '动态内容', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container4', panel: this })
+,
+        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: false, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visible: true,disabled: false} })
+,
+        container6: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container6', panel: this })
+,
+        button2: new PanelButtonModel({ caption: '转交', itemType: 'BUTTON',visible: false, disabled: false, name: 'button2', panel: this, uiaction: { type: 'DEUIACTION', tag: 'Forward',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_FORWARD_BUT',visible: true,disabled: false} })
+,
+        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
@@ -148,6 +180,12 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 ,
         color: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'color', panel: this })
 ,
+        isfavorites: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'isfavorites', panel: this })
+,
+        status1: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'status1', panel: this })
+,
+        tasktype: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'tasktype', panel: this })
+,
         container5: new PanelContainerModel({ caption: '隐藏项', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container5', panel: this })
 ,
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container1', panel: this })
@@ -166,16 +204,45 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 
 
 
-
-
-        if (Object.is(name, '') || Object.is(name, 'deadline')) {
+        if (Object.is(name, '') || Object.is(name, 'delay')) {
             let ret = false;
-            const _deadline = this.data.deadline;
-            if (this.$verify.testCond(_deadline, 'LT', '%SRFCURDATA%')) {
+            const _delay = this.data.delay;
+            if (this.$verify.testCond(_delay, 'ISNOTNULL', '')) {
                 ret = true;
             }
-            this.detailsModel.rawitem2.setVisible(ret);
+            this.detailsModel.delay.setVisible(ret);
         }
+
+
+        if (Object.is(name, '') || Object.is(name, 'tasktype')) {
+            let ret = false;
+            const _tasktype = this.data.tasktype;
+            if (this.$verify.testCond(_tasktype, 'NOTEQ', '10')) {
+                ret = true;
+            }
+            this.detailsModel.button1.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'tasktype')) {
+            let ret = false;
+            const _tasktype = this.data.tasktype;
+            if (this.$verify.testCond(_tasktype, 'NOTEQ', '10')) {
+                ret = true;
+            }
+            this.detailsModel.container6.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'tasktype')) {
+            let ret = false;
+            const _tasktype = this.data.tasktype;
+            if (this.$verify.testCond(_tasktype, 'EQ', '10')) {
+                ret = true;
+            }
+            this.detailsModel.button2.setVisible(ret);
+        }
+
+
+
 
 
 
@@ -206,6 +273,14 @@ export class TaskKanBanPanelBase extends PanelControlBase {
     public dataModel: TaskKanBanModel = new TaskKanBanModel();
 
     /**
+     * 界面行为标识数组
+     *
+     * @type {Array<any>}
+     * @memberof TaskKanBan
+     */
+    public actionList:Array<any> = ['AssignTask','Forward'];
+
+    /**
      * 界面行为
      *
      * @param {*} row
@@ -216,6 +291,9 @@ export class TaskKanBanPanelBase extends PanelControlBase {
     public uiAction(row: any, tag: any, $event: any) {
         if(Object.is('AssignTask', tag)) {
             this.itemlayoutpanel_button1_click(row, tag, $event);
+        }
+        if(Object.is('Forward', tag)) {
+            this.itemlayoutpanel_button2_click(row, tag, $event);
         }
     }
 }

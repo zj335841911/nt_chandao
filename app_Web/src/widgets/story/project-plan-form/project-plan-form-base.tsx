@@ -237,4 +237,15 @@ export class ProjectPlanEditFormBase extends EditFormControlBase {
             this.data['id'] = 0;
         }
     }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof ProjectPlanBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
 }

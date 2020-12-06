@@ -216,6 +216,20 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchMobType接口方法
      *
      * @param {*} [context={}]
@@ -228,6 +242,20 @@ export default class ActionServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchmobtype`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMobType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async searchMobType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/searchmobtype`,tempData,isloading);
     }
 
     /**
@@ -246,6 +274,20 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
+     * searchMyTrends接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async searchMyTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/searchmytrends`,tempData,isloading);
+    }
+
+    /**
      * FetchProductTrends接口方法
      *
      * @param {*} [context={}]
@@ -258,6 +300,20 @@ export default class ActionServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchproducttrends`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProductTrends接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async searchProductTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/searchproducttrends`,tempData,isloading);
     }
 
     /**
@@ -276,6 +332,20 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
+     * searchProjectTrends接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async searchProjectTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/searchprojecttrends`,tempData,isloading);
+    }
+
+    /**
      * FetchQueryUserYEAR接口方法
      *
      * @param {*} [context={}]
@@ -291,6 +361,20 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
+     * searchQueryUserYEAR接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async searchQueryUserYEAR(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/searchqueryuseryear`,tempData,isloading);
+    }
+
+    /**
      * FetchType接口方法
      *
      * @param {*} [context={}]
@@ -303,5 +387,19 @@ export default class ActionServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchtype`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async searchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/searchtype`,tempData,isloading);
     }
 }

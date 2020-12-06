@@ -146,5 +146,7 @@ export const AppComponents = {
         v.component('app-mob-map',() => import('@/components/app-mob-map/app-mob-map.vue'));
         // 树已选择列表
         v.component('app-select-tree-list',() => import('@/components/app-select-tree-list/app-select-tree-list.vue'));
+        // 上下文菜单
+        v.component('app-mob-context-menu',() => import('@/components/app-mob-context-menu/app-mob-context-menu.vue'));
     },
 };

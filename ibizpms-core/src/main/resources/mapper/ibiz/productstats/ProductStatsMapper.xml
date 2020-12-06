@@ -11,8 +11,8 @@
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="ProductStatsResultMap" type="cn.ibizlab.pms.core.ibiz.domain.ProductStats" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
-            
-		
+
+
     </resultMap>
 
 
@@ -25,7 +25,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by order1  desc , id   desc
+		 order by `order1`  desc , `id`   desc
      </select>
 
     <!--数据集合[NoOpenProduct]-->
@@ -37,7 +37,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by order1  desc , id   desc
+		 order by `order1`  desc , `id`   desc
      </select>
 
     <!--数据查询[Default]-->

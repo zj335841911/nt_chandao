@@ -268,6 +268,26 @@ export default class IbzLibCasestepsServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibCasestepsServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.ibzlib && context.ibzcase && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/searchdefault`,tempData,isloading);
+        }
+        if(context.ibzcase && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/searchdefault`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchTempDefault接口方法
      *
      * @param {*} [context={}]

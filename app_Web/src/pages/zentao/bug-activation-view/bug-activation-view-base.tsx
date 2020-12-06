@@ -48,7 +48,7 @@ export class BugActivationViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugActivationViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class BugActivationViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugActivationViewBase
      */ 
-    protected viewName: string = "BugActivationView";
+    protected viewName: string = 'BugActivationView';
 
 
     /**

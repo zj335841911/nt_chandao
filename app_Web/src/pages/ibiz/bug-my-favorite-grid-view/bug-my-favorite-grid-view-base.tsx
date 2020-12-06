@@ -51,7 +51,7 @@ export class BugMyFavoriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugMyFavoriteGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -138,7 +138,7 @@ export class BugMyFavoriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugMyFavoriteGridViewBase
      */ 
-    protected viewName: string = "BugMyFavoriteGridView";
+    protected viewName: string = 'BugMyFavoriteGridView';
 
 
     /**

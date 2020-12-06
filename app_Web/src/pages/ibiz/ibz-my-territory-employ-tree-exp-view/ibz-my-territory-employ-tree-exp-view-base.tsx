@@ -109,7 +109,7 @@ export class IbzMyTerritoryEmployTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryEmployTreeExpViewBase
      */ 
-    protected viewName: string = "IbzMyTerritoryEmployTreeExpView";
+    protected viewName: string = 'IbzMyTerritoryEmployTreeExpView';
 
 
     /**

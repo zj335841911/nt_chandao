@@ -51,7 +51,7 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ModuleLineGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ModuleLineGridViewBase
      */ 
-    protected viewName: string = "ModuleLineGridView";
+    protected viewName: string = 'ModuleLineGridView';
 
 
     /**

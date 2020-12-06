@@ -275,6 +275,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取数据查询
+#### 访问路径
+/projectteams/fetchtaskcntestimateconsumedleft
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象列表 |
+
+### 查询数据查询
+#### 访问路径
+/projectteams/searchtaskcntestimateconsumedleft
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取成员角色
 #### 访问路径
 /projects/{project_id}/projectteams/{projectteam_id}/getuserrole
@@ -562,6 +598,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取数据查询
+#### 访问路径
+/projects/{project_id}/projectteams/fetchtaskcntestimateconsumedleft
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象列表 |
+
+### 根据查询数据查询
+#### 访问路径
+/projects/{project_id}/projectteams/searchtaskcntestimateconsumedleft
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### ProjectTeamDTO
@@ -582,7 +656,8 @@ POST
 | 13 | total | Integer | 允许 | 总计可用 |
 | 14 | root | Long | 允许 | 项目编号 |
 | 15 | username | String | 允许 | 用户 |
-| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 16 | taskcnt | Integer | 允许 | 任务数 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectTeamSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

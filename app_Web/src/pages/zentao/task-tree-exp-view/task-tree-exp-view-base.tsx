@@ -109,7 +109,7 @@ export class TaskTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof TaskTreeExpViewBase
      */ 
-    protected viewName: string = "TaskTreeExpView";
+    protected viewName: string = 'TaskTreeExpView';
 
 
     /**

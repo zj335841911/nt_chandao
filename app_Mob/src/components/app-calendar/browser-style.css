@@ -11,7 +11,7 @@
     font-size: 15px;
     line-height: 40px;
     color: #5e7a88;
-    border-bottom: .3px solid #efefef;
+    border-bottom: 0.3px solid #efefef;
 }
 .calendar-tools span {
     cursor: pointer;
@@ -49,7 +49,7 @@
     height: 480px;
 }
 .month-transition {
-    transition: top 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: top .5s cubic-bezier(.075, .82, .165, 1);
 }
 .calendar-info .mc-month-text {
     display: block;
@@ -279,7 +279,7 @@
     position: relative;
 }
 .calendar-years:after {
-    content: "";
+    content: '';
     display: block;
     width: 86%;
     height: 1px;
@@ -290,7 +290,7 @@
 }
 /*range background*/
 .mc-range-mode .selected .mc-range-bg {
-    content: "";
+    content: '';
     display: block;
     width: 150%;
     height: 100%;
@@ -360,10 +360,10 @@
     left: 0;
 }
 .calendar-wrapper
-  .mpvue-calendar
-  .mc-range-mode
-  .mc-range-select-one
-  div.mc-range-bg {
+    .mpvue-calendar
+    .mc-range-mode
+    .mc-range-select-one
+    div.mc-range-bg {
     display: none;
 }
 .mc-range-mode .mc-range-second-to-last .mc-range-bg {
@@ -375,9 +375,9 @@
 }
 /*week switch*/
 .mpvue-calendar
-  .mc-range-mode.week-switch
-  .month-last-date.mc-range-begin
-  .mc-range-bg {
+    .mc-range-mode.week-switch
+    .month-last-date.mc-range-begin
+    .mc-range-bg {
     width: 150%;
     border-radius: 0 20% 20% 0;
 }

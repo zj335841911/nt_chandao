@@ -56,7 +56,7 @@ export class ProjectPortalViewBase extends PortalViewBase {
      * @type {string}
      * @memberof ProjectPortalViewBase
      */ 
-    protected viewName: string = "ProjectPortalView";
+    protected viewName: string = 'ProjectPortalView';
 
 
 

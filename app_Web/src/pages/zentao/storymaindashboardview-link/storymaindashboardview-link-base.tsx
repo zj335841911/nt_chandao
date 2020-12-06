@@ -127,7 +127,7 @@ export class Storymaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Storymaindashboardview_linkBase
      */ 
-    protected viewName: string = "Storymaindashboardview_link";
+    protected viewName: string = 'Storymaindashboardview_link';
 
 
     /**

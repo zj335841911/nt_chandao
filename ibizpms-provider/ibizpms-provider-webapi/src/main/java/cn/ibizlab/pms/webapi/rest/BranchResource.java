@@ -170,8 +170,8 @@ public class BranchResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/branches/fetchdefault")
-	public ResponseEntity<List<BranchDTO>> fetchDefault(BranchSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/branches/fetchdefault")
+	public ResponseEntity<List<BranchDTO>> fetchDefault(@RequestBody BranchSearchContext context) {
         Page<Branch> domains = branchService.searchDefault(context) ;
         List<BranchDTO> list = branchMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -333,8 +333,8 @@ public class BranchResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchdefault")
-	public ResponseEntity<List<BranchDTO>> fetchBranchDefaultByProduct(@PathVariable("product_id") Long product_id,BranchSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/branches/fetchdefault")
+	public ResponseEntity<List<BranchDTO>> fetchBranchDefaultByProduct(@PathVariable("product_id") Long product_id,@RequestBody BranchSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Branch> domains = branchService.searchDefault(context) ;
         List<BranchDTO> list = branchMapping.toDto(domains.getContent());

@@ -109,6 +109,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         reviewedby: null,
         neednotreview: null,
         title: null,
+        color: null,
         spec: null,
         verify: null,
         comment: null,
@@ -280,6 +281,13 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         spec: new FormItemModel({
     caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -374,6 +382,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, 'version')) {
             const details: string[] = ['verify', 'spec'];
             this.updateFormItems('GetStorySpec', this.data, details, true);
@@ -391,5 +400,16 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('neednotreview') && !this.data.neednotreview) {
             this.data['neednotreview'] = '1';
         }
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof StorySpec_EditModeBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

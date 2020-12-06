@@ -233,6 +233,120 @@ mock.onPost(new RegExp(/^\/doclibmodules\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/))
     return [status, data];
 });
         
+// Collect
+mock.onPost(new RegExp(/^\/doclibmodules\/?([a-zA-Z0-9\-\;]{0,35})\/collect$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: Collect");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/doclibmodules\/([a-zA-Z0-9\-\;]{1,35})\/collect$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
+// DocLibModuleNFavorite
+mock.onPost(new RegExp(/^\/doclibmodules\/?([a-zA-Z0-9\-\;]{0,35})\/doclibmodulenfavorite$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: DocLibModuleNFavorite");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/doclibmodules\/([a-zA-Z0-9\-\;]{1,35})\/doclibmodulenfavorite$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
+// DoclibModuleFavorite
+mock.onPost(new RegExp(/^\/doclibmodules\/?([a-zA-Z0-9\-\;]{0,35})\/doclibmodulefavorite$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: DoclibModuleFavorite");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/doclibmodules\/([a-zA-Z0-9\-\;]{1,35})\/doclibmodulefavorite$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
 // Fix
 mock.onPost(new RegExp(/^\/doclibmodules\/?([a-zA-Z0-9\-\;]{0,35})\/fix$/)).reply((config: any) => {
     console.groupCollapsed("实体:doclibmodule 方法: Fix");
@@ -281,6 +395,44 @@ mock.onPost(new RegExp(/^\/doclibmodules\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).rep
     }    
     const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/doclibmodules\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
+// UnCollect
+mock.onPost(new RegExp(/^\/doclibmodules\/?([a-zA-Z0-9\-\;]{0,35})\/uncollect$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: UnCollect");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/doclibmodules\/([a-zA-Z0-9\-\;]{1,35})\/uncollect$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -397,6 +549,94 @@ mock.onGet(new RegExp(/^\/doclibmodules\/fetchalldoclibmodule(\?[\w-./?%&=,]*)*$
     return [status, records ?  records : []];
 });
     
+// FetchChildModuleByParent
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchchildmodulebyparent$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchChildModuleByParent");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchChildModuleByParent
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchchildmodulebyparent(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchChildModuleByParent");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchChildModuleByRealParent
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchchildmodulebyrealparent$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchChildModuleByRealParent");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchChildModuleByRealParent
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchchildmodulebyrealparent(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchChildModuleByRealParent");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/doclibmodules\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:doclibmodule 方法: FetchDefault");
@@ -415,6 +655,50 @@ mock.onGet(new RegExp(/^\/doclibmodules\/fetchdefault$/)).reply((config: any) =>
 // FetchDefault
 mock.onGet(new RegExp(/^\/doclibmodules\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:doclibmodule 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchMyFavourites
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchmyfavourites$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchMyFavourites");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchMyFavourites
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchmyfavourites(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchMyFavourites");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
@@ -547,6 +831,50 @@ mock.onGet(new RegExp(/^\/doclibmodules\/fetchrootmodulemulubyroot$/)).reply((co
 // FetchRootModuleMuLuByRoot
 mock.onGet(new RegExp(/^\/doclibmodules\/fetchrootmodulemulubyroot(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:doclibmodule 方法: FetchRootModuleMuLuByRoot");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchRootModuleMuLuBysrfparentkey
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchrootmodulemulubysrfparentkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchRootModuleMuLuBysrfparentkey");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchRootModuleMuLuBysrfparentkey
+mock.onGet(new RegExp(/^\/doclibmodules\/fetchrootmodulemulubysrfparentkey(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclibmodule 方法: FetchRootModuleMuLuBysrfparentkey");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

@@ -455,34 +455,36 @@
 
 
 <app-form-item 
-    name='mailto' 
+    name='mailtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailto_item"  
-    :itemValue="this.data.mailto" 
-    v-show="detailsModel.mailto.visible" 
-    :itemRules="this.rules.mailto" 
-    :caption="$t('task.mobmainedit_form.details.mailto')"  
+    ref="mailtopk_item"  
+    :itemValue="this.data.mailtopk" 
+    v-show="detailsModel.mailtopk.visible" 
+    :itemRules="this.rules.mailtopk" 
+    :caption="$t('task.mobmainedit_form.details.mailtopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailto.disabled"
-    :error="detailsModel.mailto.error" 
+    :disabled="detailsModel.mailtopk.disabled"
+    :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
-    tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+        <app-mob-mpicker 
     :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailto"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    :disabled="detailsModel.mailtopk.disabled"
+    :value="data.mailtopk"
+    name="mailtopk"
+    :context="context"
+    :viewparams="viewparams"
+    :service="service"
+    deMajorField='personname'
+    deKeyField='sysemployee'
+    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange" 
+    style=""/>
+
 </app-form-item>
 
 
@@ -1014,8 +1016,8 @@
     :disabled="detailsModel.files.disabled" 
     :context="context" 
     :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
+    :uploadParam='{objecttype:"task",objectid:"0",version:"1"}' 
+    :exportParam='{objecttype:"task",objectid:"0",version:"1"}' 
     @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
@@ -1094,8 +1096,7 @@ import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobMainEditBase extends Vue implements ControlInterface {
 
@@ -1216,7 +1217,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 工作流审批意见控件绑定值
@@ -1419,6 +1420,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         status: null,
         pri: null,
         mailto: null,
+        mailtopk: null,
         eststarted: null,
         deadline: null,
         estimate: null,
@@ -1697,6 +1699,8 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         eststarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'eststarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -2049,6 +2053,18 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 mailtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.mailtopk')
+    onMailtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 eststarted 值
      *
      * @param {*} newVal
@@ -2355,6 +2371,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
             }
             this.detailsModel.parentname.setVisible(ret);
         }
+
 
 
 

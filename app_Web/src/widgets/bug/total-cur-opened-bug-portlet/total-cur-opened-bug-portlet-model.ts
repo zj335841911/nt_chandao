@@ -240,6 +240,9 @@ export default class TotalCurOpenedBugModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

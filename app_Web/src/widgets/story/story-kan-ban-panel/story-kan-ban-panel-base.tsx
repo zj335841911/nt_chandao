@@ -128,6 +128,10 @@ export class StoryKanBanPanelBase extends PanelControlBase {
 ,
         story: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'story', panel: this })
 ,
+        isfavorites: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'isfavorites', panel: this })
+,
+        ischild: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'ischild', panel: this })
+,
         container3: new PanelContainerModel({ caption: '隐藏项', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
 ,
     };
@@ -154,6 +158,8 @@ export class StoryKanBanPanelBase extends PanelControlBase {
 
 
 
+
+
     }
 
     /**
@@ -163,6 +169,14 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      * @memberof StoryKanBan
      */
     public dataModel: StoryKanBanModel = new StoryKanBanModel();
+
+    /**
+     * 界面行为标识数组
+     *
+     * @type {Array<any>}
+     * @memberof StoryKanBan
+     */
+    public actionList:Array<any> = ['ProjectUnlinkStory'];
 
     /**
      * 界面行为

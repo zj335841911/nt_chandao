@@ -198,6 +198,34 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * OnlyCollectDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyCollectDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/docs/${context.doc}/onlycollectdoc`,data,isloading);
+            return res;
+    }
+
+    /**
+     * OnlyUnCollectDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyUnCollectDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/docs/${context.doc}/onlyuncollectdoc`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -239,8 +267,22 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchChildDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchchilddoclibdoc`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchchilddoclibdoc`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchChildDocLibDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchChildDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchchilddoclibdoc`,tempData,isloading);
     }
 
     /**
@@ -254,8 +296,51 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdefault`,tempData,isloading);
+    }
+
+    /**
+     * FetchDocLibAndDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchDocLibAndDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchdoclibanddoc`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchDocLibAndDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDocLibAndDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdoclibanddoc`,tempData,isloading);
     }
 
     /**
@@ -269,8 +354,22 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdoclibdoc`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchdoclibdoc`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDocLibDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdoclibdoc`,tempData,isloading);
     }
 
     /**
@@ -284,8 +383,22 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocModuleDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdocmoduledoc`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchdocmoduledoc`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDocModuleDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDocModuleDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdocmoduledoc`,tempData,isloading);
     }
 
     /**
@@ -304,6 +417,49 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * searchDocStatus接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDocStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdocstatus`,tempData,isloading);
+    }
+
+    /**
+     * FetchModuleDocChild接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchModuleDocChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchmoduledocchild`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchModuleDocChild接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchModuleDocChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchmoduledocchild`,tempData,isloading);
+    }
+
+    /**
      * FetchMyFavourite接口方法
      *
      * @param {*} [context={}]
@@ -314,7 +470,108 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchMyFavourite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchmyfavourite`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchmyfavourite`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMyFavourite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchMyFavourite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchmyfavourite`,tempData,isloading);
+    }
+
+    /**
+     * FetchMyFavouritesOnlyDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchMyFavouritesOnlyDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchmyfavouritesonlydoc`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMyFavouritesOnlyDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchMyFavouritesOnlyDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchmyfavouritesonlydoc`,tempData,isloading);
+    }
+
+    /**
+     * FetchNotRootDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchNotRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchnotrootdoc`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchNotRootDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchNotRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchnotrootdoc`,tempData,isloading);
+    }
+
+    /**
+     * FetchRootDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchrootdoc`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchRootDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchrootdoc`,tempData,isloading);
     }
 }

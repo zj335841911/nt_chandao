@@ -48,7 +48,7 @@ export class TaskOpenTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskOpenTaskViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class TaskOpenTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskOpenTaskViewBase
      */ 
-    protected viewName: string = "TaskOpenTaskView";
+    protected viewName: string = 'TaskOpenTaskView';
 
 
     /**

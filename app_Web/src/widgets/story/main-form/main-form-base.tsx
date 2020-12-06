@@ -103,6 +103,7 @@ export class MainEditFormBase extends EditFormControlBase {
         status: null,
         stage: null,
         pri: null,
+        storypoints: null,
         estimate: null,
         keywords: null,
         mailto: null,
@@ -299,6 +300,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        storypoints: new FormItemModel({
+    caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         estimate: new FormItemModel({
     caption: '预计工时', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -472,6 +480,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'openeddate')) {
             let ret = false;
             const _openeddate = this.data.openeddate;
@@ -508,5 +517,16 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

@@ -43,7 +43,7 @@ export default {
 			caption: '待办',
 		},
 		mobmdview: {
-			caption: '待办',
+			caption: '我的待办',
 		},
 		mobeditview: {
 			caption: '待办',

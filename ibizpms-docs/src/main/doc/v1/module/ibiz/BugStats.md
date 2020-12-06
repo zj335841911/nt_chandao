@@ -13,6 +13,7 @@ Bug统计
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
 | 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 2 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性
@@ -36,6 +37,13 @@ Bug统计
 | 16 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
 | 17 | [Bug](#属性-Bug（BUGCNT）) | BUGCNT | 整型 | 否 | 是 | 是 |
 | 18 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | 单项选择(文本值) | 否 | 是 | 是 |
+| 19 | [由谁解决](#属性-由谁解决（RESOLVEDBY）) | RESOLVEDBY | 单项选择(文本值) | 否 | 是 | 是 |
+| 20 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
+| 21 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 22 | [激活Bug](#属性-激活Bug（BUGACTIVE）) | BUGACTIVE | 整型 | 否 | 是 | 是 |
+| 23 | [已解决Bug](#属性-已解决Bug（BUGRESOLVED）) | BUGRESOLVED | 整型 | 否 | 是 | 是 |
+| 24 | [已关闭Bug](#属性-已关闭Bug（BUGCLOSED）) | BUGCLOSED | 整型 | 否 | 是 | 是 |
+| 25 | [项目名称](#属性-项目名称（PROJECTNAME1）) | PROJECTNAME1 | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -74,8 +82,8 @@ Long
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-名称（TITLE）
@@ -117,8 +125,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-由谁创建（OPENEDBY）
@@ -160,8 +168,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-未解决（BUGWJJ）
@@ -203,8 +211,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-设计如此（BUGBYDESIGN）
@@ -246,8 +254,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-重复Bug（BUGDUPLICATE）
@@ -289,8 +297,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-外部原因（BUGEXTERNAL）
@@ -332,8 +340,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-已解决（BUGFIXED）
@@ -375,8 +383,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-无法重现（BUGNOTREPRO）
@@ -418,8 +426,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-延期处理（BUGPOSTPONED）
@@ -461,8 +469,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-不予解决（BUGWILLNOTFIX）
@@ -506,8 +514,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-转为需求（BUGTOSTORY）
@@ -549,8 +557,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-有效率（BUGEFFICIENT）
@@ -592,8 +600,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总计（BUGTOTAL）
@@ -635,8 +643,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（PRODUCT）
@@ -809,6 +817,297 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-由谁解决（RESOLVEDBY）
+#### 属性说明
+由谁解决
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-项目编号（PROJECT）
+#### 属性说明
+项目编号
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+外键值
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-项目名称（PROJECTNAME）
+#### 属性说明
+项目名称
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-激活Bug（BUGACTIVE）
+#### 属性说明
+激活Bug
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-已解决Bug（BUGRESOLVED）
+#### 属性说明
+已解决Bug
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-已关闭Bug（BUGCLOSED）
+#### 属性说明
+已关闭Bug
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-项目名称（PROJECTNAME1）
+#### 属性说明
+项目名称
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -926,15 +1225,121 @@ Save
 | 3 | [不予解决（BUGWILLNOTFIX）](#属性-不予解决（BUGWILLNOTFIX）) | `<=` |
 | 4 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
 | 5 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
+| 6 | [由谁解决（RESOLVEDBY）](#属性-由谁解决（RESOLVEDBY）) | `=` |
+| 7 | [项目编号（PROJECT）](#属性-项目编号（PROJECT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 2 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
-| 3 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [Bug在每个解决方案的Bug数](#数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）) | BugCountInResolution | 否 |
+| 2 | [Bug完成表](#数据查询-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
+| 3 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 4 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
+| 5 | [产品Bug解决方案汇总](#数据查询-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
+| 6 | [产品Bug状态汇总](#数据查询-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
+| 7 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 8 | [项目bug状态统计](#数据查询-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
+| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）
+#### 说明
+Bug在每个解决方案的Bug数
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.project,
+t1.projectname,
+sum(if(t1.resolution='tostory',t1.ss,0)) as bugtostory,
+sum(if(t1.resolution='bydesign',t1.ss,0)) as bugbydesign,
+sum(if(t1.resolution='duplicate',t1.ss,0)) as bugduplicate,
+sum(if(t1.resolution='fixed',t1.ss,0)) as bugfixed,
+sum(if(t1.resolution='external',t1.ss,0)) as bugexternal,
+sum(if(t1.resolution='willnotfix',t1.ss,0)) as bugwillnotfix,
+sum(if(t1.resolution='notrepro',t1.ss,0)) as bugnotrepro,
+sum(if(t1.resolution='postponed',t1.ss,0)) as bugpostponed,
+count(1) as bugcnt
+from
+(
+SELECT
+t1.resolution,
+t1.project,
+t11.name as projectname,
+1 as ss
+from
+zt_bug t1
+left join zt_project t11 on t1.project = t11.id
+where t1.deleted='0' and t1.project <>0 and t1.resolution <> ''
+)t1
+GROUP BY
+t1.project,
+t1.projectname
+
+```
+### 数据查询-Bug完成表（BugResolvedBy）
+#### 说明
+Bug完成表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.resolvedBy,
+	t1.product,
+	t1.productname,
+	t1.bugcnt,
+	t11.bugcnt AS bugtotal 
+FROM
+	(
+	SELECT
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` AS productname,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` 
+	) t1
+	INNER JOIN (
+	SELECT
+		t1.resolvedBy,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy 
+	) t11 ON t1.resolvedBy = t11.resolvedBy 
+ORDER BY
+	t1.resolvedBy ASC
+```
 ### 数据查询-Bug指派表（BugassignedTo）
 #### 说明
 Bug指派表
@@ -1042,6 +1447,120 @@ WHERE
 GROUP BY
 	t1.openedBy
 ```
+### 数据查询-产品Bug解决方案汇总（ProductBugResolutionStats）
+#### 说明
+产品Bug解决方案汇总
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.id AS Product, 
+	t1.`name` AS ProductName, 
+	ifnull(t2.Bugwjj, 0) AS Bugwjj, 
+	ifnull(t2.Bugbydesign, 0) AS Bugbydesign, 
+	ifnull(t2.Bugduplicate, 0) AS Bugduplicate, 
+	ifnull(t2.Bugfixed, 0) AS Bugfixed, 
+	ifnull(t2.Bugexternal, 0) AS Bugexternal, 
+	ifnull(t2.Bugnotrepro, 0) AS Bugnotrepro, 
+	ifnull(t2.Bugpostponed, 0) AS Bugpostponed, 
+	ifnull(t2.Bugwillnotfix, 0) AS Bugwillnotfix, 
+	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient, 
+	ifnull(t2.Bugtostory, 0) AS Bugtostory, 
+	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
+	from zt_product t1 left join (SELECT
+	t1.product, 
+	t1.project,
+	sum( IF ( t1.resolution = '', t1.v1, 0 ) ) AS Bugwjj,
+	sum( IF ( t1.resolution = 'bydesign', t1.v1, 0 ) ) AS Bugbydesign,
+	SUM( IF ( t1.resolution = 'duplicate', t1.v1, 0 ) ) AS Bugduplicate,
+	SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) AS Bugfixed,
+	SUM( IF ( t1.resolution = 'external', t1.v1, 0 ) ) AS Bugexternal,
+	sum( IF ( t1.resolution = 'notrepro', t1.v1, 0 ) ) AS Bugnotrepro,
+	SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ) AS Bugpostponed,
+	SUM( IF ( t1.resolution = 'willnotfix', t1.v1, 0 ) ) AS Bugwillnotfix,
+	CONCAT( ROUND( case when (SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) )) = 0 then 0 else (SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ))/ (sum( IF ( t1.resolution = 'bydesign', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'duplicate', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'external', t1.v1, 0 ) ) + sum( IF ( t1.resolution = 'notrepro', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'willnotfix', t1.v1, 0 ) )) * 100 end,2), '%') as BugEfficient,
+	SUM( IF ( t1.resolution = 'tostory', t1.v1, 0 ) ) AS Bugtostory,
+	SUM( t1.v1 ) AS BUGTOTAL 
+FROM
+	(
+SELECT
+	t1.`OPENEDBY`,
+	t1.`OPENEDDATE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`RESOLUTION`,
+	1 AS `V1` 
+FROM
+	`zt_bug` t1
+WHERE
+	t1.deleted = '0'
+	) t1 
+WHERE
+	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL ) 
+	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null ) 
+GROUP BY
+	t1.product) t2 on t1.id = t2.product
+	where t1.deleted = '0'
+	AND ( t2.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
+	AND ( t2.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL )
+```
+### 数据查询-产品Bug状态汇总（ProductBugStatusSum）
+#### 说明
+产品Bug状态汇总
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.id AS Product, 
+	t1.`name` AS ProductName, 
+	ifnull(t2.ActiveBug, 0) AS BugActive, 
+	ifnull(t2.ResolvedBug, 0) AS BugResolved, 
+	ifnull(t2.ClosedBug, 0) AS BugClosed, 
+	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient, 
+	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
+	from zt_product t1 left join (SELECT
+	t1.product, 
+	t1.project, 
+	sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) AS ActiveBug,
+	sum( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) AS ResolvedBug,
+	SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) AS ClosedBug,
+	CONCAT( ROUND( case when (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) )) = 0 then 0 else (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ))/ (sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) )) * 100 end,2), '%') as BugEfficient,
+	SUM( t1.v1 ) AS BUGTOTAL 
+FROM
+	(
+SELECT
+	t1.`OPENEDBY`,
+	t1.`OPENEDDATE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`STATUS`,
+	1 AS `V1` 
+FROM
+	`zt_bug` t1
+WHERE
+	t1.deleted = '0'
+	) t1 
+WHERE
+	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL ) 
+	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null ) 
+GROUP BY
+	t1.product) t2 on t1.id = t2.product
+	where t1.deleted = '0'
+		AND ( t2.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
+	AND ( t2.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL )
+```
 ### 数据查询-产品创建bug占比（ProductCreateBug）
 #### 说明
 产品创建bug占比
@@ -1064,6 +1583,43 @@ LEFT JOIN ( select t1.productid,t1.productname,count(1) as productallbug from (
 SELECT t1.id ,t1.openedBy,t2.id as productid,t1.product,t2.`name` as productname from zt_bug t1
 LEFT JOIN zt_product t2 on t2.id = t1.product
 ) t1 GROUP BY t1.productid ) t2 on t2.productid = t1.productid HAVING t1.openedBy = #{srf.sessioncontext.srfloginname}
+```
+### 数据查询-项目bug状态统计（ProjectBugStatusCount）
+#### 说明
+项目bug状态统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.project,
+	t1.projectname,
+		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
+		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
+		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,
+	count(1) as bugcnt
+FROM
+	(
+	SELECT
+		t1.`status`,
+		t1.project,
+		t11.`name` AS projectname,
+		1 AS ss,
+		t11.deleted
+	FROM
+		zt_bug t1
+		LEFT JOIN zt_project t11 ON t1.project = t11.id 
+		where t1.deleted = '0' and t1.project <> 0
+	) t1 
+GROUP BY
+	t1.project,
+	t1.projectname
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1096,6 +1652,9 @@ t1.`ID`,
 t1.`OPENEDBY`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t2.`PROJECTNAME`,
+t1.`RESOLVEDBY`,
 t1.`TITLE`
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
@@ -1105,10 +1664,43 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 2 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 3 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 1 | [Bug在每个解决方案的Bug数](#数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）) | BugCountInResolution | 否 |
+| 2 | [Bug完成表](#数据集合-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
+| 3 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 4 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 5 | [产品Bug解决方案汇总](#数据集合-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
+| 6 | [产品Bug状态汇总](#数据集合-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
+| 7 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 8 | [项目bug状态统计](#数据集合-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
 
+### 数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）
+#### 说明
+Bug在每个解决方案的Bug数
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [Bug在每个解决方案的Bug数（BugCountInResolution）](#数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）) |
+### 数据集合-Bug完成表（BugResolvedBy）
+#### 说明
+Bug完成表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [Bug完成表（BugResolvedBy）](#数据查询-Bug完成表（BugResolvedBy）) |
 ### 数据集合-Bug指派表（BugassignedTo）
 #### 说明
 Bug指派表
@@ -1137,6 +1729,34 @@ Bug指派表
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [Bug创建表（Default）](#数据查询-Bug创建表（Default）) |
+### 数据集合-产品Bug解决方案汇总（ProductBugResolutionStats）
+#### 说明
+产品Bug解决方案汇总
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品Bug解决方案汇总（ProductBugResolutionStats）](#数据查询-产品Bug解决方案汇总（ProductBugResolutionStats）) |
+### 数据集合-产品Bug状态汇总（ProductBugStatusSum）
+#### 说明
+产品Bug状态汇总
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品Bug状态汇总（ProductBugStatusSum）](#数据查询-产品Bug状态汇总（ProductBugStatusSum）) |
 ### 数据集合-产品创建bug占比（ProductCreateBug）
 #### 说明
 产品创建bug占比
@@ -1151,6 +1771,20 @@ Bug指派表
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品创建bug占比（ProductCreateBug）](#数据查询-产品创建bug占比（ProductCreateBug）) |
+### 数据集合-项目bug状态统计（ProjectBugStatusCount）
+#### 说明
+项目bug状态统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目bug状态统计（ProjectBugStatusCount）](#数据查询-项目bug状态统计（ProjectBugStatusCount）) |
 
 ## 数据导入
 无

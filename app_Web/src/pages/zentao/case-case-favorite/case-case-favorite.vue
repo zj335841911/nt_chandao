@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseCaseFavoriteBase } from './case-case-favorite-base';
 import view_grid from '@widgets/case/main-grid-grid/main-grid-grid.vue';
-import view_searchform from '@widgets/case/default-searchform/default-searchform.vue';
+import view_searchbar from '@widgets/case/custom-searchbar/custom-searchbar.vue';
 
 /**
  * case我得收藏视图
@@ -16,7 +16,7 @@ import view_searchform from '@widgets/case/default-searchform/default-searchform
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()

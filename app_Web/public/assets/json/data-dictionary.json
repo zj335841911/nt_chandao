@@ -1,5 +1,144 @@
  [
         {
+        "srfkey": "StoryPoints",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "0",
+                "text": "0",
+                "class":"",
+                "data":"",
+                "codename":"Item_0",
+                "value": "0",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "0.5",
+                "label": "1/2",
+                "text": "1/2",
+                "class":"",
+                "data":"",
+                "codename":"Item_05",
+                "value": "0.5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "5",
+                "label": "5",
+                "text": "5",
+                "class":"",
+                "data":"",
+                "codename":"Item_5",
+                "value": "5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "8",
+                "label": "8",
+                "text": "8",
+                "class":"",
+                "data":"",
+                "codename":"Item_8",
+                "value": "8",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "13",
+                "label": "13",
+                "text": "13",
+                "class":"",
+                "data":"",
+                "codename":"Item_13",
+                "value": "13",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "20",
+                "label": "20",
+                "text": "20",
+                "class":"",
+                "data":"",
+                "codename":"Item_20",
+                "value": "20",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "40",
+                "label": "40",
+                "text": "40",
+                "class":"",
+                "data":"",
+                "codename":"Item_40",
+                "value": "40",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "100",
+                "label": "100",
+                "text": "100",
+                "class":"",
+                "data":"",
+                "codename":"Item_100",
+                "value": "100",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "BugCreateResolve",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -17,6 +156,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "AllCase",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Case",
+        "appdedataset":"FetchDefault",
+        "items": []
     }, 
     {
         "srfkey": "SYS_UPDATE_BRANCH",
@@ -505,6 +652,14 @@
         "items": []
     }, 
     {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
+    }, 
+    {
         "srfkey": "ProjectCodeList",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -861,6 +1016,14 @@
         ]
     }, 
     {
+        "srfkey": "TaskTeamUserTemp",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchProjectTeamTaskUserTemp",
+        "items": []
+    }, 
+    {
         "srfkey": "Beginend_disable",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -894,6 +1057,38 @@
         "appdataentity":"SysEmployee",
         "appdedataset":"FetchDefault",
         "items": []
+    }, 
+    {
+        "srfkey": "ReportStatus",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "未读",
+                "text": "未读",
+                "class":"",
+                "data":"",
+                "codename":"Item_0",
+                "color": "rgba(244, 15, 15, 1)",
+                "value": "0",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "1",
+                "label": "已读",
+                "text": "已读",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
     }, 
     {
         "srfkey": "Bug__os",
@@ -1255,11 +1450,12 @@
         "items": [
              {
                 "id": "1",
-                "label": "1",
-                "text": "1",
+                "label": "致命",
+                "text": "致命",
                 "class":"",
                 "data":"",
                 "codename":"Item_1",
+                "color": "rgba(241, 11, 11, 1)",
                 "value": 1,
                 
                 "disabled": false,
@@ -1267,11 +1463,12 @@
             }
             , {
                 "id": "2",
-                "label": "2",
-                "text": "2",
+                "label": "严重",
+                "text": "严重",
                 "class":"",
                 "data":"",
                 "codename":"Item_2",
+                "color": "rgba(239, 155, 18, 1)",
                 "value": 2,
                 
                 "disabled": false,
@@ -1279,11 +1476,12 @@
             }
             , {
                 "id": "3",
-                "label": "3",
-                "text": "3",
+                "label": "一般",
+                "text": "一般",
                 "class":"",
                 "data":"",
                 "codename":"Item_3",
+                "color": "rgba(58, 149, 247, 1)",
                 "value": 3,
                 
                 "disabled": false,
@@ -1291,11 +1489,12 @@
             }
             , {
                 "id": "4",
-                "label": "4",
-                "text": "4",
+                "label": "轻微",
+                "text": "轻微",
                 "class":"",
                 "data":"",
                 "codename":"Item_4",
+                "color": "rgba(11, 228, 87, 1)",
                 "value": 4,
                 
                 "disabled": false,
@@ -1867,6 +2066,61 @@
         ]
     }, 
     {
+        "srfkey": "Project__pri",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"text-red-border-color",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": true
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"text-pink-border-color",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"text-blue-border-color",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "class":"text-green-border-color",
+                "data":"",
+                "codename":"Item_4",
+                "value": "4",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "APPBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1931,6 +2185,14 @@
         ]
     }, 
     {
+        "srfkey": "AllBug",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Bug",
+        "appdedataset":"FetchDefault",
+        "items": []
+    }, 
+    {
         "srfkey": "CloseProduct",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -1954,7 +2216,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchBugModule",
+        "appdedataset":"FetchBugModuleCodeList",
         "items": []
     }, 
     {
@@ -2173,7 +2435,6 @@
                 "id": "1",
                 "label": "1",
                 "text": "1",
-                "iconcls":"fa fa-square-o",
                 "class":"text-red-border-color",
                 "data":"",
                 "codename":"Item_1",
@@ -2315,6 +2576,91 @@
                 
                 "disabled": false,
                 "default": true
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Testcase__color",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "#3da7f5",
+                "label": "#3da7f5",
+                "text": "#3da7f5",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "color": "rgba(61, 167, 245, 1)",
+                "value": "#3da7f5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#75c941",
+                "label": "#75c941",
+                "text": "#75c941",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "color": "rgba(117, 201, 65, 1)",
+                "value": "#75c941",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#2dbdb2",
+                "label": "#2dbdb2",
+                "text": "#2dbdb2",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(45, 189, 178, 1)",
+                "value": "#2dbdb2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#797ec9",
+                "label": "#797ec9",
+                "text": "#797ec9",
+                "class":"",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(121, 126, 201, 1)",
+                "value": "#797ec9",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#ffaf38",
+                "label": "#ffaf38",
+                "text": "#ffaf38",
+                "class":"",
+                "data":"",
+                "codename":"Item_5",
+                "color": "rgba(255, 175, 56, 1)",
+                "value": "#ffaf38",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#ff4e3e",
+                "label": "#ff4e3e",
+                "text": "#ff4e3e",
+                "class":"",
+                "data":"",
+                "codename":"Item_6",
+                "color": "rgba(255, 78, 62, 1)",
+                "value": "#ff4e3e",
+                
+                "disabled": false,
+                "default": false
             }
         ]
     }, 
@@ -3665,6 +4011,109 @@
         ]
     }, 
     {
+        "srfkey": "Testcase__frame",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "junit",
+                "label": "JUnit",
+                "text": "JUnit",
+                "class":"",
+                "data":"",
+                "codename":"Junit",
+                "value": "junit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "testng",
+                "label": "TestNG",
+                "text": "TestNG",
+                "class":"",
+                "data":"",
+                "codename":"Testng",
+                "value": "testng",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "phpunit",
+                "label": "PHPUnit",
+                "text": "PHPUnit",
+                "class":"",
+                "data":"",
+                "codename":"Phpunit",
+                "value": "phpunit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "pytest",
+                "label": "Pytest",
+                "text": "Pytest",
+                "class":"",
+                "data":"",
+                "codename":"Pytest",
+                "value": "pytest",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "jtest",
+                "label": "JTest",
+                "text": "JTest",
+                "class":"",
+                "data":"",
+                "codename":"Jtest",
+                "value": "jtest",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "cppunit",
+                "label": "CppUnit",
+                "text": "CppUnit",
+                "class":"",
+                "data":"",
+                "codename":"Cppunit",
+                "value": "cppunit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "gtest",
+                "label": "GTest",
+                "text": "GTest",
+                "class":"",
+                "data":"",
+                "codename":"Gtest",
+                "value": "gtest",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "qtest",
+                "label": "QTest",
+                "text": "QTest",
+                "class":"",
+                "data":"",
+                "codename":"Qtest",
+                "value": "qtest",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "TestCaseStatusGrid",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -4049,6 +4498,42 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "daily",
+                "label": "日报",
+                "text": "日报",
+                "class":"",
+                "data":"",
+                "codename":"Daily",
+                "value": "daily",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "weekly",
+                "label": "周报",
+                "text": "周报",
+                "class":"",
+                "data":"",
+                "codename":"Weekly",
+                "value": "weekly",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "monthly",
+                "label": "月报",
+                "text": "月报",
+                "class":"",
+                "data":"",
+                "codename":"Monthly",
+                "value": "monthly",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -4101,11 +4586,9 @@
                 "id": "1",
                 "label": "1",
                 "text": "1",
-                "iconcls":"fa fa-bomb",
-                "class":"text-blue-border-color",
+                "class":"text-red-border-color",
                 "data":"",
                 "codename":"Item_1",
-                "color": "rgba(183, 35, 35, 1)",
                 "value": 1,
                 
                 "disabled": false,
@@ -4118,7 +4601,6 @@
                 "class":"text-pink-border-color",
                 "data":"",
                 "codename":"Item_2",
-                "color": "rgba(197, 26, 26, 1)",
                 "value": 2,
                 
                 "disabled": false,
@@ -4128,11 +4610,9 @@
                 "id": "3",
                 "label": "3",
                 "text": "3",
-                "iconcls":"fa fa-sort-amount-asc",
                 "class":"text-blue-border-color",
                 "data":"",
                 "codename":"Item_3",
-                "color": "rgba(64, 78, 227, 1)",
                 "value": 3,
                 
                 "disabled": false,
@@ -4145,8 +4625,50 @@
                 "class":"text-green-border-color",
                 "data":"",
                 "codename":"Item_4",
-                "color": "rgba(94, 231, 3, 1)",
                 "value": 4,
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserTplType",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "story",
+                "label": "需求",
+                "text": "需求",
+                "class":"",
+                "data":"",
+                "codename":"Story",
+                "value": "story",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "task",
+                "label": "任务",
+                "text": "任务",
+                "class":"",
+                "data":"",
+                "codename":"Task",
+                "value": "task",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "class":"",
+                "data":"",
+                "codename":"Bug",
+                "value": "bug",
                 
                 "disabled": false,
                 "default": false
@@ -4437,6 +4959,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Wait",
+                "color": "rgba(144, 248, 25, 1)",
                 "value": "wait",
                 
                 "disabled": false,
@@ -4449,6 +4972,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Planned",
+                "color": "rgba(108, 159, 19, 1)",
                 "value": "planned",
                 
                 "disabled": false,
@@ -4461,6 +4985,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Projected",
+                "color": "rgba(45, 89, 5, 1)",
                 "value": "projected",
                 
                 "disabled": false,
@@ -4473,6 +4998,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Developing",
+                "color": "rgba(10, 164, 181, 1)",
                 "value": "developing",
                 
                 "disabled": false,
@@ -4485,6 +5011,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Developed",
+                "color": "rgba(7, 98, 108, 1)",
                 "value": "developed",
                 
                 "disabled": false,
@@ -4497,6 +5024,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Testing",
+                "color": "rgba(18, 46, 205, 1)",
                 "value": "testing",
                 
                 "disabled": false,
@@ -4509,6 +5037,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Tested",
+                "color": "rgba(8, 56, 115, 1)",
                 "value": "tested",
                 
                 "disabled": false,
@@ -4521,6 +5050,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Verified",
+                "color": "rgba(85, 7, 137, 1)",
                 "value": "verified",
                 
                 "disabled": false,
@@ -4533,6 +5063,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Released",
+                "color": "rgba(12, 244, 47, 1)",
                 "value": "released",
                 
                 "disabled": false,
@@ -4545,12 +5076,21 @@
                 "class":"",
                 "data":"",
                 "codename":"Closed",
+                "color": "rgba(212, 219, 221, 1)",
                 "value": "closed",
                 
                 "disabled": false,
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "AllRepo",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
     }, 
     {
         "srfkey": "Project_staus",
@@ -4716,8 +5256,8 @@
         "items": [
              {
                 "id": "1",
-                "label": "1",
-                "text": "1",
+                "label": "严重",
+                "text": "严重",
                 "class":"text-red-border-color",
                 "data":"",
                 "codename":"Item_1",
@@ -4728,8 +5268,8 @@
             }
             , {
                 "id": "2",
-                "label": "2",
-                "text": "2",
+                "label": "主要",
+                "text": "主要",
                 "class":"text-pink-border-color",
                 "data":"",
                 "codename":"Item_2",
@@ -4740,8 +5280,8 @@
             }
             , {
                 "id": "3",
-                "label": "3",
-                "text": "3",
+                "label": "次要",
+                "text": "次要",
                 "class":"text-blue-border-color",
                 "data":"",
                 "codename":"Item_3",
@@ -4752,12 +5292,79 @@
             }
             , {
                 "id": "4",
-                "label": "4",
-                "text": "4",
+                "label": "不重要",
+                "text": "不重要",
                 "class":"text-green-border-color",
                 "data":"",
                 "codename":"Item_4",
                 "value": 4,
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Project__statge",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": true
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "class":"",
+                "data":"",
+                "codename":"Item_4",
+                "value": "4",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "5",
+                "label": "5",
+                "text": "5",
+                "class":"",
+                "data":"",
+                "codename":"Item_5",
+                "value": "5",
                 
                 "disabled": false,
                 "default": false
@@ -4873,6 +5480,49 @@
         ]
     }, 
     {
+        "srfkey": "ReportType",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "weekly",
+                "label": "周报",
+                "text": "周报",
+                "class":"",
+                "data":"",
+                "codename":"Weekly",
+                "value": "weekly",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "daily",
+                "label": "日报",
+                "text": "日报",
+                "class":"",
+                "data":"",
+                "codename":"Daily",
+                "value": "daily",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "monthly",
+                "label": "月报",
+                "text": "月报",
+                "class":"",
+                "data":"",
+                "codename":"Monthly",
+                "value": "monthly",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "RelatedStory",
         "emptytext": "",
         "codelisttype":"dynamic",
@@ -4942,7 +5592,7 @@
                 "label": "去除周末",
                 "text": "去除周末",
                 "class":"",
-                "data":{"n_isweekend_eq":"0"},
+                "data":{"n_isweekend_in":"1;2;3;4;5"},
                 "codename":"Exweek",
                 "value": "exWeek",
                 
@@ -4954,7 +5604,7 @@
                 "label": "显示周末",
                 "text": "显示周末",
                 "class":"",
-                "data":{"n_isweekend_eq":"1"},
+                "data":{},
                 "codename":"Week",
                 "value": "Week",
                 
@@ -5122,6 +5772,61 @@
                 "data":"",
                 "codename":"Custom",
                 "value": "custom",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserTplQuickGroup",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "all",
+                "label": "所有",
+                "text": "所有",
+                "class":"",
+                "data":{},
+                "codename":"All",
+                "value": "all",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story",
+                "label": "需求",
+                "text": "需求",
+                "class":"",
+                "data":{"n_type_eq":"story"},
+                "codename":"Story",
+                "value": "story",
+                
+                "disabled": false,
+                "default": true
+            }
+            , {
+                "id": "task",
+                "label": "任务",
+                "text": "任务",
+                "class":"",
+                "data":{"n_type_eq":"task"},
+                "codename":"Task",
+                "value": "task",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "class":"",
+                "data":{"n_type_eq":"bug"},
+                "codename":"Bug",
+                "value": "bug",
                 
                 "disabled": false,
                 "default": false
@@ -5634,6 +6339,14 @@
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
         "appdedataset":"FetchProjectTeamUserTask",
+        "items": []
+    }, 
+    {
+        "srfkey": "AllRole",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysRole",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -6316,6 +7029,14 @@
         ]
     }, 
     {
+        "srfkey": "AllTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchDefault",
+        "items": []
+    }, 
+    {
         "srfkey": "File__object_type",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -6592,6 +7313,42 @@
                 "data":"",
                 "codename":"Webhook",
                 "value": "webhook",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "daily",
+                "label": "日报",
+                "text": "日报",
+                "class":"",
+                "data":"",
+                "codename":"Daily",
+                "value": "daily",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "weekly",
+                "label": "周报",
+                "text": "周报",
+                "class":"",
+                "data":"",
+                "codename":"Weekly",
+                "value": "weekly",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "monthly",
+                "label": "月报",
+                "text": "月报",
+                "class":"",
+                "data":"",
+                "codename":"Monthly",
+                "value": "monthly",
                 
                 "disabled": false,
                 "default": false
@@ -6974,6 +7731,14 @@
         ]
     }, 
     {
+        "srfkey": "AllTestTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"TestTask",
+        "appdedataset":"FetchDefault",
+        "items": []
+    }, 
+    {
         "srfkey": "TestTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -7099,6 +7864,14 @@
         ]
     }, 
     {
+        "srfkey": "AllEntry",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    }, 
+    {
         "srfkey": "Task__type",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -7188,6 +7961,18 @@
                 "default": false
             }
             , {
+                "id": "serve",
+                "label": "服务",
+                "text": "服务",
+                "class":"",
+                "data":"",
+                "codename":"Serve",
+                "value": "serve",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
                 "id": "misc",
                 "label": "其他",
                 "text": "其他",
@@ -7200,6 +7985,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "AllStory",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Story",
+        "appdedataset":"FetchDefault",
+        "items": []
     }, 
     {
         "srfkey": "ProjectProductPlan",
@@ -8468,6 +9261,42 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "submit",
+                "label": "提交",
+                "text": "提交",
+                "class":"",
+                "data":"",
+                "codename":"Submit",
+                "value": "submit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "read",
+                "label": "已读了",
+                "text": "已读了",
+                "class":"",
+                "data":"",
+                "codename":"Read",
+                "value": "read",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "remind",
+                "label": "提醒",
+                "text": "提醒",
+                "class":"",
+                "data":"",
+                "codename":"Remind",
+                "value": "remind",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -8802,6 +9631,49 @@
                 "data":"",
                 "codename":"Blocked",
                 "value": "blocked",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Case__frequency",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
                 
                 "disabled": false,
                 "default": false
@@ -9336,6 +10208,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
+        "items": []
     }, 
     {
         "srfkey": "Testrun__result",

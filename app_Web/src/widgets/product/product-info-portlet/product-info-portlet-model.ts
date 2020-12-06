@@ -153,6 +153,9 @@ export default class ProductInfoModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

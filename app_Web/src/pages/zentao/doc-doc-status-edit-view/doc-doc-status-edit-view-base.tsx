@@ -48,7 +48,7 @@ export class DocDocStatusEditViewBase extends EditView9Base {
      * @type {string}
      * @memberof DocDocStatusEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -139,7 +139,7 @@ export class DocDocStatusEditViewBase extends EditView9Base {
      * @type {string}
      * @memberof DocDocStatusEditViewBase
      */ 
-    protected viewName: string = "DocDocStatusEditView";
+    protected viewName: string = 'DocDocStatusEditView';
 
 
     /**

@@ -63,6 +63,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'parentname',
       },
+      {
+        name: 'orderpk',
+      },
     ]
   }
 

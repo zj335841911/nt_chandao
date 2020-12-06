@@ -323,7 +323,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 }),
 
         mailtopk: new FormItemModel({
-    caption: '属性', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -568,5 +568,16 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             const details: string[] = ['mailto'];
             this.updateFormItems('GetUserConcat', this.data, details, true);
         }
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainInfoBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

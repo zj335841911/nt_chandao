@@ -13,7 +13,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.productsum.main_grid.nodata')}} 
@@ -21,30 +21,30 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.main_grid.columns.name')" :min-width="180"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.name}}</span>
+                            <span>{{row.name}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('po')">
                 <el-table-column show-overflow-tooltip :prop="'po'" :label="$t('entities.productsum.main_grid.columns.po')" :width="120"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.po')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.po" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.po" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -52,13 +52,13 @@
             <template v-if="getColumnState('plan')">
                 <el-table-column show-overflow-tooltip :prop="'plan'" :label="$t('entities.productsum.main_grid.columns.plan')" :width="200"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.plan')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.plan" tag='PlanCodeList' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.plan" tag="PlanCodeList" codelistType="DYNAMIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -66,84 +66,84 @@
             <template v-if="getColumnState('begin')">
                 <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.productsum.main_grid.columns.begin')" :width="120"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.begin')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.begin}}</span>
+                            <span>{{row.begin}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('end')">
                 <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.productsum.main_grid.columns.end')" :width="120"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.end')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.end}}</span>
+                            <span>{{row.end}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('waitstorycnt')">
                 <el-table-column show-overflow-tooltip :prop="'waitstorycnt'" :label="$t('entities.productsum.main_grid.columns.waitstorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.waitstorycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.waitstorycnt}}</span>
+                            <span>{{row.waitstorycnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('activestorycnt')">
                 <el-table-column show-overflow-tooltip :prop="'activestorycnt'" :label="$t('entities.productsum.main_grid.columns.activestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.activestorycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.activestorycnt}}</span>
+                            <span>{{row.activestorycnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('changedstorycnt')">
                 <el-table-column show-overflow-tooltip :prop="'changedstorycnt'" :label="$t('entities.productsum.main_grid.columns.changedstorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.changedstorycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.changedstorycnt}}</span>
+                            <span>{{row.changedstorycnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('closedstorycnt')">
                 <el-table-column show-overflow-tooltip :prop="'closedstorycnt'" :label="$t('entities.productsum.main_grid.columns.closedstorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.closedstorycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.closedstorycnt}}</span>
+                            <span>{{row.closedstorycnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
                 <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productsum.main_grid.columns.storycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.storycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.storycnt}}</span>
+                            <span>{{row.storycnt}}</span>
                     </template>
                 </el-table-column>
             </template>

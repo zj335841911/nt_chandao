@@ -76,8 +76,10 @@ export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContro
      */
     protected isInit: any = {
         tabviewpanel3:  true ,
+        tabviewpanel5:  false ,
         tabviewpanel:  false ,
         tabviewpanel2:  false ,
+        tabviewpanel6:  false ,
     }
 
     /**
@@ -105,7 +107,7 @@ export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContro
      * @type {*}
      * @memberof StatsTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel5':{resourcetag:null,visible: true,disabled: false},'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel6':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕

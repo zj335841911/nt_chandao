@@ -42,7 +42,7 @@ export default class ProjectService extends ProjectServiceBase {
             }
 
         }
-        let begin: Date = new Date(data.begin);
+        let begin: Date = new Date(data.begin.substring(0,10));
         let period = parseInt(data.period);
         let days: number = 0;
         let curWeek: number = begin.getDay();
@@ -77,7 +77,7 @@ export default class ProjectService extends ProjectServiceBase {
         if(!(data && data.begin && data.end)) {
             return res;
         }
-        let begin: Date = new Date(data.begin);
+        let begin: Date = new Date(data.begin.substring(0,10));
         let end: Date = new Date(data.end);
         let period = Math.floor((end.getTime() - begin.getTime())/(1000 * 60 * 60 *24)) + 1;
         let days: number = 0;
@@ -108,7 +108,7 @@ export default class ProjectService extends ProjectServiceBase {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/projects/getdraft`,isloading);
         if(context.end && context.begin) {
-            let begin: Date = new Date(context.begin);
+            let begin: Date = new Date(data.begin.substring(0,10));
             let end: Date = new Date(context.end);
 
             let period = Math.floor((end.getTime() - begin.getTime())/(1000 * 60 * 60 *24)) + 1;

@@ -144,7 +144,6 @@ export default class StoryTaskGroupModel {
           name: 'task',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

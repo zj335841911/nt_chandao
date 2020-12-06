@@ -12,8 +12,8 @@
     <resultMap id="SysUpdateLogResultMap" type="cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog" autoMapping="true">
 		<id property="sysupdatelogid" column="sys_update_logid" /><!--主键字段映射-->
 		<result property="sysupdatelogname" column="sys_update_logname" />
-            
-		
+
+
     </resultMap>
 
 
@@ -26,7 +26,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by update  desc  
+		 order by `updatedate`  desc  
      </select>
 
     <!--数据查询[Default]-->

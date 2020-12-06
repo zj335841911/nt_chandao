@@ -15,5 +15,7 @@ window.Environment = {
     // 文件导出
     ExportFile: 'ibizutilpms/ztdownload',
     // 文件上传
-    UploadFile: 'ibizutilpms/ztupload'
+    UploadFile: 'ibizutilpms/ztupload',
+    // 应用基础路径
+    BaseUrl: ''
 }

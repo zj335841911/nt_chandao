@@ -51,6 +51,11 @@ export class AssignToMobModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'assignedto',
+                prop: 'assignedto',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'assignedtopk',
                 prop: 'assignedtopk',
                 dataType: 'TEXT',
@@ -64,11 +69,6 @@ export class AssignToMobModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
-            },
-            {
-                name: 'assignedto',
-                prop: 'assignedto',
-                dataType: 'TEXT',
             },
             {
                 name: 'story',

@@ -137,7 +137,7 @@ export class TestReportDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TestReportDashboardViewBase
      */ 
-    protected viewName: string = "TestReportDashboardView";
+    protected viewName: string = 'TestReportDashboardView';
 
 
     /**

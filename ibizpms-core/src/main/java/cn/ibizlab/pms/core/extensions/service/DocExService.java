@@ -67,7 +67,7 @@ public class DocExService extends DocServiceImpl {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Doc get(Long key) {
-        Doc et = getById(key);
+        Doc et = super.get(key);
         if(et==null){
             et=new Doc();
             et.setId(key);
@@ -152,6 +152,32 @@ public class DocExService extends DocServiceImpl {
         }
 
         return super.unCollect(et);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Doc onlyCollectDoc(Doc et) {
+        String collector = docHelper.get(et.getId()).getCollector();
+        if ("".equals(collector) || "/".equals(collector)) {
+            collector += ",";
+        }
+        collector += AuthenticationUser.getAuthenticationUser().getUsername() + ",";
+        et.setCollector(collector);
+        docHelper.updateById(et);
+        return super.onlyCollectDoc(et);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Doc onlyUnCollectDoc(Doc et) {
+        String collector = docHelper.get(et.getId()).getCollector();
+        collector = collector.replaceFirst(AuthenticationUser.getAuthenticationUser().getUsername() + ",", "");
+        if (",".equals(collector)) {
+            collector = "";
+        }
+        et.setCollector(collector);
+        docHelper.updateById(et);
+        return super.onlyUnCollectDoc(et);
     }
 
     @Override

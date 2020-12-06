@@ -1,6 +1,6 @@
 <studio-view viewName="actionaddcommenthistorylistview" viewTitle="历史记录" class='delistview action-add-comment-history-list-view'>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
         <view_list 
         :viewState="viewState"  
@@ -14,7 +14,7 @@
         :newdata="newdata"
         :opendata="opendata"
         name="list"  
-        ref='list' 
+        ref="list" 
         @selectionchange="list_selectionchange($event)"  
         @beforeload="list_beforeload($event)"  
         @rowdblclick="list_rowdblclick($event)"  

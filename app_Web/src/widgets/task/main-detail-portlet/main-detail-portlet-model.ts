@@ -216,6 +216,18 @@ export default class MainDetailModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
+      {
+        name: 'myconsumed',
+      },
+      {
+        name: 'mytotaltime',
+      },
+      {
+        name: 'assignedtozj',
+      },
     ]
   }
 

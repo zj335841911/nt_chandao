@@ -48,7 +48,7 @@ export class ActionEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ActionEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -118,7 +118,7 @@ export class ActionEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ActionEditViewBase
      */ 
-    protected viewName: string = "ActionEditView";
+    protected viewName: string = 'ActionEditView';
 
 
     /**

@@ -84,7 +84,7 @@
              <div  v-if="items.length == 0" class="no-data">
                 <div>暂无数据</div>
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW'" class="loadding" >
+            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          
@@ -108,8 +108,7 @@ import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlInterface {
 
@@ -230,7 +229,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型
@@ -754,7 +753,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
         Object.assign(data, parentdata);
         let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
         Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
-        Object.assign(data,{viewparams:tempViewParams});
+        Object.assign(data,tempViewParams);
         const response: any = await this.service.search(this.fetchAction, this.context, data, isloadding);
         this.bottomLoadding = false;
         if (!response || response.status !== 200) {

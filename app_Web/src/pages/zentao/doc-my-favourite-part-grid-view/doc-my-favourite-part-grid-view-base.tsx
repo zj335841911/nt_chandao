@@ -51,7 +51,7 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof DocMyFavouritePartGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof DocMyFavouritePartGridViewBase
      */ 
-    protected viewName: string = "DocMyFavouritePartGridView";
+    protected viewName: string = 'DocMyFavouritePartGridView';
 
 
     /**
@@ -256,16 +256,28 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const _data: any = { w: (new Date().getTime()) };
-            Object.assign(_data, data);
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'doc-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.doc.views.editview.title'),
+            placement: 'DRAWER_LEFT',
+        };
+        openDrawer(view, data);
     }
 
 
@@ -290,14 +302,28 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'doc-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.doc.views.editview.title'),
+            placement: 'DRAWER_LEFT',
+        };
+        openDrawer(view, data);
     }
 
 

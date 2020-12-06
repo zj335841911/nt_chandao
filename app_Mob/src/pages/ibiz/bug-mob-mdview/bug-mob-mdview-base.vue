@@ -302,9 +302,10 @@ export default class BugMobMDViewBase extends Vue {
      * @returns
      * @memberof IBizChart
      */
-    @Watch('_viewparams')
+    @Watch('_viewparams',{immediate: true, deep: true})
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+        
     }
 
     /**
@@ -1183,12 +1184,13 @@ export default class BugMobMDViewBase extends Vue {
      */  
     public codeListService:CodeListService = new CodeListService();
 
+
     /**
      * 快速分组数据对象
      *
      * @memberof BugMobMDViewBase
      */
-    public quickGroupData:any;
+    public quickGroupData:any ={};
 
     /**
      * 快速分组是否有抛值
@@ -1262,7 +1264,7 @@ export default class BugMobMDViewBase extends Vue {
     public quickGroupValueChange($event:any) {
         if($event){
             this.quickGroupData = $event.data;
-            this.engine.onViewEvent('mdctrl','viewload',$event.data);
+            this.engine.onViewEvent('mdctrl','viewload',JSON.parse(JSON.stringify($event.data)));
         }
     }
 

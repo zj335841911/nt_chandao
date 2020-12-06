@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.testtask.main_grid.nodata')}} 
@@ -23,94 +23,108 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.testtask.main_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.id')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                            <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main_grid.columns.name')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='testtask' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'test-task-main-tab-exp-view', height: 0,width: 0,title: $t('entities.testtask.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="testtask"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'test-task-main-tab-exp-view', height: 0,width: 0,title: $t('entities.testtask.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'testtasks', parameterName: 'testtask' },
             { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.name}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('productname')">
                 <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.testtask.main_grid.columns.productname')" :width="250"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.productname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.productname}}</span>
+                            <span>{{row.productname}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projecttname')">
                 <el-table-column show-overflow-tooltip :prop="'projecttname'" :label="$t('entities.testtask.main_grid.columns.projecttname')" :width="250"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.projecttname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.projecttname}}</span>
+                            <span>{{row.projecttname}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('buildname')">
                 <el-table-column show-overflow-tooltip :prop="'buildname'" :label="$t('entities.testtask.main_grid.columns.buildname')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.buildname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='build' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="build"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'builds', parameterName: 'build' },
             { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="build">
+            ]}"
+                            valueitem="build"
+                        >
                             <span>{{row.buildname}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('owner')">
                 <el-table-column show-overflow-tooltip :prop="'owner'" :label="$t('entities.testtask.main_grid.columns.owner')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.owner')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.owner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.owner" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -118,37 +132,37 @@
             <template v-if="getColumnState('begin')">
                 <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.testtask.main_grid.columns.begin')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.begin')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('end')">
                 <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.testtask.main_grid.columns.end')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.end')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.testtask.main_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.status')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Testtask__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag="Testtask__status" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -156,36 +170,36 @@
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.testtask.main_grid.columns.uagridcolumn1')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.uagridcolumn1')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.LinkCase.visible" :disabled="scope.row.LinkCase.disabled" @click="uiAction(scope.row, 'LinkCase', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_linkcase')">
-                            <i class='fa fa-link'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.TestReportR.visible" type='vertical'></divider>
-                          <a v-show="scope.row.TestReportR.visible" :disabled="scope.row.TestReportR.disabled" @click="uiAction(scope.row, 'TestReportR', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_testreportr')">
-                            <i class='fa fa-flag'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.OpenInfoView.visible" type='vertical'></divider>
-                          <a v-show="scope.row.OpenInfoView.visible" :disabled="scope.row.OpenInfoView.disabled" @click="uiAction(scope.row, 'OpenInfoView', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')">
-                            <i class='fa fa-stack-exchange'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.EditEdit.visible" type='vertical'></divider>
-                          <a v-show="scope.row.EditEdit.visible" :disabled="scope.row.EditEdit.disabled" @click="uiAction(scope.row, 'EditEdit', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_editedit')">
-                            <i class='fa fa-edit'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_delete')">
-                            <i class='fa fa-remove'></i>
-                            
-                          </a>
+                            <a v-show="scope.row.LinkCase.visible" :disabled="scope.row.LinkCase.disabled" @click="uiAction(scope.row, 'LinkCase', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_linkcase')">
+                                <i class="fa fa-link"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.TestReportR.visible" type="vertical"></divider>
+                            <a v-show="scope.row.TestReportR.visible" :disabled="scope.row.TestReportR.disabled" @click="uiAction(scope.row, 'TestReportR', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_testreportr')">
+                                <i class="fa fa-flag"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.OpenInfoView.visible" type="vertical"></divider>
+                            <a v-show="scope.row.OpenInfoView.visible" :disabled="scope.row.OpenInfoView.disabled" @click="uiAction(scope.row, 'OpenInfoView', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')">
+                                <i class="fa fa-stack-exchange"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.EditEdit.visible" type="vertical"></divider>
+                            <a v-show="scope.row.EditEdit.visible" :disabled="scope.row.EditEdit.disabled" @click="uiAction(scope.row, 'EditEdit', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_editedit')">
+                                <i class="fa fa-edit"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.Delete.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_delete')">
+                                <i class="fa fa-remove"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>
@@ -194,8 +208,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

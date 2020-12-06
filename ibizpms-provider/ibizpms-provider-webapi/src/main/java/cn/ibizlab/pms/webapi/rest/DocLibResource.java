@@ -181,8 +181,8 @@ public class DocLibResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProduct-all') and hasPermission(#context,'pms-DocLib-Get')")
 	@ApiOperation(value = "获取产品文档库", tags = {"文档库" } ,notes = "获取产品文档库")
-    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproduct")
-	public ResponseEntity<List<DocLibDTO>> fetchByProduct(DocLibSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/fetchbyproduct")
+	public ResponseEntity<List<DocLibDTO>> fetchByProduct(@RequestBody DocLibSearchContext context) {
         Page<DocLib> domains = doclibService.searchByProduct(context) ;
         List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -201,10 +201,32 @@ public class DocLibResource {
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProductNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "获取产品文档库", tags = {"文档库" } ,notes = "获取产品文档库")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproductnotfiles")
+	public ResponseEntity<List<DocLibDTO>> fetchByProductNotFiles(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchByProductNotFiles(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProductNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "查询产品文档库", tags = {"文档库" } ,notes = "查询产品文档库")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchbyproductnotfiles")
+	public ResponseEntity<Page<DocLibDTO>> searchByProductNotFiles(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchByProductNotFiles(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProject-all') and hasPermission(#context,'pms-DocLib-Get')")
 	@ApiOperation(value = "获取项目文件库", tags = {"文档库" } ,notes = "获取项目文件库")
-    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproject")
-	public ResponseEntity<List<DocLibDTO>> fetchByProject(DocLibSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/fetchbyproject")
+	public ResponseEntity<List<DocLibDTO>> fetchByProject(@RequestBody DocLibSearchContext context) {
         Page<DocLib> domains = doclibService.searchByProject(context) ;
         List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -219,6 +241,28 @@ public class DocLibResource {
     @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchbyproject")
 	public ResponseEntity<Page<DocLibDTO>> searchByProject(@RequestBody DocLibSearchContext context) {
         Page<DocLib> domains = doclibService.searchByProject(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProjectNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "获取项目文件库", tags = {"文档库" } ,notes = "获取项目文件库")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyprojectnotfiles")
+	public ResponseEntity<List<DocLibDTO>> fetchByProjectNotFiles(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchByProjectNotFiles(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProjectNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "查询项目文件库", tags = {"文档库" } ,notes = "查询项目文件库")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchbyprojectnotfiles")
+	public ResponseEntity<Page<DocLibDTO>> searchByProjectNotFiles(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchByProjectNotFiles(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -263,6 +307,50 @@ public class DocLibResource {
     @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchdefault")
 	public ResponseEntity<Page<DocLibDTO>> searchDefault(@RequestBody DocLibSearchContext context) {
         Page<DocLib> domains = doclibService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchMyFavourites-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "获取我的收藏", tags = {"文档库" } ,notes = "获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchmyfavourites")
+	public ResponseEntity<List<DocLibDTO>> fetchMyFavourites(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchMyFavourites(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchMyFavourites-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "查询我的收藏", tags = {"文档库" } ,notes = "查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchmyfavourites")
+	public ResponseEntity<Page<DocLibDTO>> searchMyFavourites(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchMyFavourites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchRootModuleMuLu-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "获取根目录", tags = {"文档库" } ,notes = "获取根目录")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchrootmodulemulu")
+	public ResponseEntity<List<DocLibDTO>> fetchRootModuleMuLu(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchRootModuleMuLu(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchRootModuleMuLu-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "查询根目录", tags = {"文档库" } ,notes = "查询根目录")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchrootmodulemulu")
+	public ResponseEntity<Page<DocLibDTO>> searchRootModuleMuLu(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchRootModuleMuLu(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

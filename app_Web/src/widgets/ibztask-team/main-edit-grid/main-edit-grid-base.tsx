@@ -66,7 +66,6 @@ export class MainEditGridBase extends GridControlBase {
      */  
     public appUIService: IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
 
-
     /**
      * 本地缓存标识
      *
@@ -178,11 +177,12 @@ export class MainEditGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainEditGridBase
      */
-    public rules(){
+    public rules() {
         return {
         consumed: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("consumed",this.deRules,"AND",value).isPast},message: "总计消耗大于等于0", trigger: 'blur' },
         ],
         root: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -195,6 +195,7 @@ export class MainEditGridBase extends GridControlBase {
         left: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计剩余 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计剩余 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("left",this.deRules,"AND",value).isPast},message: "预计剩余大于等于0", trigger: 'blur' },
         ],
         type: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '团队类型 值不能为空', trigger: 'change' },
@@ -203,6 +204,7 @@ export class MainEditGridBase extends GridControlBase {
         estimate: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("estimate",this.deRules,"AND",value).isPast},message: "预计大于等于0", trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -210,6 +212,52 @@ export class MainEditGridBase extends GridControlBase {
         ],
         }
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainEditBase
+     */
+    public deRules:any = {
+                left:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计剩余大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"left",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
+                estimate:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GT",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      paramValue:"0",
+                      isNotMode:false,
+                      deName:"estimate",
+                  },
+                ],
+                consumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"总计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"consumed",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
+    };
 
     /**
      * 获取对应列class
@@ -315,6 +363,17 @@ export class MainEditGridBase extends GridControlBase {
      * @memberof MainEdit
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        if (!(await this.validateAll())) {
+            if (this.errorMessages && this.errorMessages.length > 0) {
+                this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: this.errorMessages[0] });
+            } else {
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.rulesException') as string,
+                });
+            }
+            return [];
+        }
         for (const item of this.items) {
             item.srfmajortext = item.account;
         }

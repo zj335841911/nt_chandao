@@ -87,8 +87,12 @@ hide members
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |进度|PROGRESSRATE|TEXT|&nbsp;|
 |延期|DELAY|TEXT|&nbsp;|
-|属性|MAILTOPK|SMCODELIST|&nbsp;|
+|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |联系人|MAILTOCONACT|TEXT|&nbsp;|
+|排序|STATUSORDER|INT|&nbsp;|
+|之前消耗|MYCONSUMED|FLOAT|&nbsp;|
+|我的总消耗|MYTOTALTIME|FLOAT|&nbsp;完成界面，临时界面属性|
+|转交给|ASSIGNEDTOZJ|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -166,8 +170,12 @@ hide members
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
 |进度|默认规则|内容长度必须小于等于[200]|
 |延期|默认规则|内容长度必须小于等于[200]|
-|属性|默认规则|内容长度必须小于等于[200]|
+|抄送给|默认规则|内容长度必须小于等于[200]|
 |联系人|默认规则|内容长度必须小于等于[100]|
+|排序|默认规则|默认规则|
+|之前消耗|默认规则|默认规则|
+|我的总消耗|默认规则|默认规则|
+|转交给|默认规则|内容长度必须小于等于[30]|
 
 ## 状态控制
 
@@ -275,6 +283,8 @@ hide members
 |编辑工时|用户自定义|&nbsp;|
 |完成|用户自定义|&nbsp;|
 |获取下一个团队成员(完成)|用户自定义|&nbsp;|
+|获取团队成员剩余工时（激活）|用户自定义|&nbsp;|
+|获取团队成员剩余工时（开始或继续）|用户自定义|&nbsp;|
 |获取联系人|实体处理逻辑|&nbsp;|
 |获取团队成员|实体处理逻辑|&nbsp;|
 |其他更新|用户自定义|&nbsp;|
@@ -1275,9 +1285,20 @@ hide footbox
 |CurFinishTask|用户年度完成任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_CurFinishTask))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Task_Default))|否|&nbsp;|
 |DefaultRow|DefaultRow([MYSQL5](../../appendix/query_MYSQL5.md#Task_DefaultRow))|否|&nbsp;|
+|MyCompleteTask|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTask))|否|&nbsp;|
+|MyCompleteTaskMob|已完成任务（移动端）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMob))|否|&nbsp;|
+|MyCompleteTaskMobMonthly|我完成的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobMonthly))|否|&nbsp;|
+|MyCompleteTaskZS|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskZS))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyFavorites))|否|&nbsp;|
+|MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyPlansTaskMobMonthly))|否|&nbsp;|
+|MyTomorrowPlanTask|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTask))|否|&nbsp;|
+|MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTaskMobDaily))|否|&nbsp;|
+|NextWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekCompleteTaskZS))|否|&nbsp;|
+|NextWeekPlanCompleteTask|下周计划完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekPlanCompleteTask))|否|&nbsp;|
 |ProjectTask|项目任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ProjectTask))|否|&nbsp;|
 |RootTask|根任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_RootTask))|否|&nbsp;|
+|ThisWeekCompleteTask|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTask))|否|&nbsp;|
+|ThisWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskZS))|否|&nbsp;|
 |TodoListTask|todo任务列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|
 |TypeGroup|任务类型分组([MYSQL5](../../appendix/query_MYSQL5.md#Task_TypeGroup))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Task_View))|否|&nbsp;|
@@ -1295,9 +1316,20 @@ hide footbox
 |CurFinishTask|用户年度完成任务|CurFinishTask|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DefaultRow|DefaultRow|DefaultRow|否|&nbsp;|
+|MyCompleteTask|我完成的任务（汇报）|MyCompleteTask|否|&nbsp;|
+|MyCompleteTaskMobDaily|我完成的任务（移动端日报）|MyCompleteTaskMob|否|&nbsp;|
+|MyCompleteTaskMobMonthly|我完成的任务（移动端月报）|MyCompleteTaskMobMonthly|否|&nbsp;|
+|MyCompleteTaskZS|我完成的任务（汇报）|MyCompleteTaskZS|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
+|MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）|MyPlansTaskMobMonthly|否|&nbsp;|
+|MyTomorrowPlanTask|我计划参与的任务（汇报）|MyTomorrowPlanTask|否|&nbsp;|
+|MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）|MyTomorrowPlanTaskMobDaily|否|&nbsp;|
+|NextWeekCompleteTaskZS|本周完成的任务(汇报)|NextWeekCompleteTaskZS|否|&nbsp;|
+|NextWeekPlanCompleteTask|下周计划完成任务(汇报)|NextWeekPlanCompleteTask|否|&nbsp;|
 |ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
+|ThisWeekCompleteTask|本周完成的任务(汇报)|ThisWeekCompleteTask|否|&nbsp;|
+|ThisWeekCompleteTaskZS|本周完成的任务(汇报)|ThisWeekCompleteTaskZS|否|&nbsp;|
 |TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|
 |TypeGroup|任务类型分组|TypeGroup|否|&nbsp;|
 

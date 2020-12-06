@@ -72,8 +72,7 @@ import { Environment } from '@/environments/environment';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class AppIndexViewBase extends Vue implements ControlInterface {
 
@@ -166,7 +165,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 部件样式
@@ -482,14 +481,13 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
      */
     protected clickAuto22(item: any = {}) {
         let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
+        let navigateContext: any = { "ibzreport": "0" } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
         let context = { ..._context };
         let param = { ..._param };
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            { pathName: 'appportalview2', parameterName: 'appportalview2' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

@@ -358,6 +358,7 @@ String
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `in(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -494,6 +495,7 @@ Save
 | 1 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
 | 2 | [任务（TASK）](#属性-任务（TASK）) | `=` |
 | 3 | [周末（ISWEEKEND）](#属性-周末（ISWEEKEND）) | `=` |
+| 4 | [周末（ISWEEKEND）](#属性-周末（ISWEEKEND）) | `in(...)` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -546,7 +548,7 @@ t1.`DATE`,
 ROUND((select estimate from zt_burn where date=t2.begin and project=t1.project)*(1-(DATEDIFF(t1.date,t2.`begin`))/(DATEDIFF(t2.`end`,t2.`begin`))),1) AS `ESTIMATE`,
 t1.`LEFT`,
 t1.`PROJECT`,
-1 as ISWEEKEND
+DATE_FORMAT(t1.date,'%w')  as ISWEEKEND
 FROM `zt_burn` t1  
 LEFT JOIN zt_project t2 on t1.project=t2.id
 ```

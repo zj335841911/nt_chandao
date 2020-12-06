@@ -127,7 +127,7 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof BugMainDashboardViewBase
      */ 
-    protected viewName: string = "BugMainDashboardView";
+    protected viewName: string = 'BugMainDashboardView';
 
 
     /**

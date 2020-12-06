@@ -82,9 +82,9 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 if (i != 0) {
-                    filesId.append(",");
+                    filesId.append(MULTIPLE_CHOICE);
                 }
-                filesId.append(jsonObject.getLongValue("id"));
+                filesId.append(jsonObject.getLongValue(FIELD_ID));
             }
         }
         docContent.setFiles(filesId.toString());
@@ -106,7 +106,7 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
             et.setUsers(oldDoc.getAddedby());
         }
 
-        DocContent oldDocContent = docContentHelper.getOne(new QueryWrapper<DocContent>().eq("doc", et.getId()).eq("version", oldDoc.getVersion()));
+        DocContent oldDocContent = docContentHelper.getOne(new QueryWrapper<DocContent>().eq(StaticDict.File__object_type.DOC.getValue(), et.getId()).eq(FIELD_VERSION, oldDoc.getVersion()));
         if (oldDocContent != null) {
             oldDoc.setTitle(oldDocContent.getTitle());
             oldDoc.setContent(oldDocContent.getContent());
@@ -151,9 +151,9 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     cn.ibizlab.pms.core.zentao.domain.File file = new cn.ibizlab.pms.core.zentao.domain.File();
                     if (filesId.length() > 0) {
-                        filesId.append(",");
+                        filesId.append(MULTIPLE_CHOICE);
                     }
-                    filesId.append(jsonObject.getLongValue("id"));
+                    filesId.append(jsonObject.getLongValue(FIELD_ID));
                 }
             }
             docContent.setFiles(filesId.toString());

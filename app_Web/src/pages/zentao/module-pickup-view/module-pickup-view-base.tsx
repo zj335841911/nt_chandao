@@ -137,7 +137,7 @@ export class ModulePickupViewBase extends PickupViewBase {
      * @type {string}
      * @memberof ModulePickupViewBase
      */ 
-    protected viewName: string = "ModulePickupView";
+    protected viewName: string = 'ModulePickupView';
 
 
     /**

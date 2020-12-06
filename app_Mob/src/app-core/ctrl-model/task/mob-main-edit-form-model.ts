@@ -141,6 +141,11 @@ export class MobMainEditModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'eststarted',
                 prop: 'eststarted',
                 dataType: 'DATE',

@@ -179,27 +179,9 @@ export class SubTaskNewGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'estimate',
-            label: '预计',
-            langtag: 'entities.subtask.subtasknew_grid.columns.estimate',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: true,
-            enableCond: 3 ,
-        },
-        {
             name: 'eststarted',
             label: '预计开始',
             langtag: 'entities.subtask.subtasknew_grid.columns.eststarted',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: true,
-            enableCond: 3 ,
-        },
-        {
-            name: 'deadline',
-            label: '截止日期',
-            langtag: 'entities.subtask.subtasknew_grid.columns.deadline',
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
@@ -239,18 +221,16 @@ export class SubTaskNewGridBase extends GridControlBase {
           parent: new FormItemModel(),
           storyname: new FormItemModel(),
           type: new FormItemModel(),
-          estimate: new FormItemModel(),
           srfkey: new FormItemModel(),
-          project: new FormItemModel(),
           modulename: new FormItemModel(),
           assignedto: new FormItemModel(),
           story: new FormItemModel(),
+          project: new FormItemModel(),
           pri: new FormItemModel(),
           name: new FormItemModel(),
           allmodules: new FormItemModel(),
           eststarted: new FormItemModel(),
           left: new FormItemModel(),
-          deadline: new FormItemModel(),
         }
     }
 
@@ -342,18 +322,9 @@ export class SubTaskNewGridBase extends GridControlBase {
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'blur' },
         ],
-        estimate: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
-            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("estimate",this.deRules,"AND",value).isPast},message: "预计消耗大于等于0", trigger: 'blur' },
-        ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        project: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'blur' },
         ],
         modulename: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
@@ -366,6 +337,10 @@ export class SubTaskNewGridBase extends GridControlBase {
         story: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        project: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'blur' },
         ],
         pri: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'change' },
@@ -388,11 +363,6 @@ export class SubTaskNewGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
         ],
-        deadline: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'blur' },
-            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("deadline",this.deRules,"AND",value).isPast},message: "截至日期必须大于等于预计开始", trigger: 'blur' },
-        ],
     }
     }
 
@@ -403,48 +373,6 @@ export class SubTaskNewGridBase extends GridControlBase {
      * @memberof SubTaskNewBase
      */
     public deRules:any = {
-                estimate:[
-                  {
-                      type:"VALUERANGE2",
-                      condOP:"",
-                      ruleInfo:"预计消耗大于等于0", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      minValue:0,
-                      deName:"estimate",
-                      isIncludeMaxValue:false,
-                      isIncludeMinValue:true,
-                  },
-                ],
-                deadline:[
-                  {
-                      type:"GROUP",
-                      condOP:"OR",
-                      ruleInfo:"截至日期必须大于等于预计开始", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      group:[
-                  {
-                      type:"SIMPLE",
-                      condOP:"ISNULL",
-                      ruleInfo:"", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      deName:"eststarted",
-                  },
-                  {
-                      type:"SIMPLE",
-                      condOP:"GTANDEQ",
-                      ruleInfo:"截至日期必须大于等于预计开始", 
-                      isKeyCond:false,
-                      paramValue:"ESTSTARTED",
-                      paramType:"ENTITYFIELD",
-                      isNotMode:false,
-                      deName:"deadline",
-                  },
-                        ]
-                  },
-                ],
                 name:[
                   {
                       type:"STRINGLENGTH",
@@ -472,9 +400,7 @@ export class SubTaskNewGridBase extends GridControlBase {
         'name':true,
         'type':true,
         'assignedto':true,
-        'estimate':true,
         'eststarted':true,
-        'deadline':true,
         'desc':true,
         'pri':true,
     };
@@ -609,7 +535,7 @@ export class SubTaskNewGridBase extends GridControlBase {
     * @memberof SubTaskNewBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['modulename','storyname','name','type','assignedto','estimate','eststarted','deadline','desc','pri'];
+        let allColumns:Array<any> = ['modulename','storyname','name','type','assignedto','eststarted','desc','pri'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -693,9 +619,7 @@ export class SubTaskNewGridBase extends GridControlBase {
                 name:'',
                 type:'',
                 assignedto:'',
-                estimate:'',
                 eststarted:'',
-                deadline:'',
                 desc:'',
                 pri:'',
                 children: children
@@ -727,9 +651,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             name:'',
             type:'',
             assignedto:'',
-            estimate:'',
             eststarted:'',
-            deadline:'',
             desc:'',
             pri:'',
             children: child
@@ -797,9 +719,7 @@ export class SubTaskNewGridBase extends GridControlBase {
                 name:'',
                 type:'',
                 assignedto:'',
-                estimate:'',
                 eststarted:'',
-                deadline:'',
                 desc:'',
                 pri:'',
                 children: children,

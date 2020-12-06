@@ -109,7 +109,7 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastTabExpViewBase
      */ 
-    protected viewName: string = "SysUpdateLogLastTabExpView";
+    protected viewName: string = 'SysUpdateLogLastTabExpView';
 
 
     /**

@@ -61,6 +61,11 @@ export default class CompleteFormModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'myconsumed',
+        prop: 'myconsumed',
+        dataType: 'FLOAT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
@@ -76,6 +81,11 @@ export default class CompleteFormModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'mytotaltime',
+        prop: 'mytotaltime',
+        dataType: 'FLOAT',
+      },
+      {
         name: 'totaltime',
         prop: 'totaltime',
         dataType: 'FLOAT',
@@ -83,6 +93,11 @@ export default class CompleteFormModel {
       {
         name: 'assignedto',
         prop: 'assignedto',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'assignedtozj',
+        prop: 'assignedtozj',
         dataType: 'TEXT',
       },
       {

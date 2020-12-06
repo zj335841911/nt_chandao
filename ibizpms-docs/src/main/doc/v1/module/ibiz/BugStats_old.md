@@ -5,6 +5,7 @@
 ## 关系
 {% plantuml %}
 产品 *-- Bug统计 
+项目 *-- Bug统计 
 hide members
 {% endplantuml %}
 
@@ -30,6 +31,13 @@ hide members
 |产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 |Bug|BUGCNT|INT|&nbsp;|
 |指派给|ASSIGNEDTO|SSCODELIST|&nbsp;|
+|由谁解决|RESOLVEDBY|SSCODELIST|&nbsp;|
+|项目编号|PROJECT|PICKUP|&nbsp;|
+|项目名称|PROJECTNAME|TEXT|&nbsp;|
+|激活Bug|BUGACTIVE|INT|&nbsp;|
+|已解决Bug|BUGRESOLVED|INT|&nbsp;|
+|已关闭Bug|BUGCLOSED|INT|&nbsp;|
+|项目名称|PROJECTNAME1|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -52,6 +60,13 @@ hide members
 |产品名称|默认规则|内容长度必须小于等于[90]|
 |Bug|默认规则|默认规则|
 |指派给|默认规则|内容长度必须小于等于[60]|
+|由谁解决|默认规则|内容长度必须小于等于[100]|
+|项目编号|默认规则|默认规则|
+|项目名称|默认规则|内容长度必须小于等于[100]|
+|激活Bug|默认规则|默认规则|
+|已解决Bug|默认规则|默认规则|
+|已关闭Bug|默认规则|默认规则|
+|项目名称|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -78,18 +93,28 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
+|BugCountInResolution|Bug在每个解决方案的Bug数([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugCountInResolution))|否|&nbsp;|
+|BugResolvedBy|Bug完成表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugResolvedBy))|否|&nbsp;|
 |BugassignedTo|Bug指派表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugassignedTo))|否|&nbsp;|
 |DEFAULT|Bug创建表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_Default))|否|&nbsp;|
+|ProductBugResolutionStats|产品Bug解决方案汇总([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductBugResolutionStats))|否|&nbsp;|
+|ProductBugStatusSum|产品Bug状态汇总([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductBugStatusSum))|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductCreateBug))|否|&nbsp;|
+|ProjectBugStatusCount|项目bug状态统计([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProjectBugStatusCount))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_View))|否|&nbsp;|
 
 * **数据集合**
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|BugCountInResolution|Bug在每个解决方案的Bug数|BugCountInResolution|否|&nbsp;|
+|BugResolvedBy|Bug完成表|BugResolvedBy|否|&nbsp;|
 |BugassignedTo|Bug指派表|BugassignedTo|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|ProductBugResolutionStats|产品Bug解决方案汇总|ProductBugResolutionStats|否|&nbsp;|
+|ProductBugStatusSum|产品Bug状态汇总|ProductBugStatusSum|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比|ProductCreateBug|否|&nbsp;|
+|ProjectBugStatusCount|项目bug状态统计|ProjectBugStatusCount|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
@@ -99,6 +124,8 @@ hide members
 |不予解决(BUGWILLNOTFIX)|LTANDEQ|
 |编号(PRODUCT)|EQ|
 |指派给(ASSIGNEDTO)|EQ|
+|由谁解决(RESOLVEDBY)|EQ|
+|项目编号(PROJECT)|EQ|
 
 ## 导入模式
 无

@@ -49,6 +49,7 @@ public interface IProjectTeamService extends IService<ProjectTeam> {
     void saveBatch(List<ProjectTeam> list);
     Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context);
     Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context);
+    Page<ProjectTeam> searchTaskCntEstimateConsumedLeft(ProjectTeamSearchContext context);
     List<ProjectTeam> selectByRoot(Long id);
     void removeByRoot(Long id);
     void saveByRoot(Long id, List<ProjectTeam> list) ;

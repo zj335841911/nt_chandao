@@ -88,6 +88,11 @@ export default class Main_PlanSubModel {
           prop: 'ischild',
           dataType: 'TEXT',
         },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
@@ -179,6 +184,11 @@ export default class Main_PlanSubModel {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'branch',

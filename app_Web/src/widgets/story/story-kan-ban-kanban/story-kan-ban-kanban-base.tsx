@@ -164,7 +164,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @type {boolean}
      * @memberof StoryKanBanBase
      */
-    public isEnablePagingBar: boolean = false;;
+    public isEnablePagingBar: boolean = true;;
 
     /**
      * 总条数
@@ -203,7 +203,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @type {number}
      * @memberof StoryKanBanBase
      */
-    public limit: number = 1000;
+    public limit: number = 100;
 
     /**
      * 排序方向
@@ -211,7 +211,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @type {string}
      * @memberof StoryKanBanBase
      */    
-    public sortDir:string = '';
+    public sortDir:string = 'desc';
 
     /**
      * 排序字段
@@ -219,7 +219,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @type {string}
      * @memberof StoryKanBanBase
      */    
-    public sortField: string = '';
+    public sortField: string = 'id';
 
     /**
      * 是否分组
@@ -272,11 +272,6 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *  @memberof StoryKanBanBase
      */    
     public afterMounted(){
-        this.$el.addEventListener('scroll', ()=> {
-            if( this.$el.scrollTop +  this.$el.clientHeight  >=  this.$el.scrollHeight) {
-                this.loadMore();
-            }
-        })
     }
 
     /**
@@ -700,7 +695,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
         if(evt && evt.added && evt.added.element) {
             let item: any = JSON.parse(JSON.stringify(evt.added.element));
             if(this.getUpdateView(name)) {
-                const view: any = { ...this.getUpdateView(name) };
+                const view: any = this.getUpdateView(name);
                 const _context: any = JSON.parse(JSON.stringify(this.context));
                 const _param: any = JSON.parse(JSON.stringify(this.viewparams));
                 Object.assign(_context, { story: item.srfkey });
@@ -732,12 +727,8 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      */
     public getUpdateView(group: any) {
         switch(group) {
-            case 'wait': 
-                return {
-                    viewname: 'story-main-view',
-                    title: this.$t('entities.story.views.mainview.title'),
-                    placement:'DRAWER_TOP'
-                };
+            default:
+                return null;
         }
     }
 

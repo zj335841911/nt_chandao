@@ -166,6 +166,27 @@ public class DocLibModule extends EntityMP implements Serializable {
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
     private String modulename;
+    /**
+     * 查询类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "docqtype")
+    @JsonProperty("docqtype")
+    private String docqtype;
+    /**
+     * 是否已收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
+    private String isfavourites;
+    /**
+     * 文档数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
 
     /**
      * 父模块

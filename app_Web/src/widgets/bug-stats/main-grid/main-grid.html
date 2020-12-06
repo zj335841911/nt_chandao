@@ -13,7 +13,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.bugstats.main_grid.nodata')}} 
@@ -21,18 +21,18 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.bugstats.main_grid.columns.openedby')" :min-width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.openedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -40,132 +40,132 @@
             <template v-if="getColumnState('bugwjj')">
                 <el-table-column show-overflow-tooltip :prop="'bugwjj'" :label="$t('entities.bugstats.main_grid.columns.bugwjj')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugwjj')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugwjj}}</span>
+                            <span>{{row.bugwjj}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugbydesign')">
                 <el-table-column show-overflow-tooltip :prop="'bugbydesign'" :label="$t('entities.bugstats.main_grid.columns.bugbydesign')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugbydesign')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugbydesign}}</span>
+                            <span>{{row.bugbydesign}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugduplicate')">
                 <el-table-column show-overflow-tooltip :prop="'bugduplicate'" :label="$t('entities.bugstats.main_grid.columns.bugduplicate')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugduplicate')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugduplicate}}</span>
+                            <span>{{row.bugduplicate}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugexternal')">
                 <el-table-column show-overflow-tooltip :prop="'bugexternal'" :label="$t('entities.bugstats.main_grid.columns.bugexternal')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugexternal')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugexternal}}</span>
+                            <span>{{row.bugexternal}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugfixed')">
                 <el-table-column show-overflow-tooltip :prop="'bugfixed'" :label="$t('entities.bugstats.main_grid.columns.bugfixed')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugfixed')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugfixed}}</span>
+                            <span>{{row.bugfixed}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugnotrepro')">
                 <el-table-column show-overflow-tooltip :prop="'bugnotrepro'" :label="$t('entities.bugstats.main_grid.columns.bugnotrepro')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugnotrepro')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugnotrepro}}</span>
+                            <span>{{row.bugnotrepro}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugpostponed')">
                 <el-table-column show-overflow-tooltip :prop="'bugpostponed'" :label="$t('entities.bugstats.main_grid.columns.bugpostponed')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugpostponed')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugpostponed}}</span>
+                            <span>{{row.bugpostponed}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugwillnotfix')">
                 <el-table-column show-overflow-tooltip :prop="'bugwillnotfix'" :label="$t('entities.bugstats.main_grid.columns.bugwillnotfix')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugwillnotfix')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugwillnotfix}}</span>
+                            <span>{{row.bugwillnotfix}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugtostory')">
                 <el-table-column show-overflow-tooltip :prop="'bugtostory'" :label="$t('entities.bugstats.main_grid.columns.bugtostory')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugtostory')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugtostory}}</span>
+                            <span>{{row.bugtostory}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugefficient')">
                 <el-table-column show-overflow-tooltip :prop="'bugefficient'" :label="$t('entities.bugstats.main_grid.columns.bugefficient')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugefficient')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugefficient}}</span>
+                            <span>{{row.bugefficient}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugtotal')">
                 <el-table-column show-overflow-tooltip :prop="'bugtotal'" :label="$t('entities.bugstats.main_grid.columns.bugtotal')" :width="101"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bugstats.main_grid.columns.bugtotal')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugtotal}}</span>
+                            <span>{{row.bugtotal}}</span>
                     </template>
                 </el-table-column>
             </template>

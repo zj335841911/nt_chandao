@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.BugMapper;
 import cn.ibizlab.pms.core.zentao.service.IBugService;
+import cn.ibizlab.pms.core.zentao.service.IBuildService;
 import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -115,7 +116,10 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         this.internalUpdate(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et);
-        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
+        if (!et.getAssignedto().equals(old.getAssignedto())){
+            actionHelper.sendMarkDone(et.getId(),et.getTitle(),old.getAssignedto(),IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(),IBugService.OBJECT_SOURCE_PATH,StaticDict.Action__type.ASSIGNED.getText());
+            actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
+        }
         Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                 comment, et.getAssignedto(), null, true);
         if (changes.size() > 0) {
@@ -179,6 +183,10 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         actionHelper.sendToread(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.BUGCONFIRMED.getText());
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"confirmed", "assignedto"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            if (!et.getAssignedto().equals(old.getAssignedto())){
+                actionHelper.sendMarkDone(et.getId(),et.getTitle(),old.getAssignedto(),IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(),IBugService.OBJECT_SOURCE_PATH,StaticDict.Action__type.BUGCONFIRMED.getText());
+                actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.BUGCONFIRMED.getText());
+            }
             Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.BUGCONFIRMED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0) {
@@ -212,8 +220,8 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             et.setResolvedbuild(String.valueOf(build.getId()));
         }
 
-        if (StringUtils.isNotBlank(et.getResolvedbuild()) && StringUtils.compare(et.getResolvedbuild(), "trunk") != 0) {
-            TestTask testTask = testTaskHelper.getOne(new QueryWrapper<TestTask>().eq("build", et.getResolvedbuild()).orderByDesc("`id`").last("limit 0,1"));
+        if (StringUtils.isNotBlank(et.getResolvedbuild()) && StringUtils.compare(et.getResolvedbuild(), FIELD_TRUNK) != 0) {
+            TestTask testTask = testTaskHelper.getOne(new QueryWrapper<TestTask>().eq(StaticDict.Action__object_type.BUILD.getValue(), et.getResolvedbuild()).orderByDesc("`id`").last("limit 0,1"));
             if (testTask != null) {
                 et.setTesttask(testTask.getId());
             }
@@ -225,19 +233,23 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.RESOLVED.getText());
         //关联
-        et.set("builds", et.getResolvedbuild());
-        et.set("ids", et.getId());
+        et.set(FIELD_BUILDS, et.getResolvedbuild());
+        et.set(FIELD_IDS, et.getId());
         buildLinkBug(et);
 
         //release关联
-        Release release = releaseHelper.getOne(new QueryWrapper<Release>().eq("build", et.getResolvedbuild()).eq("product", et.getProduct()).ne("build", 0).last(" LIMIT 0,1 "));
+        Release release = releaseHelper.getOne(new QueryWrapper<Release>().eq(StaticDict.Action__object_type.BUILD.getValue(), et.getResolvedbuild()).eq(StaticDict.Action__object_type.PRODUCT.getValue(), et.getProduct()).ne(StaticDict.Action__object_type.BUILD.getValue(), 0).last(" LIMIT 0,1 "));
         if (release != null) {
-            et.set("release", release.getId());
+            et.set(StaticDict.Action__object_type.RELEASE.getValue(), release.getId());
             linkBug(et);
         }
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            if (!et.getAssignedto().equals(old.getAssignedto())){
+                actionHelper.sendMarkDone(et.getId(),et.getTitle(),old.getAssignedto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(),IBugService.OBJECT_SOURCE_PATH,StaticDict.Action__type.RESOLVED.getText());
+                actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.RESOLVED.getText());
+            }
             Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.RESOLVED.getValue(),
                     comment, et.getResolution(), null, true);
             if (changes.size() > 0) {
@@ -277,17 +289,17 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Transactional(rollbackFor = Exception.class)
     public Bug linkBug(Bug et) {
         //release
-        if (et.get("release") != null) {
+        if (et.get(StaticDict.Action__object_type.RELEASE.getValue()) != null) {
 
-            Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
+            Release release = releaseHelper.get(Long.parseLong(et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString()));
 
             if (release != null) {
                 if (StringUtils.isBlank(release.getBugs())) {
                     release.setBugs(String.valueOf(et.getId()));
                     releaseHelper.internalUpdate(release);
                 } else {
-                    if (!("," + release.getBugs()).contains("," + et.getId())) {
-                        release.setBugs(release.getBugs() + "," + et.getId());
+                    if (!(MULTIPLE_CHOICE + release.getBugs()).contains(MULTIPLE_CHOICE + et.getId())) {
+                        release.setBugs(release.getBugs() + MULTIPLE_CHOICE + et.getId());
                         releaseHelper.internalUpdate(release);
                         actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.LINKED2RELEASE.getValue(),
                                 "", String.valueOf(release.getId()), null, true);
@@ -296,18 +308,18 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             }
         }
 
-        if (et.get("productplan") != null) {
+        if (et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()) != null) {
             ProductPlan productPlan = new ProductPlan();
-            productPlan.setId(Long.parseLong(et.get("productplan").toString()));
+            productPlan.setId(Long.parseLong(et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()).toString()));
             String bugs = "";
-            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
             for (Map data : list) {
                 if (bugs.length() > 0) {
-                    bugs += ",";
+                    bugs += MULTIPLE_CHOICE;
                 }
-                bugs += data.get("id");
+                bugs += data.get(FIELD_ID);
             }
-            productPlan.set("bugs",bugs);
+            productPlan.set(FIELD_BUGS,bugs);
             SpringContextHolder.getBean(ProductPlanHelper.class).linkBug(productPlan);
         }
         return et;
@@ -316,21 +328,21 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Transactional(rollbackFor = Exception.class)
     public Bug unlinkBug(Bug et) {
         //release
-        if (et.get("release") != null) {
-            Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
+        if (et.get(StaticDict.Action__object_type.RELEASE.getValue()) != null) {
+            Release release = releaseHelper.get(Long.parseLong(et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString()));
 
-            if (("," + release.getBugs()).contains("," + et.getId())) {
-                release.setBugs(("," + release.getBugs()).replace("," + et.getId(), ""));
+            if ((MULTIPLE_CHOICE + release.getBugs()).contains(MULTIPLE_CHOICE + et.getId())) {
+                release.setBugs((IN_CHOICE + release.getBugs()).replace(MULTIPLE_CHOICE + et.getId(), ""));
                 releaseHelper.internalUpdate(release);
                 actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMRELEASE.getValue(),
                         "", String.valueOf(release.getId()), null, true);
             }
         }
 
-        if (et.get("productplan") != null) {
+        if (et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()) != null) {
             ProductPlan productPlan = new ProductPlan();
-            productPlan.setId(Long.parseLong(et.get("productplan").toString()));
-            productPlan.set("bugs",et.getId());
+            productPlan.setId(Long.parseLong(et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()).toString()));
+            productPlan.set(FIELD_BUGS,et.getId());
             SpringContextHolder.getBean(ProductPlanHelper.class).unlinkBug(productPlan);
 
 
@@ -346,20 +358,20 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Transactional(rollbackFor = Exception.class)
     public Bug buildLinkBug(Bug et) {
         //build
-        if (et.get("builds") == null) {
+        if (et.get(FIELD_BUILDS) == null) {
             return et;
         }
-        if (et.get("ids") == null) {
+        if (et.get(FIELD_IDS) == null) {
             return et;
         }
-        if("trunk".equals(et.get("builds").toString().split(",")[0])) {
+        if(FIELD_TRUNK.equals(et.get(FIELD_BUILDS).toString().split(MULTIPLE_CHOICE)[0])) {
             return et;
         }
 
         Build build = new Build();
-        build.setId(Long.parseLong(et.get("builds").toString().split(",")[0]));
-        build.set("bugs", et.get("ids"));
-        build.set("resolvedby", et.getResolvedby());
+        build.setId(Long.parseLong(et.get(FIELD_BUILDS).toString().split(MULTIPLE_CHOICE)[0]));
+        build.set(FIELD_BUGS, et.get(FIELD_IDS));
+        build.set(FIELD_RESOLVEDBY, et.getResolvedby());
         buildHelper.linkBug(build);
 
         return et;
@@ -368,12 +380,12 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Transactional(rollbackFor = Exception.class)
     public Bug buildUnlinkBug(Bug et) {
         //build
-        if (et.get("build") == null) {
+        if (et.get(StaticDict.Action__object_type.BUILD.getValue()) == null) {
             return et;
         }
         Build build = new Build();
-        build.setId(Long.parseLong(et.get("build").toString()));
-        build.set("bugs", et.getId());
+        build.setId(Long.parseLong(et.get(StaticDict.Action__object_type.BUILD.getValue()).toString()));
+        build.set(FIELD_BUGS, et.getId());
         buildHelper.unlinkBug(build);
         return et;
     }
@@ -385,21 +397,21 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
     @Transactional(rollbackFor = Exception.class)
     public Bug releaseUnlinkBug(Bug et) {
-        if(et.getId() == null &&  et.get("release") == null) {
+        if(et.getId() == null &&  et.get(StaticDict.Action__object_type.RELEASE.getValue()) == null) {
             return et;
         }
-        Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
+        Release release = releaseHelper.get(Long.parseLong(et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString()));
         Release releaseUpdate = new Release();
         releaseUpdate.setId(release.getId());
         String bugs = release.getBugs();
-        bugs = ("," + bugs + ",").replace("," + String.valueOf(et.getId()) + ",", ",");
+        bugs = (MULTIPLE_CHOICE + bugs + MULTIPLE_CHOICE).replace(MULTIPLE_CHOICE + String.valueOf(et.getId()) +MULTIPLE_CHOICE, MULTIPLE_CHOICE);
         String regex = "^,*|,*$";
         bugs = bugs.replaceAll(regex, "");
         releaseUpdate.setBugs(bugs);
         releaseHelper.internalUpdate(releaseUpdate);
         actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMRELEASE.getValue(),
                 "",
-                et.get("release").toString(),
+                et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString(),
                 AuthenticationUser.getAuthenticationUser().getUsername(),
                 false);
 
@@ -408,14 +420,14 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
     @Transactional(rollbackFor = Exception.class)
     public Bug releaseUnLinkBugbyLeftBug(Bug et) {
-        if(et.getId() == null &&  et.get("release") == null) {
+        if(et.getId() == null &&  et.get(StaticDict.Action__object_type.RELEASE.getValue()) == null) {
             return et;
         }
-        Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
+        Release release = releaseHelper.get(Long.parseLong(et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString()));
         Release releaseUpdate = new Release();
         releaseUpdate.setId(release.getId());
         String leftbugs = release.getLeftbugs();
-        leftbugs = ("," + leftbugs + ",").replace("," + String.valueOf(et.getId()) + ",", ",");
+        leftbugs = (MULTIPLE_CHOICE + leftbugs + MULTIPLE_CHOICE).replace(MULTIPLE_CHOICE + String.valueOf(et.getId()) + MULTIPLE_CHOICE, MULTIPLE_CHOICE);
         String regex = "^,*|,*$";
         leftbugs = leftbugs.replaceAll(regex, "");
         releaseUpdate.setLeftbugs(leftbugs);
@@ -423,7 +435,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
         actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMRELEASE.getValue(),
                 "",
-                et.get("release").toString(),
+                et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString(),
                 AuthenticationUser.getAuthenticationUser().getUsername(),
                 false);
 
@@ -432,24 +444,24 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
     @Transactional(rollbackFor = Exception.class)
     public Bug releaseLinkBugbyBug(Bug et) {
-        if(et.get("release") == null) {
+        if(et.get(StaticDict.Action__object_type.RELEASE.getValue()) == null) {
             return et;
         }
         Release release = new Release();
-        release.setId(Long.parseLong(et.get("release").toString()));
-        release.set("srfactionparam",et.get("srfactionparam"));
+        release.setId(Long.parseLong(et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString()));
+        release.set(FIELD_SRFACTIONPARAM,et.get(FIELD_SRFACTIONPARAM));
         SpringContextHolder.getBean(ReleaseHelper.class).linkBug(release);
         return  et;
     }
 
     @Transactional(rollbackFor = Exception.class)
     public Bug releaseLinkBugbyLeftBug(Bug et) {
-        if(et.get("release") == null) {
+        if(et.get(StaticDict.Action__object_type.RELEASE.getValue()) == null) {
             return et;
         }
         Release release = new Release();
-        release.setId(Long.parseLong(et.get("release").toString()));
-        release.set("srfactionparam",et.get("srfactionparam"));
+        release.setId(Long.parseLong(et.get(StaticDict.Action__object_type.RELEASE.getValue()).toString()));
+        release.set(FIELD_SRFACTIONPARAM,et.get(FIELD_SRFACTIONPARAM));
         SpringContextHolder.getBean(ReleaseHelper.class).linkBugbyLeftBug(release);
         return  et;
     }

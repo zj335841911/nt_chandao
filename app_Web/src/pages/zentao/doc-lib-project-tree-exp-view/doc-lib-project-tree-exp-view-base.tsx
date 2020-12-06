@@ -109,7 +109,7 @@ export class DocLibProjectTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof DocLibProjectTreeExpViewBase
      */ 
-    protected viewName: string = "DocLibProjectTreeExpView";
+    protected viewName: string = 'DocLibProjectTreeExpView';
 
 
     /**

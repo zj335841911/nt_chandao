@@ -12,8 +12,8 @@
     <resultMap id="UserTplResultMap" type="cn.ibizlab.pms.core.zentao.domain.UserTpl" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="ibizpublic" column="public" />
-            
-		
+
+
     </resultMap>
 
 
@@ -26,10 +26,25 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyUserTpl]-->
+	 <select id="searchMyUserTpl"  parameterType="cn.ibizlab.pms.core.zentao.filter.UserTplSearchContext"  resultMap="UserTplResultMap">
+         select t1.* from (
+                <include refid="MyUserTpl" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CONTENT`, t1.`ID`, t1.`PUBLIC`, t1.`TITLE`, t1.`TYPE` FROM `zt_usertpl` t1  
 					 WHERE 	( ( t1.`PUBLIC` = '1'  OR  t1.`ACCOUNT` =  #{srf.webcontext.account} )  AND  t1.`TYPE` =  #{srf.webcontext.type} )
+			]]>
+    </sql>
+    <!--数据查询[MyUserTpl]-->
+    <sql id="MyUserTpl" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CONTENT`, t1.`ID`, t1.`PUBLIC`, t1.`TITLE`, t1.`TYPE` FROM `zt_usertpl` t1  
+					 WHERE 	( t1.`ACCOUNT` =  #{srf.sessioncontext.srfloginname} )
 			]]>
     </sql>
     <!--数据查询[View]-->

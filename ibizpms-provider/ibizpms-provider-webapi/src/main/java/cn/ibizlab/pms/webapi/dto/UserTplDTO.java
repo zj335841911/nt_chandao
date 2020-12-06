@@ -35,7 +35,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
-    @NotBlank(message = "[title]不允许为空!")
+    @NotBlank(message = "[模板标题]不允许为空!")
     @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
     private String title;
 
@@ -107,14 +107,6 @@ public class UserTplDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
-    }
-
-    /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
     }
 
     /**

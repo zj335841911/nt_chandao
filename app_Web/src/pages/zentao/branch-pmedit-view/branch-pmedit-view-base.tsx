@@ -48,7 +48,7 @@ export class BranchPMEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BranchPMEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class BranchPMEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BranchPMEditViewBase
      */ 
-    protected viewName: string = "BranchPMEditView";
+    protected viewName: string = 'BranchPMEditView';
 
 
     /**

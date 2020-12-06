@@ -48,7 +48,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoCloseViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -153,7 +153,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoCloseViewBase
      */ 
-    protected viewName: string = "TodoCloseView";
+    protected viewName: string = 'TodoCloseView';
 
 
     /**

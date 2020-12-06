@@ -51,7 +51,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
         if (et.getBuild() == 0) {
             Build buildQuery = new Build();
-            buildQuery.setDeleted("0");
+            buildQuery.setDeleted(StaticDict.YesNo.ITEM_0.getValue());
             buildQuery.setName(et.getName());
             buildQuery.setProduct(et.getProduct());
             buildQuery.setBranch(et.getBranch());
@@ -129,25 +129,25 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     @Transactional(rollbackFor = Exception.class)
     public Release linkBug(Release et) {
-        if (et.getId() == null || et.get("srfactionparam") == null) {
+        if (et.getId() == null || et.get(FIELD_SRFACTIONPARAM) == null) {
             return et;
         }
         String bugs = "";
-        ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+        ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
         for (Map data : list) {
             if (bugs.length() > 0) {
-                bugs += ",";
+                bugs += MULTIPLE_CHOICE;
             }
-            bugs += data.get("id");
+            bugs += data.get(FIELD_ID);
         }
         et = this.get(et.getId());
         Release release = new Release();
         release.setId(et.getId());
-        release.setBugs(et.getBugs() + "," + bugs);
+        release.setBugs(et.getBugs() + MULTIPLE_CHOICE + bugs);
         Product product = productHelper.get(et.getProduct());
         internalUpdate(release);
 
-        for(String bug : bugs.split(",")) {
+        for(String bug : bugs.split(MULTIPLE_CHOICE)) {
             actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), Long.parseLong(bug), StaticDict.Action__type.LINKED2RELEASE.getValue(),
                     "", String.valueOf(et.getId()), null, true);
         }
@@ -171,16 +171,16 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     @Transactional(rollbackFor = Exception.class)
     public Release linkBugbyLeftBug(Release et) {
-        if (et.getId() == null || et.get("srfactionparam") == null) {
+        if (et.getId() == null || et.get(FIELD_SRFACTIONPARAM) == null) {
             return et;
         }
         String bugs = "";
-        ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+        ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
         for (Map data : list) {
             if (bugs.length() > 0) {
-                bugs += ",";
+                bugs += MULTIPLE_CHOICE;
             }
-            bugs += data.get("id");
+            bugs += data.get(FIELD_ID);
         }
         et = this.get(et.getId());
         Release release = new Release();
@@ -189,7 +189,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         Product product = productHelper.get(et.getProduct());
         internalUpdate(release);
 
-        for(String bug : bugs.split(",")) {
+        for(String bug : bugs.split(MULTIPLE_CHOICE)) {
             actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), Long.parseLong(bug), StaticDict.Action__type.LINKED2RELEASE.getValue(),
                     "", String.valueOf(et.getId()), null, true);
         }
@@ -204,25 +204,25 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
     @Transactional(rollbackFor = Exception.class)
     public Release linkStory(Release et) {
 
-        if (et.getId() == null || et.get("srfactionparam") == null) {
+        if (et.getId() == null || et.get(FIELD_SRFACTIONPARAM) == null) {
             return et;
         }
         String stories = "";
-        ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+        ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
         for (Map data : list) {
             if (stories.length() > 0) {
-                stories += ",";
+                stories += MULTIPLE_CHOICE;
             }
-            stories += data.get("id");
+            stories += data.get(FIELD_ID);
         }
         et = this.get(et.getId());
         Release release = new Release();
         release.setId(et.getId());
-        release.setStories(et.getStories() + "," + stories);
+        release.setStories(et.getStories() + MULTIPLE_CHOICE + stories);
         Product product = productHelper.get(et.getProduct());
         internalUpdate(release);
 
-        for(String story : stories.split(",")) {
+        for(String story : stories.split(MULTIPLE_CHOICE)) {
             if("".equals(story)) {
                 continue;
             }
@@ -234,8 +234,8 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
                 StoryStage storyStage = new StoryStage();
                 storyStage.setStagedby("");
                 Map<String,Object> param = new HashMap<>();
-                param.put("story",story);
-                param.put("branch",et.getBranch());
+                param.put(StaticDict.Action__object_type.STORY.getValue(),story);
+                param.put(StaticDict.Action__object_type.BRANCH.getValue(),et.getBranch());
                 storyStageHelper.update(storyStage, (Wrapper)storyStage.getUpdateWrapper(true).allEq(param));
             }
             storyHelper.setStage(story1);

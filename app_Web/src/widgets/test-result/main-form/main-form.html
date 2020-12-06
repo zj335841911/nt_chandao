@@ -1,18 +1,26 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='testresult_main'
+    class="app-form info-form-mode"
+    ref="form"
+    id="testresult_main"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class=''
+    class=""
 
     :caption="$t('entities.testresult.main_form.details.id')"
     uiStyle="DEFAULT"
@@ -20,20 +28,30 @@
     :isShowCaption="true"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.date.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='date'
+    name="date"
     :itemRules="this.rules().date"
-    class=''
+    class=""
 
     :caption="$t('entities.testresult.main_form.details.date')"
     uiStyle="DEFAULT"
@@ -41,20 +59,30 @@
     :isShowCaption="true"
     :error="detailsModel.date.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='date' :value="data.date" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.lastrunner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.lastrunner.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='lastrunner'
+    name="lastrunner"
     :itemRules="this.rules().lastrunner"
-    class=''
+    class=""
 
     :caption="$t('entities.testresult.main_form.details.lastrunner')"
     uiStyle="DEFAULT"
@@ -62,20 +90,30 @@
     :isShowCaption="true"
     :error="detailsModel.lastrunner.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='lastrunner' :value="data.lastrunner" dataType="TEXT"     :precision="0"
-tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.caseresult.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.caseresult.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='caseresult'
+    name="caseresult"
     :itemRules="this.rules().caseresult"
-    class=''
+    class=""
 
     :caption="$t('entities.testresult.main_form.details.caseresult')"
     uiStyle="DEFAULT"
@@ -83,16 +121,26 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.caseresult.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='caseresult' :value="data.caseresult" dataType="SSCODELIST"     :precision="0"
-tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -100,18 +148,27 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         <icon v-if="data.formitem == '1'" type="ios-arrow-down" @click="onFormItemValueChange({name: 'formitem', value: '0'})"/>
 <icon v-if="!data.formitem || data.formitem == '0'" type="ios-arrow-back" @click="onFormItemValueChange({name: 'formitem', value: '1'})"/>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.testresult.main_form.details.grouppanel1')"
@@ -127,14 +184,22 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='testresult' 
+    paramItem="testresult" 
     :parentdata='{"srfparentdename":"ZT_TESTRESULT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
         {
@@ -146,24 +211,32 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     :viewparams="viewparams"
     :localContext ='{N_VERSION_EQ:"%version%"}'
     :localParam ='{n_version_eq:"%version%"}'
-    parameterName='testresult'
+    parameterName="testresult"
     parentName="TestResult"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='case-step-grid-view9' 
+    viewname="case-step-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.testresult.main_form.details.grouppanel2')"
@@ -179,18 +252,26 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 22 }">
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.testresult.main_form.uiactions.testresult_tobug')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-bug'}" />
-        <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
-    </i-button>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 22 }"
+>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.testresult.main_form.uiactions.testresult_tobug')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-bug'}" />
+    <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
+</i-button>
 
 </i-col>
     

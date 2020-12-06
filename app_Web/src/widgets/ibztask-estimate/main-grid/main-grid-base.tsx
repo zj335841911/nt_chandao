@@ -66,7 +66,6 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService: IBZTaskEstimateUIService = new IBZTaskEstimateUIService(this.$store);
 
-
     /**
      * 本地缓存标识
      *
@@ -144,7 +143,7 @@ export class MainGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainGridBase
      */
-    public rules(){
+    public rules() {
         return {
         id: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'ID 值不能为空', trigger: 'change' },
@@ -157,6 +156,7 @@ export class MainGridBase extends GridControlBase {
         consumed: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("consumed",this.deRules,"AND",value).isPast},message: "总计消耗大于等于0", trigger: 'blur' },
         ],
         dates: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '日期 值不能为空', trigger: 'change' },
@@ -165,6 +165,7 @@ export class MainGridBase extends GridControlBase {
         left: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计剩余 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计剩余 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("left",this.deRules,"AND",value).isPast},message: "预计剩余大于等于0", trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -172,6 +173,41 @@ export class MainGridBase extends GridControlBase {
         ],
         }
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+                consumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"总计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"consumed",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
+                left:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计剩余大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"left",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
+    };
 
     /**
      * 获取对应列class
@@ -269,6 +305,17 @@ export class MainGridBase extends GridControlBase {
      * @memberof Main
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        if (!(await this.validateAll())) {
+            if (this.errorMessages && this.errorMessages.length > 0) {
+                this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: this.errorMessages[0] });
+            } else {
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.rulesException') as string,
+                });
+            }
+            return [];
+        }
         for (const item of this.items) {
             item.srfmajortext = item.id;
         }

@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='project_dashboardinfo'
+    class="app-form info-form-mode"
+    ref="form"
+    id="project_dashboardinfo"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.group1')"
@@ -29,13 +37,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{'width':'35px !important'}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{'width':'35px !important'}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='project-id'
+    class="project-id"
 
     :caption="$t('entities.project.dashboardinfo_form.details.id')"
     uiStyle="DEFAULT"
@@ -43,20 +59,61 @@
     :isShowCaption="false"
     :error="detailsModel.id.error"
     :isEmptyCaption="false"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.code.visible" :style="{}"  :lg="{ span: 9, offset: 0 }" :xl="{ span: 9, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel9.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 22, offset: 0 }"
+>
+    <app-form-group
+    :model="detailsModel.grouppanel9"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel9.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.project.dashboardinfo_form.details.grouppanel9')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel9"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.code.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 9, offset: 0 }"
+    :xl="{ span: 9, offset: 0 }"
+>
     <app-form-item
-    name='code'
+    name="code"
     :itemRules="this.rules().code"
-    class='project-code'
+    class="project-code"
 
     :caption="$t('entities.project.dashboardinfo_form.details.code')"
     uiStyle="DEFAULT"
@@ -64,90 +121,43 @@
     :isShowCaption="false"
     :error="detailsModel.code.error"
     :isEmptyCaption="false"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     
 <app-span name='code' :value="data.code" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 13, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.name.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 15, offset: 0 }"
+    :xl="{ span: 15, offset: 0 }"
+>
     <app-form-item
-    name='name'
+    name="name"
     :itemRules="this.rules().name"
-    class='project-name'
+    class="project-name"
 
     :caption="$t('entities.project.dashboardinfo_form.details.name')"
     uiStyle="DEFAULT"
-    :labelWidth="0"
-    :isShowCaption="false"
-    :error="detailsModel.name.error"
-    :isEmptyCaption="false"
-    labelPos="NONE">
-    
-<app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item
-    name='desc'
-    :itemRules="this.rules().desc"
-    class=''
-
-    :caption="$t('entities.project.dashboardinfo_form.details.desc')"
-    uiStyle="DEFAULT"
     :labelWidth="10"
     :isShowCaption="true"
-    :error="detailsModel.desc.error"
+    :error="detailsModel.name.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
-    <html-container :content="data.desc"></html-container>
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <app-form-item
-    name='type'
-    :itemRules="this.rules().type"
-    class='project-type'
-
-    :caption="$t('entities.project.dashboardinfo_form.details.type')"
-    uiStyle="DEFAULT"
-    :labelWidth="0"
-    :isShowCaption="false"
-    :error="detailsModel.type.error"
-    :isEmptyCaption="false"
-    labelPos="NONE">
+    labelPos="LEFT"
+>
     
-<app-span name='type' :value="data.type" dataType="SSCODELIST"     :precision="0"
-tag='Project__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <app-form-item
-    name='status'
-    :itemRules="this.rules().status"
-    class='project-status'
-
-    :caption="$t('entities.project.dashboardinfo_form.details.status')"
-    uiStyle="DEFAULT"
-    :labelWidth="0"
-    :isShowCaption="false"
-    :error="detailsModel.status.error"
-    :isEmptyCaption="false"
-    labelPos="NONE">
-    
-<app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
-tag='Project__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+<app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -158,12 +168,113 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel6.visible" :style="{'height': '220px !important',}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.desc.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="desc"
+    :itemRules="this.rules().desc"
+    class=""
+
+    :caption="$t('entities.project.dashboardinfo_form.details.desc')"
+    uiStyle="DEFAULT"
+    :labelWidth="10"
+    :isShowCaption="true"
+    :error="detailsModel.desc.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
+>
+    <html-container :content="data.desc"></html-container>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.type.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 4, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
+    <app-form-item
+    name="type"
+    :itemRules="this.rules().type"
+    class="project-type"
+
+    :caption="$t('entities.project.dashboardinfo_form.details.type')"
+    uiStyle="DEFAULT"
+    :labelWidth="0"
+    :isShowCaption="false"
+    :error="detailsModel.type.error"
+    :isEmptyCaption="false"
+    labelPos="NONE"
+>
+    
+<app-span name='type' :value="data.type" dataType="SSCODELIST"     :precision="0"
+tag='Project__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 4, offset: 0 }"
+    :xl="{ span: 4, offset: 1 }"
+>
+    <app-form-item
+    name="status"
+    :itemRules="this.rules().status"
+    class="project-status"
+
+    :caption="$t('entities.project.dashboardinfo_form.details.status')"
+    uiStyle="DEFAULT"
+    :labelWidth="0"
+    :isShowCaption="false"
+    :error="detailsModel.status.error"
+    :isEmptyCaption="false"
+    labelPos="NONE"
+>
+    
+<app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
+tag='Project__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel6.visible"
+    :style="{'height': '220px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel6"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel6.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel6')"
@@ -179,14 +290,22 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{'height': '150px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{'height': '150px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='project' 
+    paramItem="project" 
     :parentdata='{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -194,12 +313,12 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='project'
+    parameterName="project"
     parentName="Project"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='product-project-grid-view9' 
+    viewname="product-project-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:150px;overflow: auto;">
@@ -211,12 +330,20 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel7.visible" :style="{'height': '220px !important',}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel7.visible"
+    :style="{'height': '220px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel7"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel7.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel7')"
@@ -232,14 +359,22 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{'height': '150px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{'height': '150px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='project' 
+    paramItem="project" 
     :parentdata='{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
         {
@@ -251,12 +386,12 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='project'
+    parameterName="project"
     parentName="Project"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='product-plan-project-grid-view9' 
+    viewname="product-plan-project-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:150px;overflow: auto;">
@@ -268,12 +403,20 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel1')"
@@ -289,14 +432,22 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel8.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel8"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel8.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel8')"
@@ -312,13 +463,21 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitemex1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='formitemex1'
+    name="formitemex1"
     :itemRules="this.rules().formitemex1"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.formitemex1')"
     uiStyle="DEFAULT"
@@ -326,8 +485,15 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.formitemex1.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.formitem6" :progress="this.data.formitem7"/>
+    labelPos="LEFT"
+>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.formitem6"
+    :progress="this.data.formitem7"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>
@@ -336,12 +502,20 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    :sm="{ span: 12, offset: 0 }"
+    :md="{ span: 12, offset: 0 }"
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel2')"
@@ -357,13 +531,21 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.begin.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='begin'
+    name="begin"
     :itemRules="this.rules().begin"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.begin')"
     uiStyle="DEFAULT"
@@ -371,20 +553,30 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.begin.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='begin' :value="data.begin" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.end.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='end'
+    name="end"
     :itemRules="this.rules().end"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.end')"
     uiStyle="DEFAULT"
@@ -392,20 +584,30 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.end.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='end' :value="data.end" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.days.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.days.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='days'
+    name="days"
     :itemRules="this.rules().days"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.days')"
     uiStyle="DEFAULT"
@@ -413,20 +615,30 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.days.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='days' :value="data.days" dataType="INT" unitName="天"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.totalhours.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.totalhours.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='totalhours'
+    name="totalhours"
     :itemRules="this.rules().totalhours"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.totalhours')"
     uiStyle="DEFAULT"
@@ -434,10 +646,12 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.totalhours.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='totalhours' :value="data.totalhours" dataType="DECIMAL" unitName="工时"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -448,12 +662,20 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    :sm="{ span: 12, offset: 0 }"
+    :md="{ span: 12, offset: 0 }"
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel3')"
@@ -469,13 +691,21 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitem.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='formitem'
+    name="formitem"
     :itemRules="this.rules().formitem"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.formitem')"
     uiStyle="DEFAULT"
@@ -483,20 +713,30 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.formitem.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='formitem' :value="data.formitem" dataType="FLOAT" unitName="工时"     :precision="2"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitem1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='formitem1'
+    name="formitem1"
     :itemRules="this.rules().formitem1"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.formitem1')"
     uiStyle="DEFAULT"
@@ -504,20 +744,30 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.formitem1.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='formitem1' :value="data.formitem1" dataType="FLOAT" unitName="工时"     :precision="2"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitem2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='formitem2'
+    name="formitem2"
     :itemRules="this.rules().formitem2"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.formitem2')"
     uiStyle="DEFAULT"
@@ -525,10 +775,12 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.formitem2.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='formitem2' :value="data.formitem2" dataType="FLOAT" unitName="工时"     :precision="2"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -544,12 +796,20 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel4"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel4')"
@@ -565,13 +825,21 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitem3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 8, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='formitem3'
+    name="formitem3"
     :itemRules="this.rules().formitem3"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.formitem3')"
     uiStyle="DEFAULT"
@@ -579,20 +847,30 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.formitem3.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='formitem3' :value="data.formitem3" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitem4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 8, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='formitem4'
+    name="formitem4"
     :itemRules="this.rules().formitem4"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.formitem4')"
     uiStyle="DEFAULT"
@@ -600,20 +878,30 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.formitem4.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='formitem4' :value="data.formitem4" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitem5.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 8, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='formitem5'
+    name="formitem5"
     :itemRules="this.rules().formitem5"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.formitem5')"
     uiStyle="DEFAULT"
@@ -621,10 +909,12 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.formitem5.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='formitem5' :value="data.formitem5" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -635,12 +925,20 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel5.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel5"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel5.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.project.dashboardinfo_form.details.grouppanel5')"
@@ -656,13 +954,21 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.acl.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='acl'
+    name="acl"
     :itemRules="this.rules().acl"
-    class=''
+    class=""
 
     :caption="$t('entities.project.dashboardinfo_form.details.acl')"
     uiStyle="DEFAULT"
@@ -670,10 +976,12 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="false"
     :error="detailsModel.acl.error"
     :isEmptyCaption="false"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     
 <app-span name='acl' :value="data.acl" dataType="SSCODELIST"     :precision="0"
-tag='Project__acl' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Project__acl' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>

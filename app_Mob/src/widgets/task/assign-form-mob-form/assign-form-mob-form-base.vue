@@ -164,8 +164,7 @@ import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class AssignFormMobBase extends Vue implements ControlInterface {
 
@@ -286,7 +285,7 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 工作流审批意见控件绑定值
@@ -476,6 +475,7 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
         multiple: null,
         left: null,
         comment: null,
+        status: null,
         noticeusers: null,
         id: null,
         task: null,
@@ -652,6 +652,8 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        status: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
@@ -815,6 +817,18 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof AssignFormMob
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 noticeusers 值
      *
      * @param {*} newVal
@@ -874,6 +888,7 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

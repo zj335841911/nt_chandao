@@ -1,6 +1,6 @@
-<div class='tabviewpanel' v-if='isActivied'>
+<div class="tabviewpanel" v-if="isActivied">
         <release-grid-view 
-        class='viewcontainer2' 
+        class="viewcontainer2" 
         :viewdata="viewdata" 
         :viewparam="viewparam"
         @viewload="viewDatasChange($event)" 
@@ -8,5 +8,5 @@
         :viewUsage="7"
         :expActive="expActive"
         @closeview="closeView($event)"
-    />
+    ></release-grid-view>
 </div>

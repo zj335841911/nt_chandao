@@ -51,7 +51,7 @@ export class StoryReleaseSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryReleaseSubGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -138,7 +138,7 @@ export class StoryReleaseSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryReleaseSubGridViewBase
      */ 
-    protected viewName: string = "StoryReleaseSubGridView";
+    protected viewName: string = 'StoryReleaseSubGridView';
 
 
     /**

@@ -114,6 +114,8 @@ export default class RealNameProjectM {
                 Object.assign(itemdata,{text:item.personname});
                 Object.assign(itemdata,{label:item.personname});
                 
+                Object.assign(itemdata,{icon:item.usericon});
+                
                 _items.push(itemdata);
             });
         }

@@ -55,6 +55,20 @@ export default class ProductLifeServiceBase extends EntityService {
     }
 
     /**
+     * searchGetRoadmap接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async searchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productlives/searchgetroadmap`,tempData,isloading);
+    }
+
+    /**
      * FetchRoadMapYear接口方法
      *
      * @param {*} [context={}]
@@ -70,6 +84,20 @@ export default class ProductLifeServiceBase extends EntityService {
     }
 
     /**
+     * searchRoadMapYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async searchRoadMapYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productlives/searchroadmapyear`,tempData,isloading);
+    }
+
+    /**
      * FetchGetRoadmapS接口方法
      *
      * @param {*} [context={}]
@@ -82,6 +110,20 @@ export default class ProductLifeServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productlives/fetchgetroadmaps`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchGetRoadmapS接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async searchGetRoadmapS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productlives/searchgetroadmaps`,tempData,isloading);
     }
 
     /**
@@ -109,5 +151,19 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productlives/searchdefault`,tempData,isloading);
     }
 }

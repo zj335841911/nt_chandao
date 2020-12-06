@@ -34,6 +34,9 @@ hide members
 |是否收藏|ISFAVOURITES|TEXT|&nbsp;|
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
+|Root|ROOT|TEXT|&nbsp;|
+|文件夹数|MODULECNT|INT|&nbsp;|
+|创建时间|OPENEDDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -57,16 +60,16 @@ hide members
 |是否收藏|默认规则|内容长度必须小于等于[200]|
 |组织标识|默认规则|内容长度必须小于等于[100]|
 |部门标识|默认规则|内容长度必须小于等于[100]|
+|Root|默认规则|内容长度必须小于等于[100]|
+|文件夹数|默认规则|默认规则|
+|创建时间|默认规则|默认规则|
 
 ## 状态控制
 
 |文件库类型||是否收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许|  | 不允许 |  |
-|Value||Value2| 允许|  | 不允许 | FILE<br> |
 |Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIB_NFAVOUR_BUT<br>FILE<br> |
 |Value||Value2| 允许|  | 不允许 | FILE<br>SRFUR__DOCLIB_FAVOUR_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | DOC<br> |
 |Value||Value2| 允许|  | 不允许 | DOC<br>SRFUR__DOCLIB_NFAVOUR_BUT<br>SRFUR__DOCLIB_FAVOUR_BUT<br> |
 |Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIB_FAVOUR_BUT<br>DOC<br>SRFUR__DOCLIB_NFAVOUR_BUT<br> |
 
@@ -93,7 +96,21 @@ hide members
 |取消收藏|用户自定义|&nbsp;|
 
 ## 处理逻辑
-无
+* 当前是否收藏文档库 (CurUserIsF)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+文档库 -> 文档库: 设置是否收藏
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|设置是否收藏 |
+<center>当前是否收藏文档库</center>
 
 ## 查询集合
 
@@ -103,9 +120,13 @@ hide members
 | --------  | --------   | --------   | ----- |
 |ByCustom|自定义文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByCustom))|否|&nbsp;|
 |ByProduct|产品文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProduct))|否|&nbsp;|
+|ByProductNotFiles|产品文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProductNotFiles))|否|&nbsp;|
 |ByProject|项目文件库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProject))|否|&nbsp;|
+|ByProjectNotFiles|项目文件库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProjectNotFiles))|否|&nbsp;|
 |CurDocLib|所属文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_CurDocLib))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_Default))|否|&nbsp;|
+|MyFavourites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_MyFavourites))|否|&nbsp;|
+|RootModuleMuLu|根目录([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_RootModuleMuLu))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_View))|否|&nbsp;|
 
 * **数据集合**
@@ -114,9 +135,13 @@ hide members
 | --------  | --------   | -------- | --------   | ----- |
 |ByCustom|自定义文档库|ByCustom|否|&nbsp;|
 |ByProduct|产品文档库|ByProduct|否|&nbsp;|
+|ByProductNotFiles|产品文档库|ByProductNotFiles|否|&nbsp;|
 |ByProject|项目文件库|ByProject|否|&nbsp;|
+|ByProjectNotFiles|项目文件库|ByProjectNotFiles|否|&nbsp;|
 |CurDocLib|所属文档库|CurDocLib|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|MyFavourites|我的收藏|MyFavourites|否|&nbsp;|
+|RootModuleMuLu|根目录|RootModuleMuLu|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

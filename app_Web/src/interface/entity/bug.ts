@@ -605,4 +605,12 @@ export interface Bug {
      * @memberof Bug
      */
     mailtoconact?: any;
+
+    /**
+     * 延期解决
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    delayresolve?: any;
 }

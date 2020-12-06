@@ -202,13 +202,6 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	editformeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -235,6 +228,12 @@ export default {
 			tip: "导出",
 		},
 		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	testroundsgridviewtoolbar_toolbar: {
+		deuiaction1: {
 			caption: "过滤",
 			tip: "过滤",
 		},

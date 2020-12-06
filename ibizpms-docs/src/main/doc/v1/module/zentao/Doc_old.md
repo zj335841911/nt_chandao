@@ -50,6 +50,7 @@ hide members
 |最近添加数量|RECENTADDCNT|INT|&nbsp;|
 |我的文档数量|MYDOCCNT|INT|&nbsp;|
 |我的收藏数量|MYFAVOURITECNT|INT|&nbsp;|
+|文档数|DOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -88,6 +89,7 @@ hide members
 |最近添加数量|默认规则|默认规则|
 |我的文档数量|默认规则|默认规则|
 |我的收藏数量|默认规则|默认规则|
+|文档数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -117,6 +119,8 @@ hide members
 |CheckKey|内置方法|&nbsp;|
 |收藏|用户自定义|&nbsp;|
 |行为|用户自定义|&nbsp;|
+|仅收藏文档|用户自定义|&nbsp;|
+|仅取消收藏文档|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 |取消收藏|用户自定义|&nbsp;|
 
@@ -136,6 +140,21 @@ hide footbox
 |0|开始 | 
 |1|获取正文信息 |
 <center>根据版本更新正文信息</center>
+* 当前是否收藏文档 (CurUserIsF)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+文档 -> 文档: 查询是否收藏
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|查询是否收藏 |
+<center>当前是否收藏文档</center>
 
 ## 查询集合
 
@@ -145,10 +164,15 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |ChildDocLibDoc|文档库文档（子库）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_ChildDocLibDoc))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Doc_Default))|否|&nbsp;|
+|DocLibAndDoc|文档库文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocLibAndDoc))|否|&nbsp;|
 |DocLibDoc|文档库文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocLibDoc))|否|&nbsp;|
 |DocModuleDoc|文档库分类文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocModuleDoc))|否|&nbsp;|
 |DocStatus|文档统计([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocStatus))|否|&nbsp;|
+|ModuleDocChild|文件夹文档（子目录）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_ModuleDocChild))|否|&nbsp;|
 |MYFAVOURITE|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavourite))|否|&nbsp;|
+|MyFavouritesOnlyDoc|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavouritesOnlyDoc))|否|&nbsp;只查询我收藏的文档|
+|NotRootDoc|子目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_NotRootDoc))|否|&nbsp;|
+|RootDoc|根目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_RootDoc))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_View))|否|&nbsp;|
 
 * **数据集合**
@@ -157,10 +181,15 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |ChildDocLibDoc|文档库文档（子库）|ChildDocLibDoc|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|DocLibAndDoc|文档库文档|DocLibAndDoc|否|&nbsp;|
 |DocLibDoc|文档库文档|DocLibDoc|否|&nbsp;|
 |DocModuleDoc|文档库分类文档|DocModuleDoc|否|&nbsp;|
 |DocStatus|文档统计|DocStatus|否|&nbsp;|
+|ModuleDocChild|文件夹文档（子目录）|ModuleDocChild|否|&nbsp;|
 |MYFAVOURITE|我的收藏|MYFAVOURITE|否|&nbsp;|
+|MyFavouritesOnlyDoc|我的收藏|MyFavouritesOnlyDoc|否|&nbsp;|
+|NotRootDoc|子目录文档|NotRootDoc|否|&nbsp;|
+|RootDoc|根目录文档|RootDoc|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

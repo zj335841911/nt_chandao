@@ -1,18 +1,26 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='doc_createeditform'
+    class="app-form"
+    ref="form"
+    id="doc_createeditform"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.libname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.libname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='libname'
+    name="libname"
     :itemRules="this.rules().libname"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.libname')"
     uiStyle="DEFAULT"
@@ -20,35 +28,44 @@
     :isShowCaption="true"
     :error="detailsModel.libname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.libname.disabled"
-  name='libname'
-  deMajorField='name'
-  deKeyField='doclib'
-  :service="service"
-  :acParams="{ serviceName: 'DocLibService', interfaceName: 'FetchCurDocLib'}"
-  valueitem='lib'
-  :value="data.libname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.libname.disabled"
+    name="libname"
+    deMajorField="name"
+    deKeyField="doclib"
+    :service="service"
+    :acParams="{ serviceName: 'DocLibService', interfaceName: 'FetchCurDocLib'}"
+    valueitem="lib"
+    :value="data.libname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.modulename.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='modulename'
+    name="modulename"
     :itemRules="this.rules().modulename"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.modulename')"
     uiStyle="DEFAULT"
@@ -56,35 +73,44 @@
     :isShowCaption="true"
     :error="detailsModel.modulename.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ DOCLIB:"%lib%" }' 
-  :localParam ='{ doclib:"%lib%" }' 
-  :disabled="detailsModel.modulename.disabled"
-  name='modulename'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDocModule'}"
-  valueitem='module'
-  :value="data.modulename"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ DOCLIB:"%lib%" }' 
+    :localParam ='{ doclib:"%lib%" }' 
+    :disabled="detailsModel.modulename.disabled"
+    name="modulename"
+    deMajorField="name"
+    deKeyField="module"
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDocModule'}"
+    valueitem="module"
+    :value="data.modulename"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.title')"
     uiStyle="DEFAULT"
@@ -92,7 +118,8 @@
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.title"  
     @enter="onEnter($event)"  
@@ -105,11 +132,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.keywords.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='keywords'
+    name="keywords"
     :itemRules="this.rules().keywords"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.keywords')"
     uiStyle="DEFAULT"
@@ -117,7 +152,8 @@
     :isShowCaption="true"
     :error="detailsModel.keywords.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.keywords"  
     @enter="onEnter($event)"  
@@ -130,11 +166,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.type.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='type'
+    name="type"
     :itemRules="this.rules().type"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.type')"
     uiStyle="DEFAULT"
@@ -142,7 +186,8 @@
     :isShowCaption="true"
     :error="detailsModel.type.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-radio-group 
   v-model="data.type"
@@ -161,11 +206,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.content.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.content.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='content'
+    name="content"
     :itemRules="this.rules().content"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.content')"
     uiStyle="DEFAULT"
@@ -173,17 +226,40 @@
     :isShowCaption="true"
     :error="detailsModel.content.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.content" @change="(val) =>{this.data.content =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.content.disabled" :data="JSON.stringify(this.data)"  name="content" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    labelPos="LEFT"
+>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.content"
+    @change="(val) =>{this.data.content =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.content.disabled"
+    :data="JSON.stringify(this.data)"
+    name="content"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"doc",version:"editor"}'
+    :exportparams='{objecttype:"doc",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.url.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.url.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='url'
+    name="url"
     :itemRules="this.rules().url"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.url')"
     uiStyle="DEFAULT"
@@ -191,7 +267,8 @@
     :isShowCaption="true"
     :error="detailsModel.url.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.url"  
     @enter="onEnter($event)"  
@@ -204,11 +281,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.files.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='files'
+    name="files"
     :itemRules="this.rules().files"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.files')"
     uiStyle="DEFAULT"
@@ -216,16 +301,36 @@
     :isShowCaption="true"
     :error="detailsModel.files.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"doc",objectid:"0",version:"1"}' :exportparams='{objecttype:"doc",objectid:"0",version:"1"}'  style="overflow: auto;"></app-file-upload>
+    labelPos="LEFT"
+>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"doc",objectid:"0",version:"1"}'
+    :exportparams='{objecttype:"doc",objectid:"0",version:"1"}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.acl.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='acl'
+    name="acl"
     :itemRules="this.rules().acl"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.createeditform_form.details.acl')"
     uiStyle="DEFAULT"
@@ -233,7 +338,8 @@
     :isShowCaption="true"
     :error="detailsModel.acl.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-radio-group 
   v-model="data.acl"

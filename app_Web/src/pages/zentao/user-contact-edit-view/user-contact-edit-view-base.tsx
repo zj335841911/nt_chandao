@@ -48,7 +48,7 @@ export class UserContactEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserContactEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -136,7 +136,7 @@ export class UserContactEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserContactEditViewBase
      */ 
-    protected viewName: string = "UserContactEditView";
+    protected viewName: string = 'UserContactEditView';
 
 
     /**

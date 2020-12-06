@@ -65,8 +65,12 @@ export default {
     noticeusers: "消息通知用户",
     progressrate: "进度",
     delay: "延期",
-    mailtopk: "属性",
+    mailtopk: "抄送给",
     mailtoconact: "联系人",
+    statusorder: "排序",
+    myconsumed: "之前消耗",
+    mytotaltime: "我的总消耗",
+    assignedtozj: "转交给",
   },
 	views: {
 		subtasknewview: {
@@ -82,9 +86,7 @@ export default {
 			name: "任务名称",
 			type: "任务类型",
 			assignedto: "指派给",
-			estimate: "预计",
 			eststarted: "预计开始",
-			deadline: "截止日期",
 			desc: "任务描述",
 			pri: "优先级",
 		},

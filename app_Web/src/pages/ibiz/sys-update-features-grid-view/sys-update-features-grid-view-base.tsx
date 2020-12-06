@@ -51,7 +51,7 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -142,7 +142,7 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesGridViewBase
      */ 
-    protected viewName: string = "SysUpdateFeaturesGridView";
+    protected viewName: string = 'SysUpdateFeaturesGridView';
 
 
     /**

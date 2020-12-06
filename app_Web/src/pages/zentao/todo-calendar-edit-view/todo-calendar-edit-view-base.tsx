@@ -48,7 +48,7 @@ export class TodoCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TodoCalendarEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -136,7 +136,7 @@ export class TodoCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TodoCalendarEditViewBase
      */ 
-    protected viewName: string = "TodoCalendarEditView";
+    protected viewName: string = 'TodoCalendarEditView';
 
 
     /**

@@ -103,11 +103,14 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         consumed: null,
+        myconsumed: null,
         id: null,
         project: null,
         currentconsumed: null,
+        mytotaltime: null,
         totaltime: null,
         assignedto: null,
+        assignedtozj: null,
         finisheddate: null,
         multiple: null,
         noticeusers: null,
@@ -257,7 +260,14 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
 }),
 
         consumed: new FormItemModel({
-    caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '任务总计消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        myconsumed: new FormItemModel({
+    caption: '之前消耗', detailType: 'FORMITEM', name: 'myconsumed', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -284,15 +294,29 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        mytotaltime: new FormItemModel({
+    caption: '我的总消耗', detailType: 'FORMITEM', name: 'mytotaltime', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         totaltime: new FormItemModel({
-    caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
         assignedto: new FormItemModel({
-    caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        assignedtozj: new FormItemModel({
+    caption: '转交给', detailType: 'FORMITEM', name: 'assignedtozj', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -357,10 +381,53 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.myconsumed.setVisible(ret);
+        }
 
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.mytotaltime.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.totaltime.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.assignedtozj.setVisible(ret);
+        }
 
 
 
@@ -368,8 +435,19 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
 
 
         if (Object.is(name, 'currentconsumed')) {
-            const details: string[] = ['totaltime'];
+            const details: string[] = ['mytotaltime', 'totaltime'];
             this.updateFormItems('CalcTime', this.data, details, true);
         }
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof CompleteFormBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

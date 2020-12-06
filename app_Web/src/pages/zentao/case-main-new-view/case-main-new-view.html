@@ -1,13 +1,13 @@
 <studio-view viewName="casemainnewview" viewTitle="功能测试" class='deeditview case-main-new-view'>
-    <template slot='title'>
-    <span class='caption-image'>
-            <i class='
-    fa fa-star-o    '></i>
+    <template slot="title">
+    <span class="caption-image">
+            <i class="
+    fa fa-star-o    "></i>
         </span>
-    <span class='caption-info'>{{viewCaption}}</span>
+    <span class="caption-info">{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
         <view_form 
                 :viewState="viewState"  
@@ -23,9 +23,9 @@
                 createAction="CreateTempMajor"
                 WFSubmitAction=""
                 WFStartAction=""
-                style='' 
+                style="" 
                 name="form"  
-                ref='form' 
+                ref="form" 
                 @save="form_save($event)"  
                 @remove="form_remove($event)"  
                 @load="form_load($event)"  

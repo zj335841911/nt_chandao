@@ -34,6 +34,7 @@ hide members
 |上级模块|PARENT|PICKUP|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |组织标识|ORGID|TEXT|&nbsp;|
+|数据选择排序|ORDERPK|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -54,6 +55,7 @@ hide members
 |上级模块|默认规则|默认规则|
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |组织标识|默认规则|内容长度必须小于等于[100]|
+|数据选择排序|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -82,6 +84,7 @@ hide members
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |BugModule|BugModule([MYSQL5](../../appendix/query_MYSQL5.md#Module_BugModule))|否|&nbsp;|
+|BugModuleCodeList|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Module_BugModuleCodeList))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Module_Default))|否|&nbsp;|
 |DocModule|文档目录查询([MYSQL5](../../appendix/query_MYSQL5.md#Module_DocModule))|否|&nbsp;|
 |Line|产品线([MYSQL5](../../appendix/query_MYSQL5.md#Module_Line))|否|&nbsp;|
@@ -94,6 +97,7 @@ hide members
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |BugModule|BugModule|BugModule|否|&nbsp;|
+|BugModuleCodeList|数据集|BugModuleCodeList|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DocModule|文档目录|DocModule|否|&nbsp;|
 |Line|产品线|Line|否|&nbsp;|

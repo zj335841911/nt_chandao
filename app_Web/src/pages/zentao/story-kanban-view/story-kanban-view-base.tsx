@@ -52,7 +52,7 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof StoryKanbanViewBase
      */ 
-    protected dataControl: string = "kanban";
+    protected dataControl: string = 'kanban';
 
     /**
      * 实体服务对象
@@ -137,7 +137,7 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof StoryKanbanViewBase
      */ 
-    protected viewName: string = "StoryKanbanView";
+    protected viewName: string = 'StoryKanbanView';
 
 
     /**

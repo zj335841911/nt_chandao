@@ -12,8 +12,8 @@
     <resultMap id="ProductLifeResultMap" type="cn.ibizlab.pms.core.ibiz.domain.ProductLife" autoMapping="true">
 		<id property="productlifeid" column="ibz_productlifeid" /><!--主键字段映射-->
 		<result property="productlifename" column="ibz_productlifename" />
-            
-		
+
+
     </resultMap>
 
 

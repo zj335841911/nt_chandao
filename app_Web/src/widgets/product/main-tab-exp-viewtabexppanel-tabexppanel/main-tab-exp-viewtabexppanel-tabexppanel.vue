@@ -5,6 +5,7 @@ import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainTabExpViewtabexppanelTabexppanelBase } from './main-tab-exp-viewtabexppanel-tabexppanel-base';
 import view_tabviewpanel from '@widgets/product/main-tab-exp-viewtabviewpanel-tabviewpanel/main-tab-exp-viewtabviewpanel-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/product/main-tab-exp-viewtabviewpanel2-tabviewpanel/main-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+import view_tabviewpanel11 from '@widgets/product/main-tab-exp-viewtabviewpanel11-tabviewpanel/main-tab-exp-viewtabviewpanel11-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/product/main-tab-exp-viewtabviewpanel3-tabviewpanel/main-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
 import view_tabviewpanel4 from '@widgets/product/main-tab-exp-viewtabviewpanel4-tabviewpanel/main-tab-exp-viewtabviewpanel4-tabviewpanel.vue';
 import view_tabviewpanel9 from '@widgets/product/main-tab-exp-viewtabviewpanel9-tabviewpanel/main-tab-exp-viewtabviewpanel9-tabviewpanel.vue';
@@ -26,6 +27,7 @@ import view_tabviewpanel10 from '@widgets/product/main-tab-exp-viewtabviewpanel1
     components: {
         view_tabviewpanel,
         view_tabviewpanel2,
+        view_tabviewpanel11,
         view_tabviewpanel3,
         view_tabviewpanel4,
         view_tabviewpanel9,

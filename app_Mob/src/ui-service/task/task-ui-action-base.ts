@@ -93,7 +93,10 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'mobmdview',srfappde:'tasks'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdviewweekly',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'stopmoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlymycompletetaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'activemobtask',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'cancelmoboptionview',srfappde:'tasks'});
@@ -106,10 +109,14 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'commoboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview1',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlymyplanstaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gsmoboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdviewnextplanweekly',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'myplanstomorrowtaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'usr2moboptionview',srfappde:'tasks'});
     }
 
@@ -255,7 +262,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_confirmStoryChangeCz(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -277,6 +284,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -369,7 +379,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_ConsumedMobTaskTeam(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -391,6 +401,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以记录工时。" } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -432,7 +445,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_TaskNFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -454,6 +467,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -608,7 +624,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_RestartMobTeamTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -630,6 +646,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -736,7 +755,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_finishTask1(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -758,6 +777,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以完成。" } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -799,7 +821,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_PauseMobTeamTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -821,6 +843,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以暂停。" } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -862,7 +887,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_StartMobTeamTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -884,6 +909,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以开始。" } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -989,7 +1017,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -1011,6 +1039,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
@@ -1234,7 +1265,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_TaskFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -1256,6 +1287,9 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');

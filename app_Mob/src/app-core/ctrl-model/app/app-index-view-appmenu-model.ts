@@ -31,6 +31,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'Auto13',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem1',
 },
         {
 	id: '62d00b8a490cf4b6ef758c0aa3814494',
@@ -49,6 +50,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'Auto18',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem2',
 },
         {
 	id: '0cfef223143b6805dcf2d802b6e79ea0',
@@ -67,6 +69,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'Auto20',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem3',
 },
         {
 	id: '1ebe52baa4573adb6c5d44146d0da6a3',
@@ -85,6 +88,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'Auto22',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem4',
 },
         {
 	id: '1c0f7d8bb0f18d1e0596c623d739fbe7',
@@ -103,6 +107,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'AppFunc',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem6',
 },
         {
 	id: '1b6e83d604e5bca3af9f3a905e60f440',
@@ -121,6 +126,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'AppFunc2',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem7',
 },
         {
 	id: 'A9234AE1-B762-4769-8790-26A98A6CB817',
@@ -139,6 +145,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'AppFunc3',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem8',
 },
         {
 	id: 'A211AE8E-A134-4271-A075-5BB2D7F14E34',
@@ -149,7 +156,7 @@ export class AppIndexViewModel {
 	tooltip: '登录地图test',
 	expanded: false,
 	separator: false,
-	hidden: false,
+	hidden: true,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',
@@ -157,6 +164,7 @@ export class AppIndexViewModel {
 	textcls: '',
 	appfunctag: 'AppFunc4',
 	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem9',
 },
     ];
 
@@ -185,13 +193,12 @@ export class AppIndexViewModel {
             appfunctag: 'Auto22',
             appfuncyype: 'APPVIEW',
             openmode: '', 
-            componentname: 'ibz-my-territory-mob-tab-exp-view', 
-            codename: 'ibzmyterritorymobtabexpview',
+            componentname: 'app-portal-view2', 
+            codename: 'appportalview2',
             deResParameters: [],
-            routepath: '/appindexview/:appindexview?/ibzmyterritories/:ibzmyterritory?/mobtabexpview/:mobtabexpview?',
+            routepath: '/appindexview/:appindexview?/appportalview2/:appportalview2?',
             parameters: [
-                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                { pathName: 'appportalview2', parameterName: 'appportalview2' },
             ],
         },
         {

@@ -29,25 +29,25 @@
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.story.myfavoritemain_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.id')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                            <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.myfavoritemain_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.pri')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Story__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Story__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -55,52 +55,56 @@
             <template v-if="getColumnState('prodoctname')">
                 <el-table-column show-overflow-tooltip :prop="'prodoctname'" :label="$t('entities.story.myfavoritemain_grid.columns.prodoctname')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.prodoctname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="product"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="product">
+            ]}"
+                            valueitem="product"
+                        >
                             <span>{{row.prodoctname}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.story.myfavoritemain_grid.columns.title')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.title')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-            ,parameters: [
-            { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'mainview', parameterName: 'mainview' }
-            ]}" valueitem="srfkey">
-                            <span>{{row.title}}</span>
-                        </app-column-link >
+                        <template >
+                                  <span><app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :localParam="{product: '%product%'}" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false}" valueitem="srfkey">
+            <span :style="{'color':row.color}">{{row.title}}</span>
+            </app-column-link>
+            </span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('plan')">
                 <el-table-column show-overflow-tooltip :prop="'plan'" :label="$t('entities.story.myfavoritemain_grid.columns.plan')" :width="200"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.plan')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.plan" tag='CurProductPlan' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.plan" tag="CurProductPlan" codelistType="DYNAMIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -108,13 +112,13 @@
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.story.myfavoritemain_grid.columns.openedby')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.openedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -122,13 +126,13 @@
             <template v-if="getColumnState('assignedto')">
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.story.myfavoritemain_grid.columns.assignedto')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.assignedto')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -136,9 +140,9 @@
             <template v-if="getColumnState('estimate')">
                 <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.story.myfavoritemain_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.estimate')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                             <app-format-data dataType="FLOAT" precision="0" :data="row.estimate"></app-format-data>
@@ -148,13 +152,13 @@
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.story.myfavoritemain_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.status')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Story__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag="Story__status" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -162,13 +166,13 @@
             <template v-if="getColumnState('stage')">
                 <el-table-column show-overflow-tooltip :prop="'stage'" :label="$t('entities.story.myfavoritemain_grid.columns.stage')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.stage')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.stage" tag='Story__stage' codelistType='STATIC' ></codelist>
+            <codelist :value="row.stage" tag="Story__stage" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -176,63 +180,63 @@
             <template v-if="getColumnState('modulename')">
                 <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.story.myfavoritemain_grid.columns.modulename')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.modulename')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.modulename}}</span>
+                            <span>{{row.modulename}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.story.myfavoritemain_grid.columns.uagridcolumn1')" :width="220"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.story.myfavoritemain_grid.columns.uagridcolumn1')" :width="260"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.uagridcolumn1')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.ChangeStoryDetail.visible" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_changestorydetail')">
-                            <i class='fa fa-exchange'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.ReviewStory.visible" type='vertical'></divider>
-                          <a v-show="scope.row.ReviewStory.visible" :disabled="scope.row.ReviewStory.disabled" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_reviewstory')">
-                            <i class='fa fa-search'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.CloseStory.visible" type='vertical'></divider>
-                          <a v-show="scope.row.CloseStory.visible" :disabled="scope.row.CloseStory.disabled" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_closestory')">
-                            <i class='fa fa-power-off'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.OpenBaseInfoEditView.visible" type='vertical'></divider>
-                          <a v-show="scope.row.OpenBaseInfoEditView.visible" :disabled="scope.row.OpenBaseInfoEditView.disabled" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_openbaseinfoeditview')">
-                            <i class='fa fa-edit'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.OpenCaseCreateView.visible" type='vertical'></divider>
-                          <a v-show="scope.row.OpenCaseCreateView.visible" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_opencasecreateview')">
-                            <i class='fa fa-lightbulb-o'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.SubStory.visible" type='vertical'></divider>
-                          <a v-show="scope.row.SubStory.visible" :disabled="scope.row.SubStory.disabled" @click="uiAction(scope.row, 'SubStory', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_substory')">
-                            <i class='iconfont studio-icon-subnets'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.StoryFavorites.visible" type='vertical'></divider>
-                          <a v-show="scope.row.StoryFavorites.visible" :disabled="scope.row.StoryFavorites.disabled" @click="uiAction(scope.row, 'StoryFavorites', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_storyfavorites')">
-                            <i class='fa fa-star-o'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.StoryNFavorites.visible" type='vertical'></divider>
-                          <a v-show="scope.row.StoryNFavorites.visible" :disabled="scope.row.StoryNFavorites.disabled" @click="uiAction(scope.row, 'StoryNFavorites', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_storynfavorites')">
-                            <i class='fa fa-star'></i>
-                            
-                          </a>
+                            <a v-show="scope.row.ChangeStoryDetail.visible" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_changestorydetail')">
+                                <i class="fa fa-exchange"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.ReviewStory.visible" type="vertical"></divider>
+                            <a v-show="scope.row.ReviewStory.visible" :disabled="scope.row.ReviewStory.disabled" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_reviewstory')">
+                                <i class="fa fa-search"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.CloseStory.visible" type="vertical"></divider>
+                            <a v-show="scope.row.CloseStory.visible" :disabled="scope.row.CloseStory.disabled" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_closestory')">
+                                <i class="fa fa-power-off"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.OpenBaseInfoEditView.visible" type="vertical"></divider>
+                            <a v-show="scope.row.OpenBaseInfoEditView.visible" :disabled="scope.row.OpenBaseInfoEditView.disabled" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_openbaseinfoeditview')">
+                                <i class="fa fa-edit"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.OpenCaseCreateView.visible" type="vertical"></divider>
+                            <a v-show="scope.row.OpenCaseCreateView.visible" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_opencasecreateview')">
+                                <i class="fa fa-lightbulb-o"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.SubStory.visible" type="vertical"></divider>
+                            <a v-show="scope.row.SubStory.visible" :disabled="scope.row.SubStory.disabled" @click="uiAction(scope.row, 'SubStory', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_substory')">
+                                <i class="iconfont studio-icon-subnets"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.StoryFavorites.visible" type="vertical"></divider>
+                            <a v-show="scope.row.StoryFavorites.visible" :disabled="scope.row.StoryFavorites.disabled" @click="uiAction(scope.row, 'StoryFavorites', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_storyfavorites')">
+                                <i class="fa fa-star-o"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.StoryNFavorites.visible" type="vertical"></divider>
+                            <a v-show="scope.row.StoryNFavorites.visible" :disabled="scope.row.StoryNFavorites.disabled" @click="uiAction(scope.row, 'StoryNFavorites', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_storynfavorites')">
+                                <i class="fa fa-star"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

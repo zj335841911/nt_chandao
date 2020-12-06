@@ -1,0 +1,83 @@
+# 任务统计(IBZ_TASKSTATS)
+
+  
+
+## 关系
+无
+
+## 属性
+
+| 属性名称        |    中文名称    | 类型     |  备注  |
+| --------   |------------| -----   |  -------- | 
+|项目名称|PROJECTNAME|TEXT|&nbsp;|
+|预计总工时|TOTALESTIMATE|INT|&nbsp;|
+|消耗总工时|TOTALCONSUMED|INT|&nbsp;|
+|剩余总工时|TOTALLEFT|INT|&nbsp;|
+|项目|PROJECT|TEXT|&nbsp;|
+|编号|ID|ACID|&nbsp;|
+|名称|NAME|TEXT|&nbsp;|
+|完成者|FINISHEDBY|TEXT|&nbsp;|
+|效率|TASKEFFICIENT|TEXT|&nbsp;|
+
+## 值规则
+| 属性名称    | 规则    |  说明  |
+| --------   |------------| ----- | 
+|项目名称|默认规则|内容长度必须小于等于[100]|
+|预计总工时|默认规则|默认规则|
+|消耗总工时|默认规则|默认规则|
+|剩余总工时|默认规则|默认规则|
+|项目|默认规则|内容长度必须小于等于[100]|
+|编号|默认规则|默认规则|
+|名称|默认规则|内容长度必须小于等于[100]|
+|完成者|默认规则|内容长度必须小于等于[100]|
+|效率|默认规则|内容长度必须小于等于[200]|
+
+## 状态控制
+
+无
+
+
+## 行为
+| 行为    | 类型    |  说明  |
+| --------   |------------| ----- | 
+|Create|内置方法|&nbsp;|
+|Update|内置方法|&nbsp;|
+|Remove|内置方法|&nbsp;|
+|Get|内置方法|&nbsp;|
+|GetDraft|内置方法|&nbsp;|
+|CheckKey|内置方法|&nbsp;|
+|Save|内置方法|&nbsp;|
+
+## 处理逻辑
+无
+
+## 查询集合
+
+* **查询**
+
+| 查询编号 | 查询名称       | 默认查询 |   备注|
+| --------  | --------   | --------   | ----- |
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#TaskStats_Default))|否|&nbsp;|
+|UserFinishTaskSum|用户完成任务统计([MYSQL5](../../appendix/query_MYSQL5.md#TaskStats_UserFinishTaskSum))|否|&nbsp;|
+|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#TaskStats_View))|否|&nbsp;|
+
+* **数据集合**
+
+| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
+| --------  | --------   | -------- | --------   | ----- |
+|DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|UserFinishTaskSum|用户完成任务统计|UserFinishTaskSum|否|&nbsp;|
+
+## 查询模式
+| 属性      |    搜索模式     |
+| --------   |------------|
+|项目(PROJECT)|EQ|
+|名称(NAME)|LIKE|
+|完成者(FINISHEDBY)|EQ|
+
+## 导入模式
+无
+
+
+## 导出模式
+无

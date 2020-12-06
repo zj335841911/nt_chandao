@@ -942,6 +942,44 @@ export class GridControlBase extends MDControlBase {
     }
 
     /**
+     * 工作流提交
+     *
+     * @param {*} [data={}]
+     * @param {*} [localdata={}]
+     * @returns {Promise<any>}
+     * @memberof ${srfclassname('${ctrl.codeName}')}Base
+     */
+    public async submitbatch(data: any,localdata:any): Promise<any> {
+        return new Promise((resolve: any, reject: any) => {
+        const _this: any = this;
+        const arg: any = data;
+        const result: Promise<any> = this.service.submitbatch(_this.WFSubmitAction, JSON.parse(JSON.stringify(this.context)),arg,localdata,this.showBusyIndicator);
+        result.then((response: any) => {
+            if (!response || response.status !== 200) {
+                if(response.data){
+                    this.$Notice.error({ title: '', desc: (this.$t('app.formpage.workflow.submiterror') as string) + ', ' + response.data.message });
+                }
+                return;
+            }
+            this.$Notice.info({ title: '', desc: (this.$t('app.formpage.workflow.submitsuccess') as string) });
+            resolve(response);
+        }).catch((response: any) => {
+            if (response && response.status && response.data) {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                reject(response);
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
+                reject(response);
+                return;
+            }
+            reject(response);
+        });
+        })
+    }
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -1240,23 +1278,25 @@ export class GridControlBase extends MDControlBase {
             this.stopRowClick = false;
             return;
         }
-        this.selections = [];
+        if(this.isSingleSelect){
+            this.selections = [];
+        }
         // 已选中则删除，没选中则添加
         let selectIndex = this.selections.findIndex((item: any) => {
             return Object.is(item[this.appDeName], $event[this.appDeName]);
         });
-        if (Object.is(selectIndex, -1)) {
+        if (Object.is(selectIndex,-1)){
             this.selections.push(JSON.parse(JSON.stringify($event)));
-            const refs: any = this.$refs;
-            if (refs.multipleTable) {
-                refs.multipleTable.clearSelection();
-                refs.multipleTable.toggleRowSelection($event);
-            }
         } else {
-            this.selections.splice(selectIndex, 1);
-            const refs: any = this.$refs;
-            if (refs.multipleTable) {
+            this.selections.splice(selectIndex,1);
+        }
+        const refs: any = this.$refs;
+        if (refs.multipleTable) {
+            if(this.isSingleSelect){
                 refs.multipleTable.clearSelection();
+                refs.multipleTable.setCurrentRow($event);
+            }else{
+                  refs.multipleTable.toggleRowSelection($event); 
             }
         }
         this.$emit('selectionchange', this.selections);

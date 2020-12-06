@@ -72,6 +72,15 @@ export default class MainModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

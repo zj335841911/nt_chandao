@@ -225,8 +225,8 @@ public class TestReportResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试报告" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/testreports/fetchdefault")
-	public ResponseEntity<List<TestReportDTO>> fetchDefault(TestReportSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/testreports/fetchdefault")
+	public ResponseEntity<List<TestReportDTO>> fetchDefault(@RequestBody TestReportSearchContext context) {
         Page<TestReport> domains = testreportService.searchDefault(context) ;
         List<TestReportDTO> list = testreportMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -442,8 +442,8 @@ public class TestReportResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试报告" } ,notes = "根据产品获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testreports/fetchdefault")
-	public ResponseEntity<List<TestReportDTO>> fetchTestReportDefaultByProduct(@PathVariable("product_id") Long product_id,TestReportSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testreports/fetchdefault")
+	public ResponseEntity<List<TestReportDTO>> fetchTestReportDefaultByProduct(@PathVariable("product_id") Long product_id,@RequestBody TestReportSearchContext context) {
         context.setN_product_eq(product_id);
         Page<TestReport> domains = testreportService.searchDefault(context) ;
         List<TestReportDTO> list = testreportMapping.toDto(domains.getContent());
@@ -659,8 +659,8 @@ public class TestReportResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"测试报告" } ,notes = "根据项目获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/testreports/fetchdefault")
-	public ResponseEntity<List<TestReportDTO>> fetchTestReportDefaultByProject(@PathVariable("project_id") Long project_id,TestReportSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/testreports/fetchdefault")
+	public ResponseEntity<List<TestReportDTO>> fetchTestReportDefaultByProject(@PathVariable("project_id") Long project_id,@RequestBody TestReportSearchContext context) {
         context.setN_project_eq(project_id);
         Page<TestReport> domains = testreportService.searchDefault(context) ;
         List<TestReportDTO> list = testreportMapping.toDto(domains.getContent());

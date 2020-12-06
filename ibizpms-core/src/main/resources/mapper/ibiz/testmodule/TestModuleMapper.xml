@@ -14,8 +14,8 @@
 		<result property="ibizshort" column="short" />
 		<result property="parent" column="parent" />
 		<result property="root" column="root" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="parentmodule" javaType="cn.ibizlab.pms.core.ibiz.domain.TestModule" column="parent" select="cn.ibizlab.pms.core.ibiz.mapper.TestModuleMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

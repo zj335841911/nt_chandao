@@ -20,3 +20,6 @@ import { DashboardBugLifeEditFormBase } from './dashboard-bug-life-form-base';
 @VueLifeCycleProcessing()
 export default class DashboardBugLifeEditForm extends DashboardBugLifeEditFormBase {}
 </script>
+<style lang="less">
+@import './dashboard-bug-life-form.less';
+</style>

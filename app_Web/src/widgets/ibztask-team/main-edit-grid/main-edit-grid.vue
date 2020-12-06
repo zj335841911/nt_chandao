@@ -18,5 +18,23 @@ import { MainEditGridBase } from './main-edit-grid-base';
     },
 })
 @VueLifeCycleProcessing()
-export default class MainEditGrid extends MainEditGridBase {}
+export default class MainEditGrid extends MainEditGridBase {
+
+    /**
+     * 表格编辑项值变化
+     *
+     * @public
+     * @param row 行数据
+     * @param property 列编辑项名
+     * @param row 列编辑项值
+     * @returns {void}
+     * @memberof GridControlBase
+     */
+    public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
+        localStorage.setItem("newTaskTeam"+row.task,JSON.stringify(this.items));
+        row.rowDataState = row.rowDataState ? row.rowDataState : 'update';
+        this.curEditRowData = row;
+        this.validate(property, row, rowIndex);
+    }
+}
 </script>

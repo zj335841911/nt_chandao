@@ -48,7 +48,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewBase
      */ 
-    protected viewName: string = "DocLibModuleEditView";
+    protected viewName: string = 'DocLibModuleEditView';
 
 
     /**
@@ -552,11 +552,15 @@ export class DocLibModuleEditViewBase extends EditViewBase {
             if(window.parent){
                 window.parent.postMessage({ ..._data },'*');
             }
-            if (_this.viewdata) {
-                _this.$emit('viewdataschange', [{ ..._data }]);
-                _this.$emit('close');
-            }else if (this.$tabPageExp) {
-                this.$tabPageExp.onClose(this.$route.fullPath);
+            if (this.viewdata) {
+                this.$emit('viewdataschange', [_data]);
+                this.$emit('close', [_data]);
+            } else if (this.$tabPageExp) {
+                const item = this.$appService.navHistory.findHistoryByTag(this.viewtag);
+                this.$tabPageExp.onClose(item);
+            } else {
+                this.$router.back();
+                this.$appService.navHistory.pop();
             }
         });
     }

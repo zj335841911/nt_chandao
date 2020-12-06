@@ -101,7 +101,7 @@ export class TestResultMEditView9Base extends MEditView9Base {
      * @type {string}
      * @memberof TestResultMEditView9Base
      */ 
-    protected viewName: string = "TestResultMEditView9";
+    protected viewName: string = 'TestResultMEditView9';
 
 
 

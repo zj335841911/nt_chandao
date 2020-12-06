@@ -1,3 +1,8 @@
+/**
+ * 用户自定义环境
+ * 
+ * @environment
+ */
 window.Environment = {
     // 应用基础路径
     BaseUrl: '',
@@ -6,7 +11,7 @@ window.Environment = {
     // 是否为pc端应用
     isAppMode: false,
     // 是否开启权限认证
-    enablePermissionValid: false,
+    enablePermissionValid: true,
     // 打开目标工具，可选参数：sln、mos
     debugOpenMode: 'mos',
     // 配置平台地址
@@ -29,4 +34,4 @@ window.Environment = {
     VisitorsUrl: '/login/guest',
     // 是否开启第三方免登
     enableThirdPartyLogin: true,
-}
+};

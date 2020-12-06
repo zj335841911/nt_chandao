@@ -26,8 +26,7 @@ import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territ
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabviewpanel4Base extends Vue implements ControlInterface {
 
@@ -148,7 +147,7 @@ export default class MobTabExpViewtabviewpanel4Base extends Vue implements Contr
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 面板导航参数

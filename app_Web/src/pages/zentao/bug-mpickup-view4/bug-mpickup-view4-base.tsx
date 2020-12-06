@@ -137,7 +137,7 @@ export class BugMPickupView4Base extends MPickupViewBase {
      * @type {string}
      * @memberof BugMPickupView4Base
      */ 
-    protected viewName: string = "BugMPickupView4";
+    protected viewName: string = 'BugMPickupView4';
 
 
     /**

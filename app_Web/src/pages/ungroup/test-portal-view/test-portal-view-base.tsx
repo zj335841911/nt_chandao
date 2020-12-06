@@ -56,7 +56,7 @@ export class TestPortalViewBase extends PortalViewBase {
      * @type {string}
      * @memberof TestPortalViewBase
      */ 
-    protected viewName: string = "TestPortalView";
+    protected viewName: string = 'TestPortalView';
 
 
 

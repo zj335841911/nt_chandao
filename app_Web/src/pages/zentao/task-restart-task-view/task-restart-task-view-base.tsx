@@ -48,7 +48,7 @@ export class TaskRestartTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskRestartTaskViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class TaskRestartTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskRestartTaskViewBase
      */ 
-    protected viewName: string = "TaskRestartTaskView";
+    protected viewName: string = 'TaskRestartTaskView';
 
 
     /**

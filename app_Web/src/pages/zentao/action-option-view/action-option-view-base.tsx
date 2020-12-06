@@ -48,7 +48,7 @@ export class ActionOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ActionOptionViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -185,7 +185,7 @@ export class ActionOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ActionOptionViewBase
      */ 
-    protected viewName: string = "ActionOptionView";
+    protected viewName: string = 'ActionOptionView';
 
 
     /**

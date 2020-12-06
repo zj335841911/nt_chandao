@@ -51,7 +51,7 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_MeCretaeBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_MeCretaeBase
      */ 
-    protected viewName: string = "CaseGridView9_MeCretae";
+    protected viewName: string = 'CaseGridView9_MeCretae';
 
 
     /**

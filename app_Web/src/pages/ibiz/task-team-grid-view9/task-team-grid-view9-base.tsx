@@ -51,7 +51,7 @@ export class TaskTeamGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskTeamGridView9Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -158,7 +158,7 @@ export class TaskTeamGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskTeamGridView9Base
      */ 
-    protected viewName: string = "TaskTeamGridView9";
+    protected viewName: string = 'TaskTeamGridView9';
 
 
     /**

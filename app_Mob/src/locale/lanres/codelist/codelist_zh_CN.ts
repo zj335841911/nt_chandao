@@ -21,6 +21,12 @@ export default {
         'public': '公开',
         empty: '',
     },
+    ReportType: {
+        'weekly': '周报',
+        'daily': '日报',
+        'monthly': '月报',
+        empty: '',
+    },
     RelatedStory: {
         empty: '',
     },
@@ -57,6 +63,9 @@ export default {
     BugCodeList2: {
         'All': '所有',
         'active': '未解决',
+        empty: '',
+    },
+    MyPlanTask: {
         empty: '',
     },
     Project__status: {
@@ -118,6 +127,11 @@ export default {
     SysOperator: {
         empty: '',
     },
+    ReportStatus: {
+        '0': '未读',
+        '1': '已读',
+        empty: '',
+    },
     YesNo: {
         '1': '是',
         '0': '否',
@@ -167,10 +181,10 @@ export default {
         empty: '',
     },
     Bug__severity: {
-        '1': '1',
-        '2': '2',
-        '3': '3',
-        '4': '4',
+        '1': '致命',
+        '2': '严重',
+        '3': '一般',
+        '4': '轻微',
         empty: '',
     },
     MobTestQuickpacket: {
@@ -290,6 +304,7 @@ export default {
         'discuss': '讨论',
         'ui': '界面',
         'affair': '事务',
+        'serve': '服务',
         'misc': '其他',
         empty: '',
     },
@@ -338,6 +353,15 @@ export default {
     Story__type: {
         'requirement': '用户需求',
         'story': '软件需求',
+        empty: '',
+    },
+    Testcase__color: {
+        '#3da7f5': '#3da7f5',
+        '#75c941': '#75c941',
+        '#2dbdb2': '#2dbdb2',
+        '#797ec9': '#797ec9',
+        '#ffaf38': '#ffaf38',
+        '#ff4e3e': '#ff4e3e',
         empty: '',
     },
     BeginendDropList: {
@@ -567,6 +591,9 @@ export default {
         'linkparentstory': '关联到父需求',
         'unlinkparentstory': '从父需求取消关联',
         'deletechildrenstory': '删除子需求',
+        'submit': '提交',
+        'read': '已读了',
+        'remind': '提醒',
         empty: '',
     },
     CurCaseVersion: {
@@ -601,6 +628,9 @@ export default {
         'testreport': '报告',
         'entry': '应用',
         'webhook': 'Webhook',
+        'daily': '日报',
+        'weekly': '周报',
+        'monthly': '月报',
         empty: '',
     },
     CaseTestTaskQuickpachet: {
@@ -658,6 +688,15 @@ export default {
         'EXPIREDBUG': '过期Bug',
         empty: '',
     },
+    Story__color: {
+        '#3da7f5': '#3da7f5',
+        '#75c941': '#75c941',
+        '#2dbdb2': '#2dbdb2',
+        '#797ec9': '#797ec9',
+        '#ffaf38': '#ffaf38',
+        '#ff4e3e': '#ff4e3e',
+        empty: '',
+    },
     Bug__severity_mob: {
         '1': '1',
         '2': '2',
@@ -697,6 +736,9 @@ export default {
         empty: '',
     },
     CurStory: {
+        empty: '',
+    },
+    MyCompleteTask: {
         empty: '',
     },
     Testrun__result: {
@@ -747,10 +789,10 @@ export default {
         empty: '',
     },
     Bug__pri: {
-        '1': '1',
-        '2': '2',
-        '3': '3',
-        '4': '4',
+        '1': '严重',
+        '2': '主要',
+        '3': '次要',
+        '4': '不重要',
         empty: '',
     },
     Bug__resolution: {

@@ -180,6 +180,11 @@ export default class MyFavoriteMainModel {
           name: 'srfmstag',
         },
         {
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
@@ -189,11 +194,6 @@ export default class MyFavoriteMainModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
         },
         {
           name: 'story',
@@ -224,6 +224,11 @@ export default class MyFavoriteMainModel {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'task',

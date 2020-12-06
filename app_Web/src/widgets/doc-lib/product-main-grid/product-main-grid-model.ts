@@ -79,7 +79,6 @@ export default class ProductMainModel {
           name: 'doclib',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

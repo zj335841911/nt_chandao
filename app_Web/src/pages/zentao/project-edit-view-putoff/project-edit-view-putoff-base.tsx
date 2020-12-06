@@ -48,7 +48,7 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_PutoffBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_PutoffBase
      */ 
-    protected viewName: string = "ProjectEditView_Putoff";
+    protected viewName: string = 'ProjectEditView_Putoff';
 
 
     /**

@@ -109,7 +109,7 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzLibTabExpViewBase
      */ 
-    protected viewName: string = "IbzLibTabExpView";
+    protected viewName: string = 'IbzLibTabExpView';
 
 
     /**

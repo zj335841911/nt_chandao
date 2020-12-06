@@ -16,6 +16,7 @@ export default {
     parent: "上级模块",
     mdeptid: "部门标识",
     orgid: "组织标识",
+    orderpk: "数据选择排序",
   },
 	views: {
 		mobpickupview: {

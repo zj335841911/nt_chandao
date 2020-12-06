@@ -117,30 +117,30 @@ export class ProductTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
         }
         if (Object.is(expmode, 'PRODUCT')) {
             return {  
-                viewname: 'doc-lib-product-grid-view', 
+                viewname: 'doc-lib-product-tree-view', 
                 parentdata: {"srfparentdefname":"n_product_eq","srfparentdename":"ZT_PRODUCT","srfparentmode":"DER1N_ZT_DOCLIB_ZT_PRODUCT_PRODUCT"},
                 deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
             return {  
-                viewname: 'doc-grid-view', 
+                viewname: 'doc-lib-tree-view', 
                 parentdata: {},
-                deKeyField:'doc'
+                deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'DOCLIBMODULE')) {
             return {  
-                viewname: 'doc-grid-view', 
+                viewname: 'doc-lib-tree-view', 
                 parentdata: {},
-                deKeyField:'doc'
+                deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'DOCLIB')) {
             return {  
-                viewname: 'doc-grid-view', 
-                parentdata: {"srfparentdefname":"n_lib_eq"},
-                deKeyField:'doc'
+                viewname: 'doc-lib-tree-view-product-root', 
+                parentdata: {},
+                deKeyField:'doclib'
 			};
         }
         return null;

@@ -22,7 +22,7 @@ public class ProjectExService extends ProjectServiceImpl {
     }
 
     /**
-     * 自定义行为[Activate]用户扩展
+     * [Activate:激活] 行为扩展
      * @param et
      * @return
      */
@@ -32,7 +32,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.activate(et);
     }
     /**
-     * 自定义行为[BatchUnlinkStory]用户扩展
+     * [BatchUnlinkStory:批量解除关联需求] 行为扩展
      * @param et
      * @return
      */
@@ -42,7 +42,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.batchUnlinkStory(et);
     }
     /**
-     * 自定义行为[Close]用户扩展
+     * [Close:关闭] 行为扩展
      * @param et
      * @return
      */
@@ -52,7 +52,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.close(et);
     }
     /**
-     * 自定义行为[LinkStory]用户扩展
+     * [LinkStory:关联需求] 行为扩展
      * @param et
      * @return
      */
@@ -62,7 +62,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.linkStory(et);
     }
     /**
-     * 自定义行为[ManageMembers]用户扩展
+     * [ManageMembers:团队管理] 行为扩展
      * @param et
      * @return
      */
@@ -72,7 +72,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.manageMembers(et);
     }
     /**
-     * 自定义行为[Putoff]用户扩展
+     * [Putoff:延期] 行为扩展
      * @param et
      * @return
      */
@@ -82,7 +82,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.putoff(et);
     }
     /**
-     * 自定义行为[Start]用户扩展
+     * [Start:开始] 行为扩展
      * @param et
      * @return
      */
@@ -92,7 +92,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.start(et);
     }
     /**
-     * 自定义行为[Suspend]用户扩展
+     * [Suspend:挂起] 行为扩展
      * @param et
      * @return
      */
@@ -102,7 +102,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.suspend(et);
     }
     /**
-     * 自定义行为[UnlinkMember]用户扩展
+     * [UnlinkMember:移除成员] 行为扩展
      * @param et
      * @return
      */
@@ -112,7 +112,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.unlinkMember(et);
     }
     /**
-     * 自定义行为[UnlinkStory]用户扩展
+     * [UnlinkStory:解除关联需求] 行为扩展
      * @param et
      * @return
      */
@@ -122,7 +122,7 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.unlinkStory(et);
     }
     /**
-     * 自定义行为[UpdateOrder]用户扩展
+     * [UpdateOrder:排序] 行为扩展
      * @param et
      * @return
      */

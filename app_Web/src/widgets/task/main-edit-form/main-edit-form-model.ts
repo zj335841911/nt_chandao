@@ -71,6 +71,11 @@ export default class MainEditModel {
         dataType: 'TEXT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'desc',
         prop: 'desc',
         dataType: 'LONGTEXT',
@@ -99,6 +104,9 @@ export default class MainEditModel {
         name: 'project',
         prop: 'project',
         dataType: 'PICKUP',
+      },
+      {
+        name: 'srfsessionkey',
       },
       {
         name: 'module',

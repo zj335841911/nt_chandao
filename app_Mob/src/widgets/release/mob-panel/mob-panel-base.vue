@@ -14,7 +14,8 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    <ion-icon name="flag" style="color: brown;font-size: 18px;"></ion-icon>
+                    
+                
                 
                 
                 </ion-col>
@@ -58,13 +59,15 @@
                         </ion-col>
                         
                         <ion-col v-show="detailsModel.rawitem2.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-rowitem">
-                            <ion-icon name="pause" style="color: blue;font-size: 18px;"></ion-icon>
+                            
+                        
                         
                         
                         </ion-col>
                         
                         <ion-col v-show="detailsModel.rawitem3.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-rowitem">
-                            <ion-icon name="play" style="color: brown;font-size: 18px;"></ion-icon>
+                            
+                        
                         
                         
                         </ion-col>
@@ -91,8 +94,7 @@ import { PanelUserControlModel, PanelButtonModel, PanelControlModel, PanelFieldM
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobBase extends Vue implements ControlInterface {
 
@@ -213,7 +215,7 @@ export default class MobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
    /**
      * 生命周期

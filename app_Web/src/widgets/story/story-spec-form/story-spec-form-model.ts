@@ -76,6 +76,11 @@ export default class StorySpecModel {
         dataType: 'INT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'formitem',
         prop: 'versionc',
         dataType: 'TEXT',

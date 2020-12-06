@@ -61,6 +61,10 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IDocLibCurUserIsFLogic curuserisfLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -99,6 +103,8 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     @Transactional
     public DocLib get(Long key) {
+        DocLib tempET = new DocLib();
+        tempET.set("id", key);
         DocLib et = getById(key);
         if (et == null) {
             et = new DocLib();
@@ -106,6 +112,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         }
         else {
         }
+        curuserisfLogic.execute(et);
         return et;
     }
 
@@ -206,11 +213,29 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
 
     /**
+     * 查询集合 产品文档库
+     */
+    @Override
+    public Page<DocLib> searchByProductNotFiles(DocLibSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLib> pages=baseMapper.searchByProductNotFiles(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 项目文件库
      */
     @Override
     public Page<DocLib> searchByProject(DocLibSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLib> pages=baseMapper.searchByProject(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目文件库
+     */
+    @Override
+    public Page<DocLib> searchByProjectNotFiles(DocLibSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLib> pages=baseMapper.searchByProjectNotFiles(context.getPages(), context, context.getSelectCond());
         return new PageImpl<DocLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -229,6 +254,24 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     public Page<DocLib> searchDefault(DocLibSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLib> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<DocLib> searchMyFavourites(DocLibSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLib> pages=baseMapper.searchMyFavourites(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根目录
+     */
+    @Override
+    public Page<DocLib> searchRootModuleMuLu(DocLibSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLib> pages=baseMapper.searchRootModuleMuLu(context.getPages(), context, context.getSelectCond());
         return new PageImpl<DocLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

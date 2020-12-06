@@ -96,6 +96,15 @@ export default class DocLibUIServiceBase extends UIService {
      * @memberof  DocLibUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'doclibs',
+            component: 'doc-lib-pickup-view',
+            openmode: '',
+            title: '文档库',
+            width: 0,
+            height: 0
+        });
         this.allViewMap.set('MDATAVIEW:', {
             viewname: 'gridview',
             srfappde: 'doclibs',
@@ -113,11 +122,8 @@ export default class DocLibUIServiceBase extends UIService {
      * @memberof  DocLibUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('doclib','doclib');
-        this.allDeMainStateMap.set('doc','doc');
         this.allDeMainStateMap.set('doc__0','doc__0');
         this.allDeMainStateMap.set('doc__1','doc__1');
-        this.allDeMainStateMap.set('file','file');
         this.allDeMainStateMap.set('file__0','file__0');
         this.allDeMainStateMap.set('file__1','file__1');
     }
@@ -128,11 +134,8 @@ export default class DocLibUIServiceBase extends UIService {
      * @memberof  DocLibUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('doclib',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'FILE':0,}));
         this.allDeMainStateOPPrivsMap.set('doc__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_NFAVOUR_BUT':0,'FILE':0,}));
         this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'FILE':0,'SRFUR__DOCLIB_FAVOUR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('file',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,}));
         this.allDeMainStateOPPrivsMap.set('file__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,'SRFUR__DOCLIB_NFAVOUR_BUT':0,'SRFUR__DOCLIB_FAVOUR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('file__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_FAVOUR_BUT':0,'DOC':0,'SRFUR__DOCLIB_NFAVOUR_BUT':0,}));
     }
@@ -172,7 +175,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'myfavouritegridview', parameterName: 'myfavouritegridview' },
+            { pathName: 'moremyfavouritestreeview', parameterName: 'moremyfavouritestreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
@@ -217,7 +220,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'recentmoregridview', parameterName: 'recentmoregridview' },
+            { pathName: 'morerecentupdatetreeview', parameterName: 'morerecentupdatetreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
@@ -245,7 +248,7 @@ export default class DocLibUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(params,{product:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { doclib: '%doclib%' });
@@ -501,7 +504,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'mymoregridview', parameterName: 'mymoregridview' },
+            { pathName: 'moremydoctreeview', parameterName: 'moremydoctreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

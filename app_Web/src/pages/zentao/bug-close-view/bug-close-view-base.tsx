@@ -48,7 +48,7 @@ export class BugCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugCloseViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class BugCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugCloseViewBase
      */ 
-    protected viewName: string = "BugCloseView";
+    protected viewName: string = 'BugCloseView';
 
 
     /**

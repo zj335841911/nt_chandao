@@ -108,6 +108,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
         left: null,
         noticeusers: null,
         comment: null,
+        status: null,
         id: null,
         task: null,
     };
@@ -308,6 +309,13 @@ export class AssignFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        status: new FormItemModel({
+    caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         id: new FormItemModel({
     caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -316,4 +324,15 @@ export class AssignFormEditFormBase extends EditFormControlBase {
 }),
 
     };
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof AssignFormBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
 }

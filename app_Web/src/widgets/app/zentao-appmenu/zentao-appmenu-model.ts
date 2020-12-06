@@ -285,6 +285,48 @@ export default class ZentaoModel {
                 	authtag:'Web-zentao-menuitem8',
                 }
                 ,
+                		        {
+                	id: 'C2324D75-EADF-4116-8EF3-2C62A3C8AB18',
+                	name: 'menuitem17',
+                	text: '插件管理',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '插件管理',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'PluginManagement',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-my-territory-usr3-tab-exp-view',
+                	authtag:'Web-zentao-menuitem17',
+                }
+                ,
+                		        {
+                	id: '80D6A552-4F24-4273-B535-1685F0A22CBF',
+                	name: 'menuitem19',
+                	text: '汇报角色角色',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '汇报角色角色',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc5',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-report-role-config-grid-view',
+                	authtag:'Web-zentao-menuitem19',
+                }
+                ,
         	],
         }
         ,
@@ -527,6 +569,18 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
+            appfunctag: 'PluginManagement',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritoryusr3tabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/usr3tabexpview/:usr3tabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'usr3tabexpview', parameterName: 'usr3tabexpview' },
+            ],
+        },
+        {
             appfunctag: 'AppFunc',
             appfuncyype: 'APPVIEW',
             openmode: '',
@@ -670,6 +724,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
                 { pathName: 'tabexpview', parameterName: 'tabexpview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc5',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzreportroleconfiggridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzreportroleconfigs/:ibzreportroleconfig?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibzreportroleconfigs', parameterName: 'ibzreportroleconfig' },
+                { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
         {

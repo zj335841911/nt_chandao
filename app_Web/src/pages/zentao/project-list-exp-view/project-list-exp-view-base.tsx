@@ -109,7 +109,7 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @type {string}
      * @memberof ProjectListExpViewBase
      */ 
-    protected viewName: string = "ProjectListExpView";
+    protected viewName: string = 'ProjectListExpView';
 
 
     /**

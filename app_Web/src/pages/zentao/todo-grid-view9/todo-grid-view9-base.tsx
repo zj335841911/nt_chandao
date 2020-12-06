@@ -51,7 +51,7 @@ export class TodoGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TodoGridView9Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class TodoGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TodoGridView9Base
      */ 
-    protected viewName: string = "TodoGridView9";
+    protected viewName: string = 'TodoGridView9';
 
 
     /**

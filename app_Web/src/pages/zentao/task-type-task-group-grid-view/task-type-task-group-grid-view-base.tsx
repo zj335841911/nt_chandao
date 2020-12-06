@@ -51,7 +51,7 @@ export class TaskTypeTaskGroupGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskTypeTaskGroupGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -99,9 +99,9 @@ export class TaskTypeTaskGroupGridViewBase extends GridViewBase {
             name: 'grid',
             type: 'GRID',
         },
-        view_searchform: {
-            name: 'searchform',
-            type: 'SEARCHFORM',
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
         },
     };
 
@@ -140,7 +140,7 @@ export class TaskTypeTaskGroupGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskTypeTaskGroupGridViewBase
      */ 
-    protected viewName: string = "TaskTypeTaskGroupGridView";
+    protected viewName: string = 'TaskTypeTaskGroupGridView';
 
 
     /**
@@ -179,7 +179,6 @@ export class TaskTypeTaskGroupGridViewBase extends GridViewBase {
                 this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            searchform: this.$refs.searchform,
             keyPSDEField: 'task',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -258,39 +257,6 @@ export class TaskTypeTaskGroupGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
-    }
-
-    /**
-     * searchform 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskTypeTaskGroupGridViewBase
-     */
-    public searchform_save($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskTypeTaskGroupGridViewBase
-     */
-    public searchform_search($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskTypeTaskGroupGridViewBase
-     */
-    public searchform_load($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**

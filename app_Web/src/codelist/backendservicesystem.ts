@@ -114,6 +114,8 @@ export default class Backendservicesystem {
                 Object.assign(itemdata,{text:item.pssyssfpubname});
                 Object.assign(itemdata,{label:item.pssyssfpubname});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

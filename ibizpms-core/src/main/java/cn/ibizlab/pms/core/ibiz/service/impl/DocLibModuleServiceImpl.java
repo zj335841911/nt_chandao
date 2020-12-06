@@ -58,6 +58,26 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleFixPathLogic fixpathLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleUpdate__MSDenyLogic update__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleRemove__MSDenyLogic remove__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleCurUserIsFLogic curuserisfLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDoclibModuleNFavoriteLogic doclibmodulenfavoriteLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDocLibModuleFavoriteLogic doclibmodulefavoriteLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -101,6 +121,8 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public boolean remove(Long key) {
+        DocLibModule et = new DocLibModule();
+        et.set("id", key);
         boolean result = removeById(key);
         return result;
     }
@@ -114,6 +136,8 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public DocLibModule get(Long key) {
+        DocLibModule tempET = new DocLibModule();
+        tempET.set("id", key);
         DocLibModule et = getById(key);
         if (et == null) {
             et = new DocLibModule();
@@ -121,6 +145,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         }
         else {
         }
+        curuserisfLogic.execute(et);
         return et;
     }
 
@@ -134,6 +159,27 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     public boolean checkKey(DocLibModule et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public DocLibModule collect(DocLibModule et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public DocLibModule docLibModuleNFavorite(DocLibModule et) {
+        doclibmodulenfavoriteLogic.execute(et);
+         return et;
+    }
+
+    @Override
+    @Transactional
+    public DocLibModule doclibModuleFavorite(DocLibModule et) {
+        doclibmodulefavoriteLogic.execute(et);
+         return et;
+    }
+
     @Override
     @Transactional
     public DocLibModule fix(DocLibModule et) {
@@ -175,6 +221,13 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         saveOrUpdateBatch(list, batchSize);
     }
 
+    @Override
+    @Transactional
+    public DocLibModule unCollect(DocLibModule et) {
+        //自定义代码
+        return et;
+    }
+
 
     @Override
     public List<DocLibModule> selectByParent(Long id) {
@@ -214,11 +267,38 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     }
 
     /**
+     * 查询集合 子模块目录
+     */
+    @Override
+    public Page<DocLibModule> searchChildModuleByParent(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchChildModuleByParent(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 文档库分类子模块
+     */
+    @Override
+    public Page<DocLibModule> searchChildModuleByRealParent(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchChildModuleByRealParent(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override
     public Page<DocLibModule> searchDefault(DocLibModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<DocLibModule> searchMyFavourites(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchMyFavourites(context.getPages(), context, context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -246,6 +326,15 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     public Page<DocLibModule> searchRootModuleMuLuByRoot(DocLibModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuByRoot(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根模块目录动态
+     */
+    @Override
+    public Page<DocLibModule> searchRootModuleMuLuBysrfparentkey(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuBysrfparentkey(context.getPages(), context, context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

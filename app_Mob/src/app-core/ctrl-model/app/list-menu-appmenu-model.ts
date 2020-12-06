@@ -31,6 +31,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem1',
 },
         {
 	id: '933E2C45-8EE3-4158-B6B7-BCB2A95C23BD',
@@ -49,6 +50,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: 'AppFunc',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem8',
 },
         {
 	id: '99D582CB-D6C7-4F49-9B33-BE270A6DE7FF',
@@ -67,6 +69,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem2',
 },
         {
 	id: '5626FC78-27A9-447A-B655-ECEC2BFB9E1E',
@@ -85,6 +88,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem3',
 },
         {
 	id: 'E0BF1869-5153-4FE1-A02B-2431F6A77D1F',
@@ -103,6 +107,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem4',
 },
         {
 	id: '6B5F6879-1BE5-4209-8C59-D006235AACB1',
@@ -121,6 +126,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem5',
 },
         {
 	id: '7AC9BC29-2BD1-4A5F-87FC-899848021667',
@@ -139,6 +145,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem6',
 },
         {
 	id: '2FBFE5E1-24DC-49F2-BDF1-24D4251E36A9',
@@ -157,6 +164,7 @@ export class ListMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-ListMenu-menuitem7',
 },
     ];
 

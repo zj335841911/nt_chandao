@@ -48,7 +48,7 @@ export class TaskMainInfoView9Base extends EditView9Base {
      * @type {string}
      * @memberof TaskMainInfoView9Base
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -111,7 +111,7 @@ export class TaskMainInfoView9Base extends EditView9Base {
      * @type {string}
      * @memberof TaskMainInfoView9Base
      */ 
-    protected viewName: string = "TaskMainInfoView9";
+    protected viewName: string = 'TaskMainInfoView9';
 
 
     /**

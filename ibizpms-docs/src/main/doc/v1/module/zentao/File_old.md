@@ -25,6 +25,7 @@ hide members
 |id|ID|ACID|&nbsp;|
 |备注|EXTRA|TEXT|&nbsp;|
 |显示大小|STRSIZE|TEXT|&nbsp;|
+|文档类型|DOCLIBTYPE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -42,6 +43,7 @@ hide members
 |id|默认规则|默认规则|
 |备注|默认规则|内容长度必须小于等于[255]|
 |显示大小|默认规则|内容长度必须小于等于[200]|
+|文档类型|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

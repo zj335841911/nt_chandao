@@ -153,6 +153,9 @@ export class ProductStatusChartMobModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

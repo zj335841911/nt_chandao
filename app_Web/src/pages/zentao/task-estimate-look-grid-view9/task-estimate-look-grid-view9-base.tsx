@@ -51,7 +51,7 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskEstimateLookGridView9Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -68,6 +68,24 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      * @memberof TaskEstimateLookGridView9Base
      */
     public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
+
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskEstimateLookGridView9Base
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
+    };
 
     /**
      * 视图模型数据
@@ -114,7 +132,7 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskEstimateLookGridView9Base
      */ 
-    protected viewName: string = "TaskEstimateLookGridView9";
+    protected viewName: string = 'TaskEstimateLookGridView9';
 
 
     /**

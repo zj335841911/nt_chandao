@@ -181,7 +181,7 @@
     align-content: space-between;
 }
 .mc-head-box div {
-  /* font-size: 28rpx; */
+    /* font-size: 28rpx; */
 }
 .mc-body tr {
     display: flex;
@@ -277,7 +277,7 @@
     position: relative;
 }
 .calendar-years:after {
-    content: "";
+    content: '';
     display: block;
     width: 86%;
     height: 1rpx;
@@ -288,7 +288,7 @@
 }
 /*range background*/
 .mc-range-mode .selected .mc-range-bg {
-    content: "";
+    content: '';
     display: block;
     width: 110rpx;
     height: 80rpx;
@@ -359,9 +359,9 @@
 }
 /*week switch*/
 .mpvue-calendar
-  .mc-range-mode.week-switch
-  .month-last-date.mc-range-begin
-  .mc-range-bg {
+    .mc-range-mode.week-switch
+    .month-last-date.mc-range-begin
+    .mc-range-bg {
     width: 130%;
     border-radius: 0 20% 20% 0;
 }
@@ -390,7 +390,7 @@
 }
 .month-range-mode .mc-last-month,
 .month-range-mode .mc-next-month {
-   opacity: 0 !important;
+    opacity: 0 !important;
 }
 .month-text-background {
     position: absolute;

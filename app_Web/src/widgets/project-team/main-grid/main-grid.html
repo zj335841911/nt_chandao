@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.projectteam.main_grid.nodata')}} 
@@ -23,18 +23,24 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('account')">
                 <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.projectteam.main_grid.columns.account')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.account')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.account" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                  <span><icon-codelist :value="row.account" 
+            	tag="UserRealName" 
+            	codelistType="DYNAMIC" 
+             renderMode="STR"
+             valueSeparator=","
+             textSeparator=",">
+            </icon-codelist></span>
                         </template>
                     </template>
                 </el-table-column>
@@ -42,45 +48,45 @@
             <template v-if="getColumnState('role')">
                 <el-table-column show-overflow-tooltip :prop="'role'" :label="$t('entities.projectteam.main_grid.columns.role')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.role')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.role}}</span>
+                            <span>{{row.role}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('join')">
                 <el-table-column show-overflow-tooltip :prop="'join'" :label="$t('entities.projectteam.main_grid.columns.join')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.join')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.join"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.join"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('days')">
                 <el-table-column show-overflow-tooltip :prop="'days'" :label="$t('entities.projectteam.main_grid.columns.days')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.days')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.days}}</span>
+                            <span>{{row.days}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('hours')">
                 <el-table-column show-overflow-tooltip :prop="'hours'" :label="$t('entities.projectteam.main_grid.columns.hours')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.hours')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                             <app-format-data dataType="FLOAT" precision="0" :data="row.hours"></app-format-data>
@@ -90,25 +96,25 @@
             <template v-if="getColumnState('total')">
                 <el-table-column show-overflow-tooltip :prop="'total'" :label="$t('entities.projectteam.main_grid.columns.total')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.total')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.total}}</span>
+                            <span>{{row.total}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('limited')">
                 <el-table-column show-overflow-tooltip :prop="'limited'" :label="$t('entities.projectteam.main_grid.columns.limited')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.limited')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.limited" tag='YesNo3' codelistType='STATIC' ></codelist>
+            <codelist :value="row.limited" tag="YesNo3" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -116,16 +122,16 @@
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.projectteam.main_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.uagridcolumn1')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.RemoveMember.visible" :disabled="scope.row.RemoveMember.disabled" @click="uiAction(scope.row, 'RemoveMember', $event)" :title="$t('entities.projectteam.main_grid.uiactions.projectteam_removemember')">
-                            <i class='fa fa-unlink'></i>
-                            
-                          </a>
+                            <a v-show="scope.row.RemoveMember.visible" :disabled="scope.row.RemoveMember.disabled" @click="uiAction(scope.row, 'RemoveMember', $event)" :title="$t('entities.projectteam.main_grid.uiactions.projectteam_removemember')">
+                                <i class="fa fa-unlink"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>
@@ -134,8 +140,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

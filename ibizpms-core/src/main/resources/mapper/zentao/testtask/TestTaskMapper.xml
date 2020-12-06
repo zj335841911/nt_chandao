@@ -14,8 +14,8 @@
 		<result property="product" column="product" />
 		<result property="build" column="build" />
 		<result property="project" column="project" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztbuild" javaType="cn.ibizlab.pms.core.zentao.domain.Build" column="build" select="cn.ibizlab.pms.core.zentao.mapper.BuildMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

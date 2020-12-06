@@ -133,4 +133,28 @@ export interface DocLibModule {
      * @memberof DocLibModule
      */
     modulename?: any;
+
+    /**
+     * 查询类型
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    docqtype?: any;
+
+    /**
+     * 是否已收藏
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    isfavourites?: any;
+
+    /**
+     * 文档数
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    doccnt?: any;
 }

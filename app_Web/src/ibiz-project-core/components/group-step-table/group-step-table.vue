@@ -12,19 +12,19 @@
         <draggable :list="data" :disabled="!isEdit" element="tbody" handle=".table-tr-drag" @end="onDraggable">
             <template v-for="(item, index) of getItems(data)">
                 <tr :key="index">
-                    <td>
+                    <td class="table-order-noEdit">
                         <div class="table-order"> {{ item.order_num }} </div>
                     </td>
                     <template v-for="(col, i) of getCols()">
-                        <td :key="i" v-if="col.show">
+                        <td :key="i" v-if="col.show" :class="!col.isEdit ? 'table-order-noEdit' : ''">
                             <div class="table-item">
-                                <div  class="table-order" v-if="item.hasOwnProperty('child_order_num') && i === 0"> {{ item.child_order_num }} </div>
-                                <div v-if="!isEdit" class="table-td">
+                                <div  class="table-order table-order-noEdit" v-if="item.hasOwnProperty('child_order_num') && i === 0"> {{ item.child_order_num }} </div>
+                                <div v-if="!isEdit || (Object.is(item[groupfield],'group') && Object.is(col.name,'expect'))" class="table-td">
                                     <slot :item="{row: item, index: index, column: col}">
                                         {{ (col.render ? col.render(gridItemCodelist(item,col)) : gridItemCodelist(item,col)) }}
                                     </slot>
                                 </div>
-                                <div v-if="isEdit" class="table-td-edit">
+                                <div v-if="isEdit && !(Object.is(item[groupfield],'group') && Object.is(col.name,'expect'))" class="table-td-edit">
                                     <slot v-if="refreshSelect" :name="col.name" :row="item" :$index="index" :column="col">
                                         <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
                                     </slot>

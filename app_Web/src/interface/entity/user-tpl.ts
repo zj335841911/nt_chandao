@@ -7,7 +7,7 @@
 export interface UserTpl {
 
     /**
-     * title
+     * 模板标题
      *
      * @returns {*}
      * @memberof UserTpl
@@ -47,7 +47,7 @@ export interface UserTpl {
     account?: any;
 
     /**
-     * public
+     * 公开
      *
      * @returns {*}
      * @memberof UserTpl

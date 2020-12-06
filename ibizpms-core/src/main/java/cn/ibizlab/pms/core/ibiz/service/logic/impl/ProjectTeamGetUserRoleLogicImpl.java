@@ -1,18 +1,12 @@
 package cn.ibizlab.pms.core.ibiz.service.logic.impl;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
-
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.KieContainer;
-
 import cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetUserRoleLogic;
 import cn.ibizlab.pms.core.ibiz.domain.ProjectTeam;
 
@@ -37,22 +31,21 @@ public class ProjectTeamGetUserRoleLogicImpl implements IProjectTeamGetUserRoleL
     @Override
     public void execute(ProjectTeam et) {
 
-          KieSession kieSession = null;
-        try{
-           kieSession = kieContainer.newKieSession();
-           kieSession.insert(et); 
-           kieSession.setGlobal("projectteamgetuserroledefault", et);
-           kieSession.setGlobal("iBzSysProjectteamDefaultService", iBzSysDefaultService);
-           kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
-           kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.projectteamgetuserrole");
+        KieSession kieSession = null;
+        try {
+            kieSession = kieContainer.newKieSession();
+            kieSession.insert(et); 
+            kieSession.setGlobal("projectteamgetuserroledefault", et);
+            kieSession.setGlobal("iBzSysProjectteamDefaultService", iBzSysDefaultService);
+            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
+            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.projectteamgetuserrole");
 
-        }catch(Exception e) {
-            throw new RuntimeException("执行[获取成员角色]处理逻辑发生异常"+e);
-        }finally {
-            if(kieSession!=null) {
+        } catch (Exception e) {
+            throw new RuntimeException("执行[获取成员角色]处理逻辑发生异常" + e);
+        } finally {
+            if(kieSession != null) {
                 kieSession.destroy();
             }
         }
     }
-
 }

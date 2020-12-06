@@ -396,4 +396,15 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             this.updateFormItems('getinfotesttask', this.data, details, true);
         }
     }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainInfoBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
 }

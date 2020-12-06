@@ -39,11 +39,14 @@ export class CodeListRegister {
      * @memberof CodeListRegister
      */
     protected init(): void {
-            this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
+            this.allCodeList.set('AllCase', () => import('@/codelist/all-case'));
+        this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
         this.allCodeList.set('Backendservicesystem', () => import('@/codelist/backendservicesystem'));
         this.allCodeList.set('RealNameProjectM', () => import('@/codelist/real-name-project-m'));
+        this.allCodeList.set('MyPlanTask', () => import('@/codelist/my-plan-task'));
         this.allCodeList.set('ProjectCodeList', () => import('@/codelist/project-code-list'));
         this.allCodeList.set('SQLBuild', () => import('@/codelist/sqlbuild'));
+        this.allCodeList.set('TaskTeamUserTemp', () => import('@/codelist/task-team-user-temp'));
         this.allCodeList.set('SysOperator', () => import('@/codelist/sys-operator'));
         this.allCodeList.set('UserRealNameW', () => import('@/codelist/user-real-name-w'));
         this.allCodeList.set('UserRealName', () => import('@/codelist/user-real-name'));
@@ -51,6 +54,7 @@ export class CodeListRegister {
         this.allCodeList.set('RunSQL', () => import('@/codelist/run-sql'));
         this.allCodeList.set('CurProductBuild', () => import('@/codelist/cur-product-build'));
         this.allCodeList.set('APPBuild', () => import('@/codelist/appbuild'));
+        this.allCodeList.set('AllBug', () => import('@/codelist/all-bug'));
         this.allCodeList.set('BugModule', () => import('@/codelist/bug-module'));
         this.allCodeList.set('SystemAPP', () => import('@/codelist/system-app'));
         this.allCodeList.set('Role', () => import('@/codelist/role'));
@@ -58,6 +62,7 @@ export class CodeListRegister {
         this.allCodeList.set('CurCaseVersion', () => import('@/codelist/cur-case-version'));
         this.allCodeList.set('ProductPlan', () => import('@/codelist/product-plan'));
         this.allCodeList.set('UserRealNameProject', () => import('@/codelist/user-real-name-project'));
+        this.allCodeList.set('AllRepo', () => import('@/codelist/all-repo'));
         this.allCodeList.set('ProjectTeam', () => import('@/codelist/project-team'));
         this.allCodeList.set('UserRealNameTaskTeam', () => import('@/codelist/user-real-name-task-team'));
         this.allCodeList.set('RelatedStory', () => import('@/codelist/related-story'));
@@ -65,14 +70,20 @@ export class CodeListRegister {
         this.allCodeList.set('PlanCodeList', () => import('@/codelist/plan-code-list'));
         this.allCodeList.set('CurProductPlan', () => import('@/codelist/cur-product-plan'));
         this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
+        this.allCodeList.set('AllRole', () => import('@/codelist/all-role'));
+        this.allCodeList.set('AllTask', () => import('@/codelist/all-task'));
         this.allCodeList.set('CurDocVersion', () => import('@/codelist/cur-doc-version'));
+        this.allCodeList.set('AllTestTask', () => import('@/codelist/all-test-task'));
         this.allCodeList.set('TestTask', () => import('@/codelist/test-task'));
+        this.allCodeList.set('AllEntry', () => import('@/codelist/all-entry'));
+        this.allCodeList.set('AllStory', () => import('@/codelist/all-story'));
         this.allCodeList.set('ProjectProductPlan', () => import('@/codelist/project-product-plan'));
         this.allCodeList.set('UserRealNameTaskMTeam', () => import('@/codelist/user-real-name-task-mteam'));
         this.allCodeList.set('Product', () => import('@/codelist/product'));
         this.allCodeList.set('RealDept', () => import('@/codelist/real-dept'));
         this.allCodeList.set('CurProductProject', () => import('@/codelist/cur-product-project'));
         this.allCodeList.set('CurStory', () => import('@/codelist/cur-story'));
+        this.allCodeList.set('MyCompleteTask', () => import('@/codelist/my-complete-task'));
     }
 
     /**

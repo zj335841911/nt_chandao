@@ -121,7 +121,7 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @type {string}
      * @memberof ProductListExpViewBase
      */ 
-    protected viewName: string = "ProductListExpView";
+    protected viewName: string = 'ProductListExpView';
 
 
     /**

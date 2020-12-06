@@ -170,6 +170,7 @@ export default {
         productplan_relationbug: "关联Bug",
         productplan_mainedit: "编辑",
         productplan_newsubplan: "子计划",
+        copy: "Copy",
         productplan_delete: "删除",
 		},
 	},
@@ -205,6 +206,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 };

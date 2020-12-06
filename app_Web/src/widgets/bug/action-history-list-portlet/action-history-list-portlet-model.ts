@@ -240,6 +240,9 @@ export default class ActionHistoryListModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

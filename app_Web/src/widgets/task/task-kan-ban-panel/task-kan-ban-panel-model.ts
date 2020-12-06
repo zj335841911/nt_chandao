@@ -19,13 +19,17 @@ export default class TaskKanBanModel {
         prop: 'name'
       },
       {
+        name: 'deadline',
+        prop: 'deadline'
+      },
+      {
+        name: 'delay',
+        prop: 'delay'
+      },
+      {
         name: 'assignedto',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
         prop: 'assignedto'
-      },
-      {
-        name: 'deadline',
-        prop: 'deadline'
       },
       {
         name: 'left',
@@ -74,6 +78,18 @@ export default class TaskKanBanModel {
       {
         name: 'color',
         prop: 'color'
+      },
+      {
+        name: 'isfavorites',
+        prop: ' isfavorites'
+      },
+      {
+        name: 'status1',
+        prop: 'status1'
+      },
+      {
+        name: 'tasktype',
+        prop: 'tasktype'
       }
     ]
   }

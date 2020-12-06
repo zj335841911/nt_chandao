@@ -58,9 +58,9 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
         path.append(String.format(",%s,",et.getId()));
         fillPath(et,path);
         et.setPath(path.toString());
-        et.setGrade(et.getPath().length()-et.getPath().replace(",","").length()-1);
+        et.setGrade(et.getPath().length()-et.getPath().replace(MULTIPLE_CHOICE,"").length()-1);
 
-        Module maxModule = this.getOne(new QueryWrapper<Module>().eq("root",et.getRoot()).eq("grade",et.getGrade()).orderByDesc("`order`").last("limit 0,1")) ;
+        Module maxModule = this.getOne(new QueryWrapper<Module>().eq(FIELD_ROOT,et.getRoot()).eq(FIELD_GRADE,et.getGrade()).orderByDesc("`order`").last("limit 0,1")) ;
         if(maxModule==null && et.getOrder() == null){
             et.setOrder(10);
         }else if(et.getOrder() == null && maxModule != null){
@@ -68,9 +68,9 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
         }
 
         this.internalUpdate(et);
-        List<Module> list = this.list(new QueryWrapper<Module>().like("path", "," + et.getId() + ",").ne("id", et.getId()));
+        List<Module> list = this.list(new QueryWrapper<Module>().like(FIELD_PATH, MULTIPLE_CHOICE + et.getId() + MULTIPLE_CHOICE).ne("id", et.getId()));
         for (Module module : list) {
-            module.setPath(module.getPath().replace(("," + et.getId() + ","), path.toString()));
+            module.setPath(module.getPath().replace((MULTIPLE_CHOICE + et.getId() + MULTIPLE_CHOICE), path.toString()));
             this.internalUpdate(module);
         }
 
@@ -82,18 +82,18 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
     public boolean delete(Long key) {
         Module et = this.get(key);
         Long parent = et.getParent();
-        List<Module> childList = this.list(new QueryWrapper<Module>().eq("type", et.getType()).eq("root", et.getRoot()).ne("id",key).last(" AND find_in_set('"+ key +"',path)"));
+        List<Module> childList = this.list(new QueryWrapper<Module>().eq(FIELD_TYPE, et.getType()).eq(FIELD_ROOT, et.getRoot()).ne(FIELD_ID,key).last(" AND find_in_set('"+ key +"',path)"));
         String modules = String.valueOf(key);
         for(Module module : childList) {
 
-            modules += "," + module.getId();
+            modules += MULTIPLE_CHOICE + module.getId();
 
             super.delete(module.getId());
         }
         if(StaticDict.Module__type.LINE.getValue().equals(et.getType())) {
             Product product = new Product();
             product.setLine(0L);
-            productHelper.update(product,new QueryWrapper<Product>().eq("line", et.getId()));
+            productHelper.update(product,new QueryWrapper<Product>().eq(StaticDict.Module__type.LINE.getValue(), et.getId()));
         }
         else if(StaticDict.Module__type.STORY.getValue().equals(et.getType())) {
             // Story

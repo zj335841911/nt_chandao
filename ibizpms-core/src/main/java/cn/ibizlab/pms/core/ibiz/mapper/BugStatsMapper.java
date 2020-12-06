@@ -19,9 +19,14 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface BugStatsMapper extends BaseMapper<BugStats> {
 
+    Page<BugStats> searchBugCountInResolution(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
+    Page<BugStats> searchBugResolvedBy(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     Page<BugStats> searchBugassignedTo(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     Page<BugStats> searchDefault(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
+    Page<BugStats> searchProductBugResolutionStats(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
+    Page<BugStats> searchProductBugStatusSum(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     Page<BugStats> searchProductCreateBug(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
+    Page<BugStats> searchProjectBugStatusCount(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     @Override
     BugStats selectById(Serializable id);
     @Override
@@ -65,5 +70,7 @@ public interface BugStatsMapper extends BaseMapper<BugStats> {
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     List<BugStats> selectByProduct(@Param("id") Serializable id);
+
+    List<BugStats> selectByProject(@Param("id") Serializable id);
 
 }

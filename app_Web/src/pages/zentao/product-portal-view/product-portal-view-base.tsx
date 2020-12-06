@@ -56,7 +56,7 @@ export class ProductPortalViewBase extends PortalViewBase {
      * @type {string}
      * @memberof ProductPortalViewBase
      */ 
-    protected viewName: string = "ProductPortalView";
+    protected viewName: string = 'ProductPortalView';
 
 
 

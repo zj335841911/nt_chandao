@@ -239,7 +239,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
-            enableCond: 3 ,
+            enableCond: 1 ,
         },
         {
             name: 'role',
@@ -302,6 +302,7 @@ export class Main_EditRowGridBase extends GridControlBase {
           hours: new FormItemModel(),
           role: new FormItemModel(),
           account: new FormItemModel(),
+          join: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -383,8 +384,9 @@ export class Main_EditRowGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工日 值不能为空', trigger: 'blur' },
         ],
         hours: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'blur' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("hours",this.deRules,"AND",value).isPast},message: "数值必须大于等于[0.0]且小于等于[24.0]", trigger: 'blur' },
         ],
         role: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '角色 值不能为空', trigger: 'change' },
@@ -393,6 +395,10 @@ export class Main_EditRowGridBase extends GridControlBase {
         account: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'blur' },
+        ],
+        join: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '加盟日 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '加盟日 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -408,6 +414,20 @@ export class Main_EditRowGridBase extends GridControlBase {
      * @memberof Main_EditRowBase
      */
     public deRules:any = {
+                hours:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"数值必须大于等于[0.0]且小于等于[24.0]", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:24,
+                      minValue:0,
+                      deName:"hours",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:true,
+                  },
+                ],
     };
 
     /**
@@ -539,11 +559,11 @@ export class Main_EditRowGridBase extends GridControlBase {
         if (row.hasOwnProperty('limited')) {
             row['limited'] = 'no';
         }
-        if (row.hasOwnProperty('days')) {
-            row['days'] = 45;
-        }
         if (row.hasOwnProperty('hours')) {
             row['hours'] = 7;
+        }
+        if (row.hasOwnProperty('join')) {
+            row['join'] = this.$util.dateFormat(new Date());
         }
     }
 
@@ -554,6 +574,9 @@ export class Main_EditRowGridBase extends GridControlBase {
      * @memberof Main_EditRowBase
      */
     public updateDefault(row: any){                    
+        if (row.hasOwnProperty('join') && !row.join && row.hasUpdated) {
+            row['join'] = this.$util.dateFormat(new Date());
+        }
     }
 
     /**

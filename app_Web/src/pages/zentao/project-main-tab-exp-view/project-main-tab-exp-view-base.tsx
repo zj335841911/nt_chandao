@@ -137,7 +137,7 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof ProjectMainTabExpViewBase
      */ 
-    protected viewName: string = "ProjectMainTabExpView";
+    protected viewName: string = 'ProjectMainTabExpView';
 
 
     /**

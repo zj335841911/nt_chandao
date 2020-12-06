@@ -10,21 +10,22 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
-| 2 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
-| 3 | [项目团队（IBZ_PROJECTTEAM）](../ibiz/ProjectTeam) | 嵌套操作 |
-| 4 | [系统日志（ZT_ACTION）](../zentao/Action) | （默认） |
-| 5 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
-| 6 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
-| 7 | [burn（ZT_BURN）](../zentao/Burn) | （默认） |
-| 8 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
-| 9 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
-| 10 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
-| 11 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
-| 12 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
-| 13 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
-| 14 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
-| 15 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
+| 1 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
+| 2 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
+| 3 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
+| 4 | [项目团队（IBZ_PROJECTTEAM）](../ibiz/ProjectTeam) | 嵌套操作 |
+| 5 | [系统日志（ZT_ACTION）](../zentao/Action) | （默认） |
+| 6 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 7 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
+| 8 | [burn（ZT_BURN）](../zentao/Burn) | （默认） |
+| 9 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
+| 10 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
+| 11 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
+| 12 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
+| 13 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
+| 14 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
+| 15 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
+| 16 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
@@ -4132,7 +4133,8 @@ Save
 | 7 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
 | 8 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
 | 9 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 10 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）
 #### 说明
@@ -4695,6 +4697,118 @@ left join zt_team t21 on t1.id = t21.root
 ```SQL
 select concat(t1.`name`, '  ' ,t.ACCOUNTS) accounts,t1.id ,t1.`name`  from zt_project t1 left join (select GROUP_CONCAT(t.realnames Separator ' ') as ACCOUNTS,t.root from (select t.account,t1.realname, CONCAT(UPPER(left(t.account,1)),':',t1.realname) as realnames,t.root from zt_team t left join zt_user t1 on t1.account = t.account where  t.type = 'project' and t1.deleted = '0') t GROUP BY t.root) t on t1.id = t.root
 ```
+### 数据查询-未完成项目（UnDoneProject）
+#### 说明
+未完成项目
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (SELECT
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
+union 
+SELECT
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  
+and t3.type = 'project')) t1
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -4770,6 +4884,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 | 7 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
 | 8 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
 | 9 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 10 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
 
 ### 数据集合-BugProject（BugProject）
 #### 说明
@@ -4897,6 +5012,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [需求影响项目（StoryProject）](#数据查询-需求影响项目（StoryProject）) |
+### 数据集合-未完成项目（UnDoneProject）
+#### 说明
+未完成项目
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [未完成项目（UnDoneProject）](#数据查询-未完成项目（UnDoneProject）) |
 
 ## 数据导入
 无

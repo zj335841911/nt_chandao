@@ -48,7 +48,7 @@ export class TodoActiviteViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoActiviteViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -153,7 +153,7 @@ export class TodoActiviteViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoActiviteViewBase
      */ 
-    protected viewName: string = "TodoActiviteView";
+    protected viewName: string = 'TodoActiviteView';
 
 
     /**

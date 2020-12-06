@@ -1,8 +1,10 @@
 import enUSUser from '../user/en-US.user';
 import { Util } from '@/utils/util/util';
 import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan_en_US';
+import ibzreportroleconfig_en_US from '@locale/lanres/entities/ibz-report-role-config/ibz-report-role-config_en_US';
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
+import sysuser_en_US from '@locale/lanres/entities/sys-user/sys-user_en_US';
 import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team_en_US';
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
@@ -11,14 +13,17 @@ import ibzprostorymodule_en_US from '@locale/lanres/entities/ibzpro-story-module
 import productsum_en_US from '@locale/lanres/entities/product-sum/product-sum_en_US';
 import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_en_US';
 import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
+import ibzdaily_en_US from '@locale/lanres/entities/ibz-daily/ibz-daily_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import employeeload_en_US from '@locale/lanres/entities/emp-loyeeload/emp-loyeeload_en_US';
 import doccontent_en_US from '@locale/lanres/entities/doc-content/doc-content_en_US';
+import ibzreport_en_US from '@locale/lanres/entities/ibz-report/ibz-report_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
+import taskstats_en_US from '@locale/lanres/entities/task-stats/task-stats_en_US';
 import ibzfavorites_en_US from '@locale/lanres/entities/ibz-favorites/ibz-favorites_en_US';
 import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
 import sysdepartment_en_US from '@locale/lanres/entities/sys-department/sys-department_en_US';
@@ -30,6 +35,7 @@ import group_en_US from '@locale/lanres/entities/group/group_en_US';
 import ibzproproduct_en_US from '@locale/lanres/entities/ibzpro-product/ibzpro-product_en_US';
 import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
+import ibizprotag_en_US from '@locale/lanres/entities/ibizpro-tag/ibizpro-tag_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
 import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step_en_US';
 import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
@@ -38,6 +44,7 @@ import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
 import useryearworkstats_en_US from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_en_US';
+import ibizproplugin_en_US from '@locale/lanres/entities/ibizpro-plugin/ibizpro-plugin_en_US';
 import ibzlibcasesteptmp_en_US from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
@@ -46,9 +53,12 @@ import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
+import sysuserrole_en_US from '@locale/lanres/entities/sys-user-role/sys-user-role_en_US';
+import ibizprokeyword_en_US from '@locale/lanres/entities/ibizpro-keyword/ibizpro-keyword_en_US';
 import doclibmodule_en_US from '@locale/lanres/entities/doc-lib-module/doc-lib-module_en_US';
 import productlife_en_US from '@locale/lanres/entities/product-life/product-life_en_US';
 import usercontact_en_US from '@locale/lanres/entities/user-contact/user-contact_en_US';
+import sysrole_en_US from '@locale/lanres/entities/sys-role/sys-role_en_US';
 import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
@@ -62,10 +72,12 @@ import pssyssfpub_en_US from '@locale/lanres/entities/pssys-sfpub/pssys-sfpub_en
 import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import testrun_en_US from '@locale/lanres/entities/test-run/test-run_en_US';
+import ibzmonthly_en_US from '@locale/lanres/entities/ibz-monthly/ibz-monthly_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_en_US';
 import sysupdatelog_en_US from '@locale/lanres/entities/sys-update-log/sys-update-log_en_US';
 import doc_en_US from '@locale/lanres/entities/doc/doc_en_US';
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
+import ibzweekly_en_US from '@locale/lanres/entities/ibzweekly/ibzweekly_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
@@ -81,6 +93,11 @@ import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
 
 const data: any = {
     app: {
+        directoryTree:{
+            loading: "Data loading",
+            placeholder: "Filename",
+            noData: "No Data"
+        },
         commonWords:{
             error: "Error",
             success: "Success",
@@ -223,8 +240,10 @@ const data: any = {
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
                 menuitem8: "更新日志",
+                menuitem17: "插件管理",
+                menuitem19: "汇报角色角色",
                 left_exp: "左侧分页导航",
-                menuitem4: "产品",
+                menuitem4: "Product",
                 menuitem5: "项目",
                 menuitem6: "测试",
                 bottom_exp: "底部导航区",
@@ -336,8 +355,10 @@ const data: any = {
     },
     entities: {
         productplan: productplan_en_US,
+        ibzreportroleconfig: ibzreportroleconfig_en_US,
         projectproduct: projectproduct_en_US,
         case: case_en_US,
+        sysuser: sysuser_en_US,
         ibztaskteam: ibztaskteam_en_US,
         product: product_en_US,
         taskteam: taskteam_en_US,
@@ -346,14 +367,17 @@ const data: any = {
         productsum: productsum_en_US,
         ibzlibcasesteps: ibzlibcasesteps_en_US,
         ibzlib: ibzlib_en_US,
+        ibzdaily: ibzdaily_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
         substory: substory_en_US,
         subproductplan: subproductplan_en_US,
         employeeload: employeeload_en_US,
         doccontent: doccontent_en_US,
+        ibzreport: ibzreport_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,
+        taskstats: taskstats_en_US,
         ibzfavorites: ibzfavorites_en_US,
         branch: branch_en_US,
         sysdepartment: sysdepartment_en_US,
@@ -365,6 +389,7 @@ const data: any = {
         ibzproproduct: ibzproproduct_en_US,
         casestep: casestep_en_US,
         dept: dept_en_US,
+        ibizprotag: ibizprotag_en_US,
         company: company_en_US,
         ibzcasestep: ibzcasestep_en_US,
         taskestimate: taskestimate_en_US,
@@ -373,6 +398,7 @@ const data: any = {
         ibzlibmodule: ibzlibmodule_en_US,
         subtask: subtask_en_US,
         useryearworkstats: useryearworkstats_en_US,
+        ibizproplugin: ibizproplugin_en_US,
         ibzlibcasesteptmp: ibzlibcasesteptmp_en_US,
         project: project_en_US,
         history: history_en_US,
@@ -381,9 +407,12 @@ const data: any = {
         productmodule: productmodule_en_US,
         module: module_en_US,
         testmodule: testmodule_en_US,
+        sysuserrole: sysuserrole_en_US,
+        ibizprokeyword: ibizprokeyword_en_US,
         doclibmodule: doclibmodule_en_US,
         productlife: productlife_en_US,
         usercontact: usercontact_en_US,
+        sysrole: sysrole_en_US,
         task: task_en_US,
         build: build_en_US,
         testresult: testresult_en_US,
@@ -397,10 +426,12 @@ const data: any = {
         testreport: testreport_en_US,
         projectstats: projectstats_en_US,
         testrun: testrun_en_US,
+        ibzmonthly: ibzmonthly_en_US,
         ibzmyterritory: ibzmyterritory_en_US,
         sysupdatelog: sysupdatelog_en_US,
         doc: doc_en_US,
         bug: bug_en_US,
+        ibzweekly: ibzweekly_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
         pssysapp: pssysapp_en_US,

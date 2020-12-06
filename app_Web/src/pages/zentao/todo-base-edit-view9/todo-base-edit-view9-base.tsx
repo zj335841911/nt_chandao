@@ -48,7 +48,7 @@ export class TodoBaseEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TodoBaseEditView9Base
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -111,7 +111,7 @@ export class TodoBaseEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TodoBaseEditView9Base
      */ 
-    protected viewName: string = "TodoBaseEditView9";
+    protected viewName: string = 'TodoBaseEditView9';
 
 
     /**

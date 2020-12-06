@@ -221,4 +221,52 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     istop?: any;
+
+    /**
+     * 已关闭任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    closedtaskcnt?: any;
+
+    /**
+     * 已取消任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    canceltaskcnt?: any;
+
+    /**
+     * 已暂停任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    pausetaskcnt?: any;
+
+    /**
+     * 未开始任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    waittaskcnt?: any;
+
+    /**
+     * 进行中任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    doingtaskcnt?: any;
+
+    /**
+     * 已完成任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    donetaskcnt?: any;
 }

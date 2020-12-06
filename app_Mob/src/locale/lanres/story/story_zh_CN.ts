@@ -66,6 +66,7 @@ export default {
     sourceid: "来源对象标识",
     ibiz_sourceid: "来源对象标识",
     ibiz_sourcename: "来源对象名称",
+    storypoints: "故事点",
   },
 	views: {
 		newmobeditview: {
@@ -233,6 +234,7 @@ export default {
 			spec: '需求描述', 
 			verify: '验收标准', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			keywords: '关键词', 
 			id: '编号', 
 		},
@@ -284,10 +286,10 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			assignedto: '指派给', 
 			assignedtopk: '指派给', 
 			comment: '备注', 
 			id: '编号', 
-			assignedto: '指派给', 
 		},
 		uiactions: {
 		},

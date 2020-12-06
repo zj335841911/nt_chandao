@@ -240,6 +240,9 @@ export default class MPickupView5pickupviewpanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

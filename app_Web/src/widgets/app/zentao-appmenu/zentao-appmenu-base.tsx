@@ -24,6 +24,8 @@ export class ZentaoBase extends Vue {
         if (item) {
             let judge = true;
             switch (item.appfunctag) {
+                case 'PluginManagement': 
+                    this.clickPluginManagement(item); break;
                 case 'AppFunc': 
                     this.clickAppFunc(item); break;
                 case 'Auto5': 
@@ -50,6 +52,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto11(item); break;
                 case '_2': 
                     this.click_2(item); break;
+                case 'AppFunc5': 
+                    this.clickAppFunc5(item); break;
                 case 'Auto15': 
                     this.clickAuto15(item); break;
                 case 'AppFunc4': 
@@ -71,6 +75,29 @@ export class ZentaoBase extends Vue {
                 this.$appService.viewStore.reset();
             }
         }
+    }
+    
+    /**
+     * 插件管理
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickPluginManagement(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+            { pathName: 'usr3tabexpview', parameterName: 'usr3tabexpview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
@@ -348,6 +375,29 @@ export class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
             { pathName: 'tabexpview', parameterName: 'tabexpview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
+     * 汇报填写角色
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAppFunc5(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreportroleconfigs', parameterName: 'ibzreportroleconfig' },
+            { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

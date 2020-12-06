@@ -240,6 +240,9 @@ export default class BugOpenedBy_ProjectModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

@@ -170,6 +170,55 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
     private String assignedto;
+    /**
+     * 由谁解决
+     */
+    @TableField(value = "`resolvedby`")
+    @JSONField(name = "resolvedby")
+    @JsonProperty("resolvedby")
+    private String resolvedby;
+    /**
+     * 项目编号
+     */
+    @TableField(value = "`project`")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
+    /**
+     * 项目名称
+     */
+    @TableField(value = "`projectname`")
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 激活Bug
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugactive")
+    @JsonProperty("bugactive")
+    private Integer bugactive;
+    /**
+     * 已解决Bug
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugresolved")
+    @JsonProperty("bugresolved")
+    private Integer bugresolved;
+    /**
+     * 已关闭Bug
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugclosed")
+    @JsonProperty("bugclosed")
+    private Integer bugclosed;
+    /**
+     * 项目名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname1")
+    @JsonProperty("projectname1")
+    private String projectname1;
 
     /**
      * 产品
@@ -178,6 +227,14 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Product ztproduct;
+
+    /**
+     * 项目
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Project ztproject;
 
 
 
@@ -211,6 +268,30 @@ public class BugStats extends EntityMP implements Serializable {
     public void setAssignedto(String assignedto) {
         this.assignedto = assignedto;
         this.modify("assignedto", assignedto);
+    }
+
+    /**
+     * 设置 [由谁解决]
+     */
+    public void setResolvedby(String resolvedby) {
+        this.resolvedby = resolvedby;
+        this.modify("resolvedby", resolvedby);
+    }
+
+    /**
+     * 设置 [项目编号]
+     */
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
+    }
+
+    /**
+     * 设置 [项目名称]
+     */
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+        this.modify("projectname", projectname);
     }
 
 

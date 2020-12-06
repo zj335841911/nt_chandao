@@ -213,6 +213,9 @@ export class MyStoryModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

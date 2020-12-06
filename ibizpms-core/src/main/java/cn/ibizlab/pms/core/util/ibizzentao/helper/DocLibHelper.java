@@ -51,7 +51,7 @@ public class DocLibHelper extends ZTBaseHelper<DocLibMapper, DocLib> {
         DocLib old = new DocLib();
         CachedBeanCopier.copy(this.get(et.getId()),old);
         if (StaticDict.Doclib__acl.CUSTOM.getValue().equals(et.getAcl())){
-            String libCreatedBy = actionHelper.getOne(new QueryWrapper<Action>().eq("objectType",StaticDict.Action__object_type.DOCLIB.getValue()).eq("objectID",libId).eq("action",StaticDict.Action__type.CREATED.getValue())).getActor();
+            String libCreatedBy = actionHelper.getOne(new QueryWrapper<Action>().eq(PARAM_OBJECT_TYPE,StaticDict.Action__object_type.DOCLIB.getValue()).eq(PARAM_OBJECT_ID,libId).eq(FIELD_ACTION,StaticDict.Action__type.CREATED.getValue())).getActor();
             et.setUsers(libCreatedBy != null ? libCreatedBy : AuthenticationUser.getAuthenticationUser().getUsername());
         }
         boolean flag =  this.internalUpdate(et);

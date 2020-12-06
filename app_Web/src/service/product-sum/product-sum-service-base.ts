@@ -187,6 +187,20 @@ export default class ProductSumServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchProductBugcnt_QA接口方法
      *
      * @param {*} [context={}]
@@ -199,6 +213,20 @@ export default class ProductSumServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productsums/fetchproductbugcnt_qa`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProductBugcnt_QA接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchProductBugcnt_QA(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchproductbugcnt_qa`,tempData,isloading);
     }
 
     /**
@@ -217,6 +245,78 @@ export default class ProductSumServiceBase extends EntityService {
     }
 
     /**
+     * searchProductCreateStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchProductCreateStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchproductcreatestory`,tempData,isloading);
+    }
+
+    /**
+     * FetchProductStoryHoursSum接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async FetchProductStoryHoursSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productsums/fetchproductstoryhourssum`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductStoryHoursSum接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchProductStoryHoursSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchproductstoryhourssum`,tempData,isloading);
+    }
+
+    /**
+     * FetchProductStorySum接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async FetchProductStorySum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productsums/fetchproductstorysum`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductStorySum接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchProductStorySum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchproductstorysum`,tempData,isloading);
+    }
+
+    /**
      * FetchProductStorycntAndPlancnt接口方法
      *
      * @param {*} [context={}]
@@ -229,5 +329,19 @@ export default class ProductSumServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productsums/fetchproductstorycntandplancnt`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProductStorycntAndPlancnt接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchProductStorycntAndPlancnt(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchproductstorycntandplancnt`,tempData,isloading);
     }
 }

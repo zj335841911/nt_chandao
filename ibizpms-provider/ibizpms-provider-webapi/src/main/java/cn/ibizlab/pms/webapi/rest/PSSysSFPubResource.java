@@ -47,6 +47,7 @@ public class PSSysSFPubResource {
     @Lazy
     public PSSysSFPubMapping pssyssfpubMapping;
 
+    @PreAuthorize("hasPermission(this.pssyssfpubMapping.toDomain(#pssyssfpubdto),'pms-PSSysSFPub-Create')")
     @ApiOperation(value = "新建后台服务架构", tags = {"后台服务架构" },  notes = "新建后台服务架构")
 	@RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs")
     public ResponseEntity<PSSysSFPubDTO> create(@Validated @RequestBody PSSysSFPubDTO pssyssfpubdto) {
@@ -56,6 +57,7 @@ public class PSSysSFPubResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PreAuthorize("hasPermission(this.pssyssfpubMapping.toDomain(#pssyssfpubdtos),'pms-PSSysSFPub-Create')")
     @ApiOperation(value = "批量新建后台服务架构", tags = {"后台服务架构" },  notes = "批量新建后台服务架构")
 	@RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<PSSysSFPubDTO> pssyssfpubdtos) {
@@ -64,6 +66,7 @@ public class PSSysSFPubResource {
     }
 
     @VersionCheck(entity = "pssyssfpub" , versionfield = "updatedate")
+    @PreAuthorize("hasPermission(this.pssyssfpubService.get(#pssyssfpub_id),'pms-PSSysSFPub-Update')")
     @ApiOperation(value = "更新后台服务架构", tags = {"后台服务架构" },  notes = "更新后台服务架构")
 	@RequestMapping(method = RequestMethod.PUT, value = "/pssyssfpubs/{pssyssfpub_id}")
     public ResponseEntity<PSSysSFPubDTO> update(@PathVariable("pssyssfpub_id") String pssyssfpub_id, @RequestBody PSSysSFPubDTO pssyssfpubdto) {
@@ -74,6 +77,7 @@ public class PSSysSFPubResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PreAuthorize("hasPermission(this.pssyssfpubService.getPssyssfpubByEntities(this.pssyssfpubMapping.toDomain(#pssyssfpubdtos)),'pms-PSSysSFPub-Update')")
     @ApiOperation(value = "批量更新后台服务架构", tags = {"后台服务架构" },  notes = "批量更新后台服务架构")
 	@RequestMapping(method = RequestMethod.PUT, value = "/pssyssfpubs/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<PSSysSFPubDTO> pssyssfpubdtos) {
@@ -81,12 +85,14 @@ public class PSSysSFPubResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasPermission(this.pssyssfpubService.get(#pssyssfpub_id),'pms-PSSysSFPub-Remove')")
     @ApiOperation(value = "删除后台服务架构", tags = {"后台服务架构" },  notes = "删除后台服务架构")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/pssyssfpubs/{pssyssfpub_id}")
     public ResponseEntity<Boolean> remove(@PathVariable("pssyssfpub_id") String pssyssfpub_id) {
          return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubService.remove(pssyssfpub_id));
     }
 
+    @PreAuthorize("hasPermission(this.pssyssfpubService.getPssyssfpubByIds(#ids),'pms-PSSysSFPub-Remove')")
     @ApiOperation(value = "批量删除后台服务架构", tags = {"后台服务架构" },  notes = "批量删除后台服务架构")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/pssyssfpubs/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<String> ids) {
@@ -94,6 +100,7 @@ public class PSSysSFPubResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PostAuthorize("hasPermission(this.pssyssfpubMapping.toDomain(returnObject.body),'pms-PSSysSFPub-Get')")
     @ApiOperation(value = "获取后台服务架构", tags = {"后台服务架构" },  notes = "获取后台服务架构")
 	@RequestMapping(method = RequestMethod.GET, value = "/pssyssfpubs/{pssyssfpub_id}")
     public ResponseEntity<PSSysSFPubDTO> get(@PathVariable("pssyssfpub_id") String pssyssfpub_id) {
@@ -114,12 +121,14 @@ public class PSSysSFPubResource {
         return  ResponseEntity.status(HttpStatus.OK).body(pssyssfpubService.checkKey(pssyssfpubMapping.toDomain(pssyssfpubdto)));
     }
 
+    @PreAuthorize("hasPermission(this.pssyssfpubMapping.toDomain(#pssyssfpubdto),'pms-PSSysSFPub-Save')")
     @ApiOperation(value = "保存后台服务架构", tags = {"后台服务架构" },  notes = "保存后台服务架构")
 	@RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/save")
     public ResponseEntity<Boolean> save(@RequestBody PSSysSFPubDTO pssyssfpubdto) {
         return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubService.save(pssyssfpubMapping.toDomain(pssyssfpubdto)));
     }
 
+    @PreAuthorize("hasPermission(this.pssyssfpubMapping.toDomain(#pssyssfpubdtos),'pms-PSSysSFPub-Save')")
     @ApiOperation(value = "批量保存后台服务架构", tags = {"后台服务架构" },  notes = "批量保存后台服务架构")
 	@RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<PSSysSFPubDTO> pssyssfpubdtos) {
@@ -127,6 +136,7 @@ public class PSSysSFPubResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PSSysSFPub-searchBuild-all') and hasPermission(#context,'pms-PSSysSFPub-Get')")
 	@ApiOperation(value = "获取版本", tags = {"后台服务架构" } ,notes = "获取版本")
     @RequestMapping(method= RequestMethod.GET , value="/pssyssfpubs/fetchbuild")
 	public ResponseEntity<List<PSSysSFPubDTO>> fetchBuild(PSSysSFPubSearchContext context) {
@@ -139,6 +149,7 @@ public class PSSysSFPubResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PSSysSFPub-searchBuild-all') and hasPermission(#context,'pms-PSSysSFPub-Get')")
 	@ApiOperation(value = "查询版本", tags = {"后台服务架构" } ,notes = "查询版本")
     @RequestMapping(method= RequestMethod.POST , value="/pssyssfpubs/searchbuild")
 	public ResponseEntity<Page<PSSysSFPubDTO>> searchBuild(@RequestBody PSSysSFPubSearchContext context) {
@@ -147,6 +158,7 @@ public class PSSysSFPubResource {
                 .body(new PageImpl(pssyssfpubMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PSSysSFPub-searchDefault-all') and hasPermission(#context,'pms-PSSysSFPub-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"后台服务架构" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/pssyssfpubs/fetchdefault")
 	public ResponseEntity<List<PSSysSFPubDTO>> fetchDefault(PSSysSFPubSearchContext context) {
@@ -159,6 +171,7 @@ public class PSSysSFPubResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PSSysSFPub-searchDefault-all') and hasPermission(#context,'pms-PSSysSFPub-Get')")
 	@ApiOperation(value = "查询数据集", tags = {"后台服务架构" } ,notes = "查询数据集")
     @RequestMapping(method= RequestMethod.POST , value="/pssyssfpubs/searchdefault")
 	public ResponseEntity<Page<PSSysSFPubDTO>> searchDefault(@RequestBody PSSysSFPubSearchContext context) {

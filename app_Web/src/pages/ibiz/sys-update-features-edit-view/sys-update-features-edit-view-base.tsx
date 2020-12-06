@@ -48,7 +48,7 @@ export class SysUpdateFeaturesEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class SysUpdateFeaturesEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesEditViewBase
      */ 
-    protected viewName: string = "SysUpdateFeaturesEditView";
+    protected viewName: string = 'SysUpdateFeaturesEditView';
 
 
     /**

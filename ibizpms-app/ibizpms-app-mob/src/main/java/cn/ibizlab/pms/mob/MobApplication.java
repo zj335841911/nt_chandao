@@ -30,13 +30,13 @@ import java.util.List;
 @SpringBootApplication(exclude = {
         org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
 })
-public class MobApplication extends WebMvcConfigurerAdapter{
+public class MobApplication extends WebMvcConfigurerAdapter {
 
     @Autowired
     SearchContextHandlerMethodArgumentResolver resolver;
 
     public static void main(String[] args) {
-        SpringApplication.run(MobApplication.class,args);
+        SpringApplication.run(MobApplication.class, args);
     }
 
     @Override

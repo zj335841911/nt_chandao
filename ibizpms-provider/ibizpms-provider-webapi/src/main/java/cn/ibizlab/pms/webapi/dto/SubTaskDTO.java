@@ -607,6 +607,39 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String mailtoconact;
 
+    /**
+     * 属性 [STATUSORDER]
+     *
+     */
+    @JSONField(name = "statusorder")
+    @JsonProperty("statusorder")
+    private Integer statusorder;
+
+    /**
+     * 属性 [MYCONSUMED]
+     *
+     */
+    @JSONField(name = "myconsumed")
+    @JsonProperty("myconsumed")
+    private Double myconsumed;
+
+    /**
+     * 属性 [MYTOTALTIME]
+     *
+     */
+    @JSONField(name = "mytotaltime")
+    @JsonProperty("mytotaltime")
+    private Double mytotaltime;
+
+    /**
+     * 属性 [ASSIGNEDTOZJ]
+     *
+     */
+    @JSONField(name = "assignedtozj")
+    @JsonProperty("assignedtozj")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String assignedtozj;
+
 
     /**
      * 设置 [CANCELEDBY]

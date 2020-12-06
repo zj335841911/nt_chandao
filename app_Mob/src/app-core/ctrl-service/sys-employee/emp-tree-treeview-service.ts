@@ -2,7 +2,6 @@ import { TreeViewServiceBase } from '@/ibiz-core';
 import { Util, HttpResponse } from '@/ibiz-core/utils';
 import { EmpTreeModel } from '@/app-core/ctrl-model/sys-employee/emp-tree-treeview-model';
 import i18n from '@/locale';
-import { Environment } from '@/environments/environment';
 import SysOrganizationService from '@/app-core/service/sys-organization/sys-organization-service';
 import ProjectService from '@/app-core/service/project/project-service';
 import SysPostService from '@/app-core/service/sys-post/sys-post-service';
@@ -114,15 +113,6 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @memberof EmpTreeService
      */
     public TREENODE_SEPARATOR: string = ';';
-
-    /**
-     * 图片地址
-     *
-     * @public
-     * @type {string}
-     * @memberof EmpTreeService
-     */
-    public download = 'ibizutil/download';
 
 
     /**
@@ -439,12 +429,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.orgid;
                         let strText: string = entity.orgname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysOrganization',srfparentkey:entity.orgid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysOrganization',srfparentkey:entity.orgid,sysorganization:strId})
@@ -462,6 +446,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysorganization" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -487,7 +472,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchOrg(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchOrg(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -596,12 +582,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.id;
                         let strText: string = entity.name;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'Project',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'Project',srfparentkey:entity.id,project:strId})
@@ -619,6 +599,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"project" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -644,7 +625,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchProjectteam(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchProjectteam(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -743,12 +725,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.postid;
                         let strText: string = entity.postname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysPost',srfparentkey:entity.postid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysPost',srfparentkey:entity.postid,syspost:strId})
@@ -766,6 +742,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"syspost" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -791,7 +768,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchSyspost(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchSyspost(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -896,6 +874,7 @@ export class EmpTreeService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -963,6 +942,7 @@ export class EmpTreeService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -1028,12 +1008,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.deptid;
                         let strText: string = entity.deptname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysDepartment',srfparentkey:entity.deptid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysDepartment',srfparentkey:entity.deptid,sysdepartment:strId})
@@ -1051,6 +1025,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysdepartment" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1076,7 +1051,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchDepart(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchDepart(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -1183,12 +1159,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.userid;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysTeamMember',srfparentkey:entity.userid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysTeamMember',srfparentkey:entity.userid,systeammember:strId})
@@ -1206,6 +1176,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"systeammember" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1231,7 +1202,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchTeammember(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchTeammember(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -1326,6 +1298,7 @@ export class EmpTreeService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -1393,6 +1366,7 @@ export class EmpTreeService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -1459,12 +1433,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
@@ -1482,6 +1450,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysemployee" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1507,7 +1476,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchProjectemp(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchProjectemp(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -1604,12 +1574,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = entity.usericon;
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
@@ -1627,6 +1591,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysemployee" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1652,7 +1617,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchIbzemp(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchIbzemp(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -1741,12 +1707,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
@@ -1764,6 +1724,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysemployee" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1789,7 +1750,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchContactuser(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchContactuser(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -1884,6 +1846,7 @@ export class EmpTreeService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -1945,12 +1908,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.teamid;
                         let strText: string = entity.teamname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysTeam',srfparentkey:entity.teamid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysTeam',srfparentkey:entity.teamid,systeam:strId})
@@ -1968,6 +1925,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"systeam" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1993,7 +1951,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchSysteam(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchSysteam(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -2097,6 +2056,7 @@ export class EmpTreeService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -2198,12 +2158,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.id;
                         let strText: string = entity.listname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'UserContact',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'UserContact',srfparentkey:entity.id,usercontact:strId})
@@ -2221,6 +2175,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"usercontact" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -2246,7 +2201,8 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchUsercontact(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchUsercontact(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);

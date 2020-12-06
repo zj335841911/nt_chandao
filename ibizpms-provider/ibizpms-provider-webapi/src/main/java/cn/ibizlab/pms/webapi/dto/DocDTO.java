@@ -328,6 +328,14 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonProperty("myfavouritecnt")
     private Integer myfavouritecnt;
 
+    /**
+     * 属性 [DOCCNT]
+     *
+     */
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+
 
     /**
      * 设置 [GROUPS]

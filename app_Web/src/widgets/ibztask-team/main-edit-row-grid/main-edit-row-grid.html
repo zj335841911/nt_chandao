@@ -8,23 +8,23 @@
     @add="add.apply(_self, arguments)">
     <template slot="account" slot-scope="{row, $index, column}">
     
- <dropdown-list-extend
-  :name="column.property"
-  v-model="row[column.property]" 
-  :disabled="getColumnDisabled(row,column.property)" 
-  :data="row" 
-  :datas="items"
-  :filterable="true"
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ PROJECT:"%project%" }' 
-  :localParam ='{ project:"%project%" }' 
-  tag='UserRealNameProject' 
-  codelistType='DYNAMIC'
-  placeholder='请选择...' 
-  style="" 
-  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
- </dropdown-list-extend>
+<dropdown-list-extend
+    :name="column.property"
+    v-model="row[column.property]" 
+    :disabled="getColumnDisabled(row,column.property)" 
+    :data="row" 
+    :datas="items"
+    :filterable="true"
+    :context="context"
+    :viewparams="viewparams" 
+    :localContext='{ PROJECT:"%project%" }' 
+    :localParam='{ project:"%project%" }' 
+    tag="UserRealNameProject" 
+    codelistType="DYNAMIC"
+    placeholder="请选择..." 
+    style="" 
+    @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+></dropdown-list-extend>
 
     </template>
     <template slot="estimate" slot-scope="{row, $index, column}">

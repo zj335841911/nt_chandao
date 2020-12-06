@@ -21,10 +21,14 @@ public interface DocLibModuleMapper extends BaseMapper<DocLibModule> {
 
     Page<DocLibModule> searchAllDocLibModule_Custom(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
     Page<DocLibModule> searchAllDoclibModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchChildModuleByParent(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchChildModuleByRealParent(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
     Page<DocLibModule> searchDefault(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchMyFavourites(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
     Page<DocLibModule> searchParentModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
     Page<DocLibModule> searchRootModuleMuLu(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
     Page<DocLibModule> searchRootModuleMuLuByRoot(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchRootModuleMuLuBysrfparentkey(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
     @Override
     DocLibModule selectById(Serializable id);
     @Override

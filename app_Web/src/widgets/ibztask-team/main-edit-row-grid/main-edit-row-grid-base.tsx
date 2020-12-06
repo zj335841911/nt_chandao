@@ -66,7 +66,6 @@ export class MainEditRowGridBase extends GridControlBase {
      */  
     public appUIService: IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
 
-
     /**
      * 本地缓存标识
      *
@@ -157,7 +156,7 @@ export class MainEditRowGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainEditRowGridBase
      */
-    public rules(){
+    public rules() {
         return {
         account: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
@@ -170,6 +169,7 @@ export class MainEditRowGridBase extends GridControlBase {
         estimate: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("estimate",this.deRules,"AND",value).isPast},message: "预计大于等于0", trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -177,6 +177,26 @@ export class MainEditRowGridBase extends GridControlBase {
         ],
         }
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainEditRowBase
+     */
+    public deRules:any = {
+                estimate:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GT",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      paramValue:"0",
+                      isNotMode:false,
+                      deName:"estimate",
+                  },
+                ],
+    };
 
     /**
      * 获取对应列class
@@ -280,6 +300,17 @@ export class MainEditRowGridBase extends GridControlBase {
      * @memberof MainEditRow
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        if (!(await this.validateAll())) {
+            if (this.errorMessages && this.errorMessages.length > 0) {
+                this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: this.errorMessages[0] });
+            } else {
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.rulesException') as string,
+                });
+            }
+            return [];
+        }
         for (const item of this.items) {
             item.srfmajortext = item.account;
         }

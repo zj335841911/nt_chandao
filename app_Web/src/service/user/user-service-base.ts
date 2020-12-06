@@ -216,6 +216,20 @@ export default class UserServiceBase extends EntityService {
     }
 
     /**
+     * searchBugUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async searchBugUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/users/searchbuguser`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -228,6 +242,20 @@ export default class UserServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/users/searchdefault`,tempData,isloading);
     }
 
     /**
@@ -246,6 +274,20 @@ export default class UserServiceBase extends EntityService {
     }
 
     /**
+     * searchGetByCommiter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async searchGetByCommiter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/users/searchgetbycommiter`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamM接口方法
      *
      * @param {*} [context={}]
@@ -258,6 +300,20 @@ export default class UserServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchprojectteamm`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProjectTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async searchProjectTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/users/searchprojectteamm`,tempData,isloading);
     }
 
     /**
@@ -276,6 +332,20 @@ export default class UserServiceBase extends EntityService {
     }
 
     /**
+     * searchProjectTeamUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async searchProjectTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/users/searchprojectteamuser`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamUserTask接口方法
      *
      * @param {*} [context={}]
@@ -291,6 +361,20 @@ export default class UserServiceBase extends EntityService {
     }
 
     /**
+     * searchProjectTeamUserTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async searchProjectTeamUserTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/users/searchprojectteamusertask`,tempData,isloading);
+    }
+
+    /**
      * FetchTaskTeam接口方法
      *
      * @param {*} [context={}]
@@ -303,5 +387,19 @@ export default class UserServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/users/fetchtaskteam`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchTaskTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async searchTaskTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/users/searchtaskteam`,tempData,isloading);
     }
 }

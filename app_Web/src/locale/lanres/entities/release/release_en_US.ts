@@ -180,6 +180,7 @@ export default {
         release_active: "激活",
         release_terminal: "停止维护",
         release_quickedit: "编辑",
+        copy: "Copy",
         release_remove: "删除",
 		},
 	},
@@ -207,6 +208,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 };

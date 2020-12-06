@@ -52,6 +52,11 @@ export default class BugassignedToModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',

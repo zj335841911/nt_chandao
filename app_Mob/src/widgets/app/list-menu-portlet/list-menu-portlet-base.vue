@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet  '>
-            <ion-list-header class='app-mob-portlet__header'>
+            <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>列表</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
@@ -38,8 +38,7 @@ import ListMenuService from '@/app-core/ctrl-service/app/list-menu-portlet-servi
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ListMenuBase extends Vue implements ControlInterface {
 
@@ -132,7 +131,7 @@ export default class ListMenuBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

@@ -105,12 +105,14 @@ export class MainEditEditFormBase extends EditFormControlBase {
         id: null,
         name: null,
         multiple: null,
+        color: null,
         desc: null,
         noticeusers: null,
         comment: null,
         files: null,
         projectname: null,
         project: null,
+        srfsessionkey: null,
         module: null,
         modulename: null,
         allmodules: null,
@@ -308,6 +310,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         desc: new FormItemModel({
     caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
@@ -345,6 +354,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         project: new FormItemModel({
     caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        srfsessionkey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsessionkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -449,7 +465,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 }),
 
         mailtopk: new FormItemModel({
-    caption: '属性', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -634,6 +650,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+
+
         if (Object.is(name, '') || Object.is(name, 'parent') || Object.is(name, 'multiple')) {
             let ret = false;
             const _parent = this.data.parent;
@@ -734,5 +752,16 @@ export class MainEditEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('allmodules') && !this.data.allmodules) {
             this.data['allmodules'] = '1';
         }
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainEditBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

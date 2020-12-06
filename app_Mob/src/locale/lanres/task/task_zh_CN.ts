@@ -65,8 +65,12 @@ export default {
     noticeusers: "消息通知用户",
     progressrate: "进度",
     delay: "延期",
-    mailtopk: "属性",
+    mailtopk: "抄送给",
     mailtoconact: "联系人",
+    statusorder: "排序",
+    myconsumed: "之前消耗",
+    mytotaltime: "我的总消耗",
+    assignedtozj: "转交给",
   },
 	views: {
 		mobmdview: {
@@ -78,8 +82,17 @@ export default {
 		assmoremobmdview: {
 			caption: '指派给我的任务',
 		},
+		mycompletetaskmobmdviewweekly: {
+			caption: '计划参与',
+		},
 		stopmoboptionview: {
 			caption: '暂停',
+		},
+		mycompletetaskmobmdview: {
+			caption: '任务',
+		},
+		monthlymycompletetaskmobmdview: {
+			caption: '任务',
 		},
 		editmobeditview: {
 			caption: '任务',
@@ -117,6 +130,12 @@ export default {
 		assmobmdview: {
 			caption: '任务',
 		},
+		mycompletetaskmobmdview1: {
+			caption: '任务',
+		},
+		monthlymyplanstaskmobmdview: {
+			caption: '任务',
+		},
 		moboptionview: {
 			caption: '指派',
 		},
@@ -126,7 +145,13 @@ export default {
 		assmobmdview9: {
 			caption: '任务',
 		},
+		mycompletetaskmobmdviewnextplanweekly: {
+			caption: '计划参与',
+		},
 		newmobeditview: {
+			caption: '任务',
+		},
+		myplanstomorrowtaskmobmdview: {
 			caption: '任务',
 		},
 		usr2moboptionview: {
@@ -176,6 +201,7 @@ export default {
 			multiple: '多人任务', 
 			left: '预计剩余', 
 			comment: '备注', 
+			status: '任务状态', 
 			noticeusers: '消息通知用户', 
 			id: '编号', 
 		},
@@ -308,6 +334,7 @@ export default {
 			deadline: '截止日期', 
 			desc: '任务描述', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -397,6 +424,7 @@ export default {
 			status: '任务状态', 
 			pri: '优先级', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			eststarted: '预计开始', 
 			deadline: '截止日期', 
 			estimate: '最初预计', 
@@ -503,6 +531,12 @@ export default {
 			caption: '更多',
 			tip: '更多',
 		},
+	},
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
+	},
+	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
+	},
+	mycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {

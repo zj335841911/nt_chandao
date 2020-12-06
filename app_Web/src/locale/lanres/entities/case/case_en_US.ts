@@ -242,6 +242,7 @@ export default {
 			storyname: "需求名称", 
 			title: "用例标题", 
 			pri: "优先级", 
+			color: "标题颜色", 
 			precondition: "前置条件", 
 			keywords: "关键词", 
 			id: "用例编号", 
@@ -268,6 +269,7 @@ export default {
 			id: "", 
 			title: "", 
 			version: "", 
+			color: "标题颜色", 
 			precondition: "前置条件", 
 		},
 		uiactions: {
@@ -374,6 +376,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			title: "用例标题", 
+			color: "标题颜色", 
 			precondition: "前置条件", 
 			comment: "备注", 
 			files: "附件", 
@@ -453,6 +456,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			title: "用例标题", 
+			color: "标题颜色", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -595,6 +599,7 @@ export default {
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
 			isfavorites: "是否收藏",
+			color: "标题颜色",
     },
 		uiactions: {
         case_edits: "概况",
@@ -675,6 +680,7 @@ export default {
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
 			isfavorites: "是否收藏",
+			color: "标题颜色",
     },
 		uiactions: {
         case_confirmstorychange: "确认",
@@ -683,6 +689,7 @@ export default {
         case_mainedit: "编辑",
         refresh: "刷新",
         case_newbugbycaseresult: "转Bug",
+        copy: "Copy",
         case_casefavorite: "收藏",
         case_casenfavorite: "取消收藏",
 		},
@@ -728,6 +735,7 @@ export default {
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
 			isfavorites: "是否收藏",
+			color: "标题颜色",
     },
 		uiactions: {
         case_unlinksuitecase: "移除",
@@ -795,6 +803,14 @@ export default {
 			caption: "保存",
 			tip: "保存",
 		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	curtesttaskgridviewtoolbar_toolbar: {
 		deuiaction1_linkcasec: {
@@ -804,6 +820,16 @@ export default {
 		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction3_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	projectreportlinkgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	batchnewgridviewtoolbar_toolbar: {
@@ -833,11 +859,35 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	reportlinkgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	cursuitgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	suitelinkcasegridviewtoolbar_toolbar: {
 		deuiaction1_suitelinkcase: {
 			caption: "保存",
 			tip: "保存",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	casefavoritetoolbar_toolbar: {
@@ -850,6 +900,18 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mainmynewgridviewtoolbar_toolbar: {
+		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",
 		},
@@ -870,6 +932,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	caseresultproject_chart: {

@@ -161,7 +161,7 @@ export class TodoDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TodoDashboardViewBase
      */ 
-    protected viewName: string = "TodoDashboardView";
+    protected viewName: string = 'TodoDashboardView';
 
 
     /**

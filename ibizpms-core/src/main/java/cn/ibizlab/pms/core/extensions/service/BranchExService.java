@@ -22,7 +22,7 @@ public class BranchExService extends BranchServiceImpl {
     }
 
     /**
-     * 自定义行为[Sort]用户扩展
+     * [Sort:排序] 行为扩展
      * @param et
      * @return
      */

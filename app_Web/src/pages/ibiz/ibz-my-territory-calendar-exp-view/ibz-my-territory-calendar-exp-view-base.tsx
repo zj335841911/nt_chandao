@@ -109,7 +109,7 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryCalendarExpViewBase
      */ 
-    protected viewName: string = "IbzMyTerritoryCalendarExpView";
+    protected viewName: string = 'IbzMyTerritoryCalendarExpView';
 
 
     /**

@@ -179,6 +179,14 @@ export class MyWork2PanelBase extends PanelControlBase {
     public dataModel: MyWork2Model = new MyWork2Model();
 
     /**
+     * 界面行为标识数组
+     *
+     * @type {Array<any>}
+     * @memberof MyWork2
+     */
+    public actionList:Array<any> = [];
+
+    /**
      * 界面行为
      *
      * @param {*} row

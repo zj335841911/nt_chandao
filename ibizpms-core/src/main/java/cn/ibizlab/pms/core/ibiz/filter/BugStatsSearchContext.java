@@ -31,35 +31,49 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
         if(!ObjectUtils.isEmpty(this.n_title_like)){
-            this.getSearchCond().like("title", n_title_like);
+            this.getSearchCond().like("`title`", n_title_like);
         }
     }
 	private String n_openedby_eq;//[由谁创建]
 	public void setN_openedby_eq(String n_openedby_eq) {
         this.n_openedby_eq = n_openedby_eq;
         if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
-            this.getSearchCond().eq("openedby", n_openedby_eq);
+            this.getSearchCond().eq("`openedby`", n_openedby_eq);
         }
     }
 	private Integer n_bugwillnotfix_ltandeq;//[不予解决]
 	public void setN_bugwillnotfix_ltandeq(Integer n_bugwillnotfix_ltandeq) {
         this.n_bugwillnotfix_ltandeq = n_bugwillnotfix_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_bugwillnotfix_ltandeq)){
-            this.getSearchCond().le("bugwillnotfix", n_bugwillnotfix_ltandeq);
+            this.getSearchCond().le("`bugwillnotfix`", n_bugwillnotfix_ltandeq);
         }
     }
 	private Long n_product_eq;//[编号]
 	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("product", n_product_eq);
+            this.getSearchCond().eq("`product`", n_product_eq);
         }
     }
 	private String n_assignedto_eq;//[指派给]
 	public void setN_assignedto_eq(String n_assignedto_eq) {
         this.n_assignedto_eq = n_assignedto_eq;
         if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
-            this.getSearchCond().eq("assignedto", n_assignedto_eq);
+            this.getSearchCond().eq("`assignedto`", n_assignedto_eq);
+        }
+    }
+	private String n_resolvedby_eq;//[由谁解决]
+	public void setN_resolvedby_eq(String n_resolvedby_eq) {
+        this.n_resolvedby_eq = n_resolvedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_resolvedby_eq)){
+            this.getSearchCond().eq("`resolvedby`", n_resolvedby_eq);
+        }
+    }
+	private Long n_project_eq;//[项目编号]
+	public void setN_project_eq(Long n_project_eq) {
+        this.n_project_eq = n_project_eq;
+        if(!ObjectUtils.isEmpty(this.n_project_eq)){
+            this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
 
@@ -72,7 +86,7 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("title", query)   
+                     wrapper.like("`title`", query)
             );
 		 }
 	}

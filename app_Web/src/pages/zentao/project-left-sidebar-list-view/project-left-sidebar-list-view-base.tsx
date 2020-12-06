@@ -51,7 +51,7 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProjectLeftSidebarListViewBase
      */ 
-    protected dataControl: string = "list";
+    protected dataControl: string = 'list';
 
     /**
      * 实体服务对象
@@ -148,7 +148,7 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProjectLeftSidebarListViewBase
      */ 
-    protected viewName: string = "ProjectLeftSidebarListView";
+    protected viewName: string = 'ProjectLeftSidebarListView';
 
 
     /**

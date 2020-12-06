@@ -48,7 +48,7 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskEditView_commitTestBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -160,7 +160,7 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskEditView_commitTestBase
      */ 
-    protected viewName: string = "TestTaskEditView_commitTest";
+    protected viewName: string = 'TestTaskEditView_commitTest';
 
 
     /**

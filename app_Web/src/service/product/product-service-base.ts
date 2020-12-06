@@ -324,6 +324,20 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * searchAllList接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchAllList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchalllist`,tempData,isloading);
+    }
+
+    /**
      * FetchAllProduct接口方法
      *
      * @param {*} [context={}]
@@ -336,6 +350,20 @@ export default class ProductServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/products/fetchallproduct`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchAllProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchAllProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchallproduct`,tempData,isloading);
     }
 
     /**
@@ -354,6 +382,20 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * searchCheckNameOrCode接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchCheckNameOrCode(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchchecknameorcode`,tempData,isloading);
+    }
+
+    /**
      * FetchCurProject接口方法
      *
      * @param {*} [context={}]
@@ -369,6 +411,20 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * searchCurProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchCurProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchcurproject`,tempData,isloading);
+    }
+
+    /**
      * FetchCurUer接口方法
      *
      * @param {*} [context={}]
@@ -379,8 +435,22 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchCurUer(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchcuruer`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/products/fetchcuruer`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchCurUer接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchCurUer(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchcuruer`,tempData,isloading);
     }
 
     /**
@@ -399,6 +469,20 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchProductPM接口方法
      *
      * @param {*} [context={}]
@@ -414,6 +498,20 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * searchProductPM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchProductPM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchproductpm`,tempData,isloading);
+    }
+
+    /**
      * FetchStoryCurProject接口方法
      *
      * @param {*} [context={}]
@@ -426,6 +524,20 @@ export default class ProductServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/products/fetchstorycurproject`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchStoryCurProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchStoryCurProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchstorycurproject`,tempData,isloading);
     }
 
     /**

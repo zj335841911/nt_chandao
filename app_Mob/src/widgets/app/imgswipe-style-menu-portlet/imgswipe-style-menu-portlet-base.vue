@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet  '>
-            <ion-list-header class='app-mob-portlet__header'>
+            <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>图片滑动</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
@@ -38,8 +38,7 @@ import ImgswipeStyleMenuService from '@/app-core/ctrl-service/app/imgswipe-style
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ImgswipeStyleMenuBase extends Vue implements ControlInterface {
 
@@ -132,7 +131,7 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

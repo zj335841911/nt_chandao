@@ -1091,7 +1091,7 @@ POST
 /substories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1127,7 +1127,7 @@ POST
 /substories/fetchbymodule
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1199,7 +1199,7 @@ POST
 /substories/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1307,7 +1307,7 @@ POST
 /substories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1379,7 +1379,7 @@ POST
 /substories/fetchparentdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1487,7 +1487,7 @@ POST
 /substories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1559,7 +1559,7 @@ POST
 /substories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1595,7 +1595,7 @@ POST
 /substories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1755,6 +1755,42 @@ GET
 ### 查询任务相关需求
 #### 访问路径
 /substories/searchtaskrelatedstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubStoryDTO](#SubStoryDTO)>：需求实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取默认（全部数据）
+#### 访问路径
+/substories/fetchview
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubStoryDTO](#SubStoryDTO)>：需求实体传输对象列表 |
+
+### 查询默认（全部数据）
+#### 访问路径
+/substories/searchview
 
 #### 请求方法
 POST
@@ -2916,7 +2952,7 @@ POST
 /stories/{story_id}/substories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2954,7 +2990,7 @@ POST
 /stories/{story_id}/substories/fetchbymodule
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3030,7 +3066,7 @@ POST
 /stories/{story_id}/substories/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3144,7 +3180,7 @@ POST
 /stories/{story_id}/substories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3220,7 +3256,7 @@ POST
 /stories/{story_id}/substories/fetchparentdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3334,7 +3370,7 @@ POST
 /stories/{story_id}/substories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3410,7 +3446,7 @@ POST
 /stories/{story_id}/substories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3448,7 +3484,7 @@ POST
 /stories/{story_id}/substories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3617,6 +3653,44 @@ GET
 ### 根据查询任务相关需求
 #### 访问路径
 /stories/{story_id}/substories/searchtaskrelatedstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubStoryDTO](#SubStoryDTO)>：需求实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取默认（全部数据）
+#### 访问路径
+/stories/{story_id}/substories/fetchview
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubStoryDTO](#SubStoryDTO)>：需求实体传输对象列表 |
+
+### 根据查询默认（全部数据）
+#### 访问路径
+/stories/{story_id}/substories/searchview
 
 #### 请求方法
 POST
@@ -4779,7 +4853,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4817,7 +4891,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchbymodule
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4893,7 +4967,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5007,7 +5081,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5083,7 +5157,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchparentdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5197,7 +5271,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5273,7 +5347,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5311,7 +5385,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5496,6 +5570,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubStoryDTO](#SubStoryDTO)>：需求实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取默认（全部数据）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/substories/fetchview
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubStoryDTO](#SubStoryDTO)>：需求实体传输对象列表 |
+
+### 根据查询默认（全部数据）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/substories/searchview
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubStoryDTO](#SubStoryDTO)>：需求实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### SubStoryDTO
@@ -5567,7 +5679,8 @@ POST
 | 64 | sourceid | String | 允许 | 来源对象标识 |
 | 65 | ibiz_sourceid | String | 允许 | 来源对象标识 |
 | 66 | ibiz_sourcename | String | 允许 | 来源对象名称 |
-| 67 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 67 | storypoints | String | 允许 | 故事点 |
+| 68 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### StorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -5613,10 +5726,11 @@ POST
 | 39 | n_branchname_eq | String | 允许 | 条件字段：branchname<br>条件组合方式：`=` |
 | 40 | n_branchname_like | String | 允许 | 条件字段：branchname<br>条件组合方式：`%like%` |
 | 41 | n_preversion_eq | Integer | 允许 | 条件字段：preversion<br>条件组合方式：`=` |
-| 42 | customcond | String | 允许 | 自定义查询条件 |
-| 43 | customparams | String | 允许 | 自定义查询参数 |
-| 44 | query | String | 允许 | 快速搜索 |
-| 45 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 46 | page | int | 允许 | 当前页数<br>默认值0 |
-| 47 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 48 | sort | String | 允许 | 排序 |
+| 42 | n_storypoints_eq | String | 允许 | 条件字段：storypoints<br>条件组合方式：`=` |
+| 43 | customcond | String | 允许 | 自定义查询条件 |
+| 44 | customparams | String | 允许 | 自定义查询参数 |
+| 45 | query | String | 允许 | 快速搜索 |
+| 46 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 47 | page | int | 允许 | 当前页数<br>默认值0 |
+| 48 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 49 | sort | String | 允许 | 排序 |

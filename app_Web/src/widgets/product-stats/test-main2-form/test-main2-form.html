@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='productstats_testmain2'
+    class="app-form"
+    ref="form"
+    id="productstats_testmain2"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productstats.testmain2_form.details.group1')"
@@ -29,13 +37,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitemex1.visible"
+    :style="{'height': '250px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='formitemex1'
+    name="formitemex1"
     :itemRules="this.rules().formitemex1"
-    class=''
+    class=""
 
     :caption="$t('entities.productstats.testmain2_form.details.formitemex1')"
     uiStyle="DEFAULT"
@@ -43,16 +59,33 @@
     :isShowCaption="false"
     :error="detailsModel.formitemex1.error"
     :isEmptyCaption="false"
-    labelPos="NONE">
-    <circle-progress caption="所有" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom1" :progress="this.data.custom2" style="min-width: 244px;"/>
+    labelPos="NONE"
+>
+    <circle-progress
+    caption="所有" 
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="circle"
+    :total="this.data.custom1"
+    :progress="this.data.custom2"
+    style="min-width: 244px;"
+></circle-progress>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.assigntomebugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 6 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.assigntomebugcnt.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 6 }"
+>
     <app-form-item
-    name='assigntomebugcnt'
+    name="assigntomebugcnt"
     :itemRules="this.rules().assigntomebugcnt"
-    class=''
+    class=""
 
     :caption="$t('entities.productstats.testmain2_form.details.assigntomebugcnt')"
     uiStyle="DEFAULT"
@@ -60,10 +93,12 @@
     :isShowCaption="true"
     :error="detailsModel.assigntomebugcnt.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='assigntomebugcnt' :value="data.assigntomebugcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
@@ -74,12 +109,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{'height': '300px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="FLEX"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productstats.testmain2_form.details.grouppanel2')"
@@ -95,14 +138,14 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <div style="height: 100%;display: flex;align-items: center;">
         <div class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}">
-<app-form-group
+    <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productstats.testmain2_form.details.grouppanel3')"
@@ -118,9 +161,17 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -128,16 +179,25 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         <div style="padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨天解决Bug数&nbsp;<b>{{data.yesterdayresolvedbugcnt ? data.yesterdayresolvedbugcnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitemex2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 20, offset: 0 }"
+>
     <app-form-item
-    name='formitemex2'
+    name="formitemex2"
     :itemRules="this.rules().formitemex2"
-    class=''
+    class=""
 
     :caption="$t('entities.productstats.testmain2_form.details.formitemex2')"
     uiStyle="DEFAULT"
@@ -145,16 +205,31 @@
     :isShowCaption="true"
     :error="detailsModel.formitemex2.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
+    labelPos="LEFT"
+>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.custom3"
+    :progress="this.data.custom4"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.activebugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.activebugcnt.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='activebugcnt'
+    name="activebugcnt"
     :itemRules="this.rules().activebugcnt"
-    class='text-center'
+    class="text-center"
 
     :caption="$t('entities.productstats.testmain2_form.details.activebugcnt')"
     uiStyle="DEFAULT"
@@ -162,16 +237,26 @@
     :isShowCaption="true"
     :error="detailsModel.activebugcnt.error"
     :isEmptyCaption="false"
-    labelPos="TOP">
+    labelPos="TOP"
+>
     
 <app-span name='activebugcnt' :value="data.activebugcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -179,16 +264,25 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         <div style="padding-left: 69px;"></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitemex3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 20, offset: 0 }"
+>
     <app-form-item
-    name='formitemex3'
+    name="formitemex3"
     :itemRules="this.rules().formitemex3"
-    class=''
+    class=""
 
     :caption="$t('entities.productstats.testmain2_form.details.formitemex3')"
     uiStyle="DEFAULT"
@@ -196,16 +290,31 @@
     :isShowCaption="true"
     :error="detailsModel.formitemex3.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
+    labelPos="LEFT"
+>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.custom5"
+    :progress="this.data.custom6"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.unconfirmbugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.unconfirmbugcnt.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='unconfirmbugcnt'
+    name="unconfirmbugcnt"
     :itemRules="this.rules().unconfirmbugcnt"
-    class='text-center'
+    class="text-center"
 
     :caption="$t('entities.productstats.testmain2_form.details.unconfirmbugcnt')"
     uiStyle="DEFAULT"
@@ -213,16 +322,26 @@
     :isShowCaption="true"
     :error="detailsModel.unconfirmbugcnt.error"
     :isEmptyCaption="false"
-    labelPos="TOP">
+    labelPos="TOP"
+>
     
 <app-span name='unconfirmbugcnt' :value="data.unconfirmbugcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -230,16 +349,25 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         <div style="padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨天关闭Bug数&nbsp;<b>{{data.yesterdayClosedBugCnt ? data.yesterdayClosedBugCnt: 0}}</b></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.formitemex4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 20, offset: 0 }"
+>
     <app-form-item
-    name='formitemex4'
+    name="formitemex4"
     :itemRules="this.rules().formitemex4"
-    class=''
+    class=""
 
     :caption="$t('entities.productstats.testmain2_form.details.formitemex4')"
     uiStyle="DEFAULT"
@@ -247,16 +375,31 @@
     :isShowCaption="true"
     :error="detailsModel.formitemex4.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom7" :progress="this.data.custom8"/>
+    labelPos="LEFT"
+>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.custom7"
+    :progress="this.data.custom8"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.notclosedbugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.notclosedbugcnt.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='notclosedbugcnt'
+    name="notclosedbugcnt"
     :itemRules="this.rules().notclosedbugcnt"
-    class='text-center'
+    class="text-center"
 
     :caption="$t('entities.productstats.testmain2_form.details.notclosedbugcnt')"
     uiStyle="DEFAULT"
@@ -264,10 +407,12 @@
     :isShowCaption="true"
     :error="detailsModel.notclosedbugcnt.error"
     :isEmptyCaption="false"
-    labelPos="TOP">
+    labelPos="TOP"
+>
     
 <app-span name='notclosedbugcnt' :value="data.notclosedbugcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>

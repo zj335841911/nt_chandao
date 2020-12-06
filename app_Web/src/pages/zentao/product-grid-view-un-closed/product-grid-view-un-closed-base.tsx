@@ -51,7 +51,7 @@ export class ProductGridView_UnClosedBase extends GridViewBase {
      * @type {string}
      * @memberof ProductGridView_UnClosedBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class ProductGridView_UnClosedBase extends GridViewBase {
      * @type {string}
      * @memberof ProductGridView_UnClosedBase
      */ 
-    protected viewName: string = "ProductGridView_UnClosed";
+    protected viewName: string = 'ProductGridView_UnClosed';
 
 
     /**

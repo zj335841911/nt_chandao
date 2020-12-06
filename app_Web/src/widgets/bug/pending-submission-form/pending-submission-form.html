@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='bug_pendingsubmission'
+    class="app-form"
+    ref="form"
+    id="bug_pendingsubmission"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.pendingsubmission_form.details.group1')"
@@ -29,14 +37,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.pendingsubmission_form.details.grouppanel1')"
@@ -52,13 +68,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 9, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.productname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 9, offset: 0 }"
+>
     <app-form-item
-    name='productname'
+    name="productname"
     :itemRules="this.rules().productname"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.productname')"
     uiStyle="DEFAULT"
@@ -66,35 +90,44 @@
     :isShowCaption="true"
     :error="detailsModel.productname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
-  valueitem='product'
-  :value="data.productname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.productname.disabled"
+    name="productname"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
+    valueitem="product"
+    :value="data.productname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.branch.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
+>
     <app-form-item
-    name='branch'
+    name="branch"
     :itemRules="this.rules().branch"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.branch')"
     uiStyle="DEFAULT"
@@ -102,7 +135,8 @@
     :isShowCaption="true"
     :error="detailsModel.branch.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.branch"
@@ -110,23 +144,31 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
+    :localContext='{ PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%" }' 
     :disabled="detailsModel.branch.disabled"
     valueType="number"
-    tag='ProductBranch'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="ProductBranch"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.module.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='module'
+    name="module"
     :itemRules="this.rules().module"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.module')"
     uiStyle="DEFAULT"
@@ -134,7 +176,8 @@
     :isShowCaption="true"
     :error="detailsModel.module.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.module"
@@ -142,23 +185,31 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
-    :localParam ='{ product:"%product%", n_root_eq:"%product%", branch:"%branch%", n_branch_eq:"%branch%" }' 
+    :localContext='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
+    :localParam='{ product:"%product%", n_root_eq:"%product%", branch:"%branch%", n_branch_eq:"%branch%" }' 
     :disabled="detailsModel.module.disabled"
     valueType="number"
-    tag='BugModule'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="BugModule"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.projectname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='projectname'
+    name="projectname"
     :itemRules="this.rules().projectname"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.projectname')"
     uiStyle="DEFAULT"
@@ -166,35 +217,44 @@
     :isShowCaption="true"
     :error="detailsModel.projectname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%" }' 
-  :disabled="detailsModel.projectname.disabled"
-  name='projectname'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
-  valueitem='project'
-  :value="data.projectname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ PRODUCT:"%product%" }' 
+    :localParam ='{ product:"%product%" }' 
+    :disabled="detailsModel.projectname.disabled"
+    name="projectname"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
+    valueitem="project"
+    :value="data.projectname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.openedbuild.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='openedbuild'
+    name="openedbuild"
     :itemRules="this.rules().openedbuild"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.openedbuild')"
     uiStyle="DEFAULT"
@@ -202,7 +262,8 @@
     :isShowCaption="true"
     :error="detailsModel.openedbuild.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list-mpicker 
   v-model="data.openedbuild"
@@ -220,11 +281,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.assignedto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='assignedto'
+    name="assignedto"
     :itemRules="this.rules().assignedto"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.assignedto')"
     uiStyle="DEFAULT"
@@ -232,7 +301,8 @@
     :isShowCaption="true"
     :error="detailsModel.assignedto.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.assignedto"
@@ -240,23 +310,31 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PROJECT:"%project%" }' 
-    :localParam ='{ project:"%project%" }' 
+    :localContext='{ PROJECT:"%project%" }' 
+    :localParam='{ project:"%project%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='BugUserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="BugUserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.deadline.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='deadline'
+    name="deadline"
     :itemRules="this.rules().deadline"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.deadline')"
     uiStyle="DEFAULT"
@@ -264,17 +342,26 @@
     :isShowCaption="true"
     :error="detailsModel.deadline.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadline" :disabled="detailsModel.deadline.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadline = val1 }"></date-picker>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.type.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='type'
+    name="type"
     :itemRules="this.rules().type"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.type')"
     uiStyle="DEFAULT"
@@ -282,7 +369,8 @@
     :isShowCaption="true"
     :error="detailsModel.type.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.type"
@@ -290,23 +378,31 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.type.disabled"
     valueType="string"
-    tag='Bug__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__type"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.os.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 6, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='os'
+    name="os"
     :itemRules="this.rules().os"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.os')"
     uiStyle="DEFAULT"
@@ -314,7 +410,8 @@
     :isShowCaption="true"
     :error="detailsModel.os.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.os"
@@ -322,23 +419,31 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.os.disabled"
     valueType="string"
-    tag='Bug__os'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__os"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.browser.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.browser.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 6, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='browser'
+    name="browser"
     :itemRules="this.rules().browser"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.browser')"
     uiStyle="DEFAULT"
@@ -346,7 +451,8 @@
     :isShowCaption="true"
     :error="detailsModel.browser.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.browser"
@@ -354,15 +460,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.browser.disabled"
     valueType="string"
-    tag='Bug__browser'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__browser"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -371,11 +477,19 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.title')"
     uiStyle="DEFAULT"
@@ -383,7 +497,8 @@
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.title"  
     @enter="onEnter($event)"  
@@ -396,11 +511,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.severity.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='severity'
+    name="severity"
     :itemRules="this.rules().severity"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.severity')"
     uiStyle="DEFAULT"
@@ -408,7 +531,8 @@
     :isShowCaption="true"
     :error="detailsModel.severity.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.severity"
@@ -416,23 +540,31 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.severity.disabled"
     valueType="number"
-    tag='Bug__severity'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__severity"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.pri')"
     uiStyle="DEFAULT"
@@ -440,7 +572,8 @@
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.pri"
@@ -448,23 +581,31 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.pri.disabled"
     valueType="number"
-    tag='Bug__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.steps.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='steps'
+    name="steps"
     :itemRules="this.rules().steps"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.steps')"
     uiStyle="DEFAULT"
@@ -472,18 +613,41 @@
     :isShowCaption="true"
     :error="detailsModel.steps.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
+    labelPos="LEFT"
+>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.steps"
+    @change="(val) =>{this.data.steps =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.steps.disabled"
+    :data="JSON.stringify(this.data)"
+    name="steps"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"bug",version:"editor"}'
+    :exportparams='{objecttype:"bug",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.pendingsubmission_form.details.grouppanel2')"
@@ -499,13 +663,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.storyname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='storyname'
+    name="storyname"
     :itemRules="this.rules().storyname"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.storyname')"
     uiStyle="DEFAULT"
@@ -513,35 +685,44 @@
     :isShowCaption="true"
     :error="detailsModel.storyname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ ZT_PRODUCT:"%product%" }' 
-  :localParam ='{ n_product_eq:"%product%" }' 
-  :disabled="detailsModel.storyname.disabled"
-  name='storyname'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
-  valueitem='story'
-  :value="data.storyname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ ZT_PRODUCT:"%product%" }' 
+    :localParam ='{ n_product_eq:"%product%" }' 
+    :disabled="detailsModel.storyname.disabled"
+    name="storyname"
+    deMajorField="title"
+    deKeyField="story"
+    :service="service"
+    :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
+    valueitem="story"
+    :value="data.storyname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.taskname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.taskname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='taskname'
+    name="taskname"
     :itemRules="this.rules().taskname"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.taskname')"
     uiStyle="DEFAULT"
@@ -549,35 +730,44 @@
     :isShowCaption="true"
     :error="detailsModel.taskname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ ZT_PROJECT:"%project%", PROJECT:"%project%" }' 
-  :localParam ='{ project:"%project%", n_project_eq:"%project%" }' 
-  :disabled="detailsModel.taskname.disabled"
-  name='taskname'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
-  valueitem='task'
-  :value="data.taskname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ ZT_PROJECT:"%project%", PROJECT:"%project%", SIZE:"1000" }' 
+    :localParam ='{ project:"%project%", n_project_eq:"%project%", size:"1000" }' 
+    :disabled="detailsModel.taskname.disabled"
+    name="taskname"
+    deMajorField="name"
+    deKeyField="task"
+    :service="service"
+    :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
+    valueitem="task"
+    :value="data.taskname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='mailto'
+    name="mailto"
     :itemRules="this.rules().mailto"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.mailto')"
     uiStyle="DEFAULT"
@@ -585,7 +775,8 @@
     :isShowCaption="true"
     :error="detailsModel.mailto.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list-mpicker 
   v-model="data.mailto"
@@ -604,11 +795,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.keywords.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='keywords'
+    name="keywords"
     :itemRules="this.rules().keywords"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.pendingsubmission_form.details.keywords')"
     uiStyle="DEFAULT"
@@ -616,7 +815,8 @@
     :isShowCaption="true"
     :error="detailsModel.keywords.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.keywords"  
     @enter="onEnter($event)"  

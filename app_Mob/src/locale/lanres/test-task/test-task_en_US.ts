@@ -130,6 +130,7 @@ export default {
 			name: '', 
 			comment: '备注', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -159,6 +160,7 @@ export default {
 			name: '名称', 
 			desc: '描述', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			id: '编号', 
 			owner: '负责人', 
 		},
@@ -215,6 +217,7 @@ export default {
 			desc: '描述', 
 			comment: '备注', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			id: '编号', 
 			owner: '负责人', 
 		},

@@ -18,6 +18,8 @@
                     :key="index"
                     :label="item[deMajorField]"
                     :value="item[deKeyField]"
+                    :background ="item['color']"
+                    color="var(--view-font-color-bright)"
                 ></el-option>
             </el-select>
             <span style="position: absolute; right: 5px; color: #c0c4cc; top: 0; font-size: 13px">
@@ -29,7 +31,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
-import { AppModal } from '@/utils';
+import { AppModal, Util } from '@/utils';
 
 @Component({})
 export default class AppMpicker extends Vue {
@@ -177,10 +179,14 @@ export default class AppMpicker extends Vue {
                     this.value.push(item[this.deKeyField]);
                     let index = this.items.findIndex((i) => Object.is(i[this.deKeyField], item[this.deKeyField]));
                     if (index < 0) {
-                        this.items.push({
+                        let singleParam:any = {
                             [this.deMajorField]: item[this.deMajorField],
                             [this.deKeyField]: item[this.deKeyField],
-                        });
+                        };
+                        if(item['color'] && this.isExistParam('color')){
+                            Object.assign(singleParam,{'color':item['color']});
+                        }
+                        this.items.push(singleParam);
                     }
                 });
             } catch (error) {
@@ -249,7 +255,13 @@ export default class AppMpicker extends Vue {
                     if (!response) {
                         this.$Notice.error({ title: error, desc: requestException });
                     } else {
-                        this.items = [...response];
+                        let tempData:any = [...response];
+                        if(this.isExistParam('color') && tempData && tempData.length >0){
+                            tempData.forEach((element:any) => {
+                                this.fillExtraValue(element,element);
+                            });
+                        }
+                        this.items = Util.deepCopy(tempData);
                     }
                 })
                 .catch((error: any) => {
@@ -334,6 +346,7 @@ export default class AppMpicker extends Vue {
         }
         return true;
     }
+
 
     /**
      * 打开视图
@@ -452,6 +465,25 @@ export default class AppMpicker extends Vue {
             });
         }
     }
+
+    /**
+     * 判断附加参数中是否存在指定参数
+     *
+     * @param {*} param
+     * @memberof AppMpicker
+     */
+    public isExistParam(param:string){
+        let result:boolean = false;
+        if (isExist(this.extraFillParams)) {
+            this.extraFillParams.forEach((self: any) => {
+                if (isExist(self.value) && Object.is(self.value,param)) {
+                    result = true;
+                }
+            });
+        }
+        return result;
+    }
+
 }
 </script>
 <style lang="less">

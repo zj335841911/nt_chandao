@@ -1,13 +1,28 @@
 <studio-view viewName="buildtestroundsgridview" viewTitle="版本表格视图（轮次）" class='degridview build-test-rounds-grid-view'>
     <i-input
-        slot='quickSearch'
+        slot="quickSearch"
         clearable
         
         v-model="query"
         placeholder="名称编号"
         search
         @on-search="onSearch($event)"
-    />
+    ></i-input>
+    <template slot="toolbar">
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
+    </template>
+    <template slot="searchBar">
+                <view_searchbar 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            v-show="isExpandSearchForm"
+            @search="onSearch($event)"
+            name="searchbar"  
+            ref="searchbar" 
+            @closeview="closeView($event)">
+        </view_searchbar>
+    </template>
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -27,7 +42,7 @@
         :newdata="newdata.bind(_self)"
         :opendata="opendata.bind(_self)"
         name="grid"  
-        ref='grid' 
+        ref="grid" 
         @selectionchange="grid_selectionchange($event)"  
         @beforeload="grid_beforeload($event)"  
         @rowdblclick="grid_rowdblclick($event)"  

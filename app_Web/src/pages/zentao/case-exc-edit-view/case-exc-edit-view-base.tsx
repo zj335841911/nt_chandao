@@ -48,7 +48,7 @@ export class CaseExcEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseExcEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -118,7 +118,7 @@ export class CaseExcEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseExcEditViewBase
      */ 
-    protected viewName: string = "CaseExcEditView";
+    protected viewName: string = 'CaseExcEditView';
 
 
     /**

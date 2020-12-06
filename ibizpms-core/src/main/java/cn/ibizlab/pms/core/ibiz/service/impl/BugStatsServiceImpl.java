@@ -51,6 +51,9 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
     protected int batchSize = 500;
 
@@ -170,6 +173,33 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
         this.remove(new QueryWrapper<BugStats>().eq("product", id));
     }
 
+    @Override
+    public List<BugStats> selectByProject(Long id) {
+        return baseMapper.selectByProject(id);
+    }
+    @Override
+    public void removeByProject(Long id) {
+        this.remove(new QueryWrapper<BugStats>().eq("project", id));
+    }
+
+
+    /**
+     * 查询集合 Bug在每个解决方案的Bug数
+     */
+    @Override
+    public Page<BugStats> searchBugCountInResolution(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugCountInResolution(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Bug完成表
+     */
+    @Override
+    public Page<BugStats> searchBugResolvedBy(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugResolvedBy(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
     /**
      * 查询集合 Bug指派表
@@ -190,11 +220,38 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     }
 
     /**
+     * 查询集合 产品Bug解决方案汇总
+     */
+    @Override
+    public Page<BugStats> searchProductBugResolutionStats(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductBugResolutionStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品Bug状态汇总
+     */
+    @Override
+    public Page<BugStats> searchProductBugStatusSum(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductBugStatusSum(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品创建bug占比
      */
     @Override
     public Page<BugStats> searchProductCreateBug(BugStatsSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductCreateBug(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目bug状态统计
+     */
+    @Override
+    public Page<BugStats> searchProjectBugStatusCount(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProjectBugStatusCount(context.getPages(), context, context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

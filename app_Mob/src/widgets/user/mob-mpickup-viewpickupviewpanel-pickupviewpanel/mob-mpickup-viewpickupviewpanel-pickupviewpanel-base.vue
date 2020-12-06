@@ -5,6 +5,7 @@
             ref="pickupview"
             viewDefaultUsage="includedView"
             :is="view.viewname" 
+            :isChildView="true"
             :_context="JSON.stringify(_context)"
             :_viewparams="JSON.stringify(_viewparams)"
             :isSingleSelect="isSingleSelect"
@@ -33,8 +34,7 @@ import UserUIService from '@/ui-service/user/user-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobMPickupViewpickupviewpanelBase extends Vue implements ControlInterface {
 
@@ -155,7 +155,7 @@ export default class MobMPickupViewpickupviewpanelBase extends Vue implements Co
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 面板导航参数

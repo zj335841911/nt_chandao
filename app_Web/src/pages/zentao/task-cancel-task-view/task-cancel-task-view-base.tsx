@@ -48,7 +48,7 @@ export class TaskCancelTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskCancelTaskViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class TaskCancelTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskCancelTaskViewBase
      */ 
-    protected viewName: string = "TaskCancelTaskView";
+    protected viewName: string = 'TaskCancelTaskView';
 
 
     /**

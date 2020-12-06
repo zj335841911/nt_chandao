@@ -524,7 +524,7 @@ public class Task extends EntityMP implements Serializable {
     @JsonProperty("delay")
     private String delay;
     /**
-     * 属性
+     * 抄送给
      */
     @TableField(exist = false)
     @JSONField(name = "mailtopk")
@@ -537,6 +537,34 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "mailtoconact")
     @JsonProperty("mailtoconact")
     private String mailtoconact;
+    /**
+     * 排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "statusorder")
+    @JsonProperty("statusorder")
+    private Integer statusorder;
+    /**
+     * 之前消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myconsumed")
+    @JsonProperty("myconsumed")
+    private Double myconsumed;
+    /**
+     * 我的总消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mytotaltime")
+    @JsonProperty("mytotaltime")
+    private Double mytotaltime;
+    /**
+     * 转交给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assignedtozj")
+    @JsonProperty("assignedtozj")
+    private String assignedtozj;
 
     /**
      * 

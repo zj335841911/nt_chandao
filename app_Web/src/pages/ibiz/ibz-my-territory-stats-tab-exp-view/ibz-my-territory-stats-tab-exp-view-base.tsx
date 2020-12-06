@@ -109,7 +109,7 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */ 
-    protected viewName: string = "IbzMyTerritoryStatsTabExpView";
+    protected viewName: string = 'IbzMyTerritoryStatsTabExpView';
 
 
     /**

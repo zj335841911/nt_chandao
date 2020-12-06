@@ -54,13 +54,29 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘",
 		},
+		editview: {
+			caption: "我的地盘",
+      		title: "我的地盘编辑视图",
+		},
 		calendarexpview: {
 			caption: "我的地盘",
       		title: "我的地盘日历导航视图",
 		},
+		reporttabexpview: {
+			caption: "汇报",
+      		title: "我的地盘分页导航视图",
+		},
 		calendarview: {
 			caption: "我的地盘",
       		title: "我的地盘日历视图",
+		},
+		usersumtreeexpview: {
+			caption: "用户汇总表",
+      		title: "我的地盘树导航视图",
+		},
+		usr3tabexpview: {
+			caption: "我的地盘",
+      		title: "管理",
 		},
 		testtreeexpview: {
 			caption: "测试统计",
@@ -94,20 +110,75 @@ export default {
 			caption: "我的工作",
       		title: "我的工作",
 		},
+		treeexpviewprojectstats: {
+			caption: "项目汇总表",
+      		title: "我的地盘我的地盘实体树导航视图（项目汇总表）导航视图",
+		},
+	},
+	main_form: {
+		details: {
+			group1: "我的地盘基本信息", 
+			formpage1: "基本信息", 
+			group2: "操作信息", 
+			formpage2: "其它", 
+			srforikey: "", 
+			srfkey: "ID", 
+			srfmajortext: "真实姓名", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "ID", 
+		},
+		uiactions: {
+		},
+	},
+	editviewtoolbar_toolbar: {
+		tbitem3: {
+			caption: "Save",
+			tip: "Save",
+		},
+		tbitem4: {
+			caption: "Save And New",
+			tip: "Save And New",
+		},
+		tbitem5: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+		tbitem7: {
+			caption: "Remove And Close",
+			tip: "Remove And Close Window",
+		},
 	},
 	productsum_treeview: {
 		nodes: {
+			storyhourssum: "需求工时汇总表",
 			root: "默认根节点",
 			productsum: "产品汇总表",
+			productstorysum: "需求汇总表",
 		},
 		uiactions: {
 		},
 	},
 	test_treeview: {
 		nodes: {
+			productbugstatussum: "产品Bug状态汇总表",
 			bugassignedto: "Bug指派表",
+			productbugresolutionstats: "产品Bug解决方案汇总表",
 			bugopenendby: "Bug创建表",
+			bugresolvedby: "Bug完成表",
 			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	projectstats_treeview: {
+		nodes: {
+			bugresolutioncount: "bug解决方案统计",
+			bugstatuscount: "bug状态统计",
+			root: "默认根节点",
+			taskstatuscount: "任务状态统计",
 		},
 		uiactions: {
 		},
@@ -115,6 +186,14 @@ export default {
 	employeeload_treeview: {
 		nodes: {
 			employeeload: "员工负载表",
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	usersum_treeview: {
+		nodes: {
+			userfinashtasksum: "用户完成任务汇总表",
 			root: "默认根节点",
 		},
 		uiactions: {

@@ -98,6 +98,11 @@ export default class MainGridModel {
           prop: 'isfavorites',
           dataType: 'TEXT',
         },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
@@ -224,6 +229,11 @@ export default class MainGridModel {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'branch',

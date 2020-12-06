@@ -533,4 +533,12 @@ export interface Story {
      * @memberof Story
      */
     ibiz_sourcename?: any;
+
+    /**
+     * 故事点
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    storypoints?: any;
 }

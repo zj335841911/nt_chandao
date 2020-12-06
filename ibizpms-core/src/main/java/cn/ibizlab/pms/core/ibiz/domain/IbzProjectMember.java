@@ -128,6 +128,13 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     @JSONField(name = "sixthmember")
     @JsonProperty("sixthmember")
     private String sixthmember;
+    /**
+     * 全部成员
+     */
+    @TableField(exist = false)
+    @JSONField(name = "teamembers")
+    @JsonProperty("teamembers")
+    private String teamembers;
 
 
 

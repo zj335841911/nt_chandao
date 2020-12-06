@@ -144,18 +144,18 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
 
     @Transactional(rollbackFor = Exception.class)
     public TestTask linkCase(TestTask et) {
-        if (et.get("cases") == null) {
+        if (et.get(FIELD_CASES) == null) {
             return et;
         }
         int i = 0;
-        String[] versions = et.get("versions").toString().split(",");
-        for (String caseId : et.get("cases").toString().split(",")) {
+        String[] versions = et.get(FIELD_VERSIONS).toString().split(MULTIPLE_CHOICE);
+        for (String caseId : et.get(FIELD_CASES).toString().split(MULTIPLE_CHOICE)) {
             Case cas = caseHelper.get(Long.parseLong(caseId));
             Integer version = cas.getVersion();
             if(versions.length > i && versions[i] != null && !"".equals(versions[i])) {
                 version = Integer.parseInt(versions[i]);
             }
-            TestRun testRun = testRunHelper.getOne(new QueryWrapper<TestRun>().eq("task",et.getId()).eq("`case`",cas.getId()).eq("`version`", version).last("limit 0,1"));
+            TestRun testRun = testRunHelper.getOne(new QueryWrapper<TestRun>().eq(StaticDict.Action__object_type.TASK.getValue(),et.getId()).eq("`case`",cas.getId()).eq("`version`", version).last("limit 0,1"));
             if(testRun==null){
                 testRun = new TestRun();
                 testRun.setTask(et.getId());
@@ -171,12 +171,12 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
 
     @Transactional(rollbackFor = Exception.class)
     public TestTask unlinkCase(TestTask et) {
-        if (et.get("cases") == null) {
+        if (et.get(FIELD_CASES) == null) {
             return et;
         }
-        for (String caseId : et.get("cases").toString().split(",")) {
+        for (String caseId : et.get(FIELD_CASES).toString().split(MULTIPLE_CHOICE)) {
             Case cas = caseHelper.get(Long.parseLong(caseId));
-            testRunHelper.remove(new QueryWrapper<TestRun>().eq("task",et.getId()).eq("`case`",cas.getId()).eq("`version`",cas.getVersion()));
+            testRunHelper.remove(new QueryWrapper<TestRun>().eq(StaticDict.Action__object_type.TASK.getValue(),et.getId()).eq("`case`",cas.getId()).eq("`version`",cas.getVersion()));
         }
         return et ;
     }

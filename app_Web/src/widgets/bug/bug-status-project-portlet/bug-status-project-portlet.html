@@ -1,11 +1,11 @@
-<div class='portlet bug-status-project ' :style="{}">
-        <p class='portlet-title'>
-            <span>
+<div class="portlet bug-status-project " :style="{}">
+    <p class="portlet-title">
+        <span>
             
             Bug状态分布
-            </span>
-        </p>
-        <div class="portlet-with-title">
+        </span>
+    </p>
+    <div class="portlet-with-title">
         <!-- 测试 -->
               <view_dashboard_BugStatusProject_chart 
           :viewState="viewState"  
@@ -14,8 +14,8 @@
           fetchAction="FetchBuildProduceBugStatus_Project"
           :showBusyIndicator="true" 
           name="dashboard_BugStatusProject_chart"  
-          ref='dashboard_BugStatusProject_chart' 
+          ref="dashboard_BugStatusProject_chart" 
           @closeview="closeView($event)">
       </view_dashboard_BugStatusProject_chart>
-        </div>
+    </div>
 </div>

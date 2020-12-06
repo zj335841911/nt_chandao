@@ -201,8 +201,8 @@ export class DocActionPortletBase extends MainControlBase {
      */
     public uiactionModel: any = {
         exit: {name: 'exit', actiontarget: '',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        edit: {name: 'edit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'DOC', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'DOC', uiaction: { tag: 'Delete', target: 'SINGLEKEY' } },
+        edit: {name: 'edit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__DOC_EDIT_BUT', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__DOC_DELETE_BUT', uiaction: { tag: 'Delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -226,7 +226,7 @@ export class DocActionPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'DOC',
+        dataaccaction:'SRFUR__DOC_EDIT_BUT',
         actiontarget:'SINGLEKEY',
         visible:true,
         disabled:false
@@ -236,7 +236,7 @@ export class DocActionPortletBase extends MainControlBase {
         iconcls: "fa fa-remove",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'DOC',
+        dataaccaction:'SRFUR__DOC_DELETE_BUT',
         actiontarget:'SINGLEKEY',
         visible:true,
         disabled:false

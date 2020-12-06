@@ -22,7 +22,7 @@ public class ModuleExService extends ModuleServiceImpl {
     }
 
     /**
-     * 自定义行为[Fix]用户扩展
+     * [Fix:重建模块路径] 行为扩展
      * @param et
      * @return
      */

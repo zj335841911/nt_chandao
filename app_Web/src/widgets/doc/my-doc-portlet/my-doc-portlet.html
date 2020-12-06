@@ -1,16 +1,16 @@
-<div class='portlet my-doc ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
-        <p class='portlet-title'>
-            <span>
+<div class="portlet my-doc " :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
+    <p class="portlet-title">
+        <span>
             
             我的文档
-            </span>
+        </span>
             <span class="portlet-action">
-                <a @click="uiAction('u4c63ed7', $event)" v-show="uiactionModel['moremydoc'].visible" :disabled="uiactionModel['moremydoc'].disabled">
-                  <span>MORE</span>
-                </a>
+                    <a @click="uiAction('u4c63ed7', $event)" v-show="uiactionModel['moremydoc'].visible" :disabled="uiactionModel['moremydoc'].disabled">
+                        <span>MORE</span>
+                    </a>
             </span>
-        </p>
-        <div class="portlet-with-title">
+    </p>
+    <div class="portlet-with-title">
         <doc-grid-view10 :portletState="viewState" :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></doc-grid-view10>
-        </div>
+    </div>
 </div>

@@ -51,7 +51,7 @@ export class StoryGridView9_RelatedBase extends GridView9Base {
      * @type {string}
      * @memberof StoryGridView9_RelatedBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class StoryGridView9_RelatedBase extends GridView9Base {
      * @type {string}
      * @memberof StoryGridView9_RelatedBase
      */ 
-    protected viewName: string = "StoryGridView9_Related";
+    protected viewName: string = 'StoryGridView9_Related';
 
 
     /**

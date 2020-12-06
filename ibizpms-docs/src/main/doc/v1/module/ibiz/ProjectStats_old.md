@@ -36,6 +36,12 @@
 |状态|STATUS|TEXT|&nbsp;|
 |项目排序|ORDER1|INT|&nbsp;|
 |是否置顶|ISTOP|INT|&nbsp;|
+|已关闭任务数|CLOSEDTASKCNT|INT|&nbsp;|
+|已取消任务数|CANCELTASKCNT|INT|&nbsp;|
+|已暂停任务数|PAUSETASKCNT|INT|&nbsp;|
+|未开始任务数|WAITTASKCNT|INT|&nbsp;|
+|进行中任务数|DOINGTASKCNT|INT|&nbsp;|
+|已完成任务数|DONETASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -67,6 +73,12 @@
 |状态|默认规则|内容长度必须小于等于[100]|
 |项目排序|默认规则|默认规则|
 |是否置顶|默认规则|默认规则|
+|已关闭任务数|默认规则|默认规则|
+|已取消任务数|默认规则|默认规则|
+|已暂停任务数|默认规则|默认规则|
+|未开始任务数|默认规则|默认规则|
+|进行中任务数|默认规则|默认规则|
+|已完成任务数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -95,6 +107,7 @@
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_Default))|否|&nbsp;|
 |NOOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_NoOpenProduct))|否|&nbsp;|
+|ProjectTaskCountByTaskStatus|项目任务统计(任务状态)([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectTaskCountByTaskStatus))|否|&nbsp;|
 |TASKTIME|任务工时消耗剩余查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_TaskTime))|否|&nbsp;该查询主要供统计图表使用|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_View))|否|&nbsp;|
 
@@ -104,6 +117,7 @@
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |NOOpenProduct|未关闭产品|NOOpenProduct|否|&nbsp;|
+|ProjectTaskCountByTaskStatus|项目任务统计(任务状态)|ProjectTaskCountByTaskStatus|否|&nbsp;|
 |TASKTIME|任务工时消耗剩余查询|TASKTIME|否|&nbsp;|
 
 ## 查询模式

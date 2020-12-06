@@ -394,6 +394,15 @@ export class Main_CopyGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'severity',
+            label: '级别',
+            langtag: 'entities.bug.main_copy_grid.columns.severity',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'pri',
             label: 'P',
             langtag: 'entities.bug.main_copy_grid.columns.pri',
@@ -603,6 +612,7 @@ export class Main_CopyGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'id':false,
+        'severity':false,
         'pri':false,
         'confirmed':false,
         'title':false,
@@ -888,7 +898,7 @@ export class Main_CopyGridBase extends GridControlBase {
     * @memberof Main_CopyBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','confirmed','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','lastediteddate','activateddate','isfavorites'];
+        let allColumns:Array<any> = ['id','severity','pri','confirmed','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','lastediteddate','activateddate','isfavorites'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -968,6 +978,7 @@ export class Main_CopyGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 id:'',
+                severity:'',
                 pri:'',
                 confirmed:'',
                 title:'',
@@ -1028,6 +1039,7 @@ export class Main_CopyGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             id:'',
+            severity:'',
             pri:'',
             confirmed:'',
             title:'',
@@ -1124,6 +1136,7 @@ export class Main_CopyGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 id:'',
+                severity:'',
                 pri:'',
                 confirmed:'',
                 title:'',

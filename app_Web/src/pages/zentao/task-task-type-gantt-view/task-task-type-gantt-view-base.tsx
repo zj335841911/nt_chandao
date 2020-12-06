@@ -47,7 +47,7 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @type {string}
      * @memberof TaskTaskTypeGanttViewBase
      */ 
-    protected dataControl: string = "gantt";
+    protected dataControl: string = 'gantt';
 
     /**
      * 实体服务对象
@@ -110,7 +110,7 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @type {string}
      * @memberof TaskTaskTypeGanttViewBase
      */ 
-    protected viewName: string = "TaskTaskTypeGanttView";
+    protected viewName: string = 'TaskTaskTypeGanttView';
 
 
 

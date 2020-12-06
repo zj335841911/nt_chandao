@@ -1,6 +1,23 @@
 export default {
+    StoryPoints: {
+        "0": "0",
+        "0.5": "1/2",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "5": "5",
+        "8": "8",
+        "13": "13",
+        "20": "20",
+        "40": "40",
+        "100": "100",
+        "empty": "",
+    },
     BugCreateResolve: {
         "1": "创建",
+        "empty": "",
+    },
+    AllCase: {
         "empty": "",
     },
     SYS_UPDATE_BRANCH: {
@@ -69,6 +86,9 @@ export default {
     RealNameProjectM: {
         "empty": "",
     },
+    MyPlanTask: {
+        "empty": "",
+    },
     ProjectCodeList: {
         "empty": "",
     },
@@ -113,6 +133,9 @@ export default {
         "4": "最低",
         "empty": "",
     },
+    TaskTeamUserTemp: {
+        "empty": "",
+    },
     Beginend_disable: {
         "on": "暂时不设定时间",
         "empty": "",
@@ -122,6 +145,11 @@ export default {
     },
     UserRealNameW: {
         "empty": "未指派",
+    },
+    ReportStatus: {
+        "0": "未读",
+        "1": "已读",
+        "empty": "",
     },
     Bug__os: {
         "all": "全部",
@@ -170,10 +198,10 @@ export default {
         "empty": "",
     },
     Bug__severity: {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
+        "1": "致命",
+        "2": "严重",
+        "3": "一般",
+        "4": "轻微",
         "empty": "",
     },
     RELEASE_Type: {
@@ -237,6 +265,13 @@ export default {
         "1": "1",
         "empty": "",
     },
+    Project__pri: {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "empty": "",
+    },
     APPBuild: {
         "empty": "",
     },
@@ -245,6 +280,9 @@ export default {
         "revert": "撤销变更",
         "clarify": "有待明确",
         "reject": "拒绝",
+        "empty": "",
+    },
+    AllBug: {
         "empty": "",
     },
     CloseProduct: {
@@ -305,6 +343,15 @@ export default {
     Story__type: {
         "requirement": "用户需求",
         "story": "软件需求",
+        "empty": "",
+    },
+    Testcase__color: {
+        "#3da7f5": "#3da7f5",
+        "#75c941": "#75c941",
+        "#2dbdb2": "#2dbdb2",
+        "#797ec9": "#797ec9",
+        "#ffaf38": "#ffaf38",
+        "#ff4e3e": "#ff4e3e",
         "empty": "",
     },
     BeginendDropList: {
@@ -424,6 +471,17 @@ export default {
         "ISEXPIRED": "已过期",
         "empty": "",
     },
+    Testcase__frame: {
+        "junit": "JUnit",
+        "testng": "TestNG",
+        "phpunit": "PHPUnit",
+        "pytest": "Pytest",
+        "jtest": "JTest",
+        "cppunit": "CppUnit",
+        "gtest": "GTest",
+        "qtest": "QTest",
+        "empty": "",
+    },
     TestCaseStatusGrid: {
         "wait": "未开始",
         "normal": "正常",
@@ -461,6 +519,9 @@ export default {
         "testreport": "报告",
         "entry": "应用",
         "webhook": "Webhook",
+        "daily": "日报",
+        "weekly": "周报",
+        "monthly": "月报",
         "empty": "",
     },
     ProductPlan: {
@@ -476,6 +537,12 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": "",
+    },
+    UserTplType: {
+        "story": "需求",
+        "task": "任务",
+        "bug": "Bug",
         "empty": "",
     },
     Release__status: {
@@ -528,6 +595,9 @@ export default {
         "closed": "已关闭",
         "empty": "",
     },
+    AllRepo: {
+        "empty": "",
+    },
     Project_staus: {
         "doing": "进行中",
         "suspended": "已挂起",
@@ -551,10 +621,18 @@ export default {
         "empty": "",
     },
     Bug__pri: {
+        "1": "严重",
+        "2": "主要",
+        "3": "次要",
+        "4": "不重要",
+        "empty": "",
+    },
+    Project__statge: {
         "1": "1",
         "2": "2",
         "3": "3",
         "4": "4",
+        "5": "5",
         "empty": "",
     },
     ProjectQuickpaketMy: {
@@ -571,6 +649,12 @@ export default {
         "library": "用例库",
         "private": "私有",
         "public": "公开",
+        "empty": "",
+    },
+    ReportType: {
+        "weekly": "周报",
+        "daily": "日报",
+        "monthly": "月报",
         "empty": "",
     },
     RelatedStory: {
@@ -609,6 +693,13 @@ export default {
         "open": "默认设置(有产品视图权限，即可访问)",
         "private": "私有产品(相关负责人和项目团队成员才能访问)",
         "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
+        "empty": "",
+    },
+    UserTplQuickGroup: {
+        "all": "所有",
+        "story": "需求",
+        "task": "任务",
+        "bug": "Bug",
         "empty": "",
     },
     BugCodeList2: {
@@ -668,6 +759,9 @@ export default {
         "empty": "",
     },
     UserRealNameTask: {
+        "empty": "",
+    },
+    AllRole: {
         "empty": "",
     },
     CodeList47: {
@@ -741,6 +835,9 @@ export default {
         "1": "不需要评审",
         "empty": "",
     },
+    AllTask: {
+        "empty": "",
+    },
     File__object_type: {
         "product": "产品",
         "story": "需求",
@@ -765,6 +862,9 @@ export default {
         "testreport": "报告",
         "entry": "应用",
         "webhook": "Webhook",
+        "daily": "日报",
+        "weekly": "周报",
+        "monthly": "月报",
         "empty": "",
     },
     Module__type: {
@@ -817,6 +917,9 @@ export default {
         "1": "星期日",
         "empty": "",
     },
+    AllTestTask: {
+        "empty": "",
+    },
     TestTask: {
         "empty": "",
     },
@@ -834,6 +937,9 @@ export default {
         "closed": "结束",
         "empty": "",
     },
+    AllEntry: {
+        "empty": "",
+    },
     Task__type: {
         "design": "设计",
         "devel": "开发",
@@ -842,7 +948,11 @@ export default {
         "discuss": "讨论",
         "ui": "界面",
         "affair": "事务",
+        "serve": "服务",
         "misc": "其他",
+        "empty": "",
+    },
+    AllStory: {
         "empty": "",
     },
     ProjectProductPlan: {
@@ -975,6 +1085,9 @@ export default {
         "linkparentstory": "关联到父需求",
         "unlinkparentstory": "从父需求取消关联",
         "deletechildrenstory": "删除子需求",
+        "submit": "提交",
+        "read": "已读了",
+        "remind": "提醒",
         "empty": "",
     },
     User__gender: {
@@ -1020,6 +1133,12 @@ export default {
         "doing": "进行中",
         "done": "已完成",
         "blocked": "被阻塞",
+        "empty": "",
+    },
+    Case__frequency: {
+        "1": "1",
+        "2": "2",
+        "3": "3",
         "empty": "",
     },
     Story__color: {
@@ -1085,6 +1204,9 @@ export default {
     Company__guest: {
         "1": "允许",
         "0": "不允许",
+        "empty": "",
+    },
+    MyCompleteTask: {
         "empty": "",
     },
     Testrun__result: {

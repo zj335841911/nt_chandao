@@ -1,6 +1,6 @@
 <studio-view viewName="doclibeditview" viewTitle="创建文档库" class='deeditview doc-lib-edit-view'>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
         <view_form 
                 :viewState="viewState"  
@@ -16,9 +16,9 @@
                 createAction="Create"
                 WFSubmitAction=""
                 WFStartAction=""
-                style='' 
+                style="" 
                 name="form"  
-                ref='form' 
+                ref="form" 
                 @save="form_save($event)"  
                 @remove="form_remove($event)"  
                 @load="form_load($event)"  

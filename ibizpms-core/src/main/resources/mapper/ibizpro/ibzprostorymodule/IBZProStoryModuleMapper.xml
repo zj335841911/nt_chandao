@@ -16,8 +16,8 @@
 		<result property="ibizshort" column="short" />
 		<result property="parent" column="parent" />
 		<result property="ibizStorytype" column="ibiz_storytype" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ibzproproduct" javaType="cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct" column="root" select="cn.ibizlab.pms.core.ibizpro.mapper.IBZProProductMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

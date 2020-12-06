@@ -114,6 +114,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         id: null,
         title: null,
         version: null,
+        color: null,
         precondition: null,
         case: null,
     };
@@ -240,6 +241,13 @@ export class MainInfoEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         precondition: new FormItemModel({
     caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -274,6 +282,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'precondition')) {
             let ret = false;
             const _precondition = this.data.precondition;
@@ -283,5 +292,16 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             this.detailsModel.precondition.setVisible(ret);
         }
 
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainInfoBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

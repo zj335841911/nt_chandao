@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet story-dashboard_sysportlet5 '>
-            <ion-list-header class='app-mob-portlet__header'>
+            <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>我的需求</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
@@ -31,8 +31,7 @@ import StoryUIService from '@/ui-service/story/story-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MyStoryBase extends Vue implements ControlInterface {
 
@@ -184,7 +183,7 @@ export default class MyStoryBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

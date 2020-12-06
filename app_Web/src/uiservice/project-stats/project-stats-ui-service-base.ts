@@ -96,6 +96,15 @@ export default class ProjectStatsUIServiceBase extends UIService {
      * @memberof  ProjectStatsUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'projectstats',
+            component: 'project-stats-edit-view',
+            openmode: '',
+            title: '项目统计',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

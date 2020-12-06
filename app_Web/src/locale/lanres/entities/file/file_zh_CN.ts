@@ -13,6 +13,7 @@ export default {
     id: "id",
     extra: "备注",
     strsize: "显示大小",
+    doclibtype: "文档类型",
   },
 	views: {
 		projectgridviewfile: {

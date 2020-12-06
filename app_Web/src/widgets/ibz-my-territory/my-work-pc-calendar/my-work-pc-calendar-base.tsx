@@ -365,10 +365,12 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         if(fetchInfo && fetchInfo.query){
             Object.assign(arg,{query : fetchInfo.query});
         }
-        Object.assign(arg,{viewparams:this.viewparams});
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
         // 处理events数据
         let _this = this;
         let handleEvents = ()=>{
@@ -534,6 +536,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         let _this = this;
         let view: any = {};
         let _context: any = Object.assign({},this.context);
+        let _viewparams:any = Object.assign({start:event.start,end:event.end},this.viewparams);
         switch(event.itemType) {
             case "Bug":
                 _context.bug = event.bug;
@@ -566,16 +569,16 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         if(!view.viewname){
             return;
         } else if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [JSON.parse(JSON.stringify(_context))] , JSON.parse(JSON.stringify(this.viewparams)));
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [JSON.parse(JSON.stringify(_context))] , _viewparams);
             this.$router.push(routePath);
         } else {
             let container: any;
             if (Object.is(view.placement, 'POPOVER')) {
-                container = this.$apppopover.openPop(isOriginData ? $event2 : $event.jsEvent, view,JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
+                container = this.$apppopover.openPop(isOriginData ? $event2 : $event.jsEvent, view,JSON.parse(JSON.stringify(_context)),  _viewparams);
             } else if (Object.is(view.placement, 'POPUPMODAL')) {
-                container = this.$appmodal.openModal(view,  JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
+                container = this.$appmodal.openModal(view,  JSON.parse(JSON.stringify(_context)),  _viewparams);
             } else if (view.placement.startsWith('DRAWER')) {
-                container = this.$appdrawer.openDrawer(view,  JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
+                container = this.$appdrawer.openDrawer(view,  JSON.parse(JSON.stringify(_context)),  _viewparams);
             }
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {

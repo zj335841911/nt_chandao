@@ -3,6 +3,7 @@ import axios from 'axios';
 import Router from 'vue-router';
 import i18n from '@/locale';
 import ignoreProxyMap from './ignore-proxy';
+import { Http } from '@/ibiz-core/utils/http/http';
 /**
  * 拦截器
  *
@@ -100,6 +101,9 @@ export class Interceptors {
         });
 
         axios.interceptors.response.use((response: any) => {
+            if (response.headers && response.headers['refreshtoken'] && localStorage.getItem('token')) {
+                this.refreshToken(response);
+            }
             return response;
         }, (error: any) => {
             error = error ? error : { response: {} };
@@ -147,5 +151,29 @@ export class Interceptors {
         }
     }
 
+    /**
+     * 刷新token
+     *
+     * @private
+     * @param {*} [data={}]
+     * @memberof Interceptors
+     */
+    private refreshToken(data: any = {}): void {
+        if (data && data.config && (data.config.url == "/uaa/refreshToken")) {
+            return;
+        }
+        Http.getInstance().post('/uaa/refreshToken', localStorage.getItem('token'), false).then((response: any) => {
+            if (response && response.status === 200) {
+                const data = response.data;
+                if (data) {
+                    localStorage.setItem('token', data);
+                }
+            } else {
+                console.log("刷新token出错");
+            }
+        }).catch((error: any) => {
+            console.log("刷新token出错");
+        });
+    }
 }
 

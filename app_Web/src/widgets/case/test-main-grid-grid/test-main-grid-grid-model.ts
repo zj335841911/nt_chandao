@@ -98,6 +98,11 @@ export default class TestMainGridModel {
           prop: 'isfavorites',
           dataType: 'TEXT',
         },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
@@ -233,6 +238,11 @@ export default class TestMainGridModel {
         {
           name: 'lastrunresult1',
           prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'color',
+          prop: 'color',
           dataType: 'SSCODELIST',
         },
         {

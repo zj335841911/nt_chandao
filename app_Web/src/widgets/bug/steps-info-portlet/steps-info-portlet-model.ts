@@ -240,6 +240,9 @@ export default class StepsInfoModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

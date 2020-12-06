@@ -117,6 +117,9 @@ export default class DOCSTATUSModel {
       {
         name: 'myfavouritecnt',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

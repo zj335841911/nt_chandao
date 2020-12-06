@@ -27,5 +27,11 @@ export default {
     status: "状态",
     order1: "项目排序",
     istop: "是否置顶",
+    closedtaskcnt: "已关闭任务数",
+    canceltaskcnt: "已取消任务数",
+    pausetaskcnt: "已暂停任务数",
+    waittaskcnt: "未开始任务数",
+    doingtaskcnt: "进行中任务数",
+    donetaskcnt: "已完成任务数",
   },
 };

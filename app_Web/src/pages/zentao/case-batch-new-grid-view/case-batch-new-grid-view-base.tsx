@@ -51,7 +51,7 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseBatchNewGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -160,7 +160,7 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseBatchNewGridViewBase
      */ 
-    protected viewName: string = "CaseBatchNewGridView";
+    protected viewName: string = 'CaseBatchNewGridView';
 
 
     /**

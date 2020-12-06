@@ -157,4 +157,28 @@ export interface DocLib {
      * @memberof DocLib
      */
     mdeptid?: any;
+
+    /**
+     * Root
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    root?: any;
+
+    /**
+     * 文件夹数
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    modulecnt?: any;
+
+    /**
+     * 创建时间
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    openeddate?: any;
 }

@@ -141,6 +141,11 @@ export class MobNewFromModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

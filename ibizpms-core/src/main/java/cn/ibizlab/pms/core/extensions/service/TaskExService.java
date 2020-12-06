@@ -3,10 +3,12 @@ package cn.ibizlab.pms.core.extensions.service;
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
 import cn.ibizlab.pms.core.ibiz.filter.IbzFavoritesSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IIbzFavoritesService;
+import cn.ibizlab.pms.core.ibiz.service.ITaskTeamService;
 import cn.ibizlab.pms.core.ibiz.service.impl.IbzFavoritesServiceImpl;
 import cn.ibizlab.pms.core.ou.client.SysEmployeeFeignClient;
 import cn.ibizlab.pms.core.ou.domain.SysEmployee;
 import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.ZTBaseHelper;
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.util.zentao.service.IIBZZTFileService;
 import cn.ibizlab.pms.core.zentao.domain.File;
@@ -18,6 +20,7 @@ import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +45,9 @@ public class TaskExService extends TaskServiceImpl {
 
     @Autowired
     IFileService iFileService;
+
+    @Autowired
+    ITaskTeamService iTaskTeamService;
 
 
     @Autowired
@@ -253,9 +259,36 @@ public class TaskExService extends TaskServiceImpl {
         IbzFavoritesSearchContext ibzFavoritesSearchContext = new IbzFavoritesSearchContext();
         ibzFavoritesSearchContext.setN_type_eq(StaticDict.Action__object_type.TASK.getValue());
         ibzFavoritesSearchContext.setN_objectid_eq(key);
-        ibzFavoritesSearchContext.setN_account_eq(cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser().getLoginname());
+        ibzFavoritesSearchContext.setN_account_eq(AuthenticationUser.getAuthenticationUser().getLoginname());
         if(iIbzFavoritesService.searchDefault(ibzFavoritesSearchContext).getContent().size() > 0) {
             et.setIsfavorites(StaticDict.YesNo.ITEM_1.getValue());
+        }
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Task getTeamUserLeftActivity(Task et) {
+        //自定义代码
+        et=this.get(et.getId());
+        //获取团队成员的剩余工时
+        List<TaskTeam> taskTeams = iTaskTeamService.list(new QueryWrapper<TaskTeam>().eq(ZTBaseHelper.FIELD_TYPE, StaticDict.Action__object_type.TASK.getValue()).eq(ZTBaseHelper.FIELD_ROOT, et.getId()).eq(ZTBaseHelper.FIELD_ACCOUNT, AuthenticationUser.getAuthenticationUser().getUsername()));
+        if (taskTeams.size()>0){
+            et.setLeft(taskTeams.get(0).getLeft());
+        }
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Task getTeamUserLeftStart(Task et) {
+        //自定义代码
+        et = this.get(et.getId());
+        // 获取团队成员的消耗和剩余工时
+        List<TaskTeam> taskTeams = iTaskTeamService.list(new QueryWrapper<TaskTeam>().eq(ZTBaseHelper.FIELD_TYPE, StaticDict.Action__object_type.TASK.getValue()).eq(ZTBaseHelper.FIELD_ROOT, et.getId()).eq(ZTBaseHelper.FIELD_ACCOUNT, AuthenticationUser.getAuthenticationUser().getUsername()));
+        if(taskTeams.size() > 0) {
+            et.setLeft(taskTeams.get(0).getLeft());
+            et.setConsumed(taskTeams.get(0).getConsumed());
         }
         return et;
     }

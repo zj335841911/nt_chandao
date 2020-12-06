@@ -13,7 +13,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.todo.myupcoming_grid.nodata')}} 
@@ -21,30 +21,30 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('date1')">
                 <el-table-column show-overflow-tooltip :prop="'date1'" :label="$t('entities.todo.myupcoming_grid.columns.date1')" :width="70"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.todo.myupcoming_grid.columns.date1')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.date1}}</span>
+                            <span>{{row.date1}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('begin')">
                 <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.todo.myupcoming_grid.columns.begin')" :width="60"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.todo.myupcoming_grid.columns.begin')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.begin" tag='BeginendDropList' codelistType='STATIC' ></codelist>
+            <codelist :value="row.begin" tag="BeginendDropList" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -52,13 +52,13 @@
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.todo.myupcoming_grid.columns.pri')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.todo.myupcoming_grid.columns.pri')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -66,19 +66,26 @@
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.todo.myupcoming_grid.columns.name')" :min-width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.todo.myupcoming_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='todo' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'todo-dashboard-view', height: 0,width: 0,title: $t('entities.todo.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="todo"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'todo-dashboard-view', height: 0,width: 0,title: $t('entities.todo.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'todos', parameterName: 'todo' },
             { pathName: 'dashboardview', parameterName: 'dashboardview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.name}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>

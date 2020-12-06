@@ -1,6 +1,17 @@
-<div class='tabviewpanel'>
-    <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='tabexpviewtabexppanel' @on-click="tabPanelClick($event)">
-        <tab-pane :index="0" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visible"
+<div class="tabviewpanel">
+    <tabs
+        :value="activatedTabViewPanel"
+        :animated="false"
+        class="tabexppanel"
+        name="tabexpviewtabexppanel"
+        @on-click="tabPanelClick($event)"
+    >
+        <tab-pane
+            :index="0"
+            name="tabviewpanel"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '首页'),
@@ -18,13 +29,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel"
     name="tabviewpanel"  
-    ref='tabviewpanel'
+    ref="tabviewpanel"
     :expActive="activatedTabViewPanel === 'tabviewpanel'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel10' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel10'].visible"
+        <tab-pane
+            :index="1"
+            name="tabviewpanel10"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel10'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '日历'),
@@ -42,13 +58,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel10"
     name="tabviewpanel10"  
-    ref='tabviewpanel10'
+    ref="tabviewpanel10"
     :expActive="activatedTabViewPanel === 'tabviewpanel10'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel10>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel3'].visible"
+        <tab-pane
+            :index="2"
+            name="tabviewpanel3"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel3'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '日程'),
@@ -66,13 +87,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel3"
     name="tabviewpanel3"  
-    ref='tabviewpanel3'
+    ref="tabviewpanel3"
     :expActive="activatedTabViewPanel === 'tabviewpanel3'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
-        <tab-pane :index="3" name='tabviewpanel4' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel4'].visible"
+        <tab-pane
+            :index="3"
+            name="tabviewpanel4"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel4'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '任务'),
@@ -90,13 +116,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel4"
     name="tabviewpanel4"  
-    ref='tabviewpanel4'
+    ref="tabviewpanel4"
     :expActive="activatedTabViewPanel === 'tabviewpanel4'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
-        <tab-pane :index="4" name='tabviewpanel5' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel5'].visible"
+        <tab-pane
+            :index="4"
+            name="tabviewpanel5"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel5'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', 'BUG'),
@@ -114,13 +145,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel5"
     name="tabviewpanel5"  
-    ref='tabviewpanel5'
+    ref="tabviewpanel5"
     :expActive="activatedTabViewPanel === 'tabviewpanel5'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel5>
         </tab-pane>
-        <tab-pane :index="5" name='tabviewpanel6' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel6'].visible"
+        <tab-pane
+            :index="5"
+            name="tabviewpanel6"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel6'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '测试'),
@@ -138,13 +174,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel6"
     name="tabviewpanel6"  
-    ref='tabviewpanel6'
+    ref="tabviewpanel6"
     :expActive="activatedTabViewPanel === 'tabviewpanel6'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel6>
         </tab-pane>
-        <tab-pane :index="6" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visible"
+        <tab-pane
+            :index="6"
+            name="tabviewpanel2"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel2'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '需求'),
@@ -162,13 +203,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel2"
     name="tabviewpanel2"  
-    ref='tabviewpanel2'
+    ref="tabviewpanel2"
     :expActive="activatedTabViewPanel === 'tabviewpanel2'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :index="7" name='tabviewpanel7' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel7'].visible"
+        <tab-pane
+            :index="7"
+            name="tabviewpanel7"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel7'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '项目'),
@@ -186,13 +232,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel7"
     name="tabviewpanel7"  
-    ref='tabviewpanel7'
+    ref="tabviewpanel7"
     :expActive="activatedTabViewPanel === 'tabviewpanel7'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel7>
         </tab-pane>
-        <tab-pane :index="8" name='tabviewpanel9' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel9'].visible"
+        <tab-pane
+            :index="8"
+            name="tabviewpanel9"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel9'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '动态'),
@@ -210,13 +261,18 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel9"
     name="tabviewpanel9"  
-    ref='tabviewpanel9'
+    ref="tabviewpanel9"
     :expActive="activatedTabViewPanel === 'tabviewpanel9'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel9>
         </tab-pane>
-        <tab-pane :index="9" name='tabviewpanel8' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel8'].visible"
+        <tab-pane
+            :index="9"
+            name="tabviewpanel8"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel8'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '联系人'),
@@ -234,11 +290,69 @@
     :context="JSON.parse(JSON.stringify(context))" 
     v-if="isInit.tabviewpanel8"
     name="tabviewpanel8"  
-    ref='tabviewpanel8'
+    ref="tabviewpanel8"
     :expActive="activatedTabViewPanel === 'tabviewpanel8'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel8>
+        </tab-pane>
+        <tab-pane
+            :index="10"
+            name="tabviewpanel11"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel11'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '模板'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel11 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel11"
+    name="tabviewpanel11"  
+    ref="tabviewpanel11"
+    :expActive="activatedTabViewPanel === 'tabviewpanel11'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel11>
+        </tab-pane>
+        <tab-pane
+            :index="11"
+            name="tabviewpanel12"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel12'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '汇报'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel12 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel12"
+    name="tabviewpanel12"  
+    ref="tabviewpanel12"
+    :expActive="activatedTabViewPanel === 'tabviewpanel12'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel12>
         </tab-pane>
     </tabs>
 </div>

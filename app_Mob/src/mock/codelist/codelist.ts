@@ -117,6 +117,34 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'ReportType',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'weekly',
+                label: '周报',
+                text: '周报',
+                value: 'weekly',
+                disabled: false,
+            },
+            {
+                id: 'daily',
+                label: '日报',
+                text: '日报',
+                value: 'daily',
+                disabled: false,
+            },
+            {
+                id: 'monthly',
+                label: '月报',
+                text: '月报',
+                value: 'monthly',
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "RelatedStory",
         "emptytext": "",
         "codelisttype":"dynamic",
@@ -285,6 +313,14 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
     },
     {
         srfkey: 'Project__status',
@@ -618,6 +654,27 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'ReportStatus',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '0',
+                label: '未读',
+                text: '未读',
+                value: '0',
+                disabled: false,
+            },
+            {
+                id: '1',
+                label: '已读',
+                text: '已读',
+                value: '1',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'YesNo',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -865,29 +922,29 @@ const datas: Array<any> = [
         items: [
             {
                 id: '1',
-                label: '1',
-                text: '1',
+                label: '致命',
+                text: '致命',
                 value: 1,
                 disabled: false,
             },
             {
                 id: '2',
-                label: '2',
-                text: '2',
+                label: '严重',
+                text: '严重',
                 value: 2,
                 disabled: false,
             },
             {
                 id: '3',
-                label: '3',
-                text: '3',
+                label: '一般',
+                text: '一般',
                 value: 3,
                 disabled: false,
             },
             {
                 id: '4',
-                label: '4',
-                text: '4',
+                label: '轻微',
+                text: '轻微',
                 value: 4,
                 disabled: false,
             },
@@ -1325,7 +1382,7 @@ const datas: Array<any> = [
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchBugModule",
+        "appdedataset":"FetchBugModuleCodeList",
         "items": []
     },
     {
@@ -1500,6 +1557,13 @@ const datas: Array<any> = [
                 label: '事务',
                 text: '事务',
                 value: 'affair',
+                disabled: false,
+            },
+            {
+                id: 'serve',
+                label: '服务',
+                text: '服务',
+                value: 'serve',
                 disabled: false,
             },
             {
@@ -1739,6 +1803,55 @@ const datas: Array<any> = [
                 label: '软件需求',
                 text: '软件需求',
                 value: 'story',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Testcase__color',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '#3da7f5',
+                label: '#3da7f5',
+                text: '#3da7f5',
+                value: '#3da7f5',
+                disabled: false,
+            },
+            {
+                id: '#75c941',
+                label: '#75c941',
+                text: '#75c941',
+                value: '#75c941',
+                disabled: false,
+            },
+            {
+                id: '#2dbdb2',
+                label: '#2dbdb2',
+                text: '#2dbdb2',
+                value: '#2dbdb2',
+                disabled: false,
+            },
+            {
+                id: '#797ec9',
+                label: '#797ec9',
+                text: '#797ec9',
+                value: '#797ec9',
+                disabled: false,
+            },
+            {
+                id: '#ffaf38',
+                label: '#ffaf38',
+                text: '#ffaf38',
+                value: '#ffaf38',
+                disabled: false,
+            },
+            {
+                id: '#ff4e3e',
+                label: '#ff4e3e',
+                text: '#ff4e3e',
+                value: '#ff4e3e',
                 disabled: false,
             },
         ]
@@ -3246,6 +3359,27 @@ const datas: Array<any> = [
                 value: 'deletechildrenstory',
                 disabled: false,
             },
+            {
+                id: 'submit',
+                label: '提交',
+                text: '提交',
+                value: 'submit',
+                disabled: false,
+            },
+            {
+                id: 'read',
+                label: '已读了',
+                text: '已读了',
+                value: 'read',
+                disabled: false,
+            },
+            {
+                id: 'remind',
+                label: '提醒',
+                text: '提醒',
+                value: 'remind',
+                disabled: false,
+            },
         ]
     },
     {
@@ -3441,6 +3575,27 @@ const datas: Array<any> = [
                 label: 'Webhook',
                 text: 'Webhook',
                 value: 'webhook',
+                disabled: false,
+            },
+            {
+                id: 'daily',
+                label: '日报',
+                text: '日报',
+                value: 'daily',
+                disabled: false,
+            },
+            {
+                id: 'weekly',
+                label: '周报',
+                text: '周报',
+                value: 'weekly',
+                disabled: false,
+            },
+            {
+                id: 'monthly',
+                label: '月报',
+                text: '月报',
+                value: 'monthly',
                 disabled: false,
             },
         ]
@@ -3707,6 +3862,55 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Story__color',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '#3da7f5',
+                label: '#3da7f5',
+                text: '#3da7f5',
+                value: '#3da7f5',
+                disabled: false,
+            },
+            {
+                id: '#75c941',
+                label: '#75c941',
+                text: '#75c941',
+                value: '#75c941',
+                disabled: false,
+            },
+            {
+                id: '#2dbdb2',
+                label: '#2dbdb2',
+                text: '#2dbdb2',
+                value: '#2dbdb2',
+                disabled: false,
+            },
+            {
+                id: '#797ec9',
+                label: '#797ec9',
+                text: '#797ec9',
+                value: '#797ec9',
+                disabled: false,
+            },
+            {
+                id: '#ffaf38',
+                label: '#ffaf38',
+                text: '#ffaf38',
+                value: '#ffaf38',
+                disabled: false,
+            },
+            {
+                id: '#ff4e3e',
+                label: '#ff4e3e',
+                text: '#ff4e3e',
+                value: '#ff4e3e',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__severity_mob',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3922,6 +4126,14 @@ const datas: Array<any> = [
         "codelisttype":"dynamic",
         "appdataentity":"StorySpec",
         "appdedataset":"FetchVersion",
+        "items": []
+    },
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
         "items": []
     },
     {
@@ -4177,29 +4389,29 @@ const datas: Array<any> = [
         items: [
             {
                 id: '1',
-                label: '1',
-                text: '1',
+                label: '严重',
+                text: '严重',
                 value: 1,
                 disabled: false,
             },
             {
                 id: '2',
-                label: '2',
-                text: '2',
+                label: '主要',
+                text: '主要',
                 value: 2,
                 disabled: false,
             },
             {
                 id: '3',
-                label: '3',
-                text: '3',
+                label: '次要',
+                text: '次要',
                 value: 3,
                 disabled: false,
             },
             {
                 id: '4',
-                label: '4',
-                text: '4',
+                label: '不重要',
+                text: '不重要',
                 value: 4,
                 disabled: false,
             },

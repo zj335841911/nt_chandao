@@ -180,6 +180,66 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String assignedto;
 
+    /**
+     * 属性 [RESOLVEDBY]
+     *
+     */
+    @JSONField(name = "resolvedby")
+    @JsonProperty("resolvedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String resolvedby;
+
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String projectname;
+
+    /**
+     * 属性 [BUGACTIVE]
+     *
+     */
+    @JSONField(name = "bugactive")
+    @JsonProperty("bugactive")
+    private Integer bugactive;
+
+    /**
+     * 属性 [BUGRESOLVED]
+     *
+     */
+    @JSONField(name = "bugresolved")
+    @JsonProperty("bugresolved")
+    private Integer bugresolved;
+
+    /**
+     * 属性 [BUGCLOSED]
+     *
+     */
+    @JSONField(name = "bugclosed")
+    @JsonProperty("bugclosed")
+    private Integer bugclosed;
+
+    /**
+     * 属性 [PROJECTNAME1]
+     *
+     */
+    @JSONField(name = "projectname1")
+    @JsonProperty("projectname1")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String projectname1;
+
 
     /**
      * 设置 [TITLE]
@@ -211,6 +271,30 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     public void setAssignedto(String  assignedto){
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
+    }
+
+    /**
+     * 设置 [RESOLVEDBY]
+     */
+    public void setResolvedby(String  resolvedby){
+        this.resolvedby = resolvedby ;
+        this.modify("resolvedby",resolvedby);
+    }
+
+    /**
+     * 设置 [PROJECT]
+     */
+    public void setProject(Long  project){
+        this.project = project ;
+        this.modify("project",project);
+    }
+
+    /**
+     * 设置 [PROJECTNAME]
+     */
+    public void setProjectname(String  projectname){
+        this.projectname = projectname ;
+        this.modify("projectname",projectname);
     }
 
 

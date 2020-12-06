@@ -679,7 +679,7 @@ POST
 /bugs/fetchbugsbybuild
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -715,7 +715,7 @@ POST
 /bugs/fetchbuildbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -751,7 +751,7 @@ POST
 /bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -787,7 +787,7 @@ POST
 /bugs/fetchbuildopenbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1291,7 +1291,7 @@ POST
 /bugs/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1363,7 +1363,7 @@ POST
 /bugs/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1435,7 +1435,7 @@ POST
 /bugs/fetchprojectbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1471,7 +1471,7 @@ POST
 /bugs/fetchreleasebugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1507,7 +1507,7 @@ POST
 /bugs/fetchreleaseleftbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1615,7 +1615,7 @@ POST
 /bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2358,7 +2358,7 @@ POST
 /products/{product_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2396,7 +2396,7 @@ POST
 /products/{product_id}/bugs/fetchbuildbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2434,7 +2434,7 @@ POST
 /products/{product_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2472,7 +2472,7 @@ POST
 /products/{product_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3004,7 +3004,7 @@ POST
 /products/{product_id}/bugs/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3080,7 +3080,7 @@ POST
 /products/{product_id}/bugs/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3156,7 +3156,7 @@ POST
 /products/{product_id}/bugs/fetchprojectbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3194,7 +3194,7 @@ POST
 /products/{product_id}/bugs/fetchreleasebugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3232,7 +3232,7 @@ POST
 /products/{product_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3346,7 +3346,7 @@ POST
 /products/{product_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4091,7 +4091,7 @@ POST
 /stories/{story_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4129,7 +4129,7 @@ POST
 /stories/{story_id}/bugs/fetchbuildbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4167,7 +4167,7 @@ POST
 /stories/{story_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4205,7 +4205,7 @@ POST
 /stories/{story_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4737,7 +4737,7 @@ POST
 /stories/{story_id}/bugs/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4813,7 +4813,7 @@ POST
 /stories/{story_id}/bugs/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4889,7 +4889,7 @@ POST
 /stories/{story_id}/bugs/fetchprojectbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4927,7 +4927,7 @@ POST
 /stories/{story_id}/bugs/fetchreleasebugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4965,7 +4965,7 @@ POST
 /stories/{story_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5079,7 +5079,7 @@ POST
 /stories/{story_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5824,7 +5824,7 @@ POST
 /projects/{project_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5862,7 +5862,7 @@ POST
 /projects/{project_id}/bugs/fetchbuildbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5900,7 +5900,7 @@ POST
 /projects/{project_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5938,7 +5938,7 @@ POST
 /projects/{project_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -6470,7 +6470,7 @@ POST
 /projects/{project_id}/bugs/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -6546,7 +6546,7 @@ POST
 /projects/{project_id}/bugs/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -6622,7 +6622,7 @@ POST
 /projects/{project_id}/bugs/fetchprojectbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -6660,7 +6660,7 @@ POST
 /projects/{project_id}/bugs/fetchreleasebugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -6698,7 +6698,7 @@ POST
 /projects/{project_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -6812,7 +6812,7 @@ POST
 /projects/{project_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -7557,7 +7557,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -7595,7 +7595,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchbuildbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -7633,7 +7633,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -7671,7 +7671,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8203,7 +8203,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8279,7 +8279,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8355,7 +8355,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchprojectbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8393,7 +8393,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchreleasebugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8431,7 +8431,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8545,7 +8545,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8658,7 +8658,8 @@ POST
 | 73 | noticeusers | String | 允许 | 消息通知用户 |
 | 74 | mailtopk | String | 允许 | 抄送给 |
 | 75 | mailtoconact | String | 允许 | 联系人 |
-| 76 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 76 | delayresolve | String | 允许 | 延期解决 |
+| 77 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

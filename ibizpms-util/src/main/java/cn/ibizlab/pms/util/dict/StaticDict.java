@@ -214,6 +214,29 @@ public class StaticDict {
 
 
     /**
+     * 代码表[汇报快速分组]
+     */
+    @Getter
+    public enum REPORTQuickGroup {
+        ALLCNT("All","所有"),
+        DAILYCNT("daily","日报"),
+        WEEKLYCNT("weekly","周报"),
+        MONTHLYCNT("monthly","月报");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        REPORTQuickGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[扩展表格单元格垂直对齐方式]
      */
     @Getter
@@ -514,6 +537,27 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[汇报状态]
+     */
+    @Getter
+    public enum ReportStatus {
+        ITEM_0("0","未读"),
+        ITEM_1("1","已读");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ReportStatus(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
 
     /**
      * 代码表[字段查询扩展选项]
@@ -535,6 +579,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -610,6 +655,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -1395,7 +1441,10 @@ public class StaticDict {
         CASELIB("caselib","用例库"),
         TESTREPORT("testreport","报告"),
         ENTRY("entry","应用"),
-        WEBHOOK("webhook","Webhook");
+        WEBHOOK("webhook","Webhook"),
+        DAILY("daily","日报"),
+        WEEKLY("weekly","周报"),
+        MONTHLY("monthly","月报");
 
         private String value;
         private String text;
@@ -1565,6 +1614,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -1914,6 +1964,7 @@ public class StaticDict {
         DISCUSS("discuss","讨论"),
         UI("ui","界面"),
         AFFAIR("affair","事务"),
+        SERVE("serve","服务"),
         MISC("misc","其他");
 
         private String value;
@@ -2174,6 +2225,29 @@ public class StaticDict {
 
 
     /**
+     * 代码表[用户模板快速分组]
+     */
+    @Getter
+    public enum UserTplQuickGroup {
+        ALL("all","所有"),
+        STORY("story","需求"),
+        TASK("task","任务"),
+        BUG("bug","Bug");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        UserTplQuickGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[是否（YESNO）]
      */
     @Getter
@@ -2294,7 +2368,10 @@ public class StaticDict {
         UNLINKCHILDRENSTORY("unlinkchildrenstory","取消关联子需求"),
         LINKPARENTSTORY("linkparentstory","关联到父需求"),
         UNLINKPARENTSTORY("unlinkparentstory","从父需求取消关联"),
-        DELETECHILDRENSTORY("deletechildrenstory","删除子需求");
+        DELETECHILDRENSTORY("deletechildrenstory","删除子需求"),
+        SUBMIT("submit","提交"),
+        READ("read","已读了"),
+        REMIND("remind","提醒");
 
         private String value;
         private String text;
@@ -3285,7 +3362,10 @@ public class StaticDict {
         CASELIB("caselib","用例库"),
         TESTREPORT("testreport","报告"),
         ENTRY("entry","应用"),
-        WEBHOOK("webhook","Webhook");
+        WEBHOOK("webhook","Webhook"),
+        DAILY("daily","日报"),
+        WEEKLY("weekly","周报"),
+        MONTHLY("monthly","月报");
 
         private String value;
         private String text;
@@ -3892,6 +3972,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[功能测试快速分组]
      */
@@ -3933,6 +4014,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
 
@@ -4059,10 +4141,10 @@ public class StaticDict {
      */
     @Getter
     public enum Bug__pri {
-        ITEM_1(1,"1"),
-        ITEM_2(2,"2"),
-        ITEM_3(3,"3"),
-        ITEM_4(4,"4");
+        ITEM_1(1,"严重"),
+        ITEM_2(2,"主要"),
+        ITEM_3(3,"次要"),
+        ITEM_4(4,"不重要");
 
         private int value;
         private String text;
@@ -4179,6 +4261,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -4816,6 +4899,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[ZT_IM_CONFERENCEACTION__TYPE]
      */
@@ -4858,6 +4942,28 @@ public class StaticDict {
         }
     }
 
+
+
+    /**
+     * 代码表[用户模板类型]
+     */
+    @Getter
+    public enum UserTplType {
+        STORY("story","需求"),
+        TASK("task","任务"),
+        BUG("bug","Bug");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        UserTplType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
 
@@ -4946,6 +5052,28 @@ public class StaticDict {
         }
     }
 
+
+
+    /**
+     * 代码表[汇报类型]
+     */
+    @Getter
+    public enum ReportType {
+        WEEKLY("weekly","周报"),
+        DAILY("daily","日报"),
+        MONTHLY("monthly","月报");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ReportType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
     /**
@@ -5094,10 +5222,10 @@ public class StaticDict {
      */
     @Getter
     public enum Bug__severity {
-        ITEM_1(1,"1"),
-        ITEM_2(2,"2"),
-        ITEM_3(3,"3"),
-        ITEM_4(4,"4");
+        ITEM_1(1,"致命"),
+        ITEM_2(2,"严重"),
+        ITEM_3(3,"一般"),
+        ITEM_4(4,"轻微");
 
         private int value;
         private String text;
@@ -5227,6 +5355,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
 
@@ -5538,6 +5667,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
 
@@ -6066,6 +6196,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[测试用例结果]
      */
@@ -6131,6 +6262,36 @@ public class StaticDict {
         }
     }
 
+
+
+    /**
+     * 代码表[需求故事点]
+     */
+    @Getter
+    public enum StoryPoints {
+        ITEM_0("0","0"),
+        ITEM_05("0.5","1/2"),
+        ITEM_1("1","1"),
+        ITEM_2("2","2"),
+        ITEM_3("3","3"),
+        ITEM_5("5","5"),
+        ITEM_8("8","8"),
+        ITEM_13("13","13"),
+        ITEM_20("20","20"),
+        ITEM_40("40","40"),
+        ITEM_100("100","100");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        StoryPoints(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
     /**
@@ -6368,6 +6529,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**

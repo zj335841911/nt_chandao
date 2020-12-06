@@ -240,6 +240,9 @@ export default class DashboardBugLifeModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

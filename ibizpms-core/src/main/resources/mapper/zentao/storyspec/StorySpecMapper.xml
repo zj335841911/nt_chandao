@@ -11,8 +11,8 @@
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="StorySpecResultMap" type="cn.ibizlab.pms.core.zentao.domain.StorySpec" autoMapping="true">
 		<result property="story" column="story" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztstory" javaType="cn.ibizlab.pms.core.zentao.domain.Story" column="story" select="cn.ibizlab.pms.core.zentao.mapper.StoryMapper.selectById" fetchType="lazy"></association>
     </resultMap>

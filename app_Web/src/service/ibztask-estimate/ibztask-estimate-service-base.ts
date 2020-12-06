@@ -63,6 +63,18 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempDefault接口方法
      *
      * @param {*} [context={}]
@@ -106,6 +118,18 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
         }else{
             return {"status":200,"data":[]};
         }
+    }
+
+    /**
+     * searchDefaults接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async searchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='useryearworkstats_basismaininfo'
+    class="app-form"
+    ref="form"
+    id="useryearworkstats_basismaininfo"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{'height': '120px !important',}"  :lg="{ span: 22, offset: 1 }" :xl="{ span: 22, offset: 1 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{'height': '120px !important',}"
+    
+    
+    :lg="{ span: 22, offset: 1 }"
+    :xl="{ span: 22, offset: 1 }"
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.group1')"
@@ -29,13 +37,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 6 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 6 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class='panelitem-20px'
+    class="panelitem-20px"
 
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.title')"
     uiStyle="DEFAULT"
@@ -43,20 +59,30 @@
     :isShowCaption="false"
     :error="detailsModel.title.error"
     :isEmptyCaption="true"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.curyear.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.curyear.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='curyear'
+    name="curyear"
     :itemRules="this.rules().curyear"
-    class=''
+    class=""
 
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.curyear')"
     uiStyle="DEFAULT"
@@ -64,7 +90,8 @@
     :isShowCaption="false"
     :error="detailsModel.curyear.error"
     :isEmptyCaption="false"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     
 <dropdown-list 
     v-model="data.curyear"
@@ -72,15 +99,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.curyear.disabled"
     valueType="string"
-    tag='CodeList81'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="CodeList81"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -89,12 +116,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 22, offset: 1 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 22, offset: 1 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel4"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel4')"
@@ -110,14 +145,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel5.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel5"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel5.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel5')"
@@ -133,9 +176,17 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -143,12 +194,21 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         <div><ul ><li>累计登录次数 <strong>{{data.yearvisits ? data.yearvisits: 0}}</strong></li><li >累计动态数 <strong  >{{data.yearactioncnt ? data.yearactioncnt: 0}}</strong></li><li>累计日志数 <strong>{{data.yearlogcnt ? data.yearlogcnt: 0}}</strong></li><li >累计工时数 <strong>{{data.yearestimatecnt ? data.yearestimatecnt: 0}}</strong></li></ul></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -156,12 +216,21 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         <div><ul ><li>累计登录次数 <strong>{{data.yearvisits ? data.yearvisits: 0}}</strong></li><li>累计参与产品数 <strong>{{data.yearproductcnt ? data.yearproductcnt: 0}}</strong></li><li >累计创建计划数 <strong>{{data.yearplancnt ? data.yearplancnt: 0}}</strong></li><li >累计创建需求数 <strong>{{data.yearstorycnt ? data.yearstorycnt: 0}}</strong></li></ul></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -169,6 +238,7 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         <div><ul ><li>累计登录次数 <strong>{{data.yearvisits ? data.yearvisits: 0}}</strong></li><li >累计动态数 <strong  >{{data.yearactioncnt ? data.yearactioncnt: 0}}</strong></li><li>累计创建用例数 <strong>{{data.yearcasecnt ? data.yearcasecnt: 0}}</strong></li><li >累计创建Bug数 <strong>{{data.yearbugcnt ? data.yearbugcnt: 0}}</strong></li></ul></div>
 </app-rawitem>
@@ -179,12 +249,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel8.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel8"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel8.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel8')"
@@ -200,14 +278,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel10.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel10"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel10.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel10')"
@@ -223,14 +309,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart6.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart6.visible"
+    :style="{'height': '300px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -238,12 +332,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DECHARTVIEW9' 
-    refreshitems='curyear' 
+    refviewtype="DECHARTVIEW9" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='product-sum-po-chart-view9' 
+    viewname="product-sum-po-chart-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
@@ -255,12 +349,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel11.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel11.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel11"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel11.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel11')"
@@ -276,14 +378,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart7.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart7.visible"
+    :style="{'height': '300px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -291,12 +401,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DECHARTVIEW9' 
-    refreshitems='curyear' 
+    refviewtype="DECHARTVIEW9" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='product-sum-qa-chart-view9' 
+    viewname="product-sum-qa-chart-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
@@ -308,12 +418,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel6.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel6"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel6.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel6')"
@@ -329,14 +447,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart4.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart4.visible"
+    :style="{'height': '300px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -344,12 +470,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DECHARTVIEW9' 
-    refreshitems='curyear' 
+    refviewtype="DECHARTVIEW9" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='project-chart-view9' 
+    viewname="project-chart-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
@@ -366,12 +492,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel9.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel9"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel9.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel9')"
@@ -387,14 +521,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel7.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel7"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel7.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel7')"
@@ -410,14 +552,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart5.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart5.visible"
+    :style="{'height': '300px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -425,12 +575,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='curyear' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='project-grid-view9' 
+    viewname="project-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
@@ -442,12 +592,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel12.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel12.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel12"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel12.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel12')"
@@ -463,14 +621,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart8.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart8.visible"
+    :style="{'height': '300px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -478,12 +644,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DEGRIDVIEW' 
-    refreshitems='curyear' 
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='product-sum-usr2-grid-view' 
+    viewname="product-sum-usr2-grid-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
@@ -495,12 +661,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel13.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel13.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel13"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel13.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel13')"
@@ -516,14 +690,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart9.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart9.visible"
+    :style="{'height': '300px !important',}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -531,12 +713,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DEGRIDVIEW' 
-    refreshitems='curyear' 
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='product-sum-usr3-grid-view' 
+    viewname="product-sum-usr3-grid-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
@@ -558,12 +740,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel1')"
@@ -579,14 +769,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -594,12 +792,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DEPORTALVIEW' 
-    refreshitems='curyear' 
+    refviewtype="DEPORTALVIEW" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='user-year-work-stats-dashboard-view' 
+    viewname="user-year-work-stats-dashboard-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
@@ -611,12 +809,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel2')"
@@ -632,14 +838,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -647,12 +861,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DEPORTALVIEW' 
-    refreshitems='curyear' 
+    refviewtype="DEPORTALVIEW" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='user-year-work-stats-qadashboard-view' 
+    viewname="user-year-work-stats-qadashboard-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
@@ -664,12 +878,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel3')"
@@ -685,14 +907,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='useryearworkstats' 
+    paramItem="useryearworkstats" 
     :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -700,12 +930,12 @@
     :viewparams="viewparams"
     :localContext ='{CURYEAR:"%curyear%"}'
     :localParam ='{curyear:"%curyear%"}'
-    parameterName='useryearworkstats'
+    parameterName="useryearworkstats"
     parentName="UserYearWorkStats"  
-    refviewtype='DEPORTALVIEW' 
-    refreshitems='curyear' 
+    refviewtype="DEPORTALVIEW" 
+    refreshitems="curyear" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='user-year-work-stats-podashboard-view' 
+    viewname="user-year-work-stats-podashboard-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

@@ -12,8 +12,8 @@
     <resultMap id="ImChatResultMap" type="cn.ibizlab.pms.core.zentao.domain.ImChat" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="ibizpublic" column="public" />
-            
-		
+
+
     </resultMap>
 
 

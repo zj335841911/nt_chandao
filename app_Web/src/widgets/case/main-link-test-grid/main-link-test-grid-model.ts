@@ -138,6 +138,11 @@ export default class MainLinkTestModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',

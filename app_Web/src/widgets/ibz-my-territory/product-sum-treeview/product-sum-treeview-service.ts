@@ -64,6 +64,15 @@ export default class ProductSumService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
+     * 需求工时汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProductSumService
+     */
+	public TREENODE_STORYHOURSSUM: string = 'StoryHoursSum';
+
+    /**
      * 默认根节点节点分隔符号
      *
      * @public
@@ -80,6 +89,15 @@ export default class ProductSumService extends ControlService {
      * @memberof ProductSumService
      */
 	public TREENODE_PRODUCTSUM: string = 'ProductSum';
+
+    /**
+     * 需求汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProductSumService
+     */
+	public TREENODE_PRODUCTSTORYSUM: string = 'ProductStorySum';
 
     /**
      * 获取节点数据
@@ -155,6 +173,10 @@ export default class ProductSumService extends ControlService {
             }
         }
 
+        if (Object.is(strNodeType, this.TREENODE_STORYHOURSSUM)) {
+            await this.fillStoryhourssumNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -163,8 +185,71 @@ export default class ProductSumService extends ControlService {
             await this.fillProductsumNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_PRODUCTSTORYSUM)) {
+            await this.fillProductstorysumNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
+
+    /**
+     * 填充 树视图节点[需求工时汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProductSumService
+     */
+    @Errorlog
+    public fillStoryhourssumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.productsum_treeview.nodes.storyhourssum') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'StoryHoursSum';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[需求工时汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProductSumService
+     */
+    @Errorlog
+    public async fillStoryhourssumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
 
     /**
      * 填充 树视图节点[默认根节点]
@@ -225,12 +310,32 @@ export default class ProductSumService extends ControlService {
             let ProductsumRsNavParams:any = {};
             let ProductsumRsParams:any = {};
 			await this.fillProductsumNodes(context, filter, list ,ProductsumRsNavContext,ProductsumRsNavParams,ProductsumRsParams);
+			// 填充需求汇总表
+            let ProductstorysumRsNavContext:any = {};
+            let ProductstorysumRsNavParams:any = {};
+            let ProductstorysumRsParams:any = {};
+			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
+			// 填充需求工时汇总表
+            let StoryhourssumRsNavContext:any = {};
+            let StoryhourssumRsNavParams:any = {};
+            let StoryhourssumRsParams:any = {};
+			await this.fillStoryhourssumNodes(context, filter, list ,StoryhourssumRsNavContext,StoryhourssumRsNavParams,StoryhourssumRsParams);
 		} else {
 			// 填充产品汇总表
             let ProductsumRsNavContext:any = {};
             let ProductsumRsNavParams:any = {};
             let ProductsumRsParams:any = {};
 			await this.fillProductsumNodes(context, filter, list ,ProductsumRsNavContext,ProductsumRsNavParams,ProductsumRsParams);
+			// 填充需求汇总表
+            let ProductstorysumRsNavContext:any = {};
+            let ProductstorysumRsNavParams:any = {};
+            let ProductstorysumRsParams:any = {};
+			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
+			// 填充需求工时汇总表
+            let StoryhourssumRsNavContext:any = {};
+            let StoryhourssumRsNavParams:any = {};
+            let StoryhourssumRsParams:any = {};
+			await this.fillStoryhourssumNodes(context, filter, list ,StoryhourssumRsNavContext,StoryhourssumRsNavParams,StoryhourssumRsParams);
 		}
 	}
 
@@ -288,6 +393,65 @@ export default class ProductSumService extends ControlService {
      */
     @Errorlog
     public async fillProductsumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[需求汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProductSumService
+     */
+    @Errorlog
+    public fillProductstorysumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.productsum_treeview.nodes.productstorysum') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProductStorySum';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[需求汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProductSumService
+     */
+    @Errorlog
+    public async fillProductstorysumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}

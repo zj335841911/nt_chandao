@@ -51,7 +51,7 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
      * @type {string}
      * @memberof TaskMainGridView_ByModuleBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -99,6 +99,10 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
             name: 'grid',
             type: 'GRID',
         },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -138,7 +142,7 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
      * @type {string}
      * @memberof TaskMainGridView_ByModuleBase
      */ 
-    protected viewName: string = "TaskMainGridView_ByModule";
+    protected viewName: string = 'TaskMainGridView_ByModule';
 
 
     /**

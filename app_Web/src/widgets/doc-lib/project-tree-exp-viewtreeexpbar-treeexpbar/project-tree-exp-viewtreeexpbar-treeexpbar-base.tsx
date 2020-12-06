@@ -117,30 +117,30 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
         }
         if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
             return {  
-                viewname: 'doc-grid-view', 
+                viewname: 'doc-lib-usr3-tree-view', 
                 parentdata: {},
-                deKeyField:'doc'
+                deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'PROJECT')) {
             return {  
-                viewname: 'doc-lib-grid-view', 
+                viewname: 'doc-lib-project-tree-view', 
                 parentdata: {"srfparentdefname":"project"},
                 deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'DOCLIB')) {
             return {  
-                viewname: 'doc-grid-view', 
-                parentdata: {"srfparentdefname":"n_lib_eq"},
-                deKeyField:'doc'
+                viewname: 'doc-lib-usr2-tree-view', 
+                parentdata: {},
+                deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'ROOTDOCLIBMODULE')) {
             return {  
-                viewname: 'doc-grid-view', 
+                viewname: 'doc-lib-usr3-tree-view', 
                 parentdata: {},
-                deKeyField:'doc'
+                deKeyField:'doclib'
 			};
         }
         return null;

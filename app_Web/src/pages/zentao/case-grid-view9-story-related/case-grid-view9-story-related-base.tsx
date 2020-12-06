@@ -51,7 +51,7 @@ export class CaseGridView9_StoryRelatedBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_StoryRelatedBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -114,7 +114,7 @@ export class CaseGridView9_StoryRelatedBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_StoryRelatedBase
      */ 
-    protected viewName: string = "CaseGridView9_StoryRelated";
+    protected viewName: string = 'CaseGridView9_StoryRelated';
 
 
     /**

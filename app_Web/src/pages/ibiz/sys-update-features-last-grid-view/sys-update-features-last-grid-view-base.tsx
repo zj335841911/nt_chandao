@@ -51,7 +51,7 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesLastGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -118,7 +118,7 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesLastGridViewBase
      */ 
-    protected viewName: string = "SysUpdateFeaturesLastGridView";
+    protected viewName: string = 'SysUpdateFeaturesLastGridView';
 
 
     /**

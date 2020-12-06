@@ -109,6 +109,7 @@ export class MainEditFormBase extends EditFormControlBase {
         title: null,
         severity: null,
         pri: null,
+        color: null,
         steps: null,
         storyname: null,
         taskname: null,
@@ -139,6 +140,20 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            productname: [
+                {
+                    required: this.detailsModel.productname.required,
+                    type: 'string',
+                    message: '产品 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.productname.required,
+                    type: 'string',
+                    message: '产品 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             openedbuild: [
                 {
                     required: this.detailsModel.openedbuild.required,
@@ -252,7 +267,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         productname: new FormItemModel({
     caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
@@ -357,6 +372,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -520,6 +542,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, 'mailtoconact')) {
             const details: string[] = ['mailto'];
             this.updateFormItems('GetUserConcat', this.data, details, true);
@@ -537,5 +560,16 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['productmodule'];
         }
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

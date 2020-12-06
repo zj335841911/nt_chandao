@@ -63,6 +63,18 @@ export default class IBZCaseStepServiceBase extends EntityService {
     }
 
     /**
+     * searchCurTest接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async searchCurTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempCurTest接口方法
      *
      * @param {*} [context={}]
@@ -106,6 +118,18 @@ export default class IBZCaseStepServiceBase extends EntityService {
         }else{
             return {"status":200,"data":[]};
         }
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**
@@ -155,6 +179,18 @@ export default class IBZCaseStepServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault1接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async searchDefault1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempDefault1接口方法
      *
      * @param {*} [context={}]
@@ -198,6 +234,18 @@ export default class IBZCaseStepServiceBase extends EntityService {
         }else{
             return {"status":200,"data":[]};
         }
+    }
+
+    /**
+     * searchMob接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async searchMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**
@@ -247,6 +295,18 @@ export default class IBZCaseStepServiceBase extends EntityService {
     }
 
     /**
+     * searchVersion接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async searchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempVersion接口方法
      *
      * @param {*} [context={}]
@@ -290,6 +350,18 @@ export default class IBZCaseStepServiceBase extends EntityService {
         }else{
             return {"status":200,"data":[]};
         }
+    }
+
+    /**
+     * searchVersions接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZCaseStepServiceBase
+     */
+    public async searchVersions(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

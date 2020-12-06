@@ -50,9 +50,13 @@ public interface IDocLibService extends IService<DocLib> {
     DocLib unCollect(DocLib et);
     Page<DocLib> searchByCustom(DocLibSearchContext context);
     Page<DocLib> searchByProduct(DocLibSearchContext context);
+    Page<DocLib> searchByProductNotFiles(DocLibSearchContext context);
     Page<DocLib> searchByProject(DocLibSearchContext context);
+    Page<DocLib> searchByProjectNotFiles(DocLibSearchContext context);
     Page<DocLib> searchCurDocLib(DocLibSearchContext context);
     Page<DocLib> searchDefault(DocLibSearchContext context);
+    Page<DocLib> searchMyFavourites(DocLibSearchContext context);
+    Page<DocLib> searchRootModuleMuLu(DocLibSearchContext context);
     List<DocLib> selectByProduct(Long id);
     void removeByProduct(Long id);
     List<DocLib> selectByProject(Long id);

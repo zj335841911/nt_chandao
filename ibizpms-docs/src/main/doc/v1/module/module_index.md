@@ -6,6 +6,7 @@
 |zentao|[基础管理模块](zentao.md)||
 |ibizpro|[iBizPro模块](ibizpro.md)||
 |ibizplugin|[iBiz插件模块](ibizplugin.md)||
+|report|[汇报模块](report.md)||
 |ibizsysmodel|[iBiz系统模型](ibizsysmodel.md)||
 |uaa|[uaa权限模块](uaa.md)||
 |ou|[ou组织用户管理模块](ou.md)||
@@ -92,6 +93,9 @@ class 更新日志 {
 }
 
 class 待办消息记录 {
+}
+
+class 任务统计 {
 }
 
 class 任务团队 {
@@ -664,7 +668,43 @@ hide members
 
 package iBiz插件模块 {
 
+class 关键字 {
+}
+
 class 消息 {
+}
+
+class 系统插件 {
+}
+
+class 标签 {
+}
+
+
+
+}
+
+hide members
+
+{% endplantuml %}
+
+{% plantuml %}
+
+package 汇报模块 {
+
+class 日报 {
+}
+
+class 月报 {
+}
+
+class 汇报 {
+}
+
+class 汇报角色配置 {
+}
+
+class 周报 {
 }
 
 
@@ -795,6 +835,24 @@ hide members
 {% plantuml %}
 
 package uaa权限模块 {
+
+class 系统角色 {
+}
+
+class 系统用户 {
+}
+
+class 用户角色关系 {
+}
+
+
+系统角色 *-- 系统角色 
+
+
+系统角色 *-- 用户角色关系 
+
+
+系统用户 *-- 用户角色关系 
 
 
 

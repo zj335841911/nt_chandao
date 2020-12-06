@@ -88,6 +88,11 @@ export default class TreeMainModel {
           prop: 'ischild',
           dataType: 'TEXT',
         },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
@@ -184,6 +189,11 @@ export default class TreeMainModel {
           name: 'plan',
           prop: 'plan',
           dataType: 'LONGTEXT',
+        },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'branch',

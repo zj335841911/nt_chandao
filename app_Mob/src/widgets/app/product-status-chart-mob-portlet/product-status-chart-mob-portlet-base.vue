@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet product-dashboard_sysportlet8 '>
-            <ion-list-header class='app-mob-portlet__header'>
+            <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>产品总览</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
@@ -41,8 +41,7 @@ import ProductUIService from '@/ui-service/product/product-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ProductStatusChartMobBase extends Vue implements ControlInterface {
 
@@ -163,7 +162,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

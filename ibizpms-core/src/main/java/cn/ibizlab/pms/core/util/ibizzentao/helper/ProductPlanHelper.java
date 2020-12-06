@@ -117,22 +117,22 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     public ProductPlan linkStory(ProductPlan et) {
         Long productPlanId = et.getId();
         if (productPlanId == null) {
-            if (et.get("productplan") == null) {
+            if (et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()) == null) {
                 throw new RuntimeException("缺少计划");
             }
-            productPlanId = Long.parseLong(et.get("productplan").toString());
+            productPlanId = Long.parseLong(et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()).toString());
         }
         String stories = "";
-        if(et.get("stories")!=null) {
-            stories = et.get("stories").toString();
+        if(et.get(FIELD_STORIES)!=null) {
+            stories = et.get(FIELD_STORIES).toString();
         }
-        else if(et.get("srfactionparam") != null){
-            List<Map<String,Object>> list = (List<Map<String, Object>>) et.get("srfactionparam");
+        else if(et.get(FIELD_SRFACTIONPARAM) != null){
+            List<Map<String,Object>> list = (List<Map<String, Object>>) et.get(FIELD_SRFACTIONPARAM);
             for (Map<String, Object> jsonObject : list) {
                 if(!"".equals(stories)) {
-                    stories += ",";
+                    stories += MULTIPLE_CHOICE;
                 }
-                stories += jsonObject.get("id");
+                stories += jsonObject.get(FIELD_ID);
             }
 
         }
@@ -144,11 +144,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         Product product = productHelper.get(et.getProduct());
         String curOrder = old.getOrder();
 
-        for (String storyId :  stories.split(",")) {
+        for (String storyId :  stories.split(MULTIPLE_CHOICE)) {
             if (curOrder.contains(storyId)) {
                 continue;
             }
-            curOrder += storyId + ",";
+            curOrder += storyId +MULTIPLE_CHOICE;
             Story story = new Story();
             story.setId(Long.parseLong(storyId));
             if (StringUtils.compare(product.getType(), StaticDict.Product__type.NORMAL.getValue()) == 0) {
@@ -184,16 +184,16 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     public ProductPlan linkBug(ProductPlan et) {
 
         String bugs = "";
-        if(et.get("bugs")!=null) {
-            bugs = et.get("bugs").toString();
+        if(et.get(FIELD_BUILDS)!=null) {
+            bugs = et.get(FIELD_BUILDS).toString();
         }
-        else if(et.get("srfactionparam") != null){
-            List<Map<String,Object>> list = (List<Map<String, Object>>) et.get("srfactionparam");
+        else if(et.get(FIELD_SRFACTIONPARAM) != null){
+            List<Map<String,Object>> list = (List<Map<String, Object>>) et.get(FIELD_SRFACTIONPARAM);
             for (Map<String, Object> jsonObject : list) {
                 if(!"".equals(bugs)) {
-                    bugs += ",";
+                    bugs += MULTIPLE_CHOICE;
                 }
-                bugs += jsonObject.get("id");
+                bugs += jsonObject.get(FIELD_ID);
             }
 
         }
@@ -202,7 +202,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         }
 
 
-        for (String bugId :  bugs.split(",")) {
+        for (String bugId :  bugs.split(MULTIPLE_CHOICE)) {
             Bug bug = new Bug() ;
             bug.setId(Long.parseLong(bugId));
             bug.setPlan(et.getId());
@@ -214,10 +214,10 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 
     @Transactional(rollbackFor = Exception.class)
     public ProductPlan unlinkBug(ProductPlan et) {
-        if(et.get("bugs")==null) {
+        if(et.get(FIELD_BUGS)==null) {
             return et ;
         }
-        for (String bugId :  et.get("bugs").toString().split(",")) {
+        for (String bugId :  et.get(FIELD_BUGS).toString().split(MULTIPLE_CHOICE)) {
             Bug bug = new Bug() ;
             bug.setId(Long.parseLong(bugId));
             bug.setPlan(0L);

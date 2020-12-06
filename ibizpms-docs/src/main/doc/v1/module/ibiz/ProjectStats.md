@@ -43,6 +43,12 @@
 | 25 | [状态](#属性-状态（STATUS）) | STATUS | 文本，可指定长度 | 否 | 否 | 是 |
 | 26 | [项目排序](#属性-项目排序（ORDER1）) | ORDER1 | 整型 | 否 | 否 | 是 |
 | 27 | [是否置顶](#属性-是否置顶（ISTOP）) | ISTOP | 整型 | 否 | 否 | 是 |
+| 28 | [已关闭任务数](#属性-已关闭任务数（CLOSEDTASKCNT）) | CLOSEDTASKCNT | 整型 | 否 | 否 | 是 |
+| 29 | [已取消任务数](#属性-已取消任务数（CANCELTASKCNT）) | CANCELTASKCNT | 整型 | 否 | 否 | 是 |
+| 30 | [已暂停任务数](#属性-已暂停任务数（PAUSETASKCNT）) | PAUSETASKCNT | 整型 | 否 | 否 | 是 |
+| 31 | [未开始任务数](#属性-未开始任务数（WAITTASKCNT）) | WAITTASKCNT | 整型 | 否 | 否 | 是 |
+| 32 | [进行中任务数](#属性-进行中任务数（DOINGTASKCNT）) | DOINGTASKCNT | 整型 | 否 | 否 | 是 |
+| 33 | [已完成任务数](#属性-已完成任务数（DONETASKCNT）) | DONETASKCNT | 整型 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -1089,6 +1095,228 @@ Integer
 #### 关系属性
 无
 
+### 属性-已关闭任务数（CLOSEDTASKCNT）
+#### 属性说明
+已关闭任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已取消任务数（CANCELTASKCNT）
+#### 属性说明
+已取消任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已暂停任务数（PAUSETASKCNT）
+#### 属性说明
+已暂停任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-未开始任务数（WAITTASKCNT）
+#### 属性说明
+未开始任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-进行中任务数（DOINGTASKCNT）
+#### 属性说明
+进行中任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已完成任务数（DONETASKCNT）
+#### 属性说明
+已完成任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -1210,8 +1438,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 4 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1605,6 +1834,31 @@ FROM
 	`zt_project` t1
 	left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
+#### 说明
+项目任务统计(任务状态)
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.project,t1.projectname  as name,
+SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closedtaskcnt,
+SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt,
+SUM(IF(t1.`status` = 'done',t1.ss,0)) as doneTaskcnt,
+SUM(IF(t1.`status` = 'pause',t1.ss,0)) as pauseTaskcnt,
+SUM(IF(t1.`status` = 'wait',t1.ss,0)) as waitTaskcnt,
+SUM(IF(t1.`status` = 'doing',t1.ss,0)) as doingTaskcnt,
+COUNT(1) as taskcnt,
+t1.deleted
+from (
+select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
+```
 ### 数据查询-任务工时消耗剩余查询（TaskTime）
 #### 说明
 该查询主要供统计图表使用
@@ -1678,7 +1932,8 @@ FROM `zt_project` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 3 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 4 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1708,6 +1963,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [未关闭产品（NoOpenProduct）](#数据查询-未关闭产品（NoOpenProduct）) |
+### 数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
+#### 说明
+项目任务统计(任务状态)
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) |
 ### 数据集合-任务工时消耗剩余查询（TaskTime）
 #### 说明
 任务工时消耗剩余查询

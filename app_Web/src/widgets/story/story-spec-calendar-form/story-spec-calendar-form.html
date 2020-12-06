@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='story_storyspeccalendar'
+    class="app-form info-form-mode"
+    ref="form"
+    id="story_storyspeccalendar"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
-    <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.grouppanel31.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel31.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel31"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel31.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.story.storyspeccalendar_form.details.grouppanel31')"
@@ -29,14 +37,22 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.group11.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group11.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group11"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group11.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.story.storyspeccalendar_form.details.group11')"
@@ -52,13 +68,21 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{'width':'70px !important'}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{'width':'70px !important'}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.story.storyspeccalendar_form.details.id')"
     uiStyle="DEFAULT"
@@ -66,20 +90,30 @@
     :isShowCaption="true"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
+>
     <app-form-item
-    name='status'
+    name="status"
     :itemRules="this.rules().status"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.story.storyspeccalendar_form.details.status')"
     uiStyle="DEFAULT"
@@ -87,20 +121,30 @@
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
-tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class='panelitem-20px'
+    class="panelitem-20px"
 
     :caption="$t('entities.story.storyspeccalendar_form.details.title')"
     uiStyle="DEFAULT"
@@ -108,20 +152,30 @@ tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.version.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
     <app-form-item
-    name='version'
+    name="version"
     :itemRules="this.rules().version"
-    class='dropdown-transparent'
+    class="dropdown-transparent"
 
     :caption="$t('entities.story.storyspeccalendar_form.details.version')"
     uiStyle="DEFAULT"
@@ -129,7 +183,8 @@ tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.version.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.version"
@@ -137,23 +192,31 @@ tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewp
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.version.disabled"
     valueType="number"
-    tag='CurStory'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="CurStory"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.story.storyspeccalendar_form.details.pri')"
     uiStyle="DEFAULT"
@@ -161,20 +224,30 @@ tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='pri' :value="data.pri" dataType="NSCODELIST"     :precision="0"
-tag='Story__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Story__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.stage.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.stage.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='stage'
+    name="stage"
     :itemRules="this.rules().stage"
-    class=''
+    class=""
 
     :caption="$t('entities.story.storyspeccalendar_form.details.stage')"
     uiStyle="DEFAULT"
@@ -182,20 +255,30 @@ tag='Story__pri' codelistType='STATIC' :data="data" :context="context" :viewpara
     :isShowCaption="true"
     :error="detailsModel.stage.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='stage' :value="data.stage" dataType="SSCODELIST"     :precision="0"
-tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.estimate.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='estimate'
+    name="estimate"
     :itemRules="this.rules().estimate"
-    class=''
+    class=""
 
     :caption="$t('entities.story.storyspeccalendar_form.details.estimate')"
     uiStyle="DEFAULT"
@@ -203,21 +286,31 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :isShowCaption="true"
     :error="detailsModel.estimate.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='estimate' :value="data.estimate" dataType="FLOAT"     :precision="2"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
 </app-span>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 18, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.story.storyspeccalendar_form.details.grouppanel1')"
@@ -233,90 +326,146 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_assigntodash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_assigntodash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
 
-    </i-button>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_reviewstorydash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-search'}" />
-
-    </i-button>
+</i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_activitedash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-magic'}" />
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_reviewstorydash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-search'}" />
 
-    </i-button>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_closestorydash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
-
-    </i-button>
+</i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_changestorydetaildash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-exchange'}" />
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_activitedash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-magic'}" />
 
-    </i-button>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button6_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_substorycz')"
-    >
-        <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
-
-    </i-button>
+</i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-        <i-button 
-        type="primary"
-        @click="button7_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_openbaseinfoc')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_closestorydash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
 
-    </i-button>
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button5.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_changestorydetaildash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-exchange'}" />
+
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button6.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button6_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_substorycz')"
+>
+    <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
+
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button7.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button7_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_openbaseinfoc')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+
+</i-button>
 
 </i-col>
     
@@ -324,12 +473,20 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel11.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel11.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel11"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel11.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.story.storyspeccalendar_form.details.grouppanel11')"
@@ -345,13 +502,21 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.spec.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='spec'
+    name="spec"
     :itemRules="this.rules().spec"
-    class=''
+    class=""
 
     :caption="$t('entities.story.storyspeccalendar_form.details.spec')"
     uiStyle="DEFAULT"
@@ -359,7 +524,8 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :isShowCaption="false"
     :error="detailsModel.spec.error"
     :isEmptyCaption="false"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     <html-container :content="data.spec"></html-container>
 </app-form-item>
 
@@ -369,12 +535,20 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel21.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel21.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel21"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel21.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.story.storyspeccalendar_form.details.grouppanel21')"
@@ -390,13 +564,21 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.verify.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='verify'
+    name="verify"
     :itemRules="this.rules().verify"
-    class=''
+    class=""
 
     :caption="$t('entities.story.storyspeccalendar_form.details.verify')"
     uiStyle="DEFAULT"
@@ -404,7 +586,8 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :isShowCaption="false"
     :error="detailsModel.verify.error"
     :isEmptyCaption="false"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     <html-container :content="data.verify"></html-container>
 </app-form-item>
 
@@ -419,12 +602,20 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel._grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel._grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel._grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel._grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.story.storyspeccalendar_form.details._grouppanel1')"
@@ -440,14 +631,22 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='story' 
+    paramItem="story" 
     :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -455,12 +654,12 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='story'
+    parameterName="story"
     parentName="Story"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-add-comment-history-list-view' 
+    viewname="action-add-comment-history-list-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

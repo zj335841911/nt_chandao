@@ -51,7 +51,7 @@ export class ProductSumUsr3GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductSumUsr3GridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -142,7 +142,7 @@ export class ProductSumUsr3GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductSumUsr3GridViewBase
      */ 
-    protected viewName: string = "ProductSumUsr3GridView";
+    protected viewName: string = 'ProductSumUsr3GridView';
 
 
     /**

@@ -109,7 +109,7 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof ReleaseMainTabExpViewBase
      */ 
-    protected viewName: string = "ReleaseMainTabExpView";
+    protected viewName: string = 'ReleaseMainTabExpView';
 
 
     /**

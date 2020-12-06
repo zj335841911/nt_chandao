@@ -13,7 +13,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.productsum.productbugcnt_qa_grid.nodata')}} 
@@ -21,29 +21,29 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.productbugcnt_qa_grid.columns.name')" :min-width="200"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.productbugcnt_qa_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.name}}</span>
+                            <span>{{row.name}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugcnt')">
                 <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productsum.productbugcnt_qa_grid.columns.bugcnt')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.productbugcnt_qa_grid.columns.bugcnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugcnt}}</span>
+                            <span>{{row.bugcnt}}</span>
                     </template>
                 </el-table-column>
             </template>

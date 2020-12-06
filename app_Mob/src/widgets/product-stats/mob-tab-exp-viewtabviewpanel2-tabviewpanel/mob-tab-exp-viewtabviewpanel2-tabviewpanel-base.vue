@@ -26,8 +26,7 @@ import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-a
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabviewpanel2Base extends Vue implements ControlInterface {
 
@@ -148,7 +147,7 @@ export default class MobTabExpViewtabviewpanel2Base extends Vue implements Contr
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 面板导航参数

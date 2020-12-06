@@ -8,6 +8,123 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, [
         {
+        srfkey: "StoryPoints",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "0",
+                text: "0",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+            {
+                id: "0.5",
+                label: "1/2",
+                text: "1/2",
+                "data":"",
+                "codename":"Item_05",
+                value: "0.5",
+                
+                disabled: false,
+            },
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "5",
+                text: "5",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
+                
+                disabled: false,
+            },
+            {
+                id: "8",
+                label: "8",
+                text: "8",
+                "data":"",
+                "codename":"Item_8",
+                value: "8",
+                
+                disabled: false,
+            },
+            {
+                id: "13",
+                label: "13",
+                text: "13",
+                "data":"",
+                "codename":"Item_13",
+                value: "13",
+                
+                disabled: false,
+            },
+            {
+                id: "20",
+                label: "20",
+                text: "20",
+                "data":"",
+                "codename":"Item_20",
+                value: "20",
+                
+                disabled: false,
+            },
+            {
+                id: "40",
+                label: "40",
+                text: "40",
+                "data":"",
+                "codename":"Item_40",
+                value: "40",
+                
+                disabled: false,
+            },
+            {
+                id: "100",
+                label: "100",
+                text: "100",
+                "data":"",
+                "codename":"Item_100",
+                value: "100",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "BugCreateResolve",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -23,6 +140,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "AllCase",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Case",
+        "appdedataset":"FetchDefault",
+        "items": []
     },
     {
         srfkey: "SYS_UPDATE_BRANCH",
@@ -445,6 +570,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
+    },
+    {
         "srfkey": "ProjectCodeList",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -749,6 +882,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "TaskTeamUserTemp",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchProjectTeamTaskUserTemp",
+        "items": []
+    },
+    {
         srfkey: "Beginend_disable",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -780,6 +921,34 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"SysEmployee",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: "ReportStatus",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "未读",
+                text: "未读",
+                "data":"",
+                "codename":"Item_0",
+                "color": "rgba(244, 15, 15, 1)",
+                value: "0",
+                
+                disabled: false,
+            },
+            {
+                id: "1",
+                label: "已读",
+                text: "已读",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Bug__os",
@@ -1091,40 +1260,44 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         items: [
             {
                 id: "1",
-                label: "1",
-                text: "1",
+                label: "致命",
+                text: "致命",
                 "data":"",
                 "codename":"Item_1",
+                "color": "rgba(241, 11, 11, 1)",
                 value: 1,
                 
                 disabled: false,
             },
             {
                 id: "2",
-                label: "2",
-                text: "2",
+                label: "严重",
+                text: "严重",
                 "data":"",
                 "codename":"Item_2",
+                "color": "rgba(239, 155, 18, 1)",
                 value: 2,
                 
                 disabled: false,
             },
             {
                 id: "3",
-                label: "3",
-                text: "3",
+                label: "一般",
+                text: "一般",
                 "data":"",
                 "codename":"Item_3",
+                "color": "rgba(58, 149, 247, 1)",
                 value: 3,
                 
                 disabled: false,
             },
             {
                 id: "4",
-                label: "4",
-                text: "4",
+                label: "轻微",
+                text: "轻微",
                 "data":"",
                 "codename":"Item_4",
+                "color": "rgba(11, 228, 87, 1)",
                 value: 4,
                 
                 disabled: false,
@@ -1609,6 +1782,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Project__pri",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "APPBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1665,6 +1885,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllBug",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Bug",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "CloseProduct",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1686,7 +1914,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchBugModule",
+        "appdedataset":"FetchBugModuleCodeList",
         "items": []
     },
     {
@@ -1879,7 +2107,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "1",
                 label: "1",
                 text: "1",
-                "iconcls":"fa fa-square-o",
                 "data":"",
                 "codename":"Item_1",
                 value: 1,
@@ -1999,6 +2226,79 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Story",
                 value: "story",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Testcase__color",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "#3da7f5",
+                label: "#3da7f5",
+                text: "#3da7f5",
+                "data":"",
+                "codename":"Item_1",
+                "color": "rgba(61, 167, 245, 1)",
+                value: "#3da7f5",
+                
+                disabled: false,
+            },
+            {
+                id: "#75c941",
+                label: "#75c941",
+                text: "#75c941",
+                "data":"",
+                "codename":"Item_2",
+                "color": "rgba(117, 201, 65, 1)",
+                value: "#75c941",
+                
+                disabled: false,
+            },
+            {
+                id: "#2dbdb2",
+                label: "#2dbdb2",
+                text: "#2dbdb2",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(45, 189, 178, 1)",
+                value: "#2dbdb2",
+                
+                disabled: false,
+            },
+            {
+                id: "#797ec9",
+                label: "#797ec9",
+                text: "#797ec9",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(121, 126, 201, 1)",
+                value: "#797ec9",
+                
+                disabled: false,
+            },
+            {
+                id: "#ffaf38",
+                label: "#ffaf38",
+                text: "#ffaf38",
+                "data":"",
+                "codename":"Item_5",
+                "color": "rgba(255, 175, 56, 1)",
+                value: "#ffaf38",
+                
+                disabled: false,
+            },
+            {
+                id: "#ff4e3e",
+                label: "#ff4e3e",
+                text: "#ff4e3e",
+                "data":"",
+                "codename":"Item_6",
+                "color": "rgba(255, 78, 62, 1)",
+                value: "#ff4e3e",
                 
                 disabled: false,
             },
@@ -3129,6 +3429,93 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Testcase__frame",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "junit",
+                label: "JUnit",
+                text: "JUnit",
+                "data":"",
+                "codename":"Junit",
+                value: "junit",
+                
+                disabled: false,
+            },
+            {
+                id: "testng",
+                label: "TestNG",
+                text: "TestNG",
+                "data":"",
+                "codename":"Testng",
+                value: "testng",
+                
+                disabled: false,
+            },
+            {
+                id: "phpunit",
+                label: "PHPUnit",
+                text: "PHPUnit",
+                "data":"",
+                "codename":"Phpunit",
+                value: "phpunit",
+                
+                disabled: false,
+            },
+            {
+                id: "pytest",
+                label: "Pytest",
+                text: "Pytest",
+                "data":"",
+                "codename":"Pytest",
+                value: "pytest",
+                
+                disabled: false,
+            },
+            {
+                id: "jtest",
+                label: "JTest",
+                text: "JTest",
+                "data":"",
+                "codename":"Jtest",
+                value: "jtest",
+                
+                disabled: false,
+            },
+            {
+                id: "cppunit",
+                label: "CppUnit",
+                text: "CppUnit",
+                "data":"",
+                "codename":"Cppunit",
+                value: "cppunit",
+                
+                disabled: false,
+            },
+            {
+                id: "gtest",
+                label: "GTest",
+                text: "GTest",
+                "data":"",
+                "codename":"Gtest",
+                value: "gtest",
+                
+                disabled: false,
+            },
+            {
+                id: "qtest",
+                label: "QTest",
+                text: "QTest",
+                "data":"",
+                "codename":"Qtest",
+                value: "qtest",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "TestCaseStatusGrid",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -3453,6 +3840,36 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "daily",
+                label: "日报",
+                text: "日报",
+                "data":"",
+                "codename":"Daily",
+                value: "daily",
+                
+                disabled: false,
+            },
+            {
+                id: "weekly",
+                label: "周报",
+                text: "周报",
+                "data":"",
+                "codename":"Weekly",
+                value: "weekly",
+                
+                disabled: false,
+            },
+            {
+                id: "monthly",
+                label: "月报",
+                text: "月报",
+                "data":"",
+                "codename":"Monthly",
+                value: "monthly",
+                
+                disabled: false,
+            },
         ]
     },
     {
@@ -3501,10 +3918,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "1",
                 label: "1",
                 text: "1",
-                "iconcls":"fa fa-bomb",
                 "data":"",
                 "codename":"Item_1",
-                "color": "rgba(183, 35, 35, 1)",
                 value: 1,
                 
                 disabled: false,
@@ -3515,7 +3930,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "2",
                 "data":"",
                 "codename":"Item_2",
-                "color": "rgba(197, 26, 26, 1)",
                 value: 2,
                 
                 disabled: false,
@@ -3524,10 +3938,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "3",
                 label: "3",
                 text: "3",
-                "iconcls":"fa fa-sort-amount-asc",
                 "data":"",
                 "codename":"Item_3",
-                "color": "rgba(64, 78, 227, 1)",
                 value: 3,
                 
                 disabled: false,
@@ -3538,8 +3950,44 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "4",
                 "data":"",
                 "codename":"Item_4",
-                "color": "rgba(94, 231, 3, 1)",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "UserTplType",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
                 
                 disabled: false,
             },
@@ -3790,6 +4238,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "未开始",
                 "data":"",
                 "codename":"Wait",
+                "color": "rgba(144, 248, 25, 1)",
                 value: "wait",
                 
                 disabled: false,
@@ -3800,6 +4249,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已计划",
                 "data":"",
                 "codename":"Planned",
+                "color": "rgba(108, 159, 19, 1)",
                 value: "planned",
                 
                 disabled: false,
@@ -3810,6 +4260,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已立项",
                 "data":"",
                 "codename":"Projected",
+                "color": "rgba(45, 89, 5, 1)",
                 value: "projected",
                 
                 disabled: false,
@@ -3820,6 +4271,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "研发中",
                 "data":"",
                 "codename":"Developing",
+                "color": "rgba(10, 164, 181, 1)",
                 value: "developing",
                 
                 disabled: false,
@@ -3830,6 +4282,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "研发完毕",
                 "data":"",
                 "codename":"Developed",
+                "color": "rgba(7, 98, 108, 1)",
                 value: "developed",
                 
                 disabled: false,
@@ -3840,6 +4293,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "测试中",
                 "data":"",
                 "codename":"Testing",
+                "color": "rgba(18, 46, 205, 1)",
                 value: "testing",
                 
                 disabled: false,
@@ -3850,6 +4304,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "测试完毕",
                 "data":"",
                 "codename":"Tested",
+                "color": "rgba(8, 56, 115, 1)",
                 value: "tested",
                 
                 disabled: false,
@@ -3860,6 +4315,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已验收",
                 "data":"",
                 "codename":"Verified",
+                "color": "rgba(85, 7, 137, 1)",
                 value: "verified",
                 
                 disabled: false,
@@ -3870,6 +4326,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已发布",
                 "data":"",
                 "codename":"Released",
+                "color": "rgba(12, 244, 47, 1)",
                 value: "released",
                 
                 disabled: false,
@@ -3880,11 +4337,20 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已关闭",
                 "data":"",
                 "codename":"Closed",
+                "color": "rgba(212, 219, 221, 1)",
                 value: "closed",
                 
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "AllRepo",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
     },
     {
         srfkey: "Project_staus",
@@ -4030,11 +4496,58 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         items: [
             {
                 id: "1",
+                label: "严重",
+                text: "严重",
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "主要",
+                text: "主要",
+                "data":"",
+                "codename":"Item_2",
+                value: 2,
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "次要",
+                text: "次要",
+                "data":"",
+                "codename":"Item_3",
+                value: 3,
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "不重要",
+                text: "不重要",
+                "data":"",
+                "codename":"Item_4",
+                value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Project__statge",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
                 label: "1",
                 text: "1",
                 "data":"",
                 "codename":"Item_1",
-                value: 1,
+                value: "1",
                 
                 disabled: false,
             },
@@ -4044,7 +4557,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "2",
                 "data":"",
                 "codename":"Item_2",
-                value: 2,
+                value: "2",
                 
                 disabled: false,
             },
@@ -4054,7 +4567,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "3",
                 "data":"",
                 "codename":"Item_3",
-                value: 3,
+                value: "3",
                 
                 disabled: false,
             },
@@ -4064,7 +4577,17 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "4",
                 "data":"",
                 "codename":"Item_4",
-                value: 4,
+                value: "4",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "5",
+                text: "5",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
                 
                 disabled: false,
             },
@@ -4165,6 +4688,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "ReportType",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "weekly",
+                label: "周报",
+                text: "周报",
+                "data":"",
+                "codename":"Weekly",
+                value: "weekly",
+                
+                disabled: false,
+            },
+            {
+                id: "daily",
+                label: "日报",
+                text: "日报",
+                "data":"",
+                "codename":"Daily",
+                value: "daily",
+                
+                disabled: false,
+            },
+            {
+                id: "monthly",
+                label: "月报",
+                text: "月报",
+                "data":"",
+                "codename":"Monthly",
+                value: "monthly",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "RelatedStory",
         "emptytext": "",
         "codelisttype":"dynamic",
@@ -4227,7 +4787,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "exWeek",
                 label: "去除周末",
                 text: "去除周末",
-                "data":{"n_isweekend_eq":"0"},
+                "data":{"n_isweekend_in":"1;2;3;4;5"},
                 "codename":"Exweek",
                 value: "exWeek",
                 
@@ -4237,7 +4797,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "Week",
                 label: "显示周末",
                 text: "显示周末",
-                "data":{"n_isweekend_eq":"1"},
+                "data":{},
                 "codename":"Week",
                 value: "Week",
                 
@@ -4381,6 +4941,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Custom",
                 value: "custom",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "UserTplQuickGroup",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "all",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "all",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":{"n_type_eq":"story"},
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":{"n_type_eq":"task"},
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":{"n_type_eq":"bug"},
+                "codename":"Bug",
+                value: "bug",
                 
                 disabled: false,
             },
@@ -4816,6 +5423,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
         "appdedataset":"FetchProjectTeamUserTask",
+        "items": []
+    },
+    {
+        "srfkey": "AllRole",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysRole",
+        "appdedataset":"FetchDefault",
         "items": []
     },
     {
@@ -5392,6 +6007,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "File__object_type",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -5623,6 +6246,36 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Webhook",
                 value: "webhook",
+                
+                disabled: false,
+            },
+            {
+                id: "daily",
+                label: "日报",
+                text: "日报",
+                "data":"",
+                "codename":"Daily",
+                value: "daily",
+                
+                disabled: false,
+            },
+            {
+                id: "weekly",
+                label: "周报",
+                text: "周报",
+                "data":"",
+                "codename":"Weekly",
+                value: "weekly",
+                
+                disabled: false,
+            },
+            {
+                id: "monthly",
+                label: "月报",
+                text: "月报",
+                "data":"",
+                "codename":"Monthly",
+                value: "monthly",
                 
                 disabled: false,
             },
@@ -5952,6 +6605,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllTestTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"TestTask",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         "srfkey": "TestTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -6061,6 +6722,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllEntry",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         srfkey: "Task__type",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -6136,6 +6805,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
             {
+                id: "serve",
+                label: "服务",
+                text: "服务",
+                "data":"",
+                "codename":"Serve",
+                value: "serve",
+                
+                disabled: false,
+            },
+            {
                 id: "misc",
                 label: "其他",
                 text: "其他",
@@ -6146,6 +6825,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "AllStory",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Story",
+        "appdedataset":"FetchDefault",
+        "items": []
     },
     {
         "srfkey": "ProjectProductPlan",
@@ -7216,6 +7903,36 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "submit",
+                label: "提交",
+                text: "提交",
+                "data":"",
+                "codename":"Submit",
+                value: "submit",
+                
+                disabled: false,
+            },
+            {
+                id: "read",
+                label: "已读了",
+                text: "已读了",
+                "data":"",
+                "codename":"Read",
+                value: "read",
+                
+                disabled: false,
+            },
+            {
+                id: "remind",
+                label: "提醒",
+                text: "提醒",
+                "data":"",
+                "codename":"Remind",
+                value: "remind",
+                
+                disabled: false,
+            },
         ]
     },
     {
@@ -7503,6 +8220,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Blocked",
                 value: "blocked",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Case__frequency",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
                 
                 disabled: false,
             },
@@ -7960,6 +8714,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
+        "items": []
     },
     {
         srfkey: "Testrun__result",

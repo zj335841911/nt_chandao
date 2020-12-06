@@ -57,6 +57,7 @@
 | 32 | [最近添加数量](#属性-最近添加数量（RECENTADDCNT）) | RECENTADDCNT | 整型 | 否 | 是 | 是 |
 | 33 | [我的文档数量](#属性-我的文档数量（MYDOCCNT）) | MYDOCCNT | 整型 | 否 | 是 | 是 |
 | 34 | [我的收藏数量](#属性-我的收藏数量（MYFAVOURITECNT）) | MYFAVOURITECNT | 整型 | 否 | 是 | 是 |
+| 35 | [文档数](#属性-文档数（DOCCNT）) | DOCCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-分组（GROUPS）
 #### 属性说明
@@ -1239,7 +1240,7 @@ String
 
 - 取值范围/公式
 ```SQL
-0
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END )
 ```
 
 - 数据格式
@@ -1504,6 +1505,47 @@ Integer
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-文档数（DOCCNT）
+#### 属性说明
+文档数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
@@ -1701,8 +1743,10 @@ Integer
 | 7 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 8 | [收藏](#实体行为-收藏（Collect）) | Collect | 用户自定义 | 后台 |
 | 9 | [行为](#实体行为-行为（GetDocStatus）) | GetDocStatus | 用户自定义 | 后台及前台 |
-| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 11 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台 |
+| 10 | [仅收藏文档](#实体行为-仅收藏文档（OnlyCollectDoc）) | OnlyCollectDoc | 用户自定义 | 后台及前台 |
+| 11 | [仅取消收藏文档](#实体行为-仅取消收藏文档（OnlyUnCollectDoc）) | OnlyUnCollectDoc | 用户自定义 | 后台及前台 |
+| 12 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 13 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1751,7 +1795,9 @@ Get
 后台及前台
 
 #### 逻辑附加
-无
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [当前是否收藏文档<br>（CurUserIsF）](#逻辑处理-当前是否收藏文档（CurUserIsF）) | 执行之后 | 是 |  |
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -1812,6 +1858,30 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-仅收藏文档（OnlyCollectDoc）
+#### 说明
+仅收藏文档
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-仅取消收藏文档（OnlyUnCollectDoc）
+#### 说明
+仅取消收藏文档
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -1841,6 +1911,7 @@ Save
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
 | 1 | [根据版本更新正文信息](#逻辑处理-根据版本更新正文信息（ByVersionUpdateContext）) | ByVersionUpdateContext | 后台 |
+| 2 | [当前是否收藏文档](#逻辑处理-当前是否收藏文档（CurUserIsF）) | CurUserIsF | 后台 |
 
 ### 逻辑处理-根据版本更新正文信息（ByVersionUpdateContext）
 #### 说明
@@ -1854,6 +1925,18 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 获取正文信息 | Rawsqlcall1 | 直接SQL调用 |
+### 逻辑处理-当前是否收藏文档（CurUserIsF）
+#### 说明
+当前是否收藏文档
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 查询是否收藏 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 开始 | Begin | 开始 |
 
 ## 实体搜索
 ### 快速搜索项
@@ -1887,11 +1970,16 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [文档库文档（子库）](#数据查询-文档库文档（子库）（ChildDocLibDoc）) | ChildDocLibDoc | 否 |
 | 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 3 | [文档库文档](#数据查询-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
-| 4 | [文档库分类文档](#数据查询-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
-| 5 | [文档统计](#数据查询-文档统计（DocStatus）) | DocStatus | 否 |
-| 6 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [文档库文档](#数据查询-文档库文档（DocLibAndDoc）) | DocLibAndDoc | 否 |
+| 4 | [文档库文档](#数据查询-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
+| 5 | [文档库分类文档](#数据查询-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
+| 6 | [文档统计](#数据查询-文档统计（DocStatus）) | DocStatus | 否 |
+| 7 | [文件夹文档（子目录）](#数据查询-文件夹文档（子目录）（ModuleDocChild）) | ModuleDocChild | 否 |
+| 8 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
+| 9 | [我的收藏](#数据查询-我的收藏（MyFavouritesOnlyDoc）) | MyFavouritesOnlyDoc | 否 |
+| 10 | [子目录文档](#数据查询-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
+| 11 | [根目录文档](#数据查询-根目录文档（RootDoc）) | RootDoc | 否 |
+| 12 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2002,6 +2090,81 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
 LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
 
+```
+### 数据查询-文档库文档（DocLibAndDoc）
+#### 说明
+文档库文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (select null as `ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+null as `ADDEDBY`,
+null as `ADDEDDATE`,
+'0' as `DELETED`,
+null as `EDITEDBY`,
+null as `EDITEDDATE`,
+null as  `GROUPS`,
+t1.`ID`,
+''`KEYWORDS`,
+'0' as `LIB`,
+'' AS `LIBNAME`,
+(case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)
+ as `MODULE`,
+'' AS `MODULENAME`,
+t2.product as `PRODUCT`,
+'' AS `PRODUCTNAME`,
+0 as `PROJECT`,
+'' AS `PROJECTNAME`,
+t1.`name` as `TITLE`,
+'module' as `TYPE`,
+1 as `VERSION`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt,
+'' as `VIEWS`, 'module' as DOCQTYPE from zt_module t1 
+LEFT JOIN zt_doclib t2 on t2.id = t1.root
+where t1.deleted = '0' and t1.type = 'doc'  and t1.parent =  (case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)
+UNION
+SELECT
+t1.`ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+0 as doccnt,
+t1.`VIEWS`,
+'doc' as DOCQTYPE
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
 ```
 ### 数据查询-文档库文档（DocLibDoc）
 #### 说明
@@ -2163,6 +2326,50 @@ count(1) as `ALLDOCCNT`,
 from zt_doc
 where deleted = '0'
 ```
+### 数据查询-文件夹文档（子目录）（ModuleDocChild）
+#### 说明
+文件夹文档（子目录）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
+
+```
 ### 数据查询-我的收藏（MyFavourite）
 #### 说明
 我的收藏
@@ -2187,7 +2394,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doclib' as DOCQTYPE
 	FROM
 		zt_doclib t1 
@@ -2201,7 +2408,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t2.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'module' as DOCQTYPE 
 	FROM
 		zt_module t2 
@@ -2215,7 +2422,7 @@ FROM
 		t3.addedDate,
 		t3.editedBy,
 		t3.editedDate,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t3.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doc' as DOCQTYPE 
 	FROM
 		zt_doc t3 
@@ -2223,6 +2430,130 @@ FROM
 		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
 	AND t3.deleted = '0' 
 	) t1
+```
+### 数据查询-我的收藏（MyFavouritesOnlyDoc）
+#### 说明
+只查询我收藏的文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`ACL`,
+	t1.`ADDEDBY`,
+	t1.`ADDEDDATE`,
+	t1.`DELETED`,
+	'doc' AS `DOCQTYPE`,
+	t1.`EDITEDBY`,
+	t1.`EDITEDDATE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	1 AS `ISFAVOURITES`,
+	t1.`KEYWORDS`,
+	t1.`LIB`,
+	t1.`MODULE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TITLE`,
+	t1.`TYPE`,
+	t1.`VERSION`,
+	t1.`VIEWS` 
+FROM
+	`zt_doc` t1
+```
+### 数据查询-子目录文档（NotRootDoc）
+#### 说明
+子目录文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
+
+```
+### 数据查询-根目录文档（RootDoc）
+#### 说明
+根目录文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
+
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -2248,7 +2579,7 @@ t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`KEYWORDS`,
 t1.`LIB`,
 t31.`NAME` AS `LIBNAME`,
@@ -2276,10 +2607,15 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | ---- | ---- | ---- | ---- |
 | 1 | [文档库文档（子库）](#数据集合-文档库文档（子库）（ChildDocLibDoc）) | ChildDocLibDoc | 否 |
 | 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 3 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
-| 4 | [文档库分类文档](#数据集合-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
-| 5 | [文档统计](#数据集合-文档统计（DocStatus）) | DocStatus | 否 |
-| 6 | [我的收藏](#数据集合-我的收藏（MyFavourite）) | MyFavourite | 否 |
+| 3 | [文档库文档](#数据集合-文档库文档（DocLibAndDoc）) | DocLibAndDoc | 否 |
+| 4 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
+| 5 | [文档库分类文档](#数据集合-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
+| 6 | [文档统计](#数据集合-文档统计（DocStatus）) | DocStatus | 否 |
+| 7 | [文件夹文档（子目录）](#数据集合-文件夹文档（子目录）（ModuleDocChild）) | ModuleDocChild | 否 |
+| 8 | [我的收藏](#数据集合-我的收藏（MyFavourite）) | MyFavourite | 否 |
+| 9 | [我的收藏](#数据集合-我的收藏（MyFavouritesOnlyDoc）) | MyFavouritesOnlyDoc | 否 |
+| 10 | [子目录文档](#数据集合-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
+| 11 | [根目录文档](#数据集合-根目录文档（RootDoc）) | RootDoc | 否 |
 
 ### 数据集合-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2309,6 +2645,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-文档库文档（DocLibAndDoc）
+#### 说明
+文档库文档
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文档库文档（DocLibAndDoc）](#数据查询-文档库文档（DocLibAndDoc）) |
 ### 数据集合-文档库文档（DocLibDoc）
 #### 说明
 文档库文档
@@ -2351,6 +2701,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [文档统计（DocStatus）](#数据查询-文档统计（DocStatus）) |
+### 数据集合-文件夹文档（子目录）（ModuleDocChild）
+#### 说明
+文件夹文档（子目录）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文件夹文档（子目录）（ModuleDocChild）](#数据查询-文件夹文档（子目录）（ModuleDocChild）) |
 ### 数据集合-我的收藏（MyFavourite）
 #### 说明
 我的收藏
@@ -2365,6 +2729,48 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的收藏（MyFavourite）](#数据查询-我的收藏（MyFavourite）) |
+### 数据集合-我的收藏（MyFavouritesOnlyDoc）
+#### 说明
+我的收藏
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的收藏（MyFavouritesOnlyDoc）](#数据查询-我的收藏（MyFavouritesOnlyDoc）) |
+### 数据集合-子目录文档（NotRootDoc）
+#### 说明
+子目录文档
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [子目录文档（NotRootDoc）](#数据查询-子目录文档（NotRootDoc）) |
+### 数据集合-根目录文档（RootDoc）
+#### 说明
+根目录文档
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [根目录文档（RootDoc）](#数据查询-根目录文档（RootDoc）) |
 
 ## 数据导入
 无

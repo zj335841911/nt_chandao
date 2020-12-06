@@ -1,9 +1,9 @@
 <studio-view viewName="ibzcaseneweditview" viewTitle="用例库用例编辑视图（新建）" class='deeditview ibz-case-new-edit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{viewCaption}}</span>
+    <template slot="title">
+    <span class="caption-info">{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
         <view_form 
                 :viewState="viewState"  
@@ -19,9 +19,9 @@
                 createAction="CreateTempMajor"
                 WFSubmitAction=""
                 WFStartAction=""
-                style='' 
+                style="" 
                 name="form"  
-                ref='form' 
+                ref="form" 
                 @save="form_save($event)"  
                 @remove="form_remove($event)"  
                 @load="form_load($event)"  

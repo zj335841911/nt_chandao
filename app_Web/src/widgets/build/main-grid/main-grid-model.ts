@@ -141,7 +141,6 @@ export default class MainModel {
           name: 'build',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

@@ -510,7 +510,7 @@ POST
 /projects/fetchcurproduct
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -546,7 +546,7 @@ POST
 /projects/fetchcuruser
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -654,7 +654,7 @@ POST
 /projects/fetchinvolvedproject_storytaskbug
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -690,7 +690,7 @@ POST
 /projects/fetchmyproject
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -778,6 +778,42 @@ GET
 ### 查询需求影响项目
 #### 访问路径
 /projects/searchstoryproject
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectSearchContext](#ProjectSearchContext) | 项目查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectDTO](#ProjectDTO)>：项目实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取未完成项目
+#### 访问路径
+/projects/fetchundoneproject
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectSearchContext](#ProjectSearchContext) | 项目查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectDTO](#ProjectDTO)>：项目实体传输对象列表 |
+
+### 查询未完成项目
+#### 访问路径
+/projects/searchundoneproject
 
 #### 请求方法
 POST
