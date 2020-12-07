@@ -451,6 +451,7 @@ hide footbox
 |ReleaseLinkableLeftBug|发布可关联的bug（遗留）|ReleaseLinkableLeftBug|否|&nbsp;|
 |ReleaseLinkableResolvedBug|发布可关联的bug（已解决）|ReleaseLinkableResolvedBug|否|&nbsp;|
 |ReportBugs|发布关联Bug（未解决）|ReportBugs|否|&nbsp;|
+|TaskBug|任务相关bug|TaskBug|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
