@@ -57,8 +57,8 @@
     :formState="formState"
     :data="data"
     :context="context"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "srfparentkey": "%project%" } '
+    :navigateParam ='{ "srfparentkey": "%project%" } '
     :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.productname.disabled"
