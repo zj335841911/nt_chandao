@@ -40,6 +40,9 @@ export default {
 		mobtabexpview: {
 			caption: '周报',
 		},
+		mobeditview: {
+			caption: '周报',
+		},
 		mobmdview: {
 			caption: '周报',
 		},
@@ -109,6 +112,42 @@ export default {
 		uiactions: {
 		},
 	},
+	mobwaitread_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '完成的任务', 
+			druipart2: '', 
+			grouppanel2: '下周计划参与', 
+			druipart3: '', 
+			grouppanel3: '附件', 
+			druipart4: '', 
+			grouppanel4: '操作历史', 
+			group1: '周报基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '更新时间', 
+			srforikey: '', 
+			srfkey: '周报标识', 
+			srfmajortext: '周报名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			account: '', 
+			ibz_weeklyname: '周报名称', 
+			date: '日期', 
+			workthisweek: '本周工作', 
+			plannextweek: '下周计划', 
+			comment: '其他事项', 
+			reportto: '汇报给', 
+			mailtopk: '抄送给(选择)', 
+			thisweektask: '本周完成任务', 
+			ibz_weeklyid: '周报标识', 
+			issubmit: '是否提交', 
+			mailto: '抄送给', 
+		},
+		uiactions: {
+		},
+	},
 	mobeditviewcreaterighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -140,5 +179,7 @@ export default {
 			caption: '提交',
 			tip: '提交',
 		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
 	},
 };

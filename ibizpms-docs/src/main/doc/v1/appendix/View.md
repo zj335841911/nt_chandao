@@ -178,6 +178,7 @@
 |-|文档库移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|月报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|周报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务预计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
