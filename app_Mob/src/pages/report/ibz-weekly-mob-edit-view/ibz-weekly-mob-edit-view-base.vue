@@ -26,7 +26,7 @@
             :showBusyIndicator="true"
             updateAction="Update"
             removeAction="Remove"
-            loaddraftAction="GetDraft"
+            loaddraftAction="CreateGetLastWeekPlanAndWork"
             loadAction="Get"
             createAction="Create"
             WFSubmitAction=""
