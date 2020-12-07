@@ -612,6 +612,7 @@ export const viewstate: any = {
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 'db750bbb894c25f38ca2741f234df3c6',
+                'a5b6a193363e3516bf0ce46577a7721c',
                 'c8171c13c1ba215f65c8587df1d98ba5',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 '0846a45e5ffdd4d8f857575cfa955dce',
@@ -1340,6 +1341,7 @@ export const viewstate: any = {
                 'bad9ebb60029d8c0854e22a02600cbc7',
                 'e527490443d54f3791d9497938aaf332',
                 '8d57c8c411a365de243247e493c264ff',
+                'adae3758bed4c09c5e283b69603ba8e7',
             ],
         },
         {
@@ -3438,6 +3440,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a5b6a193363e3516bf0ce46577a7721c',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproConfigGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ecbb62865a85af39d70c88ebecc95d99',
+            ],
+        },
+        {
             viewtag: 'a694d988e3134a33bb5a99e6e07246f6',
             viewmodule: 'zentao',
             viewname: 'CaseStepCarryOutEditMode',
@@ -3614,6 +3626,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'adae3758bed4c09c5e283b69603ba8e7',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyInfoCalendarEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
@@ -5035,6 +5057,15 @@ export const viewstate: any = {
                 '575fecad655143bbd28f17c581725a4e',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: 'ecbb62865a85af39d70c88ebecc95d99',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproConfigEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

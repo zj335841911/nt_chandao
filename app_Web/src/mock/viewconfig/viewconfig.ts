@@ -3063,6 +3063,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskPickupGridView",
             "viewtag": "a567636558c349902507ef69b9c510e5"
         },
+        "ibzproconfiggridview": {
+            "title": "系统配置表表格视图",
+            "caption": "系统配置表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzproConfigGridView",
+            "viewtag": "a5b6a193363e3516bf0ce46577a7721c"
+        },
         "casestepcarryouteditmode": {
             "title": "用例步骤",
             "caption": "用例步骤",
@@ -3230,6 +3238,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductSumEditView",
             "viewtag": "ada719b0d8722509d22b4b72bbb8cf26"
+        },
+        "ibzdailydailyinfocalendareditview": {
+            "title": "日报编辑视图(日历显示)",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyDailyInfoCalendarEditView",
+            "viewtag": "adae3758bed4c09c5e283b69603ba8e7"
         },
         "bugstatsproductbugstatusgridview": {
             "title": "Bug统计表格视图",
@@ -4462,6 +4478,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugDashboardMainEditView9",
             "viewtag": "ec9a5987de12c718961f243f4034efea"
+        },
+        "ibzproconfigeditview": {
+            "title": "系统配置表编辑视图",
+            "caption": "系统配置表",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzproConfigEditView",
+            "viewtag": "ecbb62865a85af39d70c88ebecc95d99"
         },
         "releasequickcreateview": {
             "title": "发布编辑视图",

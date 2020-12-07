@@ -6621,6 +6621,120 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "ConfigScope",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "sys",
+                label: "全局",
+                text: "全局",
+                "data":"",
+                "codename":"Sys",
+                value: "sys",
+                
+                disabled: false,
+            },
+            {
+                id: "org",
+                label: "当前组织",
+                text: "当前组织",
+                "data":"",
+                "codename":"Org",
+                value: "org",
+                
+                disabled: false,
+            },
+            {
+                id: "dept1",
+                label: "当前部门（含子部门）",
+                text: "当前部门（含子部门）",
+                "data":"",
+                "codename":"Dept1",
+                value: "dept1",
+                
+                disabled: false,
+            },
+            {
+                id: "dept2",
+                label: "当前部门（不含子部门）",
+                text: "当前部门（不含子部门）",
+                "data":"",
+                "codename":"Dept2",
+                value: "dept2",
+                
+                disabled: false,
+            },
+            {
+                id: "user",
+                label: "个人",
+                text: "个人",
+                "data":"",
+                "codename":"User",
+                value: "user",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "ConfigManagementstatus",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "product_project",
+                label: "产品 - 项目",
+                text: "产品 - 项目",
+                "data":"",
+                "codename":"Product_project",
+                value: "product_project",
+                
+                disabled: false,
+            },
+            {
+                id: "product_iteration",
+                label: "产品 - 迭代",
+                text: "产品 - 迭代",
+                "data":"",
+                "codename":"Product_iteration",
+                value: "product_iteration",
+                
+                disabled: false,
+            },
+            {
+                id: "project_iteration",
+                label: "项目 - 迭代",
+                text: "项目 - 迭代",
+                "data":"",
+                "codename":"Project_iteration",
+                value: "project_iteration",
+                
+                disabled: false,
+            },
+            {
+                id: "product_sprint",
+                label: "产品 - 冲刺",
+                text: "产品 - 冲刺",
+                "data":"",
+                "codename":"Product_sprint",
+                value: "product_sprint",
+                
+                disabled: false,
+            },
+            {
+                id: "project_sprint",
+                label: "项目 - 冲刺",
+                text: "项目 - 冲刺",
+                "data":"",
+                "codename":"Project_sprint",
+                value: "project_sprint",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__color",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -8675,6 +8789,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Month",
                 value: "month",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "ConfigGroup",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "GROUP",
+                label: "分组",
+                text: "分组",
+                "data":"",
+                "codename":"Group",
+                value: "GROUP",
+                
+                disabled: false,
+            },
+            {
+                id: "ITEM",
+                label: "配置项",
+                text: "配置项",
+                "data":"",
+                "codename":"Item",
+                value: "ITEM",
                 
                 disabled: false,
             },

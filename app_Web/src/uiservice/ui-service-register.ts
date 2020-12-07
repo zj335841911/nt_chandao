@@ -102,6 +102,7 @@ export class UIServiceRegister {
         this.allUIService.set('build', () => import('@/uiservice/build/build-ui-service'));
         this.allUIService.set('testresult', () => import('@/uiservice/test-result/test-result-ui-service'));
         this.allUIService.set('testsuite', () => import('@/uiservice/test-suite/test-suite-ui-service'));
+        this.allUIService.set('ibzproconfig', () => import('@/uiservice/ibzpro-config/ibzpro-config-ui-service'));
         this.allUIService.set('ibzprostory', () => import('@/uiservice/ibzpro-story/ibzpro-story-ui-service'));
         this.allUIService.set('projectteam', () => import('@/uiservice/project-team/project-team-ui-service'));
         this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));

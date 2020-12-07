@@ -3819,6 +3819,16 @@
         "viewtag": "a567636558c349902507ef69b9c510e5",
         "memo": ""
     },
+    "ibzproconfiggridview": {
+        "title": "系统配置表表格视图",
+        "caption": "系统配置表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproConfigGridView",
+        "viewfilename": "ibzpro-config-grid-view",
+        "viewtag": "a5b6a193363e3516bf0ce46577a7721c",
+        "memo": ""
+    },
     "casestepcarryouteditmode": {
         "title": "用例步骤",
         "caption": "用例步骤",
@@ -4027,6 +4037,16 @@
         "viewname": "ProductSumEditView",
         "viewfilename": "product-sum-edit-view",
         "viewtag": "ada719b0d8722509d22b4b72bbb8cf26",
+        "memo": ""
+    },
+    "ibzdailydailyinfocalendareditview": {
+        "title": "日报编辑视图(日历显示)",
+        "caption": "日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyDailyInfoCalendarEditView",
+        "viewfilename": "ibz-daily-daily-info-calendar-edit-view",
+        "viewtag": "adae3758bed4c09c5e283b69603ba8e7",
         "memo": ""
     },
     "bugstatsproductbugstatusgridview": {
@@ -5567,6 +5587,16 @@
         "viewname": "BugDashboardMainEditView9",
         "viewfilename": "bug-dashboard-main-edit-view9",
         "viewtag": "ec9a5987de12c718961f243f4034efea",
+        "memo": ""
+    },
+    "ibzproconfigeditview": {
+        "title": "系统配置表编辑视图",
+        "caption": "系统配置表",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproConfigEditView",
+        "viewfilename": "ibzpro-config-edit-view",
+        "viewtag": "ecbb62865a85af39d70c88ebecc95d99",
         "memo": ""
     },
     "releasequickcreateview": {

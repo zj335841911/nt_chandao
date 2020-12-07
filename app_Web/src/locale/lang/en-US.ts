@@ -63,6 +63,7 @@ import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
 import testsuite_en_US from '@locale/lanres/entities/test-suite/test-suite_en_US';
+import ibzproconfig_en_US from '@locale/lanres/entities/ibzpro-config/ibzpro-config_en_US';
 import ibzprostory_en_US from '@locale/lanres/entities/ibzpro-story/ibzpro-story_en_US';
 import projectteam_en_US from '@locale/lanres/entities/project-team/project-team_en_US';
 import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
@@ -242,6 +243,7 @@ const data: any = {
                 menuitem8: "更新日志",
                 menuitem17: "插件管理",
                 menuitem19: "汇报角色角色",
+                menuitem21: "系统配置",
                 left_exp: "左侧分页导航",
                 menuitem4: "Product",
                 menuitem5: "项目",
@@ -417,6 +419,7 @@ const data: any = {
         build: build_en_US,
         testresult: testresult_en_US,
         testsuite: testsuite_en_US,
+        ibzproconfig: ibzproconfig_en_US,
         ibzprostory: ibzprostory_en_US,
         projectteam: projectteam_en_US,
         testtask: testtask_en_US,
