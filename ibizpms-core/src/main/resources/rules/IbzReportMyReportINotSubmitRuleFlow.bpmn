@@ -7,12 +7,15 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="ibzreportmyreportinotsubmitdefault" type="cn.ibizlab.pms.core.report.domain.IbzReport" />
         </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportmyreportinotsubmitrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="统计我未提交的月报"/>
+     <endEvent id="rawsqlcall3_end" name="end"/>
+     <sequenceFlow id="rawsqlcall3_end_line" sourceRef="rawsqlcall3" targetRef="rawsqlcall3_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportmyreportinotsubmitrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="统计我未提交的日报数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportmyreportinotsubmitrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="统计我未提交的周报"/>
-     <endEvent id="rawsqlcall2_end" name="end"/>
-     <sequenceFlow id="rawsqlcall2_end_line" sourceRef="rawsqlcall2" targetRef="rawsqlcall2_end"/>
      <startEvent id="begin" isInterrupting="true"/>
      <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
      </sequenceFlow>
      <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
