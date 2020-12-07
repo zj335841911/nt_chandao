@@ -366,6 +366,14 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1100,6 +1108,9 @@ export default class AssMobBase extends Vue implements ControlInterface {
      *  @memberof AssMob
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.todo});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

@@ -4,7 +4,7 @@
             <ion-grid>
                 <ion-row>
                     <template v-for="item in items">
-                        <ion-col :size="size" :key="item.id">
+                        <ion-col v-if="!item.hidden" :size="size" :key="item.id">
                             <ion-tab-button @click="selectItem(item.name)" :class="item.textcls?item.textcls:''">
                                 <template v-if="item.icon != ''">
                                     <img :src="item.icon" />
