@@ -129,7 +129,7 @@ export default {
 			formpage1: '常规条件', 
 			n_name_like: '发布名称', 
 			n_status_eq: '状态', 
-			n_date_ltandeq: '截止日期', 
+			n_date_ltandeq: '发布日期', 
 		},
 		uiactions: {
 		},

@@ -164,7 +164,7 @@ export default {
 			formpage1: '常规条件', 
 			n_name_like: '名称编号', 
 			n_productname_like: '产品名称', 
-			n_date_ltandeq: '截止日期', 
+			n_date_ltandeq: '打包日期', 
 		},
 		uiactions: {
 		},

@@ -447,10 +447,10 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '状态 值不能为空', trigger: 'blur' },
         ],
         n_date_ltandeq: [
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '发布日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '发布日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -467,7 +467,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
 , 
         n_status_eq: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_date_ltandeq: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'n_date_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_date_ltandeq: new FormItemModel({ caption: '发布日期', detailType: 'FORMITEM', name: 'n_date_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
