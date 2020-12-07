@@ -43,7 +43,7 @@ export default {
 		mobmdview: {
 			caption: '周报',
 		},
-		mobeditview: {
+		mobeditviewmian: {
 			caption: '周报',
 		},
 	},
@@ -119,7 +119,7 @@ export default {
 	},
 	mobtabexpviewrighttoolbar_toolbar: {
 	},
-	mobeditviewrighttoolbar_toolbar: {
+	mobeditviewmianrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
 			tip: 'tbitem1',

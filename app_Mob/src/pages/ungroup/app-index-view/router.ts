@@ -6805,18 +6805,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-ass-mob-mdview9/story-ass-mob-mdview9.vue'),
                 },
                 {
-                    path: 'ibzweeklies/:ibzweekly?/mobeditview',
-                    name: 'ibzweekly_mobeditview',
+                    path: 'ibzweeklies/:ibzweekly?/mobeditviewmian',
+                    name: 'ibzweekly_mobeditviewmian',
                     meta: {
-                        caption: 'ibzweekly.views.mobeditview.caption',
+                        caption: 'ibzweekly.views.mobeditviewmian.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                            { pathName: 'mobeditviewmian', parameterName: 'mobeditviewmian' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/report/ibz-weekly-mob-edit-view/ibz-weekly-mob-edit-view.vue'),
+                    component: () => import('@pages/report/ibz-weekly-mob-edit-view-mian/ibz-weekly-mob-edit-view-mian.vue'),
                 },
                 {
                     path: 'products/:product?/productmodules/:productmodule?/mobpickupmdview',

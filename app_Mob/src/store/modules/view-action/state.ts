@@ -2290,7 +2290,7 @@ export const viewstate: any = {
         {
             viewtag: 'df36c08961d3d1737f2f8d55a53fa46c',
             viewmodule: 'report',
-            viewname: 'IbzWeeklyMobEditView',
+            viewname: 'IbzWeeklyMobEditViewMian',
             viewaction: '',
             viewdatachange: false,
             refviews: [
