@@ -5634,6 +5634,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/sys-update-features-mob-edit-view/sys-update-features-mob-edit-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/mobeditviewcreate',
+                    name: 'ibzweekly_mobeditviewcreate',
+                    meta: {
+                        caption: 'ibzweekly.views.mobeditviewcreate.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'mobeditviewcreate', parameterName: 'mobeditviewcreate' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-mob-edit-view-create/ibz-weekly-mob-edit-view-create.vue'),
+                },
+                {
                     path: 'projects/:project?/mobpickupview',
                     name: 'project_mobpickupview',
                     meta: {

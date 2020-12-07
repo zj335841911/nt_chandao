@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-weekly-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-weekly-mob-edit-view-create': true }">
     
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
@@ -18,7 +18,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="IbzWeeklyMobEditView"  
+            viewName="IbzWeeklyMobEditViewCreate"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -26,7 +26,7 @@
             :showBusyIndicator="true"
             updateAction="Update"
             removeAction="Remove"
-            loaddraftAction="CreateGetLastWeekPlanAndWork"
+            loaddraftAction="GetDraft"
             loadAction="Get"
             createAction="Create"
             WFSubmitAction=""
@@ -73,13 +73,13 @@ import { AnimationService } from '@ibiz-core/service/animation-service'
     components: {
     },
 })
-export default class IbzWeeklyMobEditViewBase extends Vue {
+export default class IbzWeeklyMobEditViewCreateBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -87,7 +87,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 实体服务对象
      *
      * @type {IbzWeeklyService}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected appEntityService: IbzWeeklyService = new IbzWeeklyService();
 
@@ -95,7 +95,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type IbzWeeklyUIService
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public appUIService: IbzWeeklyUIService = new IbzWeeklyUIService(this.$store);
 
@@ -104,7 +104,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -115,7 +115,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Prop() protected _context!: string;
 
@@ -123,7 +123,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -131,7 +131,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -139,15 +139,15 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof IbzWeeklyMobEditViewBase
+	 * @memberof IbzWeeklyMobEditViewCreateBase
 	 */
-	protected viewtag: string = 'df36c08961d3d1737f2f8d55a53fa46c';
+	protected viewtag: string = '045b5e072197debea88d4ff0ee811056';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected context: any = {};
 
@@ -155,7 +155,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected viewparams: any = {};
 
@@ -163,7 +163,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -171,14 +171,14 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public titleStatus :boolean = true;
 
@@ -187,7 +187,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected navContext: any = {};
 
@@ -196,7 +196,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected navParam: any = {};
 
@@ -204,14 +204,14 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected model: any = {
         srfTitle: '周报移动端编辑视图',
-        srfCaption: 'ibzweekly.views.mobeditview.caption',
+        srfCaption: 'ibzweekly.views.mobeditviewcreate.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzweekly.mobeditview',
+        viewname:'ibzweekly.mobeditviewcreate',
         iconcls: '',
         icon: ''
     }
@@ -221,7 +221,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  IbzWeeklyMobEditViewBase
+     * @memberof  IbzWeeklyMobEditViewCreateBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -250,7 +250,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -263,7 +263,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -274,7 +274,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -283,17 +283,17 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
    /**
-    * 工具栏 IbzWeeklyMobEditView 模型
+    * 工具栏 IbzWeeklyMobEditViewCreate 模型
     *
     * @type {*}
-    * @memberof IbzWeeklyMobEditView
+    * @memberof IbzWeeklyMobEditViewCreate
     */
     public righttoolbarModels: any = {
             tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
@@ -304,7 +304,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 工具栏显示状态
      *
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditView 
+     * @memberof IbzWeeklyMobEditViewCreate 
      */
     public righttoolbarShowState: boolean = false;
 
@@ -312,7 +312,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 工具栏权限
      *
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditView 
+     * @memberof IbzWeeklyMobEditViewCreate 
      */
     get getToolBarLimit() {
         let toolBarVisable:boolean = false;
@@ -331,7 +331,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 工具栏分组是否显示的条件
      *
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditView 
+     * @memberof IbzWeeklyMobEditViewCreate 
      */
     public showGrop = false;
 
@@ -339,7 +339,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 工具栏分组是否显示的方法
      *
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditView 
+     * @memberof IbzWeeklyMobEditViewCreate 
      */
     public popUpGroup (falg:boolean = false) {
         this.showGrop = falg;
@@ -351,14 +351,14 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -371,7 +371,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -385,14 +385,14 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -407,7 +407,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected created() {
         this.afterCreated();
@@ -416,7 +416,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -436,7 +436,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -445,7 +445,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public activated() {
         this.popUpGroup();
@@ -457,7 +457,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected mounted() {
         this.afterMounted();
@@ -466,14 +466,14 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 底部按钮样式
      * 
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public button_style = "";
 
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -490,7 +490,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -502,7 +502,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -511,7 +511,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -529,7 +529,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -540,7 +540,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -551,7 +551,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -562,7 +562,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -573,7 +573,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -584,7 +584,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'tbitem1')) {
@@ -601,7 +601,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @param {*} [tag]
      * @param {*} [$event]
      * @returns {Promise<any>}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
@@ -626,7 +626,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -650,7 +650,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -680,7 +680,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -692,7 +692,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -714,7 +714,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -726,7 +726,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof IbzWeeklyMobEditViewBase
+     * @memberof IbzWeeklyMobEditViewCreateBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -770,5 +770,5 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './ibz-weekly-mob-edit-view.less';
+@import './ibz-weekly-mob-edit-view-create.less';
 </style>

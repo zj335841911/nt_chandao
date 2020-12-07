@@ -7,6 +7,7 @@
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|文档库移动端树视图（产品）|DEMOBTREEVIEW|&nbsp;|
 |-|需求移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
+|-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|我的地盘移动端日历视图|DEMOBCALENDARVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
