@@ -34,14 +34,14 @@ export class ZentaoBase extends Vue {
                     this.clickAuto8(item); break;
                 case 'Auto2': 
                     this.clickAuto2(item); break;
-                case '_7': 
-                    this.click_7(item); break;
+                case 'Auto29': 
+                    this.clickAuto29(item); break;
                 case 'Auto6': 
                     this.clickAuto6(item); break;
                 case 'AppFunc3': 
                     this.clickAppFunc3(item); break;
-                case '_6': 
-                    this.click_6(item); break;
+                case 'Auto27': 
+                    this.clickAuto27(item); break;
                 case 'Auto10': 
                     this.clickAuto10(item); break;
                 case 'Auto9': 
@@ -50,8 +50,8 @@ export class ZentaoBase extends Vue {
                     this.clickAppFunc2(item); break;
                 case 'Auto11': 
                     this.clickAuto11(item); break;
-                case '_2': 
-                    this.click_2(item); break;
+                case 'Auto23': 
+                    this.clickAuto23(item); break;
                 case 'AppFunc5': 
                     this.clickAppFunc5(item); break;
                 case 'Auto15': 
@@ -60,12 +60,12 @@ export class ZentaoBase extends Vue {
                     this.clickAppFunc4(item); break;
                 case 'POAppFunc': 
                     this.clickPOAppFunc(item); break;
-                case '_9': 
-                    this.click_9(item); break;
+                case 'Auto32': 
+                    this.clickAuto32(item); break;
                 case 'Auto1': 
                     this.clickAuto1(item); break;
-                case '_5': 
-                    this.click_5(item); break;
+                case 'Auto26': 
+                    this.clickAuto26(item); break;
                 default:
                     judge = false;
                     console.warn('未指定应用功能');
@@ -198,7 +198,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_7(item: any = {}) {
+    public clickAuto29(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -266,7 +266,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_6(item: any = {}) {
+    public clickAuto27(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -368,7 +368,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_2(item: any = {}) {
+    public clickAuto23(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -486,7 +486,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_9(item: any = {}) {
+    public clickAuto32(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -531,7 +531,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_5(item: any = {}) {
+    public clickAuto26(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
