@@ -120,7 +120,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         newMonthly.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
         newMonthly.setSubmittime(ZTDateUtil.now());
         if ((old.getThismonthtask() == null && old.getWorkthismonth() == null) || old.getReportto() == null) {
-            throw new RuntimeException("请填写今日工作或今日完成任务并且指定汇报人后提交！");
+            throw new RuntimeException("请填写本月工作或本月完成任务并且指定汇报人后提交！");
         }
         if (!update(newMonthly, (Wrapper) newMonthly.getUpdateWrapper(true).eq("Ibz_monthlyid", newMonthly.getIbzmonthlyid()))) {
             return newMonthly;
@@ -227,7 +227,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
     public IbzMonthly pushUserMonthly(IbzMonthly et) {
         List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().last(" where issubmit = '0' and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m')"));
         for (IbzMonthly ibzMonthly : list) {
-            actionHelper.sendToread(ibzMonthly.getIbzmonthlyid(), "您的" + ibzMonthly.getIbzmonthlyname() + "的日报还未提交，请及时填写！", ibzMonthly.getAccount(), "", "", IIbzMonthlyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.MONTHLY.getValue(), IIbzMonthlyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
+            actionHelper.sendToread(ibzMonthly.getIbzmonthlyid(), "您的" + ibzMonthly.getIbzmonthlyname() + "的月报还未提交，请及时填写！", ibzMonthly.getAccount(), "", "", IIbzMonthlyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.MONTHLY.getValue(), IIbzMonthlyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
         }
         return et;
     }

@@ -332,6 +332,14 @@ export default class MobblockBase extends Vue implements ControlInterface {
      * @memberof Mobblock
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1020,6 +1028,9 @@ export default class MobblockBase extends Vue implements ControlInterface {
      *  @memberof Mobblock
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.testtask});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

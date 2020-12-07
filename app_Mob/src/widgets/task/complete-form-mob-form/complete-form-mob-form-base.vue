@@ -471,6 +471,14 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @memberof CompleteFormMob
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1327,6 +1335,9 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      *  @memberof CompleteFormMob
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.task});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

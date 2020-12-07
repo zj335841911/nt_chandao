@@ -54,6 +54,7 @@ public interface IIbzDailyService extends IService<IbzDaily> {
     void saveBatch(List<IbzDaily> list);
     IbzDaily submit(IbzDaily et);
     Page<IbzDaily> searchDefault(IbzDailySearchContext context);
+    Page<IbzDaily> searchMyAllDaily(IbzDailySearchContext context);
     Page<IbzDaily> searchMyDaily(IbzDailySearchContext context);
     Page<IbzDaily> searchMyNotSubmit(IbzDailySearchContext context);
     Page<IbzDaily> searchMySubmitDaily(IbzDailySearchContext context);

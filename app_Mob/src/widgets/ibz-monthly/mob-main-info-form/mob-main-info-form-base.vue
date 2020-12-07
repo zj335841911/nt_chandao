@@ -511,6 +511,14 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      * @memberof MobMainInfo
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1365,6 +1373,9 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      *  @memberof MobMainInfo
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.ibzmonthly});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

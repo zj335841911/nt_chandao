@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface IbzDailyMapper extends BaseMapper<IbzDaily> {
 
     Page<IbzDaily> searchDefault(IPage page, @Param("srf") IbzDailySearchContext context, @Param("ew") Wrapper<IbzDaily> wrapper);
+    Page<IbzDaily> searchMyAllDaily(IPage page, @Param("srf") IbzDailySearchContext context, @Param("ew") Wrapper<IbzDaily> wrapper);
     Page<IbzDaily> searchMyDaily(IPage page, @Param("srf") IbzDailySearchContext context, @Param("ew") Wrapper<IbzDaily> wrapper);
     Page<IbzDaily> searchMyNotSubmit(IPage page, @Param("srf") IbzDailySearchContext context, @Param("ew") Wrapper<IbzDaily> wrapper);
     Page<IbzDaily> searchMySubmitDaily(IPage page, @Param("srf") IbzDailySearchContext context, @Param("ew") Wrapper<IbzDaily> wrapper);

@@ -2631,6 +2631,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleLineGridView",
             "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53"
         },
+        "buggridview9_taskrelated": {
+            "title": "相关Bug",
+            "caption": "相关Bug",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugGridView9_TaskRelated",
+            "viewtag": "8f563f093547b26f56125b59d03786e8"
+        },
         "storyplaneditview": {
             "title": "需求",
             "caption": "需求",
@@ -3238,6 +3246,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductSumEditView",
             "viewtag": "ada719b0d8722509d22b4b72bbb8cf26"
+        },
+        "ibzdailydailyinfocalendareditview": {
+            "title": "日报编辑视图(日历显示)",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyDailyInfoCalendarEditView",
+            "viewtag": "adae3758bed4c09c5e283b69603ba8e7"
         },
         "bugstatsproductbugstatusgridview": {
             "title": "Bug统计表格视图",

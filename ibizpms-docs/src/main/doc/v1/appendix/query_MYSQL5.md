@@ -2674,6 +2674,10 @@ WHERE t1.deleted = '0'
 	select t1.build from zt_testtask t1 where FIND_IN_SET(t1.id,(SELECT tasks from zt_testreport where id =#{srf.datacontext.srfparentkey})))) tt GROUP BY tt.product)) = 0) and FIND_IN_SET('trunk',t1.openedBuild) = 0 and  (t1.`status` = 'active' or t1.resolvedDate > (select CONCAT(DATE_FORMAT(tt.`end`,'%Y-%m-%d'),' 23:59:59') from zt_testreport tt where tt.id = #{srf.datacontext.srfparentkey})) 
 
 ```
+### 任务相关bug(TaskBug)<div id="Bug_TaskBug"></div>
+```sql
+
+```
 ### 默认（全部数据）(VIEW)<div id="Bug_View"></div>
 ```sql
 SELECT
@@ -7198,6 +7202,37 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_DAILY` t1 
 
 ```
+### 我的日报（已提交和未提交）(MyAllDaily)<div id="IbzDaily_MyAllDaily"></div>
+```sql
+SELECT
+		t1.`ACCOUNT`,
+		t1.`CREATEDATE`,
+		t1.`CREATEMAN`,
+		t1.`CREATEMANNAME`,
+		t1.`DATE`,
+		t1.`IBZ_DAILYID`,
+		t1.`IBZ_DAILYNAME`,
+		t1.`ISSUBMIT`,
+		t1.`MAILTO`,
+		t1.MAILTO AS `MAILTOPK`,
+		( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+		t1.`REPORTTO`,
+		t1.REPORTTO AS `REPORTTOPK`,
+		t1.`SUBMITTIME`,
+		t1.`TODAYTASK`,
+		t1.`TOMORROWPLANSTASK`,
+		t1.`UPDATEDATE`,
+		t1.`UPDATEMAN`,
+		t1.`UPDATEMANNAME` 
+	FROM
+		`T_IBZ_DAILY` t1
+		LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_DAILYID 
+		AND t11.objectType = 'daily' 
+		AND t11.action = 'read' 
+		AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.account =  #{srf.sessioncontext.srfloginname} 
+
+```
 ### 我收到的日报(MyDaily)<div id="IbzDaily_MyDaily"></div>
 ```sql
 SELECT
@@ -7894,7 +7929,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -7919,7 +7954,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -7995,7 +8030,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -8020,7 +8055,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,

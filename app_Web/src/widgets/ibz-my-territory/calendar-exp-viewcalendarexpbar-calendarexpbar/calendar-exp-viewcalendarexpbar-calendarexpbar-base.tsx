@@ -101,6 +101,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
         Bug: "bug-calendar-edit-view",
         task: "task-calendar-edit-view",
         todo: "todo-calendar-edit-view",
+        daily: "ibz-daily-daily-info-calendar-edit-view",
         testtask: "test-task-calendar-edit-view",
         Story: "story-calendar-edit-view"
     };
@@ -124,6 +125,10 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
             navigateContext:null,
             navigateParams:null
         },
+        daily: {
+            navigateContext:null,
+            navigateParams:null
+        },
         testtask: {
             navigateContext:null,
             navigateParams:null
@@ -144,6 +149,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
         Bug: "",
         task: "",
         todo: "",
+        daily: "",
         testtask: "",
         Story: ""
     };
@@ -158,6 +164,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
         Bug: "",
         task: "",
         todo: "",
+        daily: "",
         testtask: "",
         Story: ""
     };
@@ -258,6 +265,24 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
                 }
                 if(this.navParam && this.navParam['todo'] && this.navParam['todo'].navigateParams && Object.keys(this.navParam['todo'].navigateParams).length >0){
                     let _params:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['todo'].navigateParams);
+                    Object.assign(tempViewParam,_params);
+                }
+                break;
+            case "daily":
+                Object.assign(tempContext,{ ibzdaily : arg.ibzdaily});
+                Object.assign(tempContext,{srfparentdename:'IbzDaily',srfparentkey:arg['ibzdaily']});
+                if(this.navFilter && this.navFilter['daily'] && !Object.is(this.navFilter['daily'],"")){
+                    Object.assign(tempViewParam,{[this.navFilter['daily']]:arg['ibzdaily']});
+                }
+                if(this.navPSDer && this.navFilter['daily'] && !Object.is(this.navPSDer['daily'],"")){
+                    Object.assign(tempViewParam,{[this.navPSDer['daily']]:arg['ibzdaily']});
+                }
+                if(this.navParam && this.navParam['daily'] && this.navParam['daily'].navigateContext && Object.keys(this.navParam['daily'].navigateContext).length >0){
+                    let _context:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['daily'].navigateContext);
+                    Object.assign(tempContext,_context);
+                }
+                if(this.navParam && this.navParam['daily'] && this.navParam['daily'].navigateParams && Object.keys(this.navParam['daily'].navigateParams).length >0){
+                    let _params:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['daily'].navigateParams);
                     Object.assign(tempViewParam,_params);
                 }
                 break;

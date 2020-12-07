@@ -415,6 +415,7 @@ hide footbox
 |ReportBugs|发布关联Bug（未解决）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_ReportBugs))|否|&nbsp;|
 |SelectBugByBuild|版本关联bug(遗留得bug)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_SelectBugByBuild))|否|&nbsp;|
 |SelectBugsByProject|查询遗留得bug(项目)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_SelectBugsByProject))|否|&nbsp;|
+|TaskBug|任务相关bug([MYSQL5](../../appendix/query_MYSQL5.md#Bug_TaskBug))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_View))|否|&nbsp;|
 
 * **数据集合**
@@ -450,6 +451,7 @@ hide footbox
 |ReleaseLinkableLeftBug|发布可关联的bug（遗留）|ReleaseLinkableLeftBug|否|&nbsp;|
 |ReleaseLinkableResolvedBug|发布可关联的bug（已解决）|ReleaseLinkableResolvedBug|否|&nbsp;|
 |ReportBugs|发布关联Bug（未解决）|ReportBugs|否|&nbsp;|
+|TaskBug|任务相关bug|TaskBug|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

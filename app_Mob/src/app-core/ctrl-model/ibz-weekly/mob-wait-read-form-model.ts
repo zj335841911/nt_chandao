@@ -96,6 +96,11 @@ export class MobWaitReadModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'nextweektask',
+                prop: 'nextweektask',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'ibz_weeklyid',
                 prop: 'ibzweeklyid',
                 dataType: 'ACID',

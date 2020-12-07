@@ -417,6 +417,14 @@ export default class ActivationMobBase extends Vue implements ControlInterface {
      * @memberof ActivationMob
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1188,6 +1196,9 @@ export default class ActivationMobBase extends Vue implements ControlInterface {
      *  @memberof ActivationMob
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.bug});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

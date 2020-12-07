@@ -105,9 +105,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'tasks'});
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'startmoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlyplanstaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'commoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlydonetaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview1',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'monthlymyplanstaskmobmdview',srfappde:'tasks'});

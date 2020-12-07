@@ -299,6 +299,35 @@ export default class IbzDailyServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyAllDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async FetchMyAllDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzdailies/fetchmyalldaily`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMyAllDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async searchMyAllDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/searchmyalldaily`,tempData,isloading);
+    }
+
+    /**
      * FetchMyDaily接口方法
      *
      * @param {*} [context={}]

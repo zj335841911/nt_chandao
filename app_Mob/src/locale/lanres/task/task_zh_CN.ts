@@ -118,6 +118,9 @@ export default {
 		startmoboptionview: {
 			caption: '开始',
 		},
+		monthlyplanstaskmobmdview: {
+			caption: '任务',
+		},
 		favoritemoremobmdview: {
 			caption: '我收藏的任务',
 		},
@@ -126,6 +129,9 @@ export default {
 		},
 		commoboptionview: {
 			caption: '完成',
+		},
+		monthlydonetaskmobmdview: {
+			caption: '任务',
 		},
 		assmobmdview: {
 			caption: '任务',

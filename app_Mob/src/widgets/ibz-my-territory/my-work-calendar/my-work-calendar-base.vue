@@ -26,6 +26,9 @@
                 <ion-segment-button value="todo">
                     <ion-label>待办</ion-label>
                 </ion-segment-button>
+                <ion-segment-button value="daily">
+                    <ion-label>日报</ion-label>
+                </ion-segment-button>
             </ion-segment>
             <div class="calendar-events">
                 <ion-list>
@@ -300,6 +303,13 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                 majorPSAppDEField: 'realname',
             }
         ],
+        [
+            'daily', {
+                appde: 'ibzmyterritory',
+                keyPSAppDEField: 'id',
+                majorPSAppDEField: 'realname',
+            }
+        ],
     ]);
 
     /**
@@ -405,14 +415,14 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      *
      * @memberof MyWork
      */
-    public evendata :any = {bug:[],task:[],todo:[],}
+    public evendata :any = {bug:[],task:[],todo:[],daily:[],}
 
     /**
      * 图标信息
      *
      * @memberof MyWork
      */
-    public illustration = [{color:"rgba(254, 228, 90, 1)",text:"Bug"},{color:"rgba(247, 110, 154, 1)",text:"任务"},{color:"rgba(255, 166, 0, 1)",text:"待办"},]
+    public illustration = [{color:"rgba(254, 228, 90, 1)",text:"Bug"},{color:"rgba(247, 110, 154, 1)",text:"任务"},{color:"rgba(255, 166, 0, 1)",text:"待办"},{color:"rgba(119, 255, 0, 1)",text:"日报"},]
     /**
      * 激活项
      *
@@ -610,11 +620,12 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      * @memberof MyWork
      */
     protected setTileContent(){
-        this.evendata = {bug:[],task:[],todo:[],}
+        this.evendata = {bug:[],task:[],todo:[],daily:[],}
         let bugItem :Array<any> = this.parsingData('bug','deadline');
         let taskItem :Array<any> = this.parsingData('task','eststarted');
         let todoItem :Array<any> = this.parsingData('todo','date');
-        this.setSign(bugItem,taskItem,todoItem,);
+        let dailyItem :Array<any> = this.parsingData('daily','date');
+        this.setSign(bugItem,taskItem,todoItem,dailyItem,);
     }
 
     /**
@@ -623,8 +634,8 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      * @param any 
      * @memberof MyWork
      */
-    public setSign(bugItem: any,taskItem: any,todoItem: any,){
-      let signData: any[] = [...bugItem,...taskItem,...todoItem,];
+    public setSign(bugItem: any,taskItem: any,todoItem: any,dailyItem: any,){
+      let signData: any[] = [...bugItem,...taskItem,...todoItem,...dailyItem,];
       let obj: any = {}
       this.sign.length = 0;
       // 格式化数据
@@ -707,6 +718,17 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     protected getEditView(deName: string) {
         let view: any = {};
         switch(deName){
+            case "ibzdaily": 
+                view = {
+                    viewname: 'ibz-daily-daily-info-mob-edit-view', 
+                    height: 0, 
+                    width: 0,  
+                    title: '日报移动端编辑视图(日报描述)', 
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailyinfomobeditview', parameterName: 'dailyinfomobeditview' } ],
+                };
+                break;
             case "task": 
                 view = {
                     viewname: 'task-mob-edit-view', 
@@ -766,6 +788,10 @@ export default class MyWorkBase extends Vue implements ControlInterface {
             case "todo":
                 _context.todo = $event.todo;
                 view = this.getEditView("todo");
+                break;
+            case "daily":
+                _context.ibzdaily = $event.ibzdaily;
+                view = this.getEditView("ibzdaily");
                 break;
         }
         if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {

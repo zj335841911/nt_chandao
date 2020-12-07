@@ -1177,9 +1177,10 @@ Save
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
 | ---- | ---- | ---- | ---- |
-| 1 | 统计我未提交的日报数 | Rawsqlcall1 | 直接SQL调用 |
-| 2 | 统计我未提交的周报 | Rawsqlcall2 | 直接SQL调用 |
-| 3 | 开始 | Begin | 开始 |
+| 1 | 统计我未提交的月报 | Rawsqlcall3 | 直接SQL调用 |
+| 2 | 统计我未提交的日报数 | Rawsqlcall1 | 直接SQL调用 |
+| 3 | 统计我未提交的周报 | Rawsqlcall2 | 直接SQL调用 |
+| 4 | 开始 | Begin | 开始 |
 ### 逻辑处理-我收到的汇报（计数器）（ReportIReceived）
 #### 说明
 我收到的汇报（计数器）
@@ -1269,7 +1270,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -1294,7 +1295,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -1392,7 +1393,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -1417,7 +1418,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,

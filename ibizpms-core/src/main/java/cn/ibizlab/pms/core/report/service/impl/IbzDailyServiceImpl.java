@@ -196,6 +196,15 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     }
 
     /**
+     * 查询集合 我的日报（已提交和未提交）
+     */
+    @Override
+    public Page<IbzDaily> searchMyAllDaily(IbzDailySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchMyAllDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 我收到的日报
      */
     @Override

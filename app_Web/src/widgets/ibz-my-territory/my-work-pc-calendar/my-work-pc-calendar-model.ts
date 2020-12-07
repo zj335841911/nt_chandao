@@ -103,6 +103,26 @@ export default class MyWorkPCModel {
                   },
               ];
               break;
+          case "daily":
+              dataItems = [...dataItems,
+                  {
+                    name: 'ibzdaily',
+                    prop: 'ibzdailyid'
+                  },
+                  {
+                    name: 'title',
+                    prop: 'ibzdailyname'
+                  },
+                  {
+                    name:'start',
+                    prop:'date'
+                  },
+                  {
+                    name:'end',
+                    prop:'submittime'
+                  },
+              ];
+              break;
           case "testtask":
               dataItems = [...dataItems,
                   {

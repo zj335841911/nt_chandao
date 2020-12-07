@@ -54,6 +54,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6a9fceec3db94743835d7d4858424dda',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
                 '69a540ab88c1edd1da7f89cebe5f4588',
                 'e848fcc53d765ca86681f329895f792c',
@@ -309,8 +310,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '2fbad11497e0fa5fbb9e5cc3db6029ff',
-                'd37be393a71ef140b65a9b75e0a2658e',
+                '7a2ab181ea826d269085a914d23cd49e',
+                '54b430d78e300148f0d06da1cf52a94b',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'b52bf86837838dcfd5b787fad0350f22',
             ],
@@ -910,6 +911,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '54b430d78e300148f0d06da1cf52a94b',
+            viewmodule: 'report',
+            viewname: 'TaskMonthlyPlansTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '55804d2c14c94aaab24b2ad0d4db08d8',
             viewmodule: 'ibiz',
             viewname: 'StoryLogMobMDView9',
@@ -1330,6 +1341,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '7a2ab181ea826d269085a914d23cd49e',
+            viewmodule: 'report',
+            viewname: 'TaskMonthlyDoneTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {
@@ -2185,10 +2206,12 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bb9616d1f1ed5c36e119f071e98b637b',
                 'f49dfaced3944c1bc17f64253fcc95a0',
                 '18b9f914b5fa7aa6e485660e3e5f2aaa',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
                 '70d570ae5cafd7af092084e6d0e6b2f7',
+                '1a98f1c22b636e6c2d860064aada120e',
                 '053879e9b47bc845598b68abbdbb2e0a',
                 'b6260b6fc6e77dc269f79d39d0b33e25',
                 '35bd5c967f7ff8d253e10cf7b12dde28',

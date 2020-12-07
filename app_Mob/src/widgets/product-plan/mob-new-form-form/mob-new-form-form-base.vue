@@ -405,6 +405,14 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1251,6 +1259,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *  @memberof MobNewForm
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.productplan});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

@@ -41,6 +41,10 @@ export default {
 			caption: "日报",
       		title: "日报表格视图",
 		},
+		dailyinfocalendareditview: {
+			caption: "日报",
+      		title: "日报编辑视图(日历显示)",
+		},
 		dailyinfoeditview: {
 			caption: "日报",
       		title: "日报编辑视图(日报描述)",
@@ -116,6 +120,32 @@ export default {
 		uiactions: {
 		},
 	},
+	dailyinfocalendar_form: {
+		details: {
+			group1: "日报基本信息", 
+			button1: "修改", 
+			button2: "提交", 
+			druipart1: "", 
+			formpage1: "基本信息", 
+			srfupdatedate: "更新时间", 
+			srforikey: "", 
+			srfkey: "日报标识", 
+			srfmajortext: "日报名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			ibz_dailyname: "", 
+			ibz_dailyid: "日报标识", 
+			issubmit: "是否提交", 
+			worktoday: "今日工作", 
+			planstomorrow: "明日计划", 
+		},
+		uiactions: {
+			ibzdaily_edit: "修改",
+			ibzdaily_submit: "提交",
+		},
+	},
 	mymain_grid: {
 		nodata: "",
 		columns: {
@@ -150,6 +180,8 @@ export default {
 		},
 		uiactions: {
 		},
+	},
+	dailyinfocalendareditviewtoolbar_toolbar: {
 	},
 	dailyinfoeditviewtoolbar_toolbar: {
 	},

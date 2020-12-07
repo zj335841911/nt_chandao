@@ -68,7 +68,7 @@ export class FormServiceBase extends ControlServiceBase {
         if (Util.isFunction(this.service[action])) {
             response = await this.service[action](context, data, isLoading);
         } else {
-            response = await this.service.WFSubmit(context, data, wfdata);
+            response = await this.service.WFSubmit(context, data,isLoading, wfdata);
         }
         if (!response.isError()) {
             response = this.handleResponse(action, response);
