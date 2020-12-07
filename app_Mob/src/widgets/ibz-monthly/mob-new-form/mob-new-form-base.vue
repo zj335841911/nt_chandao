@@ -633,15 +633,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @memberof MobNew
      */
     protected rules: any = {
-        thismonthtask: [
-            { required: true, type: 'string', message: '本月完成任务 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '本月完成任务 值不能为空', trigger: 'blur' },
-        ],
         reportto: [
-            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'blur' },
-        ],
-        reporttopk: [
             { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'blur' },
         ],

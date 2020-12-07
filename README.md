@@ -181,6 +181,10 @@ iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用V
 - 产品--路线图
 
   ![show17](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show17.png)
+  
+- 产品-需求看板
+
+  ![show46](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show46.png)
 
 **项目**
 
@@ -204,11 +208,20 @@ iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用V
 
   ![show22](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show22.png)
 
+- 项目-团队成员
+
+  ![show48](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show48.png)
+
+
 **测试**
 
 - 测试--主页
 
   ![show23](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show23.png)
+
+- 测试-看板
+
+  ![show47](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show47.png)
 
 - 测试--测试结果
 
@@ -226,6 +239,10 @@ iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用V
 
   ![show25](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show25.png)
 
+- 我的地盘-汇报
+
+  ![show45](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show45.png)
+
 **我的收藏**
 
 - 我的收藏--需求
@@ -237,6 +254,16 @@ iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用V
 - 统计报表-列表
 
   ![show44](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show44.png)
+
+**文档库**
+
+- 文档库-树视图
+
+  ![show49](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show49.png)
+
+- 文档库-详细视图
+
+  ![show50](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show50.png)
 
 ### 移动端
 
@@ -316,6 +343,7 @@ iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用V
 | 11   | 2020-09-30 | V0.0.7.20200930    | 新增：<br>1. 测试报告<br>2. 统计列表（匹配禅道开源版）       |
 | 12   | 2020-10-18 | V0.0.8.20201018    | 新增：<br>1. 禅道接口移除<br>2. 统计视图（年度统计）         |
 | 13   | 2020-11-16 | V0.0.9.20201116    | 新增：<br>1. 我的地盘-日历视图<br>2. 管理员模式，提供人员、组织的管理功能<br>3. 组织权限<br>4. 文档库<br>5. 系统报告（实体、数据字典、外部接口）<br>6. 系统SQL提供 |
+| 14   | 2020-12-6  | V0.0.10.20201206   | 新增：<br/>1. 我的地盘-汇报-日报、周报、月报<br/>2. 文档内容模板独立维护<br>3. 需求看板<br>4. 测试看板<br>5. 任务分组视图、树视图<br>6. 项目团队成员卡片视图 |
 
 ### 即将到来
 

@@ -228,7 +228,6 @@ export const PageComponents = {
         Vue.component('test-result-edit-view9', () => import('@pages/zentao/test-result-edit-view9/test-result-edit-view9.vue'));
         Vue.component('project-test-tab-exp-view', () => import('@pages/zentao/project-test-tab-exp-view/project-test-tab-exp-view.vue'));
         Vue.component('project-edit-view', () => import('@pages/zentao/project-edit-view/project-edit-view.vue'));
-        Vue.component('ibz-daily-daily-info-edit-view', () => import('@pages/report/ibz-daily-daily-info-edit-view/ibz-daily-daily-info-edit-view.vue'));
         Vue.component('sys-update-log-last-tab-exp-view', () => import('@pages/ibiz/sys-update-log-last-tab-exp-view/sys-update-log-last-tab-exp-view.vue'));
         Vue.component('story-usr2-mpickup-view', () => import('@pages/zentao/story-usr2-mpickup-view/story-usr2-mpickup-view.vue'));
         Vue.component('story-grid-view9-assigned-to-me', () => import('@pages/zentao/story-grid-view9-assigned-to-me/story-grid-view9-assigned-to-me.vue'));

@@ -243,7 +243,7 @@ const data: any = {
                 menuitem17: "插件管理",
                 menuitem19: "汇报角色角色",
                 left_exp: "左侧分页导航",
-                menuitem4: "产品",
+                menuitem4: "Product",
                 menuitem5: "项目",
                 menuitem6: "测试",
                 bottom_exp: "底部导航区",
