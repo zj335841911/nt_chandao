@@ -713,7 +713,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        id: null,
         name: null,
         pri: null,
         date1: null,
@@ -725,6 +724,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         assigneddate: null,
         assignedto: null,
         desc: null,
+        id: null,
         todo: null,
     };
 
@@ -878,8 +878,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
         name: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -901,6 +899,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -986,18 +986,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'srfsourcekey', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 id 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1130,6 +1118,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.desc')
     onDescChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 id 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.id')
+    onIdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
 
