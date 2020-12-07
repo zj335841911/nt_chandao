@@ -193,6 +193,12 @@ export default {
 	},
 	dailyinfocalendareditviewtoolbar_toolbar: {
 	},
+	maineditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	dailyinfoeditviewtoolbar_toolbar: {
 	},
 	dailyeditviewtoolbar_toolbar: {

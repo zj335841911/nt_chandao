@@ -193,6 +193,12 @@ export default {
 	},
 	dailyinfocalendareditviewtoolbar_toolbar: {
 	},
+	maineditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	dailyinfoeditviewtoolbar_toolbar: {
 	},
 	dailyeditviewtoolbar_toolbar: {

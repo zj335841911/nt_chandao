@@ -8963,6 +8963,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-edit-view/project-edit-view.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/dailyinfoeditview/:dailyinfoeditview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.dailyinfoeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailyinfoeditview', parameterName: 'dailyinfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-info-edit-view/ibz-daily-daily-info-edit-view.vue'),
+                },
+                {
                     path: 'sysupdatelogs/:sysupdatelog?/lasttabexpview/:lasttabexpview?',
                     meta: {
                         caption: 'entities.sysupdatelog.views.lasttabexpview.caption',
