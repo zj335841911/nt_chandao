@@ -178,11 +178,12 @@
     :isEmptyCaption="false">
         <app-mob-radio-list 
     style="width: 100%;" 
-        type="static" 
+    type="static" 
     tag="YesNo2"
     :value="data.private"  
     :disabled="detailsModel.private.disabled" 
     @change="($event)=>this.data.private = $event"/>
+
 </app-form-item>
 
 
@@ -1484,6 +1485,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {

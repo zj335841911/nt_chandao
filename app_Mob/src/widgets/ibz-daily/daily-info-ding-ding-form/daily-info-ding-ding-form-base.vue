@@ -1727,6 +1727,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ ibzdailyname: arg.ibzdailyname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {

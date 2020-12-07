@@ -1641,6 +1641,7 @@ export default class MobInfoMain2Base extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ ibzweeklyname: arg.ibzweeklyname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
