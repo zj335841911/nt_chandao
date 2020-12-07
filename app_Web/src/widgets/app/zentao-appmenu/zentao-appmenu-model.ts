@@ -327,6 +327,27 @@ export default class ZentaoModel {
                 	authtag:'Web-zentao-menuitem19',
                 }
                 ,
+                		        {
+                	id: 'DCD81E08-ABA8-4E86-9C77-FB1DC04A51A8',
+                	name: 'menuitem21',
+                	text: '系统配置',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '系统配置',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc6',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibzpro-config-grid-view',
+                	authtag:'Web-zentao-menuitem21',
+                }
+                ,
         	],
         }
         ,
@@ -638,6 +659,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'todos', parameterName: 'todo' },
                 { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc6',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzproconfiggridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzproconfigs/:ibzproconfig?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibzproconfigs', parameterName: 'ibzproconfig' },
+                { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
         {

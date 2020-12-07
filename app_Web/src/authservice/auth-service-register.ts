@@ -102,6 +102,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('build', () => import('@/authservice/build/build-auth-service'));
         this.allAuthService.set('testresult', () => import('@/authservice/test-result/test-result-auth-service'));
         this.allAuthService.set('testsuite', () => import('@/authservice/test-suite/test-suite-auth-service'));
+        this.allAuthService.set('ibzproconfig', () => import('@/authservice/ibzpro-config/ibzpro-config-auth-service'));
         this.allAuthService.set('ibzprostory', () => import('@/authservice/ibzpro-story/ibzpro-story-auth-service'));
         this.allAuthService.set('projectteam', () => import('@/authservice/project-team/project-team-auth-service'));
         this.allAuthService.set('testtask', () => import('@/authservice/test-task/test-task-auth-service'));

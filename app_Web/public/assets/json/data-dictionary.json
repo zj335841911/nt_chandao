@@ -7747,6 +7747,140 @@
         "items": []
     }, 
     {
+        "srfkey": "ConfigScope",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "sys",
+                "label": "全局",
+                "text": "全局",
+                "class":"",
+                "data":"",
+                "codename":"Sys",
+                "value": "sys",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "org",
+                "label": "当前组织",
+                "text": "当前组织",
+                "class":"",
+                "data":"",
+                "codename":"Org",
+                "value": "org",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "dept1",
+                "label": "当前部门（含子部门）",
+                "text": "当前部门（含子部门）",
+                "class":"",
+                "data":"",
+                "codename":"Dept1",
+                "value": "dept1",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "dept2",
+                "label": "当前部门（不含子部门）",
+                "text": "当前部门（不含子部门）",
+                "class":"",
+                "data":"",
+                "codename":"Dept2",
+                "value": "dept2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "user",
+                "label": "个人",
+                "text": "个人",
+                "class":"",
+                "data":"",
+                "codename":"User",
+                "value": "user",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "ConfigManagementstatus",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "product_project",
+                "label": "产品 - 项目",
+                "text": "产品 - 项目",
+                "class":"",
+                "data":"",
+                "codename":"Product_project",
+                "value": "product_project",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "product_iteration",
+                "label": "产品 - 迭代",
+                "text": "产品 - 迭代",
+                "class":"",
+                "data":"",
+                "codename":"Product_iteration",
+                "value": "product_iteration",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "project_iteration",
+                "label": "项目 - 迭代",
+                "text": "项目 - 迭代",
+                "class":"",
+                "data":"",
+                "codename":"Project_iteration",
+                "value": "project_iteration",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "product_sprint",
+                "label": "产品 - 冲刺",
+                "text": "产品 - 冲刺",
+                "class":"",
+                "data":"",
+                "codename":"Product_sprint",
+                "value": "product_sprint",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "project_sprint",
+                "label": "项目 - 冲刺",
+                "text": "项目 - 冲刺",
+                "class":"",
+                "data":"",
+                "codename":"Project_sprint",
+                "value": "project_sprint",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Bug__color",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -10164,6 +10298,37 @@
                 "data":"",
                 "codename":"Month",
                 "value": "month",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "ConfigGroup",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "GROUP",
+                "label": "分组",
+                "text": "分组",
+                "class":"",
+                "data":"",
+                "codename":"Group",
+                "value": "GROUP",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "ITEM",
+                "label": "配置项",
+                "text": "配置项",
+                "class":"",
+                "data":"",
+                "codename":"Item",
+                "value": "ITEM",
                 
                 "disabled": false,
                 "default": false

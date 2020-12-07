@@ -36,6 +36,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto2(item); break;
                 case 'Auto29': 
                     this.clickAuto29(item); break;
+                case 'AppFunc6': 
+                    this.clickAppFunc6(item); break;
                 case 'Auto6': 
                     this.clickAuto6(item); break;
                 case 'AppFunc3': 
@@ -205,6 +207,29 @@ export class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'todos', parameterName: 'todo' },
             { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
+     * 系统配置
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAppFunc6(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzproconfigs', parameterName: 'ibzproconfig' },
+            { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

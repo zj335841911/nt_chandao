@@ -923,6 +923,22 @@ export default {
     TestTask: {
         "empty": "",
     },
+    ConfigScope: {
+        "sys": "全局",
+        "org": "当前组织",
+        "dept1": "当前部门（含子部门）",
+        "dept2": "当前部门（不含子部门）",
+        "user": "个人",
+        "empty": ""
+    },
+    ConfigManagementstatus: {
+        "product_project": "产品 - 项目",
+        "product_iteration": "产品 - 迭代",
+        "project_iteration": "项目 - 迭代",
+        "product_sprint": "产品 - 冲刺",
+        "project_sprint": "项目 - 冲刺",
+        "empty": ""
+    },
     Bug__color: {
         "#3da7f5": "#3da7f5",
         "#75c941": "#75c941",
@@ -1196,6 +1212,11 @@ export default {
         "day": "天",
         "week": "周",
         "month": "月度",
+        "empty": ""
+    },
+    ConfigGroup: {
+        "GROUP": "分组",
+        "ITEM": "配置项",
         "empty": ""
     },
     CurStory: {

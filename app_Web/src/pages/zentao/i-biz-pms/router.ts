@@ -10029,6 +10029,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/storymaindashboardview-link/storymaindashboardview-link.vue'),
                 },
                 {
+                    path: 'ibzproconfigs/:ibzproconfig?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzproconfig.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproconfigs', parameterName: 'ibzproconfig' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-config-edit-view/ibzpro-config-edit-view.vue'),
+                },
+                {
                     path: 'ibzmyterritories/:ibzmyterritory?/productsumtreeexpview/:productsumtreeexpview?',
                     meta: {
                         caption: 'entities.ibzmyterritory.views.productsumtreeexpview.caption',
@@ -15874,6 +15888,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'ibzproconfigs/:ibzproconfig?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzproconfig.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproconfigs', parameterName: 'ibzproconfig' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-config-grid-view/ibzpro-config-grid-view.vue'),
                 },
                 {
                     path: 'ibizproplugins/:ibizproplugin?/gridview/:gridview?',
