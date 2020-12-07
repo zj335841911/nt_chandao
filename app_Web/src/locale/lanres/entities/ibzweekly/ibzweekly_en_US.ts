@@ -168,10 +168,6 @@ export default {
 		},
 	},
 	editviewedittoolbar_toolbar: {
-		deuiaction3_submit: {
-			caption: "提交",
-			tip: "提交",
-		},
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
