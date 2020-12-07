@@ -78,6 +78,62 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
      */  
     public appUIService: IbzDailyUIService = new IbzDailyUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
+        curUIService.IbzDaily_Edit(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public form_button2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
+        curUIService.IbzDaily_submit(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
+    }
+
 
     /**
      * 关系界面数量
@@ -146,6 +202,34 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyinfocalendar_form', extractMode: 'ITEM', details: [] } }),
+
+        button1: new FormButtonModel({
+    caption: '修改', detailType: 'BUTTON', name: 'button1', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'Edit',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 1,
+        dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
+
+        button2: new FormButtonModel({
+    caption: '提交', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'submit',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -243,6 +327,71 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof DailyInfoCalendarEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
+                
+
+        if (Object.is(name, '') || Object.is(name, 'issubmit')) {
+            let ret = false;
+            const _issubmit = this.data.issubmit;
+            if (this.$verify.testCond(_issubmit, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.button1.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'issubmit')) {
+            let ret = false;
+            const _issubmit = this.data.issubmit;
+            if (this.$verify.testCond(_issubmit, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.button2.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+	/**
+	 * 表单 修改 事件
+	 *
+	 * @memberof @memberof DailyInfoCalendarEditFormBase
+	 */
+    public button1_click($event: any): void {
+        this.form_button1_click(null, null, $event);
+
+    }
+
+	/**
+	 * 表单 提交 事件
+	 *
+	 * @memberof @memberof DailyInfoCalendarEditFormBase
+	 */
+    public button2_click($event: any): void {
+        this.form_button2_click(null, null, $event);
+
+    }
 
     /**
      * 面板数据变化处理事件

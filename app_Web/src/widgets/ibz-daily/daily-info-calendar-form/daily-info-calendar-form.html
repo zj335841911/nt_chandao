@@ -129,6 +129,45 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.ibzdaily.dailyinfocalendar_form.uiactions.ibzdaily_edit')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+    <span >{{$t('entities.ibzdaily.dailyinfocalendar_form.details.button1')}}</span>
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.ibzdaily.dailyinfocalendar_form.uiactions.ibzdaily_submit')"
+>
+    <span >{{$t('entities.ibzdaily.dailyinfocalendar_form.details.button2')}}</span>
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.druipart1.visible"
     :style="{}"
     
