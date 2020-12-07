@@ -103,7 +103,7 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:IbzDailyUIService  = new IbzDailyUIService();
-        curUIService.IbzDaily_Edit(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
+        curUIService.IbzDaily_EditCz(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
     }
 
     /**
@@ -142,7 +142,7 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof DailyInfoCalendarEditFormBase
      */
-    protected drCount: number = 1;
+    protected drCount: number = 4;
     /**
      * 表单数据对象
      *
@@ -163,6 +163,10 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
         issubmit: null,
         worktoday: null,
         planstomorrow: null,
+        reportto: null,
+        mailto: null,
+        todaytask: null,
+        tomorrowplanstask: null,
         ibzdaily: null,
     };
 
@@ -172,7 +176,7 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof DailyInfoCalendarEditFormBase
      */
-    public majorMessageField: string = 'ibz_dailyname';
+    public majorMessageField: string = '';
 
     /**
      * 属性值规则
@@ -201,16 +205,16 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
      * @memberof DailyInfoCalendarEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyinfocalendar_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyinfocalendar_form', extractMode: 'ITEM', details: [] } }),
 
         button1: new FormButtonModel({
-    caption: '修改', detailType: 'BUTTON', name: 'button1', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '修改', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     disabled: false,
     uiaction: {
         type: 'DEUIACTION',
-        tag: 'Edit',
+        tag: 'EditCz',
         actiontarget: 'SINGLEKEY',
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT',
         visible: true,
         disabled: false,
@@ -218,7 +222,7 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
 }),
 
         button2: new FormButtonModel({
-    caption: '提交', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '提交', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     disabled: false,
     uiaction: {
         type: 'DEUIACTION',
@@ -231,9 +235,21 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
         }
 }),
 
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyinfocalendar_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        formpage1: new FormPageModel({ caption: '详情', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        formpage2: new FormPageModel({ caption: '完成任务', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        formpage3: new FormPageModel({ caption: '计划参与', detailType: 'FORMPAGE', name: 'formpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({
     caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
@@ -326,52 +342,60 @@ export class DailyInfoCalendarEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        todaytask: new FormItemModel({
+    caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        tomorrowplanstask: new FormItemModel({
+    caption: '明日计划任务', detailType: 'FORMITEM', name: 'tomorrowplanstask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        form: new FormTabPanelModel({
+            caption: 'form',
+            detailType: 'TABPANEL',
+            name: 'form',
+            visible: true,
+            isShowCaption: true,
+            form: this,
+            tabPages: [
+                {
+                    name: 'formpage1',
+                    index: 0,
+                    visible: true,
+                },
+                {
+                    name: 'formpage2',
+                    index: 1,
+                    visible: true,
+                },
+                {
+                    name: 'formpage3',
+                    index: 2,
+                    visible: true,
+                },
+            ]
+        }),
     };
-
-    /**
-     * 表单项逻辑
-     *
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @returns {Promise<void>}
-     * @memberof DailyInfoCalendarEditFormBase
-     */
-    public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
-                
-
-        if (Object.is(name, '') || Object.is(name, 'issubmit')) {
-            let ret = false;
-            const _issubmit = this.data.issubmit;
-            if (this.$verify.testCond(_issubmit, 'EQ', '0')) {
-                ret = true;
-            }
-            this.detailsModel.button1.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'issubmit')) {
-            let ret = false;
-            const _issubmit = this.data.issubmit;
-            if (this.$verify.testCond(_issubmit, 'EQ', '0')) {
-                ret = true;
-            }
-            this.detailsModel.button2.setVisible(ret);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
 
 	/**
 	 * 表单 修改 事件

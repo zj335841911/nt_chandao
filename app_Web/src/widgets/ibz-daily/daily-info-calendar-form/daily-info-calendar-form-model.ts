@@ -81,6 +81,26 @@ export default class DailyInfoCalendarModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'reportto',
+        prop: 'reportto',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'todaytask',
+        prop: 'todaytask',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'tomorrowplanstask',
+        prop: 'tomorrowplanstask',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'ibzdaily',
         prop: 'ibzdailyid',
         dataType: 'FONTKEY',

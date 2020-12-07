@@ -1,6 +1,6 @@
 <i-form
     :model="this.data"
-    class="app-form"
+    class="app-form info-form-mode"
     ref="form"
     id="ibzdaily_dailyinfocalendar"
     style=""
@@ -8,7 +8,28 @@
 >
     <input style="display:none;">
     <row>
-            <i-col
+    <tabs
+        :animated="false"
+        size="small"
+        name="dailyinfocalendar"
+        :value="detailsModel.form.activiedPage" 
+        @on-click="detailsModel.form.clickPage($event)"
+    >
+        <tab-pane
+            v-show="detailsModel.formpage1.visible"
+            name="formpage1"
+            :index="0"
+            tab="dailyinfocalendar"
+            class=""  
+            :label="(h) =>{
+                return h('span',{
+                    class:'caption'
+                },[
+                $t('entities.ibzdaily.dailyinfocalendar_form.details.formpage1')
+                ])
+            }"
+        >
+                <i-col
     class="form-layout-container"
     v-show="detailsModel.group1.visible"
     :style="{}"
@@ -25,10 +46,10 @@
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.ibzdaily.dailyinfocalendar_form.details.group1')"
-    :isShowCaption="true"
+    :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -39,38 +60,7 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-        <i-col
-    class="form-layout-container"
-    v-show="detailsModel.ibz_dailyname.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="ibz_dailyname"
-    :itemRules="this.rules().ibz_dailyname"
-    class=""
-
-    :caption="$t('entities.ibzdaily.dailyinfocalendar_form.details.ibz_dailyname')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.ibz_dailyname.error"
-    :isEmptyCaption="true"
-    labelPos="LEFT"
->
-    
-<app-span name='ibz_dailyname' :value="data.ibz_dailyname" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-    
+            
     </row>
 </app-form-group>
 
@@ -91,7 +81,7 @@
 
     :caption="$t('entities.ibzdaily.dailyinfocalendar_form.details.worktoday')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="80"
     :isShowCaption="true"
     :error="detailsModel.worktoday.error"
     :isEmptyCaption="false"
@@ -117,7 +107,7 @@
 
     :caption="$t('entities.ibzdaily.dailyinfocalendar_form.details.planstomorrow')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="80"
     :isShowCaption="true"
     :error="detailsModel.planstomorrow.error"
     :isEmptyCaption="false"
@@ -128,6 +118,99 @@
 
 </i-col>
 <i-col
+    class="form-layout-container"
+    v-show="detailsModel.reportto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="reportto"
+    :itemRules="this.rules().reportto"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyinfocalendar_form.details.reportto')"
+    uiStyle="DEFAULT"
+    :labelWidth="80"
+    :isShowCaption="true"
+    :error="detailsModel.reportto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='reportto' :value="data.reportto" dataType="SSCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="mailto"
+    :itemRules="this.rules().mailto"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyinfocalendar_form.details.mailto')"
+    uiStyle="DEFAULT"
+    :labelWidth="80"
+    :isShowCaption="true"
+    :error="detailsModel.mailto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='mailto' :value="data.mailto" dataType="SMCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.grouppanel1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzdaily.dailyinfocalendar_form.details.grouppanel1')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
     class="form-layout-container"
     v-show="detailsModel.button1.visible"
     :style="{}"
@@ -140,10 +223,10 @@
     type="primary"
     @click="button1_click($event)"
     style=""
-    :title="$t('entities.ibzdaily.dailyinfocalendar_form.uiactions.ibzdaily_edit')"
+    :title="$t('entities.ibzdaily.dailyinfocalendar_form.uiactions.ibzdaily_editcz')"
 >
     <menu-icon :item="{iconcls: 'fa fa-edit'}" />
-    <span >{{$t('entities.ibzdaily.dailyinfocalendar_form.details.button1')}}</span>
+
 </i-button>
 
 </i-col>
@@ -162,8 +245,46 @@
     style=""
     :title="$t('entities.ibzdaily.dailyinfocalendar_form.uiactions.ibzdaily_submit')"
 >
-    <span >{{$t('entities.ibzdaily.dailyinfocalendar_form.details.button2')}}</span>
+
 </i-button>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzdaily" 
+    :parentdata='{"srfparentdename":"IBZ_DAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{objecttype:"daily"}'
+    parameterName="ibzdaily"
+    parentName="IbzDaily"  
+    refviewtype="DELISTVIEW9" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="file-list-view9" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
 
 </i-col>
 <i-col
@@ -201,5 +322,115 @@
 </i-col>
 
 
+        </tab-pane> 
+        <tab-pane
+            v-show="detailsModel.formpage2.visible"
+            name="formpage2"
+            :index="1"
+            tab="dailyinfocalendar"
+            class=""  
+            :label="(h) =>{
+                return h('span',{
+                    class:'caption'
+                },[
+                $t('entities.ibzdaily.dailyinfocalendar_form.details.formpage2')
+                ])
+            }"
+        >
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzdaily" 
+    :parentdata='{"srfparentdename":"IBZ_DAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        {
+            pathName: 'stories',
+            parameterName: 'story',
+        },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{todaytask:"%todaytask%"}'
+    parameterName="ibzdaily"
+    parentName="IbzDaily"  
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="TodayTask" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="task-zs-grid-view9" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
+
+        </tab-pane> 
+        <tab-pane
+            v-show="detailsModel.formpage3.visible"
+            name="formpage3"
+            :index="2"
+            tab="dailyinfocalendar"
+            class=""  
+            :label="(h) =>{
+                return h('span',{
+                    class:'caption'
+                },[
+                $t('entities.ibzdaily.dailyinfocalendar_form.details.formpage3')
+                ])
+            }"
+        >
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzdaily" 
+    :parentdata='{"srfparentdename":"IBZ_DAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        {
+            pathName: 'stories',
+            parameterName: 'story',
+        },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{todaytask:"%tomorrowplanstask%"}'
+    parameterName="ibzdaily"
+    parentName="IbzDaily"  
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="tomorrowplanstask" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="task-zs-grid-view9" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
+
+        </tab-pane> 
+    </tabs>
     </row>
 </i-form>
