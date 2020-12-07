@@ -409,7 +409,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('工时成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -654,7 +653,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('继续成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -785,7 +783,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('完成成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -851,7 +848,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('暂停成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -917,7 +913,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('开始成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
