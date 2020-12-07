@@ -20,6 +20,7 @@
 *** 更新日志
 *** 插件管理
 *** 汇报角色角色
+*** 系统配置
 ** 左侧分页导航
 *** 产品
 *** 项目
@@ -54,6 +55,7 @@
 |更新日志|[查看功能](func/SysUpdateLogGridView.md)|
 |插件管理|[查看功能](func/IbzMyTerritoryUsr3TabExpView.md)|
 |汇报角色角色|[查看功能](func/IbzReportRoleConfigGridView.md)|
+|系统配置|[查看功能](func/IbzproConfigGridView.md)|
 |左侧分页导航|-|
 |产品|[查看功能](func/ProductLeftSidebarListView.md)|
 |项目|[查看功能](func/ProjectLeftSidebarListView.md)|
