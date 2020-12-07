@@ -1943,6 +1943,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bb9616d1f1ed5c36e119f071e98b637b',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'eef4931ab99bfda807489700470bad47',
+                'dca81c1a74e59de75d199229ca890abb',
+                'b52bf86837838dcfd5b787fad0350f22',
+                '1bd9873e7212574f35571116edb7da0b',
+            ],
+        },
+        {
             viewtag: 'bbd1f1ee06963455848eadd5a6f530e4',
             viewmodule: 'zentao',
             viewname: 'BugUsr3MobPickupBuildResolvedMDView',

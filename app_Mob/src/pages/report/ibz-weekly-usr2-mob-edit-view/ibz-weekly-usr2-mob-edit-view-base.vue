@@ -200,7 +200,7 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzweekly%' };
 
     /**
      * 视图模型数据

@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import IbzWeeklyMobEditViewBase from './ibz-weekly-mob-edit-view-base.vue';
 
-import view_form from '@widgets/ibz-weekly/mob-week-edit-form/mob-week-edit-form.vue';
+import view_form from '@widgets/ibz-weekly/mob-wait-read-form/mob-wait-read-form.vue';
 @Component({
     components: {
         view_form, 

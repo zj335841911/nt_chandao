@@ -1530,6 +1530,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[配置分组]
+     */
+    @Getter
+    public enum ConfigGroup {
+        GROUP("GROUP","分组"),
+        ITEM("ITEM","配置项");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[需求状态]
      */
     @Getter
@@ -6214,6 +6235,30 @@ public class StaticDict {
         private String emptyText="未执行";
 
         Testcase__result(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[配置范围]
+     */
+    @Getter
+    public enum ConfigScope {
+        SYS("sys","全局"),
+        ORG("org","当前组织"),
+        DEPT1("dept1","当前部门（含子部门）"),
+        DEPT2("dept2","当前部门（不含子部门）"),
+        USER("user","个人");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigScope(String value , String text) {
             this.value=value;
             this.text = text;
         }

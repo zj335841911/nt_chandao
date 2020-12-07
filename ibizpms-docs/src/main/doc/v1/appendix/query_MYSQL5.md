@@ -8239,6 +8239,41 @@ FROM `T_IBZ_WEEKLY` t1
 
 ```
 
+# **系统配置表**(IBZPRO_CONFIG)
+
+### 数据查询(DEFAULT)<div id="IbzproConfig_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZPRO_CONFIGID`,
+t1.`IBZPRO_CONFIGNAME`,
+t1.`MEMO`,
+t1.`SCOPE`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`VAILD`
+FROM `T_IBZPRO_CONFIG` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzproConfig_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZPRO_CONFIGID`,
+t1.`IBZPRO_CONFIGNAME`,
+t1.`MEMO`,
+t1.`SCOPE`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`VAILD`
+FROM `T_IBZPRO_CONFIG` t1 
+
+```
+
 # **ImChat**(ZT_IM_CHAT)
 
 ### DEFAULT(DEFAULT)<div id="ImChat_Default"></div>
