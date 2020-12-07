@@ -211,6 +211,30 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[管理现状]
+     */
+    @Getter
+    public enum ConfigManagementstatus {
+        PRODUCT_PROJECT("product_project","产品 - 项目"),
+        PRODUCT_ITERATION("product_iteration","产品 - 迭代"),
+        PROJECT_ITERATION("project_iteration","项目 - 迭代"),
+        PRODUCT_SPRINT("product_sprint","产品 - 冲刺"),
+        PROJECT_SPRINT("project_sprint","项目 - 冲刺");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigManagementstatus(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
 
 
     /**

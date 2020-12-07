@@ -42,6 +42,7 @@
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|项目移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|需求移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|版本移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|用例步骤移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|

@@ -121,6 +121,13 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 管理现状
+     */
+    @TableField(value = "`managementstatus`")
+    @JSONField(name = "managementstatus")
+    @JsonProperty("managementstatus")
+    private String managementstatus;
 
 
 
@@ -162,6 +169,14 @@ public class IbzproConfig extends EntityMP implements Serializable {
     public void setType(String type) {
         this.type = type;
         this.modify("type", type);
+    }
+
+    /**
+     * 设置 [管理现状]
+     */
+    public void setManagementstatus(String managementstatus) {
+        this.managementstatus = managementstatus;
+        this.modify("managementstatus", managementstatus);
     }
 
 

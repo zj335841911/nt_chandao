@@ -48,6 +48,13 @@ public class IbzproConfigSearchContext extends QueryWrapperContext<IbzproConfig>
             this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
+	private String n_managementstatus_eq;//[管理现状]
+	public void setN_managementstatus_eq(String n_managementstatus_eq) {
+        this.n_managementstatus_eq = n_managementstatus_eq;
+        if(!ObjectUtils.isEmpty(this.n_managementstatus_eq)){
+            this.getSearchCond().eq("`managementstatus`", n_managementstatus_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

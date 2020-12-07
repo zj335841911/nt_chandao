@@ -14159,6 +14159,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MANAGEMENTSTATUS" ,
+    "codename":"Managementstatus",
+    "field_logic_name":"管理现状",
+    "entity_name":"IbzproConfig",
+    "field_type":"SSCODELIST",
+    "dict":"ConfigManagementstatus",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

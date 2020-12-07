@@ -19,6 +19,7 @@
 |是否启用|VAILD|SSCODELIST|&nbsp;|
 |描述|MEMO|TEXT|&nbsp;|
 |类型|TYPE|SSCODELIST|&nbsp;|
+|管理现状|MANAGEMENTSTATUS|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -33,6 +34,7 @@
 |是否启用|默认规则|内容长度必须小于等于[60]|
 |描述|默认规则|内容长度必须小于等于[100]|
 |类型|默认规则|内容长度必须小于等于[60]|
+|管理现状|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -74,6 +76,7 @@
 |系统配置表名称(IBZPRO_CONFIGNAME)|LIKE|
 |是否启用(VAILD)|EQ|
 |类型(TYPE)|EQ|
+|管理现状(MANAGEMENTSTATUS)|EQ|
 
 ## 导入模式
 无

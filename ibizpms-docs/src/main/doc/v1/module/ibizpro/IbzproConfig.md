@@ -26,6 +26,7 @@
 | 8 | [是否启用](#属性-是否启用（VAILD）) | VAILD | 单项选择(文本值) | 否 | 否 | 是 |
 | 9 | [描述](#属性-描述（MEMO）) | MEMO | 文本，可指定长度 | 否 | 否 | 是 |
 | 10 | [类型](#属性-类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
+| 11 | [管理现状](#属性-管理现状（MANAGEMENTSTATUS）) | MANAGEMENTSTATUS | 单项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-系统配置表名称（IBZPRO_CONFIGNAME）
 #### 属性说明
@@ -403,6 +404,45 @@ String
 #### 关系属性
 无
 
+### 属性-管理现状（MANAGEMENTSTATUS）
+#### 属性说明
+管理现状
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[管理现状（ConfigManagementstatus）](../../codelist/ConfigManagementstatus)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -518,6 +558,7 @@ Save
 | 1 | [系统配置表名称（IBZPRO_CONFIGNAME）](#属性-系统配置表名称（IBZPRO_CONFIGNAME）) | `%like%` |
 | 2 | [是否启用（VAILD）](#属性-是否启用（VAILD）) | `=` |
 | 3 | [类型（TYPE）](#属性-类型（TYPE）) | `=` |
+| 4 | [管理现状（MANAGEMENTSTATUS）](#属性-管理现状（MANAGEMENTSTATUS）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -543,6 +584,7 @@ t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`IBZPRO_CONFIGID`,
 t1.`IBZPRO_CONFIGNAME`,
+t1.`MANAGEMENTSTATUS`,
 t1.`MEMO`,
 t1.`SCOPE`,
 t1.`TYPE`,
@@ -570,6 +612,7 @@ t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`IBZPRO_CONFIGID`,
 t1.`IBZPRO_CONFIGNAME`,
+t1.`MANAGEMENTSTATUS`,
 t1.`MEMO`,
 t1.`SCOPE`,
 t1.`TYPE`,

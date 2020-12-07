@@ -94,6 +94,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'moblistview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'usr2mobmdview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'rmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdviewcurproject',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'stories'});
@@ -335,7 +336,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

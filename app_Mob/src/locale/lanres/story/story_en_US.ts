@@ -81,6 +81,9 @@ export default {
 		usr2mobmdview: {
 			caption: '需求',
 		},
+		editmobeditview: {
+			caption: '需求',
+		},
 		rmoboptionview: {
 			caption: '评审',
 		},
@@ -348,6 +351,43 @@ export default {
 		uiactions: {
 		},
 	},
+	mobmainedit_form: {
+		details: {
+			group1: '需求基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			title: '需求名称', 
+			product: '所属产品', 
+			module: '所属模块', 
+			prodoctname: '所属产品', 
+			branch: '平台/分支', 
+			modulename: '所属模块', 
+			plan: '计划', 
+			source: '需求来源', 
+			sourcenote: '来源备注', 
+			reviewedby: '由谁评审', 
+			assignedtopk: '由谁评审', 
+			neednotreview: '', 
+			pri: '优先级', 
+			estimate: '预计', 
+			spec: '需求描述', 
+			verify: '验收标准', 
+			mailto: '抄送给', 
+			mailtopk: '抄送给', 
+			keywords: '关键词', 
+			id: '编号', 
+			assignedto: '指派给', 
+		},
+		uiactions: {
+		},
+	},
 	activitemob_form: {
 		details: {
 			druipart1: '', 
@@ -390,6 +430,12 @@ export default {
 		deuiaction1: {
 			caption: '关联需求',
 			tip: 'deuiaction1',
+		},
+	},
+	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {

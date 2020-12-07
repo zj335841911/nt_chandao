@@ -38,7 +38,7 @@ export class ReportNewModel {
 	name: 'menuitem2',
 	text: '周报',
 	type: 'MENUITEM',
-	counterid: '',
+	counterid: 'weeklycnt',
 	tooltip: '周报',
 	expanded: false,
 	separator: false,

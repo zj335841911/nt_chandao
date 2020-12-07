@@ -33,7 +33,7 @@ mock.onGet('v7/report-newappmenu').reply((config: any) => {
 	name: 'menuitem2',
 	text: '周报',
 	type: 'MENUITEM',
-	counterid: '',
+	counterid: 'WEEKLYCNT',
 	tooltip: '周报',
 	expanded: false,
 	separator: false,

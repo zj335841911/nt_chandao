@@ -445,6 +445,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '26c517c1103ef90cfe64c59190017447',
+            viewmodule: 'ibiz',
+            viewname: 'StoryEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0a443f2f0f9dfa28a081d87d16655d27',
+                '61b907edfc7822d020b6b2c2246ee8e0',
+                'b39f9237d088a6173a2d1889f2eaa562',
+                'eef4931ab99bfda807489700470bad47',
+            ],
+        },
+        {
             viewtag: '2771dfa8ed94c48f35d293293bfbf6ac',
             viewmodule: 'ibiz',
             viewname: 'BuildMobPickupMDView',
@@ -1869,6 +1882,7 @@ export const viewstate: any = {
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
                 'cacf8bf823f555d6b1952c3aeddf8223',
                 '04397afc992f5947c2d1b4250af66e37',
+                '26c517c1103ef90cfe64c59190017447',
             ],
         },
         {
@@ -2138,9 +2152,9 @@ export const viewstate: any = {
                 '6530030850ee815ed2c26f0be4f53bad',
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
                 'cacf8bf823f555d6b1952c3aeddf8223',
-                '04397afc992f5947c2d1b4250af66e37',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'eef4931ab99bfda807489700470bad47',
+                '26c517c1103ef90cfe64c59190017447',
                 'b52bf86837838dcfd5b787fad0350f22',
             ],
         },

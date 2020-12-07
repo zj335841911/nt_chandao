@@ -3878,6 +3878,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-favorite-more-mob-mdview/story-favorite-more-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/editmobeditview',
+                    name: 'story_editmobeditview',
+                    meta: {
+                        caption: 'story.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-edit-mob-edit-view/story-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/editmobeditview',
+                    name: 'story_editmobeditview',
+                    meta: {
+                        caption: 'story.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-edit-mob-edit-view/story-edit-mob-edit-view.vue'),
+                },
+                {
                     path: 'ibzmonthlies/:ibzmonthly?/createmobeditview',
                     name: 'ibzmonthly_createmobeditview',
                     meta: {

@@ -119,6 +119,15 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String type;
 
+    /**
+     * 属性 [MANAGEMENTSTATUS]
+     *
+     */
+    @JSONField(name = "managementstatus")
+    @JsonProperty("managementstatus")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String managementstatus;
+
 
     /**
      * 设置 [IBZPRO_CONFIGNAME]
@@ -158,6 +167,14 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
+    }
+
+    /**
+     * 设置 [MANAGEMENTSTATUS]
+     */
+    public void setManagementstatus(String  managementstatus){
+        this.managementstatus = managementstatus ;
+        this.modify("managementstatus",managementstatus);
     }
 
 
