@@ -153,8 +153,10 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
         //获取上周的周报
         List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",AuthenticationUser.getAuthenticationUser().getUsername()).last(" and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())-1")); //YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d'))
         if (list.size() != 0){
-            String[] lastWeekPlanTask = list.get(list.size()-1).getNextweektask().split(","); //上周计划参与任务
-            taskIdSet.addAll(Arrays.asList(lastWeekPlanTask));
+            if (list.get(list.size()-1).getNextweektask() != null){
+                String[] lastWeekPlanTask = list.get(list.size()-1).getNextweektask().split(","); //上周计划参与任务
+                taskIdSet.addAll(Arrays.asList(lastWeekPlanTask));
+            }
             lastWeekNextWeekPlan = list.get(list.size()-1).getPlannextweek();
         }
         if (taskIdSet.size() != 0){

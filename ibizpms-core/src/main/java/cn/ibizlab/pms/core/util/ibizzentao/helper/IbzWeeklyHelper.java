@@ -70,13 +70,9 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzWeekly et) {
 
-
         String files = et.getFiles();
-        Date today = new Date();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(today);
-        int week = calendar.get(Calendar.WEEK_OF_MONTH); //当月第几周
+        int week = getWeekAtThisMonth();
 
         List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",et.getAccount()).last("and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())"));
         if (list.size() > 0){
@@ -92,11 +88,19 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         return true;
     }
 
+    public int getWeekAtThisMonth(){
+        Date today = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
+        int week = calendar.get(Calendar.WEEK_OF_MONTH); //当月第几周
+        return week;
+    }
+
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean edit(IbzWeekly et) {
-        IbzDaily old = new IbzDaily();
+        IbzWeekly old = new IbzWeekly();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), old);
         String files = et.getFiles();
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_weeklyid", et.getIbzweeklyid()))) {
@@ -127,6 +131,10 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
 
         IbzWeekly old = new IbzWeekly();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), old);
+        boolean flag = (old.getWorkthisweek() == null && old.getThisweektask() == null) || old.getReportto() == null;
+        if (flag) {
+            throw new RuntimeException("请填写本周工作或本周完成任务并且指定汇报人后提交！");
+        }
         //String files = et.getFiles();
         if (!update(newWeekly, (Wrapper) newWeekly.getUpdateWrapper(true).eq("Ibz_Weeklyid", newWeekly.getIbzweeklyid()))) {
             return et;
@@ -135,15 +143,16 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
        // fileHelper.updateObjectID(et.getIbzweeklyid(), StaticDict.File__object_type.WEEKLY.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, newWeekly, null, null, diffAttrs);
         if (changes.size() > 0) {
-            String strAction = StaticDict.Action__type.SUBMIT.getValue();
-            Action action = actionHelper.create(StaticDict.Action__object_type.WEEKLY.getValue(), newWeekly.getIbzweeklyid(), strAction,
+            String strAction = StaticDict.Action__type.EDITED.getValue();
+            Action action = actionHelper.create(StaticDict.Action__object_type.WEEKLY.getValue(), et.getIbzweeklyid(), strAction,
                     "", "", null, true);
             if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
             }
         }
         // 给汇报人，抄送人 待阅
-        actionHelper.sendToread(newWeekly.getIbzweeklyid(), newWeekly.getIbzweeklyname(), "", newWeekly.getReportto(), newWeekly.getMailto(), IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
+        String ss = "已经提交给您了，请查收哦！";
+        actionHelper.sendToread(newWeekly.getIbzweeklyid(), newWeekly.getIbzweeklyname() + ss, "", newWeekly.getReportto(), newWeekly.getMailto(), IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzWeeklyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
         return newWeekly;
     }
 
@@ -215,8 +224,10 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         //获取上周的周报
         List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",et.getAccount()).last(" and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())-1")); //
         if (list.size() != 0){
-            String[] lastWeekPlanTask = list.get(list.size()-1).getNextweektask().split(","); //上周计划参与任务
-            taskIdSet.addAll(Arrays.asList(lastWeekPlanTask));
+            if (list.get(list.size()-1).getNextweektask() != null){
+                String[] lastWeekPlanTask = list.get(list.size()-1).getNextweektask().split(","); //上周计划参与任务
+                taskIdSet.addAll(Arrays.asList(lastWeekPlanTask));
+            }
             lastWeekNextWeekPlan = list.get(list.size()-1).getPlannextweek(); //上周周报计划工作
         }
         if (taskIdSet.size() != 0){
@@ -264,8 +275,11 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
 
     public IbzWeekly pushUserWeekly(IbzWeekly et) {
         List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("issubmit",StaticDict.YesNo.ITEM_0.getValue()).last("and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())"));
+        int week = getWeekAtThisMonth();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         for (IbzWeekly ibzWeekly : list) {
-            actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+ibzWeekly.getDate()+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
+            //String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week)+"已经存在，请勿重复创建！", StaticDict.ReportType.WEEKLY.getValue(), "");
+            actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+String.format("%1$s月第%2$s",dateFormat.format(et.getDate()),week)+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzWeeklyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
         }
         return et;
     }
