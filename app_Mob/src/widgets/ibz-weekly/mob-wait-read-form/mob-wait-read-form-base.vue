@@ -199,17 +199,8 @@
     :disabled="detailsModel.plannextweek.disabled"
     :error="detailsModel.plannextweek.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    type="dynamic"  
-    tag="MyPlanTask"
-    :disabled="detailsModel.plannextweek.disabled" 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.plannextweek"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.plannextweek = $event"/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
 </app-form-item>
 
 
