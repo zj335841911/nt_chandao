@@ -696,6 +696,8 @@ export default {
 		details: {
 			group1: "工时信息", 
 			formpage1: "基本信息", 
+			druipart1: "", 
+			formpage2: "相关信息", 
 			srfupdatedate: "最后修改日期", 
 			srforikey: "", 
 			srfkey: "编号", 

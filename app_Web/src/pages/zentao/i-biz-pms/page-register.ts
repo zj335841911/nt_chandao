@@ -32,6 +32,7 @@ export const PageComponents = {
         Vue.component('task-team-grid-view9', () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'));
         Vue.component('test-report-main-edit-edit-view', () => import('@pages/zentao/test-report-main-edit-edit-view/test-report-main-edit-edit-view.vue'));
         Vue.component('product-portal-view', () => import('@pages/zentao/product-portal-view/product-portal-view.vue'));
+        Vue.component('bug-grid-view9-my-assigned-to-me', () => import('@pages/zentao/bug-grid-view9-my-assigned-to-me/bug-grid-view9-my-assigned-to-me.vue'));
         Vue.component('project-team-main-grid-view-edit-row', () => import('@pages/zentao/project-team-main-grid-view-edit-row/project-team-main-grid-view-edit-row.vue'));
         Vue.component('doc-dashboard-view', () => import('@pages/zentao/doc-dashboard-view/doc-dashboard-view.vue'));
         Vue.component('doc-lib-product-tree-view-cust', () => import('@pages/zentao/doc-lib-product-tree-view-cust/doc-lib-product-tree-view-cust.vue'));
