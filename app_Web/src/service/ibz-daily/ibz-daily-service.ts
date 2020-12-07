@@ -22,5 +22,21 @@ export default class IbzDailyService extends IbzDailyServiceBase {
         super(opts);
     }
 
+    /**
+     * GetYesterdayDailyPlansTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async GetYesterdayDailyPlansTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        context.ibzdaily = 0;
+        data.ibzdaily = 0;
+        data.ibzdailyid = 0;
+        let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/getyesterdaydailyplanstask`,data,isloading);
+        return res;
+    }
 
 }
