@@ -513,8 +513,8 @@ export default class ReportNewBase extends Vue implements ControlInterface {
      * @memberof ReportNew
      */
     protected clickNeedLookMonthly(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
+        let navigateParam: any = { "ibzmonthly": "414" } ;
+        let navigateContext: any = { "ibzmonthly": "414" } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
         let context = { ..._context };
         let param = { ..._param };
