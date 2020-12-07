@@ -94,6 +94,9 @@ export default {
 		monthlymycompletetaskmobmdview: {
 			caption: '任务',
 		},
+		dailydonetaskmobmdview: {
+			caption: '任务',
+		},
 		editmobeditview: {
 			caption: '任务',
 		},
@@ -119,6 +122,9 @@ export default {
 			caption: '开始',
 		},
 		monthlyplanstaskmobmdview: {
+			caption: '任务',
+		},
+		dailyplanstaskmobmdview: {
 			caption: '任务',
 		},
 		favoritemoremobmdview: {
@@ -538,11 +544,11 @@ export default {
 			tip: '更多',
 		},
 	},
-	mycompletetaskmobmdview1righttoolbar_toolbar: {
+	mycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},
-	mycompletetaskmobmdviewrighttoolbar_toolbar: {
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {

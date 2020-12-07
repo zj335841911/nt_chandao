@@ -118,11 +118,25 @@
 
 
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 38, column 9]
-----
-无法获取指定编辑器[HTMLEDITOR]发布代码[FORMITEM][EDITOR.vue]模板
+<app-form-item 
+    name='workthisweek' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="TOP" 
+    ref="workthisweek_item"  
+    :itemValue="this.data.workthisweek" 
+    v-show="detailsModel.workthisweek.visible" 
+    :itemRules="this.rules.workthisweek" 
+    :caption="$t('ibzweekly.mobwaitread_form.details.workthisweek')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.workthisweek.disabled"
+    :error="detailsModel.workthisweek.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
+</app-form-item>
+
 
 
 <app-form-group 

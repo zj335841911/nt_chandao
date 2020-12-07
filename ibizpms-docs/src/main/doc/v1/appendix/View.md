@@ -55,6 +55,7 @@
 |-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|测试版本选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|测试版本分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
+|-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|发布移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
@@ -94,6 +95,7 @@
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|项目移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|待办事宜表移动端列表视图|DEMOBLISTVIEW|&nbsp;|
 |-|日报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|发布移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

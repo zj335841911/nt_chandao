@@ -411,10 +411,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'e903ad26a5f15974177800895703623c',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+                '61b07d6ba0ff1c6a96f09f0fcbb4cda7',
                 'b52bf86837838dcfd5b787fad0350f22',
-                '9e582670d841ba6cfb310f7e56ab1784',
+                '5ba351223bef6ac16f4bd017528da530',
+                '3011ba0f68b10e1cbb68a70fb77e646d',
             ],
         },
         {
@@ -581,6 +582,16 @@ export const viewstate: any = {
             refviews: [
                 '0271b3d4e673b25df1637cdf2159d9fc',
                 '9576fe405a243332b6f648c8d0632e88',
+            ],
+        },
+        {
+            viewtag: '3011ba0f68b10e1cbb68a70fb77e646d',
+            viewmodule: 'report',
+            viewname: 'TaskDailyDoneTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {
@@ -999,6 +1010,16 @@ export const viewstate: any = {
                 '908ae7b1662bbb3715e3adbc6836353b',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'c59d172c10262a98d4ec06d5e90157e4',
+            ],
+        },
+        {
+            viewtag: '5ba351223bef6ac16f4bd017528da530',
+            viewmodule: 'report',
+            viewname: 'TaskDailyPlansTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {

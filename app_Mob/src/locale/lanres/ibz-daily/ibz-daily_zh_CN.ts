@@ -188,6 +188,14 @@ export default {
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobedit: {
+			caption: '编辑',
+			tip: '编辑',
+		},
+		deuiaction1_submitmob: {
+			caption: '提交',
+			tip: '提交',
+		},
 	},
 	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},

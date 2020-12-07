@@ -94,9 +94,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzdaily' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-my-complete-task-mob-mdview1' 
+    viewname='task-daily-done-task-mob-mdview' 
     v-show="detailsModel.druipart3.visible" 
     :caption="$t('ibzdaily.dailyinfodingding_form.details.druipart3')"  
     paramItem='ibzdaily' 
@@ -160,9 +160,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzdaily' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-my-plans-tomorrow-task-mob-mdview' 
+    viewname='task-daily-plans-task-mob-mdview' 
     v-show="detailsModel.druipart4.visible" 
     :caption="$t('ibzdaily.dailyinfodingding_form.details.druipart4')"  
     paramItem='ibzdaily' 
