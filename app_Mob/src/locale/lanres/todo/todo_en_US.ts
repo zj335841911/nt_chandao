@@ -110,6 +110,7 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			id: '编号', 
 			name: '待办名称', 
 			pri: '优先级', 
 			date1: '日期', 
@@ -121,7 +122,6 @@ export default {
 			assigneddate: '指派日期', 
 			assignedto: '指派给', 
 			desc: '描述', 
-			id: '编号', 
 		},
 		uiactions: {
 		},

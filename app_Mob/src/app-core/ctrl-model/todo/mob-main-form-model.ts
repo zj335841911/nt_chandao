@@ -46,6 +46,11 @@ export class MobMainModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'id',
+                prop: 'id',
+                dataType: 'ACID',
+            },
+            {
                 name: 'name',
                 prop: 'name',
                 dataType: 'TEXT',
@@ -99,11 +104,6 @@ export class MobMainModel {
                 name: 'desc',
                 prop: 'desc',
                 dataType: 'LONGTEXT',
-            },
-            {
-                name: 'id',
-                prop: 'id',
-                dataType: 'ACID',
             },
             {
                 name: 'todo',
