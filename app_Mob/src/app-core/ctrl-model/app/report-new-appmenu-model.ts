@@ -128,25 +128,6 @@ export class ReportNewModel {
 	resourcetag: '',
 	authtag:'Mob-reportNew-menuitem5',
 },
-        {
-	id: '167AFDA3-3CB5-480E-9DAB-D02B57266009',
-	name: 'menuitem7',
-	text: '月报（待阅）',
-	type: 'MENUITEM',
-	counterid: '',
-	tooltip: '月报（待阅）',
-	expanded: false,
-	separator: false,
-	hidden: true,
-	hidesidebar: false,
-	opendefault: false,
-	iconcls: '',
-	icon: '',
-	textcls: '',
-	appfunctag: 'NeedLookMonthly',
-	resourcetag: '',
-	authtag:'Mob-reportNew-menuitem7',
-},
     ];
 
 	/**
