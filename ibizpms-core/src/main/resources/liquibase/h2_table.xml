@@ -1352,7 +1352,7 @@
 
 
     <!--输出实体[IBZ_WEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_weekly-479-47">
+    <changeSet author="zentao" id="tab-ibz_weekly-480-47">
         <createTable tableName="T_IBZ_WEEKLY">
                 <column name="IBZ_WEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1400,7 +1400,7 @@
 
 
     <!--输出实体[IBZPRO_CONFIG]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_config-23-48">
+    <changeSet author="zentao" id="tab-ibzpro_config-27-48">
         <createTable tableName="T_IBZPRO_CONFIG">
                 <column name="IBZPRO_CONFIGNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1417,11 +1417,11 @@
                 </column>
                 <column name="SCOPE" remarks="" type="VARCHAR(2000)">
                 </column>
-                <column name="GROUP" remarks="" type="VARCHAR(60)">
-                </column>
                 <column name="VAILD" remarks="" type="VARCHAR(60)">
                 </column>
                 <column name="MEMO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TYPE" remarks="" type="VARCHAR(60)">
                 </column>
         </createTable>
     </changeSet>

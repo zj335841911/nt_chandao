@@ -101,13 +101,6 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JsonProperty("scope")
     private String scope;
     /**
-     * 分组
-     */
-    @TableField(value = "`group`")
-    @JSONField(name = "group")
-    @JsonProperty("group")
-    private String group;
-    /**
      * 是否启用
      */
     @TableField(value = "`vaild`")
@@ -121,6 +114,13 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JSONField(name = "memo")
     @JsonProperty("memo")
     private String memo;
+    /**
+     * 类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
 
 
@@ -141,14 +141,6 @@ public class IbzproConfig extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [分组]
-     */
-    public void setGroup(String group) {
-        this.group = group;
-        this.modify("group", group);
-    }
-
-    /**
      * 设置 [是否启用]
      */
     public void setVaild(String vaild) {
@@ -162,6 +154,14 @@ public class IbzproConfig extends EntityMP implements Serializable {
     public void setMemo(String memo) {
         this.memo = memo;
         this.modify("memo", memo);
+    }
+
+    /**
+     * 设置 [类型]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
 

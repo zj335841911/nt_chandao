@@ -64230,9 +64230,9 @@ CREATE TABLE `T_IBZ_WEEKLY`(
 | MEMO        | 描述  | VARCHAR      |   100   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
+| TYPE        | 类型  | VARCHAR      |   60   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | IBZPRO_CONFIGID        | 系统配置表标识  | VARCHAR      |   100   | 主键&nbsp; |
-| GROUP        | 分组  | VARCHAR      |   60   | &nbsp; |
 | IBZPRO_CONFIGNAME        | 系统配置表名称  | VARCHAR      |   200   | &nbsp; |
 | VAILD        | 是否启用  | VARCHAR      |   60   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
@@ -64248,9 +64248,9 @@ CREATE TABLE `T_IBZPRO_CONFIG`(
 ,`CREATEDATE`  DATETIME COMMENT '建立时间' 
 ,`CREATEMAN`  VARCHAR(60) COMMENT '建立人' 
 ,`SCOPE`  VARCHAR(2000) COMMENT '范围' 
-,`GROUP`  VARCHAR(60) COMMENT '分组' 
 ,`VAILD`  VARCHAR(60) COMMENT '是否启用' 
 ,`MEMO`  VARCHAR(100) COMMENT '描述' 
+,`TYPE`  VARCHAR(60) COMMENT '类型' 
 )COMMENT='系统配置表';
 ```
 

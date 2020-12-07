@@ -93,15 +93,6 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     private String scope;
 
     /**
-     * 属性 [GROUP]
-     *
-     */
-    @JSONField(name = "group")
-    @JsonProperty("group")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String group;
-
-    /**
      * 属性 [VAILD]
      *
      */
@@ -118,6 +109,15 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JsonProperty("memo")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String memo;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String type;
 
 
     /**
@@ -137,14 +137,6 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [GROUP]
-     */
-    public void setGroup(String  group){
-        this.group = group ;
-        this.modify("group",group);
-    }
-
-    /**
      * 设置 [VAILD]
      */
     public void setVaild(String  vaild){
@@ -158,6 +150,14 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     public void setMemo(String  memo){
         this.memo = memo ;
         this.modify("memo",memo);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
 

@@ -16,9 +16,9 @@
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
 |范围|SCOPE|SSCODELIST|&nbsp;|
-|分组|GROUP|SSCODELIST|&nbsp;|
 |是否启用|VAILD|SSCODELIST|&nbsp;|
 |描述|MEMO|TEXT|&nbsp;|
+|类型|TYPE|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -30,9 +30,9 @@
 |建立时间|默认规则|默认规则|
 |建立人|默认规则|内容长度必须小于等于[60]|
 |范围|默认规则|内容长度必须小于等于[2000]|
-|分组|默认规则|内容长度必须小于等于[60]|
 |是否启用|默认规则|内容长度必须小于等于[60]|
 |描述|默认规则|内容长度必须小于等于[100]|
+|类型|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -72,8 +72,8 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |系统配置表名称(IBZPRO_CONFIGNAME)|LIKE|
-|分组(GROUP)|EQ|
 |是否启用(VAILD)|EQ|
+|类型(TYPE)|EQ|
 
 ## 导入模式
 无

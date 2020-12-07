@@ -178,7 +178,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobTabExpViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'srfparentkey': '%ibzweekly%' };
 
     /**
      * 视图导航参数
@@ -187,7 +187,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobTabExpViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzweekly%' };
 
     /**
      * 视图模型数据

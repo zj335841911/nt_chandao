@@ -23,9 +23,9 @@
 | 5 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
 | 6 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
 | 7 | [范围](#属性-范围（SCOPE）) | SCOPE | 单项选择(文本值) | 否 | 否 | 是 |
-| 8 | [分组](#属性-分组（GROUP）) | GROUP | 单项选择(文本值) | 否 | 否 | 是 |
-| 9 | [是否启用](#属性-是否启用（VAILD）) | VAILD | 单项选择(文本值) | 否 | 否 | 是 |
-| 10 | [描述](#属性-描述（MEMO）) | MEMO | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [是否启用](#属性-是否启用（VAILD）) | VAILD | 单项选择(文本值) | 否 | 否 | 是 |
+| 9 | [描述](#属性-描述（MEMO）) | MEMO | 文本，可指定长度 | 否 | 否 | 是 |
+| 10 | [类型](#属性-类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-系统配置表名称（IBZPRO_CONFIGNAME）
 #### 属性说明
@@ -274,7 +274,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[配置范围（ConfigScope）](../../codelist/ConfigScope)】
 
 - 数据格式
 无
@@ -284,45 +284,6 @@ String
 
 - 搜索条件
 无
-
-#### 关系属性
-无
-
-### 属性-分组（GROUP）
-#### 属性说明
-分组
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-单项选择(文本值)
-
-- Java类型
-String
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-| 序号 | 组合方式 |
-| ---- | ---- |
-| 1 | `=` |
 
 #### 关系属性
 无
@@ -399,6 +360,45 @@ String
 
 - 搜索条件
 无
+
+#### 关系属性
+无
+
+### 属性-类型（TYPE）
+#### 属性说明
+类型
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[配置分组（ConfigGroup）](../../codelist/ConfigGroup)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 无
@@ -516,8 +516,8 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统配置表名称（IBZPRO_CONFIGNAME）](#属性-系统配置表名称（IBZPRO_CONFIGNAME）) | `%like%` |
-| 2 | [分组（GROUP）](#属性-分组（GROUP）) | `=` |
-| 3 | [是否启用（VAILD）](#属性-是否启用（VAILD）) | `=` |
+| 2 | [是否启用（VAILD）](#属性-是否启用（VAILD）) | `=` |
+| 3 | [类型（TYPE）](#属性-类型（TYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -541,11 +541,11 @@ Save
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
-t1.`GROUP`,
 t1.`IBZPRO_CONFIGID`,
 t1.`IBZPRO_CONFIGNAME`,
 t1.`MEMO`,
 t1.`SCOPE`,
+t1.`TYPE`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`VAILD`
@@ -568,11 +568,11 @@ FROM `T_IBZPRO_CONFIG` t1
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
-t1.`GROUP`,
 t1.`IBZPRO_CONFIGID`,
 t1.`IBZPRO_CONFIGNAME`,
 t1.`MEMO`,
 t1.`SCOPE`,
+t1.`TYPE`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`VAILD`

@@ -232,17 +232,17 @@ POST
 | 5 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 6 | createman | String | 不可 | 建立人 |
 | 7 | scope | String | 允许 | 范围 |
-| 8 | group | String | 允许 | 分组 |
-| 9 | vaild | String | 允许 | 是否启用 |
-| 10 | memo | String | 允许 | 描述 |
+| 8 | vaild | String | 允许 | 是否启用 |
+| 9 | memo | String | 允许 | 描述 |
+| 10 | type | String | 允许 | 类型 |
 | 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzproConfigSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibzpro_configname_like | String | 允许 | 条件字段：ibzpro_configname<br>条件组合方式：`%like%` |
-| 2 | n_group_eq | String | 允许 | 条件字段：group<br>条件组合方式：`=` |
-| 3 | n_vaild_eq | String | 允许 | 条件字段：vaild<br>条件组合方式：`=` |
+| 2 | n_vaild_eq | String | 允许 | 条件字段：vaild<br>条件组合方式：`=` |
+| 3 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 4 | customcond | String | 允许 | 自定义查询条件 |
 | 5 | customparams | String | 允许 | 自定义查询参数 |
 | 6 | query | String | 允许 | 快速搜索 |

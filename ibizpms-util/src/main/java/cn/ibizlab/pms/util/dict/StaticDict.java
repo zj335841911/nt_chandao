@@ -1534,7 +1534,8 @@ public class StaticDict {
      */
     @Getter
     public enum ConfigGroup {
-        GROUP("GROUP","分组");
+        GROUP("GROUP","分组"),
+        ITEM("ITEM","配置项");
 
         private String value;
         private String text;
