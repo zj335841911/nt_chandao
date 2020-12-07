@@ -4531,7 +4531,8 @@ Save
 | 27 | [发布关联Bug（未解决）](#数据查询-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
 | 28 | [版本关联bug(遗留得bug)](#数据查询-版本关联bug(遗留得bug)（SelectBugByBuild）) | SelectBugByBuild | 否 |
 | 29 | [查询遗留得bug(项目)](#数据查询-查询遗留得bug(项目)（SelectBugsByProject）) | SelectBugsByProject | 否 |
-| 30 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 30 | [任务相关bug](#数据查询-任务相关bug（TaskBug）) | TaskBug | 否 |
+| 31 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我Bug（AssignedToMyBug）
 #### 说明
@@ -7094,6 +7095,21 @@ LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
 INNER JOIN (select tt.id from zt_build tt where tt.deleted = '0' and tt.id in (
 	select t1.build from zt_testtask t1 where FIND_IN_SET(t1.id, (select tasks from zt_testreport where id = #{srf.datacontext.srfparentkey} )))) t71 on FIND_IN_SET(t71.id,t1.openedBuild)
+```
+### 数据查询-任务相关bug（TaskBug）
+#### 说明
+任务相关bug
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

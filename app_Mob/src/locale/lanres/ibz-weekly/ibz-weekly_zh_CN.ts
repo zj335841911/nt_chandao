@@ -141,6 +141,7 @@ export default {
 			reportto: '汇报给', 
 			mailtopk: '抄送给(选择)', 
 			thisweektask: '本周完成任务', 
+			nextweektask: '下周计划任务', 
 			ibz_weeklyid: '周报标识', 
 			issubmit: '是否提交', 
 			mailto: '抄送给', 
