@@ -3239,6 +3239,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumEditView",
             "viewtag": "ada719b0d8722509d22b4b72bbb8cf26"
         },
+        "ibzdailydailyinfocalendareditview": {
+            "title": "日报编辑视图(日历显示)",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyDailyInfoCalendarEditView",
+            "viewtag": "adae3758bed4c09c5e283b69603ba8e7"
+        },
         "bugstatsproductbugstatusgridview": {
             "title": "Bug统计表格视图",
             "caption": "产品Bug状态汇总",

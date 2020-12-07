@@ -9073,6 +9073,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-grid-view9-story-related/case-grid-view9-story-related.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/dailyinfocalendareditview/:dailyinfocalendareditview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.dailyinfocalendareditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailyinfocalendareditview', parameterName: 'dailyinfocalendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-info-calendar-edit-view/ibz-daily-daily-info-calendar-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testtasks/:testtask?/editview9_info/:editview9_info?',
                     meta: {
                         caption: 'entities.testtask.views.editview9_info.caption',

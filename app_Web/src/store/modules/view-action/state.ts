@@ -1341,6 +1341,7 @@ export const viewstate: any = {
                 'bad9ebb60029d8c0854e22a02600cbc7',
                 'e527490443d54f3791d9497938aaf332',
                 '8d57c8c411a365de243247e493c264ff',
+                'adae3758bed4c09c5e283b69603ba8e7',
             ],
         },
         {
@@ -3625,6 +3626,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'adae3758bed4c09c5e283b69603ba8e7',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyInfoCalendarEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
