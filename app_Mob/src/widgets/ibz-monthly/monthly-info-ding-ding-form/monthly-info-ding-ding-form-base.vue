@@ -343,7 +343,7 @@
     v-show="detailsModel.grouppanel2.visible" 
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
     :caption="$t('ibzmonthly.monthlyinfodingding_form.details.grouppanel2')" 
-    :isShowCaption="false" 
+    :isShowCaption="true" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
@@ -859,7 +859,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
 , 
         druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel4: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
+        grouppanel4: new FormGroupPanelModel({ caption: '计划参与', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
 , 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
@@ -867,7 +867,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
 , 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '操作记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '月报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
 , 

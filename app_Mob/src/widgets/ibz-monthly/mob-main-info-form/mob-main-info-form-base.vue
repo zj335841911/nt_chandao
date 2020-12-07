@@ -253,7 +253,7 @@
     v-show="detailsModel.grouppanel2.visible" 
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
     :caption="$t('ibzmonthly.mobmaininfo_form.details.grouppanel2')" 
-    :isShowCaption="false" 
+    :isShowCaption="true" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
@@ -769,7 +769,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
 , 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.mobmaininfo_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '操作记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.mobmaininfo_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '月报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.mobmaininfo_form', extractMode: 'ITEM', details: [] } })
 , 

@@ -7500,19 +7500,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-test-mob-mdview/product-test-mob-mdview.vue'),
                 },
                 {
-                    path: 'appportalview2',
-                    name: 'appportalview2',
-                    meta: {
-                        caption: 'app.views.appportalview2.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'appportalview2', parameterName: 'appportalview2' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ungroup/app-portal-view2/app-portal-view2.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/monthlymyplanstaskmobmdview',
                     name: 'task_monthlymyplanstaskmobmdview',
                     meta: {
@@ -7579,6 +7566,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/report/task-monthly-my-plans-task-mob-mdview/task-monthly-my-plans-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'appportalview2',
+                    name: 'appportalview2',
+                    meta: {
+                        caption: 'app.views.appportalview2.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'appportalview2', parameterName: 'appportalview2' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ungroup/app-portal-view2/app-portal-view2.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobcalendarview',
