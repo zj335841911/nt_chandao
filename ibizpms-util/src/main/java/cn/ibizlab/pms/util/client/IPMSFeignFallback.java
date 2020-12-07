@@ -24,4 +24,9 @@ public class IPMSFeignFallback implements IPMSFeignClient {
     public Boolean recordLoginLog(String username) {
         return null;
     }
+
+    @Override
+    public JSONObject getSrfMStatus() {
+        return null;
+    }
 }

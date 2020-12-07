@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "${ibiz.ref.service.pms:pms-webapi}", fallback = IPMSFeignFallback.class)
+@FeignClient(value = "${ibiz.ref.service.pms:pms-webapihw}", fallback = IPMSFeignFallback.class)
 public interface IPMSFeignClient {
 
     /**
@@ -36,4 +36,12 @@ public interface IPMSFeignClient {
      */
     @PostMapping(value = "/recordloginlog")
     Boolean recordLoginLog(@RequestParam("username") String username);
+
+    /**
+     *  获取管理模式
+     *
+     * @return
+     */
+    @GetMapping(value = "/getsrfmstatus")
+    JSONObject getSrfMStatus();
 }
