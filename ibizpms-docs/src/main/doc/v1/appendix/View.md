@@ -86,6 +86,7 @@
 |-|任务移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|任务选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
 |-|测试版本选项操作视图（激活）|DEMOBOPTVIEW|&nbsp;|
+|-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|需求移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
 |-|日报移动端多数据视图(我收到的日报)|DEMOBMDVIEW|&nbsp;|
 |-|版本分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
@@ -122,6 +123,7 @@
 |-|项目移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|发布移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务选项操作视图（完成）|DEMOBOPTVIEW|&nbsp;|
+|-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|日报移动端多数据视图(完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|月报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务预计选项操作视图|DEMOBOPTVIEW|&nbsp;|

@@ -147,6 +147,25 @@ export class ReportNewModel {
 	resourcetag: '',
 	authtag:'Mob-reportNew-menuitem7',
 },
+        {
+	id: '61EC81D6-9972-4083-85B9-C6F75CBF9773',
+	name: 'menuitem8',
+	text: '周报(待阅)',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '周报(待阅)',
+	expanded: false,
+	separator: false,
+	hidden: true,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc13',
+	resourcetag: '',
+	authtag:'Mob-reportNew-menuitem8',
+},
     ];
 
 	/**

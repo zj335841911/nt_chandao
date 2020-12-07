@@ -94,9 +94,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzmonthly' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-monthly-my-complete-task-mob-mdview' 
+    viewname='task-monthly-done-task-mob-mdview' 
     v-show="detailsModel.druipart3.visible" 
     :caption="$t('ibzmonthly.monthlyinfodingding_form.details.druipart3')"  
     paramItem='ibzmonthly' 
@@ -160,9 +160,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzmonthly' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-monthly-my-plans-task-mob-mdview' 
+    viewname='task-monthly-plans-task-mob-mdview' 
     v-show="detailsModel.druipart4.visible" 
     :caption="$t('ibzmonthly.monthlyinfodingding_form.details.druipart4')"  
     paramItem='ibzmonthly' 

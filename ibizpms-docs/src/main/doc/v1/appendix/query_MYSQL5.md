@@ -7202,6 +7202,37 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_DAILY` t1 
 
 ```
+### 我的日报（已提交和未提交）(MyAllDaily)<div id="IbzDaily_MyAllDaily"></div>
+```sql
+SELECT
+		t1.`ACCOUNT`,
+		t1.`CREATEDATE`,
+		t1.`CREATEMAN`,
+		t1.`CREATEMANNAME`,
+		t1.`DATE`,
+		t1.`IBZ_DAILYID`,
+		t1.`IBZ_DAILYNAME`,
+		t1.`ISSUBMIT`,
+		t1.`MAILTO`,
+		t1.MAILTO AS `MAILTOPK`,
+		( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+		t1.`REPORTTO`,
+		t1.REPORTTO AS `REPORTTOPK`,
+		t1.`SUBMITTIME`,
+		t1.`TODAYTASK`,
+		t1.`TOMORROWPLANSTASK`,
+		t1.`UPDATEDATE`,
+		t1.`UPDATEMAN`,
+		t1.`UPDATEMANNAME` 
+	FROM
+		`T_IBZ_DAILY` t1
+		LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_DAILYID 
+		AND t11.objectType = 'daily' 
+		AND t11.action = 'read' 
+		AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.account =  #{srf.sessioncontext.srfloginname} 
+
+```
 ### 我收到的日报(MyDaily)<div id="IbzDaily_MyDaily"></div>
 ```sql
 SELECT

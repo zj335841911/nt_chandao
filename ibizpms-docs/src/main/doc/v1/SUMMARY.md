@@ -362,6 +362,7 @@
       * [我的周报](app/Mob/func/IbzWeeklyUsr2MobMDView.md)
       * [日报（我提交的）](app/Mob/func/IbzDailyDailyReportSubmitMobMDView.md)
       * [月报（我收到的）](app/Mob/func/IbzMonthlyMyReceivedMobMDView.md)
+      * [周报待阅](app/Mob/func/IbzWeeklyMobEditView.md)
 
   * [iBiz软件生产管理](app/Web/app_index.md) 
 
