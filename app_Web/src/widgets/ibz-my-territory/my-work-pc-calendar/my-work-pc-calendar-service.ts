@@ -160,7 +160,7 @@ export default class MyWorkPCService extends ControlService {
             tempRequest = this.handleRequestData(action,context,data,true,"todo");
             promises.push(this.todoService.FetchMyTodoPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"daily");
-            promises.push(this.ibzdailyService.FetchMyDaily(tempRequest.context, tempRequest.data, isloading));
+            promises.push(this.ibzdailyService.FetchDefault(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"testtask");
             promises.push(this.testtaskService.FetchMyTestTaskPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"Story");

@@ -2631,6 +2631,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleLineGridView",
             "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53"
         },
+        "buggridview9_taskrelated": {
+            "title": "相关Bug",
+            "caption": "相关Bug",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugGridView9_TaskRelated",
+            "viewtag": "8f563f093547b26f56125b59d03786e8"
+        },
         "storyplaneditview": {
             "title": "需求",
             "caption": "需求",

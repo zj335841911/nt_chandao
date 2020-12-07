@@ -182,6 +182,10 @@ export default {
 			caption: "Bug",
       		title: "Bug数据看板视图",
 		},
+		gridview9_taskrelated: {
+			caption: "相关Bug",
+      		title: "相关Bug",
+		},
 		editview_4791: {
 			caption: "Bug",
       		title: "Bug",
@@ -1320,6 +1324,15 @@ export default {
 			copy: "拷贝",
 			bug_bugfavorites: "收藏",
 			bug_bugnfavorites: "取消收藏",
+		},
+	},
+	taskrelated_grid: {
+		nodata: "",
+		columns: {
+			id: "Bug编号",
+			title: "Bug标题",
+		},
+		uiactions: {
 		},
 	},
 	default_searchform: {
