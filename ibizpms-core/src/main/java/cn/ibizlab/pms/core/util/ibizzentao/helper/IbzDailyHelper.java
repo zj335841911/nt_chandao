@@ -32,6 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -193,17 +194,31 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
             Page<SysEmployee> page = iSysEmployeeService.searchDefault(sysEmployeeSearchContext);
             List<SysEmployee> list = page.getContent();
             Timestamp now = ZTDateUtil.now();
-            for (SysEmployee sysEmployee : list) {
-                IbzDaily ibzDaily = new IbzDaily();
-                ibzDaily.setIbzdailyname(sysEmployee.getPersonname());
-                ibzDaily.setAccount(sysEmployee.getUsername());
-                ibzDaily.setDate(now);
-                ibzDaily.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
-                ibzDaily.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
-                this.create(ibzDaily);
+            String weekOfDate = getWeekOfDate(now);
+            if (!"星期六".equals(weekOfDate) && !"星期日".equals(weekOfDate)) {
+                for (SysEmployee sysEmployee : list) {
+                    IbzDaily ibzDaily = new IbzDaily();
+                    ibzDaily.setIbzdailyname(sysEmployee.getPersonname());
+                    ibzDaily.setAccount(sysEmployee.getUsername());
+                    ibzDaily.setDate(now);
+                    ibzDaily.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
+                    ibzDaily.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
+                    this.create(ibzDaily);
+                }
             }
         }
         return et;
+    }
+
+    //获取今天是星期几
+    public static String getWeekOfDate(Timestamp timestamp) {
+        String[] weekDays = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(timestamp.getTime());
+        int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        if (w < 0)
+            w = 0;
+        return weekDays[w];
     }
 
     public String notAccount() {
