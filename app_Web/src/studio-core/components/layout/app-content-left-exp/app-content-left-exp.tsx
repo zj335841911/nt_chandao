@@ -1,4 +1,4 @@
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 import { VNode } from 'vue';
 import { UIStateService } from '@/studio-core/service/UIStateService';
 import './app-content-left-exp.less';
@@ -89,6 +89,15 @@ export class AppContentLeftExp extends Vue {
     }
 
     /**
+     * 当前激活菜单切换时抛出事件
+     *
+     * @param {*} item
+     * @memberof AppContentLeftExp
+     */
+    @Emit('active-item-change')
+    public activeItemChange(item: any): any {}
+
+    /**
      * 改变激活项
      *
      * @protected
@@ -104,6 +113,7 @@ export class AppContentLeftExp extends Vue {
         this.activeIndex = index;
         this.activeItem = item;
         this.activeItem.isActivated = true;
+        this.activeItemChange(item);
     }
 
     /**
