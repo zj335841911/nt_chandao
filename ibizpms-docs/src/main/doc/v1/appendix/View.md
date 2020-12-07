@@ -581,6 +581,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例|DEEDITVIEW|&nbsp;|
 |-|Bug统计表格视图(bug状态统计)|DEGRIDVIEW|&nbsp;|
 |-|产品线|DEGRIDVIEW|&nbsp;|
+|-|相关Bug|DEGRIDVIEW9|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|文档库树导航视图（产品下属）|DETREEEXPVIEW|&nbsp;|
 |-|测试用例图表视图（执行结果）|DECHARTVIEW9|&nbsp;|

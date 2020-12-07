@@ -7236,6 +7236,7 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 | 27 | [发布可关联的bug（遗留）](#数据集合-发布可关联的bug（遗留）（ReleaseLinkableLeftBug）) | ReleaseLinkableLeftBug | 否 |
 | 28 | [发布可关联的bug（已解决）](#数据集合-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）) | ReleaseLinkableResolvedBug | 否 |
 | 29 | [发布关联Bug（未解决）](#数据集合-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
+| 30 | [任务相关bug](#数据集合-任务相关bug（TaskRelatedBug）) | TaskRelatedBug | 否 |
 
 ### 数据集合-指派给我Bug（AssignedToMyBug）
 #### 说明
@@ -7643,6 +7644,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [发布关联Bug（未解决）（ReportBugs）](#数据查询-发布关联Bug（未解决）（ReportBugs）) |
+### 数据集合-任务相关bug（TaskRelatedBug）
+#### 说明
+任务相关bug
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [任务相关bug（TaskBug）](#数据查询-任务相关bug（TaskBug）) |
 
 ## 数据导入
 无

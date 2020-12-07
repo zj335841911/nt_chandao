@@ -750,6 +750,15 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 任务相关bug
+     */
+    @Override
+    public Page<Bug> searchTaskRelatedBug(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchTaskRelatedBug(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**
