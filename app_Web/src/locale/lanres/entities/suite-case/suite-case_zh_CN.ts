@@ -1,9 +1,5 @@
-export default {
-  fields: {
-    id: "虚拟主键",
-    version: "用例版本",
-    suite: "测试套件",
-    ibizcase: "用例",
-    product: "所属产品",
-  },
-};
+import SuiteCase_zh_CN_Base from './suite-case_zh_CN_base';
+
+const SuiteCase_zh_CN_OwnData = {};
+const targetData = Object.assign(SuiteCase_zh_CN_Base, SuiteCase_zh_CN_OwnData);
+export default targetData;
