@@ -95,10 +95,6 @@ export default {
 	},
 	mobmain_form: {
 		details: {
-			druipart2: '', 
-			grouppanel1: '关联需求详情', 
-			druipart1: '', 
-			grouppanel2: '关联Bug详情', 
 			druipart3: '', 
 			grouppanel3: '历史记录', 
 			group1: '产品计划基本信息', 
@@ -116,7 +112,6 @@ export default {
 			end: '结束日期', 
 			storycnt: '需求数', 
 			desc: '描述', 
-			bugcnt: 'bug数', 
 			id: '编号', 
 		},
 		uiactions: {

@@ -513,8 +513,6 @@ export default {
 			tip: 'deuiaction1',
 		},
 	},
-	planmobmdview9righttoolbar_toolbar: {
-	},
 	usr6mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '关联bug',
@@ -542,6 +540,8 @@ export default {
 			caption: '新建',
 			tip: 'deuiaction1',
 		},
+	},
+	planmobmdview9righttoolbar_toolbar: {
 	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
