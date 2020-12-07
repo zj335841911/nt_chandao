@@ -107,7 +107,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
+    :navigateParam ='{ "thisweektask": "%thisweektask%" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -159,7 +159,7 @@ FTL stack trace ("~" means nesting-related):
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "nextweektask": "%nextweektask %" } ' 
+    :navigateParam ='{ "nextweektask": "%nextweektask%" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -729,6 +729,7 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
         reportto: null,
         mailtopk: null,
         thisweektask: null,
+        nextweektask: null,
         ibz_weeklyid: null,
         issubmit: null,
         mailto: null,
@@ -916,6 +917,8 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
         mailtopk: new FormItemModel({ caption: '抄送给(选择)', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         thisweektask: new FormItemModel({ caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        nextweektask: new FormItemModel({ caption: '下周计划任务', detailType: 'FORMITEM', name: 'nextweektask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_weeklyid: new FormItemModel({ caption: '周报标识', detailType: 'FORMITEM', name: 'ibz_weeklyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1130,6 +1133,18 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 nextweektask 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobWaitRead
+     */
+    @Watch('data.nextweektask')
+    onNextweektaskChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'nextweektask', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 ibz_weeklyid 值
      *
      * @param {*} newVal
@@ -1201,6 +1216,7 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

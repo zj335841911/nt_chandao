@@ -279,7 +279,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         for (IbzWeekly ibzWeekly : list) {
             //String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week)+"已经存在，请勿重复创建！", StaticDict.ReportType.WEEKLY.getValue(), "");
-            actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+String.format("%1$s月第%2$s",dateFormat.format(et.getDate()),week)+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzWeeklyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
+            actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+String.format("%1$s月第%2$s",dateFormat.format(ibzWeekly.getDate()),week)+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzWeeklyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
         }
         return et;
     }

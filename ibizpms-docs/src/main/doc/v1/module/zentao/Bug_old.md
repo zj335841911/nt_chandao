@@ -415,6 +415,7 @@ hide footbox
 |ReportBugs|发布关联Bug（未解决）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_ReportBugs))|否|&nbsp;|
 |SelectBugByBuild|版本关联bug(遗留得bug)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_SelectBugByBuild))|否|&nbsp;|
 |SelectBugsByProject|查询遗留得bug(项目)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_SelectBugsByProject))|否|&nbsp;|
+|TaskBug|任务相关bug([MYSQL5](../../appendix/query_MYSQL5.md#Bug_TaskBug))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_View))|否|&nbsp;|
 
 * **数据集合**
