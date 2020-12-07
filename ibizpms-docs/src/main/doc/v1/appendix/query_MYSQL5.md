@@ -17225,8 +17225,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`ID` IN (   
-case when  ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
+( FIND_IN_SET(t1.id, case when  ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
 else ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} end 
 ) ) 
 
@@ -17556,8 +17555,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`ID` IN (
-case when  ${srfwebcontext('thisweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
+( FIND_IN_SET(t1.id, case when  ${srfwebcontext('thisweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
 else ${srfwebcontext('thisweektask','{"defname":"ID","dename":"ZT_TASK"}')} end 
 ) ) 
 

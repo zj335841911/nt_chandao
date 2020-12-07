@@ -43,7 +43,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_2',
+	appfunctag: 'Auto23',
 	resourcetag: '',
 },
 		{
@@ -407,7 +407,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_5',
+	appfunctag: 'Auto26',
 	resourcetag: '',
 },
             {
@@ -425,7 +425,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_5',
+	appfunctag: 'Auto26',
 	resourcetag: '',
 },
             {
@@ -443,7 +443,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_6',
+	appfunctag: 'Auto27',
 	resourcetag: '',
 },
             {
@@ -461,7 +461,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_7',
+	appfunctag: 'Auto29',
 	resourcetag: '',
 },
             {
@@ -479,7 +479,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '_9',
+	appfunctag: 'Auto32',
 	resourcetag: '',
 },
         ],

@@ -26,7 +26,7 @@
             :showBusyIndicator="true"
             updateAction="Update"
             removeAction="Remove"
-            loaddraftAction="GetDraft"
+            loaddraftAction="CreateGetInfo"
             loadAction="Get"
             createAction="Create"
             WFSubmitAction=""

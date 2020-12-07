@@ -30,39 +30,6 @@
 
 
 <app-form-item2
-    name='n_delta_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    itemType="MOBDROPDOWNLIST"
-    ref="n_delta_eq_item"  
-    :itemValue="this.data.n_delta_eq" 
-    v-show="detailsModel.n_delta_eq.visible" 
-    :itemRules="this.rules.n_delta_eq" 
-    :caption="$t('productplan.mobdef_searchform.details.n_delta_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_delta_eq.disabled"  
-    :error="detailsModel.n_delta_eq.error" 
-    :isEmptyCaption="false">
-        
-<app-search-editor
-    tag="Zt__delta"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_delta_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_delta_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_delta_eq = $event"/>
-</app-form-item2>
-
-
-
-<app-form-item2
     name='n_begin_gtandeq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -424,7 +391,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     protected data: any = {
         n_title_like: null,
-        n_delta_eq: null,
         n_begin_gtandeq: null,
         n_end_ltandeq: null,
         productplan: null,
@@ -467,12 +433,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
-        n_delta_eq: [
-            { type: 'string', message: '周期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '周期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '周期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '周期 值不能为空', trigger: 'blur' },
-        ],
         n_begin_gtandeq: [
             { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'blur' },
@@ -498,8 +458,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
 , 
         n_title_like: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'n_title_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_delta_eq: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'n_delta_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         n_begin_gtandeq: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'n_begin_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_end_ltandeq: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'n_end_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -516,18 +474,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
     @Watch('data.n_title_like')
     onN_title_likeChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'n_title_like', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_delta_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_delta_eq')
-    onN_delta_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_delta_eq', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -590,7 +536,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
 
 
 
@@ -720,7 +665,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_title_like_item', 'n_delta_eq_item', 'n_begin_gtandeq_item', 'n_end_ltandeq_item', ];
+        const refArr: Array<string> = ['n_title_like_item', 'n_begin_gtandeq_item', 'n_end_ltandeq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {
