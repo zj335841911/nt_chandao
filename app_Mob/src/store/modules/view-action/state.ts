@@ -38,6 +38,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '045b5e072197debea88d4ff0ee811056',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditViewCreate',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b39f9237d088a6173a2d1889f2eaa562',
+            ],
+        },
+        {
             viewtag: '053879e9b47bc845598b68abbdbb2e0a',
             viewmodule: 'ibiz',
             viewname: 'IbzMyTerritoryMobCalendarView',
@@ -1561,6 +1571,7 @@ export const viewstate: any = {
             refviews: [
                 '339eb0f210b333b047528dcd30df2dde',
                 'df36c08961d3d1737f2f8d55a53fa46c',
+                '045b5e072197debea88d4ff0ee811056',
             ],
         },
         {

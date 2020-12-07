@@ -25,6 +25,9 @@ export default {
     mailtopk: "抄送给(选择)",
   },
 	views: {
+		mobeditviewcreate: {
+			caption: '周报',
+		},
 		usr2mobtabexpview: {
 			caption: '周报',
 		},
@@ -104,6 +107,12 @@ export default {
 			issubmit: '是否提交', 
 		},
 		uiactions: {
+		},
+	},
+	mobeditviewcreaterighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
