@@ -2674,6 +2674,10 @@ WHERE t1.deleted = '0'
 	select t1.build from zt_testtask t1 where FIND_IN_SET(t1.id,(SELECT tasks from zt_testreport where id =#{srf.datacontext.srfparentkey})))) tt GROUP BY tt.product)) = 0) and FIND_IN_SET('trunk',t1.openedBuild) = 0 and  (t1.`status` = 'active' or t1.resolvedDate > (select CONCAT(DATE_FORMAT(tt.`end`,'%Y-%m-%d'),' 23:59:59') from zt_testreport tt where tt.id = #{srf.datacontext.srfparentkey})) 
 
 ```
+### 任务相关bug(TaskBug)<div id="Bug_TaskBug"></div>
+```sql
+
+```
 ### 默认（全部数据）(VIEW)<div id="Bug_View"></div>
 ```sql
 SELECT
@@ -7894,7 +7898,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -7919,7 +7923,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -7995,7 +7999,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -8020,7 +8024,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
