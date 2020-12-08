@@ -25,6 +25,7 @@ export default {
     dailycnt: commonLogic.appcommonhandle("未读日报数",null),
     monthlycnt: commonLogic.appcommonhandle("未读月报数",null),
     submittime: commonLogic.appcommonhandle("提交时间",null),
+    reportlycnt: commonLogic.appcommonhandle("未读汇报数",null),
   },
 	views: {
 		mytabexpview: {

@@ -224,6 +224,13 @@ public class IbzReport extends EntityMP implements Serializable {
     @JSONField(name = "submittime")
     @JsonProperty("submittime")
     private String submittime;
+    /**
+     * 未读汇报数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reportlycnt")
+    @JsonProperty("reportlycnt")
+    private Integer reportlycnt;
 
 
 

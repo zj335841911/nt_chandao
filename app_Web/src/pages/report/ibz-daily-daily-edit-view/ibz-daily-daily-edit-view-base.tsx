@@ -66,6 +66,34 @@ export class IbzDailyDailyEditViewBase extends EditViewBase {
      */
     public appUIService: IbzDailyUIService = new IbzDailyUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzDailyDailyEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'SRFPARENTKEY': {
+            isRawValue: true,
+            value: 'daily',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzDailyDailyEditViewBase
+	 */
+    protected customViewParams: any = {
+        'srfparentkey': {
+            isRawValue: false,
+            value: 'daily',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *
