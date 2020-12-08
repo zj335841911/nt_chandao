@@ -33,6 +33,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '',
         	authtag:'Web-zentao-top_menus',
+        	localetag: 'app.menus.zentao.top_menus',
         	items: [
                 		        {
                 	id: 'b454720d9937098dbf2a8c63ff255e49',
@@ -389,6 +390,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '',
         	authtag:'Web-zentao-left_exp',
+        	localetag: 'app.menus.zentao.left_exp',
         	items: [
                 		        {
                 	id: 'd69dc5da5fec042124ed71785112a2ed',

@@ -40,6 +40,7 @@ import company_en_US from '@locale/lanres/entities/company/company_en_US';
 import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step_en_US';
 import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
+import plantempletdetail_en_US from '@locale/lanres/entities/plan-templet-detail/plan-templet-detail_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
@@ -401,6 +402,7 @@ const data: any = {
         ibzcasestep: ibzcasestep_en_US,
         taskestimate: taskestimate_en_US,
         story: story_en_US,
+        plantempletdetail: plantempletdetail_en_US,
         todo: todo_en_US,
         ibzlibmodule: ibzlibmodule_en_US,
         subtask: subtask_en_US,

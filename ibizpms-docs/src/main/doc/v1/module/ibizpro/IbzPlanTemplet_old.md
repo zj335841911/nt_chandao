@@ -20,6 +20,7 @@ hide members
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |计划|PLANS|SMCODELIST|&nbsp;|
 |产品|PRODUCT|BIGINT|&nbsp;|
+|计划项|PLANTEMPLETDETAIL|ONE2MANYDATA|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -32,6 +33,7 @@ hide members
 |更新时间|默认规则|默认规则|
 |计划|默认规则|内容长度必须小于等于[2000]|
 |产品|默认规则|默认规则|
+|计划项|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 

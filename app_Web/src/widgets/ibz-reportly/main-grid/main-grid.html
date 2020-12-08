@@ -25,18 +25,6 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('ibz_reportlyid')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_reportlyid'" :label="$t('entities.ibzreportly.main_grid.columns.ibz_reportlyid')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.ibzreportly.main_grid.columns.ibz_reportlyid')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.ibz_reportlyid}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('ibz_reportlyname')">
                 <el-table-column show-overflow-tooltip :prop="'ibz_reportlyname'" :label="$t('entities.ibzreportly.main_grid.columns.ibz_reportlyname')" :min-width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -63,16 +51,16 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('reportto')">
-                <el-table-column show-overflow-tooltip :prop="'reportto'" :label="$t('entities.ibzreportly.main_grid.columns.reportto')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('account')">
+                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibzreportly.main_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzreportly.main_grid.columns.reportto')}}
+                        {{$t('entities.ibzreportly.main_grid.columns.account')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.reportto" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.account" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -86,6 +74,20 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                             <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('reportto')">
+                <el-table-column show-overflow-tooltip :prop="'reportto'" :label="$t('entities.ibzreportly.main_grid.columns.reportto')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzreportly.main_grid.columns.reportto')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.reportto" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

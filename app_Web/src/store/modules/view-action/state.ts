@@ -362,6 +362,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '116ed64d7e34ab79dea49d712c451872',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyMyReceivedReportlyDetailEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
             viewtag: '122af527bf38b47ddc53c882847b490e',
             viewmodule: 'zentao',
             viewname: 'BugMainEditView',
@@ -2874,6 +2885,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8c6a61cf0b90e7424f8a758dee6643c3',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyMyReceivedGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '116ed64d7e34ab79dea49d712c451872',
+            ],
+        },
+        {
             viewtag: '8c8adbf0a7db27078e01a8b32716fa71',
             viewmodule: 'zentao',
             viewname: 'Bugmaindashboardview_link',
@@ -4398,6 +4419,7 @@ export const viewstate: any = {
                 'ff73d748d9fbc7cd4d59a714d7be6ad7',
                 'becc7b01bce4e44c2fbad7d10e02080e',
                 '991e5ef3e406f063f981865759d0857f',
+                '8c6a61cf0b90e7424f8a758dee6643c3',
             ],
         },
         {

@@ -10,6 +10,7 @@ export default {
     updatedate: commonLogic.appcommonhandle("更新时间",null),
     plans: commonLogic.appcommonhandle("计划",null),
     product: commonLogic.appcommonhandle("产品",null),
+    plantempletdetail: commonLogic.appcommonhandle("计划项",null),
   },
 	views: {
 		editview: {

@@ -69,4 +69,12 @@ export interface IbzPlanTemplet {
      * @memberof IbzPlanTemplet
      */
     product?: any;
+
+    /**
+     * 计划项
+     *
+     * @returns {*}
+     * @memberof IbzPlanTemplet
+     */
+    plantempletdetail?: any;
 }

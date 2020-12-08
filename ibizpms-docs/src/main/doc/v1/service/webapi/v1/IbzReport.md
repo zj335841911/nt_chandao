@@ -359,7 +359,8 @@ POST
 | 22 | dailycnt | Integer | 允许 | 未读日报数 |
 | 23 | monthlycnt | Integer | 允许 | 未读月报数 |
 | 24 | submittime | String | 允许 | 提交时间 |
-| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 25 | reportlycnt | Integer | 允许 | 未读汇报数 |
+| 26 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

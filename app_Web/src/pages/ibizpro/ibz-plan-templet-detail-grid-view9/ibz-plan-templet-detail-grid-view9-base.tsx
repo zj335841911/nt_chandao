@@ -2,10 +2,10 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
-import IbzPlanTempletDetailService from '@/service/ibz-plan-templet-detail/ibz-plan-templet-detail-service';
-import IbzPlanTempletDetailAuthService from '@/authservice/ibz-plan-templet-detail/ibz-plan-templet-detail-auth-service';
+import PlanTempletDetailService from '@/service/plan-templet-detail/plan-templet-detail-service';
+import PlanTempletDetailAuthService from '@/authservice/plan-templet-detail/plan-templet-detail-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
-import IbzPlanTempletDetailUIService from '@/uiservice/ibz-plan-templet-detail/ibz-plan-templet-detail-ui-service';
+import PlanTempletDetailUIService from '@/uiservice/plan-templet-detail/plan-templet-detail-ui-service';
 import CodeListService from '@service/app/codelist-service';
 
 
@@ -24,7 +24,7 @@ export class IbzPlanTempletDetailGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof IbzPlanTempletDetailGridView9Base
      */
-    protected appDeName: string = 'ibzplantempletdetail';
+    protected appDeName: string = 'plantempletdetail';
 
     /**
      * 应用实体主键
@@ -56,18 +56,18 @@ export class IbzPlanTempletDetailGridView9Base extends GridView9Base {
     /**
      * 实体服务对象
      *
-     * @type {IbzPlanTempletDetailService}
+     * @type {PlanTempletDetailService}
      * @memberof IbzPlanTempletDetailGridView9Base
      */
-    protected appEntityService: IbzPlanTempletDetailService = new IbzPlanTempletDetailService;
+    protected appEntityService: PlanTempletDetailService = new PlanTempletDetailService;
 
     /**
      * 实体权限服务对象
      *
-     * @type IbzPlanTempletDetailUIService
+     * @type PlanTempletDetailUIService
      * @memberof IbzPlanTempletDetailGridView9Base
      */
-    public appUIService: IbzPlanTempletDetailUIService = new IbzPlanTempletDetailUIService(this.$store);
+    public appUIService: PlanTempletDetailUIService = new PlanTempletDetailUIService(this.$store);
 
     /**
      * 视图模型数据
@@ -77,9 +77,9 @@ export class IbzPlanTempletDetailGridView9Base extends GridView9Base {
      * @memberof IbzPlanTempletDetailGridView9Base
      */
     protected model: any = {
-        srfCaption: 'entities.ibzplantempletdetail.views.gridview9.caption',
-        srfTitle: 'entities.ibzplantempletdetail.views.gridview9.title',
-        srfSubTitle: 'entities.ibzplantempletdetail.views.gridview9.subtitle',
+        srfCaption: 'entities.plantempletdetail.views.gridview9.caption',
+        srfTitle: 'entities.plantempletdetail.views.gridview9.title',
+        srfSubTitle: 'entities.plantempletdetail.views.gridview9.subtitle',
         dataInfo: '',
     };
 
@@ -169,7 +169,7 @@ export class IbzPlanTempletDetailGridView9Base extends GridView9Base {
                 this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'ibzplantempletdetail',
+            keyPSDEField: 'plantempletdetail',
             majorPSDEField: 'ibzplantempletdetailname',
             isLoadDefault: true,
         });
@@ -268,7 +268,7 @@ export class IbzPlanTempletDetailGridView9Base extends GridView9Base {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IbzPlanTempletDetail");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"PlanTempletDetail");
     }
 
     /**

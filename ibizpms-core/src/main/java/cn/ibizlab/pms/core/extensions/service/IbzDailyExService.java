@@ -8,6 +8,7 @@ import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.report.domain.IbzDaily;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -58,21 +60,15 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
     @Transactional
     public IbzDaily getYeaterdayDailyPlansTaskEdit(IbzDaily et) {
         CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
-        List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
-        String todaytask = et.getTodaytask();
-        Set<String> ids = new HashSet<>();
-        if (todaytask != null) {
-            String[] todayTaskids = todaytask.split(ZTBaseHelper.MULTIPLE_CHOICE);
-            ids = new HashSet<>(Arrays.asList(todayTaskids));
-        }
+        Timestamp date = et.getDate();
+        List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT('" + date + "','%Y-%m-%d')"));
+        String todaytask = et.getTodaytask() == null ? "" : et.getTodaytask();
+        String[] todayTaskids = todaytask.split(ZTBaseHelper.MULTIPLE_CHOICE);
+        Set<String> ids = new HashSet<>(Arrays.asList(todayTaskids));
         for (Task task : todayDailyCompleteTasks) {
             ids.add(String.valueOf(task.getId()));
         }
-        String taskIds = "";
-        for (String str : ids) {
-            taskIds = taskIds + str + ZTBaseHelper.MULTIPLE_CHOICE;
-        }
-        et.setTodaytask(taskIds);
+        et.setTodaytask(Joiner.on(",").join(ids));
         return et;
     }
 
@@ -91,22 +87,16 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
             IbzDaily yesterdayIbzDaily = list.get(0);
             //今日新建日报时预显示的完成任务 包括 昨天计划参与任务 + 今日完成任务 要去重
             //昨天计划参与任务id
-            String tomorrowplanstask = yesterdayIbzDaily.getTomorrowplanstask();
-            Set<String> taskIdsSet = new HashSet<>();
-            if (tomorrowplanstask != null) {
-                String[] yesterdayDailyTomorrowTaskList = tomorrowplanstask.split(ZTBaseHelper.MULTIPLE_CHOICE);
-                taskIdsSet = new HashSet<>(Arrays.asList(yesterdayDailyTomorrowTaskList));
-            }
+            String tomorrowplanstask = yesterdayIbzDaily.getTomorrowplanstask() == null ? "" : yesterdayIbzDaily.getTomorrowplanstask();
+            String[] yesterdayDailyTomorrowTaskList = tomorrowplanstask.split(ZTBaseHelper.MULTIPLE_CHOICE);
+            Set<String> taskIdsSet = new HashSet<>(Arrays.asList(yesterdayDailyTomorrowTaskList));
+            Timestamp date = et.getDate();
             //今日完成任务
-            List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
+            List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT('" + date + "','%Y-%m-%d')"));
             for (Task task : todayDailyCompleteTasks) {
                 taskIdsSet.add(String.valueOf(task.getId()));
             }
-            String taskIds = "";
-            for (String id : taskIdsSet) {
-                taskIds = taskIds + id + ZTBaseHelper.MULTIPLE_CHOICE;
-            }
-            et.setTodaytask(taskIds);
+            et.setTodaytask(Joiner.on(",").join(taskIdsSet));
             et.setWorktoday(yesterdayIbzDaily.getPlanstomorrow());
         }
         return et;

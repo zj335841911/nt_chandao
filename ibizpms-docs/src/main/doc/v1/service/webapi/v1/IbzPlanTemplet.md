@@ -233,10 +233,10 @@ POST
 | 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 7 | plans | String | 允许 | 计划 |
 | 8 | product | Long | 允许 | 产品 |
-| 9 | ibzplantempletdetails | List<[IbzPlanTempletDetailDTO}](#IbzPlanTempletDetailDTO})> | 允许 | 计划模板详情 |
+| 9 | plantempletdetails | List<[PlanTempletDetailDTO}](#PlanTempletDetailDTO})> | 允许 | 计划模板详情 |
 | 10 | <动态属性> | Object | 允许 | 支持动态属性 |
 
-#### IbzPlanTempletDetailDTO
+#### PlanTempletDetailDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | ibzplantempletdetailid | String | 不可 | 计划模板详情标识 |

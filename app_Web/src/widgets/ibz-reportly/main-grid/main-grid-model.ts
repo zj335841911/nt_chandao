@@ -27,18 +27,13 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'ibz_reportlyid',
-          prop: 'ibzreportlyid',
-          dataType: 'ACID',
-        },
-        {
           name: 'ibz_reportlyname',
           prop: 'ibzreportlyname',
           dataType: 'TEXT',
         },
         {
-          name: 'reportto',
-          prop: 'reportto',
+          name: 'account',
+          prop: 'account',
           dataType: 'SSCODELIST',
         },
         {
@@ -47,12 +42,22 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
+          name: 'reportto',
+          prop: 'reportto',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'issubmit',
           prop: 'issubmit',
           dataType: 'SSCODELIST',
         },
         {
           name: 'srfmstag',
+        },
+        {
+          name: 'ibz_reportlyid',
+          prop: 'ibzreportlyid',
+          dataType: 'ACID',
         },
         {
           name: 'srfmajortext',

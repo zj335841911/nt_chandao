@@ -8288,6 +8288,7 @@ FROM
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.issubmit = '1' 
+(t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO )) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>
@@ -16912,6 +16913,7 @@ WHERE t1.DELETED = '0'
 ( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')} ) ) ) 
  t1.status<>'closed' 
  t31.deleted='0' 
+DATE_FORMAT(t1.finisheddate,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d') 
 
 ```
 ### 已完成任务（移动端）(MyCompleteTaskMob)<div id="Task_MyCompleteTaskMob"></div>

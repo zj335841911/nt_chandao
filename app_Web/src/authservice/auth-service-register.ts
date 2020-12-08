@@ -79,6 +79,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibzcasestep', () => import('@/authservice/ibzcase-step/ibzcase-step-auth-service'));
         this.allAuthService.set('taskestimate', () => import('@/authservice/task-estimate/task-estimate-auth-service'));
         this.allAuthService.set('story', () => import('@/authservice/story/story-auth-service'));
+        this.allAuthService.set('plantempletdetail', () => import('@/authservice/plan-templet-detail/plan-templet-detail-auth-service'));
         this.allAuthService.set('todo', () => import('@/authservice/todo/todo-auth-service'));
         this.allAuthService.set('ibzlibmodule', () => import('@/authservice/ibz-lib-module/ibz-lib-module-auth-service'));
         this.allAuthService.set('subtask', () => import('@/authservice/sub-task/sub-task-auth-service'));

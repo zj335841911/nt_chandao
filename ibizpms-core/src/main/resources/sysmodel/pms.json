@@ -12886,6 +12886,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PLANTEMPLETDETAIL" ,
+    "codename":"Plantempletdetail",
+    "field_logic_name":"计划项",
+    "entity_name":"IbzPlanTemplet",
+    "field_type":"ONE2MANYDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -13677,6 +13691,19 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTLYCNT" ,
+    "codename":"Reportlycnt",
+    "field_logic_name":"未读汇报数",
+    "entity_name":"IbzReport",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
     "key_field":0,
     "show_order":1000,
     "major_field":0
