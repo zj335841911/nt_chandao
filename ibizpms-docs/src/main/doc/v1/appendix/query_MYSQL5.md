@@ -16848,6 +16848,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 ( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')} ) ) ) 
  t1.status<>'closed' 
+ t31.deleted='0' 
 
 ```
 ### 已完成任务（移动端）(MyCompleteTaskMob)<div id="Task_MyCompleteTaskMob"></div>
@@ -17249,6 +17250,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
+ t31.deleted='0' 
 
 ```
 ### 我计划参与的任务（汇报）(MyTomorrowPlanTaskMobDaily)<div id="Task_MyTomorrowPlanTaskMobDaily"></div>
