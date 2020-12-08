@@ -1101,10 +1101,6 @@ export default {
 	},
 	reportmainzs_grid: {
 		columns: {
-			id: commonLogic.appcommonhandle("ID",null),
-			pri: commonLogic.appcommonhandle("P",null),
-			productname: commonLogic.appcommonhandle("产品",null),
-			projectname: commonLogic.appcommonhandle("所属项目",null),
 			name: commonLogic.appcommonhandle("任务名称",null),
 			status1: commonLogic.appcommonhandle("任务状态",null),
 			left: commonLogic.appcommonhandle("剩余",null),
