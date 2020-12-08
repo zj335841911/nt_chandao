@@ -51,6 +51,7 @@ import testtask_zh_CN from '@locale/lanres/test-task/test-task_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/test-suite/test-suite_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
+import commonLogic from '@/locale/logic/common/common-logic';
 
 export default {
     app: {
