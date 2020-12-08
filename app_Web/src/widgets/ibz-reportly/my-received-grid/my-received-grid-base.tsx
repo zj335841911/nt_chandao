@@ -139,7 +139,7 @@ export class MyReceivedGridBase extends GridControlBase {
     public allColumns: any[] = [
         {
             name: 'ibz_reportlyid',
-            label: '汇报标识',
+            label: '编号',
             langtag: 'entities.ibzreportly.myreceived_grid.columns.ibz_reportlyid',
             show: true,
             unit: 'PX',
@@ -156,6 +156,24 @@ export class MyReceivedGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'account',
+            label: '用户',
+            langtag: 'entities.ibzreportly.myreceived_grid.columns.account',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'date',
+            label: '日期',
+            langtag: 'entities.ibzreportly.myreceived_grid.columns.date',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'reportto',
             label: '汇报给',
             langtag: 'entities.ibzreportly.myreceived_grid.columns.reportto',
@@ -165,9 +183,9 @@ export class MyReceivedGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'date',
-            label: '汇报日期',
-            langtag: 'entities.ibzreportly.myreceived_grid.columns.date',
+            name: 'reportstatus',
+            label: '状态',
+            langtag: 'entities.ibzreportly.myreceived_grid.columns.reportstatus',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -276,8 +294,10 @@ export class MyReceivedGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'ibz_reportlyid':false,
         'ibz_reportlyname':false,
-        'reportto':false,
+        'account':false,
         'date':false,
+        'reportto':false,
+        'reportstatus':false,
     };
 
     /**
@@ -348,12 +368,28 @@ export class MyReceivedGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
+                name: 'account',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
                 name: 'reportto',
                 srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
                 valueSeparator: ",",
+            },
+            {
+                name: 'reportstatus',
+                srfkey: 'ReportStatus',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
             },
         ]);
     }
@@ -388,7 +424,7 @@ export class MyReceivedGridBase extends GridControlBase {
     * @memberof MyReceivedBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_reportlyid','ibz_reportlyname','reportto','date'];
+        let allColumns:Array<any> = ['ibz_reportlyid','ibz_reportlyname','account','date','reportto','reportstatus'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -472,8 +508,10 @@ export class MyReceivedGridBase extends GridControlBase {
                     visible: false
                 },
                 ibz_reportlyname:'',
-                reportto:'',
+                account:'',
                 date:'',
+                reportto:'',
+                reportstatus:'',
                 children: children
             }
             groupTree.push(tree);
@@ -503,8 +541,10 @@ export class MyReceivedGridBase extends GridControlBase {
                 visible: false
             },
             ibz_reportlyname:'',
-            reportto:'',
+            account:'',
             date:'',
+            reportto:'',
+            reportstatus:'',
             children: child
         }
         if(child && child.length > 0){
@@ -570,8 +610,10 @@ export class MyReceivedGridBase extends GridControlBase {
                     visible: false
                 },
                 ibz_reportlyname:'',
-                reportto:'',
+                account:'',
                 date:'',
+                reportto:'',
+                reportstatus:'',
                 children: children,
             }
             groupTree.push(tree);

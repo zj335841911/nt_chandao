@@ -142,13 +142,6 @@ export class MainGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "ibz_reportlyname";
 
-    /**
-     * 列主键属性名称
-     *
-     * @type {string}
-     * @memberof MainGridBase
-     */
-    public columnKeyName: string = "ibz_reportlyid";
 
     /**
      * 本地缓存标识
@@ -167,15 +160,6 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'ibz_reportlyid',
-            label: '汇报标识',
-            langtag: 'entities.ibzreportly.main_grid.columns.ibz_reportlyid',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'ibz_reportlyname',
             label: '汇报名称',
             langtag: 'entities.ibzreportly.main_grid.columns.ibz_reportlyname',
@@ -185,9 +169,9 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'reportto',
-            label: '汇报给',
-            langtag: 'entities.ibzreportly.main_grid.columns.reportto',
+            name: 'account',
+            label: '用户',
+            langtag: 'entities.ibzreportly.main_grid.columns.account',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -195,8 +179,17 @@ export class MainGridBase extends GridControlBase {
         },
         {
             name: 'date',
-            label: '汇报日期',
+            label: '日期',
             langtag: 'entities.ibzreportly.main_grid.columns.date',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'reportto',
+            label: '汇报给',
+            langtag: 'entities.ibzreportly.main_grid.columns.reportto',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -312,10 +305,10 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'ibz_reportlyid':false,
         'ibz_reportlyname':false,
-        'reportto':false,
+        'account':false,
         'date':false,
+        'reportto':false,
         'uagridcolumn1':false,
     };
 
@@ -387,6 +380,14 @@ export class MainGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
+                name: 'account',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
                 name: 'reportto',
                 srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
@@ -430,7 +431,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_reportlyid','ibz_reportlyname','reportto','date','uagridcolumn1'];
+        let allColumns:Array<any> = ['ibz_reportlyname','account','date','reportto','uagridcolumn1'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -509,10 +510,10 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                ibz_reportlyid:'',
                 ibz_reportlyname:'',
-                reportto:'',
+                account:'',
                 date:'',
+                reportto:'',
                 Edit:{
                     visible: false
                 },
@@ -543,10 +544,10 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            ibz_reportlyid:'',
             ibz_reportlyname:'',
-            reportto:'',
+            account:'',
             date:'',
+            reportto:'',
             Edit:{
                 visible: false
             },
@@ -613,10 +614,10 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                ibz_reportlyid:'',
                 ibz_reportlyname:'',
-                reportto:'',
+                account:'',
                 date:'',
+                reportto:'',
                 Edit:{
                     visible: false
                 },

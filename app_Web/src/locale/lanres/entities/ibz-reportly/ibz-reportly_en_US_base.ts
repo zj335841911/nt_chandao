@@ -95,10 +95,12 @@ export default {
 	},
 	myreceived_grid: {
 		columns: {
-			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null),
+			ibz_reportlyid: commonLogic.appcommonhandle("编号",null),
 			ibz_reportlyname: commonLogic.appcommonhandle("汇报名称",null),
+			account: commonLogic.appcommonhandle("用户",null),
+			date: commonLogic.appcommonhandle("日期",null),
 			reportto: commonLogic.appcommonhandle("汇报给",null),
-			date: commonLogic.appcommonhandle("汇报日期",null),
+			reportstatus: commonLogic.appcommonhandle("状态",null),
 		},
 		nodata:commonLogic.appcommonhandle("",null),
 		uiactions: {
@@ -107,10 +109,10 @@ export default {
 	},
 	main_grid: {
 		columns: {
-			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null),
 			ibz_reportlyname: commonLogic.appcommonhandle("汇报名称",null),
+			account: commonLogic.appcommonhandle("用户",null),
+			date: commonLogic.appcommonhandle("日期",null),
 			reportto: commonLogic.appcommonhandle("汇报给",null),
-			date: commonLogic.appcommonhandle("汇报日期",null),
 			uagridcolumn1: commonLogic.appcommonhandle("操作",null),
 		},
 		nodata:commonLogic.appcommonhandle("",null),

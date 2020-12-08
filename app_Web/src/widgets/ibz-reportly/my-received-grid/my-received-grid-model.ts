@@ -37,14 +37,24 @@ export default class MyReceivedModel {
           dataType: 'TEXT',
         },
         {
-          name: 'reportto',
-          prop: 'reportto',
+          name: 'account',
+          prop: 'account',
           dataType: 'SSCODELIST',
         },
         {
           name: 'date',
           prop: 'date',
           dataType: 'DATE',
+        },
+        {
+          name: 'reportto',
+          prop: 'reportto',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'reportstatus',
+          prop: 'reportstatus',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'issubmit',

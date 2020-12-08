@@ -51,6 +51,32 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('account')">
+                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibzreportly.myreceived_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzreportly.myreceived_grid.columns.account')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.account" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('date')">
+                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibzreportly.myreceived_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzreportly.myreceived_grid.columns.date')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('reportto')">
                 <el-table-column show-overflow-tooltip :prop="'reportto'" :label="$t('entities.ibzreportly.myreceived_grid.columns.reportto')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -65,15 +91,17 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('date')">
-                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibzreportly.myreceived_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('reportstatus')">
+                <el-table-column show-overflow-tooltip :prop="'reportstatus'" :label="$t('entities.ibzreportly.myreceived_grid.columns.reportstatus')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzreportly.myreceived_grid.columns.date')}}
+                        {{$t('entities.ibzreportly.myreceived_grid.columns.reportstatus')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
+                        <template >
+            <codelist :value="row.reportstatus" tag="ReportStatus" codelistType="STATIC" ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

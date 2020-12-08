@@ -5,12 +5,12 @@ const vueApp: any = Vue;
 
 vueApp.use(VueI18n);
 
-import zhCn from './lang/zh-CN';
+// import zhCn from './lang/zh-CN';
 import iviewZhCnLocale from 'view-design/dist/locale/zh-CN';
 import elementZhLocale from 'element-ui/lib/locale/lang/zh-CN';
 
 const messages = {
-    'zh-CN': Object.assign(iviewZhCnLocale, elementZhLocale, zhCn),
+    'zh-CN': Object.assign(iviewZhCnLocale, elementZhLocale),
 };
 
 
