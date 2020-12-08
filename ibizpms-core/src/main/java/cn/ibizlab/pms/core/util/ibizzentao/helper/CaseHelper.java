@@ -179,6 +179,24 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         return et ;
     }
 
+
+    @Transactional(rollbackFor = Exception.class)
+    public Case mobLinkCase(Case et) {
+        if (et.getTask() == null) {
+            return et;
+        }
+        if (et.get(FIELD_IDS) == null) {
+            return et;
+        }
+        TestTask testTask = new TestTask();
+        testTask.setId(Long.parseLong(et.getTask().split(MULTIPLE_CHOICE)[0]));
+
+        testTask.set(FIELD_CASES,et.get(FIELD_IDS));
+        testTask.set(FIELD_VERSIONS, et.get(FIELD_VERSIONS));
+        testTaskHelper.linkCase(testTask);
+        return et ;
+    }
+
     @Transactional(rollbackFor = Exception.class)
     public Case unlinkCase(Case et) {
         testRunHelper.delete(et.getId());
