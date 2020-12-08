@@ -51,38 +51,26 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(IbzReportly et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzreportlyid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzReportlyHelper.class).create(et);
     }
 
     @Override
-    @Transactional
     public void createBatch(List<IbzReportly> list) {
-        this.saveBatch(list, batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean update(IbzReportly et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_reportlyid", et.getIbzreportlyid()))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzreportlyid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzReportlyHelper.class).edit(et);
     }
 
     @Override
-    @Transactional
     public void updateBatch(List<IbzReportly> list) {
-        updateBatchById(list, batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(Long key) {

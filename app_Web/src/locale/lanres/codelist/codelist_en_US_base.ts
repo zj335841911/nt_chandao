@@ -523,6 +523,7 @@ export default {
         "daily": commonLogic.appcommonhandle("日报",null),
         "weekly": commonLogic.appcommonhandle("周报",null),
         "monthly": commonLogic.appcommonhandle("月报",null),
+        "reportly": commonLogic.appcommonhandle("汇报",null),
         "empty": commonLogic.appcommonhandle("",null)
     },
     ProductPlan: {
@@ -866,6 +867,7 @@ export default {
         "daily": commonLogic.appcommonhandle("日报",null),
         "weekly": commonLogic.appcommonhandle("周报",null),
         "monthly": commonLogic.appcommonhandle("月报",null),
+        "reportly": commonLogic.appcommonhandle("汇报",null),
         "empty": commonLogic.appcommonhandle("",null)
     },
     Module__type: {

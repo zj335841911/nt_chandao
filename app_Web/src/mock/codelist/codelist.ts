@@ -3870,6 +3870,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "reportly",
+                label: "汇报",
+                text: "汇报",
+                "data":"",
+                "codename":"Reportly",
+                value: "reportly",
+                
+                disabled: false,
+            },
         ]
     },
     {
@@ -6276,6 +6286,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Monthly",
                 value: "monthly",
+                
+                disabled: false,
+            },
+            {
+                id: "reportly",
+                label: "汇报",
+                text: "汇报",
+                "data":"",
+                "codename":"Reportly",
+                value: "reportly",
                 
                 disabled: false,
             },

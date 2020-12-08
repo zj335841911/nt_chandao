@@ -4534,6 +4534,18 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "reportly",
+                "label": "汇报",
+                "text": "汇报",
+                "class":"",
+                "data":"",
+                "codename":"Reportly",
+                "value": "reportly",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -7349,6 +7361,18 @@
                 "data":"",
                 "codename":"Monthly",
                 "value": "monthly",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "reportly",
+                "label": "汇报",
+                "text": "汇报",
+                "class":"",
+                "data":"",
+                "codename":"Reportly",
+                "value": "reportly",
                 
                 "disabled": false,
                 "default": false
