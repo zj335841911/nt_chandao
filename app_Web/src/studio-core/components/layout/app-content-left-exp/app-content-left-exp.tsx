@@ -127,6 +127,7 @@ export class AppContentLeftExp extends Vue {
             <div class="app-content-left-exp">
                 <div class="exp-actions">
                     {this.menus.map((item: any, index: number) => {
+                        this.handleMenuItemLocale(item);
                         if (item.hidden) {
                             return;
                         }
@@ -158,5 +159,22 @@ export class AppContentLeftExp extends Vue {
                 </div>
             </div>
         );
+    }
+
+    /**
+     * 计算菜单项多语言资源
+     *
+     * @returns {*}
+     * @memberof AppContentLeftExp
+     */
+    public handleMenuItemLocale(item: any) {
+        if(!item.localetag) {
+            return;
+        }
+        let localeContent: any = this.$t(item.localetag);
+        if(localeContent) {
+            item.text = localeContent;
+            item.tooltip = localeContent;
+        }
     }
 }
