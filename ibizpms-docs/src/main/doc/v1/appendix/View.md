@@ -292,6 +292,7 @@
 |-|我的收藏|DETABEXPVIEW|&nbsp;|
 |-|发布下属需求数据多项选择视图|DEMPICKUPVIEW|&nbsp;|
 |-|测试模块编辑视图|DEEDITVIEW|&nbsp;|
+|-|产品计划模板编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试套件编辑视图|DEEDITVIEW9|&nbsp;|
 |-|用例库用例表格视图|DEGRIDVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
@@ -476,6 +477,7 @@ SRFNAVPARAM.project=%project%|
 |-|部门|DEGRIDVIEW|&nbsp;|
 |-|相关用例|DEGRIDVIEW9|&nbsp;|
 |-|产品统计编辑视图|DEEDITVIEW9|&nbsp;|
+|-|产品计划模板表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务甘特视图|DEGANTTVIEW|&nbsp;|
 |-|工时|DEOPTVIEW|&nbsp;|

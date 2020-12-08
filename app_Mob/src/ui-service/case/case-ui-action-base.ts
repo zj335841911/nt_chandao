@@ -351,7 +351,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
               container.closeView(null);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('case');
-            const response: any = await curUIService.LinkCase(_context, _params);
+            const response: any = await curUIService.MobLinkCase(_context, _params);
             if (response && response.status === 200) {
                 this.notice.success('关联用例成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {

@@ -395,6 +395,7 @@
       * [用户管理](app/Web/func/UserTreeExpView.md)
       * [系统更新日志](app/Web/func/SysUpdateLogGridView.md)
       * [打开项目表格视图](app/Web/func/ProjectGridView.md)
+      * [计划模板](app/Web/func/IbzPlanTempletGridView.md)
       * [PRO产品](app/Web/func/ProductWizardView.md)
       * [插件管理](app/Web/func/IbzMyTerritoryUsr3TabExpView.md)
       * [测试边栏](app/Web/func/ProductTestLeftSidebarListView.md)
