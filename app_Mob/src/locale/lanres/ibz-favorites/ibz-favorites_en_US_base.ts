@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     createMan: "建立人",
@@ -12,7 +13,7 @@ export default {
   },
 	views: {
 		mobtabexpview: {
-			caption: '收藏',
+			caption: 'commonLogic.appcommonhandle("收藏",null)',
 		},
 	},
 };

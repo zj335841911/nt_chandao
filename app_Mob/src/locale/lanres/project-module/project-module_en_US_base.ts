@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     type: "类型（task）",
@@ -20,10 +21,10 @@ export default {
   },
 	views: {
 		mobpickupmdview: {
-			caption: '任务模块',
+			caption: 'commonLogic.appcommonhandle("任务模块",null)',
 		},
 		mobpickupview: {
-			caption: '任务模块',
+			caption: 'commonLogic.appcommonhandle("任务模块",null)',
 		},
 	},
 };

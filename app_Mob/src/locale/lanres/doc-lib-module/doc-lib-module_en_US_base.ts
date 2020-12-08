@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     isLeaf: "叶子模块",

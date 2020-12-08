@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     root: "所属根",
@@ -20,10 +21,10 @@ export default {
   },
 	views: {
 		mobpickupview: {
-			caption: '模块',
+			caption: 'commonLogic.appcommonhandle("模块",null)',
 		},
 		mobpickupmdview: {
-			caption: '模块',
+			caption: 'commonLogic.appcommonhandle("模块",null)',
 		},
 	},
 };

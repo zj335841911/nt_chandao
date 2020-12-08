@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     role: "角色",
@@ -18,7 +19,7 @@ export default {
   },
 	views: {
 		mobmdview9: {
-			caption: '任务团队',
+			caption: 'commonLogic.appcommonhandle("任务团队",null)',
 		},
 	},
 };

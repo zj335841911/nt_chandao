@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     id: "产品编号",
@@ -34,24 +35,24 @@ export default {
   },
 	views: {
 		mobmdview: {
-			caption: '产品',
+			caption: 'commonLogic.appcommonhandle("产品",null)',
 		},
 		mobtabexpview: {
-			caption: '产品详情',
+			caption: 'commonLogic.appcommonhandle("产品详情",null)',
 		},
 		testmobmdview: {
-			caption: '产品',
+			caption: 'commonLogic.appcommonhandle("产品",null)',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
-			caption: '新建',
+			caption: 'commonLogic.appcommonhandle("新建",null)',
 			tip: '新建',
 		},
 	},
 	testmobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
-			caption: '新建',
+			caption: 'commonLogic.appcommonhandle("新建",null)',
 			tip: '新建',
 		},
 	},

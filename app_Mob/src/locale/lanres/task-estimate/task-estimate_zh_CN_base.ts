@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     account: "用户",
@@ -11,30 +12,30 @@ export default {
   },
 	views: {
 		moboptionview: {
-			caption: '任务预计',
+			caption: 'commonLogic.appcommonhandle("任务预计",null)',
 		},
 		mobmdview: {
-			caption: '任务预计',
+			caption: 'commonLogic.appcommonhandle("任务预计",null)',
 		},
 		mobmdview9: {
-			caption: '任务预计',
+			caption: 'commonLogic.appcommonhandle("任务预计",null)',
 		},
 	},
 	mobmain_form: {
 		details: {
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '编号', 
-			srfmajortext: '编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			dates: '日期', 
-			consumed: '工时', 
-			left: '剩余', 
-			work: '备注', 
-			id: '编号', 
+			formpage1: 'commonLogic.appcommonhandle("基本信息",null)', 
+			srforikey: 'commonLogic.appcommonhandle("",null)', 
+			srfkey: 'commonLogic.appcommonhandle("编号",null)', 
+			srfmajortext: 'commonLogic.appcommonhandle("编号",null)', 
+			srftempmode: 'commonLogic.appcommonhandle("",null)', 
+			srfuf: 'commonLogic.appcommonhandle("",null)', 
+			srfdeid: 'commonLogic.appcommonhandle("",null)', 
+			srfsourcekey: 'commonLogic.appcommonhandle("",null)', 
+			dates: 'commonLogic.appcommonhandle("日期",null)', 
+			consumed: 'commonLogic.appcommonhandle("工时",null)', 
+			left: 'commonLogic.appcommonhandle("剩余",null)', 
+			work: 'commonLogic.appcommonhandle("备注",null)', 
+			id: 'commonLogic.appcommonhandle("编号",null)', 
 		},
 		uiactions: {
 		},

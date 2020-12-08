@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     updatedate: "更新时间",
@@ -27,16 +28,16 @@ export default {
   },
 	views: {
 		mobmdview: {
-			caption: '我提交的',
+			caption: 'commonLogic.appcommonhandle("我提交的",null)',
 		},
 		myremobmdview: {
-			caption: '我收到的',
+			caption: 'commonLogic.appcommonhandle("我收到的",null)',
 		},
 	},
 	mobdef_searchform: {
 		details: {
-			formpage1: '常规条件', 
-			n_type_eq: '模板', 
+			formpage1: 'commonLogic.appcommonhandle("常规条件",null)', 
+			n_type_eq: 'commonLogic.appcommonhandle("模板",null)', 
 		},
 		uiactions: {
 		},

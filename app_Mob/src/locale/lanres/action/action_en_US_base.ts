@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     extra: "附加值",
@@ -26,13 +27,13 @@ export default {
   },
 	views: {
 		mobmapview: {
-			caption: '系统日志',
+			caption: 'commonLogic.appcommonhandle("系统日志",null)',
 		},
 		mobmdview9: {
-			caption: '通用',
+			caption: 'commonLogic.appcommonhandle("通用",null)',
 		},
 		allmobmdview9: {
-			caption: '通用',
+			caption: 'commonLogic.appcommonhandle("通用",null)',
 		},
 	},
 };

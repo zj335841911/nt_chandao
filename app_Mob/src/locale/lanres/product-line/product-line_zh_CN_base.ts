@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     productlinename: "产品线名称",
@@ -9,10 +10,10 @@ export default {
   },
 	views: {
 		mobpickupmdview: {
-			caption: '产品线',
+			caption: 'commonLogic.appcommonhandle("产品线",null)',
 		},
 		mobpickupview: {
-			caption: '产品线',
+			caption: 'commonLogic.appcommonhandle("产品线",null)',
 		},
 	},
 };

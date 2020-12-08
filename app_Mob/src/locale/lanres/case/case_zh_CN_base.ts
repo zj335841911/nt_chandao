@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     lastediteddate: "修改日期",
@@ -62,64 +63,64 @@ export default {
   },
 	views: {
 		mobmdview_testtask: {
-			caption: '测试用例',
+			caption: 'commonLogic.appcommonhandle("测试用例",null)',
 		},
 		mobmdview_testsuite: {
-			caption: '测试用例',
+			caption: 'commonLogic.appcommonhandle("测试用例",null)',
 		},
 		usr2mobmpickupview: {
-			caption: '关联用例',
+			caption: 'commonLogic.appcommonhandle("关联用例",null)',
 		},
 		mobmdview: {
-			caption: '测试用例',
+			caption: 'commonLogic.appcommonhandle("测试用例",null)',
 		},
 		usr2mobpickupmdview: {
-			caption: '关联用例',
+			caption: 'commonLogic.appcommonhandle("关联用例",null)',
 		},
 		mobeditview: {
-			caption: '测试用例',
+			caption: 'commonLogic.appcommonhandle("测试用例",null)',
 		},
 	},
 	mobmain_form: {
 		details: {
-			druipart1: '', 
-			druipart2: '', 
-			grouppanel1: '历史记录', 
-			group1: '测试用例基本信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '修改日期', 
-			srforikey: '', 
-			srfkey: '用例编号', 
-			srfmajortext: '用例标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			title: '用例标题', 
-			type: '用例类型', 
-			stage: '适用阶段', 
-			precondition: '前置条件', 
-			id: '用例编号', 
-			version: '用例版本', 
-			keywords: '关键词', 
+			druipart1: 'commonLogic.appcommonhandle("",null)', 
+			druipart2: 'commonLogic.appcommonhandle("",null)', 
+			grouppanel1: 'commonLogic.appcommonhandle("历史记录",null)', 
+			group1: 'commonLogic.appcommonhandle("测试用例基本信息",null)', 
+			formpage1: 'commonLogic.appcommonhandle("基本信息",null)', 
+			srfupdatedate: 'commonLogic.appcommonhandle("修改日期",null)', 
+			srforikey: 'commonLogic.appcommonhandle("",null)', 
+			srfkey: 'commonLogic.appcommonhandle("用例编号",null)', 
+			srfmajortext: 'commonLogic.appcommonhandle("用例标题",null)', 
+			srftempmode: 'commonLogic.appcommonhandle("",null)', 
+			srfuf: 'commonLogic.appcommonhandle("",null)', 
+			srfdeid: 'commonLogic.appcommonhandle("",null)', 
+			srfsourcekey: 'commonLogic.appcommonhandle("",null)', 
+			title: 'commonLogic.appcommonhandle("用例标题",null)', 
+			type: 'commonLogic.appcommonhandle("用例类型",null)', 
+			stage: 'commonLogic.appcommonhandle("适用阶段",null)', 
+			precondition: 'commonLogic.appcommonhandle("前置条件",null)', 
+			id: 'commonLogic.appcommonhandle("用例编号",null)', 
+			version: 'commonLogic.appcommonhandle("用例版本",null)', 
+			keywords: 'commonLogic.appcommonhandle("关键词",null)', 
 		},
 		uiactions: {
 		},
 	},
 	mobdef_searchform: {
 		details: {
-			formpage1: '常规条件', 
-			n_title_like: '用例标题', 
-			n_type_eq: '用例类型', 
-			n_status_eq: '用例状态', 
-			n_modulename_eq: '模块名称', 
+			formpage1: 'commonLogic.appcommonhandle("常规条件",null)', 
+			n_title_like: 'commonLogic.appcommonhandle("用例标题",null)', 
+			n_type_eq: 'commonLogic.appcommonhandle("用例类型",null)', 
+			n_status_eq: 'commonLogic.appcommonhandle("用例状态",null)', 
+			n_modulename_eq: 'commonLogic.appcommonhandle("模块名称",null)', 
 		},
 		uiactions: {
 		},
 	},
 	mobmdview_testtaskrighttoolbar_toolbar: {
 		deuiaction1: {
-			caption: '关联需求',
+			caption: 'commonLogic.appcommonhandle("关联需求",null)',
 			tip: '关联需求',
 		},
 	},

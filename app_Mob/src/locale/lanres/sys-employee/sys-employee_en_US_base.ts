@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     userId: "用户标识",
@@ -32,16 +33,16 @@ export default {
   },
 	views: {
 		mpkmobpickuptreeview: {
-			caption: '人员',
+			caption: 'commonLogic.appcommonhandle("人员",null)',
 		},
 		mobpickuptreeview: {
-			caption: '人员',
+			caption: 'commonLogic.appcommonhandle("人员",null)',
 		},
 		treemobpickupview: {
-			caption: '人员',
+			caption: 'commonLogic.appcommonhandle("人员",null)',
 		},
 		usertreemobmpickupview: {
-			caption: '人员',
+			caption: 'commonLogic.appcommonhandle("人员",null)',
 		},
 	},
 };

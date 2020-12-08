@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     sysupdatefeaturesname: "系统更新功能名称",
@@ -15,44 +16,44 @@ export default {
   },
 	views: {
 		ymobmdview9: {
-			caption: '优化',
+			caption: 'commonLogic.appcommonhandle("优化",null)',
 		},
 		mobmdview: {
-			caption: '功能增强',
+			caption: 'commonLogic.appcommonhandle("功能增强",null)',
 		},
 		mobeditview: {
-			caption: '系统更新功能',
+			caption: 'commonLogic.appcommonhandle("系统更新功能",null)',
 		},
 		mobmdview9: {
-			caption: '功能增强',
+			caption: 'commonLogic.appcommonhandle("功能增强",null)',
 		},
 	},
 	mobmain_form: {
 		details: {
-			group1: '系统更新功能基本信息', 
-			group2: '操作信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '更新时间', 
-			srforikey: '', 
-			srfkey: '系统更新功能标识', 
-			srfmajortext: '系统更新功能名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			sys_update_featuresname: '系统更新功能名称', 
-			createman: '建立人', 
-			createdate: '建立时间', 
-			updateman: '更新人', 
-			updatedate: '更新时间', 
-			sys_update_featuresid: '系统更新功能标识', 
+			group1: 'commonLogic.appcommonhandle("系统更新功能基本信息",null)', 
+			group2: 'commonLogic.appcommonhandle("操作信息",null)', 
+			formpage1: 'commonLogic.appcommonhandle("基本信息",null)', 
+			srfupdatedate: 'commonLogic.appcommonhandle("更新时间",null)', 
+			srforikey: 'commonLogic.appcommonhandle("",null)', 
+			srfkey: 'commonLogic.appcommonhandle("系统更新功能标识",null)', 
+			srfmajortext: 'commonLogic.appcommonhandle("系统更新功能名称",null)', 
+			srftempmode: 'commonLogic.appcommonhandle("",null)', 
+			srfuf: 'commonLogic.appcommonhandle("",null)', 
+			srfdeid: 'commonLogic.appcommonhandle("",null)', 
+			srfsourcekey: 'commonLogic.appcommonhandle("",null)', 
+			sys_update_featuresname: 'commonLogic.appcommonhandle("系统更新功能名称",null)', 
+			createman: 'commonLogic.appcommonhandle("建立人",null)', 
+			createdate: 'commonLogic.appcommonhandle("建立时间",null)', 
+			updateman: 'commonLogic.appcommonhandle("更新人",null)', 
+			updatedate: 'commonLogic.appcommonhandle("更新时间",null)', 
+			sys_update_featuresid: 'commonLogic.appcommonhandle("系统更新功能标识",null)', 
 		},
 		uiactions: {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
-			caption: '保存',
+			caption: 'commonLogic.appcommonhandle("保存",null)',
 			tip: '保存',
 		},
 	},

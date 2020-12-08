@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     type: "文档类型",
@@ -25,36 +26,36 @@ export default {
   },
 	views: {
 		mobproducttreeview: {
-			caption: '产品',
+			caption: 'commonLogic.appcommonhandle("产品",null)',
 		},
 		projectdoclibmobtreeview: {
-			caption: '项目',
+			caption: 'commonLogic.appcommonhandle("项目",null)',
 		},
 		mobeditview: {
-			caption: '文档库',
+			caption: 'commonLogic.appcommonhandle("文档库",null)',
 		},
 	},
 	mobmain_form: {
 		details: {
-			group1: '文档库基本信息', 
-			group2: '操作信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '编号', 
-			srfmajortext: '文档库名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '文档库名称', 
-			id: '编号', 
+			group1: 'commonLogic.appcommonhandle("文档库基本信息",null)', 
+			group2: 'commonLogic.appcommonhandle("操作信息",null)', 
+			formpage1: 'commonLogic.appcommonhandle("基本信息",null)', 
+			srforikey: 'commonLogic.appcommonhandle("",null)', 
+			srfkey: 'commonLogic.appcommonhandle("编号",null)', 
+			srfmajortext: 'commonLogic.appcommonhandle("文档库名称",null)', 
+			srftempmode: 'commonLogic.appcommonhandle("",null)', 
+			srfuf: 'commonLogic.appcommonhandle("",null)', 
+			srfdeid: 'commonLogic.appcommonhandle("",null)', 
+			srfsourcekey: 'commonLogic.appcommonhandle("",null)', 
+			name: 'commonLogic.appcommonhandle("文档库名称",null)', 
+			id: 'commonLogic.appcommonhandle("编号",null)', 
 		},
 		uiactions: {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
-			caption: '保存',
+			caption: 'commonLogic.appcommonhandle("保存",null)',
 			tip: '保存',
 		},
 	},

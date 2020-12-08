@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     fails: "fails",
@@ -51,22 +52,22 @@ export default {
   },
 	views: {
 		mobcalendarview: {
-			caption: '我的工作',
+			caption: 'commonLogic.appcommonhandle("我的工作",null)',
 		},
 		mobmdview9: {
-			caption: '我的地盘',
+			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
 		},
 		mobtabexpview: {
-			caption: '我的地盘',
+			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
 		},
 		mobdashboardview: {
-			caption: '仪表盘',
+			caption: 'commonLogic.appcommonhandle("仪表盘",null)',
 		},
 		dailymobtabexpview: {
-			caption: '我的地盘',
+			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
 		},
 		reportmobtabexpview: {
-			caption: '我的地盘',
+			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
 		},
 	},
 };

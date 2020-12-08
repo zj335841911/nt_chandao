@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     pathname: "路径",
@@ -17,7 +18,7 @@ export default {
   },
 	views: {
 		mobmdview9: {
-			caption: '附件',
+			caption: 'commonLogic.appcommonhandle("附件",null)',
 		},
 	},
 };

@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     type: "用例步骤类型",
@@ -15,7 +16,7 @@ export default {
   },
 	views: {
 		mobmdview9: {
-			caption: '用例步骤',
+			caption: 'commonLogic.appcommonhandle("用例步骤",null)',
 		},
 	},
 };

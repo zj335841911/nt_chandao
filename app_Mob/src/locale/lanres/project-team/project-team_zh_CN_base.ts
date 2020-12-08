@@ -1,3 +1,4 @@
+import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     join: "加盟日",
@@ -19,7 +20,7 @@ export default {
   },
 	views: {
 		mobmdview: {
-			caption: '项目团队',
+			caption: 'commonLogic.appcommonhandle("项目团队",null)',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
