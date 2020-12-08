@@ -235,7 +235,8 @@ POST
 | 8 | files | String | 允许 | 附件 |
 | 9 | reportto | String | 允许 | 汇报给 |
 | 10 | mailto | String | 允许 | 抄送给 |
-| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 11 | date | Timestamp | 允许 | 汇报日期<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 12 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

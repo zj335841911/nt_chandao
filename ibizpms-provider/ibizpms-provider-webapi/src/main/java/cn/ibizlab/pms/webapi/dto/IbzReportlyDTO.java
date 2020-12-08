@@ -119,6 +119,15 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String mailto;
 
+    /**
+     * 属性 [DATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("date")
+    private Timestamp date;
+
 
     /**
      * 设置 [IBZ_REPORTLYNAME]
@@ -150,6 +159,14 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     public void setMailto(String  mailto){
         this.mailto = mailto ;
         this.modify("mailto",mailto);
+    }
+
+    /**
+     * 设置 [DATE]
+     */
+    public void setDate(Timestamp  date){
+        this.date = date ;
+        this.modify("date",date);
     }
 
 

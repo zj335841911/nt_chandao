@@ -121,6 +121,14 @@ public class IbzReportly extends EntityMP implements Serializable {
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
     private String mailto;
+    /**
+     * 汇报日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("date")
+    private Timestamp date;
 
 
 
@@ -156,6 +164,24 @@ public class IbzReportly extends EntityMP implements Serializable {
         this.modify("mailto", mailto);
     }
 
+    /**
+     * 设置 [汇报日期]
+     */
+    public void setDate(Timestamp date) {
+        this.date = date;
+        this.modify("date", date);
+    }
+
+    /**
+     * 格式化日期 [汇报日期]
+     */
+    public String formatDate() {
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
+    }
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

@@ -1278,7 +1278,7 @@
 
 
     <!--输出实体[IBZ_REPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_report-137-45">
+    <changeSet author="zentao" id="tab-ibz_report-138-45">
         <createTable tableName="t_ibz_daily">
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
@@ -1348,7 +1348,7 @@
 
 
     <!--输出实体[IBZ_REPORTLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_reportly-26-47">
+    <changeSet author="zentao" id="tab-ibz_reportly-28-47">
         <createTable tableName="T_IBZ_REPORTLY">
                 <column name="IBZ_REPORTLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_REPORTLY_IBZ_REPORTLYID"/>
@@ -1368,6 +1368,8 @@
                 <column name="REPORTTO" remarks="" type="VARCHAR(100)">
                 </column>
                 <column name="MAILTO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DATE" remarks="" type="DATETIME">
                 </column>
         </createTable>
     </changeSet>
