@@ -66,6 +66,34 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService: IbzReportlyUIService = new IbzReportlyUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u672dd85_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzReportlyUIService  = new IbzReportlyUIService();
+        curUIService.IbzReportly_Edit(datas,contextJO, paramJO,  $event, xData,this,"IbzReportly");
+    }
+
 
     /**
      * 界面行为模型
@@ -74,6 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -341,6 +370,21 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('Edit', tag)) {
+            this.grid_uagridcolumn1_u672dd85_click(row, tag, $event);
+        }
+    }
+
+    /**
      * 更新默认值
      * @param {*}  row 行数据
      * @memberof MainBase
@@ -437,6 +481,9 @@ export class MainGridBase extends GridControlBase {
                 ibz_reportlyname:'',
                 reportto:'',
                 date:'',
+                Edit:{
+                    visible: false
+                },
                 children: children
             }
             groupTree.push(tree);
@@ -465,6 +512,9 @@ export class MainGridBase extends GridControlBase {
             ibz_reportlyname:'',
             reportto:'',
             date:'',
+            Edit:{
+                visible: false
+            },
             children: child
         }
         if(child && child.length > 0){
@@ -529,6 +579,9 @@ export class MainGridBase extends GridControlBase {
                 ibz_reportlyname:'',
                 reportto:'',
                 date:'',
+                Edit:{
+                    visible: false
+                },
                 children: children,
             }
             groupTree.push(tree);

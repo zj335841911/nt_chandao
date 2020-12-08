@@ -136,6 +136,17 @@ public class IbzReportlyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-Submit-all')")
+    @ApiOperation(value = "提交", tags = {"汇报" },  notes = "提交")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzreportlies/{ibzreportly_id}/submit")
+    public ResponseEntity<IbzReportlyDTO> submit(@PathVariable("ibzreportly_id") Long ibzreportly_id, @RequestBody IbzReportlyDTO ibzreportlydto) {
+        IbzReportly domain = ibzreportlyMapping.toDomain(ibzreportlydto);
+        domain.setIbzreportlyid(ibzreportly_id);
+        domain = ibzreportlyService.submit(domain);
+        ibzreportlydto = ibzreportlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-searchDefault-all') and hasPermission(#context,'pms-IbzReportly-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"汇报" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/ibzreportlies/fetchdefault")

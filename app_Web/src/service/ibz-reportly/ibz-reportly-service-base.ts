@@ -172,6 +172,20 @@ export default class IbzReportlyServiceBase extends EntityService {
     }
 
     /**
+     * Submit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportlyServiceBase
+     */
+    public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/ibzreportlies/${context.ibzreportly}/submit`,data,isloading);
+            return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

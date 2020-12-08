@@ -98,6 +98,10 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                            <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.ibzreportly.main_grid.uiactions.ibzreportly_edit')">
+                                <i class="fa fa-edit"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

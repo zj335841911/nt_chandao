@@ -138,6 +138,12 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
         saveOrUpdateBatch(list, batchSize);
     }
 
+        @Override
+    @Transactional
+    public IbzReportly submit(IbzReportly et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzReportlyHelper.class).submit(et);
+    }
+
 
 
     /**

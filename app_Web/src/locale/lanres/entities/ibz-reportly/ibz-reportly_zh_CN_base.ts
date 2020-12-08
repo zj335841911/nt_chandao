@@ -94,6 +94,7 @@ export default {
 		},
 		nodata:commonLogic.appcommonhandle("",null),
 		uiactions: {
+			ibzreportly_edit: commonLogic.appcommonhandle("编辑",null),
 		},
 	},
 	default_searchform: {

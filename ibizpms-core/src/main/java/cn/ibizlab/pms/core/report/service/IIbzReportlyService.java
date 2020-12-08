@@ -46,6 +46,7 @@ public interface IIbzReportlyService extends IService<IbzReportly> {
     boolean checkKey(IbzReportly et);
     boolean save(IbzReportly et);
     void saveBatch(List<IbzReportly> list);
+    IbzReportly submit(IbzReportly et);
     Page<IbzReportly> searchDefault(IbzReportlySearchContext context);
     /**
      * 自定义查询SQL
