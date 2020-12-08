@@ -13788,6 +13788,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ISSUBMIT" ,
+    "codename":"Issubmit",
+    "field_logic_name":"是否提交",
+    "entity_name":"IbzReportly",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

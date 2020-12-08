@@ -13,5 +13,6 @@ export default {
     reportto: commonLogic.appcommonhandle("汇报给",null),
     mailto: commonLogic.appcommonhandle("抄送给",null),
     date: commonLogic.appcommonhandle("汇报日期",null),
+    issubmit: commonLogic.appcommonhandle("是否提交",null),
   },
 };

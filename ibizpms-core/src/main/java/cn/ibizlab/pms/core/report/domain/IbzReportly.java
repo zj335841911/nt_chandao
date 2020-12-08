@@ -129,6 +129,13 @@ public class IbzReportly extends EntityMP implements Serializable {
     @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
     private Timestamp date;
+    /**
+     * 是否提交
+     */
+    @TableField(value = "`issubmit`")
+    @JSONField(name = "issubmit")
+    @JsonProperty("issubmit")
+    private String issubmit;
 
 
 
@@ -182,6 +189,14 @@ public class IbzReportly extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(date);
     }
+    /**
+     * 设置 [是否提交]
+     */
+    public void setIssubmit(String issubmit) {
+        this.issubmit = issubmit;
+        this.modify("issubmit", issubmit);
+    }
+
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

@@ -2,7 +2,7 @@ import commonLogic from '@/locale/logic/common/common-logic';
 export default {
     StoryPoints: {
         "0": commonLogic.appcommonhandle("0",null),
-        "0.5": commonLogic.appcommonhandle("1/2",null),
+        "0.5": commonLogic.appcommonhandle("0.5",null),
         "1": commonLogic.appcommonhandle("1",null),
         "2": commonLogic.appcommonhandle("2",null),
         "3": commonLogic.appcommonhandle("3",null),

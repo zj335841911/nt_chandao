@@ -128,6 +128,15 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @JsonProperty("date")
     private Timestamp date;
 
+    /**
+     * 属性 [ISSUBMIT]
+     *
+     */
+    @JSONField(name = "issubmit")
+    @JsonProperty("issubmit")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String issubmit;
+
 
     /**
      * 设置 [IBZ_REPORTLYNAME]
@@ -167,6 +176,14 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     public void setDate(Timestamp  date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 设置 [ISSUBMIT]
+     */
+    public void setIssubmit(String  issubmit){
+        this.issubmit = issubmit ;
+        this.modify("issubmit",issubmit);
     }
 
 

@@ -93,4 +93,12 @@ export interface IbzReportly {
      * @memberof IbzReportly
      */
     date?: any;
+
+    /**
+     * 是否提交
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    issubmit?: any;
 }
