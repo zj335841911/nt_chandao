@@ -18,7 +18,7 @@ export default {
   },
 	views: {
 		mobmdview9: {
-			caption: 'commonLogic.appcommonhandle("附件",null)',
+			caption: commonLogic.appcommonhandle("附件",null),
 		},
 	},
 };

@@ -13,7 +13,7 @@ export default {
   },
 	views: {
 		mobtabexpview: {
-			caption: 'commonLogic.appcommonhandle("收藏",null)',
+			caption: commonLogic.appcommonhandle("收藏",null),
 		},
 	},
 };

@@ -21,10 +21,10 @@ export default {
   },
 	views: {
 		mobpickupmdview: {
-			caption: 'commonLogic.appcommonhandle("任务模块",null)',
+			caption: commonLogic.appcommonhandle("任务模块",null),
 		},
 		mobpickupview: {
-			caption: 'commonLogic.appcommonhandle("任务模块",null)',
+			caption: commonLogic.appcommonhandle("任务模块",null),
 		},
 	},
 };

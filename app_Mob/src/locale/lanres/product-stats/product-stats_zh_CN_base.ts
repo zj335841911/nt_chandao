@@ -35,24 +35,24 @@ export default {
   },
 	views: {
 		mobmdview: {
-			caption: 'commonLogic.appcommonhandle("产品",null)',
+			caption: commonLogic.appcommonhandle("产品",null),
 		},
 		mobtabexpview: {
-			caption: 'commonLogic.appcommonhandle("产品详情",null)',
+			caption: commonLogic.appcommonhandle("产品详情",null),
 		},
 		testmobmdview: {
-			caption: 'commonLogic.appcommonhandle("产品",null)',
+			caption: commonLogic.appcommonhandle("产品",null),
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
-			caption: 'commonLogic.appcommonhandle("新建",null)',
+			caption: commonLogic.appcommonhandle("新建",null),
 			tip: '新建',
 		},
 	},
 	testmobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
-			caption: 'commonLogic.appcommonhandle("新建",null)',
+			caption: commonLogic.appcommonhandle("新建",null),
 			tip: '新建',
 		},
 	},

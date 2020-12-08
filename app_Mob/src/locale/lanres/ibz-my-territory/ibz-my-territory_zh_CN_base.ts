@@ -52,22 +52,22 @@ export default {
   },
 	views: {
 		mobcalendarview: {
-			caption: 'commonLogic.appcommonhandle("我的工作",null)',
+			caption: commonLogic.appcommonhandle("我的工作",null),
 		},
 		mobmdview9: {
-			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
+			caption: commonLogic.appcommonhandle("我的地盘",null),
 		},
 		mobtabexpview: {
-			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
+			caption: commonLogic.appcommonhandle("我的地盘",null),
 		},
 		mobdashboardview: {
-			caption: 'commonLogic.appcommonhandle("仪表盘",null)',
+			caption: commonLogic.appcommonhandle("仪表盘",null),
 		},
 		dailymobtabexpview: {
-			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
+			caption: commonLogic.appcommonhandle("我的地盘",null),
 		},
 		reportmobtabexpview: {
-			caption: 'commonLogic.appcommonhandle("我的地盘",null)',
+			caption: commonLogic.appcommonhandle("我的地盘",null),
 		},
 	},
 };

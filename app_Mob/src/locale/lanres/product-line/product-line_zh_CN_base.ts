@@ -10,10 +10,10 @@ export default {
   },
 	views: {
 		mobpickupmdview: {
-			caption: 'commonLogic.appcommonhandle("产品线",null)',
+			caption: commonLogic.appcommonhandle("产品线",null),
 		},
 		mobpickupview: {
-			caption: 'commonLogic.appcommonhandle("产品线",null)',
+			caption: commonLogic.appcommonhandle("产品线",null),
 		},
 	},
 };

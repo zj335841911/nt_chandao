@@ -1,15 +1,15 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    teamMemberId: "组成员标识",
-    teamName: "组名称",
-    postName: "岗位",
-    domains: "区属",
-    userId: "用户标识",
-    teamId: "组标识",
-    postId: "岗位标识",
-    personName: "姓名",
-    userName: "账号",
-    userIcon: "头像",
+    teamMemberId:  commonLogic.appcommonhandle("组成员标识",null),
+    teamName:  commonLogic.appcommonhandle("组名称",null),
+    postName:  commonLogic.appcommonhandle("岗位",null),
+    domains:  commonLogic.appcommonhandle("区属",null),
+    userId:  commonLogic.appcommonhandle("用户标识",null),
+    teamId:  commonLogic.appcommonhandle("组标识",null),
+    postId:  commonLogic.appcommonhandle("岗位标识",null),
+    personName:  commonLogic.appcommonhandle("姓名",null),
+    userName:  commonLogic.appcommonhandle("账号",null),
+    userIcon:  commonLogic.appcommonhandle("头像",null),
   },
 };

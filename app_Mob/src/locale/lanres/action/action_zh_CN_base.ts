@@ -27,13 +27,13 @@ export default {
   },
 	views: {
 		mobmapview: {
-			caption: 'commonLogic.appcommonhandle("系统日志",null)',
+			caption: commonLogic.appcommonhandle("系统日志",null),
 		},
 		mobmdview9: {
-			caption: 'commonLogic.appcommonhandle("通用",null)',
+			caption: commonLogic.appcommonhandle("通用",null),
 		},
 		allmobmdview9: {
-			caption: 'commonLogic.appcommonhandle("通用",null)',
+			caption: commonLogic.appcommonhandle("通用",null),
 		},
 	},
 };

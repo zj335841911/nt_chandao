@@ -33,16 +33,16 @@ export default {
   },
 	views: {
 		mpkmobpickuptreeview: {
-			caption: 'commonLogic.appcommonhandle("人员",null)',
+			caption: commonLogic.appcommonhandle("人员",null),
 		},
 		mobpickuptreeview: {
-			caption: 'commonLogic.appcommonhandle("人员",null)',
+			caption: commonLogic.appcommonhandle("人员",null),
 		},
 		treemobpickupview: {
-			caption: 'commonLogic.appcommonhandle("人员",null)',
+			caption: commonLogic.appcommonhandle("人员",null),
 		},
 		usertreemobmpickupview: {
-			caption: 'commonLogic.appcommonhandle("人员",null)',
+			caption: commonLogic.appcommonhandle("人员",null),
 		},
 	},
 };

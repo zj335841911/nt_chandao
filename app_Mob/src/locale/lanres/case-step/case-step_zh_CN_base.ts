@@ -16,7 +16,7 @@ export default {
   },
 	views: {
 		mobmdview9: {
-			caption: 'commonLogic.appcommonhandle("用例步骤",null)',
+			caption: commonLogic.appcommonhandle("用例步骤",null),
 		},
 	},
 };

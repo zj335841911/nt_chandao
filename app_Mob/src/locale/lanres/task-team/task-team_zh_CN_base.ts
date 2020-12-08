@@ -19,7 +19,7 @@ export default {
   },
 	views: {
 		mobmdview9: {
-			caption: 'commonLogic.appcommonhandle("任务团队",null)',
+			caption: commonLogic.appcommonhandle("任务团队",null),
 		},
 	},
 };

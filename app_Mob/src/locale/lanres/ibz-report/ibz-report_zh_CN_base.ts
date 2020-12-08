@@ -28,16 +28,16 @@ export default {
   },
 	views: {
 		mobmdview: {
-			caption: 'commonLogic.appcommonhandle("我提交的",null)',
+			caption: commonLogic.appcommonhandle("我提交的",null),
 		},
 		myremobmdview: {
-			caption: 'commonLogic.appcommonhandle("我收到的",null)',
+			caption: commonLogic.appcommonhandle("我收到的",null),
 		},
 	},
 	mobdef_searchform: {
 		details: {
-			formpage1: 'commonLogic.appcommonhandle("常规条件",null)', 
-			n_type_eq: 'commonLogic.appcommonhandle("模板",null)', 
+			formpage1: commonLogic.appcommonhandle("常规条件",null), 
+			n_type_eq: commonLogic.appcommonhandle("模板",null), 
 		},
 		uiactions: {
 		},
