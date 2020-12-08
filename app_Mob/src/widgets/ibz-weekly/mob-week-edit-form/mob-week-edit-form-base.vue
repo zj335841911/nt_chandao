@@ -62,7 +62,7 @@
     :disabled="detailsModel.workthisweek.disabled"
     :error="detailsModel.workthisweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -113,7 +113,7 @@
     :disabled="detailsModel.plannextweek.disabled"
     :error="detailsModel.plannextweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -134,7 +134,7 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
