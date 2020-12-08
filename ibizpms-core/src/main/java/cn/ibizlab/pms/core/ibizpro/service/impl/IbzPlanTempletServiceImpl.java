@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzPlanTempletServiceImpl")
 public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper, IbzPlanTemplet> implements IIbzPlanTempletService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletDetailService ibzplantempletdetailService;
 
     protected int batchSize = 500;
 
@@ -57,6 +60,7 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
+        ibzplantempletdetailService.saveByPlantempletid(et.getIbzplantempletid(), et.getIbzplantempletdetail());
         CachedBeanCopier.copy(get(et.getIbzplantempletid()), et);
         return true;
     }
@@ -73,6 +77,7 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_plantempletid", et.getIbzplantempletid()))) {
             return false;
         }
+        ibzplantempletdetailService.saveByPlantempletid(et.getIbzplantempletid(), et.getIbzplantempletdetail());
         CachedBeanCopier.copy(get(et.getIbzplantempletid()), et);
         return true;
     }
@@ -86,6 +91,7 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
     @Override
     @Transactional
     public boolean remove(String key) {
+        ibzplantempletdetailService.removeByPlantempletid(key);
         boolean result = removeById(key);
         return result;
     }
@@ -105,6 +111,7 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
             et.setIbzplantempletid(key);
         }
         else {
+            et.setIbzplantempletdetail(ibzplantempletdetailService.selectByPlantempletid(key));
         }
         return et;
     }

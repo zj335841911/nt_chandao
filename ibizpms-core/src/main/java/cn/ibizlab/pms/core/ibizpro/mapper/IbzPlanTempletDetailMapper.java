@@ -62,4 +62,6 @@ public interface IbzPlanTempletDetailMapper extends BaseMapper<IbzPlanTempletDet
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
+    List<IbzPlanTempletDetail> selectByPlantempletid(@Param("ibzplantempletid") Serializable ibzplantempletid);
+
 }

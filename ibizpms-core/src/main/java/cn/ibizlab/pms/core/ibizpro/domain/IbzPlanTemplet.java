@@ -109,6 +109,14 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     private Long product;
 
 
+    /**
+     * 计划模板详情
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail> ibzplantempletdetail;
+
 
     /**
      * 设置 [模板名称]

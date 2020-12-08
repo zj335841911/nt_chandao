@@ -10,18 +10,23 @@
 ### 1:N
 无
 ### N:1
-无
+| 序号 | 关系实体 | 关系类型 |
+| ---- | ---- | ---- |
+| 1 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) | 嵌套操作 |
 
 
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [计划模板详情标识](#属性-计划模板详情标识（IBZ_PLANTEMPLETDETAILID）) | IBZ_PLANTEMPLETDETAILID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
-| 2 | [计划模板详情名称](#属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）) | IBZ_PLANTEMPLETDETAILNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [计划名称](#属性-计划名称（IBZ_PLANTEMPLETDETAILNAME）) | IBZ_PLANTEMPLETDETAILNAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 3 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
 | 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
 | 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
 | 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 7 | [产品计划模板标识](#属性-产品计划模板标识（PLANTEMPLETID）) | PLANTEMPLETID | 外键值 | 否 | 是 | 是 |
+| 8 | [计划编号](#属性-计划编号（PLANCODE）) | PLANCODE | 文本，可指定长度 | 否 | 是 | 是 |
+| 9 | [描述](#属性-描述（DESC）) | DESC | HTML文本，没有长度限制 | 否 | 是 | 是 |
 
 ### 属性-计划模板详情标识（IBZ_PLANTEMPLETDETAILID）
 #### 属性说明
@@ -58,11 +63,15 @@ String
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）
+### 属性-计划名称（IBZ_PLANTEMPLETDETAILNAME）
 #### 属性说明
-计划模板详情名称
+计划名称
 
 - 是否是主键
 否
@@ -97,7 +106,11 @@ String
 | 1 | `%like%` |
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-建立人（CREATEMAN）
 #### 属性说明
@@ -134,7 +147,11 @@ String
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-建立时间（CREATEDATE）
 #### 属性说明
@@ -171,7 +188,11 @@ yyyy-MM-dd HH:mm:ss
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新人（UPDATEMAN）
 #### 属性说明
@@ -208,7 +229,11 @@ String
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新时间（UPDATEDATE）
 #### 属性说明
@@ -245,7 +270,136 @@ yyyy-MM-dd HH:mm:ss
 无
 
 #### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-产品计划模板标识（PLANTEMPLETID）
+#### 属性说明
+产品计划模板标识
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+外键值
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
 无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-计划编号（PLANCODE）
+#### 属性说明
+计划编号
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-描述（DESC）
+#### 属性说明
+描述
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+HTML文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [计划模板（IBZ_PLANTEMPLET）](../ibizpro/IbzPlanTemplet) |
+| 关系属性 | [产品计划模板标识（IBZ_PLANTEMPLETID）](../ibizpro/IbzPlanTemplet/#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
 
 
 ## 业务状态
@@ -354,12 +508,13 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）](#属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）) |
+| 1 | [计划名称（IBZ_PLANTEMPLETDETAILNAME）](#属性-计划名称（IBZ_PLANTEMPLETDETAILNAME）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）](#属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）) | `%like%` |
+| 1 | [计划名称（IBZ_PLANTEMPLETDETAILNAME）](#属性-计划名称（IBZ_PLANTEMPLETDETAILNAME）) | `%like%` |
+| 2 | [产品计划模板标识（PLANTEMPLETID）](#属性-产品计划模板标识（PLANTEMPLETID）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -385,6 +540,8 @@ t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`IBZ_PLANTEMPLETDETAILID`,
 t1.`IBZ_PLANTEMPLETDETAILNAME`,
+t1.`PLANCODE`,
+t1.`PLANTEMPLETID`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_PLANTEMPLETDETAIL` t1 
@@ -406,8 +563,11 @@ FROM `T_IBZ_PLANTEMPLETDETAIL` t1
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`DESC`,
 t1.`IBZ_PLANTEMPLETDETAILID`,
 t1.`IBZ_PLANTEMPLETDETAILNAME`,
+t1.`PLANCODE`,
+t1.`PLANTEMPLETID`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_PLANTEMPLETDETAIL` t1 

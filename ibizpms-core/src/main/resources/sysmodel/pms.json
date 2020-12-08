@@ -12889,6 +12889,12 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_PLANTEMPLETDETAIL_IBZ_PLANTEMPLET_PLANTEMPLETID",
+     "relation_type":"DER1N",
+     "code_name":"IbzPlanTemplet",
+     "entity_name":"IBZ_PLANTEMPLETDETAIL",
+     "ref_entity_name":"IBZ_PLANTEMPLET"
+    }
     ],
     "parentEntitys":[
     ]
@@ -12921,7 +12927,7 @@
     {
     "fieldname":"IBZ_PLANTEMPLETDETAILNAME" ,
     "codename":"IbzPlanTempletDetailName",
-    "field_logic_name":"计划模板详情名称",
+    "field_logic_name":"计划名称",
     "entity_name":"IbzPlanTempletDetail",
     "field_type":"TEXT",
     "nullable":1,
@@ -12993,11 +12999,63 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PLANTEMPLETID" ,
+    "codename":"Plantempletid",
+    "field_logic_name":"产品计划模板标识",
+    "entity_name":"IbzPlanTempletDetail",
+    "ref_de":"IBZ_PLANTEMPLET",
+    "ref_field_name":"IBZ_PLANTEMPLETID",
+    "relation_name":"DER1N_IBZ_PLANTEMPLETDETAIL_IBZ_PLANTEMPLET_PLANTEMPLETID",
+    "relation_codename":"IbzPlanTemplet",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLANCODE" ,
+    "codename":"Plancode",
+    "field_logic_name":"计划编号",
+    "entity_name":"IbzPlanTempletDetail",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DESC" ,
+    "codename":"Desc",
+    "field_logic_name":"描述",
+    "entity_name":"IbzPlanTempletDetail",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
     ],
     "parentEntitys":[
+    {"name":"DER1N_IBZ_PLANTEMPLETDETAIL_IBZ_PLANTEMPLET_PLANTEMPLETID",
+     "relation_type":"DER1N",
+     "code_name":"IbzPlanTemplet",
+     "entity_name":"IBZ_PLANTEMPLETDETAIL",
+     "ref_entity_name":"IBZ_PLANTEMPLET"
+    }
     ]
  }
     ,

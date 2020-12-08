@@ -300,6 +300,7 @@
 |-|发布选项操作视图|DEOPTVIEW|&nbsp;|
 |-|项目任务导航视图|DETREEEXPVIEW|&nbsp;|
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|
+|-|汇报编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug编辑|DEEDITVIEW|&nbsp;主信息编辑|
 |-|指派任务|DEOPTVIEW|&nbsp;|
 |-|需求看板视图|DEKANBANVIEW|&nbsp;|
@@ -578,6 +579,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|usertpl编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品统计表格视图|DEGRIDVIEW9|&nbsp;|
+|-|汇报表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
 |-|工时信息|DEEDITVIEW9|&nbsp;|

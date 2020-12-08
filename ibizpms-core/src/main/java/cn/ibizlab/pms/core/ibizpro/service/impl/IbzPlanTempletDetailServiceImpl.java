@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzPlanTempletDetailServiceImpl")
 public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletDetailMapper, IbzPlanTempletDetail> implements IIbzPlanTempletDetailService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletService ibzplantempletService;
 
     protected int batchSize = 500;
 
@@ -150,6 +153,52 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
         saveOrUpdateBatch(list, batchSize);
     }
 
+
+    @Override
+    public List<IbzPlanTempletDetail> selectByPlantempletid(String ibzplantempletid) {
+        return baseMapper.selectByPlantempletid(ibzplantempletid);
+    }
+    @Override
+    public void removeByPlantempletid(String ibzplantempletid) {
+        this.remove(new QueryWrapper<IbzPlanTempletDetail>().eq("plantempletid", ibzplantempletid));
+    }
+
+    @Autowired
+    @Lazy
+    IIbzPlanTempletDetailService proxyService;
+    @Override
+    public void saveByPlantempletid(String ibzplantempletid, List<IbzPlanTempletDetail> list) {
+        if (list == null) {
+            return;
+        }
+        Set<String> delIds=new HashSet<String>();
+        List<IbzPlanTempletDetail> _update=new ArrayList<IbzPlanTempletDetail>();
+        List<IbzPlanTempletDetail> _create=new ArrayList<IbzPlanTempletDetail>();
+        for (IbzPlanTempletDetail before:selectByPlantempletid(ibzplantempletid)){
+            delIds.add(before.getIbzplantempletdetailid());
+        }
+        for (IbzPlanTempletDetail sub : list) {
+            sub.setPlantempletid(ibzplantempletid);
+            if (ObjectUtils.isEmpty(sub.getIbzplantempletdetailid()))
+                sub.setIbzplantempletdetailid((String)sub.getDefaultKey(true));
+            if (delIds.contains(sub.getIbzplantempletdetailid())) {
+                delIds.remove(sub.getIbzplantempletdetailid());
+                _update.add(sub);
+            }
+            else {
+                _create.add(sub);
+            }
+        }
+        if (_update.size() > 0) {
+            proxyService.updateBatch(_update);
+        }
+        if (_create.size() > 0) {
+            proxyService.createBatch(_create);
+        }
+        if (delIds.size() > 0) {
+            proxyService.removeBatch(delIds);
+        }
+    }
 
 
     /**

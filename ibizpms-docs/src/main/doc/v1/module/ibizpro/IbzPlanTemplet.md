@@ -8,7 +8,9 @@
 
 ## 实体关系
 ### 1:N
-无
+| 序号 | 关系实体 | 关系类型 |
+| ---- | ---- | ---- |
+| 1 | [计划模板详情（IBZ_PLANTEMPLETDETAIL）](../ibizpro/IbzPlanTempletDetail) | 嵌套操作 |
 ### N:1
 无
 

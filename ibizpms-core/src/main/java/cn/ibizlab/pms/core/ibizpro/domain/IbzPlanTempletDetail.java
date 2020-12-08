@@ -52,7 +52,7 @@ public class IbzPlanTempletDetail extends EntityMP implements Serializable {
     @JsonProperty("ibzplantempletdetailid")
     private String ibzplantempletdetailid;
     /**
-     * 计划模板详情名称
+     * 计划名称
      */
     @DEField(name = "ibz_plantempletdetailname")
     @TableField(value = "`ibz_plantempletdetailname`")
@@ -93,15 +93,68 @@ public class IbzPlanTempletDetail extends EntityMP implements Serializable {
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
+    /**
+     * 产品计划模板标识
+     */
+    @TableField(value = "`plantempletid`")
+    @JSONField(name = "plantempletid")
+    @JsonProperty("plantempletid")
+    private String plantempletid;
+    /**
+     * 计划编号
+     */
+    @TableField(value = "`plancode`")
+    @JSONField(name = "plancode")
+    @JsonProperty("plancode")
+    private String plancode;
+    /**
+     * 描述
+     */
+    @TableField(value = "`desc`")
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    private String desc;
+
+    /**
+     * 计划模板标识
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTemplet ibzplantemplet;
 
 
 
     /**
-     * 设置 [计划模板详情名称]
+     * 设置 [计划名称]
      */
     public void setIbzplantempletdetailname(String ibzplantempletdetailname) {
         this.ibzplantempletdetailname = ibzplantempletdetailname;
         this.modify("ibz_plantempletdetailname", ibzplantempletdetailname);
+    }
+
+    /**
+     * 设置 [产品计划模板标识]
+     */
+    public void setPlantempletid(String plantempletid) {
+        this.plantempletid = plantempletid;
+        this.modify("plantempletid", plantempletid);
+    }
+
+    /**
+     * 设置 [计划编号]
+     */
+    public void setPlancode(String plancode) {
+        this.plancode = plancode;
+        this.modify("plancode", plancode);
+    }
+
+    /**
+     * 设置 [描述]
+     */
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
 

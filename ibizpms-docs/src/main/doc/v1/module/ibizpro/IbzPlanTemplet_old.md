@@ -3,7 +3,10 @@
   
 
 ## 关系
-无
+{% plantuml %}
+计划模板 *-- 计划模板详情 
+hide members
+{% endplantuml %}
 
 ## 属性
 

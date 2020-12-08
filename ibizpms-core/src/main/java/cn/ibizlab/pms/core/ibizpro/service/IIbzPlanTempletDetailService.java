@@ -47,6 +47,9 @@ public interface IIbzPlanTempletDetailService extends IService<IbzPlanTempletDet
     boolean save(IbzPlanTempletDetail et);
     void saveBatch(List<IbzPlanTempletDetail> list);
     Page<IbzPlanTempletDetail> searchDefault(IbzPlanTempletDetailSearchContext context);
+    List<IbzPlanTempletDetail> selectByPlantempletid(String ibzplantempletid);
+    void removeByPlantempletid(String ibzplantempletid);
+    void saveByPlantempletid(String ibzplantempletid, List<IbzPlanTempletDetail> list) ;
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
