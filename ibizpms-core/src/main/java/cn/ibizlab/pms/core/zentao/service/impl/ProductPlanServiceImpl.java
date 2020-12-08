@@ -150,6 +150,13 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public boolean checkKey(ProductPlan et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public ProductPlan importPlanTemplet(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public ProductPlan linkBug(ProductPlan et) {

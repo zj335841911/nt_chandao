@@ -191,6 +191,22 @@ export default class IbzPlanTempletServiceBase extends EntityService {
     }
 
     /**
+     * GetPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzPlanTempletServiceBase
+     */
+    public async GetPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzplantemplets/${context.ibzplantemplet}/getplan`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_plantempletdetails',JSON.stringify(res.data.plantempletdetails?res.data.plantempletdetails:[]));
+
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

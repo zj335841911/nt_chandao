@@ -34,6 +34,20 @@ public class IbzPlanTempletSearchContext extends QueryWrapperContext<IbzPlanTemp
             this.getSearchCond().like("`ibz_plantempletname`", n_ibz_plantempletname_like);
         }
     }
+	private String n_acl_eq;//[权限]
+	public void setN_acl_eq(String n_acl_eq) {
+        this.n_acl_eq = n_acl_eq;
+        if(!ObjectUtils.isEmpty(this.n_acl_eq)){
+            this.getSearchCond().eq("`acl`", n_acl_eq);
+        }
+    }
+	private String n_createmanname_eq;//[创建人姓名]
+	public void setN_createmanname_eq(String n_createmanname_eq) {
+        this.n_createmanname_eq = n_createmanname_eq;
+        if(!ObjectUtils.isEmpty(this.n_createmanname_eq)){
+            this.getSearchCond().eq("`createmanname`", n_createmanname_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

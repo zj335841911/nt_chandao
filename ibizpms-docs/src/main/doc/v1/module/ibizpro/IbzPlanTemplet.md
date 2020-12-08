@@ -27,6 +27,8 @@
 | 7 | [计划](#属性-计划（PLANS）) | PLANS | 多项选择(文本值) | 否 | 否 | 是 |
 | 8 | [产品](#属性-产品（PRODUCT）) | PRODUCT | 大整型 | 否 | 否 | 是 |
 | 9 | [计划项](#属性-计划项（PLANTEMPLETDETAIL）) | PLANTEMPLETDETAIL | 一对多关系数据集合 | 否 | 否 | 是 |
+| 10 | [权限](#属性-权限（ACL）) | ACL | 单项选择(文本值) | 否 | 否 | 是 |
+| 11 | [创建人姓名](#属性-创建人姓名（CREATEMANNAME）) | CREATEMANNAME | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-产品计划模板标识（IBZ_PLANTEMPLETID）
 #### 属性说明
@@ -363,6 +365,84 @@ String
 #### 关系属性
 无
 
+### 属性-权限（ACL）
+#### 属性说明
+权限
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[计划模板权限（PlanAcl）](../../codelist/PlanAcl)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+无
+
+### 属性-创建人姓名（CREATEMANNAME）
+#### 属性说明
+创建人姓名
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -386,7 +466,8 @@ String
 | 14 | [GetDraftTemp](#实体行为-GetDraftTemp（GetDraftTemp）) | GetDraftTemp | 内置方法 | 前台 |
 | 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
 | 16 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 17 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 17 | [获取计划](#实体行为-获取计划（GetPlan）) | getPlan | 用户自定义 | 后台及前台 |
+| 18 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -580,6 +661,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-获取计划（GetPlan）
+#### 说明
+获取计划
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -606,6 +699,8 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [模板名称（IBZ_PLANTEMPLETNAME）](#属性-模板名称（IBZ_PLANTEMPLETNAME）) | `%like%` |
+| 2 | [权限（ACL）](#属性-权限（ACL）) | `=` |
+| 3 | [创建人姓名（CREATEMANNAME）](#属性-创建人姓名（CREATEMANNAME）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -627,8 +722,10 @@ Save
 - MYSQL5
 ```SQL
 SELECT
+t1.`ACL`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`IBZ_PLANTEMPLETID`,
 t1.`IBZ_PLANTEMPLETNAME`,
 t1.`PLANS`,
@@ -652,8 +749,10 @@ FROM `T_IBZ_PLANTEMPLET` t1
 - MYSQL5
 ```SQL
 SELECT
+t1.`ACL`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`IBZ_PLANTEMPLETID`,
 t1.`IBZ_PLANTEMPLETNAME`,
 t1.`PLANS`,

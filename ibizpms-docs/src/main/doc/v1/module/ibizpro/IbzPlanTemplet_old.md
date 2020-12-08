@@ -21,6 +21,8 @@ hide members
 |计划|PLANS|SMCODELIST|&nbsp;|
 |产品|PRODUCT|BIGINT|&nbsp;|
 |计划项|PLANTEMPLETDETAIL|ONE2MANYDATA|&nbsp;|
+|权限|ACL|SSCODELIST|&nbsp;|
+|创建人姓名|CREATEMANNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -34,6 +36,8 @@ hide members
 |计划|默认规则|内容长度必须小于等于[2000]|
 |产品|默认规则|默认规则|
 |计划项|默认规则|内容长度必须小于等于[1048576]|
+|权限|默认规则|内容长度必须小于等于[60]|
+|创建人姓名|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -59,6 +63,7 @@ hide members
 |GetDraftTemp|内置方法|&nbsp;|
 |GetDraftTempMajor|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|获取计划|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
@@ -83,6 +88,8 @@ hide members
 | 属性      |    搜索模式     |
 | --------   |------------|
 |模板名称(IBZ_PLANTEMPLETNAME)|LIKE|
+|权限(ACL)|EQ|
+|创建人姓名(CREATEMANNAME)|EQ|
 
 ## 导入模式
 无

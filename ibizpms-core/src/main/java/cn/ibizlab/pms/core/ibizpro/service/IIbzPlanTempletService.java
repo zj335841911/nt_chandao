@@ -44,6 +44,7 @@ public interface IIbzPlanTempletService extends IService<IbzPlanTemplet> {
     IbzPlanTemplet get(String key);
     IbzPlanTemplet getDraft(IbzPlanTemplet et);
     boolean checkKey(IbzPlanTemplet et);
+    IbzPlanTemplet getPlan(IbzPlanTemplet et);
     boolean save(IbzPlanTemplet et);
     void saveBatch(List<IbzPlanTemplet> list);
     Page<IbzPlanTemplet> searchDefault(IbzPlanTempletSearchContext context);

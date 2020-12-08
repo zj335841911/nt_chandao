@@ -69,6 +69,24 @@ export class IbzPlanTempletGridViewBase extends GridViewBase {
      */
     public appUIService: IbzPlanTempletUIService = new IbzPlanTempletUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzPlanTempletGridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_createmanname_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        },
+        'n_acl_eq': {
+            isRawValue: true,
+            value: 'open',
+        }
+    };
+
     /**
      * 视图模型数据
      *

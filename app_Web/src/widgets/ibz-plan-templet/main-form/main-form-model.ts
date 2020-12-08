@@ -61,6 +61,11 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'acl',
+        prop: 'acl',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'plans',
         prop: 'plans',
         dataType: 'SMCODELIST',

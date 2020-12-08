@@ -43,6 +43,11 @@ export default {
         "bydesign": commonLogic.appcommonhandle("设计如此",null),
         "empty": commonLogic.appcommonhandle("",null)
     },
+    PlanAcl: {
+        "open": commonLogic.appcommonhandle("公开",null),
+        "private": commonLogic.appcommonhandle("私有",null),
+        "empty": commonLogic.appcommonhandle("",null)
+    },
     RELEASE_rebuild: {
         "0": commonLogic.appcommonhandle("无操作",null),
         "1": commonLogic.appcommonhandle("快速（删除本地项目与代码仓库多余文件）",null),
@@ -577,6 +582,9 @@ export default {
         "empty": commonLogic.appcommonhandle("",null)
     },
     UserRealNameProject: {
+        "empty": commonLogic.appcommonhandle("",null),
+    },
+    PlanTemplet: {
         "empty": commonLogic.appcommonhandle("",null),
     },
     IsAssigned: {

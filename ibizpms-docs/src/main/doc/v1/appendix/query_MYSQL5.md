@@ -7898,8 +7898,10 @@ FROM
 ### 数据查询(DEFAULT)<div id="IbzPlanTemplet_Default"></div>
 ```sql
 SELECT
+t1.`ACL`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`IBZ_PLANTEMPLETID`,
 t1.`IBZ_PLANTEMPLETNAME`,
 t1.`PLANS`,
@@ -7912,8 +7914,10 @@ FROM `T_IBZ_PLANTEMPLET` t1
 ### 默认（全部数据）(VIEW)<div id="IbzPlanTemplet_View"></div>
 ```sql
 SELECT
+t1.`ACL`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`IBZ_PLANTEMPLETID`,
 t1.`IBZ_PLANTEMPLETNAME`,
 t1.`PLANS`,

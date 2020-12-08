@@ -10,6 +10,8 @@ export default {
     plans: commonLogic.appcommonhandle("计划",null),
     product: commonLogic.appcommonhandle("产品",null),
     plantempletdetail: commonLogic.appcommonhandle("计划项",null),
+    acl: commonLogic.appcommonhandle("权限",null),
+    createmanname: commonLogic.appcommonhandle("创建人姓名",null),
   },
 	views: {
 		editview: {
@@ -39,6 +41,7 @@ export default {
 			srfdeid: commonLogic.appcommonhandle("",null), 
 			srfsourcekey: commonLogic.appcommonhandle("",null), 
 			ibz_plantempletname: commonLogic.appcommonhandle("模板名称",null), 
+			acl: commonLogic.appcommonhandle("权限",null), 
 			plans: commonLogic.appcommonhandle("计划",null), 
 			product: commonLogic.appcommonhandle("产品",null), 
 			ibz_plantempletid: commonLogic.appcommonhandle("产品计划模板标识",null), 

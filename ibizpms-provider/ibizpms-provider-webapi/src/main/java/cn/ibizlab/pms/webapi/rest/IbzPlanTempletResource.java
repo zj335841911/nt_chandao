@@ -127,6 +127,17 @@ public class IbzPlanTempletResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzplantempletService.checkKey(ibzplantempletMapping.toDomain(ibzplantempletdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzPlanTemplet-GetPlan-all')")
+    @ApiOperation(value = "获取计划", tags = {"计划模板" },  notes = "获取计划")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzplantemplets/{ibzplantemplet_id}/getplan")
+    public ResponseEntity<IbzPlanTempletDTO> getPlan(@PathVariable("ibzplantemplet_id") String ibzplantemplet_id, @RequestBody IbzPlanTempletDTO ibzplantempletdto) {
+        IbzPlanTemplet domain = ibzplantempletMapping.toDomain(ibzplantempletdto);
+        domain.setIbzplantempletid(ibzplantemplet_id);
+        domain = ibzplantempletService.getPlan(domain);
+        ibzplantempletdto = ibzplantempletMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzplantempletdto);
+    }
+
     @PreAuthorize("hasPermission(this.ibzplantempletMapping.toDomain(#ibzplantempletdto),'pms-IbzPlanTemplet-Save')")
     @ApiOperation(value = "保存计划模板", tags = {"计划模板" },  notes = "保存计划模板")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzplantemplets/save")

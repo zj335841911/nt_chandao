@@ -5124,6 +5124,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[计划模板权限]
+     */
+    @Getter
+    public enum PlanAcl {
+        OPEN("open","公开"),
+        PRIVATE("private","私有");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        PlanAcl(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[汇报类型]
      */
     @Getter
@@ -5143,6 +5164,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**

@@ -107,6 +107,21 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
+    /**
+     * 权限
+     */
+    @TableField(value = "`acl`")
+    @JSONField(name = "acl")
+    @JsonProperty("acl")
+    private String acl;
+    /**
+     * 创建人姓名
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`createmanname`")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    private String createmanname;
 
 
     /**
@@ -140,6 +155,14 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     public void setProduct(Long product) {
         this.product = product;
         this.modify("product", product);
+    }
+
+    /**
+     * 设置 [权限]
+     */
+    public void setAcl(String acl) {
+        this.acl = acl;
+        this.modify("acl", acl);
     }
 
 

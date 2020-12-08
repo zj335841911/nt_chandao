@@ -127,6 +127,13 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
     }
     @Override
     @Transactional
+    public IbzPlanTemplet getPlan(IbzPlanTemplet et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IbzPlanTemplet et) {
         if (!saveOrUpdate(et)) {
             return false;

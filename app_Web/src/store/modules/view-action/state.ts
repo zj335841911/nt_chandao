@@ -2664,8 +2664,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'b9bdfc0e33d333ade00934745d9dc0ad',
+                'e4e450c40addd5d706151ea60dbe7826',
                 'b9a10eb0b5a55e40c69c61387de5894a',
-                '86c8826366681d0e9ed5d6c3fc9908fd',
                 'aad9a5713d6828d3119b811b26915215',
                 '170c1d558f26cf37236390b28f8aca82',
                 '396ab8c5ef500f859d6591e77f094ecd',
@@ -2785,16 +2785,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: '86c8826366681d0e9ed5d6c3fc9908fd',
-            viewmodule: 'ibizpro',
-            viewname: 'IbzPlanTempletOptionView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '06f1f232ce217863bf45ddc1b727d0a8',
             ],
         },
         {
@@ -4870,6 +4860,15 @@ export const viewstate: any = {
             viewtag: 'e444135470a806822b9b950e15c42a3e',
             viewmodule: 'ibiz',
             viewname: 'ProjectStatsEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'e4e450c40addd5d706151ea60dbe7826',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanOptionView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

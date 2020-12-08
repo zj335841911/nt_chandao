@@ -46,6 +46,7 @@ public interface IProductPlanService extends IService<ProductPlan> {
     ProductPlan batchUnlinkBug(ProductPlan et);
     ProductPlan batchUnlinkStory(ProductPlan et);
     boolean checkKey(ProductPlan et);
+    ProductPlan importPlanTemplet(ProductPlan et);
     ProductPlan linkBug(ProductPlan et);
     ProductPlan linkStory(ProductPlan et);
     ProductPlan mobProductPlanCounter(ProductPlan et);

@@ -9048,6 +9048,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-edit-view-putoff/project-edit-view-putoff.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.productplan.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-option-view/product-plan-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.productplan.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-option-view/product-plan-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/editview/:editview?',
                     meta: {
                         caption: 'entities.project.views.editview.caption',
@@ -12385,20 +12414,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-tree-exp-view/task-tree-exp-view.vue'),
-                },
-                {
-                    path: 'ibzplantemplets/:ibzplantemplet?/optionview/:optionview?',
-                    meta: {
-                        caption: 'entities.ibzplantemplet.views.optionview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
-                            { pathName: 'optionview', parameterName: 'optionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibizpro/ibz-plan-templet-option-view/ibz-plan-templet-option-view.vue'),
                 },
                 {
                     path: 'docs/:doc?/gridviewlookdoc/:gridviewlookdoc?',

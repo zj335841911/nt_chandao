@@ -48,6 +48,10 @@ export default {
 			caption: commonLogic.appcommonhandle("产品计划",null),
       		title: commonLogic.appcommonhandle("产品计划编辑视图",null),
 		},
+		optionview: {
+			caption: commonLogic.appcommonhandle("产品计划",null),
+      		title: commonLogic.appcommonhandle("产品计划选项操作视图",null),
+		},
 	},
 	main_form: {
 		details: {
@@ -106,6 +110,22 @@ export default {
 			endstr: commonLogic.appcommonhandle("结束日期",null), 
 			desc: commonLogic.appcommonhandle("描述",null), 
 			statuss: commonLogic.appcommonhandle("状态",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
+	importplantemplet_form: {
+		details: {
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			plantemplet: commonLogic.appcommonhandle("模板名称",null), 
 			id: commonLogic.appcommonhandle("编号",null), 
 		},
 		uiactions: {
@@ -201,8 +221,8 @@ export default {
 			tip: commonLogic.appcommonhandle("创建计划",null),
 		},
 		deuiaction3_addplantemplet: {
-			caption: commonLogic.appcommonhandle("添加模板",null),
-			tip: commonLogic.appcommonhandle("添加模板",null),
+			caption: commonLogic.appcommonhandle("导入模板",null),
+			tip: commonLogic.appcommonhandle("导入模板",null),
 		},
 		deuiaction2: {
 			caption: commonLogic.appcommonhandle("刷新",null),

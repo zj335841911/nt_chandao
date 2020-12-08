@@ -77,4 +77,20 @@ export interface IbzPlanTemplet {
      * @memberof IbzPlanTemplet
      */
     plantempletdetail?: any;
+
+    /**
+     * 权限
+     *
+     * @returns {*}
+     * @memberof IbzPlanTemplet
+     */
+    acl?: any;
+
+    /**
+     * 创建人姓名
+     *
+     * @returns {*}
+     * @memberof IbzPlanTemplet
+     */
+    createmanname?: any;
 }

@@ -201,7 +201,7 @@ export default class ProductPlanUIServiceBase extends UIService {
     }
 
     /**
-     * 添加模板
+     * 导入模板
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -218,13 +218,10 @@ export default class ProductPlanUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PLANS:"%id%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",plans:"%id%"});
+        Object.assign(context,{PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'MULTIKEY';
-        Object.assign(context, { productplan: '%productplan%' });
-        Object.assign(params, { id: '%productplan%' });
-        Object.assign(params, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
@@ -238,8 +235,13 @@ export default class ProductPlanUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
-            { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
+            { pathName: 'productplans', parameterName: 'productplan' },
         ];
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
@@ -252,10 +254,10 @@ export default class ProductPlanUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'ibz-plan-templet-option-view', 
+                viewname: 'product-plan-option-view', 
                 height: 200, 
                 width: 400,  
-                title: actionContext.$t('entities.ibzplantemplet.views.optionview.title'),
+                title: actionContext.$t('entities.productplan.views.optionview.title'),
             };
             openPopupModal(view, data);
     }

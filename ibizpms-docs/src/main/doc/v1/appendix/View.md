@@ -802,6 +802,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品列表导航视图|DELISTEXPVIEW|&nbsp;|
 |-|开始|DEOPTVIEW|&nbsp;|
 |-|项目统计编辑视图|DEEDITVIEW9|&nbsp;|
+|-|产品计划选项操作视图|DEOPTVIEW|&nbsp;|
 |-|Bug编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（关联用例）|DEGRIDVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW|&nbsp;|

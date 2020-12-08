@@ -103,6 +103,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         ibz_plantempletname: null,
+        acl: null,
         plans: null,
         product: null,
         ibz_plantempletid: null,
@@ -136,6 +137,20 @@ export class MainEditFormBase extends EditFormControlBase {
                     required: this.detailsModel.ibz_plantempletname.required,
                     type: 'string',
                     message: '模板名称 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
+            acl: [
+                {
+                    required: this.detailsModel.acl.required,
+                    type: 'string',
+                    message: '权限 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.acl.required,
+                    type: 'string',
+                    message: '权限 值不能为空',
                     trigger: 'blur',
                 },
         ],
@@ -227,6 +242,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        acl: new FormItemModel({
+    caption: '权限', detailType: 'FORMITEM', name: 'acl', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
+
         plans: new FormItemModel({
     caption: '计划', detailType: 'FORMITEM', name: 'plans', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -255,6 +277,9 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public createDefault() {                    
+        if (this.data.hasOwnProperty('acl')) {
+            this.data['acl'] = 'open';
+        }
         if (this.data.hasOwnProperty('plans')) {
             this.data['plans'] = this.viewparams['plans'];
         }
