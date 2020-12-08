@@ -127,7 +127,7 @@ mock.onGet('v7/report-newappmenu').reply((config: any) => {
 	tooltip: '月报（待阅）',
 	expanded: false,
 	separator: false,
-	hidden: true,
+	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',
