@@ -48,7 +48,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
-                    <ion-icon name="git-commit"></ion-icon>
+                    <ion-icon name="check"></ion-icon>
                 
                 </ion-button>
                 
