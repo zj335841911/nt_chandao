@@ -228,7 +228,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
 
     // 获取上个月计划本月完成的任务
     public IbzMonthly getLastMonthlyPlans(IbzMonthly et) {
-        List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().last(" where DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(DATE_SUB('" + et.getDate() + "', INTERVAL 1 MONTH),'%Y-%m')"));
+        List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().last(" where DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH),'%Y-%m')"));
         if (list.size() > 0) {
             IbzMonthly last = list.get(0);
             et.setThismonthtask(last.getNextmonthplanstask());
@@ -239,7 +239,11 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
 
     // 获取本月完成的任务
     public IbzMonthly getThisMonthlyCompleteTasks(IbzMonthly et) {
-        List<Task> list = taskHelper.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finishedDate,'%Y-%m') = DATE_FORMAT('" + et.getDate() + "','%Y-%m')"));
+        Timestamp date = et.getDate();
+        if (date == null) {
+            date = ZTDateUtil.now();
+        }
+        List<Task> list = taskHelper.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finishedDate,'%Y-%m') = DATE_FORMAT('" + date + "','%Y-%m')"));
         String taskIds = et.getThismonthtask() == null ? "" : et.getThismonthtask();
 
         Set<String> taskIdSet = new HashSet<String>(Arrays.asList(taskIds.split(",")));
