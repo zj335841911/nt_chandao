@@ -8,12 +8,15 @@
         <tns:global identifier="ibzreportreportireceiveddefault" type="cn.ibizlab.pms.core.report.domain.IbzReport" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportreportireceivedrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取未读周报"/>
-     <endEvent id="rawsqlcall3_end" name="end"/>
-     <sequenceFlow id="rawsqlcall3_end_line" sourceRef="rawsqlcall3" targetRef="rawsqlcall3_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportreportireceivedrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="统计我收到的日报数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportreportireceivedrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="统计我收到的月报数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportreportireceivedrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="统计我收到的月报数（未读）"/>
      <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportreportireceivedrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="统计我收到的汇报数（未读）"/>
+     <endEvent id="rawsqlcall4_end" name="end"/>
+     <sequenceFlow id="rawsqlcall4_end_line" sourceRef="rawsqlcall4" targetRef="rawsqlcall4_end"/>
      <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall3_rawsqlcall4" sourceRef="rawsqlcall3" targetRef="rawsqlcall4">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
      </sequenceFlow>

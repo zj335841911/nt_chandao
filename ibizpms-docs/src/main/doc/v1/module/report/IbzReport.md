@@ -1232,8 +1232,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | 获取未读周报 | Rawsqlcall3 | 直接SQL调用 |
 | 2 | 统计我收到的日报数 | Rawsqlcall1 | 直接SQL调用 |
-| 3 | 统计我收到的月报数 | Rawsqlcall2 | 直接SQL调用 |
+| 3 | 统计我收到的月报数（未读） | Rawsqlcall2 | 直接SQL调用 |
 | 4 | 开始 | Begin | 开始 |
+| 5 | 统计我收到的汇报数（未读） | Rawsqlcall4 | 直接SQL调用 |
 
 ## 实体搜索
 ### 快速搜索项
