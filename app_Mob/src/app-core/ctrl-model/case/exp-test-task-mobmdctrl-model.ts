@@ -21,7 +21,13 @@ export class Exp_TestTaskModel {
 				name: 'type',
 			},
 			{
+				name: 'id',
+			},
+			{
 				name: 'status1',
+			},
+			{
+				name: 'version',
 			},
 			{
 				name: 'task',
