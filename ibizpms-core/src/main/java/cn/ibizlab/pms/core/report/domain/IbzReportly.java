@@ -108,12 +108,19 @@ public class IbzReportly extends EntityMP implements Serializable {
     @JsonProperty("files")
     private String files;
     /**
-     * 属性
+     * 汇报给
      */
     @TableField(value = "`reportto`")
     @JSONField(name = "reportto")
     @JsonProperty("reportto")
     private String reportto;
+    /**
+     * 抄送给
+     */
+    @TableField(value = "`mailto`")
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    private String mailto;
 
 
 
@@ -134,11 +141,19 @@ public class IbzReportly extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [属性]
+     * 设置 [汇报给]
      */
     public void setReportto(String reportto) {
         this.reportto = reportto;
         this.modify("reportto", reportto);
+    }
+
+    /**
+     * 设置 [抄送给]
+     */
+    public void setMailto(String mailto) {
+        this.mailto = mailto;
+        this.modify("mailto", mailto);
     }
 
 

@@ -1,38 +1,5 @@
-export default {
-  fields: {
-    extra: "附加值",
-    objecttype: "对象类型",
-    id: "id",
-    comment: "备注",
-    read: "已读",
-    action: "动作",
-    date: "日期",
-    product: "产品",
-    objectid: "对象ID",
-    actor: "操作者",
-    project: "项目",
-    lastcomment: "备注",
-    actionmanner: "操作方式",
-    isactorss: "当前用户",
-    date1: "显示日期",
-    today: "今天",
-    yesterday: "昨天",
-    thisweek: "本周",
-    lastweek: "上周",
-    thismonth: "本月",
-    lastmonth: "上月",
-    srfkey: "前端键值",
-    noticeusers: "消息通知用户",
-  },
-	views: {
-		mobmapview: {
-			caption: '系统日志',
-		},
-		mobmdview9: {
-			caption: '通用',
-		},
-		allmobmdview9: {
-			caption: '通用',
-		},
-	},
-};
+import Action_zh_CN_Base from './action_zh_CN_base';
+
+const Action_zh_CN_OwnData = {};
+const targetData = Object.assign(Action_zh_CN_Base, Action_zh_CN_OwnData);
+export default targetData;

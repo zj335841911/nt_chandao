@@ -1,20 +1,5 @@
-export default {
-  fields: {
-    path: "path",
-    deleted: "逻辑删除标志",
-    name: "名称",
-    order: "排序值",
-    branch: "branch",
-    ibizshort: "简称",
-    grade: "grade",
-    type: "类型（story）",
-    owner: "owner",
-    id: "id",
-    isleaf: "叶子模块",
-    collector: "collector",
-    parent: "id",
-    parentname: "上级模块",
-    root: "编号",
-    rootname: "测试",
-  },
-};
+import TestModule_zh_CN_Base from './test-module_zh_CN_base';
+
+const TestModule_zh_CN_OwnData = {};
+const targetData = Object.assign(TestModule_zh_CN_Base, TestModule_zh_CN_OwnData);
+export default targetData;

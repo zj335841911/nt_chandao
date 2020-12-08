@@ -101,7 +101,9 @@ export default class AppMobMenuIonicView extends Vue {
      * @memberof AppMobMenuIonicView
      */
     public destroyed() {
-        this.counterServide.destroyCounter();
+        if(this.counterServide){
+            this.counterServide.destroyCounter();
+        }
     }
 
     /**

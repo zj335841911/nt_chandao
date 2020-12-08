@@ -1,16 +1,5 @@
-export default {
-  fields: {
-    orgid: "单位标识",
-    orgcode: "单位代码",
-    orgname: "名称",
-    parentorgid: "上级单位",
-    shortname: "单位简称",
-    orglevel: "单位级别",
-    showorder: "访问审计",
-    parentorgname: "上级单位",
-    domains: "区属",
-    enable: "逻辑有效",
-    createdate: "创建时间",
-    updatedate: "最后修改时间",
-  },
-};
+import SysOrganization_zh_CN_Base from './sys-organization_zh_CN_base';
+
+const SysOrganization_zh_CN_OwnData = {};
+const targetData = Object.assign(SysOrganization_zh_CN_Base, SysOrganization_zh_CN_OwnData);
+export default targetData;

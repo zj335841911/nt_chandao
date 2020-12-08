@@ -1,37 +1,5 @@
-export default {
-  fields: {
-    id: "项目编号",
-    storyCnt: "需求总数",
-    taskCnt: "任务总数",
-    totalEstimate: "任务最初预计总工时",
-    totalConsumed: "任务消耗总工时",
-    totalLeft: "任务预计剩余总工时",
-    unDoneTaskCnt: "未完成任务总数",
-    closedStoryCnt: "关闭需求总数",
-    bugCnt: "Bug总数",
-    activeBugCnt: "未解决Bug总数",
-    unClosedStoryCnt: "未关闭需求总数",
-    finishTaskCnt: "已结束任务总数",
-    finishBugCnt: "已解决Bug总数",
-    deleted: "已删除",
-    time: "工时",
-    type: "工时类型",
-    name: "项目名称",
-    unconfirmedBugCnt: "未确认Bug总数",
-    unclosedBugCnt: "未关闭Bug总数",
-    totalwh: "总工时",
-    releasedStoryCnt: "已发布需求数",
-    yesterdayctaskcnt: "昨日完成任务数",
-    yesterdayrbugcnt: "昨天解决Bug数",
-    end: "截止日期",
-    status: "状态",
-    order1: "项目排序",
-    istop: "是否置顶",
-    closedtaskcnt: "已关闭任务数",
-    canceltaskcnt: "已取消任务数",
-    pausetaskcnt: "已暂停任务数",
-    waittaskcnt: "未开始任务数",
-    doingtaskcnt: "进行中任务数",
-    donetaskcnt: "已完成任务数",
-  },
-};
+import ProjectStats_en_US_Base from './project-stats_en_US_base';
+
+const ProjectStats_en_US_OwnData = {};
+const targetData = Object.assign(ProjectStats_en_US_Base, ProjectStats_en_US_OwnData);
+export default targetData;

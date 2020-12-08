@@ -1,23 +1,5 @@
-export default {
-  fields: {
-    isleaf: "叶子模块",
-    name: "名称",
-    ibizshort: "简称",
-    grade: "grade",
-    collector: "collector",
-    branch: "branch",
-    id: "id",
-    order: "排序值",
-    deleted: "逻辑删除标志",
-    path: "path",
-    owner: "owner",
-    type: "类型",
-    root: "编号",
-    parent: "id",
-    doclibname: "所属文档库",
-    modulename: "上级模块",
-    docqtype: "查询类型",
-    isfavourites: "是否已收藏",
-    doccnt: "文档数",
-  },
-};
+import DocLibModule_zh_CN_Base from './doc-lib-module_zh_CN_base';
+
+const DocLibModule_zh_CN_OwnData = {};
+const targetData = Object.assign(DocLibModule_zh_CN_Base, DocLibModule_zh_CN_OwnData);
+export default targetData;

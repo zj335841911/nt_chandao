@@ -1,9 +1,5 @@
-export default {
-  fields: {
-    postid: "岗位标识",
-    postcode: "岗位编码",
-    postname: "岗位名称",
-    domains: "区属",
-    memo: "备注",
-  },
-};
+import SysPost_zh_CN_Base from './sys-post_zh_CN_base';
+
+const SysPost_zh_CN_OwnData = {};
+const targetData = Object.assign(SysPost_zh_CN_Base, SysPost_zh_CN_OwnData);
+export default targetData;

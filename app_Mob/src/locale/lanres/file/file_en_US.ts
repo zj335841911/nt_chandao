@@ -1,23 +1,5 @@
-export default {
-  fields: {
-    pathname: "路径",
-    objectID: "对象ID",
-    deleted: "已删除",
-    extension: "文件类型",
-    objectType: "对象类型",
-    addedBy: "由谁添加",
-    title: "标题",
-    addedDate: "添加时间",
-    downloads: "下载次数",
-    size: "大小",
-    id: "id",
-    extra: "备注",
-    strsize: "显示大小",
-    doclibtype: "文档类型",
-  },
-	views: {
-		mobmdview9: {
-			caption: '附件',
-		},
-	},
-};
+import File_en_US_Base from './file_en_US_base';
+
+const File_en_US_OwnData = {};
+const targetData = Object.assign(File_en_US_Base, File_en_US_OwnData);
+export default targetData;
