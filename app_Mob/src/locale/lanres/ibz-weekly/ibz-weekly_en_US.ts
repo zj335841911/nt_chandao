@@ -80,38 +80,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobinfomain2_form: {
-		details: {
-			druipart1: '', 
-			grouppanel1: '附件', 
-			druipart2: '', 
-			grouppanel3: '操作历史', 
-			group1: '周报基本信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '更新时间', 
-			srforikey: '', 
-			srfkey: '周报标识', 
-			srfmajortext: '周报名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			account: '', 
-			ibz_weeklyname: '周报名称', 
-			date: '日期', 
-			workthisweek: '本周工作', 
-			plannextweek: '下周计划', 
-			comment: '其他事项', 
-			reportto: '汇报给', 
-			mailto: '抄送给', 
-			thisweektask: '本周完成任务', 
-			nextweektask: '下周计划任务', 
-			ibz_weeklyid: '周报标识', 
-			issubmit: '是否提交', 
-		},
-		uiactions: {
-		},
-	},
 	mobwaitread_form: {
 		details: {
 			druipart1: '', 
@@ -149,6 +117,38 @@ export default {
 		uiactions: {
 		},
 	},
+	mobinfomain2_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '附件', 
+			druipart2: '', 
+			grouppanel3: '操作历史', 
+			group1: '周报基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '更新时间', 
+			srforikey: '', 
+			srfkey: '周报标识', 
+			srfmajortext: '周报名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			account: '', 
+			ibz_weeklyname: '周报名称', 
+			date: '日期', 
+			workthisweek: '本周工作', 
+			plannextweek: '下周计划', 
+			comment: '其他事项', 
+			reportto: '汇报给', 
+			mailto: '抄送给', 
+			thisweektask: '本周完成任务', 
+			nextweektask: '下周计划任务', 
+			ibz_weeklyid: '周报标识', 
+			issubmit: '是否提交', 
+		},
+		uiactions: {
+		},
+	},
 	mobeditviewcreaterighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -156,6 +156,8 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	mobeditviewrighttoolbar_toolbar: {
 	},
 	mobtabexpviewrighttoolbar_toolbar: {
 	},
@@ -180,7 +182,5 @@ export default {
 			caption: '提交',
 			tip: 'deuiaction2',
 		},
-	},
-	mobeditviewrighttoolbar_toolbar: {
 	},
 };
