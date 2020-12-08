@@ -386,6 +386,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目编辑视图（计划添加）|DEEDITVIEW|&nbsp;|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|我的地盘编辑视图|DEEDITVIEW|&nbsp;|
+|-|汇报编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW|&nbsp;|
 |-|转BUG|DEEDITVIEW|&nbsp;|
 |-|燃尽图|DECHARTVIEW|&nbsp;|

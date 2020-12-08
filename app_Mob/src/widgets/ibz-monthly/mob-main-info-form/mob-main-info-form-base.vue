@@ -1903,9 +1903,6 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      * @memberof MobMainInfo
      */
     public createDefault(){                    
-            if (this.data.hasOwnProperty('date')) {
-                    this.data['date'] = this.$util.dateFormat(new Date());
-            }
     }
 
         /**

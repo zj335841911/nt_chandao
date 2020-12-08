@@ -2005,9 +2005,6 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
      * @memberof MonthlyInfoDingDing
      */
     public createDefault(){                    
-            if (this.data.hasOwnProperty('date')) {
-                    this.data['date'] = this.$util.dateFormat(new Date());
-            }
     }
 
         /**
