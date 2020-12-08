@@ -101,4 +101,28 @@ export interface IbzReportly {
      * @memberof IbzReportly
      */
     issubmit?: any;
+
+    /**
+     * 提交时间
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    submittime?: any;
+
+    /**
+     * 用户
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    account?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    reportstatus?: any;
 }

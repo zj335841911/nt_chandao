@@ -2505,6 +2505,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-quick-create-view/release-quick-create-view.vue'),
                 },
                 {
+                    path: 'ibzreportlies/:ibzreportly?/maingridview/:maingridview?',
+                    meta: {
+                        caption: 'entities.ibzreportly.views.maingridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+                            { pathName: 'maingridview', parameterName: 'maingridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-reportly-main-grid-view/ibz-reportly-main-grid-view.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/pochartview9/:pochartview9?',
                     meta: {
                         caption: 'entities.productsum.views.pochartview9.caption',
@@ -4009,6 +4023,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-my-territory-stats-tab-exp-view/ibz-my-territory-stats-tab-exp-view.vue'),
                 },
                 {
+                    path: 'doclibmodules/:doclibmodule?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.doclibmodule.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-module-edit-view/doc-lib-module-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
                         caption: 'entities.subproductplan.views.subplancreateview.caption',
@@ -4052,20 +4080,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
-                },
-                {
-                    path: 'doclibmodules/:doclibmodule?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.doclibmodule.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-lib-module-edit-view/doc-lib-module-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
@@ -13058,6 +13072,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/todo-finish-view/todo-finish-view.vue'),
+                },
+                {
+                    path: 'ibzreportlies/:ibzreportly?/createeditview/:createeditview?',
+                    meta: {
+                        caption: 'entities.ibzreportly.views.createeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+                            { pathName: 'createeditview', parameterName: 'createeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-reportly-create-edit-view/ibz-reportly-create-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/productmodules/:productmodule?/treeexpview/:treeexpview?',

@@ -3709,6 +3709,16 @@
         "viewtag": "a3bd82ec712d2e3ad12e716655e960fc",
         "memo": ""
     },
+    "ibzreportlymaingridview": {
+        "title": "汇报表格视图",
+        "caption": "汇报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyMainGridView",
+        "viewfilename": "ibz-reportly-main-grid-view",
+        "viewtag": "a3d1a3af80fdf764f13a63f9c19934c6",
+        "memo": ""
+    },
     "bugeditview_4791": {
         "title": "Bug",
         "caption": "Bug",
@@ -5637,6 +5647,16 @@
         "viewname": "ProjectEditView_Suspend",
         "viewfilename": "project-edit-view-suspend",
         "viewtag": "edd664c8fc682d166b3a027dd08bbd8b",
+        "memo": ""
+    },
+    "ibzreportlycreateeditview": {
+        "title": "汇报编辑视图",
+        "caption": "汇报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyCreateEditView",
+        "viewfilename": "ibz-reportly-create-edit-view",
+        "viewtag": "eddd83b7db9892757420e886810dbfba",
         "memo": ""
     },
     "projectdashboardinfoview": {

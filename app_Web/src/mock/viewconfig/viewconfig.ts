@@ -2975,6 +2975,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestSuiteGridView",
             "viewtag": "a3bd82ec712d2e3ad12e716655e960fc"
         },
+        "ibzreportlymaingridview": {
+            "title": "汇报表格视图",
+            "caption": "汇报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportlyMainGridView",
+            "viewtag": "a3d1a3af80fdf764f13a63f9c19934c6"
+        },
         "bugeditview_4791": {
             "title": "Bug",
             "caption": "Bug",
@@ -4518,6 +4526,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectEditView_Suspend",
             "viewtag": "edd664c8fc682d166b3a027dd08bbd8b"
+        },
+        "ibzreportlycreateeditview": {
+            "title": "汇报编辑视图",
+            "caption": "汇报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportlyCreateEditView",
+            "viewtag": "eddd83b7db9892757420e886810dbfba"
         },
         "projectdashboardinfoview": {
             "title": "项目信息",

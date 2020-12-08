@@ -2159,6 +2159,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a3d1a3af80fdf764f13a63f9c19934c6',
                 'a4a6e9515a944ab2976c5034fb049f63',
                 'ab7bb92108f4ae63c52d94b39affb30a',
                 'd054969e8eb4b11e01d771b95045178c',
@@ -3341,6 +3342,16 @@ export const viewstate: any = {
                 '7a983ef690626958a9897f58efe15e58',
                 'c2e4200fb7c9760b4931b43561289980',
                 'e53ca619c1e2592cff68b05a9a64ff0f',
+            ],
+        },
+        {
+            viewtag: 'a3d1a3af80fdf764f13a63f9c19934c6',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'eddd83b7db9892757420e886810dbfba',
             ],
         },
         {
@@ -5111,6 +5122,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'eddd83b7db9892757420e886810dbfba',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyCreateEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
