@@ -158,4 +158,17 @@ export default class IbzPlanTempletDetailServiceBase extends EntityService {
      */
     public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
+
+    /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzPlanTempletDetailServiceBase
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefault ---FETCHTEMP
+    }
 }

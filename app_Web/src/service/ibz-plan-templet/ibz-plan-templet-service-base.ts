@@ -65,6 +65,22 @@ export default class IbzPlanTempletServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
+        let ibzplantempletdetailsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzplantempletdetails'),'undefined')){
+            ibzplantempletdetailsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzplantempletdetails') as any);
+            if(ibzplantempletdetailsData && ibzplantempletdetailsData.length && ibzplantempletdetailsData.length > 0){
+                ibzplantempletdetailsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.ibzplantempletdetailid = null;
+                            if(item.hasOwnProperty('ibzplantempletid') && item.ibzplantempletid) item.ibzplantempletid = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzplantempletdetails = ibzplantempletdetailsData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -90,9 +106,26 @@ export default class IbzPlanTempletServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
+        let ibzplantempletdetailsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzplantempletdetails'),'undefined')){
+            ibzplantempletdetailsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzplantempletdetails') as any);
+            if(ibzplantempletdetailsData && ibzplantempletdetailsData.length && ibzplantempletdetailsData.length > 0){
+                ibzplantempletdetailsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.ibzplantempletdetailid = null;
+                            if(item.hasOwnProperty('ibzplantempletid') && item.ibzplantempletid) item.ibzplantempletid = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzplantempletdetails = ibzplantempletdetailsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/ibzplantemplets/${context.ibzplantemplet}`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibzplantempletdetails',JSON.stringify(res.data.ibzplantempletdetails?res.data.ibzplantempletdetails:[]));
+
             return res;
     }
 
@@ -121,7 +154,8 @@ export default class IbzPlanTempletServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/ibzplantemplets/${context.ibzplantemplet}`,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibzplantempletdetails',JSON.stringify(res.data.ibzplantempletdetails?res.data.ibzplantempletdetails:[]));
+
             return res;
     }
 
@@ -137,7 +171,8 @@ export default class IbzPlanTempletServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/ibzplantemplets/getdraft`,isloading);
         res.data.ibzplantemplet = data.ibzplantemplet;
-        
+                    this.tempStorage.setItem(context.srfsessionkey+'_ibzplantempletdetails',JSON.stringify(res.data.ibzplantempletdetails?res.data.ibzplantempletdetails:[]));
+
         return res;
     }
 
@@ -166,9 +201,26 @@ export default class IbzPlanTempletServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
+        let ibzplantempletdetailsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzplantempletdetails'),'undefined')){
+            ibzplantempletdetailsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzplantempletdetails') as any);
+            if(ibzplantempletdetailsData && ibzplantempletdetailsData.length && ibzplantempletdetailsData.length > 0){
+                ibzplantempletdetailsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.ibzplantempletdetailid = null;
+                            if(item.hasOwnProperty('ibzplantempletid') && item.ibzplantempletid) item.ibzplantempletid = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzplantempletdetails = ibzplantempletdetailsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/ibzplantemplets/${context.ibzplantemplet}/save`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibzplantempletdetails',JSON.stringify(res.data.ibzplantempletdetails?res.data.ibzplantempletdetails:[]));
+
             return res;
     }
 
