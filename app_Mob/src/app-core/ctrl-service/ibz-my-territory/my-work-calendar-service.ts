@@ -108,7 +108,7 @@ export class MyWorkService extends CalendarServiceBase {
             this.model.itemType = 'daily';
             const _daily_data = this.handleRequestData('', context, data);
             await this.onBeforeAction('', context, _daily_data, isLoading);
-            const _daily = await this.loadDEDataSet('FetchMyDaily', context, _daily_data, 'daily', 'ibzdaily');
+            const _daily = await this.loadDEDataSet('FetchMyAllDaily', context, _daily_data, 'daily', 'ibzdaily');
             Object.assign(item, { daily: _daily });
         } catch (response) {
             return new HttpResponse(response.status);
