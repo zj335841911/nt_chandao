@@ -78,6 +78,9 @@ export class MobTabExpViewtabviewpanel4Model {
       {
         name: 'endstr',
       },
+      {
+        name: 'plantemplet',
+      },
     ]
   }
 

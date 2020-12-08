@@ -22,6 +22,7 @@ export default {
     estimatecnt: "工时数",
     beginstr: "开始日期",
     endstr: "结束日期",
+    plantemplet: "计划模板",
   },
 	views: {
 		mobmdview: {
