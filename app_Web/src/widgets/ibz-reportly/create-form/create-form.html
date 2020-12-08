@@ -105,8 +105,8 @@
     name="content"
     :context="context"
     :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
+    :uploadparams='{objecttype:"reportly",version:"editor"}'
+    :exportparams='{objecttype:"reportly",version:"editor"}'
     
     style=""
 ></app-rich-text-editor>
@@ -144,8 +144,8 @@
     name="files"
     :value="data.files"
     :disabled="detailsModel.files.disabled"
-    :uploadparams='{}'
-    :exportparams='{}'
+    :uploadparams='{objecttype:"reportly",objectid:"0",version:"1"}'
+    :exportparams='{objecttype:"reportly",objectid:"0",version:"1"}'
     style="overflow: auto;"
 ></app-file-upload>
 </app-form-item>
