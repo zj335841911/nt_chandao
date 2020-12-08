@@ -78,6 +78,11 @@
        }
         ,
        {
+            "unirescode":"REPORTLY_SUBMIT_BUT",
+            "uniresname":"汇报提交"
+       }
+        ,
+       {
             "unirescode":"PROJ_CREATE_BUT",
             "uniresname":"项目新建"
        }
@@ -450,6 +455,11 @@
        {
             "unirescode":"PROD_DELETE_BUT",
             "uniresname":"产品删除"
+       }
+        ,
+       {
+            "unirescode":"REPORTLY_EDIT_BUT",
+            "uniresname":"汇报编辑"
        }
         ,
        {

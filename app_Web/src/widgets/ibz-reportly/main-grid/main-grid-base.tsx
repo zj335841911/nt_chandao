@@ -94,6 +94,34 @@ export class MainGridBase extends GridControlBase {
         curUIService.IbzReportly_Edit(datas,contextJO, paramJO,  $event, xData,this,"IbzReportly");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ubad7d8d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzReportlyUIService  = new IbzReportlyUIService();
+        curUIService.IbzReportly_Submit(datas,contextJO, paramJO,  $event, xData,this,"IbzReportly");
+    }
+
 
     /**
      * 界面行为模型
@@ -102,7 +130,8 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORTLY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Submit: { name: 'Submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -382,6 +411,9 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('Edit', tag)) {
             this.grid_uagridcolumn1_u672dd85_click(row, tag, $event);
         }
+        if(Object.is('Submit', tag)) {
+            this.grid_uagridcolumn1_ubad7d8d_click(row, tag, $event);
+        }
     }
 
     /**
@@ -484,6 +516,9 @@ export class MainGridBase extends GridControlBase {
                 Edit:{
                     visible: false
                 },
+                Submit:{
+                    visible: false
+                },
                 children: children
             }
             groupTree.push(tree);
@@ -513,6 +548,9 @@ export class MainGridBase extends GridControlBase {
             reportto:'',
             date:'',
             Edit:{
+                visible: false
+            },
+            Submit:{
                 visible: false
             },
             children: child
@@ -580,6 +618,9 @@ export class MainGridBase extends GridControlBase {
                 reportto:'',
                 date:'',
                 Edit:{
+                    visible: false
+                },
+                Submit:{
                     visible: false
                 },
                 children: children,

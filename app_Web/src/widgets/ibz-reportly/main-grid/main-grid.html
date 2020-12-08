@@ -102,6 +102,11 @@
                                 <i class="fa fa-edit"></i>
                                 
                             </a>
+                            <divider v-show="scope.row.Submit.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Submit.visible" :disabled="scope.row.Submit.disabled" @click="uiAction(scope.row, 'Submit', $event)" :title="$t('entities.ibzreportly.main_grid.uiactions.ibzreportly_submit')">
+                                <i class="fa fa-check"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>
