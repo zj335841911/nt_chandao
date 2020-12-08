@@ -1007,6 +1007,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryEditView",
             "viewtag": "39e5daf0dbfad3f76c5fa2625383d402"
         },
+        "ibzreportlyreportlydetaileditview": {
+            "title": "汇报编辑视图",
+            "caption": "汇报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportlyReportlyDetailEditView",
+            "viewtag": "3a81cfd739313c5e2fa5a4ada539abed"
+        },
         "tasktodoeditview": {
             "title": "任务编辑视图",
             "caption": "待办转任务",
@@ -2569,7 +2577,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzmonthlymonthlymainmsgeditview": {
             "title": "月报编辑视图",
-            "caption": "月报实体编辑视图",
+            "caption": "月报",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "report",
             "viewname": "IbzMonthlyMonthlyMainMsgEditView",

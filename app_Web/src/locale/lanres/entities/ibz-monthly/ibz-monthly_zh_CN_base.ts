@@ -31,7 +31,7 @@ export default {
       		title: commonLogic.appcommonhandle("月报编辑视图",null),
 		},
 		monthlymainmsgeditview: {
-			caption: commonLogic.appcommonhandle("月报实体编辑视图",null),
+			caption: commonLogic.appcommonhandle("月报",null),
       		title: commonLogic.appcommonhandle("月报编辑视图",null),
 		},
 		myreceivedgridview: {
