@@ -629,6 +629,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         account: null,
+        createmanname: null,
         ibzmonthlyname: null,
         date: null,
         workthismonth: null,
@@ -801,6 +802,8 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
 , 
         account: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
+        createmanname: new FormItemModel({ caption: '建立人名称', detailType: 'FORMITEM', name: 'createmanname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         ibzmonthlyname: new FormItemModel({ caption: '月报名称', detailType: 'FORMITEM', name: 'ibzmonthlyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -931,6 +934,18 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
     @Watch('data.account')
     onAccountChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 createmanname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainInfo
+     */
+    @Watch('data.createmanname')
+    onCreatemannameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'createmanname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1101,6 +1116,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

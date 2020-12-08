@@ -140,6 +140,7 @@ export default {
 			srfdeid: commonLogic.appcommonhandle("",null), 
 			srfsourcekey: commonLogic.appcommonhandle("",null), 
 			account: commonLogic.appcommonhandle("",null), 
+			createmanname: commonLogic.appcommonhandle("建立人名称",null), 
 			ibzmonthlyname: commonLogic.appcommonhandle("月报名称",null), 
 			date: commonLogic.appcommonhandle("日期",null), 
 			workthismonth: commonLogic.appcommonhandle("本月工作",null), 
