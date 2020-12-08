@@ -14,26 +14,4 @@ export default {
     expect: commonLogic.appcommonhandle("描述",null),
     type: commonLogic.appcommonhandle("类型",null),
   },
-	views: {
-		gridview9: {
-			caption: commonLogic.appcommonhandle("计划模板详情",null),
-      		title: commonLogic.appcommonhandle("计划模板详情表格视图",null),
-		},
-	},
-	main_edit_grid: {
-		columns: {
-			desc: commonLogic.appcommonhandle("计划名称",null),
-			type: commonLogic.appcommonhandle("类型",null),
-			expect: commonLogic.appcommonhandle("描述",null),
-		},
-		nodata:commonLogic.appcommonhandle("",null),
-		uiactions: {
-		},
-	},
-	gridview9toolbar_toolbar: {
-		deuiaction2: {
-			caption: commonLogic.appcommonhandle("新建行",null),
-			tip: commonLogic.appcommonhandle("新建行",null),
-		},
-	},
 };

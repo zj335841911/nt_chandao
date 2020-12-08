@@ -56,7 +56,7 @@ export class Main_EditGridBase extends GridControlBase {
      * @type {string}
      * @memberof Main_EditGridBase
      */
-    protected appDeLogicName: string = '计划模板详情';
+    protected appDeLogicName: string = '计划模板详情嵌套';
 
     /**
      * 界面UI服务对象
@@ -73,7 +73,7 @@ export class Main_EditGridBase extends GridControlBase {
      * @type {string}
      * @memberof GridControlBase
      */
-    protected localStorageTag: string = 'ibz_plantempletdetail_main_edit_grid';
+    protected localStorageTag: string = 'ibzplantempletdetail_main_edit_grid';
 
     /**
      * 是否支持分页
