@@ -271,6 +271,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestModuleEditView",
             "viewtag": "0c0709bca7ef7c8bf0b359158b8a3cf3"
         },
+        "ibzplantempleteditview": {
+            "title": "产品计划模板编辑视图",
+            "caption": "计划模板",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzPlanTempletEditView",
+            "viewtag": "0c85027ec13bfdd00f46a4b2ec6f7430"
+        },
         "testsuiteeditview9": {
             "title": "测试套件编辑视图",
             "caption": "测试套件",
@@ -1726,6 +1734,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductStatsEditView9",
             "viewtag": "5d468f620cc30181773d875b3bb8be6e"
+        },
+        "ibzplantempletgridview": {
+            "title": "产品计划模板表格视图",
+            "caption": "计划模板",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzPlanTempletGridView",
+            "viewtag": "5df2233b712eaa394f21be39b5807181"
         },
         "bugstatsproductbugresolutiongridview": {
             "title": "Bug统计表格视图",

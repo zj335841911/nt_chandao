@@ -32,5 +32,9 @@ export default {
 		},
 	},
 	gridview9toolbar_toolbar: {
+		deuiaction2: {
+			caption: commonLogic.appcommonhandle("新建行",null),
+			tip: commonLogic.appcommonhandle("新建行",null),
+		},
 	},
 };

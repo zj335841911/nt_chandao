@@ -96,6 +96,24 @@ export default class IbzPlanTempletUIServiceBase extends UIService {
      * @memberof  IbzPlanTempletUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibzplantemplets',
+            component: 'ibz-plan-templet-edit-view',
+            openmode: 'DRAWER_TOP',
+            title: '计划模板',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibzplantemplets',
+            component: 'ibz-plan-templet-grid-view',
+            openmode: '',
+            title: '计划模板',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

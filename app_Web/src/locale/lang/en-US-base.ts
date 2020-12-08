@@ -239,6 +239,7 @@ const data: any = {
                 menuitem2: commonLogic.appcommonhandle("项目主页",null),
                 menuitem1: commonLogic.appcommonhandle("测试主页",null),
                 menuitem16: commonLogic.appcommonhandle("文档",null),
+                menuitem23: commonLogic.appcommonhandle("计划模板",null),
                 menuitem22: commonLogic.appcommonhandle("统计",null),
                 menuitem25: commonLogic.appcommonhandle("年度统计",null),
                 menuitem10: commonLogic.appcommonhandle("用例库",null),

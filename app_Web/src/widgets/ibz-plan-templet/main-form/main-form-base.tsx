@@ -78,6 +78,15 @@ export class MainEditFormBase extends EditFormControlBase {
      */  
     public appUIService: IbzPlanTempletUIService = new IbzPlanTempletUIService(this.$store);
 
+
+    /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainEditFormBase
+     */
+    protected drCount: number = 1;
     /**
      * 表单数据对象
      *
@@ -150,6 +159,8 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '产品计划模板基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzplantemplet.main_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 

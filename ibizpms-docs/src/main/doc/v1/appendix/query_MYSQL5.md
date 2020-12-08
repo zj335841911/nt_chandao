@@ -8266,6 +8266,28 @@ FROM `T_IBZ_REPORTLY` t1
 ```
 ### 我收到的汇报(MyReceived)<div id="IbzReportly_MyReceived"></div>
 ```sql
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CONTENT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`DATE`,
+	t1.`IBZ_REPORTLYID`,
+	t1.`IBZ_REPORTLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`SUBMITTIME`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN` 
+FROM
+	`t_ibz_reportly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_REPORTLYID 
+	AND t11.objectType = 'reportly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>

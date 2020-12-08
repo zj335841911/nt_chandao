@@ -329,6 +329,16 @@
         "viewtag": "0c0709bca7ef7c8bf0b359158b8a3cf3",
         "memo": ""
     },
+    "ibzplantempleteditview": {
+        "title": "产品计划模板编辑视图",
+        "caption": "计划模板",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzPlanTempletEditView",
+        "viewfilename": "ibz-plan-templet-edit-view",
+        "viewtag": "0c85027ec13bfdd00f46a4b2ec6f7430",
+        "memo": ""
+    },
     "testsuiteeditview9": {
         "title": "测试套件编辑视图",
         "caption": "测试套件",
@@ -2147,6 +2157,16 @@
         "viewname": "ProductStatsEditView9",
         "viewfilename": "product-stats-edit-view9",
         "viewtag": "5d468f620cc30181773d875b3bb8be6e",
+        "memo": ""
+    },
+    "ibzplantempletgridview": {
+        "title": "产品计划模板表格视图",
+        "caption": "计划模板",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzPlanTempletGridView",
+        "viewfilename": "ibz-plan-templet-grid-view",
+        "viewtag": "5df2233b712eaa394f21be39b5807181",
         "memo": ""
     },
     "bugstatsproductbugresolutiongridview": {

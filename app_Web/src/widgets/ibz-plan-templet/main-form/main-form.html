@@ -78,6 +78,43 @@
 </app-form-group>
 
 </i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzplantemplet" 
+    :parentdata='{"srfparentdefname":"PLANTEMPLETID","srfparentdename":"IBZ_PLANTEMPLET","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_PLANTEMPLETDETAIL_IBZ_PLANTEMPLET_PLANTEMPLETID","SRFDER1NID":"DER1N_IBZ_PLANTEMPLETDETAIL_IBZ_PLANTEMPLET_PLANTEMPLETID"}'
+    :parameters="[
+        {
+            pathName: 'ibzplantemplets',
+            parameterName: 'ibzplantemplet',
+        },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName="ibzplantemplet"
+    parentName="IbzPlanTemplet"  
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibz-plan-templet-detail-grid-view9" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
 
 
     </row>
