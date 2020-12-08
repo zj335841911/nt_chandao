@@ -132,6 +132,7 @@ public class IbzReportly extends EntityMP implements Serializable {
     /**
      * 是否提交
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`issubmit`")
     @JSONField(name = "issubmit")
     @JsonProperty("issubmit")
@@ -154,6 +155,7 @@ public class IbzReportly extends EntityMP implements Serializable {
     /**
      * 状态
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`reportstatus`")
     @JSONField(name = "reportstatus")
     @JsonProperty("reportstatus")

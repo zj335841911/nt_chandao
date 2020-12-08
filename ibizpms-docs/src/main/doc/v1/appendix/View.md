@@ -632,6 +632,7 @@ SRFNAVPARAM.project=%project%|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试套件表格视图|DEGRIDVIEW|&nbsp;|
+|-|汇报表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;|
@@ -825,6 +826,7 @@ SRFNAVPARAM.project=%project%|
 |-|系统配置表编辑视图|DEEDITVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
+|-|汇报编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目信息|DEEDITVIEW9|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|

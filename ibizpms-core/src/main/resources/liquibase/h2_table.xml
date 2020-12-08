@@ -1348,7 +1348,7 @@
 
 
     <!--输出实体[IBZ_REPORTLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_reportly-41-47">
+    <changeSet author="zentao" id="tab-ibz_reportly-51-47">
         <createTable tableName="T_IBZ_REPORTLY">
                 <column name="IBZ_REPORTLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_REPORTLY_IBZ_REPORTLYID"/>
