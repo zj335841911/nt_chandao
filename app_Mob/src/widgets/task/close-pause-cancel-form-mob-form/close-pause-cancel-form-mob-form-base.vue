@@ -1374,10 +1374,9 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1401,10 +1400,9 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

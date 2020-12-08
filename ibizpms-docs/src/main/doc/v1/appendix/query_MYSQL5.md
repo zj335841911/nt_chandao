@@ -8117,7 +8117,7 @@ CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else
 t1.`COMMENT`,
 CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
 'weekly' as type 
-FROM `T_IBZ_WEEKLY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+FROM `T_IBZ_WEEKLY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 UNION
 SELECT
@@ -8143,7 +8143,7 @@ t1.`COMMENT`,
 CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
-left join zt_action t11 on t11.objectID = t1.IBZ_MONTHLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+left join zt_action t11 on t11.objectID = t1.IBZ_MONTHLYID and t11.objectType = 'monthly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 ) t1
 WHERE (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
