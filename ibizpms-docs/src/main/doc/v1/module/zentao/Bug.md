@@ -7109,6 +7109,48 @@ INNER JOIN (select tt.id from zt_build tt where tt.deleted = '0' and tt.id in (
 #### SQL
 - MYSQL5
 ```SQL
+SELECT
+	t1.id,
+	t1.product,
+	t1.branch,
+	t1.module,
+	t1.project,
+	t1.title,
+	t1.keywords,
+	t1.pri,
+	t1.type,
+	t1.status,
+	t1.subStatus,
+	t1.mailto,
+	t1.openedBy,
+	t1.openedDate,
+	t1.assignedTo,
+	t1.assignedDate,
+	t1.resolvedBy,
+	t1.resolvedDate,
+	t1.lastEditedBy,
+	t1.lastEditedDate,
+	t31.`NAME` AS `PRODOCTNAME`,
+	t51.`NAME` AS `PROJECTNAME`,
+	(
+SELECT
+	( CASE WHEN COUNT( t.IBZ_FAVORITESID ) > 0 THEN 1 ELSE 0 END ) AS ISFAVORITES 
+FROM
+	T_IBZ_FAVORITES t 
+WHERE
+	t.TYPE = 'task' 
+	AND t.ACCOUNT = #{srf.sessioncontext.srfloginname} 
+	AND t.OBJECTID = t1.id 
+	) AS `ISFAVORITES`
+	
+FROM
+	zt_bug t1
+	LEFT JOIN zt_task t2 ON t1.task = t2.id
+  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID
+	LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID
+	LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
+	LEFT JOIN zt_project t51 ON t1.PROJECT = t51.ID
+  	
 
 ```
 ### 数据查询-默认（全部数据）（View）

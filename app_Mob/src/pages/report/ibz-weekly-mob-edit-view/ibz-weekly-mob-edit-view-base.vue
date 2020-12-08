@@ -44,6 +44,27 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
+            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit1.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit1' }, $event)" size="large">
+                    <ion-icon name="edit"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobsubmit.disabled}" v-show="righttoolbarModels.deuiaction1_mobsubmit.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event)" size="large">
+                    <ion-icon name="git-commit"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+                </div>
+            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -286,6 +307,10 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     * @memberof IbzWeeklyMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_mobedit1: { name: 'deuiaction1_mobedit1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobsubmit: { name: 'deuiaction1_mobsubmit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
+
     };
 
     /**
@@ -567,6 +592,86 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzWeeklyMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_mobedit1')) {
+            this.righttoolbar_deuiaction1_mobedit1_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobsubmit')) {
+            this.righttoolbar_deuiaction1_mobsubmit_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobedit1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
+        if (curUIService) {
+            curUIService.IbzWeekly_mobEdit1(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobsubmit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
+        if (curUIService) {
+            curUIService.IbzWeekly_MobSubmit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图

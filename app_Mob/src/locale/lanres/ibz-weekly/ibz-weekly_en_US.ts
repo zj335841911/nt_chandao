@@ -156,15 +156,23 @@ export default {
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
-	mobeditviewrighttoolbar_toolbar: {
-	},
-	mobtabexpviewrighttoolbar_toolbar: {
-	},
 	mobeditviewmianrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
 			tip: 'tbitem1',
 		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobedit1: {
+			caption: '编辑',
+			tip: 'deuiaction1_mobedit1',
+		},
+		deuiaction1_mobsubmit: {
+			caption: '提交',
+			tip: 'deuiaction1_mobsubmit',
+		},
+	},
+	mobtabexpviewrighttoolbar_toolbar: {
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
