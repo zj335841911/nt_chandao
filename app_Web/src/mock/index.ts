@@ -47,7 +47,7 @@ import './entity/companys/companys';
 import './entity/ibzcase-steps/ibzcase-steps';
 import './entity/task-estimates/task-estimates';
 import './entity/storys/storys';
-import './entity/ibz-plan-templet-details/ibz-plan-templet-details';
+import './entity/plan-templet-details/plan-templet-details';
 import './entity/todos/todos';
 import './entity/ibz-lib-modules/ibz-lib-modules';
 import './entity/sub-tasks/sub-tasks';

@@ -2679,14 +2679,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-project-grid-view9/product-project-grid-view9.vue'),
                 },
                 {
-                    path: 'ibzplantemplets/:ibzplantemplet?/ibzplantempletdetails/:ibzplantempletdetail?/gridview9/:gridview9?',
+                    path: 'ibzplantemplets/:ibzplantemplet?/plantempletdetails/:plantempletdetail?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibzplantempletdetail.views.gridview9.caption',
+                        caption: 'entities.plantempletdetail.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
-                            { pathName: 'ibzplantempletdetails', parameterName: 'ibzplantempletdetail' },
+                            { pathName: 'plantempletdetails', parameterName: 'plantempletdetail' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,
@@ -2694,13 +2694,13 @@ const router = new Router({
                     component: () => import('@pages/ibizpro/ibz-plan-templet-detail-grid-view9/ibz-plan-templet-detail-grid-view9.vue'),
                 },
                 {
-                    path: 'ibzplantempletdetails/:ibzplantempletdetail?/gridview9/:gridview9?',
+                    path: 'plantempletdetails/:plantempletdetail?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibzplantempletdetail.views.gridview9.caption',
+                        caption: 'entities.plantempletdetail.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzplantempletdetails', parameterName: 'ibzplantempletdetail' },
+                            { pathName: 'plantempletdetails', parameterName: 'plantempletdetail' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,

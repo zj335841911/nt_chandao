@@ -40,7 +40,7 @@ import company_zh_CN from '@locale/lanres/entities/company/company_zh_CN';
 import ibzcasestep_zh_CN from '@locale/lanres/entities/ibzcase-step/ibzcase-step_zh_CN';
 import taskestimate_zh_CN from '@locale/lanres/entities/task-estimate/task-estimate_zh_CN';
 import story_zh_CN from '@locale/lanres/entities/story/story_zh_CN';
-import ibzplantempletdetail_zh_CN from '@locale/lanres/entities/ibz-plan-templet-detail/ibz-plan-templet-detail_zh_CN';
+import plantempletdetail_zh_CN from '@locale/lanres/entities/plan-templet-detail/plan-templet-detail_zh_CN';
 import todo_zh_CN from '@locale/lanres/entities/todo/todo_zh_CN';
 import ibzlibmodule_zh_CN from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_zh_CN';
 import subtask_zh_CN from '@locale/lanres/entities/sub-task/sub-task_zh_CN';
@@ -401,7 +401,7 @@ const data: any = {
         ibzcasestep: ibzcasestep_zh_CN,
         taskestimate: taskestimate_zh_CN,
         story: story_zh_CN,
-        ibzplantempletdetail: ibzplantempletdetail_zh_CN,
+        plantempletdetail: plantempletdetail_zh_CN,
         todo: todo_zh_CN,
         ibzlibmodule: ibzlibmodule_zh_CN,
         subtask: subtask_zh_CN,

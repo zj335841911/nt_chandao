@@ -168,7 +168,7 @@ zuul:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibzplantempletdetail:
-      path: /ibzplantempletdetails/**
+      path: /plantempletdetails/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_todo:
