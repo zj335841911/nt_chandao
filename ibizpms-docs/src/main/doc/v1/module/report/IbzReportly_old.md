@@ -19,8 +19,11 @@
 |附件|FILES|TEXT|&nbsp;|
 |汇报给|REPORTTO|SSCODELIST|&nbsp;|
 |抄送给|MAILTO|SMCODELIST|&nbsp;|
-|汇报日期|DATE|DATETIME|&nbsp;|
+|汇报日期|DATE|DATE|&nbsp;|
 |是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
+|提交时间|SUBMITTIME|TIME|&nbsp;|
+|用户|ACCOUNT|SSCODELIST|&nbsp;|
+|状态|REPORTSTATUS|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -37,6 +40,9 @@
 |抄送给|默认规则|内容长度必须小于等于[100]|
 |汇报日期|默认规则|默认规则|
 |是否提交|默认规则|内容长度必须小于等于[100]|
+|提交时间|默认规则|默认规则|
+|用户|默认规则|内容长度必须小于等于[60]|
+|状态|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -76,6 +82,7 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |汇报名称(IBZ_REPORTLYNAME)|LIKE|
+|用户(ACCOUNT)|EQ|
 
 ## 导入模式
 无

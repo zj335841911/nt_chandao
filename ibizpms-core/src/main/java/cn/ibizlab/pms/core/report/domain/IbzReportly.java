@@ -125,8 +125,8 @@ public class IbzReportly extends EntityMP implements Serializable {
      * 汇报日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -136,6 +136,28 @@ public class IbzReportly extends EntityMP implements Serializable {
     @JSONField(name = "issubmit")
     @JsonProperty("issubmit")
     private String issubmit;
+    /**
+     * 提交时间
+     */
+    @TableField(value = "`submittime`")
+    @JsonFormat(pattern = "HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "submittime", format = "HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
+    /**
+     * 用户
+     */
+    @TableField(value = "`account`")
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
+    /**
+     * 状态
+     */
+    @TableField(value = "`reportstatus`")
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    private String reportstatus;
 
 
 
@@ -186,7 +208,7 @@ public class IbzReportly extends EntityMP implements Serializable {
         if (this.date == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
     /**
@@ -195,6 +217,40 @@ public class IbzReportly extends EntityMP implements Serializable {
     public void setIssubmit(String issubmit) {
         this.issubmit = issubmit;
         this.modify("issubmit", issubmit);
+    }
+
+    /**
+     * 设置 [提交时间]
+     */
+    public void setSubmittime(Timestamp submittime) {
+        this.submittime = submittime;
+        this.modify("submittime", submittime);
+    }
+
+    /**
+     * 格式化日期 [提交时间]
+     */
+    public String formatSubmittime() {
+        if (this.submittime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        return sdf.format(submittime);
+    }
+    /**
+     * 设置 [用户]
+     */
+    public void setAccount(String account) {
+        this.account = account;
+        this.modify("account", account);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setReportstatus(String reportstatus) {
+        this.reportstatus = reportstatus;
+        this.modify("reportstatus", reportstatus);
     }
 
 

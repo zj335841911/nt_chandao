@@ -123,8 +123,8 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
      * 属性 [DATE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
 
@@ -136,6 +136,33 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @JsonProperty("issubmit")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String issubmit;
+
+    /**
+     * 属性 [SUBMITTIME]
+     *
+     */
+    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "submittime" , format="HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
+
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String account;
+
+    /**
+     * 属性 [REPORTSTATUS]
+     *
+     */
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String reportstatus;
 
 
     /**
@@ -184,6 +211,30 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     public void setIssubmit(String  issubmit){
         this.issubmit = issubmit ;
         this.modify("issubmit",issubmit);
+    }
+
+    /**
+     * 设置 [SUBMITTIME]
+     */
+    public void setSubmittime(Timestamp  submittime){
+        this.submittime = submittime ;
+        this.modify("submittime",submittime);
+    }
+
+    /**
+     * 设置 [ACCOUNT]
+     */
+    public void setAccount(String  account){
+        this.account = account ;
+        this.modify("account",account);
+    }
+
+    /**
+     * 设置 [REPORTSTATUS]
+     */
+    public void setReportstatus(String  reportstatus){
+        this.reportstatus = reportstatus ;
+        this.modify("reportstatus",reportstatus);
     }
 
 

@@ -26,8 +26,11 @@
 | 8 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 否 | 是 |
 | 9 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
 | 10 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | 多项选择(文本值) | 否 | 否 | 是 |
-| 11 | [汇报日期](#属性-汇报日期（DATE）) | DATE | 日期时间型 | 否 | 否 | 是 |
+| 11 | [汇报日期](#属性-汇报日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 12 | [是否提交](#属性-是否提交（ISSUBMIT）) | ISSUBMIT | 单项选择(文本值) | 否 | 否 | 是 |
+| 13 | [提交时间](#属性-提交时间（SUBMITTIME）) | SUBMITTIME | 时间型 | 否 | 否 | 是 |
+| 14 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | 单项选择(文本值) | 否 | 否 | 是 |
+| 15 | [状态](#属性-状态（REPORTSTATUS）) | REPORTSTATUS | 单项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-汇报标识（IBZ_REPORTLYID）
 #### 属性说明
@@ -412,7 +415,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-日期时间型
+日期型
 
 - Java类型
 Timestamp
@@ -427,7 +430,7 @@ Timestamp
 无
 
 - 数据格式
-yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd
 
 - 是否支持快速搜索
 否
@@ -462,6 +465,119 @@ String
 
 - 取值范围/公式
 参照数据字典【[是否（YesNo）](../../codelist/YesNo)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-提交时间（SUBMITTIME）
+#### 属性说明
+提交时间
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+时间型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+HH:mm:ss
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-用户（ACCOUNT）
+#### 属性说明
+用户
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+无
+
+### 属性-状态（REPORTSTATUS）
+#### 属性说明
+状态
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[汇报状态（ReportStatus）](../../codelist/ReportStatus)】
 
 - 数据格式
 无
@@ -588,6 +704,7 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [汇报名称（IBZ_REPORTLYNAME）](#属性-汇报名称（IBZ_REPORTLYNAME）) | `%like%` |
+| 2 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -609,6 +726,7 @@ Save
 - MYSQL5
 ```SQL
 SELECT
+t1.`ACCOUNT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
@@ -616,7 +734,9 @@ t1.`IBZ_REPORTLYID`,
 t1.`IBZ_REPORTLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
+t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
+t1.`SUBMITTIME`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 
@@ -636,6 +756,7 @@ FROM `T_IBZ_REPORTLY` t1
 - MYSQL5
 ```SQL
 SELECT
+t1.`ACCOUNT`,
 t1.`CONTENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
@@ -644,7 +765,9 @@ t1.`IBZ_REPORTLYID`,
 t1.`IBZ_REPORTLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
+t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
+t1.`SUBMITTIME`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 

@@ -307,7 +307,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     * @memberof IbzWeeklyMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobedit1: { name: 'deuiaction1_mobedit1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
+            deuiaction1_mobedit1: { name: 'deuiaction1_mobedit1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
 
             deuiaction1_mobsubmit: { name: 'deuiaction1_mobsubmit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
 

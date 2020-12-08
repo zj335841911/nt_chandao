@@ -235,18 +235,22 @@ POST
 | 8 | files | String | 允许 | 附件 |
 | 9 | reportto | String | 允许 | 汇报给 |
 | 10 | mailto | String | 允许 | 抄送给 |
-| 11 | date | Timestamp | 允许 | 汇报日期<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 11 | date | Timestamp | 允许 | 汇报日期<br>时间格式：yyyy-MM-dd |
 | 12 | issubmit | String | 允许 | 是否提交 |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
+| 14 | account | String | 允许 | 用户 |
+| 15 | reportstatus | String | 允许 | 状态 |
+| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibz_reportlyname_like | String | 允许 | 条件字段：ibz_reportlyname<br>条件组合方式：`%like%` |
-| 2 | customcond | String | 允许 | 自定义查询条件 |
-| 3 | customparams | String | 允许 | 自定义查询参数 |
-| 4 | query | String | 允许 | 快速搜索 |
-| 5 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 6 | page | int | 允许 | 当前页数<br>默认值0 |
-| 7 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 8 | sort | String | 允许 | 排序 |
+| 2 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 3 | customcond | String | 允许 | 自定义查询条件 |
+| 4 | customparams | String | 允许 | 自定义查询参数 |
+| 5 | query | String | 允许 | 快速搜索 |
+| 6 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 7 | page | int | 允许 | 当前页数<br>默认值0 |
+| 8 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 9 | sort | String | 允许 | 排序 |
