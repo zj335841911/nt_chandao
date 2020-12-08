@@ -153,6 +153,28 @@ public class IbzPlanTempletResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzPlanTemplet-searchCurUserTemplet-all') and hasPermission(#context,'pms-IbzPlanTemplet-Get')")
+	@ApiOperation(value = "获取CurUserTemplet", tags = {"计划模板" } ,notes = "获取CurUserTemplet")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzplantemplets/fetchcurusertemplet")
+	public ResponseEntity<List<IbzPlanTempletDTO>> fetchCurUserTemplet(IbzPlanTempletSearchContext context) {
+        Page<IbzPlanTemplet> domains = ibzplantempletService.searchCurUserTemplet(context) ;
+        List<IbzPlanTempletDTO> list = ibzplantempletMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzPlanTemplet-searchCurUserTemplet-all') and hasPermission(#context,'pms-IbzPlanTemplet-Get')")
+	@ApiOperation(value = "查询CurUserTemplet", tags = {"计划模板" } ,notes = "查询CurUserTemplet")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzplantemplets/searchcurusertemplet")
+	public ResponseEntity<Page<IbzPlanTempletDTO>> searchCurUserTemplet(@RequestBody IbzPlanTempletSearchContext context) {
+        Page<IbzPlanTemplet> domains = ibzplantempletService.searchCurUserTemplet(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzplantempletMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzPlanTemplet-searchDefault-all') and hasPermission(#context,'pms-IbzPlanTemplet-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"计划模板" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/ibzplantemplets/fetchdefault")

@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [计划模板](../module/ibizpro/IbzPlanTemplet) |
-| 结果集合 | [数据集（Default）](../module/ibizpro/IbzPlanTemplet/#数据集合-数据集（Default）) |
+| 结果集合 | [CurUserTemplet（CurUserTemplet）](../module/ibizpro/IbzPlanTemplet/#数据集合-CurUserTemplet（CurUserTemplet）) |
 

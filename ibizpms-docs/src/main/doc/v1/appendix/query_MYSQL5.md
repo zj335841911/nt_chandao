@@ -7895,6 +7895,24 @@ FROM
 
 # **计划模板**(IBZ_PLANTEMPLET)
 
+### CurUserTemplet(CurUserTemplet)<div id="IbzPlanTemplet_CurUserTemplet"></div>
+```sql
+SELECT
+t1.`ACL`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`IBZ_PLANTEMPLETID`,
+t1.`IBZ_PLANTEMPLETNAME`,
+t1.`PLANS`,
+t1.`PRODUCT`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLET` t1 
+
+WHERE ( ( t1.`ACL` = 'open'  OR  t1.`CREATEMANNAME` =  ${srfsessioncontext('srfloginname','{"defname":"CREATEMANNAME","dename":"IBZ_PLANTEMPLET"}')} ) ) 
+
+```
 ### 数据查询(DEFAULT)<div id="IbzPlanTemplet_Default"></div>
 ```sql
 SELECT

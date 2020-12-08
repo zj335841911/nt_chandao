@@ -705,9 +705,37 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [CurUserTemplet](#数据查询-CurUserTemplet（CurUserTemplet）) | CurUserTemplet | 否 |
+| 2 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-CurUserTemplet（CurUserTemplet）
+#### 说明
+CurUserTemplet
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`IBZ_PLANTEMPLETID`,
+t1.`IBZ_PLANTEMPLETNAME`,
+t1.`PLANS`,
+t1.`PRODUCT`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLET` t1 
+
+```
 ### 数据查询-数据查询（Default）
 #### 说明
 数据查询
@@ -766,8 +794,23 @@ FROM `T_IBZ_PLANTEMPLET` t1
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 1 | [CurUserTemplet](#数据集合-CurUserTemplet（CurUserTemplet）) | CurUserTemplet | 否 |
+| 2 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 
+### 数据集合-CurUserTemplet（CurUserTemplet）
+#### 说明
+CurUserTemplet
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [CurUserTemplet（CurUserTemplet）](#数据查询-CurUserTemplet（CurUserTemplet）) |
 ### 数据集合-数据集（Default）
 #### 说明
 数据集

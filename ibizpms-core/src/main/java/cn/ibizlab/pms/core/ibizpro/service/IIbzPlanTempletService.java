@@ -47,6 +47,7 @@ public interface IIbzPlanTempletService extends IService<IbzPlanTemplet> {
     IbzPlanTemplet getPlan(IbzPlanTemplet et);
     boolean save(IbzPlanTemplet et);
     void saveBatch(List<IbzPlanTemplet> list);
+    Page<IbzPlanTemplet> searchCurUserTemplet(IbzPlanTempletSearchContext context);
     Page<IbzPlanTemplet> searchDefault(IbzPlanTempletSearchContext context);
     /**
      * 自定义查询SQL

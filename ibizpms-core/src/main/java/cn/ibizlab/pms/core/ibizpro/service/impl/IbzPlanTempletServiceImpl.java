@@ -167,6 +167,15 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
 
 
     /**
+     * 查询集合 CurUserTemplet
+     */
+    @Override
+    public Page<IbzPlanTemplet> searchCurUserTemplet(IbzPlanTempletSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzPlanTemplet> pages=baseMapper.searchCurUserTemplet(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzPlanTemplet>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override

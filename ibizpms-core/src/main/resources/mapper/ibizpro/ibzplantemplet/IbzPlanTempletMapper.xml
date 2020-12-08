@@ -17,6 +17,15 @@
     </resultMap>
 
 
+    <!--数据集合[CurUserTemplet]-->
+	 <select id="searchCurUserTemplet"  parameterType="cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletSearchContext"  resultMap="IbzPlanTempletResultMap">
+         select t1.* from (
+                <include refid="CurUserTemplet" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletSearchContext"  resultMap="IbzPlanTempletResultMap">
          select t1.* from (
@@ -26,6 +35,12 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据查询[CurUserTemplet]-->
+    <sql id="CurUserTemplet" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACL`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`IBZ_PLANTEMPLETID`, t1.`IBZ_PLANTEMPLETNAME`, t1.`PLANS`, t1.`PRODUCT`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLET` t1  
+					 WHERE 	( ( t1.`ACL` = 'open'  OR  t1.`CREATEMANNAME` =  #{srf.sessioncontext.srfloginname} ) )
+			]]>
+    </sql>
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACL`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`IBZ_PLANTEMPLETID`, t1.`IBZ_PLANTEMPLETNAME`, t1.`PLANS`, t1.`PRODUCT`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLET` t1  

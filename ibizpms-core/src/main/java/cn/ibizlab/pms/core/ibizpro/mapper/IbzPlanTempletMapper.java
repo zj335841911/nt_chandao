@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface IbzPlanTempletMapper extends BaseMapper<IbzPlanTemplet> {
 
+    Page<IbzPlanTemplet> searchCurUserTemplet(IPage page, @Param("srf") IbzPlanTempletSearchContext context, @Param("ew") Wrapper<IbzPlanTemplet> wrapper);
     Page<IbzPlanTemplet> searchDefault(IPage page, @Param("srf") IbzPlanTempletSearchContext context, @Param("ew") Wrapper<IbzPlanTemplet> wrapper);
     @Override
     IbzPlanTemplet selectById(Serializable id);
