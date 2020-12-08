@@ -80,10 +80,6 @@ export class IbzPlanTempletGridViewBase extends GridViewBase {
         'n_createmanname_eq': {
             isRawValue: false,
             value: 'srfloginname',
-        },
-        'n_acl_eq': {
-            isRawValue: true,
-            value: 'open',
         }
     };
 

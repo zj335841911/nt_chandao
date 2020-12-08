@@ -241,6 +241,35 @@ export default class IbzPlanTempletServiceBase extends EntityService {
     }
 
     /**
+     * FetchCurUserTemplet接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzPlanTempletServiceBase
+     */
+    public async FetchCurUserTemplet(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzplantemplets/fetchcurusertemplet`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchCurUserTemplet接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzPlanTempletServiceBase
+     */
+    public async searchCurUserTemplet(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzplantemplets/searchcurusertemplet`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -267,6 +296,18 @@ export default class IbzPlanTempletServiceBase extends EntityService {
     public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzplantemplets/searchdefault`,tempData,isloading);
+    }
+
+    /**
+     * FetchTempCurUserTemplet接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzPlanTempletServiceBase
+     */
+    public async FetchTempCurUserTemplet(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**
