@@ -112,7 +112,7 @@ export class Main_EditGridBase extends GridControlBase {
             property: 'type',
             label: '类型',
             langtag: 'entities.plantempletdetail.main_edit_grid.columns.type',
-            show: true,
+            show: false,
             util: 'PX',
             width: 100,
             codelistId: 'PlantempletType'
@@ -224,14 +224,6 @@ export class Main_EditGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'type',
-                srfkey: 'PlantempletType',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 

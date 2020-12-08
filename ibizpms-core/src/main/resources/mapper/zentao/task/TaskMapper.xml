@@ -383,7 +383,7 @@
 						 AND ( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} )  OR  ( t1.`FINISHEDBY` =  #{srf.sessioncontext.srfloginname} ) ) )
 						 AND  t1.status<>'closed'
 						 AND  t31.deleted='0'
-						 AND DATE_FORMAT(t1.finisheddate,'%Y-%m-%d') = DATE_FORMAT(#{srf.datacontext.date},'%Y-%m-%d')
+						 AND DATE_FORMAT(t1.finisheddate,'%Y-%m-%d') = DATE_FORMAT((case when   #{srf.datacontext.date} is Null then now() else #{srf.datacontext.date}  end),'%Y-%m-%d')
 			]]>
     </sql>
     <!--数据查询[MyCompleteTaskMob]-->

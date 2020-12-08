@@ -1067,7 +1067,7 @@
 
 
     <!--输出实体[IBZ_DAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_daily-508-35">
+    <changeSet author="zentao" id="tab-ibz_daily-513-35">
         <createTable tableName="T_IBZ_DAILY">
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
@@ -1242,7 +1242,7 @@
 
 
     <!--输出实体[IBZ_PLANTEMPLET]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_plantemplet-39-43">
+    <changeSet author="zentao" id="tab-ibz_plantemplet-40-43">
         <createTable tableName="T_IBZ_PLANTEMPLET">
                 <column name="IBZ_PLANTEMPLETID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_PLANTEMPLET_IBZ_PLANTEM"/>
@@ -1266,7 +1266,7 @@
 
 
     <!--输出实体[IBZ_PLANTEMPLETDETAIL]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_plantempletdetail-44-44">
+    <changeSet author="zentao" id="tab-ibz_plantempletdetail-47-44">
         <createTable tableName="T_IBZ_PLANTEMPLETDETAIL">
                 <column name="IBZ_PLANTEMPLETDETAILID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_PLANTEMPLETDETAIL_IBZ_P"/>
@@ -1310,7 +1310,7 @@
 
 
     <!--输出实体[IBZ_REPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_report-147-46">
+    <changeSet author="zentao" id="tab-ibz_report-153-46">
         <createTable tableName="t_ibz_daily">
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
@@ -1380,7 +1380,7 @@
 
 
     <!--输出实体[IBZ_REPORTLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_reportly-102-48">
+    <changeSet author="zentao" id="tab-ibz_reportly-104-48">
         <createTable tableName="T_IBZ_REPORTLY">
                 <column name="IBZ_REPORTLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_REPORTLY_IBZ_REPORTLYID"/>
@@ -3030,7 +3030,7 @@
         <!--输出实体[IBZ_MYTERRITORY]外键关系 -->
         <!--输出实体[IBZ_PLANTEMPLET]外键关系 -->
         <!--输出实体[IBZ_PLANTEMPLETDETAIL]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_plantempletdetail-44-167">
+    <changeSet author="zentao" id="fk-ibz_plantempletdetail-47-167">
        <addForeignKeyConstraint baseColumnNames="PLANTEMPLETID" baseTableName="T_IBZ_PLANTEMPLETDETAIL" constraintName="DER1N_IBZ_PLANTEMPLETDETAIL_IB" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="IBZ_PLANTEMPLETID" referencedTableName="T_IBZ_PLANTEMPLET" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_PROJECTMEMBER]外键关系 -->
