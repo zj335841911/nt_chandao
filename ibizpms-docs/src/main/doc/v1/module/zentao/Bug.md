@@ -7116,6 +7116,7 @@ SELECT
 	t1.module,
 	t1.project,
 	t1.title,
+        t1.task,
 	t1.keywords,
 	t1.pri,
 	t1.type,
@@ -7144,9 +7145,8 @@ WHERE
 	) AS `ISFAVORITES`
 	
 FROM
-	zt_bug t1
-	LEFT JOIN zt_task t2 ON t1.task = t2.id
-  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID
+	zt_bug t1	
+        LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID
 	LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID
 	LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
 	LEFT JOIN zt_project t51 ON t1.PROJECT = t51.ID

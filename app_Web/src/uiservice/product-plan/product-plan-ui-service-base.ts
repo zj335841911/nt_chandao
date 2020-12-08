@@ -253,7 +253,7 @@ export default class ProductPlanUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'ibz-plan-templet-option-view', 
-                height: 400, 
+                height: 200, 
                 width: 400,  
                 title: actionContext.$t('entities.ibzplantemplet.views.optionview.title'),
             };
