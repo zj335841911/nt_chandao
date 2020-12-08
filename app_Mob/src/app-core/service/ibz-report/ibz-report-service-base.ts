@@ -4,7 +4,7 @@ import  { EntityService }  from '@/ibiz-core';
 
 
 /**
- * 汇报服务对象基类
+ * 汇报汇总服务对象基类
  *
  * @export
  * @class IbzReportServiceBase

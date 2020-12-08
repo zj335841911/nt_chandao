@@ -7396,6 +7396,36 @@ export class TaskServiceBase extends EntityService {
     }
 
     /**
+     * FetchNextWeekCompleteTaskMobZS接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchNextWeekCompleteTaskMobZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchNextWeekCompleteTaskZS接口方法
      *
      * @param {*} [context={}]
@@ -7542,6 +7572,36 @@ export class TaskServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/tasks/fetchthisweekcompletetask`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchThisWeekCompleteTaskMobZS接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchThisWeekCompleteTaskMobZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
         return res;
     }
 
@@ -7867,6 +7927,18 @@ export class TaskServiceBase extends EntityService {
     }
 
     /**
+     * FetchTempNextWeekCompleteTaskMobZS接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchTempNextWeekCompleteTaskMobZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempNextWeekCompleteTaskZS接口方法
      *
      * @param {*} [context={}]
@@ -7924,6 +7996,18 @@ export class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async FetchTempThisWeekCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempThisWeekCompleteTaskMobZS接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async FetchTempThisWeekCompleteTaskMobZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

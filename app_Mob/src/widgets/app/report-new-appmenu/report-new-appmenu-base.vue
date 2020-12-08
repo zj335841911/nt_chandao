@@ -468,7 +468,7 @@ export default class ReportNewBase extends Vue implements ControlInterface {
     }
     
     /**
-     * 周报待阅
+     * 周报（待阅）
      *
      * @param {*} [item={}]
      * @memberof ReportNew

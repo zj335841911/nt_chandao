@@ -85,6 +85,9 @@ export default {
 		mycompletetaskmobmdviewweekly: {
 			caption: '计划参与',
 		},
+		weeklyplanstaskmobmdview: {
+			caption: '任务',
+		},
 		stopmoboptionview: {
 			caption: '暂停',
 		},
@@ -153,6 +156,9 @@ export default {
 		},
 		gsmoboptionview: {
 			caption: '工时',
+		},
+		weeklylydonetaskmobmdview: {
+			caption: '任务',
 		},
 		assmobmdview9: {
 			caption: '任务',

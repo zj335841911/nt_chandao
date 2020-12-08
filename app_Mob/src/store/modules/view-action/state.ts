@@ -365,6 +365,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1ebb516d2e6c68b53804ade8a64813cd',
+            viewmodule: 'report',
+            viewname: 'TaskWeeklyPlansTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '206584f40a0caade6c253a360fad96c1',
             viewmodule: 'ibiz',
             viewname: 'BugRMobOptionView',
@@ -2005,11 +2015,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1ebb516d2e6c68b53804ade8a64813cd',
+                'da2e1d94069e11c5bdcc6142606100b2',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'eef4931ab99bfda807489700470bad47',
-                'dca81c1a74e59de75d199229ca890abb',
                 'b52bf86837838dcfd5b787fad0350f22',
-                '1bd9873e7212574f35571116edb7da0b',
             ],
         },
         {
@@ -2310,6 +2320,16 @@ export const viewstate: any = {
             refviews: [
                 'b39f9237d088a6173a2d1889f2eaa562',
                 '0e2762177f3bf384b00d863798bd744c',
+            ],
+        },
+        {
+            viewtag: 'da2e1d94069e11c5bdcc6142606100b2',
+            viewmodule: 'report',
+            viewname: 'TaskWeeklylyDoneTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {

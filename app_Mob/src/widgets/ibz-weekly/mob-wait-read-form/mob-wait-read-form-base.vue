@@ -91,9 +91,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzweekly' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-my-complete-task-mob-mdview-weekly' 
+    viewname='task-weeklyly-done-task-mob-mdview' 
     v-show="detailsModel.druipart1.visible" 
     :caption="$t('ibzweekly.mobwaitread_form.details.druipart1')"  
     paramItem='ibzweekly' 
@@ -107,7 +107,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "thisweektask": "%thisweektask%" } ' 
+    :navigateParam ='{ } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -157,9 +157,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzweekly' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-my-complete-task-mob-mdview-next-plan-weekly' 
+    viewname='task-weekly-plans-task-mob-mdview' 
     v-show="detailsModel.druipart2.visible" 
     :caption="$t('ibzweekly.mobwaitread_form.details.druipart2')"  
     paramItem='ibzweekly' 
@@ -173,7 +173,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "nextweektask": "%nextweektask%" } ' 
+    :navigateParam ='{ } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
