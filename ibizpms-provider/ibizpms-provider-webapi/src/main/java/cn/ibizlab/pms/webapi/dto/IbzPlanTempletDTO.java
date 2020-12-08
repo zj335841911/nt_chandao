@@ -127,6 +127,13 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     }
 
 
+    /**
+     *  [PlanTempletDetail]
+     */
+    @JsonProperty("ibzplantempletdetails")
+    @JSONField(name = "ibzplantempletdetails")
+	private List<IbzPlanTempletDetailDTO> ibzplantempletdetail ;
+
 }
 
 

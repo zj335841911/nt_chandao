@@ -3734,6 +3734,28 @@ public class StaticDict {
 
 
     /**
+     * 代码表[计划模板类型]
+     */
+    @Getter
+    public enum PlantempletType {
+        STEP("step","计划"),
+        GROUP("group","父计划"),
+        ITEM("item","子计划");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        PlantempletType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[文档类型]
      */
     @Getter

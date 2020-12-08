@@ -599,7 +599,62 @@ String
 
 
 ## 业务状态
+| 序号 | 状态名称 | [是否提交](#属性-是否提交（ISSUBMIT）)<br>（ISSUBMIT） | 默认 |
+| ---- | ---- | ---- | ---- |
+| 1 | [未提交](#业务状态-未提交（nsubmit）) | 0 |  |  | 否 |
+| 2 | [已提交](#业务状态-已提交（submit）) | 1 |  |  | 否 |
+### 业务状态-未提交（nsubmit）
+#### 状态说明
+未提交
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [是否提交](#属性-是否提交（ISSUBMIT）)<br>（ISSUBMIT） | 0 |
+
+
+
+- 流程相关状态
 无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+### 业务状态-已提交（submit）
+#### 状态说明
+已提交
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [是否提交](#属性-是否提交（ISSUBMIT）)<br>（ISSUBMIT） | 1 |
+
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [汇报编辑](#操作权限-汇报编辑（SRFUR__REPORTLY_EDIT_BUT）)<br>（SRFUR__REPORTLY_EDIT_BUT） |
+| 2 | [汇报提交](#操作权限-汇报提交（SRFUR__REPORTLY_SUBMIT_BUT）)<br>（SRFUR__REPORTLY_SUBMIT_BUT） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
@@ -610,8 +665,9 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 8 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
+| 7 | [已读](#实体行为-已读（HaveRead）) | HaveRead | 用户自定义 | 后台及前台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -685,6 +741,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-已读（HaveRead）
+#### 说明
+已读
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -729,7 +797,8 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [我收到的汇报](#数据查询-我收到的汇报（MyReceived）) | MyReceived | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -760,6 +829,41 @@ t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 
 
+```
+### 数据查询-我收到的汇报（MyReceived）
+#### 说明
+我收到的汇报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CONTENT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`DATE`,
+	t1.`IBZ_REPORTLYID`,
+	t1.`IBZ_REPORTLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`SUBMITTIME`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN` 
+FROM
+	`t_ibz_reportly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_REPORTLYID 
+	AND t11.objectType = 'reportly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -797,6 +901,7 @@ FROM `T_IBZ_REPORTLY` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 2 | [我收到的汇报](#数据集合-我收到的汇报（MyReceived）) | MyReceived | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -812,6 +917,20 @@ FROM `T_IBZ_REPORTLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-我收到的汇报（MyReceived）
+#### 说明
+我收到的汇报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我收到的汇报（MyReceived）](#数据查询-我收到的汇报（MyReceived）) |
 
 ## 数据导入
 无

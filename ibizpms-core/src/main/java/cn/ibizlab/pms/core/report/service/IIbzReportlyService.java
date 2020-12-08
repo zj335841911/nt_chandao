@@ -44,10 +44,12 @@ public interface IIbzReportlyService extends IService<IbzReportly> {
     IbzReportly get(Long key);
     IbzReportly getDraft(IbzReportly et);
     boolean checkKey(IbzReportly et);
+    IbzReportly haveRead(IbzReportly et);
     boolean save(IbzReportly et);
     void saveBatch(List<IbzReportly> list);
     IbzReportly submit(IbzReportly et);
     Page<IbzReportly> searchDefault(IbzReportlySearchContext context);
+    Page<IbzReportly> searchMyReceived(IbzReportlySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -6,7 +6,7 @@ import IbzPlanTempletService from '@/service/ibz-plan-templet/ibz-plan-templet-s
 import IbzPlanTempletAuthService from '@/authservice/ibz-plan-templet/ibz-plan-templet-auth-service';
 
 /**
- * 产品计划模板UI服务对象基类
+ * 计划模板UI服务对象基类
  *
  * @export
  * @class IbzPlanTempletUIServiceBase
@@ -96,6 +96,24 @@ export default class IbzPlanTempletUIServiceBase extends UIService {
      * @memberof  IbzPlanTempletUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibzplantemplets',
+            component: 'ibz-plan-templet-edit-view',
+            openmode: 'DRAWER_TOP',
+            title: '计划模板',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibzplantemplets',
+            component: 'ibz-plan-templet-grid-view',
+            openmode: '',
+            title: '计划模板',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

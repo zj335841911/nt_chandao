@@ -233,6 +233,44 @@ mock.onPost(new RegExp(/^\/ibzreportlies\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/))
     return [status, data];
 });
         
+// HaveRead
+mock.onPost(new RegExp(/^\/ibzreportlies\/?([a-zA-Z0-9\-\;]{0,35})\/haveread$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzreportly 方法: HaveRead");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['ibzreportlyid'];
+    const matchArray:any = new RegExp(/^\/ibzreportlies\/([a-zA-Z0-9\-\;]{1,35})\/haveread$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.ibzreportlyid, tempValue.ibzreportlyid));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['ibzreportlyid'] == tempValue['ibzreportlyid'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
 // Save
 mock.onPost(new RegExp(/^\/ibzreportlies\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzreportly 方法: Save");
@@ -327,6 +365,50 @@ mock.onGet(new RegExp(/^\/ibzreportlies\/fetchdefault$/)).reply((config: any) =>
 // FetchDefault
 mock.onGet(new RegExp(/^\/ibzreportlies\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzreportly 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchMyReceived
+mock.onGet(new RegExp(/^\/ibzreportlies\/fetchmyreceived$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzreportly 方法: FetchMyReceived");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchMyReceived
+mock.onGet(new RegExp(/^\/ibzreportlies\/fetchmyreceived(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzreportly 方法: FetchMyReceived");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

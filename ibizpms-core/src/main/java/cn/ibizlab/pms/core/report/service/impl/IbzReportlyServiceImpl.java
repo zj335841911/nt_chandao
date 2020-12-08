@@ -106,6 +106,12 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
     public boolean checkKey(IbzReportly et) {
         return (!ObjectUtils.isEmpty(et.getIbzreportlyid())) && (!Objects.isNull(this.getById(et.getIbzreportlyid())));
     }
+        @Override
+    @Transactional
+    public IbzReportly haveRead(IbzReportly et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzReportlyHelper.class).haveRead(et);
+    }
+
     @Override
     @Transactional
     public boolean save(IbzReportly et) {
@@ -152,6 +158,15 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
     @Override
     public Page<IbzReportly> searchDefault(IbzReportlySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzReportly> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzReportly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我收到的汇报
+     */
+    @Override
+    public Page<IbzReportly> searchMyReceived(IbzReportlySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzReportly> pages=baseMapper.searchMyReceived(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzReportly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

@@ -65,6 +65,7 @@ import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
+import ibzplantempletdetail_zh_CN from '@locale/lanres/entities/ibz-plan-templet-detail/ibz-plan-templet-detail_zh_CN';
 import ibzproconfig_zh_CN from '@locale/lanres/entities/ibzpro-config/ibzpro-config_zh_CN';
 import ibzprostory_zh_CN from '@locale/lanres/entities/ibzpro-story/ibzpro-story_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/entities/project-team/project-team_zh_CN';
@@ -238,6 +239,7 @@ const data: any = {
                 menuitem2: commonLogic.appcommonhandle("项目主页",null),
                 menuitem1: commonLogic.appcommonhandle("测试主页",null),
                 menuitem16: commonLogic.appcommonhandle("文档",null),
+                menuitem23: commonLogic.appcommonhandle("计划模板",null),
                 menuitem22: commonLogic.appcommonhandle("统计",null),
                 menuitem25: commonLogic.appcommonhandle("年度统计",null),
                 menuitem10: commonLogic.appcommonhandle("用例库",null),
@@ -423,6 +425,7 @@ const data: any = {
         build: build_zh_CN,
         testresult: testresult_zh_CN,
         testsuite: testsuite_zh_CN,
+        ibzplantempletdetail: ibzplantempletdetail_zh_CN,
         ibzproconfig: ibzproconfig_zh_CN,
         ibzprostory: ibzprostory_zh_CN,
         projectteam: projectteam_zh_CN,

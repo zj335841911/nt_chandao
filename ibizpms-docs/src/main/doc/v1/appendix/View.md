@@ -274,6 +274,7 @@
 |-|项目多表单编辑视图（需求相关）|DEMEDITVIEW9|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
 |-|所有项目|DEGRIDVIEW|&nbsp;|
+|-|计划模板详情表格视图|DEGRIDVIEW9|&nbsp;|
 |-|Bug|DEGRIDVIEW|&nbsp;|
 |-|路线图|DELISTVIEW|&nbsp;视图参数转换|
 |-|需求表格视图|DEGRIDVIEW|&nbsp;|
@@ -291,6 +292,7 @@
 |-|我的收藏|DETABEXPVIEW|&nbsp;|
 |-|发布下属需求数据多项选择视图|DEMPICKUPVIEW|&nbsp;|
 |-|测试模块编辑视图|DEEDITVIEW|&nbsp;|
+|-|产品计划模板编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试套件编辑视图|DEEDITVIEW9|&nbsp;|
 |-|用例库用例表格视图|DEGRIDVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
@@ -300,6 +302,7 @@
 |-|发布选项操作视图|DEOPTVIEW|&nbsp;|
 |-|项目任务导航视图|DETREEEXPVIEW|&nbsp;|
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|
+|-|汇报编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug编辑|DEEDITVIEW|&nbsp;主信息编辑|
 |-|指派任务|DEOPTVIEW|&nbsp;|
 |-|需求看板视图|DEKANBANVIEW|&nbsp;|
@@ -474,6 +477,7 @@ SRFNAVPARAM.project=%project%|
 |-|部门|DEGRIDVIEW|&nbsp;|
 |-|相关用例|DEGRIDVIEW9|&nbsp;|
 |-|产品统计编辑视图|DEEDITVIEW9|&nbsp;|
+|-|产品计划模板表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务甘特视图|DEGANTTVIEW|&nbsp;|
 |-|工时|DEOPTVIEW|&nbsp;|
@@ -578,6 +582,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|usertpl编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品统计表格视图|DEGRIDVIEW9|&nbsp;|
+|-|汇报表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
 |-|工时信息|DEEDITVIEW9|&nbsp;|

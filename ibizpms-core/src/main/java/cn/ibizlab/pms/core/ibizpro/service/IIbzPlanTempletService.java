@@ -28,7 +28,7 @@ public interface IIbzPlanTempletService extends IService<IbzPlanTemplet> {
     /**
      * 业务实体显示文本名称
      */
-    final static String OBJECT_TEXT_NAME = "产品计划模板";
+    final static String OBJECT_TEXT_NAME = "计划模板";
 
     /**
      * 业务实体资源路径名

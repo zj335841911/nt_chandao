@@ -161,6 +161,27 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: '61D98BC4-BCF2-4CD0-AF45-6693EF3CCC72',
+                	name: 'menuitem23',
+                	text: '计划模板',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '计划模板',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc7',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-plan-templet-grid-view',
+                	authtag:'Web-zentao-menuitem23',
+                }
+                ,
+                		        {
                 	id: '832B4ECF-B32B-48DD-B1EE-CE25A5A11DD7',
                 	name: 'menuitem22',
                 	text: '统计',
@@ -757,6 +778,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
                 { pathName: 'tabexpview', parameterName: 'tabexpview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc7',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzplantempletgridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzplantemplets/:ibzplantemplet?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
+                { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
         {

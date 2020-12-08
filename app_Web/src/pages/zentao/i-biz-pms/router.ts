@@ -569,6 +569,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-open-task-view/task-open-task-view.vue'),
                 },
                 {
+                    path: 'ibzplantemplets/:ibzplantemplet?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzplantemplet.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibz-plan-templet-edit-view/ibz-plan-templet-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/kanbanview/:kanbanview?',
                     meta: {
                         caption: 'entities.story.views.kanbanview.caption',
@@ -2665,6 +2679,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-project-grid-view9/product-project-grid-view9.vue'),
                 },
                 {
+                    path: 'ibzplantemplets/:ibzplantemplet?/ibzplantempletdetails/:ibzplantempletdetail?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.ibzplantempletdetail.views.gridview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
+                            { pathName: 'ibzplantempletdetails', parameterName: 'ibzplantempletdetail' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibz-plan-templet-detail-grid-view9/ibz-plan-templet-detail-grid-view9.vue'),
+                },
+                {
+                    path: 'ibzplantempletdetails/:ibzplantempletdetail?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.ibzplantempletdetail.views.gridview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzplantempletdetails', parameterName: 'ibzplantempletdetail' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibz-plan-templet-detail-grid-view9/ibz-plan-templet-detail-grid-view9.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/newediteditview9/:newediteditview9?',
                     meta: {
                         caption: 'entities.ibzcase.views.newediteditview9.caption',
@@ -3590,6 +3633,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-report-main-tab-exp-view/test-report-main-tab-exp-view.vue'),
+                },
+                {
+                    path: 'ibzplantemplets/:ibzplantemplet?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzplantemplet.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibz-plan-templet-grid-view/ibz-plan-templet-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/storytaskgroupgridview/:storytaskgroupgridview?',
@@ -9200,20 +9257,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-grid-view9-story-related/case-grid-view9-story-related.vue'),
                 },
                 {
-                    path: 'ibzdailies/:ibzdaily?/dailyinfocalendareditview/:dailyinfocalendareditview?',
-                    meta: {
-                        caption: 'entities.ibzdaily.views.dailyinfocalendareditview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-                            { pathName: 'dailyinfocalendareditview', parameterName: 'dailyinfocalendareditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-daily-daily-info-calendar-edit-view/ibz-daily-daily-info-calendar-edit-view.vue'),
-                },
-                {
                     path: 'projects/:project?/testtasks/:testtask?/editview9_info/:editview9_info?',
                     meta: {
                         caption: 'entities.testtask.views.editview9_info.caption',
@@ -9262,6 +9305,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-task-edit-view9-info/test-task-edit-view9-info.vue'),
+                },
+                {
+                    path: 'ibzdailies/:ibzdaily?/dailyinfocalendareditview/:dailyinfocalendareditview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.dailyinfocalendareditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailyinfocalendareditview', parameterName: 'dailyinfocalendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-info-calendar-edit-view/ibz-daily-daily-info-calendar-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/mainview9_related/:mainview9_related?',

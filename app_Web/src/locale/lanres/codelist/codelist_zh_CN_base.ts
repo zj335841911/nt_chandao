@@ -1196,6 +1196,12 @@ export default {
         "public": commonLogic.appcommonhandle("公开",null),
         "empty": commonLogic.appcommonhandle("",null),
     },
+    PlantempletType: {
+        "step": commonLogic.appcommonhandle("计划",null),
+        "group": commonLogic.appcommonhandle("父计划",null),
+        "item": commonLogic.appcommonhandle("子计划",null),
+        "empty": commonLogic.appcommonhandle("",null),
+    },
     Story__quickpacket: {
         "ALL": commonLogic.appcommonhandle("所有",null),
         "UNCLOSED": commonLogic.appcommonhandle("未关闭",null),

@@ -160,7 +160,7 @@ export default class CaseUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobPickupMDViewBase
      */
-    protected navContext: any = { 'task': '%testtask%' };
+    protected navContext: any = { 'task': '%task%' };
 
     /**
      * 视图导航参数
@@ -169,7 +169,7 @@ export default class CaseUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobPickupMDViewBase
      */
-    protected navParam: any = { 'task': '%testtask%' };
+    protected navParam: any = { 'task': '%task%' };
 
     /**
      * 视图模型数据

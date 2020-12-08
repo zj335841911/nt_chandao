@@ -14,7 +14,7 @@ import MainModel from './main-form-model';
 export default class MainService extends ControlService {
 
     /**
-     * 产品计划模板服务对象
+     * 计划模板服务对象
      *
      * @type {IbzPlanTempletService}
      * @memberof MainService

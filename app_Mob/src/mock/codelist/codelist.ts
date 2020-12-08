@@ -1429,6 +1429,48 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'ConfigManagementstatus',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'product_project',
+                label: '产品 - 项目',
+                text: '产品 - 项目',
+                value: 'product_project',
+                disabled: false,
+            },
+            {
+                id: 'product_iteration',
+                label: '产品 - 迭代',
+                text: '产品 - 迭代',
+                value: 'product_iteration',
+                disabled: false,
+            },
+            {
+                id: 'project_iteration',
+                label: '项目 - 迭代',
+                text: '项目 - 迭代',
+                value: 'project_iteration',
+                disabled: false,
+            },
+            {
+                id: 'product_sprint',
+                label: '产品 - 冲刺',
+                text: '产品 - 冲刺',
+                value: 'product_sprint',
+                disabled: false,
+            },
+            {
+                id: 'project_sprint',
+                label: '项目 - 冲刺',
+                text: '项目 - 冲刺',
+                value: 'project_sprint',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Product__status',
         emptytext: '未定义',
         "codelisttype":"static",

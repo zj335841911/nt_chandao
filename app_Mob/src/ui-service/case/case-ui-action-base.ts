@@ -342,8 +342,8 @@ export default class CaseUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
+        let panelNavParam= { "id": "0", "versions": "%version%", "ids": "%id%", "task": "%testtask%" } ;
+        let panelNavContext= { "ids": "%id%", "task": "%testtask%", "id": "0 ", "versions": "%version%" } ;
         if(Util.typeOf(_args) == 'array' && _args.length > 0){
             _args = _args[0];
         }
@@ -351,7 +351,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
               container.closeView(null);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('case');
-            const response: any = await curUIService.LinkCase(_context, _params);
+            const response: any = await curUIService.MobLinkCase(_context, _params);
             if (response && response.status === 200) {
                 this.notice.success('关联用例成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {

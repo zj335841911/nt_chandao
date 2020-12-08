@@ -113,6 +113,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '06f1f232ce217863bf45ddc1b727d0a8',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzPlanTempletDetailGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '07004de8a7d23e97b76460f888c8b290',
             viewmodule: 'zentao',
             viewname: 'BugPlanSubGridView',
@@ -244,6 +253,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '0681bc3d1ffa8e147640ab0dd005d3b5',
+            ],
+        },
+        {
+            viewtag: '0c85027ec13bfdd00f46a4b2ec6f7430',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzPlanTempletEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '06f1f232ce217863bf45ddc1b727d0a8',
             ],
         },
         {
@@ -620,10 +639,11 @@ export const viewstate: any = {
                 'fc0c3502b2833faa9f93600f1fc282c0',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
-                '7f0821e7efe42bbf91090b525b05c96d',
                 'b9e8e61038ab3fcb99e9ff5ab0888fa3',
+                '7f0821e7efe42bbf91090b525b05c96d',
                 '4fcd2a15ff88a97425e1ab1cadc5eb9f',
                 '7c79a923d0cdd1a5bc41a34367809077',
+                '5df2233b712eaa394f21be39b5807181',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
                 'e698418f007d36b627d6af23c1042f31',
             ],
@@ -1886,6 +1906,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5df2233b712eaa394f21be39b5807181',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzPlanTempletGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0c85027ec13bfdd00f46a4b2ec6f7430',
+            ],
+        },
+        {
             viewtag: '5e8408526c67859b65aa66e614dd0b04',
             viewmodule: 'ibiz',
             viewname: 'BugStatsProductBugResolutionGridView',
@@ -2753,6 +2783,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '06f1f232ce217863bf45ddc1b727d0a8',
             ],
         },
         {

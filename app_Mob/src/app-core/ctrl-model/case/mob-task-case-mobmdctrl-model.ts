@@ -15,7 +15,16 @@ export class Mob_Task_CaseModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'id',
+			},
+			{
+				name: 'version',
+			},
+			{
 				name: 'pri',
+			},
+			{
+				name: 'task',
 			},
 			{
 				name: 'title',

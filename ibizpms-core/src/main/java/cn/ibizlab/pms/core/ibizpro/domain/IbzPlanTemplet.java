@@ -32,7 +32,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
- * 实体[产品计划模板]
+ * 实体[计划模板]
  */
 @Getter
 @Setter
@@ -108,6 +108,14 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     @JsonProperty("product")
     private Long product;
 
+
+    /**
+     * 计划模板详情
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail> ibzplantempletdetail;
 
 
     /**

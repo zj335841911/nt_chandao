@@ -1,9 +1,12 @@
-# 产品计划模板(IBZ_PLANTEMPLET)
+# 计划模板(IBZ_PLANTEMPLET)
 
   
 
 ## 关系
-无
+{% plantuml %}
+计划模板 *-- 计划模板详情 
+hide members
+{% endplantuml %}
 
 ## 属性
 
@@ -39,10 +42,20 @@
 | 行为    | 类型    |  说明  |
 | --------   |------------| ----- | 
 |Create|内置方法|&nbsp;|
+|CreateTemp|内置方法|&nbsp;|
+|CreateTempMajor|内置方法|&nbsp;|
 |Update|内置方法|&nbsp;|
+|UpdateTemp|内置方法|&nbsp;|
+|UpdateTempMajor|内置方法|&nbsp;|
 |Remove|内置方法|&nbsp;|
+|RemoveTemp|内置方法|&nbsp;|
+|RemoveTempMajor|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
+|GetTemp|内置方法|&nbsp;|
+|GetTempMajor|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
+|GetDraftTemp|内置方法|&nbsp;|
+|GetDraftTempMajor|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |Save|内置方法|&nbsp;|
 

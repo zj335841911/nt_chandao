@@ -7893,7 +7893,7 @@ FROM
 	`zt_user` t1) t1
 ```
 
-# **产品计划模板**(IBZ_PLANTEMPLET)
+# **计划模板**(IBZ_PLANTEMPLET)
 
 ### 数据查询(DEFAULT)<div id="IbzPlanTemplet_Default"></div>
 ```sql
@@ -7921,6 +7921,43 @@ t1.`PRODUCT`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_PLANTEMPLET` t1 
+
+```
+
+# **计划模板详情**(IBZ_PLANTEMPLETDETAIL)
+
+### 数据查询(DEFAULT)<div id="IbzPlanTempletDetail_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_PLANTEMPLETDETAILID`,
+t1.`IBZ_PLANTEMPLETDETAILNAME`,
+t1.`ORDER`,
+t1.`PLANCODE`,
+t1.`PLANTEMPLETID`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLETDETAIL` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzPlanTempletDetail_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DESC`,
+t1.`EXPECT`,
+t1.`IBZ_PLANTEMPLETDETAILID`,
+t1.`IBZ_PLANTEMPLETDETAILNAME`,
+t1.`ORDER`,
+t1.`PLANCODE`,
+t1.`PLANTEMPLETID`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLETDETAIL` t1 
 
 ```
 
@@ -8225,6 +8262,33 @@ t1.`SUBMITTIME`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 
+
+```
+### 我收到的汇报(MyReceived)<div id="IbzReportly_MyReceived"></div>
+```sql
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CONTENT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`DATE`,
+	t1.`IBZ_REPORTLYID`,
+	t1.`IBZ_REPORTLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`SUBMITTIME`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN` 
+FROM
+	`t_ibz_reportly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_REPORTLYID 
+	AND t11.objectType = 'reportly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
+(t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO )) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>
