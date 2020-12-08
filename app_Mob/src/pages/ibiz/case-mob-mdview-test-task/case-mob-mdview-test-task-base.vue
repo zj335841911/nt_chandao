@@ -246,7 +246,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      * @type {*}
      * @memberof CaseMobMDView_TestTaskBase
      */
-    protected navContext: any = { 'srfparentkey': '%testtask%' };
+    protected navContext: any = { 'task': '%srfparentkey%' };
 
     /**
      * 视图导航参数
@@ -255,7 +255,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      * @type {*}
      * @memberof CaseMobMDView_TestTaskBase
      */
-    protected navParam: any = { 'srfparentkey': '%testtask%' };
+    protected navParam: any = { 'task': '%srfparentkey%' };
 
     /**
      * 视图模型数据
