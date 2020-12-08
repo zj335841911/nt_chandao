@@ -24,6 +24,9 @@ export class Exp_TestTaskModel {
 				name: 'status1',
 			},
 			{
+				name: 'task',
+			},
+			{
 				name: 'lastrunresult',
 			},
 			{

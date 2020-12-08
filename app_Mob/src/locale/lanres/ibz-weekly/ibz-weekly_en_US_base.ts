@@ -173,14 +173,6 @@ export default {
 			tip: 'deuiaction1_mobsubmit',
 		},
 	},
-	mobtabexpviewrighttoolbar_toolbar: {
-	},
-	usr2mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("新建",null),
-			tip: 'deuiaction1',
-		},
-	},
 	usr2mobeditviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("编辑",null),
@@ -190,5 +182,13 @@ export default {
 			caption: commonLogic.appcommonhandle("提交",null),
 			tip: 'deuiaction2',
 		},
+	},
+	usr2mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("新建",null),
+			tip: 'deuiaction1',
+		},
+	},
+	mobtabexpviewrighttoolbar_toolbar: {
 	},
 };
