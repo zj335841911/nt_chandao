@@ -218,6 +218,8 @@
 
     * [运行生产系统](module/ibizpro/IBZProSystem.md) 
 
+    * [产品计划模板](module/ibizpro/IbzPlanTemplet.md) 
+
     * [系统配置表](module/ibizpro/IbzproConfig.md) 
 
   * [iBiz插件模块](module/ibizplugin.md) 

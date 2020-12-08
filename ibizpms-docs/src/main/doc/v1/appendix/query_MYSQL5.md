@@ -7847,6 +7847,33 @@ FROM
 	`zt_user` t1) t1
 ```
 
+# **产品计划模板**(IBZ_PLANTEMPLET)
+
+### 数据查询(DEFAULT)<div id="IbzPlanTemplet_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_PLANTEMPLETID`,
+t1.`IBZ_PLANTEMPLETNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLET` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzPlanTemplet_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_PLANTEMPLETID`,
+t1.`IBZ_PLANTEMPLETNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLET` t1 
+
+```
+
 # **项目相关成员**(IBZ_PROJECTMEMBER)
 
 ### DEFAULT(DEFAULT)<div id="IbzProjectMember_Default"></div>

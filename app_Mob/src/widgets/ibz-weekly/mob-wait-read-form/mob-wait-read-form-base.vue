@@ -272,36 +272,34 @@
 
 
 <app-form-item 
-    name='mailtopk' 
+    name='mailto' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="TOP" 
-    ref="mailtopk_item"  
-    :itemValue="this.data.mailtopk" 
-    v-show="detailsModel.mailtopk.visible" 
-    :itemRules="this.rules.mailtopk" 
-    :caption="$t('ibzweekly.mobwaitread_form.details.mailtopk')"  
+    ref="mailto_item"  
+    :itemValue="this.data.mailto" 
+    v-show="detailsModel.mailto.visible" 
+    :itemRules="this.rules.mailto" 
+    :caption="$t('ibzweekly.mobwaitread_form.details.mailto')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailtopk.disabled"
-    :error="detailsModel.mailtopk.error" 
+    :disabled="detailsModel.mailto.disabled"
+    :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-mpicker 
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
+    tag="UserRealName"
+    :disabled="detailsModel.mailto.disabled" 
     :data="data"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :disabled="detailsModel.mailtopk.disabled"
-    :value="data.mailtopk"
-    name="mailtopk"
     :context="context"
     :viewparams="viewparams"
-    :service="service"
-    deMajorField='personname'
-    deKeyField='sysemployee'
-    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange" 
-    style=""/>
-
+    :value="data.mailto"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.mailto = $event"/>
 </app-form-item>
 
 
@@ -740,12 +738,11 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
         plannextweek: null,
         comment: null,
         reportto: null,
-        mailtopk: null,
+        mailto: null,
         thisweektask: null,
         nextweektask: null,
         ibz_weeklyid: null,
         issubmit: null,
-        mailto: null,
         ibzweekly: null,
     };
 
@@ -927,7 +924,7 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
 , 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        mailtopk: new FormItemModel({ caption: '抄送给(选择)', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         thisweektask: new FormItemModel({ caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -936,8 +933,6 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
         ibz_weeklyid: new FormItemModel({ caption: '周报标识', detailType: 'FORMITEM', name: 'ibz_weeklyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1122,15 +1117,15 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 mailtopk 值
+     * 监控表单属性 mailto 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobWaitRead
      */
-    @Watch('data.mailtopk')
-    onMailtopkChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1181,18 +1176,6 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'issubmit', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 mailto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobWaitRead
-     */
-    @Watch('data.mailto')
-    onMailtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -1229,7 +1212,6 @@ export default class MobWaitReadBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 

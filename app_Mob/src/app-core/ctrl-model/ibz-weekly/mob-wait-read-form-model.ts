@@ -86,9 +86,9 @@ export class MobWaitReadModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'mailtopk',
-                prop: 'mailtopk',
-                dataType: 'TEXT',
+                name: 'mailto',
+                prop: 'mailto',
+                dataType: 'SMCODELIST',
             },
             {
                 name: 'thisweektask',
@@ -109,11 +109,6 @@ export class MobWaitReadModel {
                 name: 'issubmit',
                 prop: 'issubmit',
                 dataType: 'SSCODELIST',
-            },
-            {
-                name: 'mailto',
-                prop: 'mailto',
-                dataType: 'SMCODELIST',
             },
             {
                 name: 'ibzweekly',
