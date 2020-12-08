@@ -342,8 +342,8 @@ export default class CaseUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { "id": "0", "versions": "%version% ", "ids": "%id% ", "task": "%task% " } ;
-        let panelNavContext= { "ids": "%id% ", "task": "%task% ", "id": "0 ", "versions": "%version% " } ;
+        let panelNavParam= { "id": "0", "versions": "%version% ", "ids": "%id% ", "task": "%srfparentkey% " } ;
+        let panelNavContext= { "ids": "%id% ", "task": "%srfparentkey% ", "id": "0 ", "versions": "%version% " } ;
         if(Util.typeOf(_args) == 'array' && _args.length > 0){
             _args = _args[0];
         }
