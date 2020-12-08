@@ -95,7 +95,7 @@ export class ReportNewModel {
 	name: 'menuitem4',
 	text: '我收到的',
 	type: 'MENUITEM',
-	counterid: '',
+	counterid: 'myunreadreportcnt',
 	tooltip: '我收到的',
 	expanded: false,
 	separator: false,
