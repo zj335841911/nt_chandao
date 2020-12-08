@@ -156,46 +156,46 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
 
     @Transactional(rollbackFor = Exception.class)
     public IbzDaily createUserDaily(IbzDaily et) {
-        List<IbzReportRoleConfig> reportRoleConfigList = iIbzReportRoleConfigService.list(new QueryWrapper<IbzReportRoleConfig>().eq(ZTBaseHelper.FIELD_TYPE, StaticDict.ReportType.DAILY.getValue()).orderByDesc("updatedate"));
-        if (reportRoleConfigList.size() == 0 || reportRoleConfigList.get(0).getReportRole() == null) {
-            return et;
-        }
-        String[] roleIds = reportRoleConfigList.get(0).getReportRole().split(",");
-        for (String roleId : roleIds) {
-            SysUserRoleSearchContext sysUserRoleSearchContext = new SysUserRoleSearchContext();
-            sysUserRoleSearchContext.setN_sys_roleid_eq(roleId);
-            sysUserRoleSearchContext.setSize(100);
-            Page<SysUserRole> sysUserRoles = iSysUserRoleService.searchDefault(sysUserRoleSearchContext);
-            List<SysUserRole> sysUserRoleList = sysUserRoles.getContent();
-            if (sysUserRoleList.size() == 0) {
-                continue;
+        Timestamp now = ZTDateUtil.now();
+        String weekOfDate = getWeekOfDate(now);
+        if (!"星期六".equals(weekOfDate) && !"星期日".equals(weekOfDate)) {
+            List<IbzReportRoleConfig> reportRoleConfigList = iIbzReportRoleConfigService.list(new QueryWrapper<IbzReportRoleConfig>().eq(ZTBaseHelper.FIELD_TYPE, StaticDict.ReportType.DAILY.getValue()).orderByDesc("updatedate"));
+            if (reportRoleConfigList.size() == 0 || reportRoleConfigList.get(0).getReportRole() == null) {
+                return et;
             }
-            String account = "";
-            for (SysUserRole sysUserRole : sysUserRoleList) {
-                if (sysUserRole.getLoginname() == null) {
+            String[] roleIds = reportRoleConfigList.get(0).getReportRole().split(",");
+            for (String roleId : roleIds) {
+                SysUserRoleSearchContext sysUserRoleSearchContext = new SysUserRoleSearchContext();
+                sysUserRoleSearchContext.setN_sys_roleid_eq(roleId);
+                sysUserRoleSearchContext.setSize(100);
+                Page<SysUserRole> sysUserRoles = iSysUserRoleService.searchDefault(sysUserRoleSearchContext);
+                List<SysUserRole> sysUserRoleList = sysUserRoles.getContent();
+                if (sysUserRoleList.size() == 0) {
                     continue;
+                }
+                String account = "";
+                for (SysUserRole sysUserRole : sysUserRoleList) {
+                    if (sysUserRole.getLoginname() == null) {
+                        continue;
+                    }
+                    if ("".equals(account)) {
+                        account += sysUserRole.getLoginname();
+                        continue;
+                    }
+                    account += ";" + sysUserRole.getLoginname();
                 }
                 if ("".equals(account)) {
-                    account += sysUserRole.getLoginname();
                     continue;
                 }
-                account += ";" + sysUserRole.getLoginname();
-            }
-            if ("".equals(account)) {
-                continue;
-            }
-            SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
-            String notAccount = notAccount();
-            if (!"".equals(notAccount)) {
-                sysEmployeeSearchContext.setN_username_notin(notAccount);
-            }
-            sysEmployeeSearchContext.setN_username_in(account);
-            sysEmployeeSearchContext.setSize(1000);
-            Page<SysEmployee> page = iSysEmployeeService.searchDefault(sysEmployeeSearchContext);
-            List<SysEmployee> list = page.getContent();
-            Timestamp now = ZTDateUtil.now();
-            String weekOfDate = getWeekOfDate(now);
-            if (!"星期六".equals(weekOfDate) && !"星期日".equals(weekOfDate)) {
+                SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
+                String notAccount = notAccount();
+                if (!"".equals(notAccount)) {
+                    sysEmployeeSearchContext.setN_username_notin(notAccount);
+                }
+                sysEmployeeSearchContext.setN_username_in(account);
+                sysEmployeeSearchContext.setSize(1000);
+                Page<SysEmployee> page = iSysEmployeeService.searchDefault(sysEmployeeSearchContext);
+                List<SysEmployee> list = page.getContent();
                 for (SysEmployee sysEmployee : list) {
                     IbzDaily ibzDaily = new IbzDaily();
                     ibzDaily.setIbzdailyname(sysEmployee.getPersonname());
@@ -203,9 +203,20 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
                     ibzDaily.setDate(now);
                     ibzDaily.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
                     ibzDaily.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
-                    this.create(ibzDaily);
+                    this.create(getYesterdayPlans(et));
                 }
             }
+        }
+        return et;
+    }
+
+    //获取前一天的计划参与和明日工作
+    public IbzDaily getYesterdayPlans(IbzDaily et) {
+        List<IbzDaily> list = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 day),'%Y-%m-%d')"));
+        if (list.size() > 0) {
+            IbzDaily yesterdayIbzDaily = list.get(0);
+            et.setWorktoday(yesterdayIbzDaily.getPlanstomorrow());
+            et.setTodaytask(yesterdayIbzDaily.getTomorrowplanstask());
         }
         return et;
     }
