@@ -38,14 +38,28 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('ibz_reportlyname')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_reportlyname'" :label="$t('entities.ibzreportly.main_grid.columns.ibz_reportlyname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'ibz_reportlyname'" :label="$t('entities.ibzreportly.main_grid.columns.ibz_reportlyname')" :min-width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzreportly.main_grid.columns.ibz_reportlyname')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
+                        <app-column-link
+                            deKeyField="ibzreportly"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'ibz-reportly-reportly-detail-edit-view', height: 0,width: 0,title: $t('entities.ibzreportly.views.reportlydetaileditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+            { pathName: 'reportlydetaileditview', parameterName: 'reportlydetaileditview' }
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.ibz_reportlyname}}</span>
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
@@ -76,7 +90,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzreportly.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzreportly.main_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzreportly.main_grid.columns.uagridcolumn1')}}

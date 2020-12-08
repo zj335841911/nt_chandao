@@ -57,26 +57,6 @@ export default class ReportMainZSModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'finishedby',
-          prop: 'finishedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'FLOAT',
-        },
-        {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
@@ -105,6 +85,11 @@ export default class ReportMainZSModel {
           name: 'srfmstag',
         },
         {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',
@@ -121,9 +106,19 @@ export default class ReportMainZSModel {
           dataType: 'ACID',
         },
         {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
         },
         {
           name: 'isfavorites',
@@ -134,6 +129,11 @@ export default class ReportMainZSModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'finishedby',
+          prop: 'finishedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'status',

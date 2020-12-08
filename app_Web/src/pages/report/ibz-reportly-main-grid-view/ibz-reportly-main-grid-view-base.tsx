@@ -371,7 +371,38 @@ export class IbzReportlyMainGridViewBase extends GridViewBase {
      * @memberof IbzReportlyMainGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
+        const localContext: any = null;
+        const localViewParam: any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+        ];
+        const _this: any = this;
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
+        }
+        const view: any = {
+            viewname: 'ibz-reportly-reportly-detail-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.ibzreportly.views.reportlydetaileditview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
     }
 
 

@@ -6968,6 +6968,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-grid-view9-sub-story/story-grid-view9-sub-story.vue'),
                 },
                 {
+                    path: 'ibzreportlies/:ibzreportly?/reportlydetaileditview/:reportlydetaileditview?',
+                    meta: {
+                        caption: 'entities.ibzreportly.views.reportlydetaileditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+                            { pathName: 'reportlydetaileditview', parameterName: 'reportlydetaileditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-reportly-reportly-detail-edit-view/ibz-reportly-reportly-detail-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/testmaindetaileditview9/:testmaindetaileditview9?',
                     meta: {
                         caption: 'entities.case.views.testmaindetaileditview9.caption',

@@ -1137,6 +1137,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3a81cfd739313c5e2fa5a4ada539abed',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyReportlyDetailEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
             viewtag: '3a8aaf8bc175455ca2be6ace38f821a1',
             viewmodule: 'zentao',
             viewname: 'TaskTodoEditView',
@@ -3351,6 +3362,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '3a81cfd739313c5e2fa5a4ada539abed',
                 'eddd83b7db9892757420e886810dbfba',
             ],
         },

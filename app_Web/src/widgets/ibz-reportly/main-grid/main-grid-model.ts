@@ -47,6 +47,11 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
+          name: 'issubmit',
+          prop: 'issubmit',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'srfmajortext',
           prop: 'ibzreportlyname',
           dataType: 'TEXT',

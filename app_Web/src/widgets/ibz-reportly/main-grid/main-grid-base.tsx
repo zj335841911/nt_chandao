@@ -122,7 +122,7 @@ export class MainGridBase extends GridControlBase {
             label: '汇报名称',
             langtag: 'entities.ibzreportly.main_grid.columns.ibz_reportlyname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

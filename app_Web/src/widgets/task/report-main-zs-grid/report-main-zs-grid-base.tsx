@@ -195,42 +195,6 @@ export class ReportMainZSGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'assignedto',
-            label: '指派给',
-            langtag: 'entities.task.reportmainzs_grid.columns.assignedto',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'finishedby',
-            label: '完成者',
-            langtag: 'entities.task.reportmainzs_grid.columns.finishedby',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'estimate',
-            label: '预计',
-            langtag: 'entities.task.reportmainzs_grid.columns.estimate',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'consumed',
-            label: '消耗',
-            langtag: 'entities.task.reportmainzs_grid.columns.consumed',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'left',
             label: '剩余',
             langtag: 'entities.task.reportmainzs_grid.columns.left',
@@ -364,10 +328,6 @@ export class ReportMainZSGridBase extends GridControlBase {
         'projectname':false,
         'name':false,
         'status1':false,
-        'assignedto':false,
-        'finishedby':false,
-        'estimate':false,
-        'consumed':false,
         'left':false,
         'progressrate':false,
         'deadline':false,
@@ -456,22 +416,6 @@ export class ReportMainZSGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-            {
-                name: 'assignedto',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'finishedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
         ]);
     }
 
@@ -490,7 +434,7 @@ export class ReportMainZSGridBase extends GridControlBase {
     * @memberof ReportMainZSBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','productname','projectname','name','status1','assignedto','finishedby','estimate','consumed','left','progressrate','deadline'];
+        let allColumns:Array<any> = ['id','pri','productname','projectname','name','status1','left','progressrate','deadline'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -575,10 +519,6 @@ export class ReportMainZSGridBase extends GridControlBase {
                 projectname:'',
                 name:'',
                 status1:'',
-                assignedto:'',
-                finishedby:'',
-                estimate:'',
-                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',
@@ -612,10 +552,6 @@ export class ReportMainZSGridBase extends GridControlBase {
             projectname:'',
             name:'',
             status1:'',
-            assignedto:'',
-            finishedby:'',
-            estimate:'',
-            consumed:'',
             left:'',
             progressrate:'',
             deadline:'',
@@ -685,10 +621,6 @@ export class ReportMainZSGridBase extends GridControlBase {
                 projectname:'',
                 name:'',
                 status1:'',
-                assignedto:'',
-                finishedby:'',
-                estimate:'',
-                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',
