@@ -9,7 +9,7 @@ import zhCn from './lang/zh-CN';
 import vantZhCnLocale from 'vant/lib/locale/lang/zh-CN';
 
 const messages = {
-    'ZH-CN': Object.assign(vantZhCnLocale, zhCn),
+    'ZH-CN': Object.assign(vantZhCnLocale),
 };
 
 

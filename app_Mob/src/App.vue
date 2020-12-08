@@ -112,6 +112,9 @@ export default class App extends Vue {
      */
     public created(){
         this.setThirdPartyPath();
+        import('@/locale/lang/zh-CN').then((res:any) =>{
+            this.$i18n.setLocaleMessage('ZH-CN',res.default);
+        })
     }
 }
 </script>

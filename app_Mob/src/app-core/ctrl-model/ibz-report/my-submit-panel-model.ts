@@ -87,6 +87,9 @@ export class MySubmitModel {
       {
         name: 'submittime',
       },
+      {
+        name: 'reportlycnt',
+      },
     ]
   }
 

@@ -48,6 +48,9 @@ export default class ViewShell extends Vue {
     public created() {
         this.parseViewParam();
         this.$viewTool.setIndexViewParam(this.context);
+        import('@/locale/lang/zh-CN').then((res:any) =>{
+            this.$i18n.mergeLocaleMessage('ZH-CN',res.default);
+        })
     }
 
     /**

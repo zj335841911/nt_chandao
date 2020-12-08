@@ -25,6 +25,7 @@ export default {
     dailycnt: "未读日报数",
     monthlycnt: "未读月报数",
     submittime: "提交时间",
+    reportlycnt: "未读汇报数",
   },
 	views: {
 		mobmdview: {
