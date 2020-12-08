@@ -1,7 +1,7 @@
 import AuthService from '../auth-service';
 
 /**
- * 产品计划模板权限服务对象基类
+ * 计划模板权限服务对象基类
  *
  * @export
  * @class IbzPlanTempletAuthServiceBase

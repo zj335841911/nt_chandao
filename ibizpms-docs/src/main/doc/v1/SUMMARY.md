@@ -218,7 +218,9 @@
 
     * [运行生产系统](module/ibizpro/IBZProSystem.md) 
 
-    * [产品计划模板](module/ibizpro/IbzPlanTemplet.md) 
+    * [计划模板](module/ibizpro/IbzPlanTemplet.md) 
+
+    * [计划模板详情](module/ibizpro/IbzPlanTempletDetail.md) 
 
     * [系统配置表](module/ibizpro/IbzproConfig.md) 
 

@@ -7893,7 +7893,7 @@ FROM
 	`zt_user` t1) t1
 ```
 
-# **产品计划模板**(IBZ_PLANTEMPLET)
+# **计划模板**(IBZ_PLANTEMPLET)
 
 ### 数据查询(DEFAULT)<div id="IbzPlanTemplet_Default"></div>
 ```sql
@@ -7921,6 +7921,33 @@ t1.`PRODUCT`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_PLANTEMPLET` t1 
+
+```
+
+# **计划模板详情**(IBZ_PLANTEMPLETDETAIL)
+
+### 数据查询(DEFAULT)<div id="IbzPlanTempletDetail_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_PLANTEMPLETDETAILID`,
+t1.`IBZ_PLANTEMPLETDETAILNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLETDETAIL` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzPlanTempletDetail_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_PLANTEMPLETDETAILID`,
+t1.`IBZ_PLANTEMPLETDETAILNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_PLANTEMPLETDETAIL` t1 
 
 ```
 

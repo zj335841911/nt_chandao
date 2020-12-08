@@ -25,16 +25,16 @@ import org.springframework.beans.factory.annotation.Value;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
-import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTemplet;
-import cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletSearchContext;
-import cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletService;
+import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail;
+import cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletDetailSearchContext;
+import cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletDetailService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.ibizlab.pms.core.ibizpro.mapper.IbzPlanTempletMapper;
+import cn.ibizlab.pms.core.ibizpro.mapper.IbzPlanTempletDetailMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -42,44 +42,44 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 
 /**
- * 实体[计划模板] 服务对象接口实现
+ * 实体[计划模板详情] 服务对象接口实现
  */
 @Slf4j
-@Service("IbzPlanTempletServiceImpl")
-public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper, IbzPlanTemplet> implements IIbzPlanTempletService {
+@Service("IbzPlanTempletDetailServiceImpl")
+public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletDetailMapper, IbzPlanTempletDetail> implements IIbzPlanTempletDetailService {
 
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
-    public boolean create(IbzPlanTemplet et) {
+    public boolean create(IbzPlanTempletDetail et) {
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbzplantempletid()), et);
+        CachedBeanCopier.copy(get(et.getIbzplantempletdetailid()), et);
         return true;
     }
 
     @Override
     @Transactional
-    public void createBatch(List<IbzPlanTemplet> list) {
+    public void createBatch(List<IbzPlanTempletDetail> list) {
         this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
-    public boolean update(IbzPlanTemplet et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_plantempletid", et.getIbzplantempletid()))) {
+    public boolean update(IbzPlanTempletDetail et) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_plantempletdetailid", et.getIbzplantempletdetailid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbzplantempletid()), et);
+        CachedBeanCopier.copy(get(et.getIbzplantempletdetailid()), et);
         return true;
     }
 
     @Override
     @Transactional
-    public void updateBatch(List<IbzPlanTemplet> list) {
+    public void updateBatch(List<IbzPlanTempletDetail> list) {
         updateBatchById(list, batchSize);
     }
 
@@ -98,11 +98,11 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
 
     @Override
     @Transactional
-    public IbzPlanTemplet get(String key) {
-        IbzPlanTemplet et = getById(key);
+    public IbzPlanTempletDetail get(String key) {
+        IbzPlanTempletDetail et = getById(key);
         if (et == null) {
-            et = new IbzPlanTemplet();
-            et.setIbzplantempletid(key);
+            et = new IbzPlanTempletDetail();
+            et.setIbzplantempletdetailid(key);
         }
         else {
         }
@@ -110,17 +110,17 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
     }
 
     @Override
-    public IbzPlanTemplet getDraft(IbzPlanTemplet et) {
+    public IbzPlanTempletDetail getDraft(IbzPlanTempletDetail et) {
         return et;
     }
 
     @Override
-    public boolean checkKey(IbzPlanTemplet et) {
-        return (!ObjectUtils.isEmpty(et.getIbzplantempletid())) && (!Objects.isNull(this.getById(et.getIbzplantempletid())));
+    public boolean checkKey(IbzPlanTempletDetail et) {
+        return (!ObjectUtils.isEmpty(et.getIbzplantempletdetailid())) && (!Objects.isNull(this.getById(et.getIbzplantempletdetailid())));
     }
     @Override
     @Transactional
-    public boolean save(IbzPlanTemplet et) {
+    public boolean save(IbzPlanTempletDetail et) {
         if (!saveOrUpdate(et)) {
             return false;
         }
@@ -129,7 +129,7 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
 
     @Override
     @Transactional
-    public boolean saveOrUpdate(IbzPlanTemplet et) {
+    public boolean saveOrUpdate(IbzPlanTempletDetail et) {
         if (null == et) {
             return false;
         } else {
@@ -139,14 +139,14 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
 
     @Override
     @Transactional
-    public boolean saveBatch(Collection<IbzPlanTemplet> list) {
+    public boolean saveBatch(Collection<IbzPlanTempletDetail> list) {
         saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
-    public void saveBatch(List<IbzPlanTemplet> list) {
+    public void saveBatch(List<IbzPlanTempletDetail> list) {
         saveOrUpdateBatch(list, batchSize);
     }
 
@@ -156,9 +156,9 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
      * 查询集合 数据集
      */
     @Override
-    public Page<IbzPlanTemplet> searchDefault(IbzPlanTempletSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzPlanTemplet> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<IbzPlanTemplet>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    public Page<IbzPlanTempletDetail> searchDefault(IbzPlanTempletDetailSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzPlanTempletDetail> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzPlanTempletDetail>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 
@@ -192,15 +192,15 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
     }
 
     @Override
-    public List<IbzPlanTemplet> getIbzplantempletByIds(List<String> ids) {
+    public List<IbzPlanTempletDetail> getIbzplantempletdetailByIds(List<String> ids) {
          return this.listByIds(ids);
     }
 
     @Override
-    public List<IbzPlanTemplet> getIbzplantempletByEntities(List<IbzPlanTemplet> entities) {
+    public List<IbzPlanTempletDetail> getIbzplantempletdetailByEntities(List<IbzPlanTempletDetail> entities) {
         List ids =new ArrayList();
-        for(IbzPlanTemplet entity : entities){
-            Serializable id=entity.getIbzplantempletid();
+        for(IbzPlanTempletDetail entity : entities){
+            Serializable id=entity.getIbzplantempletdetailid();
             if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }

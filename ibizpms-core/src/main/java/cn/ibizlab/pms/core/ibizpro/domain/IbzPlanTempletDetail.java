@@ -32,33 +32,33 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
- * 实体[计划模板]
+ * 实体[计划模板详情]
  */
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_IBZ_PLANTEMPLET", resultMap = "IbzPlanTempletResultMap")
-public class IbzPlanTemplet extends EntityMP implements Serializable {
+@TableName(value = "T_IBZ_PLANTEMPLETDETAIL", resultMap = "IbzPlanTempletDetailResultMap")
+public class IbzPlanTempletDetail extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 产品计划模板标识
+     * 计划模板详情标识
      */
-    @DEField(name = "ibz_plantempletid", isKeyField = true)
-    @TableId(value = "ibz_plantempletid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzplantempletid")
-    @JsonProperty("ibzplantempletid")
-    private String ibzplantempletid;
+    @DEField(name = "ibz_plantempletdetailid", isKeyField = true)
+    @TableId(value = "ibz_plantempletdetailid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibzplantempletdetailid")
+    @JsonProperty("ibzplantempletdetailid")
+    private String ibzplantempletdetailid;
     /**
-     * 模板名称
+     * 计划模板详情名称
      */
-    @DEField(name = "ibz_plantempletname")
-    @TableField(value = "`ibz_plantempletname`")
-    @JSONField(name = "ibzplantempletname")
-    @JsonProperty("ibzplantempletname")
-    private String ibzplantempletname;
+    @DEField(name = "ibz_plantempletdetailname")
+    @TableField(value = "`ibz_plantempletdetailname`")
+    @JSONField(name = "ibzplantempletdetailname")
+    @JsonProperty("ibzplantempletdetailname")
+    private String ibzplantempletdetailname;
     /**
      * 建立人
      */
@@ -93,45 +93,15 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
-    /**
-     * 计划
-     */
-    @TableField(value = "`plans`")
-    @JSONField(name = "plans")
-    @JsonProperty("plans")
-    private String plans;
-    /**
-     * 产品
-     */
-    @TableField(value = "`product`")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private Long product;
 
 
 
     /**
-     * 设置 [模板名称]
+     * 设置 [计划模板详情名称]
      */
-    public void setIbzplantempletname(String ibzplantempletname) {
-        this.ibzplantempletname = ibzplantempletname;
-        this.modify("ibz_plantempletname", ibzplantempletname);
-    }
-
-    /**
-     * 设置 [计划]
-     */
-    public void setPlans(String plans) {
-        this.plans = plans;
-        this.modify("plans", plans);
-    }
-
-    /**
-     * 设置 [产品]
-     */
-    public void setProduct(Long product) {
-        this.product = product;
-        this.modify("product", product);
+    public void setIbzplantempletdetailname(String ibzplantempletdetailname) {
+        this.ibzplantempletdetailname = ibzplantempletdetailname;
+        this.modify("ibz_plantempletdetailname", ibzplantempletdetailname);
     }
 
 
@@ -144,7 +114,7 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
      */
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
-        this.reset("ibz_plantempletid");
+        this.reset("ibz_plantempletdetailid");
         return super.copyTo(targetEntity, bIncEmpty);
     }
 }

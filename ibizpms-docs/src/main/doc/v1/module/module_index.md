@@ -644,7 +644,10 @@ class 系统模板 {
 class 运行生产系统 {
 }
 
-class 产品计划模板 {
+class 计划模板 {
+}
+
+class 计划模板详情 {
 }
 
 class 系统配置表 {

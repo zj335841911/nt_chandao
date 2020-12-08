@@ -1,9 +1,9 @@
 # 服务接口-IBZ_PLANTEMPLET
 ## 接口说明
-产品计划模板
+计划模板
 
 ## 接口清单
-### 新建产品计划模板
+### 新建计划模板
 #### 访问路径
 /ibzplantemplets
 
@@ -13,15 +13,15 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 产品计划模板实体传输对象 |
+| 1 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 计划模板实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzPlanTempletDTO](#IbzPlanTempletDTO)：产品计划模板实体传输对象 |
+| 返回类型 | [IbzPlanTempletDTO](#IbzPlanTempletDTO)：计划模板实体传输对象 |
 
-### 批量新建产品计划模板
+### 批量新建计划模板
 #### 访问路径
 /ibzplantemplets/batch
 
@@ -31,7 +31,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantempletdtos | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)> | 产品计划模板实体传输对象列表 |
+| 1 | ibzplantempletdtos | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)> | 计划模板实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -39,7 +39,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 更新产品计划模板
+### 更新计划模板
 #### 访问路径
 /ibzplantemplets/{ibzplantemplet_id}
 
@@ -49,16 +49,16 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantemplet_id | String | 产品计划模板主键ID |
-| 2 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 产品计划模板实体传输对象 |
+| 1 | ibzplantemplet_id | String | 计划模板主键ID |
+| 2 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 计划模板实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzPlanTempletDTO](#IbzPlanTempletDTO)：产品计划模板实体传输对象 |
+| 返回类型 | [IbzPlanTempletDTO](#IbzPlanTempletDTO)：计划模板实体传输对象 |
 
-### 批量更新产品计划模板
+### 批量更新计划模板
 #### 访问路径
 /ibzplantemplets/batch
 
@@ -68,7 +68,7 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantempletdtos | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)> | 产品计划模板实体传输对象列表 |
+| 1 | ibzplantempletdtos | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)> | 计划模板实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -76,7 +76,7 @@ PUT
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 删除产品计划模板
+### 删除计划模板
 #### 访问路径
 /ibzplantemplets/{ibzplantemplet_id}
 
@@ -86,7 +86,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantemplet_id | String | 产品计划模板主键ID |
+| 1 | ibzplantemplet_id | String | 计划模板主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -94,7 +94,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量删除产品计划模板
+### 批量删除计划模板
 #### 访问路径
 /ibzplantemplets/batch
 
@@ -104,7 +104,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ids | List<String> | 产品计划模板主键ID列表 |
+| 1 | ids | List<String> | 计划模板主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -112,7 +112,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 获取产品计划模板
+### 获取计划模板
 #### 访问路径
 /ibzplantemplets/{ibzplantemplet_id}
 
@@ -122,15 +122,15 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantemplet_id | String | 产品计划模板主键ID |
+| 1 | ibzplantemplet_id | String | 计划模板主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzPlanTempletDTO](#IbzPlanTempletDTO)：产品计划模板实体传输对象 |
+| 返回类型 | [IbzPlanTempletDTO](#IbzPlanTempletDTO)：计划模板实体传输对象 |
 
-### 检查产品计划模板
+### 检查计划模板
 #### 访问路径
 /ibzplantemplets/checkkey
 
@@ -140,7 +140,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 产品计划模板实体传输对象 |
+| 1 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 计划模板实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -148,7 +148,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 保存产品计划模板
+### 保存计划模板
 #### 访问路径
 /ibzplantemplets/save
 
@@ -158,7 +158,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 产品计划模板实体传输对象 |
+| 1 | ibzplantempletdto | [IbzPlanTempletDTO](#IbzPlanTempletDTO) | 计划模板实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -166,7 +166,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量保存产品计划模板
+### 批量保存计划模板
 #### 访问路径
 /ibzplantemplets/savebatch
 
@@ -176,7 +176,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzplantempletdtos | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)> | 产品计划模板实体传输对象列表 |
+| 1 | ibzplantempletdtos | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)> | 计划模板实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -194,13 +194,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzPlanTempletSearchContext](#IbzPlanTempletSearchContext) | 产品计划模板查询条件对象 |
+| 1 | context | [IbzPlanTempletSearchContext](#IbzPlanTempletSearchContext) | 计划模板查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)>：产品计划模板实体传输对象列表 |
+| 返回类型 | List<[IbzPlanTempletDTO](#IbzPlanTempletDTO)>：计划模板实体传输对象列表 |
 
 ### 查询数据集
 #### 访问路径
@@ -212,13 +212,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzPlanTempletSearchContext](#IbzPlanTempletSearchContext) | 产品计划模板查询条件对象 |
+| 1 | context | [IbzPlanTempletSearchContext](#IbzPlanTempletSearchContext) | 计划模板查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[IbzPlanTempletDTO](#IbzPlanTempletDTO)>：产品计划模板实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[IbzPlanTempletDTO](#IbzPlanTempletDTO)>：计划模板实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ## 附录
 ### 数据类型说明

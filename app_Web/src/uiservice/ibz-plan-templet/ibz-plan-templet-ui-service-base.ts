@@ -6,7 +6,7 @@ import IbzPlanTempletService from '@/service/ibz-plan-templet/ibz-plan-templet-s
 import IbzPlanTempletAuthService from '@/authservice/ibz-plan-templet/ibz-plan-templet-auth-service';
 
 /**
- * 产品计划模板UI服务对象基类
+ * 计划模板UI服务对象基类
  *
  * @export
  * @class IbzPlanTempletUIServiceBase

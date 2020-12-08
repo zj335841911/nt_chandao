@@ -4,7 +4,7 @@ import IbzPlanTempletServiceBase from './ibz-plan-templet-service-base';
 
 
 /**
- * 产品计划模板服务对象
+ * 计划模板服务对象
  *
  * @export
  * @class IbzPlanTempletService

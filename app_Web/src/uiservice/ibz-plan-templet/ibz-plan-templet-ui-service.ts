@@ -1,7 +1,7 @@
 import IbzPlanTempletUIServiceBase from './ibz-plan-templet-ui-service-base';
 
 /**
- * 产品计划模板UI服务对象
+ * 计划模板UI服务对象
  *
  * @export
  * @class IbzPlanTempletUIService

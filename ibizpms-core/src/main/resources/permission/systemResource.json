@@ -1073,7 +1073,7 @@
     }
     ,    {
     "dename":"IbzPlanTemplet",
-    "delogicname":"产品计划模板",
+    "delogicname":"计划模板",
     "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],

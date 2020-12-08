@@ -1,4 +1,4 @@
-# 计划模板(IBZ_PLANTEMPLET)
+# 计划模板详情(IBZ_PLANTEMPLETDETAIL)
 
   
 
@@ -9,26 +9,22 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|产品计划模板标识|IBZ_PLANTEMPLETID|GUID|&nbsp;|
-|模板名称|IBZ_PLANTEMPLETNAME|TEXT|&nbsp;|
+|计划模板详情标识|IBZ_PLANTEMPLETDETAILID|GUID|&nbsp;|
+|计划模板详情名称|IBZ_PLANTEMPLETDETAILNAME|TEXT|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|计划|PLANS|SMCODELIST|&nbsp;|
-|产品|PRODUCT|BIGINT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|产品计划模板标识|默认规则|内容长度必须小于等于[100]|
-|模板名称|默认规则|内容长度必须小于等于[200]|
+|计划模板详情标识|默认规则|内容长度必须小于等于[100]|
+|计划模板详情名称|默认规则|内容长度必须小于等于[200]|
 |建立人|默认规则|内容长度必须小于等于[60]|
 |建立时间|默认规则|默认规则|
 |更新人|默认规则|内容长度必须小于等于[60]|
 |更新时间|默认规则|默认规则|
-|计划|默认规则|内容长度必须小于等于[2000]|
-|产品|默认规则|默认规则|
 
 ## 状态控制
 
@@ -55,8 +51,8 @@
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzPlanTemplet_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzPlanTemplet_View))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzPlanTempletDetail_Default))|否|&nbsp;|
+|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzPlanTempletDetail_View))|否|&nbsp;|
 
 * **数据集合**
 
@@ -67,7 +63,7 @@
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|模板名称(IBZ_PLANTEMPLETNAME)|LIKE|
+|计划模板详情名称(IBZ_PLANTEMPLETDETAILNAME)|LIKE|
 
 ## 导入模式
 无

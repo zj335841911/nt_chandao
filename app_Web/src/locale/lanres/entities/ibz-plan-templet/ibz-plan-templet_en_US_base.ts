@@ -13,7 +13,7 @@ export default {
   },
 	views: {
 		optionview: {
-			caption: commonLogic.appcommonhandle("产品计划模板",null),
+			caption: commonLogic.appcommonhandle("计划模板",null),
       		title: commonLogic.appcommonhandle("产品计划模板选项操作视图",null),
 		},
 	},

@@ -2449,7 +2449,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzplantempletoptionview": {
             "title": "产品计划模板选项操作视图",
-            "caption": "产品计划模板",
+            "caption": "计划模板",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "ibizpro",
             "viewname": "IbzPlanTempletOptionView",

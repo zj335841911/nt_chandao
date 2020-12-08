@@ -15,38 +15,38 @@ import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
-import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTemplet;
-import cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletSearchContext;
+import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail;
+import cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletDetailSearchContext;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * 实体[IbzPlanTemplet] 服务对象接口
+ * 实体[IbzPlanTempletDetail] 服务对象接口
  */
-public interface IIbzPlanTempletService extends IService<IbzPlanTemplet> {
+public interface IIbzPlanTempletDetailService extends IService<IbzPlanTempletDetail> {
 
     /**
      * 业务实体显示文本名称
      */
-    final static String OBJECT_TEXT_NAME = "计划模板";
+    final static String OBJECT_TEXT_NAME = "计划模板详情";
 
     /**
      * 业务实体资源路径名
      */
-    final static String OBJECT_SOURCE_PATH = "ibzplantemplets";
+    final static String OBJECT_SOURCE_PATH = "ibzplantempletdetails";
 
-    boolean create(IbzPlanTemplet et);
-    void createBatch(List<IbzPlanTemplet> list);
-    boolean update(IbzPlanTemplet et);
-    void updateBatch(List<IbzPlanTemplet> list);
+    boolean create(IbzPlanTempletDetail et);
+    void createBatch(List<IbzPlanTempletDetail> list);
+    boolean update(IbzPlanTempletDetail et);
+    void updateBatch(List<IbzPlanTempletDetail> list);
     boolean remove(String key);
     void removeBatch(Collection<String> idList);
-    IbzPlanTemplet get(String key);
-    IbzPlanTemplet getDraft(IbzPlanTemplet et);
-    boolean checkKey(IbzPlanTemplet et);
-    boolean save(IbzPlanTemplet et);
-    void saveBatch(List<IbzPlanTemplet> list);
-    Page<IbzPlanTemplet> searchDefault(IbzPlanTempletSearchContext context);
+    IbzPlanTempletDetail get(String key);
+    IbzPlanTempletDetail getDraft(IbzPlanTempletDetail et);
+    boolean checkKey(IbzPlanTempletDetail et);
+    boolean save(IbzPlanTempletDetail et);
+    void saveBatch(List<IbzPlanTempletDetail> list);
+    Page<IbzPlanTempletDetail> searchDefault(IbzPlanTempletDetailSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
@@ -62,8 +62,8 @@ public interface IIbzPlanTempletService extends IService<IbzPlanTemplet> {
      */
     boolean execute(String sql, Map param);
 
-    List<IbzPlanTemplet> getIbzplantempletByIds(List<String> ids);
-    List<IbzPlanTemplet> getIbzplantempletByEntities(List<IbzPlanTemplet> entities);
+    List<IbzPlanTempletDetail> getIbzplantempletdetailByIds(List<String> ids);
+    List<IbzPlanTempletDetail> getIbzplantempletdetailByEntities(List<IbzPlanTempletDetail> entities);
 }
 
 

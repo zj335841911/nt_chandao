@@ -72,7 +72,7 @@ pms-webapi
 | 58 | [用例库](1/IbzLib) | ibzlib |  |
 | 59 | [测试版本](1/TestTask) | testtask |  |
 | 60 | [汇报角色配置](1/IbzReportRoleConfig) | ibzreportroleconfig |  |
-| 61 | [产品计划模板](1/IbzPlanTemplet) | ibzplantemplet |  |
+| 61 | [计划模板](1/IbzPlanTemplet) | ibzplantemplet |  |
 | 62 | [系统角色](1/SysRole) | sysrole |  |
 | 63 | [平台产品](1/IBZProProduct) | ibzproproduct |  |
 | 64 | [项目统计](1/ProjectStats) | projectstats |  |

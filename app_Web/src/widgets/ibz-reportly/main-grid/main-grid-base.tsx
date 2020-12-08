@@ -131,7 +131,7 @@ export class MainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORTLY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Submit: { name: 'Submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        Submit: { name: 'Submit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORTLY_SUBMIT_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**

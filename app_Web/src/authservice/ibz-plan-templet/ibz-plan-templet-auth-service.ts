@@ -2,7 +2,7 @@ import IbzPlanTempletAuthServiceBase from './ibz-plan-templet-auth-service-base'
 
 
 /**
- * 产品计划模板权限服务对象
+ * 计划模板权限服务对象
  *
  * @export
  * @class IbzPlanTempletAuthService

@@ -1,7 +1,7 @@
 
-# 实体-计划模板(IBZ_PLANTEMPLET)
+# 实体-计划模板详情(IBZ_PLANTEMPLETDETAIL)
 ## 实体说明
-计划模板
+计划模板详情
 
 ## 所属模块
 [iBizPro模块](../ibizpro)
@@ -16,18 +16,16 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 1 | [产品计划模板标识](#属性-产品计划模板标识（IBZ_PLANTEMPLETID）) | IBZ_PLANTEMPLETID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
-| 2 | [模板名称](#属性-模板名称（IBZ_PLANTEMPLETNAME）) | IBZ_PLANTEMPLETNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 1 | [计划模板详情标识](#属性-计划模板详情标识（IBZ_PLANTEMPLETDETAILID）) | IBZ_PLANTEMPLETDETAILID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
+| 2 | [计划模板详情名称](#属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）) | IBZ_PLANTEMPLETDETAILNAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 3 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
 | 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
 | 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
 | 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
-| 7 | [计划](#属性-计划（PLANS）) | PLANS | 多项选择(文本值) | 否 | 否 | 是 |
-| 8 | [产品](#属性-产品（PRODUCT）) | PRODUCT | 大整型 | 否 | 否 | 是 |
 
-### 属性-产品计划模板标识（IBZ_PLANTEMPLETID）
+### 属性-计划模板详情标识（IBZ_PLANTEMPLETDETAILID）
 #### 属性说明
-产品计划模板标识
+计划模板详情标识
 
 - 是否是主键
 是
@@ -62,9 +60,9 @@ String
 #### 关系属性
 无
 
-### 属性-模板名称（IBZ_PLANTEMPLETNAME）
+### 属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）
 #### 属性说明
-模板名称
+计划模板详情名称
 
 - 是否是主键
 否
@@ -249,80 +247,6 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 无
 
-### 属性-计划（PLANS）
-#### 属性说明
-计划
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-多项选择(文本值)
-
-- Java类型
-String
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
-### 属性-产品（PRODUCT）
-#### 属性说明
-产品
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-大整型
-
-- Java类型
-Long
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
 
 ## 业务状态
 无
@@ -430,12 +354,12 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [模板名称（IBZ_PLANTEMPLETNAME）](#属性-模板名称（IBZ_PLANTEMPLETNAME）) |
+| 1 | [计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）](#属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [模板名称（IBZ_PLANTEMPLETNAME）](#属性-模板名称（IBZ_PLANTEMPLETNAME）) | `%like%` |
+| 1 | [计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）](#属性-计划模板详情名称（IBZ_PLANTEMPLETDETAILNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -459,13 +383,11 @@ Save
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
-t1.`IBZ_PLANTEMPLETID`,
-t1.`IBZ_PLANTEMPLETNAME`,
-t1.`PLANS`,
-t1.`PRODUCT`,
+t1.`IBZ_PLANTEMPLETDETAILID`,
+t1.`IBZ_PLANTEMPLETDETAILNAME`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
-FROM `T_IBZ_PLANTEMPLET` t1 
+FROM `T_IBZ_PLANTEMPLETDETAIL` t1 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -484,13 +406,11 @@ FROM `T_IBZ_PLANTEMPLET` t1
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
-t1.`IBZ_PLANTEMPLETID`,
-t1.`IBZ_PLANTEMPLETNAME`,
-t1.`PLANS`,
-t1.`PRODUCT`,
+t1.`IBZ_PLANTEMPLETDETAILID`,
+t1.`IBZ_PLANTEMPLETDETAILNAME`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
-FROM `T_IBZ_PLANTEMPLET` t1 
+FROM `T_IBZ_PLANTEMPLETDETAIL` t1 
 
 ```
 
