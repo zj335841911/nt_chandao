@@ -22,6 +22,31 @@ export default class ProductPlanService extends ProductPlanServiceBase {
     }
 
     /**
+     * ImportPlanTemplet接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async ImportPlanTemplet(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            context.productplan=0;
+            data.id=0;
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/importplantemplet`,data,isloading);
+
+            return res;
+        }
+        context.productplan=0;
+        data.id=0;
+        let res:any = Http.getInstance().post(`/productplans/${context.productplan}/importplantemplet`,data,isloading);
+        return res;
+    }
+
+    /**
      * GetEnd接口方法
      *
      * @param {*} [context={}]
