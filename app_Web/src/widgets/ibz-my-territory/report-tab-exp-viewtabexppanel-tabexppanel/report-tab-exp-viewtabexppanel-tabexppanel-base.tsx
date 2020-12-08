@@ -75,10 +75,10 @@ export class ReportTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContr
      * @memberof ReportTabExpViewtabexppanelBase
      */
     protected isInit: any = {
-        tabviewpanel4:  true ,
-        tabviewpanel:  false ,
+        tabviewpanel:  true ,
         tabviewpanel2:  false ,
         tabviewpanel3:  false ,
+        tabviewpanel4:  false ,
     }
 
     /**
@@ -88,7 +88,7 @@ export class ReportTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContr
      * @type {string}
      * @memberof ReportTabExpViewtabexppanelBase
      */
-    protected activatedTabViewPanel: string = 'tabviewpanel4';
+    protected activatedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 实体权限服务对象
@@ -106,7 +106,7 @@ export class ReportTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContr
      * @type {*}
      * @memberof ReportTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel4':{resourcetag:null,visible: true,disabled: false},'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel4':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕
