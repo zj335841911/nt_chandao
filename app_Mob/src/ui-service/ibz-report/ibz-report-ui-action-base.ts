@@ -231,8 +231,8 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
         };
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
-        let panelNavParam= { "thisweektask": "%thisweektask%", "nextweektask": "%nextweektask%" } ;
-        let panelNavContext= { "thisweektask": "%thisweektask%", "ibzweekly": "%ibzreport%", "nextweektask": "%nextweektask%" } ;
+        let panelNavParam= { } ;
+        let panelNavContext= { "ibzweekly": "%ibzreport%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const deResParameters: any[] = [];

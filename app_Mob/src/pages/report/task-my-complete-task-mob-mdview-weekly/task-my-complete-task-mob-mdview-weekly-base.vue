@@ -20,7 +20,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchThisWeekCompleteTaskZS" 
+            fetchAction="FetchThisWeekCompleteTaskMobZS" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
