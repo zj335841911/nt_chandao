@@ -35,8 +35,8 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibzreportlyid")
     @JsonProperty("ibzreportlyid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibzreportlyid;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long ibzreportlyid;
 
     /**
      * 属性 [IBZ_REPORTLYNAME]
@@ -83,6 +83,24 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
+    /**
+     * 属性 [CONTENT]
+     *
+     */
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String content;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String files;
+
 
     /**
      * 设置 [IBZ_REPORTLYNAME]
@@ -90,6 +108,14 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     public void setIbzreportlyname(String  ibzreportlyname){
         this.ibzreportlyname = ibzreportlyname ;
         this.modify("ibz_reportlyname",ibzreportlyname);
+    }
+
+    /**
+     * 设置 [CONTENT]
+     */
+    public void setContent(String  content){
+        this.content = content ;
+        this.modify("content",content);
     }
 
 

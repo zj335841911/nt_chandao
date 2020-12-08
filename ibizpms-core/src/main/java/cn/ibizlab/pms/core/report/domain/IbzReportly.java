@@ -47,10 +47,10 @@ public class IbzReportly extends EntityMP implements Serializable {
      * 汇报标识
      */
     @DEField(name = "ibz_reportlyid", isKeyField = true)
-    @TableId(value = "ibz_reportlyid", type = IdType.ASSIGN_UUID)
+    @TableId(value = "ibz_reportlyid", type = IdType.AUTO)
     @JSONField(name = "ibzreportlyid")
     @JsonProperty("ibzreportlyid")
-    private String ibzreportlyid;
+    private Long ibzreportlyid;
     /**
      * 汇报名称
      */
@@ -93,6 +93,20 @@ public class IbzReportly extends EntityMP implements Serializable {
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
+    /**
+     * 工作内容
+     */
+    @TableField(value = "`content`")
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    private String content;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
 
 
@@ -104,7 +118,19 @@ public class IbzReportly extends EntityMP implements Serializable {
         this.modify("ibz_reportlyname", ibzreportlyname);
     }
 
+    /**
+     * 设置 [工作内容]
+     */
+    public void setContent(String content) {
+        this.content = content;
+        this.modify("content", content);
+    }
 
+
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+        return IdWorker.getId();
+    }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
      * @param targetEntity 目标数据对象

@@ -156,7 +156,7 @@ export class ReportNewModel {
 	tooltip: '周报(待阅)',
 	expanded: false,
 	separator: false,
-	hidden: true,
+	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',

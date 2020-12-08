@@ -5,7 +5,7 @@
 
     <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
 	<select id="selectById"  resultMap="IbzReportlyResultMap" databaseId="mysql">
-        <![CDATA[select t1.* from (SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZ_REPORTLYID`, t1.`IBZ_REPORTLYNAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_REPORTLY` t1  ) t1 where ibz_reportlyid=#{id}]]>
+        <![CDATA[select t1.* from (SELECT t1.`CONTENT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZ_REPORTLYID`, t1.`IBZ_REPORTLYNAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_REPORTLY` t1  ) t1 where ibz_reportlyid=#{id}]]>
     </select>
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
@@ -33,7 +33,7 @@
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZ_REPORTLYID`, t1.`IBZ_REPORTLYNAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_REPORTLY` t1  
+		<![CDATA[ SELECT t1.`CONTENT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZ_REPORTLYID`, t1.`IBZ_REPORTLYNAME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_REPORTLY` t1  
 			]]>
     </sql>
 </mapper>

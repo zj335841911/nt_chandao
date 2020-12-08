@@ -8146,6 +8146,7 @@ FROM `T_IBZ_REPORTLY` t1
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>
 ```sql
 SELECT
+t1.`CONTENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`IBZ_REPORTLYID`,

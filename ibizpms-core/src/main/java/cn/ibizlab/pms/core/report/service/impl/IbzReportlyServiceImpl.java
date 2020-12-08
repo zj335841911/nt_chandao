@@ -85,20 +85,20 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
 
     @Override
     @Transactional
-    public boolean remove(String key) {
+    public boolean remove(Long key) {
         boolean result = removeById(key);
         return result;
     }
 
     @Override
     @Transactional
-    public void removeBatch(Collection<String> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzReportly get(String key) {
+    public IbzReportly get(Long key) {
         IbzReportly et = getById(key);
         if (et == null) {
             et = new IbzReportly();
@@ -192,7 +192,7 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
     }
 
     @Override
-    public List<IbzReportly> getIbzreportlyByIds(List<String> ids) {
+    public List<IbzReportly> getIbzreportlyByIds(List<Long> ids) {
          return this.listByIds(ids);
     }
 

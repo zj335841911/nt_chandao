@@ -39,9 +39,9 @@ public interface IIbzReportlyService extends IService<IbzReportly> {
     void createBatch(List<IbzReportly> list);
     boolean update(IbzReportly et);
     void updateBatch(List<IbzReportly> list);
-    boolean remove(String key);
-    void removeBatch(Collection<String> idList);
-    IbzReportly get(String key);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    IbzReportly get(Long key);
     IbzReportly getDraft(IbzReportly et);
     boolean checkKey(IbzReportly et);
     boolean save(IbzReportly et);
@@ -62,7 +62,7 @@ public interface IIbzReportlyService extends IService<IbzReportly> {
      */
     boolean execute(String sql, Map param);
 
-    List<IbzReportly> getIbzreportlyByIds(List<String> ids);
+    List<IbzReportly> getIbzreportlyByIds(List<Long> ids);
     List<IbzReportly> getIbzreportlyByEntities(List<IbzReportly> entities);
 }
 
