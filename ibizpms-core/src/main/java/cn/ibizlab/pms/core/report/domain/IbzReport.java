@@ -32,7 +32,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
- * 实体[汇报]
+ * 实体[汇报汇总]
  */
 @Getter
 @Setter

@@ -54,6 +54,7 @@ import './entity/user-year-work-statss/user-year-work-statss';
 import './entity/ibizpro-plugins/ibizpro-plugins';
 import './entity/ibz-lib-case-step-tmps/ibz-lib-case-step-tmps';
 import './entity/projects/projects';
+import './entity/ibz-reportlys/ibz-reportlys';
 import './entity/historys/historys';
 import './entity/users/users';
 import './entity/doc-libs/doc-libs';

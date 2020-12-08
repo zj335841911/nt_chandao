@@ -236,9 +236,11 @@
 
     * [月报](module/report/IbzMonthly.md) 
 
-    * [汇报](module/report/IbzReport.md) 
+    * [汇报汇总](module/report/IbzReport.md) 
 
     * [汇报角色配置](module/report/IbzReportRoleConfig.md) 
+
+    * [汇报](module/report/IbzReportly.md) 
 
     * [周报](module/report/IbzWeekly.md) 
 
@@ -362,7 +364,7 @@
       * [我的周报](app/Mob/func/IbzWeeklyUsr2MobMDView.md)
       * [日报（我提交的）](app/Mob/func/IbzDailyDailyReportSubmitMobMDView.md)
       * [月报（我收到的）](app/Mob/func/IbzMonthlyMyReceivedMobMDView.md)
-      * [周报待阅](app/Mob/func/IbzWeeklyMobEditView.md)
+      * [周报（待阅）](app/Mob/func/IbzWeeklyMobEditView.md)
 
   * [iBiz软件生产管理](app/Web/app_index.md) 
 

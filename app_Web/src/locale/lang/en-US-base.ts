@@ -47,6 +47,7 @@ import useryearworkstats_en_US from '@locale/lanres/entities/user-year-work-stat
 import ibizproplugin_en_US from '@locale/lanres/entities/ibizpro-plugin/ibizpro-plugin_en_US';
 import ibzlibcasesteptmp_en_US from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
+import ibzreportly_en_US from '@locale/lanres/entities/ibz-reportly/ibz-reportly_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
 import user_en_US from '@locale/lanres/entities/user/user_en_US';
 import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
@@ -404,6 +405,7 @@ const data: any = {
         ibizproplugin: ibizproplugin_en_US,
         ibzlibcasesteptmp: ibzlibcasesteptmp_en_US,
         project: project_en_US,
+        ibzreportly: ibzreportly_en_US,
         history: history_en_US,
         user: user_en_US,
         doclib: doclib_en_US,

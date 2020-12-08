@@ -1233,6 +1233,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取移动端下周计划参与(汇报)
+#### 访问路径
+/subtasks/fetchnextweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 查询移动端下周计划参与(汇报)
+#### 访问路径
+/subtasks/searchnextweekcompletetaskmobzs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取本周完成的任务(汇报)
 #### 访问路径
 /subtasks/fetchnextweekcompletetaskzs
@@ -1398,6 +1434,42 @@ GET
 ### 查询本周完成的任务(汇报)
 #### 访问路径
 /subtasks/searchthisweekcompletetask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取移动端本周已完成任务(汇报)
+#### 访问路径
+/subtasks/fetchthisweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 查询移动端本周已完成任务(汇报)
+#### 访问路径
+/subtasks/searchthisweekcompletetaskmobzs
 
 #### 请求方法
 POST
@@ -2818,6 +2890,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取移动端下周计划参与(汇报)
+#### 访问路径
+/tasks/{task_id}/subtasks/fetchnextweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端下周计划参与(汇报)
+#### 访问路径
+/tasks/{task_id}/subtasks/searchnextweekcompletetaskmobzs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取本周完成的任务(汇报)
 #### 访问路径
 /tasks/{task_id}/subtasks/fetchnextweekcompletetaskzs
@@ -2992,6 +3102,44 @@ GET
 ### 根据查询本周完成的任务(汇报)
 #### 访问路径
 /tasks/{task_id}/subtasks/searchthisweekcompletetask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取移动端本周已完成任务(汇报)
+#### 访问路径
+/tasks/{task_id}/subtasks/fetchthisweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端本周已完成任务(汇报)
+#### 访问路径
+/tasks/{task_id}/subtasks/searchthisweekcompletetaskmobzs
 
 #### 请求方法
 POST
@@ -4419,6 +4567,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取移动端下周计划参与(汇报)
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端下周计划参与(汇报)
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/subtasks/searchnextweekcompletetaskmobzs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取本周完成的任务(汇报)
 #### 访问路径
 /stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekcompletetaskzs
@@ -4593,6 +4779,44 @@ GET
 ### 根据查询本周完成的任务(汇报)
 #### 访问路径
 /stories/{story_id}/tasks/{task_id}/subtasks/searchthisweekcompletetask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取移动端本周已完成任务(汇报)
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/subtasks/fetchthisweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端本周已完成任务(汇报)
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/subtasks/searchthisweekcompletetaskmobzs
 
 #### 请求方法
 POST
@@ -6020,6 +6244,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取移动端下周计划参与(汇报)
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/subtasks/fetchnextweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端下周计划参与(汇报)
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/subtasks/searchnextweekcompletetaskmobzs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取本周完成的任务(汇报)
 #### 访问路径
 /projects/{project_id}/tasks/{task_id}/subtasks/fetchnextweekcompletetaskzs
@@ -6194,6 +6456,44 @@ GET
 ### 根据查询本周完成的任务(汇报)
 #### 访问路径
 /projects/{project_id}/tasks/{task_id}/subtasks/searchthisweekcompletetask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取移动端本周已完成任务(汇报)
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/subtasks/fetchthisweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端本周已完成任务(汇报)
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/subtasks/searchthisweekcompletetaskmobzs
 
 #### 请求方法
 POST
@@ -7621,6 +7921,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取移动端下周计划参与(汇报)
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端下周计划参与(汇报)
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchnextweekcompletetaskmobzs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取本周完成的任务(汇报)
 #### 访问路径
 /products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekcompletetaskzs
@@ -7795,6 +8133,44 @@ GET
 ### 根据查询本周完成的任务(汇报)
 #### 访问路径
 /products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchthisweekcompletetask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取移动端本周已完成任务(汇报)
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchthisweekcompletetaskmobzs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询移动端本周已完成任务(汇报)
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchthisweekcompletetaskmobzs
 
 #### 请求方法
 POST

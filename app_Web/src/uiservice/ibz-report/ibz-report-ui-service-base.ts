@@ -6,7 +6,7 @@ import IbzReportService from '@/service/ibz-report/ibz-report-service';
 import IbzReportAuthService from '@/authservice/ibz-report/ibz-report-auth-service';
 
 /**
- * 汇报UI服务对象基类
+ * 汇报汇总UI服务对象基类
  *
  * @export
  * @class IbzReportUIServiceBase

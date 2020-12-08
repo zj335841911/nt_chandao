@@ -572,6 +572,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     /**
+     * 查询集合 移动端下周计划参与(汇报)
+     */
+    @Override
+    public Page<Task> searchNextWeekCompleteTaskMobZS(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekCompleteTaskMobZS(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 本周完成的任务(汇报)
      */
     @Override
@@ -613,6 +622,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     public Page<Task> searchThisWeekCompleteTask(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTask(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 移动端本周已完成任务(汇报)
+     */
+    @Override
+    public Page<Task> searchThisWeekCompleteTaskMobZS(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskMobZS(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

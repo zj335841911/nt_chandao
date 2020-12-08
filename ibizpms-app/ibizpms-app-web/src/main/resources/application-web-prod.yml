@@ -195,6 +195,10 @@ zuul:
       path: /projects/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_reportly:
+      path: /ibzreportlies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_history:
       path: /histories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

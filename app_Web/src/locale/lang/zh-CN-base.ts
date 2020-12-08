@@ -47,6 +47,7 @@ import useryearworkstats_zh_CN from '@locale/lanres/entities/user-year-work-stat
 import ibizproplugin_zh_CN from '@locale/lanres/entities/ibizpro-plugin/ibizpro-plugin_zh_CN';
 import ibzlibcasesteptmp_zh_CN from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_zh_CN';
 import project_zh_CN from '@locale/lanres/entities/project/project_zh_CN';
+import ibzreportly_zh_CN from '@locale/lanres/entities/ibz-reportly/ibz-reportly_zh_CN';
 import history_zh_CN from '@locale/lanres/entities/history/history_zh_CN';
 import user_zh_CN from '@locale/lanres/entities/user/user_zh_CN';
 import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
@@ -403,6 +404,7 @@ const data: any = {
         ibizproplugin: ibizproplugin_zh_CN,
         ibzlibcasesteptmp: ibzlibcasesteptmp_zh_CN,
         project: project_zh_CN,
+        ibzreportly: ibzreportly_zh_CN,
         history: history_zh_CN,
         user: user_zh_CN,
         doclib: doclib_zh_CN,

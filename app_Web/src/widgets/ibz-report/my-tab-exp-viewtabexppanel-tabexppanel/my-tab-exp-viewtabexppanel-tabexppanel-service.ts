@@ -14,7 +14,7 @@ import MyTabExpViewtabexppanelModel from './my-tab-exp-viewtabexppanel-tabexppan
 export default class MyTabExpViewtabexppanelService extends ControlService {
 
     /**
-     * 汇报服务对象
+     * 汇报汇总服务对象
      *
      * @type {IbzReportService}
      * @memberof MyTabExpViewtabexppanelService

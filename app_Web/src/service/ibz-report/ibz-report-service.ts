@@ -4,7 +4,7 @@ import IbzReportServiceBase from './ibz-report-service-base';
 
 
 /**
- * 汇报服务对象
+ * 汇报汇总服务对象
  *
  * @export
  * @class IbzReportService

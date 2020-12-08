@@ -86,6 +86,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibizproplugin', () => import('@/authservice/ibizpro-plugin/ibizpro-plugin-auth-service'));
         this.allAuthService.set('ibzlibcasesteptmp', () => import('@/authservice/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-auth-service'));
         this.allAuthService.set('project', () => import('@/authservice/project/project-auth-service'));
+        this.allAuthService.set('ibzreportly', () => import('@/authservice/ibz-reportly/ibz-reportly-auth-service'));
         this.allAuthService.set('history', () => import('@/authservice/history/history-auth-service'));
         this.allAuthService.set('user', () => import('@/authservice/user/user-auth-service'));
         this.allAuthService.set('doclib', () => import('@/authservice/doc-lib/doc-lib-auth-service'));

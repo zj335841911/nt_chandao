@@ -701,10 +701,13 @@ class 日报 {
 class 月报 {
 }
 
-class 汇报 {
+class 汇报汇总 {
 }
 
 class 汇报角色配置 {
+}
+
+class 汇报 {
 }
 
 class 周报 {

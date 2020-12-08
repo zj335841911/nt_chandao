@@ -1,4 +1,4 @@
-# 周报待阅
+# 周报（待阅）
 
 周报移动端编辑视图(IbzWeeklyMobEditView)
 
@@ -6,7 +6,7 @@
 
 digraph IbzWeeklyMobEditView {
 
-label="周报待阅";    
+label="周报（待阅）";    
 
 #rankdir=LR;
 
@@ -19,7 +19,7 @@ own [shape=none, margin=0,size="6,6", label=<
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
 </TR>
 <TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">周报待阅<BR/><BR/></TD>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">周报（待阅）<BR/><BR/></TD>
 </TR>
 </TABLE>
 >];

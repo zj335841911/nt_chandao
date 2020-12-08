@@ -35,7 +35,7 @@ import cn.ibizlab.pms.core.report.filter.IbzReportSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
-@Api(tags = {"汇报" })
+@Api(tags = {"汇报汇总" })
 @RestController("WebApi-ibzreport")
 @RequestMapping("")
 public class IbzReportResource {
@@ -48,7 +48,7 @@ public class IbzReportResource {
     public IbzReportMapping ibzreportMapping;
 
     @PreAuthorize("hasPermission(this.ibzreportMapping.toDomain(#ibzreportdto),'pms-IbzReport-Create')")
-    @ApiOperation(value = "新建汇报", tags = {"汇报" },  notes = "新建汇报")
+    @ApiOperation(value = "新建汇报汇总", tags = {"汇报汇总" },  notes = "新建汇报汇总")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports")
     public ResponseEntity<IbzReportDTO> create(@Validated @RequestBody IbzReportDTO ibzreportdto) {
         IbzReport domain = ibzreportMapping.toDomain(ibzreportdto);
@@ -58,7 +58,7 @@ public class IbzReportResource {
     }
 
     @PreAuthorize("hasPermission(this.ibzreportMapping.toDomain(#ibzreportdtos),'pms-IbzReport-Create')")
-    @ApiOperation(value = "批量新建汇报", tags = {"汇报" },  notes = "批量新建汇报")
+    @ApiOperation(value = "批量新建汇报汇总", tags = {"汇报汇总" },  notes = "批量新建汇报汇总")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<IbzReportDTO> ibzreportdtos) {
         ibzreportService.createBatch(ibzreportMapping.toDomain(ibzreportdtos));
@@ -67,7 +67,7 @@ public class IbzReportResource {
 
     @VersionCheck(entity = "ibzreport" , versionfield = "updatedate")
     @PreAuthorize("hasPermission(this.ibzreportService.get(#ibzreport_id),'pms-IbzReport-Update')")
-    @ApiOperation(value = "更新汇报", tags = {"汇报" },  notes = "更新汇报")
+    @ApiOperation(value = "更新汇报汇总", tags = {"汇报汇总" },  notes = "更新汇报汇总")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzreports/{ibzreport_id}")
     public ResponseEntity<IbzReportDTO> update(@PathVariable("ibzreport_id") Long ibzreport_id, @RequestBody IbzReportDTO ibzreportdto) {
 		IbzReport domain  = ibzreportMapping.toDomain(ibzreportdto);
@@ -78,7 +78,7 @@ public class IbzReportResource {
     }
 
     @PreAuthorize("hasPermission(this.ibzreportService.getIbzreportByEntities(this.ibzreportMapping.toDomain(#ibzreportdtos)),'pms-IbzReport-Update')")
-    @ApiOperation(value = "批量更新汇报", tags = {"汇报" },  notes = "批量更新汇报")
+    @ApiOperation(value = "批量更新汇报汇总", tags = {"汇报汇总" },  notes = "批量更新汇报汇总")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzreports/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<IbzReportDTO> ibzreportdtos) {
         ibzreportService.updateBatch(ibzreportMapping.toDomain(ibzreportdtos));
@@ -86,14 +86,14 @@ public class IbzReportResource {
     }
 
     @PreAuthorize("hasPermission(this.ibzreportService.get(#ibzreport_id),'pms-IbzReport-Remove')")
-    @ApiOperation(value = "删除汇报", tags = {"汇报" },  notes = "删除汇报")
+    @ApiOperation(value = "删除汇报汇总", tags = {"汇报汇总" },  notes = "删除汇报汇总")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzreports/{ibzreport_id}")
     public ResponseEntity<Boolean> remove(@PathVariable("ibzreport_id") Long ibzreport_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzreportService.remove(ibzreport_id));
     }
 
     @PreAuthorize("hasPermission(this.ibzreportService.getIbzreportByIds(#ids),'pms-IbzReport-Remove')")
-    @ApiOperation(value = "批量删除汇报", tags = {"汇报" },  notes = "批量删除汇报")
+    @ApiOperation(value = "批量删除汇报汇总", tags = {"汇报汇总" },  notes = "批量删除汇报汇总")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzreports/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         ibzreportService.removeBatch(ids);
@@ -101,7 +101,7 @@ public class IbzReportResource {
     }
 
     @PostAuthorize("hasPermission(this.ibzreportMapping.toDomain(returnObject.body),'pms-IbzReport-Get')")
-    @ApiOperation(value = "获取汇报", tags = {"汇报" },  notes = "获取汇报")
+    @ApiOperation(value = "获取汇报汇总", tags = {"汇报汇总" },  notes = "获取汇报汇总")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzreports/{ibzreport_id}")
     public ResponseEntity<IbzReportDTO> get(@PathVariable("ibzreport_id") Long ibzreport_id) {
         IbzReport domain = ibzreportService.get(ibzreport_id);
@@ -109,20 +109,20 @@ public class IbzReportResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "获取汇报草稿", tags = {"汇报" },  notes = "获取汇报草稿")
+    @ApiOperation(value = "获取汇报汇总草稿", tags = {"汇报汇总" },  notes = "获取汇报汇总草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzreports/getdraft")
     public ResponseEntity<IbzReportDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(ibzreportMapping.toDto(ibzreportService.getDraft(new IbzReport())));
     }
 
-    @ApiOperation(value = "检查汇报", tags = {"汇报" },  notes = "检查汇报")
+    @ApiOperation(value = "检查汇报汇总", tags = {"汇报汇总" },  notes = "检查汇报汇总")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody IbzReportDTO ibzreportdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzreportService.checkKey(ibzreportMapping.toDomain(ibzreportdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-MyReportINotSubmit-all')")
-    @ApiOperation(value = "我未提交的（计数器）", tags = {"汇报" },  notes = "我未提交的（计数器）")
+    @ApiOperation(value = "我未提交的（计数器）", tags = {"汇报汇总" },  notes = "我未提交的（计数器）")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/{ibzreport_id}/myreportinotsubmit")
     public ResponseEntity<IbzReportDTO> myReportINotSubmit(@PathVariable("ibzreport_id") Long ibzreport_id, @RequestBody IbzReportDTO ibzreportdto) {
         IbzReport domain = ibzreportMapping.toDomain(ibzreportdto);
@@ -133,7 +133,7 @@ public class IbzReportResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-ReportIReceived-all')")
-    @ApiOperation(value = "我收到的汇报（计数器）", tags = {"汇报" },  notes = "我收到的汇报（计数器）")
+    @ApiOperation(value = "我收到的汇报（计数器）", tags = {"汇报汇总" },  notes = "我收到的汇报（计数器）")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/{ibzreport_id}/reportireceived")
     public ResponseEntity<IbzReportDTO> reportIReceived(@PathVariable("ibzreport_id") Long ibzreport_id, @RequestBody IbzReportDTO ibzreportdto) {
         IbzReport domain = ibzreportMapping.toDomain(ibzreportdto);
@@ -144,14 +144,14 @@ public class IbzReportResource {
     }
 
     @PreAuthorize("hasPermission(this.ibzreportMapping.toDomain(#ibzreportdto),'pms-IbzReport-Save')")
-    @ApiOperation(value = "保存汇报", tags = {"汇报" },  notes = "保存汇报")
+    @ApiOperation(value = "保存汇报汇总", tags = {"汇报汇总" },  notes = "保存汇报汇总")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/save")
     public ResponseEntity<Boolean> save(@RequestBody IbzReportDTO ibzreportdto) {
         return ResponseEntity.status(HttpStatus.OK).body(ibzreportService.save(ibzreportMapping.toDomain(ibzreportdto)));
     }
 
     @PreAuthorize("hasPermission(this.ibzreportMapping.toDomain(#ibzreportdtos),'pms-IbzReport-Save')")
-    @ApiOperation(value = "批量保存汇报", tags = {"汇报" },  notes = "批量保存汇报")
+    @ApiOperation(value = "批量保存汇报汇总", tags = {"汇报汇总" },  notes = "批量保存汇报汇总")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<IbzReportDTO> ibzreportdtos) {
         ibzreportService.saveBatch(ibzreportMapping.toDomain(ibzreportdtos));
@@ -159,7 +159,7 @@ public class IbzReportResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchAllReport-all') and hasPermission(#context,'pms-IbzReport-Get')")
-	@ApiOperation(value = "获取汇报汇总", tags = {"汇报" } ,notes = "获取汇报汇总")
+	@ApiOperation(value = "获取汇报汇总", tags = {"汇报汇总" } ,notes = "获取汇报汇总")
     @RequestMapping(method= RequestMethod.GET , value="/ibzreports/fetchallreport")
 	public ResponseEntity<List<IbzReportDTO>> fetchAllReport(IbzReportSearchContext context) {
         Page<IbzReport> domains = ibzreportService.searchAllReport(context) ;
@@ -172,7 +172,7 @@ public class IbzReportResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchAllReport-all') and hasPermission(#context,'pms-IbzReport-Get')")
-	@ApiOperation(value = "查询汇报汇总", tags = {"汇报" } ,notes = "查询汇报汇总")
+	@ApiOperation(value = "查询汇报汇总", tags = {"汇报汇总" } ,notes = "查询汇报汇总")
     @RequestMapping(method= RequestMethod.POST , value="/ibzreports/searchallreport")
 	public ResponseEntity<Page<IbzReportDTO>> searchAllReport(@RequestBody IbzReportSearchContext context) {
         Page<IbzReport> domains = ibzreportService.searchAllReport(context) ;
@@ -181,7 +181,7 @@ public class IbzReportResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchDefault-all') and hasPermission(#context,'pms-IbzReport-Get')")
-	@ApiOperation(value = "获取数据集", tags = {"汇报" } ,notes = "获取数据集")
+	@ApiOperation(value = "获取数据集", tags = {"汇报汇总" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/ibzreports/fetchdefault")
 	public ResponseEntity<List<IbzReportDTO>> fetchDefault(IbzReportSearchContext context) {
         Page<IbzReport> domains = ibzreportService.searchDefault(context) ;
@@ -194,7 +194,7 @@ public class IbzReportResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchDefault-all') and hasPermission(#context,'pms-IbzReport-Get')")
-	@ApiOperation(value = "查询数据集", tags = {"汇报" } ,notes = "查询数据集")
+	@ApiOperation(value = "查询数据集", tags = {"汇报汇总" } ,notes = "查询数据集")
     @RequestMapping(method= RequestMethod.POST , value="/ibzreports/searchdefault")
 	public ResponseEntity<Page<IbzReportDTO>> searchDefault(@RequestBody IbzReportSearchContext context) {
         Page<IbzReport> domains = ibzreportService.searchDefault(context) ;
@@ -203,7 +203,7 @@ public class IbzReportResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchMyReAllReport-all') and hasPermission(#context,'pms-IbzReport-Get')")
-	@ApiOperation(value = "获取汇报汇总（我收到的）", tags = {"汇报" } ,notes = "获取汇报汇总（我收到的）")
+	@ApiOperation(value = "获取汇报汇总（我收到的）", tags = {"汇报汇总" } ,notes = "获取汇报汇总（我收到的）")
     @RequestMapping(method= RequestMethod.GET , value="/ibzreports/fetchmyreallreport")
 	public ResponseEntity<List<IbzReportDTO>> fetchMyReAllReport(IbzReportSearchContext context) {
         Page<IbzReport> domains = ibzreportService.searchMyReAllReport(context) ;
@@ -216,7 +216,7 @@ public class IbzReportResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchMyReAllReport-all') and hasPermission(#context,'pms-IbzReport-Get')")
-	@ApiOperation(value = "查询汇报汇总（我收到的）", tags = {"汇报" } ,notes = "查询汇报汇总（我收到的）")
+	@ApiOperation(value = "查询汇报汇总（我收到的）", tags = {"汇报汇总" } ,notes = "查询汇报汇总（我收到的）")
     @RequestMapping(method= RequestMethod.POST , value="/ibzreports/searchmyreallreport")
 	public ResponseEntity<Page<IbzReportDTO>> searchMyReAllReport(@RequestBody IbzReportSearchContext context) {
         Page<IbzReport> domains = ibzreportService.searchMyReAllReport(context) ;

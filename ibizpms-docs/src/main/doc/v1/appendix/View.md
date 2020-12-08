@@ -34,6 +34,7 @@
 |-|我的地盘分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
+|-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|Bug选项操作视图（解决Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（暂停）|DEMOBOPTVIEW|&nbsp;|
 |-|系统日志移动端地图视图|DEMOBMAPVIEW|&nbsp;|
@@ -212,6 +213,7 @@
 |-|任务选项操作视图（工时）|DEMOBOPTVIEW|&nbsp;|
 |-|发布移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|产品移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
+|-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|发布移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
