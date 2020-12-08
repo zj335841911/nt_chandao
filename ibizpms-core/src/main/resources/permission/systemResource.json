@@ -1115,7 +1115,7 @@
     "dename":"IbzReportly",
     "delogicname":"汇报",
     "sysmoudle":{"id":"REPORT","name":"汇报模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyReceived" , "name":"我收到的汇报"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"HaveRead" , "name":"已读" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Submit" , "name":"提交" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }

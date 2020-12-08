@@ -8288,6 +8288,7 @@ FROM
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.issubmit = '1' 
+(t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO )) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>
