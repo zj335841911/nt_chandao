@@ -109,10 +109,10 @@ export default class PlanTemplet {
         if(items && items.length >0){
             items.forEach((item: any) => {
                 let itemdata:any = {};
-                Object.assign(itemdata,{id:item.ibzplantempletname});
-                Object.assign(itemdata,{value:item.ibzplantempletname});
-                Object.assign(itemdata,{text:item.ibzplantempletid});
-                Object.assign(itemdata,{label:item.ibzplantempletid});
+                Object.assign(itemdata,{id:item.ibzplantempletid});
+                Object.assign(itemdata,{value:item.ibzplantempletid});
+                Object.assign(itemdata,{text:item.ibzplantempletname});
+                Object.assign(itemdata,{label:item.ibzplantempletname});
                 
                 
                 

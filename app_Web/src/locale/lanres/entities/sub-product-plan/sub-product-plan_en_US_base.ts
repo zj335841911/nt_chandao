@@ -23,6 +23,7 @@ export default {
     estimatecnt: commonLogic.appcommonhandle("工时数",null),
     beginstr: commonLogic.appcommonhandle("开始日期",null),
     endstr: commonLogic.appcommonhandle("结束日期",null),
+    plantemplet: commonLogic.appcommonhandle("计划模板",null),
   },
 	views: {
 		subplancreateview: {

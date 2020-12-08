@@ -173,4 +173,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     endstr?: any;
+
+    /**
+     * 计划模板
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    plantemplet?: any;
 }

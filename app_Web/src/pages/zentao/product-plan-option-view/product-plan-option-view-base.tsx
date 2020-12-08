@@ -7,7 +7,7 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 /**
- * 产品计划选项操作视图视图基类
+ * 导入计划模板视图基类
  *
  * @export
  * @class ProductPlanOptionViewBase

@@ -4336,8 +4336,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "e444135470a806822b9b950e15c42a3e"
         },
         "productplanoptionview": {
-            "title": "产品计划选项操作视图",
-            "caption": "产品计划",
+            "title": "导入计划模板",
+            "caption": "导入计划模板",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductPlanOptionView",

@@ -108,6 +108,13 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
             this.getSearchCond().eq("`isexpired`", n_isexpired_eq);
         }
     }
+	private String n_plantemplet_eq;//[计划模板]
+	public void setN_plantemplet_eq(String n_plantemplet_eq) {
+        this.n_plantemplet_eq = n_plantemplet_eq;
+        if(!ObjectUtils.isEmpty(this.n_plantemplet_eq)){
+            this.getSearchCond().eq("`plantemplet`", n_plantemplet_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -184,7 +184,7 @@ export class ImportPlanTempletEditFormBase extends EditFormControlBase {
 }),
 
         plantemplet: new FormItemModel({
-    caption: '模板名称', detailType: 'FORMITEM', name: 'plantemplet', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '计划模板', detailType: 'FORMITEM', name: 'plantemplet', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

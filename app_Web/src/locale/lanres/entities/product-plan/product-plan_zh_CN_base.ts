@@ -22,6 +22,7 @@ export default {
     estimatecnt: commonLogic.appcommonhandle("工时数",null),
     beginstr: commonLogic.appcommonhandle("开始日期",null),
     endstr: commonLogic.appcommonhandle("结束日期",null),
+    plantemplet: commonLogic.appcommonhandle("计划模板",null),
   },
 	views: {
 		maintabexp: {
@@ -49,8 +50,8 @@ export default {
       		title: commonLogic.appcommonhandle("产品计划编辑视图",null),
 		},
 		optionview: {
-			caption: commonLogic.appcommonhandle("产品计划",null),
-      		title: commonLogic.appcommonhandle("产品计划选项操作视图",null),
+			caption: commonLogic.appcommonhandle("导入计划模板",null),
+      		title: commonLogic.appcommonhandle("导入计划模板",null),
 		},
 	},
 	main_form: {
@@ -125,7 +126,7 @@ export default {
 			srfuf: commonLogic.appcommonhandle("",null), 
 			srfdeid: commonLogic.appcommonhandle("",null), 
 			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			plantemplet: commonLogic.appcommonhandle("模板名称",null), 
+			plantemplet: commonLogic.appcommonhandle("计划模板",null), 
 			id: commonLogic.appcommonhandle("编号",null), 
 		},
 		uiactions: {

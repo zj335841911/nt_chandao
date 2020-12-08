@@ -255,7 +255,7 @@ export default class ProductPlanUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'product-plan-option-view', 
-                height: 200, 
+                height: 150, 
                 width: 400,  
                 title: actionContext.$t('entities.productplan.views.optionview.title'),
             };

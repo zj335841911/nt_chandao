@@ -6,7 +6,7 @@ import { ProductPlanOptionViewBase } from './product-plan-option-view-base';
 import view_form from '@widgets/product-plan/import-plan-templet-form/import-plan-templet-form.vue';
 
 /**
- * 产品计划选项操作视图视图
+ * 导入计划模板视图
  *
  * @export
  * @class ProductPlanOptionView

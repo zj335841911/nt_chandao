@@ -52,6 +52,8 @@ export default class ImportPlanTempletModel {
       },
       {
         name: 'plantemplet',
+        prop: 'plantemplet',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'id',

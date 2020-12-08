@@ -26739,6 +26739,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PLANTEMPLET" ,
+    "codename":"Plantemplet",
+    "field_logic_name":"计划模板",
+    "entity_name":"ProductPlan",
+    "field_type":"SSCODELIST",
+    "dict":"PlanTemplet",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
