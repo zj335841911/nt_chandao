@@ -1468,7 +1468,8 @@ public class StaticDict {
         WEBHOOK("webhook","Webhook"),
         DAILY("daily","日报"),
         WEEKLY("weekly","周报"),
-        MONTHLY("monthly","月报");
+        MONTHLY("monthly","月报"),
+        REPORTLY("reportly","汇报");
 
         private String value;
         private String text;
@@ -3410,7 +3411,8 @@ public class StaticDict {
         WEBHOOK("webhook","Webhook"),
         DAILY("daily","日报"),
         WEEKLY("weekly","周报"),
-        MONTHLY("monthly","月报");
+        MONTHLY("monthly","月报"),
+        REPORTLY("reportly","汇报");
 
         private String value;
         private String text;
