@@ -93,6 +93,7 @@ export class UIServiceRegister {
         this.allUIService.set('productmodule', () => import('@/uiservice/product-module/product-module-ui-service'));
         this.allUIService.set('module', () => import('@/uiservice/module/module-ui-service'));
         this.allUIService.set('testmodule', () => import('@/uiservice/test-module/test-module-ui-service'));
+        this.allUIService.set('ibzplantemplet', () => import('@/uiservice/ibz-plan-templet/ibz-plan-templet-ui-service'));
         this.allUIService.set('sysuserrole', () => import('@/uiservice/sys-user-role/sys-user-role-ui-service'));
         this.allUIService.set('ibizprokeyword', () => import('@/uiservice/ibizpro-keyword/ibizpro-keyword-ui-service'));
         this.allUIService.set('doclibmodule', () => import('@/uiservice/doc-lib-module/doc-lib-module-ui-service'));

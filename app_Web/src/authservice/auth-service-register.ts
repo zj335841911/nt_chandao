@@ -93,6 +93,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('productmodule', () => import('@/authservice/product-module/product-module-auth-service'));
         this.allAuthService.set('module', () => import('@/authservice/module/module-auth-service'));
         this.allAuthService.set('testmodule', () => import('@/authservice/test-module/test-module-auth-service'));
+        this.allAuthService.set('ibzplantemplet', () => import('@/authservice/ibz-plan-templet/ibz-plan-templet-auth-service'));
         this.allAuthService.set('sysuserrole', () => import('@/authservice/sys-user-role/sys-user-role-auth-service'));
         this.allAuthService.set('ibizprokeyword', () => import('@/authservice/ibizpro-keyword/ibizpro-keyword-auth-service'));
         this.allAuthService.set('doclibmodule', () => import('@/authservice/doc-lib-module/doc-lib-module-auth-service'));

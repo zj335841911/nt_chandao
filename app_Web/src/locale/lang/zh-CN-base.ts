@@ -54,6 +54,7 @@ import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
+import ibzplantemplet_zh_CN from '@locale/lanres/entities/ibz-plan-templet/ibz-plan-templet_zh_CN';
 import sysuserrole_zh_CN from '@locale/lanres/entities/sys-user-role/sys-user-role_zh_CN';
 import ibizprokeyword_zh_CN from '@locale/lanres/entities/ibizpro-keyword/ibizpro-keyword_zh_CN';
 import doclibmodule_zh_CN from '@locale/lanres/entities/doc-lib-module/doc-lib-module_zh_CN';
@@ -411,6 +412,7 @@ const data: any = {
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
         testmodule: testmodule_zh_CN,
+        ibzplantemplet: ibzplantemplet_zh_CN,
         sysuserrole: sysuserrole_zh_CN,
         ibizprokeyword: ibizprokeyword_zh_CN,
         doclibmodule: doclibmodule_zh_CN,

@@ -565,6 +565,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|项目数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|任务统计表格视图|DEGRIDVIEW|&nbsp;|
+|-|产品计划模板选项操作视图|DEOPTVIEW|&nbsp;|
 |-|测试用例表格视图（报告关联用例）|DEGRIDVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|需求模块选项操作视图同步|DEOPTVIEW|&nbsp;|

@@ -61,6 +61,7 @@ import './entity/doc-libs/doc-libs';
 import './entity/product-modules/product-modules';
 import './entity/modules/modules';
 import './entity/test-modules/test-modules';
+import './entity/ibz-plan-templets/ibz-plan-templets';
 import './entity/sys-user-roles/sys-user-roles';
 import './entity/ibizpro-keywords/ibizpro-keywords';
 import './entity/doc-lib-modules/doc-lib-modules';

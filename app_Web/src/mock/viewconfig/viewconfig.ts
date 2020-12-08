@@ -2439,6 +2439,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskStatsUserFinishTaskSumGridView",
             "viewtag": "861a7b35cdff8ff000b5f90a9a4a12e9"
         },
+        "ibzplantempletoptionview": {
+            "title": "产品计划模板选项操作视图",
+            "caption": "产品计划模板",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzPlanTempletOptionView",
+            "viewtag": "86c8826366681d0e9ed5d6c3fc9908fd"
+        },
         "caseprojectreportlinkgridview": {
             "title": "测试用例表格视图（报告关联用例）",
             "caption": "关联用例",

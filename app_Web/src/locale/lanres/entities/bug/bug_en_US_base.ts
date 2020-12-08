@@ -1091,6 +1091,15 @@ export default {
 		uiactions: {
 		},
 	},
+	taskrelated_grid: {
+		columns: {
+			id: commonLogic.appcommonhandle("Bug编号",null),
+			title: commonLogic.appcommonhandle("Bug标题",null),
+		},
+		nodata:commonLogic.appcommonhandle("",null),
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			id: commonLogic.appcommonhandle("ID",null),
@@ -1326,15 +1335,6 @@ export default {
         copy: commonLogic.appcommonhandle("Copy",null),
         bug_bugfavorites: commonLogic.appcommonhandle("收藏",null),
         bug_bugnfavorites: commonLogic.appcommonhandle("取消收藏",null),
-		},
-	},
-	taskrelated_grid: {
-		columns: {
-			id: commonLogic.appcommonhandle("Bug编号",null),
-			title: commonLogic.appcommonhandle("Bug标题",null),
-		},
-		nodata:commonLogic.appcommonhandle("",null),
-		uiactions: {
 		},
 	},
 	bugseverity_project_chart: {
