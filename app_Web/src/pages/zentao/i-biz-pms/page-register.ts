@@ -317,6 +317,7 @@ export const PageComponents = {
         Vue.component('task-calendar-edit-view', () => import('@pages/zentao/task-calendar-edit-view/task-calendar-edit-view.vue'));
         Vue.component('test-result-medit-view9', () => import('@pages/zentao/test-result-medit-view9/test-result-medit-view9.vue'));
         Vue.component('task-tree-exp-view', () => import('@pages/zentao/task-tree-exp-view/task-tree-exp-view.vue'));
+        Vue.component('ibz-plan-templet-option-view', () => import('@pages/ibizpro/ibz-plan-templet-option-view/ibz-plan-templet-option-view.vue'));
         Vue.component('doc-grid-view-look-doc', () => import('@pages/ibiz/doc-grid-view-look-doc/doc-grid-view-look-doc.vue'));
         Vue.component('story-main-view9-edit-mode', () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'));
         Vue.component('project-module-tree-exp-view', () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'));

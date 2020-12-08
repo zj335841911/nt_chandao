@@ -114,6 +114,8 @@ export class ProductPlanGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction3_create: { name: 'deuiaction3_create', caption: '创建计划', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建计划', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
+        deuiaction3_addplantemplet: { name: 'deuiaction3_addplantemplet', caption: '添加模板', 'isShowCaption': true, 'isShowIcon': true, tooltip: '添加模板', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CREATE_BUT', uiaction: { tag: 'AddPlanTemplet', target: 'MULTIKEY', class: '' } },
+
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
@@ -195,6 +197,9 @@ export class ProductPlanGridViewBase extends GridViewBase {
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'deuiaction3_create')) {
             this.toolbar_deuiaction3_create_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction3_addplantemplet')) {
+            this.toolbar_deuiaction3_addplantemplet_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
@@ -289,6 +294,35 @@ export class ProductPlanGridViewBase extends GridViewBase {
         // 界面行为
         const curUIService:ProductPlanUIService  = new ProductPlanUIService();
         curUIService.ProductPlan_Create(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_addplantemplet_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductPlanUIService  = new ProductPlanUIService();
+        curUIService.ProductPlan_AddPlanTemplet(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
     }
 
     /**

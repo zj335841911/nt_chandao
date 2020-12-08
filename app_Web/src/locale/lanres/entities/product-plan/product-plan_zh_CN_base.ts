@@ -200,6 +200,10 @@ export default {
 			caption: commonLogic.appcommonhandle("创建计划",null),
 			tip: commonLogic.appcommonhandle("创建计划",null),
 		},
+		deuiaction3_addplantemplet: {
+			caption: commonLogic.appcommonhandle("添加模板",null),
+			tip: commonLogic.appcommonhandle("添加模板",null),
+		},
 		deuiaction2: {
 			caption: commonLogic.appcommonhandle("刷新",null),
 			tip: commonLogic.appcommonhandle("刷新",null),

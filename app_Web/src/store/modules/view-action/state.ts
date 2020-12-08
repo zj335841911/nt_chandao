@@ -2612,6 +2612,7 @@ export const viewstate: any = {
             refviews: [
                 'b9bdfc0e33d333ade00934745d9dc0ad',
                 'b9a10eb0b5a55e40c69c61387de5894a',
+                '86c8826366681d0e9ed5d6c3fc9908fd',
                 'aad9a5713d6828d3119b811b26915215',
                 '170c1d558f26cf37236390b28f8aca82',
                 '396ab8c5ef500f859d6591e77f094ecd',
@@ -2728,6 +2729,15 @@ export const viewstate: any = {
             viewtag: '861a7b35cdff8ff000b5f90a9a4a12e9',
             viewmodule: 'ibiz',
             viewname: 'TaskStatsUserFinishTaskSumGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '86c8826366681d0e9ed5d6c3fc9908fd',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzPlanTempletOptionView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -12288,6 +12288,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-tree-exp-view/task-tree-exp-view.vue'),
                 },
                 {
+                    path: 'ibzplantemplets/:ibzplantemplet?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.ibzplantemplet.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibz-plan-templet-option-view/ibz-plan-templet-option-view.vue'),
+                },
+                {
                     path: 'docs/:doc?/gridviewlookdoc/:gridviewlookdoc?',
                     meta: {
                         caption: 'entities.doc.views.gridviewlookdoc.caption',
