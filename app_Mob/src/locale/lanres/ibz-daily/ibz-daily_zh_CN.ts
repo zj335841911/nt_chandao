@@ -162,6 +162,10 @@ export default {
 		},
 	},
 	dailycreatemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
 	},
 	mymobmdviewrighttoolbar_toolbar: {
 		deuiaction1_mobcreate: {

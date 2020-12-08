@@ -12,7 +12,7 @@
     :caption="$t('ibzweekly.mobwaitread_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -32,18 +32,18 @@
     :disabled="detailsModel.account.disabled"
     :error="detailsModel.account.error" 
     :isEmptyCaption="true">
-        <app-mob-select 
-    tag="UserRealName"
+        <app-mob-span  
     codeListType="DYNAMIC" 
+    tag="UserRealName"
     :isCache="false" 
-    :disabled="detailsModel.account.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.account"  
+    v-if="data.account"
     :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.account = $event" />
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.account" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -63,12 +63,15 @@
     :disabled="detailsModel.date.disabled"
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
+        <app-mob-span  
+    v-if="data.date"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.date" 
-    displayFormat="YYYY-MM-DD HH:mm:ss"
-    :disabled="detailsModel.date.disabled"
-    @change="($event)=>this.data.date = $event"/>
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -83,7 +86,7 @@
     :caption="$t('ibzweekly.mobwaitread_form.details.grouppanel1')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -133,7 +136,7 @@
     :disabled="detailsModel.workthisweek.disabled"
     :error="detailsModel.workthisweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -149,7 +152,7 @@
     :caption="$t('ibzweekly.mobwaitread_form.details.grouppanel2')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -199,7 +202,7 @@
     :disabled="detailsModel.plannextweek.disabled"
     :error="detailsModel.plannextweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -220,13 +223,15 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.comment"
-    unit=""
-    :disabled="detailsModel.comment.disabled" 
-    @change="($event)=>this.data.comment = $event" />
+        <app-mob-span  
+    v-if="data.comment"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.comment" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -246,27 +251,18 @@
     :disabled="detailsModel.reportto.disabled"
     :error="detailsModel.reportto.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='reportto'
-    deMajorField='personname'
-    deKeyField='username'
-    valueitem='' 
-    style=""  
-    :formState="formState"
+        <app-mob-span  
+    codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.reportto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :itemParam='{ }' 
-    :disabled="detailsModel.reportto.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
     :value="data.reportto" 
-    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -286,20 +282,18 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
+        <app-mob-span  
+    codeListType="DYNAMIC" 
     tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+    :isCache="false" 
+    v-if="data.mailto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.mailto"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    :value="data.mailto" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -314,7 +308,7 @@
     :caption="$t('ibzweekly.mobwaitread_form.details.grouppanel3')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -358,7 +352,7 @@
     :caption="$t('ibzweekly.mobwaitread_form.details.grouppanel4')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">

@@ -91,6 +91,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'myreceivedmobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'mysubmitmobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'ibzmonthlies'});
@@ -98,6 +99,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'monthlymobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'myreceivedmobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'createmobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'myreceivedmobtabexpview',srfappde:'ibzmonthlies'});
     }
 
     /**

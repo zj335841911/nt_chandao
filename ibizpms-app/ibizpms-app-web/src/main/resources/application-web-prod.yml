@@ -223,6 +223,10 @@ zuul:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_plantemplet:
+      path: /ibzplantemplets/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     sys_user_role:
       path: /sysuserroles/**
       serviceId: ${ibiz.ref.service.ibzuaa-api:ibzuaa-api}

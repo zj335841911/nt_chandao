@@ -28,6 +28,9 @@ export default {
 		mobeditview: {
 			caption: '待阅',
 		},
+		myreceivedmobeditview: {
+			caption: '月报',
+		},
 		maininfomobeditview: {
 			caption: '月报',
 		},
@@ -47,6 +50,9 @@ export default {
 			caption: '月报',
 		},
 		createmobeditview: {
+			caption: '月报',
+		},
+		myreceivedmobtabexpview: {
 			caption: '月报',
 		},
 	},

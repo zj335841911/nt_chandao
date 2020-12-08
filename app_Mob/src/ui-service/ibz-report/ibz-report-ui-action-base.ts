@@ -324,7 +324,7 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'maininfomobtabexpview', parameterName: 'maininfomobtabexpview' },
+            { pathName: 'myreceivedmobtabexpview', parameterName: 'myreceivedmobtabexpview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

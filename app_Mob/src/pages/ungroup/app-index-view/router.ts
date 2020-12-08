@@ -195,20 +195,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
                 },
                 {
-                    path: 'sysemployees/:sysemployee?/usertreemobmpickupview',
-                    name: 'sysemployee_usertreemobmpickupview',
-                    meta: {
-                        caption: 'sysemployee.views.usertreemobmpickupview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
-                            { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-employee-user-tree-mob-mpickup-view/sys-employee-user-tree-mob-mpickup-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/closemoboptionview',
                     name: 'task_closemoboptionview',
                     meta: {
@@ -275,6 +261,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/usertreemobmpickupview',
+                    name: 'sysemployee_usertreemobmpickupview',
+                    meta: {
+                        caption: 'sysemployee.views.usertreemobmpickupview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-user-tree-mob-mpickup-view/sys-employee-user-tree-mob-mpickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobmdview',
@@ -2601,35 +2601,6 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-weekly-usr2-mob-tab-exp-view/ibz-weekly-usr2-mob-tab-exp-view.vue'),
                 },
                 {
-                    path: 'sysupdatelogs/:sysupdatelog?/sysupdatefeatures/:sysupdatefeatures?/mobeditview',
-                    name: 'sysupdatefeatures_mobeditview',
-                    meta: {
-                        caption: 'sysupdatefeatures.views.mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
-                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/sys-update-features-mob-edit-view/sys-update-features-mob-edit-view.vue'),
-                },
-                {
-                    path: 'sysupdatefeatures/:sysupdatefeatures?/mobeditview',
-                    name: 'sysupdatefeatures_mobeditview',
-                    meta: {
-                        caption: 'sysupdatefeatures.views.mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/sys-update-features-mob-edit-view/sys-update-features-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr3mobpickupmdview1',
                     name: 'bug_usr3mobpickupmdview1',
                     meta: {
@@ -2713,6 +2684,35 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-usr3-mob-pickup-mdview1/bug-usr3-mob-pickup-mdview1.vue'),
+                },
+                {
+                    path: 'sysupdatelogs/:sysupdatelog?/sysupdatefeatures/:sysupdatefeatures?/mobeditview',
+                    name: 'sysupdatefeatures_mobeditview',
+                    meta: {
+                        caption: 'sysupdatefeatures.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-features-mob-edit-view/sys-update-features-mob-edit-view.vue'),
+                },
+                {
+                    path: 'sysupdatefeatures/:sysupdatefeatures?/mobeditview',
+                    name: 'sysupdatefeatures_mobeditview',
+                    meta: {
+                        caption: 'sysupdatefeatures.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-features-mob-edit-view/sys-update-features-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmoboptionview',
@@ -3563,6 +3563,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'),
+                },
+                {
+                    path: 'ibzmonthlies/:ibzmonthly?/myreceivedmobeditview',
+                    name: 'ibzmonthly_myreceivedmobeditview',
+                    meta: {
+                        caption: 'ibzmonthly.views.myreceivedmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'myreceivedmobeditview', parameterName: 'myreceivedmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-my-received-mob-edit-view/ibz-monthly-my-received-mob-edit-view.vue'),
                 },
                 {
                     path: 'ibzdailies/:ibzdaily?/mobeditview',
@@ -8357,6 +8371,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/report/ibz-monthly-main-info-mob-tab-exp-view/ibz-monthly-main-info-mob-tab-exp-view.vue'),
+                },
+                {
+                    path: 'ibzmonthlies/:ibzmonthly?/myreceivedmobtabexpview',
+                    name: 'ibzmonthly_myreceivedmobtabexpview',
+                    meta: {
+                        caption: 'ibzmonthly.views.myreceivedmobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'myreceivedmobtabexpview', parameterName: 'myreceivedmobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-my-received-mob-tab-exp-view/ibz-monthly-my-received-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobpickupview',

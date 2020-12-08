@@ -13,6 +13,11 @@
             <ion-buttons slot="end">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
+                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
+                        <ion-icon class="ibiz-button-icon" name="checkmark-outline"> </ion-icon>
+                    
+                    </ion-button>
+                
                     </div>
                 </div>
             </ion-buttons>
@@ -288,6 +293,8 @@ export default class IbzDailyDailyCreateMobEditViewBase extends Vue {
     * @memberof IbzDailyDailyCreateMobEditView
     */
     public righttoolbarModels: any = {
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
+
     };
 
     
@@ -515,6 +522,48 @@ export default class IbzDailyDailyCreateMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzDailyDailyCreateMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'tbitem1')) {
+            this.righttoolbar_tbitem1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyDailyCreateMobEditViewBase
+     */
+    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
+    }
 
     /**
      * 第三方关闭视图

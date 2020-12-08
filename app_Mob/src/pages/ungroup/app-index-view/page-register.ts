@@ -2,8 +2,8 @@ export const PageComponents = {
     install(Vue: any, opt: any) {
                 Vue.component('task-cancel-mob-option-view', () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'));
         Vue.component('task-stop-mob-option-view', () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'));
-        Vue.component('sys-employee-user-tree-mob-mpickup-view', () => import('@pages/ou/sys-employee-user-tree-mob-mpickup-view/sys-employee-user-tree-mob-mpickup-view.vue'));
         Vue.component('task-close-mob-option-view', () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'));
+        Vue.component('sys-employee-user-tree-mob-mpickup-view', () => import('@pages/ou/sys-employee-user-tree-mob-mpickup-view/sys-employee-user-tree-mob-mpickup-view.vue'));
         Vue.component('bug-mob-mdview', () => import('@pages/ibiz/bug-mob-mdview/bug-mob-mdview.vue'));
         Vue.component('todo-new-mob-edit-view', () => import('@pages/ibiz/todo-new-mob-edit-view/todo-new-mob-edit-view.vue'));
         Vue.component('product-mob-pickup-view', () => import('@pages/ibiz/product-mob-pickup-view/product-mob-pickup-view.vue'));
@@ -63,8 +63,8 @@ export const PageComponents = {
         Vue.component('bug-usr4-mob-mdview', () => import('@pages/zentao/bug-usr4-mob-mdview/bug-usr4-mob-mdview.vue'));
         Vue.component('project-new-mob-edit-view', () => import('@pages/zentao/project-new-mob-edit-view/project-new-mob-edit-view.vue'));
         Vue.component('ibz-weekly-usr2-mob-tab-exp-view', () => import('@pages/report/ibz-weekly-usr2-mob-tab-exp-view/ibz-weekly-usr2-mob-tab-exp-view.vue'));
-        Vue.component('sys-update-features-mob-edit-view', () => import('@pages/ibiz/sys-update-features-mob-edit-view/sys-update-features-mob-edit-view.vue'));
         Vue.component('bug-usr3-mob-pickup-mdview1', () => import('@pages/zentao/bug-usr3-mob-pickup-mdview1/bug-usr3-mob-pickup-mdview1.vue'));
+        Vue.component('sys-update-features-mob-edit-view', () => import('@pages/ibiz/sys-update-features-mob-edit-view/sys-update-features-mob-edit-view.vue'));
         Vue.component('bug-ass-mob-option-view', () => import('@pages/ibiz/bug-ass-mob-option-view/bug-ass-mob-option-view.vue'));
         Vue.component('ibz-monthly-mob-edit-view', () => import('@pages/report/ibz-monthly-mob-edit-view/ibz-monthly-mob-edit-view.vue'));
         Vue.component('bug-mob-edit-view', () => import('@pages/ibiz/bug-mob-edit-view/bug-mob-edit-view.vue'));
@@ -84,6 +84,7 @@ export const PageComponents = {
         Vue.component('bug-usr3-mob-mpickup-view', () => import('@pages/zentao/bug-usr3-mob-mpickup-view/bug-usr3-mob-mpickup-view.vue'));
         Vue.component('project-close-mob-edit-view', () => import('@pages/ibiz/project-close-mob-edit-view/project-close-mob-edit-view.vue'));
         Vue.component('product-prod-mob-tab-exp-view', () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'));
+        Vue.component('ibz-monthly-my-received-mob-edit-view', () => import('@pages/report/ibz-monthly-my-received-mob-edit-view/ibz-monthly-my-received-mob-edit-view.vue'));
         Vue.component('ibz-daily-mob-edit-view', () => import('@pages/report/ibz-daily-mob-edit-view/ibz-daily-mob-edit-view.vue'));
         Vue.component('task-team-mob-medit-view9', () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'));
         Vue.component('product-test-mob-mdview', () => import('@pages/zentao/product-test-mob-mdview/product-test-mob-mdview.vue'));
@@ -197,6 +198,7 @@ export const PageComponents = {
         Vue.component('release-mob-edit-view', () => import('@pages/ibiz/release-mob-edit-view/release-mob-edit-view.vue'));
         Vue.component('test-suite-mob-edit-view', () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'));
         Vue.component('ibz-monthly-main-info-mob-tab-exp-view', () => import('@pages/report/ibz-monthly-main-info-mob-tab-exp-view/ibz-monthly-main-info-mob-tab-exp-view.vue'));
+        Vue.component('ibz-monthly-my-received-mob-tab-exp-view', () => import('@pages/report/ibz-monthly-my-received-mob-tab-exp-view/ibz-monthly-my-received-mob-tab-exp-view.vue'));
         Vue.component('build-mob-pickup-view', () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'));
     }
 };

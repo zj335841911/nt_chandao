@@ -93,6 +93,20 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
+    /**
+     * 计划
+     */
+    @TableField(value = "`plans`")
+    @JSONField(name = "plans")
+    @JsonProperty("plans")
+    private String plans;
+    /**
+     * 产品
+     */
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
 
 
 
@@ -102,6 +116,22 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     public void setIbzplantempletname(String ibzplantempletname) {
         this.ibzplantempletname = ibzplantempletname;
         this.modify("ibz_plantempletname", ibzplantempletname);
+    }
+
+    /**
+     * 设置 [计划]
+     */
+    public void setPlans(String plans) {
+        this.plans = plans;
+        this.modify("plans", plans);
+    }
+
+    /**
+     * 设置 [产品]
+     */
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
 
