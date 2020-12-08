@@ -92,6 +92,18 @@ export default {
 		uiactions: {
 		},
 	},
+	myreceived_grid: {
+		columns: {
+			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null),
+			ibz_reportlyname: commonLogic.appcommonhandle("汇报名称",null),
+			reportto: commonLogic.appcommonhandle("汇报给",null),
+			date: commonLogic.appcommonhandle("汇报日期",null),
+		},
+		nodata:commonLogic.appcommonhandle("",null),
+		uiactions: {
+			ibzreportly_haveread: commonLogic.appcommonhandle("已读",null),
+		},
+	},
 	main_grid: {
 		columns: {
 			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null),
@@ -104,18 +116,6 @@ export default {
 		uiactions: {
 			ibzreportly_edit: commonLogic.appcommonhandle("编辑",null),
 			ibzreportly_submit: commonLogic.appcommonhandle("提交",null),
-		},
-	},
-	myreceived_grid: {
-		columns: {
-			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null),
-			ibz_reportlyname: commonLogic.appcommonhandle("汇报名称",null),
-			reportto: commonLogic.appcommonhandle("汇报给",null),
-			date: commonLogic.appcommonhandle("汇报日期",null),
-		},
-		nodata:commonLogic.appcommonhandle("",null),
-		uiactions: {
-			ibzreportly_haveread: commonLogic.appcommonhandle("已读",null),
 		},
 	},
 	default_searchform: {
@@ -140,7 +140,5 @@ export default {
 			caption: commonLogic.appcommonhandle("导出",null),
 			tip: commonLogic.appcommonhandle("导出",null),
 		},
-	},
-	myreceivedgridviewtoolbar_toolbar: {
 	},
 };
