@@ -53,4 +53,28 @@ export interface IbzReportly {
      * @memberof IbzReportly
      */
     updatedate?: any;
+
+    /**
+     * 工作内容
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    content?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    files?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    reportto?: any;
 }

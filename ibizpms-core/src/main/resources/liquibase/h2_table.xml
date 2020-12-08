@@ -1324,7 +1324,7 @@
 
 
     <!--输出实体[IBZ_REPORTLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_reportly-19-46">
+    <changeSet author="zentao" id="tab-ibz_reportly-21-46">
         <createTable tableName="T_IBZ_REPORTLY">
                 <column name="IBZ_REPORTLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_REPORTLY_IBZ_REPORTLYID"/>
@@ -1340,6 +1340,8 @@
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
                 <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="REPORTTO" remarks="" type="VARCHAR(100)">
                 </column>
         </createTable>
     </changeSet>

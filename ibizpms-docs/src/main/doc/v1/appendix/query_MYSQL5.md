@@ -8138,6 +8138,7 @@ t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`IBZ_REPORTLYID`,
 t1.`IBZ_REPORTLYNAME`,
+t1.`REPORTTO`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 
@@ -8151,6 +8152,7 @@ t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`IBZ_REPORTLYID`,
 t1.`IBZ_REPORTLYNAME`,
+t1.`REPORTTO`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 
@@ -17293,7 +17295,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 find_in_set(t1.id,
-(select nextweektask from t_ibz_weekly where id = #{srfdatacontext.srfparentkey}
+(select nextweektask from t_ibz_weekly where id = ${srfdatacontext('srfparentkey')}
 )) 
 
 ```
@@ -17694,7 +17696,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 find_in_set(t1.id,
-(select thisweektask from t_ibz_weekly where id = #{srfdatacontext.srfparentkey}
+(select thisweektask from t_ibz_weekly where id = ${srfdatacontext('srfparentkey')}
 )) 
 
 ```

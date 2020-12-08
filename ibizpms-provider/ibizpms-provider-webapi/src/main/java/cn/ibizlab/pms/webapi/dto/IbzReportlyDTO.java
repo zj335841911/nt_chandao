@@ -101,6 +101,15 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String files;
 
+    /**
+     * 属性 [REPORTTO]
+     *
+     */
+    @JSONField(name = "reportto")
+    @JsonProperty("reportto")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String reportto;
+
 
     /**
      * 设置 [IBZ_REPORTLYNAME]
@@ -116,6 +125,14 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     public void setContent(String  content){
         this.content = content ;
         this.modify("content",content);
+    }
+
+    /**
+     * 设置 [REPORTTO]
+     */
+    public void setReportto(String  reportto){
+        this.reportto = reportto ;
+        this.modify("reportto",reportto);
     }
 
 

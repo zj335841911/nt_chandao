@@ -233,7 +233,8 @@ POST
 | 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 7 | content | String | 允许 | 工作内容 |
 | 8 | files | String | 允许 | 附件 |
-| 9 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 9 | reportto | String | 允许 | 属性 |
+| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
