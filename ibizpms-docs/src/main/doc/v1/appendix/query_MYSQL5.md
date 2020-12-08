@@ -17295,7 +17295,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 find_in_set(t1.id,
-(select nextweektask from t_ibz_weekly where id = ${srfdatacontext('srfparentkey')}
+(select nextweektask from t_ibz_weekly where ibz_weeklyid = ${srfdatacontext('srfparentkey')}
 )) 
 
 ```
@@ -17696,7 +17696,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 find_in_set(t1.id,
-(select thisweektask from t_ibz_weekly where id = ${srfdatacontext('srfparentkey')}
+(select thisweektask from t_ibz_weekly where ibz_weeklyid = ${srfdatacontext('srfparentkey')}
 )) 
 
 ```
