@@ -213,6 +213,12 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
         @Override
     @Transactional
+    public Case mobLinkCase(Case et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).mobLinkCase(et);
+    }
+
+        @Override
+    @Transactional
     public Case runCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).runCase(et);
     }

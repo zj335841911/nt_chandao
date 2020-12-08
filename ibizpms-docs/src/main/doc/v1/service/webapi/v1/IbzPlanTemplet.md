@@ -233,7 +233,25 @@ POST
 | 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 7 | plans | String | 允许 | 计划 |
 | 8 | product | Long | 允许 | 产品 |
-| 9 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 9 | ibzplantempletdetails | List<[IbzPlanTempletDetailDTO}](#IbzPlanTempletDetailDTO})> | 允许 | 计划模板详情 |
+| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
+
+#### IbzPlanTempletDetailDTO
+| 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | ibzplantempletdetailid | String | 不可 | 计划模板详情标识 |
+| 2 | ibzplantempletdetailname | String | 允许 | 计划模板详情名称 |
+| 3 | createman | String | 不可 | 建立人 |
+| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 5 | updateman | String | 不可 | 更新人 |
+| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 7 | plantempletid | String | 允许 | 产品计划模板标识 |
+| 8 | plancode | String | 允许 | 计划编号 |
+| 9 | order | Integer | 允许 | 排序 |
+| 10 | desc | String | 允许 | 计划名称 |
+| 11 | expect | String | 允许 | 描述 |
+| 12 | type | String | 允许 | 类型 |
+| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzPlanTempletSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

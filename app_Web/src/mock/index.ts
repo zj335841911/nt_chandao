@@ -72,6 +72,7 @@ import './entity/tasks/tasks';
 import './entity/builds/builds';
 import './entity/test-results/test-results';
 import './entity/test-suites/test-suites';
+import './entity/ibz-plan-templet-details/ibz-plan-templet-details';
 import './entity/ibzpro-configs/ibzpro-configs';
 import './entity/ibzpro-storys/ibzpro-storys';
 import './entity/project-teams/project-teams';

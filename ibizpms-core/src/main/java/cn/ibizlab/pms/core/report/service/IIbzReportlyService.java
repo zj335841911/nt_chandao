@@ -44,6 +44,7 @@ public interface IIbzReportlyService extends IService<IbzReportly> {
     IbzReportly get(Long key);
     IbzReportly getDraft(IbzReportly et);
     boolean checkKey(IbzReportly et);
+    IbzReportly haveRead(IbzReportly et);
     boolean save(IbzReportly et);
     void saveBatch(List<IbzReportly> list);
     IbzReportly submit(IbzReportly et);

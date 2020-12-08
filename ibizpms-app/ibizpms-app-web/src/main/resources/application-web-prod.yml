@@ -267,6 +267,10 @@ zuul:
       path: /testsuites/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_plantempletdetail:
+      path: /ibzplantempletdetails/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibzpro_config:
       path: /ibzproconfigs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

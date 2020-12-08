@@ -149,6 +149,16 @@
         "viewtag": "06ac640ed0240503d1d42ecd9a090787",
         "memo": ""
     },
+    "ibzplantempletdetailgridview9": {
+        "title": "计划模板详情表格视图",
+        "caption": "计划模板详情",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzPlanTempletDetailGridView9",
+        "viewfilename": "ibz-plan-templet-detail-grid-view9",
+        "viewtag": "06f1f232ce217863bf45ddc1b727d0a8",
+        "memo": ""
+    },
     "bugplansubgridview": {
         "title": "Bug",
         "caption": "Bug",
@@ -407,6 +417,16 @@
         "viewname": "TodoBaseEditView9",
         "viewfilename": "todo-base-edit-view9",
         "viewtag": "10ec8362fe511f35dcf896a048770011",
+        "memo": ""
+    },
+    "ibzreportlymyreceivedreportlydetaileditview": {
+        "title": "汇报编辑视图",
+        "caption": "汇报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyMyReceivedReportlyDetailEditView",
+        "viewfilename": "ibz-reportly-my-received-reportly-detail-edit-view",
+        "viewtag": "116ed64d7e34ab79dea49d712c451872",
         "memo": ""
     },
     "bugmaineditview": {
@@ -3167,6 +3187,16 @@
         "viewname": "ProductStatsGridView9",
         "viewfilename": "product-stats-grid-view9",
         "viewtag": "8c3d000c53ed0d5490a133f568d98097",
+        "memo": ""
+    },
+    "ibzreportlymyreceivedgridview": {
+        "title": "汇报表格视图",
+        "caption": "汇报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyMyReceivedGridView",
+        "viewfilename": "ibz-reportly-my-received-grid-view",
+        "viewtag": "8c6a61cf0b90e7424f8a758dee6643c3",
         "memo": ""
     },
     "bugmaindashboardview_link": {

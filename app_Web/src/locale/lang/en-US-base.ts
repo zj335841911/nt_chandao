@@ -65,6 +65,7 @@ import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
 import testsuite_en_US from '@locale/lanres/entities/test-suite/test-suite_en_US';
+import ibzplantempletdetail_en_US from '@locale/lanres/entities/ibz-plan-templet-detail/ibz-plan-templet-detail_en_US';
 import ibzproconfig_en_US from '@locale/lanres/entities/ibzpro-config/ibzpro-config_en_US';
 import ibzprostory_en_US from '@locale/lanres/entities/ibzpro-story/ibzpro-story_en_US';
 import projectteam_en_US from '@locale/lanres/entities/project-team/project-team_en_US';
@@ -424,6 +425,7 @@ const data: any = {
         build: build_en_US,
         testresult: testresult_en_US,
         testsuite: testsuite_en_US,
+        ibzplantempletdetail: ibzplantempletdetail_en_US,
         ibzproconfig: ibzproconfig_en_US,
         ibzprostory: ibzprostory_en_US,
         projectteam: projectteam_en_US,

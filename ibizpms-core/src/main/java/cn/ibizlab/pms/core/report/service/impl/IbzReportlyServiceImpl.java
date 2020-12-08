@@ -106,6 +106,12 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
     public boolean checkKey(IbzReportly et) {
         return (!ObjectUtils.isEmpty(et.getIbzreportlyid())) && (!Objects.isNull(this.getById(et.getIbzreportlyid())));
     }
+        @Override
+    @Transactional
+    public IbzReportly haveRead(IbzReportly et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzReportlyHelper.class).haveRead(et);
+    }
+
     @Override
     @Transactional
     public boolean save(IbzReportly et) {

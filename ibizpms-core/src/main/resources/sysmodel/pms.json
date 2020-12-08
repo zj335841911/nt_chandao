@@ -12927,7 +12927,7 @@
     {
     "fieldname":"IBZ_PLANTEMPLETDETAILNAME" ,
     "codename":"IbzPlanTempletDetailName",
-    "field_logic_name":"计划名称",
+    "field_logic_name":"计划模板详情名称",
     "entity_name":"IbzPlanTempletDetail",
     "field_type":"TEXT",
     "nullable":1,
@@ -13033,8 +13033,35 @@
     "major_field":0
     },
     {
+    "fieldname":"ORDER" ,
+    "codename":"Order",
+    "field_logic_name":"排序",
+    "entity_name":"IbzPlanTempletDetail",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
     "fieldname":"DESC" ,
     "codename":"Desc",
+    "field_logic_name":"计划名称",
+    "entity_name":"IbzPlanTempletDetail",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"EXPECT" ,
+    "codename":"Expect",
     "field_logic_name":"描述",
     "entity_name":"IbzPlanTempletDetail",
     "field_type":"HTMLTEXT",
@@ -13042,6 +13069,21 @@
     "physical_field":1,
     "data_type":"TEXT",
     "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TYPE" ,
+    "codename":"Type",
+    "field_logic_name":"类型",
+    "entity_name":"IbzPlanTempletDetail",
+    "field_type":"SSCODELIST",
+    "dict":"PlantempletType",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
     "key_field":0,
     "show_order":1000,
     "major_field":0

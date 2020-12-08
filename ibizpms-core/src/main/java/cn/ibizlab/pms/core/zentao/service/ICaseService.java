@@ -51,6 +51,7 @@ public interface ICaseService extends IService<Case> {
     Case getByTestTask(Case et);
     Case getTestTaskCntRun(Case et);
     Case linkCase(Case et);
+    Case mobLinkCase(Case et);
     Case runCase(Case et);
     Case runCases(Case et);
     boolean save(Case et);

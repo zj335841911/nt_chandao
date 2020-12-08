@@ -127,6 +127,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectStatsALLGridView",
             "viewtag": "06ac640ed0240503d1d42ecd9a090787"
         },
+        "ibzplantempletdetailgridview9": {
+            "title": "计划模板详情表格视图",
+            "caption": "计划模板详情",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzPlanTempletDetailGridView9",
+            "viewtag": "06f1f232ce217863bf45ddc1b727d0a8"
+        },
         "bugplansubgridview": {
             "title": "Bug",
             "caption": "Bug",
@@ -334,6 +342,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoBaseEditView9",
             "viewtag": "10ec8362fe511f35dcf896a048770011"
+        },
+        "ibzreportlymyreceivedreportlydetaileditview": {
+            "title": "汇报编辑视图",
+            "caption": "汇报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportlyMyReceivedReportlyDetailEditView",
+            "viewtag": "116ed64d7e34ab79dea49d712c451872"
         },
         "bugmaineditview": {
             "title": "Bug编辑",
@@ -2542,6 +2558,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductStatsGridView9",
             "viewtag": "8c3d000c53ed0d5490a133f568d98097"
+        },
+        "ibzreportlymyreceivedgridview": {
+            "title": "汇报表格视图",
+            "caption": "汇报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportlyMyReceivedGridView",
+            "viewtag": "8c6a61cf0b90e7424f8a758dee6643c3"
         },
         "bugmaindashboardview_link": {
             "title": "Bug数据看板视图",

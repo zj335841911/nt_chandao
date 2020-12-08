@@ -33,6 +33,9 @@ import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTemplet;
 import cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletService;
 import cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
+import cn.ibizlab.pms.core.ibizpro.filter.IbzPlanTempletDetailSearchContext;
+import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail;
+import cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletDetailService;
 
 @Slf4j
 @Api(tags = {"计划模板" })
@@ -46,6 +49,9 @@ public class IbzPlanTempletResource {
     @Autowired
     @Lazy
     public IbzPlanTempletMapping ibzplantempletMapping;
+
+    @Autowired
+    private IIbzPlanTempletDetailService ibzplantempletdetailService;
 
     @PreAuthorize("hasPermission(this.ibzplantempletMapping.toDomain(#ibzplantempletdto),'pms-IbzPlanTemplet-Create')")
     @ApiOperation(value = "新建计划模板", tags = {"计划模板" },  notes = "新建计划模板")

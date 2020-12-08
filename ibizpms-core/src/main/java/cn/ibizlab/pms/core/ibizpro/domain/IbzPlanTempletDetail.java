@@ -52,7 +52,7 @@ public class IbzPlanTempletDetail extends EntityMP implements Serializable {
     @JsonProperty("ibzplantempletdetailid")
     private String ibzplantempletdetailid;
     /**
-     * 计划名称
+     * 计划模板详情名称
      */
     @DEField(name = "ibz_plantempletdetailname")
     @TableField(value = "`ibz_plantempletdetailname`")
@@ -108,12 +108,34 @@ public class IbzPlanTempletDetail extends EntityMP implements Serializable {
     @JsonProperty("plancode")
     private String plancode;
     /**
-     * 描述
+     * 排序
+     */
+    @DEField(defaultValue = "10")
+    @TableField(value = "`order`")
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
+    /**
+     * 计划名称
      */
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
+    /**
+     * 描述
+     */
+    @TableField(value = "`expect`")
+    @JSONField(name = "expect")
+    @JsonProperty("expect")
+    private String expect;
+    /**
+     * 类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
     /**
      * 计划模板标识
@@ -126,7 +148,7 @@ public class IbzPlanTempletDetail extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [计划名称]
+     * 设置 [计划模板详情名称]
      */
     public void setIbzplantempletdetailname(String ibzplantempletdetailname) {
         this.ibzplantempletdetailname = ibzplantempletdetailname;
@@ -150,11 +172,35 @@ public class IbzPlanTempletDetail extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [描述]
+     * 设置 [排序]
+     */
+    public void setOrder(Integer order) {
+        this.order = order;
+        this.modify("order", order);
+    }
+
+    /**
+     * 设置 [计划名称]
      */
     public void setDesc(String desc) {
         this.desc = desc;
         this.modify("desc", desc);
+    }
+
+    /**
+     * 设置 [描述]
+     */
+    public void setExpect(String expect) {
+        this.expect = expect;
+        this.modify("expect", expect);
+    }
+
+    /**
+     * 设置 [类型]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
 

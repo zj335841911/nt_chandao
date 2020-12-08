@@ -65,6 +65,7 @@ import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
+import ibzplantempletdetail_zh_CN from '@locale/lanres/entities/ibz-plan-templet-detail/ibz-plan-templet-detail_zh_CN';
 import ibzproconfig_zh_CN from '@locale/lanres/entities/ibzpro-config/ibzpro-config_zh_CN';
 import ibzprostory_zh_CN from '@locale/lanres/entities/ibzpro-story/ibzpro-story_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/entities/project-team/project-team_zh_CN';
@@ -423,6 +424,7 @@ const data: any = {
         build: build_zh_CN,
         testresult: testresult_zh_CN,
         testsuite: testsuite_zh_CN,
+        ibzplantempletdetail: ibzplantempletdetail_zh_CN,
         ibzproconfig: ibzproconfig_zh_CN,
         ibzprostory: ibzprostory_zh_CN,
         projectteam: projectteam_zh_CN,

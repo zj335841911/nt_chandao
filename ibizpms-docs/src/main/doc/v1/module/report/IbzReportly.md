@@ -665,8 +665,9 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 8 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
+| 7 | [已读](#实体行为-已读（HaveRead）) | HaveRead | 用户自定义 | 后台及前台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -740,6 +741,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-已读（HaveRead）
+#### 说明
+已读
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -784,7 +797,8 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [我收到的汇报](#数据查询-我收到的汇报（MyReceived）) | MyReceived | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -814,6 +828,21 @@ t1.`SUBMITTIME`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 
+
+```
+### 数据查询-我收到的汇报（MyReceived）
+#### 说明
+我收到的汇报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 
 ```
 ### 数据查询-默认（全部数据）（View）

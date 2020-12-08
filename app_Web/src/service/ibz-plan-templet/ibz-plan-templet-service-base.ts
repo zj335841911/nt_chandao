@@ -74,6 +74,7 @@ export default class IbzPlanTempletServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/ibzplantemplets`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzplantempletdetails',JSON.stringify(res.data.ibzplantempletdetails?res.data.ibzplantempletdetails:[]));
         
         return res;
     }

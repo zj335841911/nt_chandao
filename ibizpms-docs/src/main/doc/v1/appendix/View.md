@@ -274,6 +274,7 @@
 |-|项目多表单编辑视图（需求相关）|DEMEDITVIEW9|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
 |-|所有项目|DEGRIDVIEW|&nbsp;|
+|-|计划模板详情表格视图|DEGRIDVIEW9|&nbsp;|
 |-|Bug|DEGRIDVIEW|&nbsp;|
 |-|路线图|DELISTVIEW|&nbsp;视图参数转换|
 |-|需求表格视图|DEGRIDVIEW|&nbsp;|

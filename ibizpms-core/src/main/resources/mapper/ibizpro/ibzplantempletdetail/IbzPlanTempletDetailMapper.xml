@@ -5,7 +5,7 @@
 
     <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
 	<select id="selectById"  resultMap="IbzPlanTempletDetailResultMap" databaseId="mysql">
-        <![CDATA[select t1.* from (SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`DESC`, t1.`IBZ_PLANTEMPLETDETAILID`, t1.`IBZ_PLANTEMPLETDETAILNAME`, t1.`PLANCODE`, t1.`PLANTEMPLETID`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLETDETAIL` t1  ) t1 where ibz_plantempletdetailid=#{id}]]>
+        <![CDATA[select t1.* from (SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`DESC`, t1.`EXPECT`, t1.`IBZ_PLANTEMPLETDETAILID`, t1.`IBZ_PLANTEMPLETDETAILNAME`, t1.`ORDER`, t1.`PLANCODE`, t1.`PLANTEMPLETID`, t1.`TYPE`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLETDETAIL` t1  ) t1 where ibz_plantempletdetailid=#{id}]]>
     </select>
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
@@ -38,12 +38,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZ_PLANTEMPLETDETAILID`, t1.`IBZ_PLANTEMPLETDETAILNAME`, t1.`PLANCODE`, t1.`PLANTEMPLETID`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLETDETAIL` t1  
+		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`IBZ_PLANTEMPLETDETAILID`, t1.`IBZ_PLANTEMPLETDETAILNAME`, t1.`ORDER`, t1.`PLANCODE`, t1.`PLANTEMPLETID`, t1.`TYPE`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLETDETAIL` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`DESC`, t1.`IBZ_PLANTEMPLETDETAILID`, t1.`IBZ_PLANTEMPLETDETAILNAME`, t1.`PLANCODE`, t1.`PLANTEMPLETID`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLETDETAIL` t1  
+		<![CDATA[ SELECT t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`DESC`, t1.`EXPECT`, t1.`IBZ_PLANTEMPLETDETAILID`, t1.`IBZ_PLANTEMPLETDETAILNAME`, t1.`ORDER`, t1.`PLANCODE`, t1.`PLANTEMPLETID`, t1.`TYPE`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_PLANTEMPLETDETAIL` t1  
 			]]>
     </sql>
 </mapper>

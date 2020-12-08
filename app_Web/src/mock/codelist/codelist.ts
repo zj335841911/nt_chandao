@@ -8651,6 +8651,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "PlantempletType",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "step",
+                label: "计划",
+                text: "计划",
+                "data":"",
+                "codename":"Step",
+                value: "step",
+                
+                disabled: false,
+            },
+            {
+                id: "group",
+                label: "父计划",
+                text: "父计划",
+                "data":"",
+                "codename":"Group",
+                value: "group",
+                
+                disabled: false,
+            },
+            {
+                id: "item",
+                label: "子计划",
+                text: "子计划",
+                "data":"",
+                "codename":"Item",
+                value: "item",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Story__quickpacket",
         emptytext: "未定义",
         "codelisttype":"static",

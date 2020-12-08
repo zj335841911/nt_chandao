@@ -22,6 +22,16 @@ public class IbzReportlyExService extends IbzReportlyServiceImpl {
     }
 
     /**
+     * [HaveRead:已读] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzReportly haveRead(IbzReportly et) {
+        return super.haveRead(et);
+    }
+    /**
      * [Submit:提交] 行为扩展
      * @param et
      * @return

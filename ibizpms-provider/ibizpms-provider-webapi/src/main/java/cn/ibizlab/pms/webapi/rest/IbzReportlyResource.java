@@ -121,6 +121,17 @@ public class IbzReportlyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzreportlyService.checkKey(ibzreportlyMapping.toDomain(ibzreportlydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-HaveRead-all')")
+    @ApiOperation(value = "已读", tags = {"汇报" },  notes = "已读")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzreportlies/{ibzreportly_id}/haveread")
+    public ResponseEntity<IbzReportlyDTO> haveRead(@PathVariable("ibzreportly_id") Long ibzreportly_id, @RequestBody IbzReportlyDTO ibzreportlydto) {
+        IbzReportly domain = ibzreportlyMapping.toDomain(ibzreportlydto);
+        domain.setIbzreportlyid(ibzreportly_id);
+        domain = ibzreportlyService.haveRead(domain);
+        ibzreportlydto = ibzreportlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlydto);
+    }
+
     @PreAuthorize("hasPermission(this.ibzreportlyMapping.toDomain(#ibzreportlydto),'pms-IbzReportly-Save')")
     @ApiOperation(value = "保存汇报", tags = {"汇报" },  notes = "保存汇报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreportlies/save")

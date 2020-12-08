@@ -10135,6 +10135,49 @@
         ]
     }, 
     {
+        "srfkey": "PlantempletType",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "step",
+                "label": "计划",
+                "text": "计划",
+                "class":"",
+                "data":"",
+                "codename":"Step",
+                "value": "step",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "group",
+                "label": "父计划",
+                "text": "父计划",
+                "class":"",
+                "data":"",
+                "codename":"Group",
+                "value": "group",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "item",
+                "label": "子计划",
+                "text": "子计划",
+                "class":"",
+                "data":"",
+                "codename":"Item",
+                "value": "item",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Story__quickpacket",
         "emptytext": "未定义",
         "codelisttype":"static",

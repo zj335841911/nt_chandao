@@ -333,12 +333,22 @@ Long
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
-| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
-| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
-| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
-| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
-| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 2 | [CreateTemp](#实体行为-CreateTemp（CreateTemp）) | CreateTemp | 内置方法 | 前台 |
+| 3 | [CreateTempMajor](#实体行为-CreateTempMajor（CreateTempMajor）) | CreateTempMajor | 内置方法 | 前台 |
+| 4 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 5 | [UpdateTemp](#实体行为-UpdateTemp（UpdateTemp）) | UpdateTemp | 内置方法 | 前台 |
+| 6 | [UpdateTempMajor](#实体行为-UpdateTempMajor（UpdateTempMajor）) | UpdateTempMajor | 内置方法 | 前台 |
+| 7 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 8 | [RemoveTemp](#实体行为-RemoveTemp（RemoveTemp）) | RemoveTemp | 内置方法 | 前台 |
+| 9 | [RemoveTempMajor](#实体行为-RemoveTempMajor（RemoveTempMajor）) | RemoveTempMajor | 内置方法 | 前台 |
+| 10 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 11 | [GetTemp](#实体行为-GetTemp（GetTemp）) | GetTemp | 内置方法 | 前台 |
+| 12 | [GetTempMajor](#实体行为-GetTempMajor（GetTempMajor）) | GetTempMajor | 内置方法 | 前台 |
+| 13 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 14 | [GetDraftTemp](#实体行为-GetDraftTemp（GetDraftTemp）) | GetDraftTemp | 内置方法 | 前台 |
+| 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
+| 16 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 17 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -349,6 +359,30 @@ Create
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-CreateTemp（CreateTemp）
+#### 说明
+CreateTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-CreateTempMajor（CreateTempMajor）
+#### 说明
+CreateTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
 
 #### 逻辑附加
 无
@@ -364,6 +398,30 @@ Update
 
 #### 逻辑附加
 无
+### 实体行为-UpdateTemp（UpdateTemp）
+#### 说明
+UpdateTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-UpdateTempMajor（UpdateTempMajor）
+#### 说明
+UpdateTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -373,6 +431,30 @@ Remove
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-RemoveTemp（RemoveTemp）
+#### 说明
+RemoveTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-RemoveTempMajor（RemoveTempMajor）
+#### 说明
+RemoveTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
 
 #### 逻辑附加
 无
@@ -388,6 +470,30 @@ Get
 
 #### 逻辑附加
 无
+### 实体行为-GetTemp（GetTemp）
+#### 说明
+GetTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-GetTempMajor（GetTempMajor）
+#### 说明
+GetTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -397,6 +503,30 @@ GetDraft
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-GetDraftTemp（GetDraftTemp）
+#### 说明
+GetDraftTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
+#### 说明
+GetDraftTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
 
 #### 逻辑附加
 无
