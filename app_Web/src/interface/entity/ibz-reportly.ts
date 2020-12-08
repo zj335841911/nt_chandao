@@ -71,10 +71,26 @@ export interface IbzReportly {
     files?: any;
 
     /**
-     * 属性
+     * 汇报给
      *
      * @returns {*}
      * @memberof IbzReportly
      */
     reportto?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    mailto?: any;
+
+    /**
+     * 汇报日期
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    date?: any;
 }

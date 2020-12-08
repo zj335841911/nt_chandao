@@ -10,6 +10,8 @@ export default {
     updatedate: commonLogic.appcommonhandle("更新时间",null),
     content: commonLogic.appcommonhandle("工作内容",null),
     files: commonLogic.appcommonhandle("附件",null),
-    reportto: commonLogic.appcommonhandle("属性",null),
+    reportto: commonLogic.appcommonhandle("汇报给",null),
+    mailto: commonLogic.appcommonhandle("抄送给",null),
+    date: commonLogic.appcommonhandle("汇报日期",null),
   },
 };

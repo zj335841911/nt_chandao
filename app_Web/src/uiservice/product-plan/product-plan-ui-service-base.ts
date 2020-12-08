@@ -253,8 +253,8 @@ export default class ProductPlanUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'ibz-plan-templet-option-view', 
-                height: 0, 
-                width: 0,  
+                height: 400, 
+                width: 400,  
                 title: actionContext.$t('entities.ibzplantemplet.views.optionview.title'),
             };
             openPopupModal(view, data);

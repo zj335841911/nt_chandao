@@ -77,7 +77,7 @@ export class BugGridView9_TaskRelatedBase extends GridView9Base {
 	 * @memberof BugGridView9_TaskRelatedBase
 	 */
     protected customViewNavContexts: any = {
-        'N_STORY_EQ': {
+        'N_TASK_EQ': {
             isRawValue: false,
             value: 'srfparentkey',
         }
@@ -91,7 +91,7 @@ export class BugGridView9_TaskRelatedBase extends GridView9Base {
 	 * @memberof BugGridView9_TaskRelatedBase
 	 */
     protected customViewParams: any = {
-        'n_story_eq': {
+        'n_task_eq': {
             isRawValue: false,
             value: 'srfparentkey',
         }
