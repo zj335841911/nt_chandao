@@ -892,6 +892,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2c91cdea9417e94544a5d73ac68cd78d',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyCalendarEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                'eddd83b7db9892757420e886810dbfba',
+                'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
             viewtag: '2d522dfacc8d37f56c2d684791a39d5d',
             viewmodule: 'zentao',
             viewname: 'Todomaindashboardview_link',
@@ -1382,6 +1394,7 @@ export const viewstate: any = {
                 'eb90b28adca9e482854d0d6bf05e1303',
                 'bad9ebb60029d8c0854e22a02600cbc7',
                 'e527490443d54f3791d9497938aaf332',
+                '2c91cdea9417e94544a5d73ac68cd78d',
                 '8d57c8c411a365de243247e493c264ff',
                 'adae3758bed4c09c5e283b69603ba8e7',
             ],

@@ -7,6 +7,7 @@ import BugService from '@/service/bug/bug-service';
 import TaskService from '@/service/task/task-service';
 import TodoService from '@/service/todo/todo-service';
 import IbzDailyService from '@/service/ibz-daily/ibz-daily-service';
+import IbzReportlyService from '@/service/ibz-reportly/ibz-reportly-service';
 import TestTaskService from '@/service/test-task/test-task-service';
 import StoryService from '@/service/story/story-service';
 
@@ -77,6 +78,13 @@ export default class MyWorkPCService extends ControlService {
      */
     public ibzdailyService: IbzDailyService = new IbzDailyService();
     /**
+     * 汇报服务对象
+     *
+     * @type {IbzReportlyService}
+     * @memberof MyWorkPCService
+     */
+    public ibzreportlyService: IbzReportlyService = new IbzReportlyService();
+    /**
      * 测试版本服务对象
      *
      * @type {TestTaskService}
@@ -124,6 +132,12 @@ export default class MyWorkPCService extends ControlService {
           textColor : 'rgba(0, 0, 0, 1)',
         },
         {
+          itemName : '汇报',
+          itemType : 'reportly',
+          color : 'rgba(137, 2, 20, 1)',
+          textColor : '',
+        },
+        {
           itemName : '测试单',
           itemType : 'testtask',
           color : 'rgba(95, 132, 245, 1)',
@@ -161,6 +175,8 @@ export default class MyWorkPCService extends ControlService {
             promises.push(this.todoService.FetchMyTodoPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"daily");
             promises.push(this.ibzdailyService.FetchMyAllDaily(tempRequest.context, tempRequest.data, isloading));
+            tempRequest = this.handleRequestData(action,context,data,true,"reportly");
+            promises.push(this.ibzreportlyService.FetchMyAllReportly(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"testtask");
             promises.push(this.testtaskService.FetchMyTestTaskPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"Story");
@@ -226,6 +242,10 @@ export default class MyWorkPCService extends ControlService {
                 case "daily":
                     tempRequest = this.handleRequestData("",context,data,false,"daily");
                     result = this.ibzdailyService.Update(tempRequest.context, tempRequest.data, isloading);
+                    break;
+                case "reportly":
+                    tempRequest = this.handleRequestData("",context,data,false,"reportly");
+                    result = this.ibzreportlyService.Update(tempRequest.context, tempRequest.data, isloading);
                     break;
                 case "testtask":
                     tempRequest = this.handleRequestData("",context,data,false,"testtask");

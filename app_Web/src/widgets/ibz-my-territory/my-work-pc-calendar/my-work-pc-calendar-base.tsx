@@ -317,6 +317,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         task:true,
         todo:true,
         daily:true,
+        reportly:true,
         testtask:true,
         Story:true,
     };
@@ -487,6 +488,17 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;
+            case "ibzreportly": 
+                view = {
+                    viewname: 'ibz-reportly-calendar-edit-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.ibzreportly.views.calendareditview.title'),
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'ibzreportlies', parameterName: 'ibzreportly' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
+                };
+                break;
             case "story": 
                 view = {
                     viewname: 'story-calendar-edit-view', 
@@ -565,6 +577,10 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             case "daily":
                 _context.ibzdaily = event.ibzdaily;
                 view = this.getEditView("ibzdaily");
+                break;
+            case "reportly":
+                _context.ibzreportly = event.ibzreportly;
+                view = this.getEditView("ibzreportly");
                 break;
             case "testtask":
                 _context.testtask = event.testtask;
@@ -651,6 +667,10 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             case "daily":
                 arg.ibzdaily = $event.event._def.extendedProps.ibzdaily;
                 _context.ibzdaily = $event.event._def.extendedProps.ibzdaily;
+                break;
+            case "reportly":
+                arg.ibzreportly = $event.event._def.extendedProps.ibzreportly;
+                _context.ibzreportly = $event.event._def.extendedProps.ibzreportly;
                 break;
             case "testtask":
                 arg.testtask = $event.event._def.extendedProps.testtask;
@@ -843,7 +863,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             if(Object.keys(that.copyActionModel).length === 0){
                 return;
             }
-            let dataMapping:any ={'Bug':'bug','task':'task','todo':'todo','daily':'ibzdaily','testtask':'testtask','Story':'story'};
+            let dataMapping:any ={'Bug':'bug','task':'task','todo':'todo','daily':'ibzdaily','reportly':'ibzreportly','testtask':'testtask','Story':'story'};
             that.computeNodeState(data,dataMapping[data.itemType]).then((result:any) => {
                 let flag:boolean = false;
                 if(Object.values(result).length>0){

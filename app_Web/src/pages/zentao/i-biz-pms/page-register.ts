@@ -449,6 +449,7 @@ export const PageComponents = {
         Vue.component('ibz-favorites-tab-exp-view', () => import('@pages/ibiz/ibz-favorites-tab-exp-view/ibz-favorites-tab-exp-view.vue'));
         Vue.component('project-dashboard-info-view', () => import('@pages/zentao/project-dashboard-info-view/project-dashboard-info-view.vue'));
         Vue.component('employeeloadedit-view', () => import('@pages/ibiz/employeeloadedit-view/employeeloadedit-view.vue'));
+        Vue.component('ibz-reportly-calendar-edit-view', () => import('@pages/report/ibz-reportly-calendar-edit-view/ibz-reportly-calendar-edit-view.vue'));
         Vue.component('ibz-my-territory-employ-tree-exp-view', () => import('@pages/ibiz/ibz-my-territory-employ-tree-exp-view/ibz-my-territory-employ-tree-exp-view.vue'));
         Vue.component('story-report-sub-grid-view', () => import('@pages/zentao/story-report-sub-grid-view/story-report-sub-grid-view.vue'));
         Vue.component('action-product-trends-list-view9', () => import('@pages/zentao/action-product-trends-list-view9/action-product-trends-list-view9.vue'));

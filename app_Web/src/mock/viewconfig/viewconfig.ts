@@ -823,6 +823,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsTestEditView9",
             "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df"
         },
+        "ibzreportlycalendareditview": {
+            "title": "汇报编辑视图",
+            "caption": "汇报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportlyCalendarEditView",
+            "viewtag": "2c91cdea9417e94544a5d73ac68cd78d"
+        },
         "todomaindashboardview_link": {
             "title": "待办事宜表数据看板视图",
             "caption": "待办",

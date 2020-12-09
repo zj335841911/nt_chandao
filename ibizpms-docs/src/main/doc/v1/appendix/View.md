@@ -362,6 +362,7 @@
 |-|用例库用例数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|产品图表视图|DECHARTVIEW|&nbsp;|
 |-|产品统计编辑视图|DEEDITVIEW9|&nbsp;|
+|-|汇报编辑视图|DEEDITVIEW|&nbsp;|
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|文档库树导航视图（自定义文档库）|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|

@@ -8288,6 +8288,26 @@ t1.`UPDATEMAN`
 FROM `T_IBZ_REPORTLY` t1 
 
 ```
+### 我所有的汇报(MyAllReportly)<div id="IbzReportly_MyAllReportly"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZ_REPORTLYID`,
+t1.`IBZ_REPORTLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`SUBMITTIME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_REPORTLY` t1
+WHERE t1.account = #{srf.sessioncontext.srfloginname} 
+
+```
 ### 我收到的汇报(MyReceived)<div id="IbzReportly_MyReceived"></div>
 ```sql
 SELECT

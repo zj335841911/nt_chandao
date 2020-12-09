@@ -162,6 +162,15 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
     }
 
     /**
+     * 查询集合 我所有的汇报
+     */
+    @Override
+    public Page<IbzReportly> searchMyAllReportly(IbzReportlySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzReportly> pages=baseMapper.searchMyAllReportly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzReportly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 我收到的汇报
      */
     @Override

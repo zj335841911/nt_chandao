@@ -16935,6 +16935,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/employeeloadedit-view/employeeloadedit-view.vue'),
                 },
                 {
+                    path: 'ibzreportlies/:ibzreportly?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.ibzreportly.views.calendareditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-reportly-calendar-edit-view/ibz-reportly-calendar-edit-view.vue'),
+                },
+                {
                     path: 'ibzmyterritories/:ibzmyterritory?/employtreeexpview/:employtreeexpview?',
                     meta: {
                         caption: 'entities.ibzmyterritory.views.employtreeexpview.caption',

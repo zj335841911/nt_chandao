@@ -229,6 +229,35 @@ export default class IbzReportlyServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyAllReportly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportlyServiceBase
+     */
+    public async FetchMyAllReportly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzreportlies/fetchmyallreportly`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMyAllReportly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportlyServiceBase
+     */
+    public async searchMyAllReportly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzreportlies/searchmyallreportly`,tempData,isloading);
+    }
+
+    /**
      * FetchMyReceived接口方法
      *
      * @param {*} [context={}]

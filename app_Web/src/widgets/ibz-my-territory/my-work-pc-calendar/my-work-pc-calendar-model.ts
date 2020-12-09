@@ -123,6 +123,26 @@ export default class MyWorkPCModel {
                   },
               ];
               break;
+          case "reportly":
+              dataItems = [...dataItems,
+                  {
+                    name: 'ibzreportly',
+                    prop: 'ibzreportlyid'
+                  },
+                  {
+                    name: 'title',
+                    prop: 'ibzreportlyname'
+                  },
+                  {
+                    name:'start',
+                    prop:'date'
+                  },
+                  {
+                    name:'end',
+                    prop:'date'
+                  },
+              ];
+              break;
           case "testtask":
               dataItems = [...dataItems,
                   {
