@@ -1212,7 +1212,7 @@ export default class MySubmitBase extends Vue implements ControlInterface {
         LookDaily: { name: 'LookDaily',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DAILY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true},
         LookWeekly: { name: 'LookWeekly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'WEEKLY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true},
         LookMonthy: { name: 'LookMonthy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'MONTHLY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true},
-        LookReportly: { name: 'LookReportly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true}
+        LookReportly: { name: 'LookReportly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'REPORTLY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true}
     };
 
     
