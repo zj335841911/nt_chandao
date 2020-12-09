@@ -17164,7 +17164,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`ID` IN (${srfwebcontext('todaytask','{"defname":"ID","dename":"ZT_TASK"}')}) ) 
+(FIND_IN_SET (t1.`ID`,${srfwebcontext('todaytask','{"defname":"ID","dename":"ZT_TASK"}')}) ) 
 
 ```
 ### 我的收藏(MyFavorites)<div id="Task_MyFavorites"></div>
