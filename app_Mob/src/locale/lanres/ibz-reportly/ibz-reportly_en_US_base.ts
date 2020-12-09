@@ -77,10 +77,9 @@ export default {
 			content: commonLogic.appcommonhandle("工作内容",null), 
 			reportto: commonLogic.appcommonhandle("汇报给",null), 
 			mailto: commonLogic.appcommonhandle("抄送给",null), 
-			ibzreportlyid: commonLogic.appcommonhandle("汇报标识",null), 
+			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null), 
 			account: commonLogic.appcommonhandle("用户",null), 
 			issubmit: commonLogic.appcommonhandle("是否提交",null), 
-			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null), 
 		},
 		uiactions: {
 		},

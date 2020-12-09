@@ -199,7 +199,7 @@ export default class IbzReportlyMainInfoMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzReportlyMainInfoMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'srfparentkey': '%ibzreportly%' };
 
     /**
      * 视图导航参数
@@ -208,7 +208,7 @@ export default class IbzReportlyMainInfoMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzReportlyMainInfoMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzreportly%' };
 
     /**
      * 视图模型数据
