@@ -93,6 +93,7 @@ export default class IbzReportlyUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'reportlymobmdview',srfappde:'ibzreportlies'});
         this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzreportlies'});
         this.allViewMap.set(':',{viewname:'createmobeditview',srfappde:'ibzreportlies'});
+        this.allViewMap.set(':',{viewname:'mobeditview',srfappde:'ibzreportlies'});
     }
 
     /**

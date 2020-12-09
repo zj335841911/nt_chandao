@@ -4147,6 +4147,20 @@ const router = new Router({
                     component: () => import('@pages/ou/sys-employee-mob-pickup-tree-view/sys-employee-mob-pickup-tree-view.vue'),
                 },
                 {
+                    path: 'ibzreportlies/:ibzreportly?/mobeditview',
+                    name: 'ibzreportly_mobeditview',
+                    meta: {
+                        caption: 'ibzreportly.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-reportly-mob-edit-view/ibz-reportly-mob-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr3mobmpickupleftview',
                     name: 'bug_usr3mobmpickupleftview',
                     meta: {
@@ -7044,35 +7058,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
                 },
                 {
-                    path: 'products/:product?/productplans/:productplan?/newmobeditview',
-                    name: 'productplan_newmobeditview',
-                    meta: {
-                        caption: 'productplan.views.newmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-plan-new-mob-edit-view/product-plan-new-mob-edit-view.vue'),
-                },
-                {
-                    path: 'productplans/:productplan?/newmobeditview',
-                    name: 'productplan_newmobeditview',
-                    meta: {
-                        caption: 'productplan.views.newmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-plan-new-mob-edit-view/product-plan-new-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/mobpickupmdview',
                     name: 'story_mobpickupmdview',
                     meta: {
@@ -7104,6 +7089,35 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/story-mob-pickup-mdview/story-mob-pickup-mdview.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/newmobeditview',
+                    name: 'productplan_newmobeditview',
+                    meta: {
+                        caption: 'productplan.views.newmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-plan-new-mob-edit-view/product-plan-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/newmobeditview',
+                    name: 'productplan_newmobeditview',
+                    meta: {
+                        caption: 'productplan.views.newmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-plan-new-mob-edit-view/product-plan-new-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/mobeditview',

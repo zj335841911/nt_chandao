@@ -29,31 +29,8 @@ export default {
 		createmobeditview: {
 			caption: commonLogic.appcommonhandle("汇报",null),
 		},
-	},
-	mobcreate_form: {
-		details: {
-			group1: commonLogic.appcommonhandle("汇报基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("汇报标识",null), 
-			srfmajortext: commonLogic.appcommonhandle("汇报名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			ibz_reportlyname: commonLogic.appcommonhandle("汇报名称",null), 
-			content: commonLogic.appcommonhandle("工作内容",null), 
-			files: commonLogic.appcommonhandle("附件",null), 
-			reportto: commonLogic.appcommonhandle("汇报给",null), 
-			reporttopk: commonLogic.appcommonhandle("汇报给",null), 
-			mailto: commonLogic.appcommonhandle("抄送给",null), 
-			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null), 
-			date: commonLogic.appcommonhandle("汇报日期",null), 
-			account: commonLogic.appcommonhandle("用户",null), 
-			issubmit: commonLogic.appcommonhandle("是否提交",null), 
-		},
-		uiactions: {
+		mobeditview: {
+			caption: commonLogic.appcommonhandle("汇报",null),
 		},
 	},
 	mobreportlydetail_form: {
@@ -84,16 +61,36 @@ export default {
 		uiactions: {
 		},
 	},
+	mobcreate_form: {
+		details: {
+			group1: commonLogic.appcommonhandle("汇报基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("汇报标识",null), 
+			srfmajortext: commonLogic.appcommonhandle("汇报名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			ibz_reportlyname: commonLogic.appcommonhandle("汇报名称",null), 
+			content: commonLogic.appcommonhandle("工作内容",null), 
+			files: commonLogic.appcommonhandle("附件",null), 
+			reportto: commonLogic.appcommonhandle("汇报给",null), 
+			reporttopk: commonLogic.appcommonhandle("汇报给",null), 
+			mailto: commonLogic.appcommonhandle("抄送给",null), 
+			ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null), 
+			date: commonLogic.appcommonhandle("汇报日期",null), 
+			account: commonLogic.appcommonhandle("用户",null), 
+			issubmit: commonLogic.appcommonhandle("是否提交",null), 
+		},
+		uiactions: {
+		},
+	},
 	createmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: commonLogic.appcommonhandle("Save And Close",null),
 			tip: 'tbitem1',
-		},
-	},
-	reportlymobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("新建",null),
-			tip: 'deuiaction1',
 		},
 	},
 	maininfomobeditviewrighttoolbar_toolbar: {
@@ -104,6 +101,12 @@ export default {
 		deuiaction1_mobsubmit: {
 			caption: commonLogic.appcommonhandle("提交",null),
 			tip: 'deuiaction1_mobsubmit',
+		},
+	},
+	reportlymobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("新建",null),
+			tip: 'deuiaction1',
 		},
 	},
 };

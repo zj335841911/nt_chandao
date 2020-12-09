@@ -682,6 +682,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a2ae9ac11aa48db204b35705bf573ebd',
                 '5cf685aa2765b112906a6b8ed57cdfc1',
                 '339eb0f210b333b047528dcd30df2dde',
                 '7ef67652765553e5d81c39ae576780a8',
@@ -2466,6 +2467,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e1db10fc06a638e6943a54a5380a6641',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
             viewtag: 'E34EC471-1197-49DF-8C6C-79E175C2FC0E',
             viewmodule: 'Ungroup',
             viewname: 'AppPortalView',
@@ -2715,6 +2727,7 @@ export const viewstate: any = {
                 '339eb0f210b333b047528dcd30df2dde',
                 '6e4746425c0ac72e63db9efe5e592d40',
                 'f04572d16a18f7a597843a128db20fb0',
+                'e1db10fc06a638e6943a54a5380a6641',
             ],
         },
         {

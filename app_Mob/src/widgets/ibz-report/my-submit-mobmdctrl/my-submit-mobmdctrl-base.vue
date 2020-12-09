@@ -233,6 +233,37 @@ export default class MySubmitBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u5cb5aa3_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzreport_ui_action');
+        if (curUIService) {
+            curUIService.IbzReport_LookReportly(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
      * 关闭视图
      *
      * @param {any[]} args
@@ -1080,6 +1111,9 @@ export default class MySubmitBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'u151f646')) {
             this.mdctrl_u151f646_click();
         }
+        if (Object.is(tag, 'u5cb5aa3')) {
+            this.mdctrl_u5cb5aa3_click();
+        }
         this.closeSlidings();
     }
 
@@ -1177,7 +1211,8 @@ export default class MySubmitBase extends Vue implements ControlInterface {
     public ActionModel:any ={
         LookDaily: { name: 'LookDaily',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DAILY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true},
         LookWeekly: { name: 'LookWeekly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'WEEKLY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true},
-        LookMonthy: { name: 'LookMonthy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'MONTHLY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true}
+        LookMonthy: { name: 'LookMonthy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'MONTHLY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true},
+        LookReportly: { name: 'LookReportly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'REPORTLY', target: 'SINGLEKEY',icon:'',isShowCaption:true,isShowIcon:true}
     };
 
     
