@@ -191,7 +191,7 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobEditViewBase
      */
-    protected navContext: any = { 'date': '%date%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -620,7 +620,7 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        Object.assign(paramJO, {});
+        
         xData = this.$refs.form;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];
