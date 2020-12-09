@@ -125,4 +125,20 @@ export interface IbzReportly {
      * @memberof IbzReportly
      */
     reportstatus?: any;
+
+    /**
+     * 汇报给（选择）
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    reporttopk?: any;
+
+    /**
+     * 抄送给（选择）
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    mailtopk?: any;
 }

@@ -66346,11 +66346,13 @@ CREATE TABLE `T_IBZ_REPORT_ROLE_CONFIG`(
 | IBZ_REPORTLYID        | 汇报标识  |       |   100   | 主键&nbsp; |
 | REPORTSTATUS        | 状态  | VARCHAR      |   100   | &nbsp; |
 | SUBMITTIME        | 提交时间  | DATETIME      |   -1   | &nbsp; |
+| MAILTOPK        | 抄送给（选择）  | VARCHAR      |   200   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | IBZ_REPORTLYNAME        | 汇报名称  | VARCHAR      |   200   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | CONTENT        | 工作内容  | CLOB      |   1,048,576   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
+| REPORTTOPK        | 汇报给（选择）  | VARCHAR      |   200   | &nbsp; |
 | MAILTO        | 抄送给  | VARCHAR      |   100   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
 | DATE        | 汇报日期  | DATETIME      |   -1   | &nbsp; |

@@ -16,6 +16,8 @@ export default {
     submittime: commonLogic.appcommonhandle("提交时间",null),
     account: commonLogic.appcommonhandle("用户",null),
     reportstatus: commonLogic.appcommonhandle("状态",null),
+    reporttopk: commonLogic.appcommonhandle("汇报给（选择）",null),
+    mailtopk: commonLogic.appcommonhandle("抄送给（选择）",null),
   },
 	views: {
 		myreceivedreportlydetaileditview: {

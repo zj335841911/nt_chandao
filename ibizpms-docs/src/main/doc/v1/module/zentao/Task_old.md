@@ -1299,6 +1299,7 @@ hide footbox
 |ProjectTask|项目任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ProjectTask))|否|&nbsp;|
 |RootTask|根任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_RootTask))|否|&nbsp;|
 |ThisWeekCompleteTask|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTask))|否|&nbsp;|
+|ThisWeekCompleteTaskChoice|本周已完成任务(下拉框选择)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskChoice))|否|&nbsp;|
 |ThisWeekCompleteTaskMobZS|移动端本周已完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskMobZS))|否|&nbsp;|
 |ThisWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskZS))|否|&nbsp;|
 |TodoListTask|todo任务列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|

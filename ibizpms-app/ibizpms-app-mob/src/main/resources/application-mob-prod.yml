@@ -199,6 +199,10 @@ zuul:
       path: /projectmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_reportly:
+      path: /ibzreportlies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_productstats:
       path: /productstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

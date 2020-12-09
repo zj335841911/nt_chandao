@@ -14110,6 +14110,36 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"REPORTTOPK" ,
+    "codename":"Reporttopk",
+    "field_logic_name":"汇报给（选择）",
+    "entity_name":"IbzReportly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.reportto",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTOPK" ,
+    "codename":"Mailtopk",
+    "field_logic_name":"抄送给（选择）",
+    "entity_name":"IbzReportly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.mailto",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

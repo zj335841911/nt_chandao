@@ -164,6 +164,24 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String reportstatus;
 
+    /**
+     * 属性 [REPORTTOPK]
+     *
+     */
+    @JSONField(name = "reporttopk")
+    @JsonProperty("reporttopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String reporttopk;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String mailtopk;
+
 
     /**
      * 设置 [IBZ_REPORTLYNAME]

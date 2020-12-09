@@ -350,7 +350,9 @@ POST
 | 13 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
 | 14 | account | String | 允许 | 用户 |
 | 15 | reportstatus | String | 允许 | 状态 |
-| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 16 | reporttopk | String | 允许 | 汇报给（选择） |
+| 17 | mailtopk | String | 允许 | 抄送给（选择） |
+| 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

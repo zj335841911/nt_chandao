@@ -160,6 +160,20 @@ public class IbzReportly extends EntityMP implements Serializable {
     @JSONField(name = "reportstatus")
     @JsonProperty("reportstatus")
     private String reportstatus;
+    /**
+     * 汇报给（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reporttopk")
+    @JsonProperty("reporttopk")
+    private String reporttopk;
+    /**
+     * 抄送给（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
 
 
 
