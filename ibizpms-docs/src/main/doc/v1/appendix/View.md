@@ -225,6 +225,7 @@
 |-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|系统更新日志移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试版本移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|汇报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|应用门户视图|APPPORTALVIEW|&nbsp;|
 |-|测试版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
