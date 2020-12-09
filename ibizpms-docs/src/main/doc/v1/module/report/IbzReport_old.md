@@ -68,9 +68,10 @@
 
 |类型|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   | ------------|------------|------------|------------|
-|Value| 允许|  | 不允许 | WEEKLY<br>MONTHLY<br> |
-|Value| 允许|  | 不允许 | DAILY<br>WEEKLY<br> |
-|Value| 允许|  | 不允许 | DAILY<br>MONTHLY<br> |
+|Value| 允许|  | 不允许 | WEEKLY<br>REPORTLY<br>MONTHLY<br> |
+|Value| 允许|  | 不允许 | REPORTLY<br>DAILY<br>WEEKLY<br> |
+|Value| 允许|  | 不允许 | MONTHLY<br>WEEKLY<br>DAILY<br> |
+|Value| 允许|  | 不允许 | DAILY<br>REPORTLY<br>MONTHLY<br> |
 
 类型
 
