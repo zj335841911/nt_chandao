@@ -59,6 +59,7 @@
 |-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|发布移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|汇报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|任务选项操作视图(激活)|DEMOBOPTVIEW|&nbsp;|
 |-|周报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
