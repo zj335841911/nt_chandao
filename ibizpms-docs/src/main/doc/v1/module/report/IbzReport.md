@@ -1347,6 +1347,31 @@ CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' el
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
 where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+null as `CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_REPORTLYID` AS IBZ_DAILYID,
+t1.`IBZ_REPORTLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+null AS TODAYTASK,
+null AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+null as `UPDATEMANNAME`,
+CONCAT_WS('','工作内容：',case when t1.CONTENT is null then '无' else t1.CONTENT end)  as WORKTODAY,
+null as `COMMENT`,
+null as PLANSTOMORROW,
+'reportly' as type 
+FROM `T_IBZ_REPORTLY` t1
+where t1.ISSUBMIT = '1'
 ) t1
 ```
 ### 数据查询-数据查询（Default）
