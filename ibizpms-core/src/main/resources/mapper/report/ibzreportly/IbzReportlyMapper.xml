@@ -62,6 +62,11 @@
 						 AND (t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO ))
 			]]>
     </sql>
+    <!--数据查询[MyReportlyMob]-->
+    <sql id="MyReportlyMob" databaseId="mysql">
+		<![CDATA[ 
+			]]>
+    </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CONTENT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`DATE`, t1.`IBZ_REPORTLYID`, t1.`IBZ_REPORTLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.mailto AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.reportto AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_REPORTLY` t1  
