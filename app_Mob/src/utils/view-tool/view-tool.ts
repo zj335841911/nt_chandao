@@ -252,7 +252,7 @@ export class ViewTool {
                 if (!name || !this.isString(value)) {
                     return;
                 }
-                if (itemParam[tag].hasOwnProperty(name) && (this.isNull(value) || this.isUndefined(value))) {
+                if (itemParam[tag].hasOwnProperty(name) && (this.isNull(value) || this.isUndefined(value)) || value =='null') {
                     delete itemParam[tag][name];
                     return;
                 }
