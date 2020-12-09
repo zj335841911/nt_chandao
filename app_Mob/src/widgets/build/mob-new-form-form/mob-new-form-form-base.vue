@@ -665,10 +665,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     protected rules: any = {
-        product: [
-            { required: true, type: 'number', message: '产品 值不能为空', trigger: 'change' },
-            { required: true, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
-        ],
         productname: [
             { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
