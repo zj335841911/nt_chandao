@@ -22,6 +22,7 @@ public interface IbzReportlyMapper extends BaseMapper<IbzReportly> {
     Page<IbzReportly> searchDefault(IPage page, @Param("srf") IbzReportlySearchContext context, @Param("ew") Wrapper<IbzReportly> wrapper);
     Page<IbzReportly> searchMyAllReportly(IPage page, @Param("srf") IbzReportlySearchContext context, @Param("ew") Wrapper<IbzReportly> wrapper);
     Page<IbzReportly> searchMyReceived(IPage page, @Param("srf") IbzReportlySearchContext context, @Param("ew") Wrapper<IbzReportly> wrapper);
+    Page<IbzReportly> searchMyReportlyMob(IPage page, @Param("srf") IbzReportlySearchContext context, @Param("ew") Wrapper<IbzReportly> wrapper);
     @Override
     IbzReportly selectById(Serializable id);
     @Override

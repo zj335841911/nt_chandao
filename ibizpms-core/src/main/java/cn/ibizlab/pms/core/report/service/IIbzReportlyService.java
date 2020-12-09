@@ -51,6 +51,7 @@ public interface IIbzReportlyService extends IService<IbzReportly> {
     Page<IbzReportly> searchDefault(IbzReportlySearchContext context);
     Page<IbzReportly> searchMyAllReportly(IbzReportlySearchContext context);
     Page<IbzReportly> searchMyReceived(IbzReportlySearchContext context);
+    Page<IbzReportly> searchMyReportlyMob(IbzReportlySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

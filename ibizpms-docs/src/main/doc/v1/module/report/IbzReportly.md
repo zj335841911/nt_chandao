@@ -991,7 +991,23 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_REPORTLYID`,
+t1.`IBZ_REPORTLYNAME`,
+t1.`ISSUBMIT`,
+CONCAT_WS('','工作内容：',t1.CONTENT)  as `CONTENT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`SUBMITTIME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`, 
+'reportly' as type 
+FROM `T_IBZ_REPORTLY` t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1033,6 +1049,7 @@ FROM `T_IBZ_REPORTLY` t1
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我所有的汇报](#数据集合-我所有的汇报（MyAllReportly）) | MyAllReportly | 否 |
 | 3 | [我收到的汇报](#数据集合-我收到的汇报（MyReceived）) | MyReceived | 否 |
+| 4 | [我的未提交汇报](#数据集合-我的未提交汇报（MyReportlyMob）) | MyReportlyMob | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1076,6 +1093,20 @@ FROM `T_IBZ_REPORTLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我收到的汇报（MyReceived）](#数据查询-我收到的汇报（MyReceived）) |
+### 数据集合-我的未提交汇报（MyReportlyMob）
+#### 说明
+我的未提交汇报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的未提交汇报（MyReportlyMob）](#数据查询-我的未提交汇报（MyReportlyMob）) |
 
 ## 数据导入
 无

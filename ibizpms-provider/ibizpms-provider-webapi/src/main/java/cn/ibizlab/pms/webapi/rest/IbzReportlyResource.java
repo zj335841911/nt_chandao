@@ -224,6 +224,28 @@ public class IbzReportlyResource {
                 .body(new PageImpl(ibzreportlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-searchMyReportlyMob-all') and hasPermission(#context,'pms-IbzReportly-Get')")
+	@ApiOperation(value = "获取我的未提交汇报", tags = {"汇报" } ,notes = "获取我的未提交汇报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzreportlies/fetchmyreportlymob")
+	public ResponseEntity<List<IbzReportlyDTO>> fetchMyReportlyMob(IbzReportlySearchContext context) {
+        Page<IbzReportly> domains = ibzreportlyService.searchMyReportlyMob(context) ;
+        List<IbzReportlyDTO> list = ibzreportlyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-searchMyReportlyMob-all') and hasPermission(#context,'pms-IbzReportly-Get')")
+	@ApiOperation(value = "查询我的未提交汇报", tags = {"汇报" } ,notes = "查询我的未提交汇报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzreportlies/searchmyreportlymob")
+	public ResponseEntity<Page<IbzReportlyDTO>> searchMyReportlyMob(@RequestBody IbzReportlySearchContext context) {
+        Page<IbzReportly> domains = ibzreportlyService.searchMyReportlyMob(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzreportlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

@@ -8339,6 +8339,24 @@ WHERE t1.issubmit = '1'
 ```
 ### 我的未提交汇报(MyReportlyMob)<div id="IbzReportly_MyReportlyMob"></div>
 ```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_REPORTLYID`,
+t1.`IBZ_REPORTLYNAME`,
+t1.`ISSUBMIT`,
+CONCAT_WS('','工作内容：',t1.CONTENT)  as `CONTENT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`SUBMITTIME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`, 
+'reportly' as type 
+FROM `T_IBZ_REPORTLY` t1
+WHERE t1.account = #{srf.sessioncontext.srfloginname} 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>

@@ -44,6 +44,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyReportlyMob]-->
+	 <select id="searchMyReportlyMob"  parameterType="cn.ibizlab.pms.core.report.filter.IbzReportlySearchContext"  resultMap="IbzReportlyResultMap">
+         select t1.* from (
+                <include refid="MyReportlyMob" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`DATE`, t1.`IBZ_REPORTLYID`, t1.`IBZ_REPORTLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.mailto AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.reportto AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`UPDATEDATE`, t1.`UPDATEMAN` FROM `T_IBZ_REPORTLY` t1  
@@ -64,7 +73,8 @@
     </sql>
     <!--数据查询[MyReportlyMob]-->
     <sql id="MyReportlyMob" databaseId="mysql">
-		<![CDATA[ 
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`, t1.`IBZ_REPORTLYID`, t1.`IBZ_REPORTLYNAME`, t1.`ISSUBMIT`, CONCAT_WS('','工作内容：',t1.CONTENT)  as `CONTENT`, t1.`MAILTO`, '1' as `REPORTSTATUS`, t1.`REPORTTO`, t1.`SUBMITTIME`, t1.`UPDATEDATE`, t1.`UPDATEMAN`,  'reportly' as type  FROM `T_IBZ_REPORTLY` t1
+					 WHERE 	t1.account = #{srf.sessioncontext.srfloginname}
 			]]>
     </sql>
     <!--数据查询[View]-->

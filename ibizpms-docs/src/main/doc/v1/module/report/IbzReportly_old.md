@@ -97,6 +97,7 @@
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |MyAllReportly|我所有的汇报|MyAllReportly|否|&nbsp;|
 |MyReceived|我收到的汇报|MyReceived|否|&nbsp;|
+|MyReportlyMob|我的未提交汇报|MyReportlyMob|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
