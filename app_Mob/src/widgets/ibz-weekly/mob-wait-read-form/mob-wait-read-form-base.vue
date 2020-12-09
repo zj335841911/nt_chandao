@@ -58,7 +58,7 @@
     v-show="detailsModel.date.visible" 
     :itemRules="this.rules.date" 
     :caption="$t('ibzweekly.mobwaitread_form.details.date')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.date.disabled"
     :error="detailsModel.date.error" 
@@ -131,12 +131,12 @@
     v-show="detailsModel.workthisweek.visible" 
     :itemRules="this.rules.workthisweek" 
     :caption="$t('ibzweekly.mobwaitread_form.details.workthisweek')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.workthisweek.disabled"
     :error="detailsModel.workthisweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -197,12 +197,12 @@
     v-show="detailsModel.plannextweek.visible" 
     :itemRules="this.rules.plannextweek" 
     :caption="$t('ibzweekly.mobwaitread_form.details.plannextweek')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.plannextweek.disabled"
     :error="detailsModel.plannextweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -218,20 +218,13 @@
     v-show="detailsModel.comment.visible" 
     :itemRules="this.rules.comment" 
     :caption="$t('ibzweekly.mobwaitread_form.details.comment')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.comment"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.comment" 
-    :itemParam="{}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
 </app-form-item>
 
 
@@ -246,7 +239,7 @@
     v-show="detailsModel.reportto.visible" 
     :itemRules="this.rules.reportto" 
     :caption="$t('ibzweekly.mobwaitread_form.details.reportto')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.reportto.disabled"
     :error="detailsModel.reportto.error" 
@@ -277,7 +270,7 @@
     v-show="detailsModel.mailto.visible" 
     :itemRules="this.rules.mailto" 
     :caption="$t('ibzweekly.mobwaitread_form.details.mailto')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
