@@ -221,7 +221,7 @@ export class IBizPMSBase extends Vue {
     });
     this.registerFooterItems();
     //  加载语言资源文件
-    this.$i18n.mergeLocaleMessage('zh-CN', require('@/locale/lang/zh-CN').default);
+    this.$i18n.mergeLocaleMessage('zh-CN', require('@/locale/lang/zh-CN').default());
   }
 
   /**
