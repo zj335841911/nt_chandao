@@ -76,7 +76,7 @@ export class ReportNewModel {
 	name: 'menuitem6',
 	text: '汇报',
 	type: 'MENUITEM',
-	counterid: '',
+	counterid: 'reportlycnt',
 	tooltip: '汇报',
 	expanded: false,
 	separator: false,

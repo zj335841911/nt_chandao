@@ -69,7 +69,7 @@ mock.onGet('v7/report-newappmenu').reply((config: any) => {
 	name: 'menuitem6',
 	text: '汇报',
 	type: 'MENUITEM',
-	counterid: '',
+	counterid: 'REPORTLYCNT',
 	tooltip: '汇报',
 	expanded: false,
 	separator: false,
