@@ -265,9 +265,16 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
     @Transactional(rollbackFor = Exception.class)
     public IbzWeekly haveRead(IbzWeekly et) {
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), et);
-        List<Action> list = actionHelper.list(new QueryWrapper<Action>().eq("objecttype", StaticDict.Action__object_type.WEEKLY.getValue()).eq("action", StaticDict.Action__type.READ.getValue()).eq("actor", AuthenticationUser.getAuthenticationUser().getUsername()).eq("objectid", et.getIbzweeklyid()));
-        if(list.size() == 0) {
-            actionHelper.create(StaticDict.Action__object_type.WEEKLY.getValue(), et.getIbzweeklyid(), StaticDict.Action__type.READ.getValue(), "", "", null, true);
+        String curAccount = AuthenticationUser.getAuthenticationUser().getUsername();
+        if (curAccount == null){
+            return et;
+        }
+        boolean exist = curAccount.equals(et.getReportto()) || (et.getMailto() != null && Arrays.asList(et.getMailto().split(",")).contains(curAccount));
+        if (exist){
+            List<Action> list = actionHelper.list(new QueryWrapper<Action>().eq("objecttype", StaticDict.Action__object_type.WEEKLY.getValue()).eq("action", StaticDict.Action__type.READ.getValue()).eq("actor", AuthenticationUser.getAuthenticationUser().getUsername()).eq("objectid", et.getIbzweeklyid()));
+            if(list.size() == 0) {
+                actionHelper.create(StaticDict.Action__object_type.WEEKLY.getValue(), et.getIbzweeklyid(), StaticDict.Action__type.READ.getValue(), "", "", null, true);
+            }
         }
         return et;
     }

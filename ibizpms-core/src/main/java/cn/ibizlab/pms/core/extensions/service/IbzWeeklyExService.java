@@ -175,7 +175,7 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
     public IbzWeekly editGetLastWeekTaskAndComTask(IbzWeekly et){
         Set<String> taskIdSet = new HashSet<>();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()),et);
-        String tasksId = "";
+        //String tasksId = "";
         if (et.getThisweektask() != null){
             taskIdSet.addAll(Arrays.asList(et.getThisweektask().split(","))); //将周报的已有的完成任务添加到集合，
         }
@@ -186,7 +186,7 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
 //            }
 //        }
         //查询本周我完成的任务
-        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().eq("deleted","0").eq("finishedBy",et.getAccount()).last("and YEARWEEK(date_format(DATE_SUB( finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now()) "));
+        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().eq("deleted","0").eq("finishedBy",et.getAccount()).last("and YEARWEEK(date_format(DATE_SUB( finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK('"+et.getDate()+"') "));
         for (Task t : tasks) {
             taskIdSet.add(t.getId().toString());
         }
