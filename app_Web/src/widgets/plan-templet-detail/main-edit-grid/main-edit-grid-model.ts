@@ -39,9 +39,20 @@ export default class Main_EditModel {
           isEditable:true
         },
         {
+          name: 'expect1',
+          prop: 'expect',
+          dataType: 'HTMLTEXT',
+          isEditable:true
+        },
+        {
           name: 'expect',
           prop: 'expect',
           dataType: 'HTMLTEXT',
+        },
+        {
+          name: 'order',
+          prop: 'order',
+          dataType: 'INT',
           isEditable:true
         },
         {

@@ -118,10 +118,10 @@ export class Main_EditGridBase extends GridControlBase {
             codelistId: 'PlantempletType'
         },
         {
-            name: 'expect',
-            property: 'expect',
+            name: 'expect1',
+            property: 'expect1',
             label: '描述',
-            langtag: 'entities.plantempletdetail.main_edit_grid.columns.expect',
+            langtag: 'entities.plantempletdetail.main_edit_grid.columns.expect1',
             show: true,
             util: 'STAR',
             width: 200,
@@ -136,8 +136,9 @@ export class Main_EditGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
-          expect: new FormItemModel(),
+          expect1: new FormItemModel(),
           desc: new FormItemModel(),
+          order: new FormItemModel(),
           type: new FormItemModel(),
           srfkey: new FormItemModel(),
           plancode: new FormItemModel(),
@@ -153,13 +154,17 @@ export class Main_EditGridBase extends GridControlBase {
      */
     public rules() {
         return {
-        expect: [
+        expect1: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '描述 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '描述 值不能为空', trigger: 'blur' },
         ],
         desc: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '计划名称 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '计划名称 值不能为空', trigger: 'blur' },
+        ],
+        order: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '排序 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '排序 值不能为空', trigger: 'blur' },
         ],
         type: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '类型 值不能为空', trigger: 'change' },
@@ -198,7 +203,7 @@ export class Main_EditGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'desc':true,
         'type':true,
-        'expect':true,
+        'expect1':true,
     };
 
     /**

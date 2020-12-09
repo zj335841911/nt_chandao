@@ -25,7 +25,7 @@ export default {
 		columns: {
 			desc: commonLogic.appcommonhandle("计划名称",null),
 			type: commonLogic.appcommonhandle("类型",null),
-			expect: commonLogic.appcommonhandle("描述",null),
+			expect1: commonLogic.appcommonhandle("描述",null),
 		},
 		nodata:commonLogic.appcommonhandle("",null),
 		uiactions: {
