@@ -118,9 +118,7 @@ export class TestListExpViewlistexpbarListexpbarBase extends ListViewExpBarContr
      * @type {(string)}
      * @memberof TestListExpViewlistexpbarBase
      */
-    public placeholder = (this.$t('entities.product.fields.name') as string)
-+"，"+(this.$t('entities.product.fields.id') as string)
-+"，"+(this.$t('entities.product.fields.code') as string);
+    public placeholder = (this.$t('entities.product.fields.name') as string)+"，"+(this.$t('entities.product.fields.id') as string)+"，"+(this.$t('entities.product.fields.code') as string);
 
     /**
      * 呈现模式，可选值：horizontal或者vertical
