@@ -24,7 +24,9 @@ export class MyReportlyModel {
 				name: 'reportto',
 			},
 			{
-				name: 'content',
+				name: 'planstomorrow',
+				prop: 'content',
+				dataType: 'HTMLTEXT',
 			},
 			{
 				name: 'ibz_reportlyname',
