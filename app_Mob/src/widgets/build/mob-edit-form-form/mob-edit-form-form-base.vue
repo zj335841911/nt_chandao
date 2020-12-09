@@ -51,7 +51,7 @@
     name='productname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -621,6 +621,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         files: null,
         desc: null,
         id: null,
+        product: null,
         builder: null,
         build: null,
     };
@@ -804,6 +805,8 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         builder: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1014,6 +1017,18 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 builder 值
      *
      * @param {*} newVal
@@ -1061,6 +1076,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

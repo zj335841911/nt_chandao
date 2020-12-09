@@ -80,6 +80,7 @@ export default {
 			files: commonLogic.appcommonhandle("上传发行包",null), 
 			desc: commonLogic.appcommonhandle("描述",null), 
 			id: commonLogic.appcommonhandle("id",null), 
+			product: commonLogic.appcommonhandle("产品",null), 
 			builder: commonLogic.appcommonhandle("构建者",null), 
 		},
 		uiactions: {

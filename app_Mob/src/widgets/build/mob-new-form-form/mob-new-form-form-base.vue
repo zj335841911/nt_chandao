@@ -51,7 +51,7 @@
     name='productname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
