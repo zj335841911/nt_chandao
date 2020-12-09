@@ -24,7 +24,7 @@
 |日报|[查看功能](func/IbzDailyMyMobMDView.md)|
 |周报|[查看功能](func/IbzWeeklyUsr2MobMDView.md)|
 |月报|[查看功能](func/IbzMonthlyMonthlyMobMDView.md)|
-|汇报|-|
+|汇报|[查看功能](func/IbzReportlyReportlyMobMDView.md)|
 |我收到的|[查看功能](func/IbzReportMyReMobMDView.md)|
 |我提交的|[查看功能](func/IbzReportMobMDView.md)|
 |月报（待阅）|[查看功能](func/IbzMonthlyMobEditView.md)|

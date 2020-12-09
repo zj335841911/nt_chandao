@@ -20,6 +20,9 @@ export default {
     mailtopk:  commonLogic.appcommonhandle("抄送给（选择）",null),
   },
 	views: {
+		reportlymobmdview: {
+			caption: commonLogic.appcommonhandle("汇报",null),
+		},
 		createmobeditview: {
 			caption: commonLogic.appcommonhandle("汇报",null),
 		},
@@ -54,6 +57,12 @@ export default {
 		tbitem1: {
 			caption: commonLogic.appcommonhandle("Save And Close",null),
 			tip: 'tbitem1',
+		},
+	},
+	reportlymobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("新建",null),
+			tip: 'deuiaction1',
 		},
 	},
 };

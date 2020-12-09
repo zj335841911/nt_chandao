@@ -86,7 +86,7 @@ export class ReportNewModel {
 	iconcls: '',
 	icon: 'assets/images/report.svg',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'Reportly',
 	resourcetag: '',
 	authtag:'Mob-reportNew-menuitem6',
 },

@@ -79,7 +79,7 @@ mock.onGet('v7/report-newappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: 'assets/images/report.svg',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'Reportly',
 	resourcetag: '',
 },
             {

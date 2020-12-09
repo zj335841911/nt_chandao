@@ -627,6 +627,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '30e7ae4599fb98a1ecf705b32e4a349c',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyReportlyMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'db8c84773e393175d84b15d23715c412',
+            ],
+        },
+        {
             viewtag: '31c08ada7e3c3bc55c550b01fd8422c6',
             viewmodule: 'ibiz',
             viewname: 'TaskEditMobEditView',
@@ -2252,6 +2262,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'bb9616d1f1ed5c36e119f071e98b637b',
+                '30e7ae4599fb98a1ecf705b32e4a349c',
                 'f49dfaced3944c1bc17f64253fcc95a0',
                 '18b9f914b5fa7aa6e485660e3e5f2aaa',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
