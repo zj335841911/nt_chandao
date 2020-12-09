@@ -92,7 +92,7 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
             Set<String> taskIdsSet = new HashSet<>(Arrays.asList(yesterdayDailyTomorrowTaskList));
             Timestamp date = et.getDate();
             //今日完成任务
-            List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT('" + date + "','%Y-%m-%d')"));
+            List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT((case when "+date+" is Null then now() else "+date+" end),'%Y-%m-%d')"));
             for (Task task : todayDailyCompleteTasks) {
                 taskIdsSet.add(String.valueOf(task.getId()));
             }
