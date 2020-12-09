@@ -1125,7 +1125,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"IbzTaskestimate")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibztaskestimate){
                     this.refresh([data]);
                 }
             })

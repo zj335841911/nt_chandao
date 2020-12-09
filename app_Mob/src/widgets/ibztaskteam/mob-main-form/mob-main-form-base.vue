@@ -1071,7 +1071,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"ibztaskteam")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibztaskteam){
                     this.refresh([data]);
                 }
             })

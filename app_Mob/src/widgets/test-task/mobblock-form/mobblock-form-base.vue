@@ -1081,7 +1081,7 @@ export default class MobblockBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"TestTask")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.testtask){
                     this.refresh([data]);
                 }
             })

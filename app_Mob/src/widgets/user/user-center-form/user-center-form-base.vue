@@ -1396,7 +1396,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"User")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.user){
                     this.refresh([data]);
                 }
             })

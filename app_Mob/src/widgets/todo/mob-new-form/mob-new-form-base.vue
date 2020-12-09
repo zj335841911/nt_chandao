@@ -1270,7 +1270,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Todo")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.todo){
                     this.refresh([data]);
                 }
             })

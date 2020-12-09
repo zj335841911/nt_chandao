@@ -1092,7 +1092,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"TestSuite")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.testsuite){
                     this.refresh([data]);
                 }
             })

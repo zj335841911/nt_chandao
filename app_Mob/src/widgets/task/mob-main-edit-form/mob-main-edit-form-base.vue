@@ -2736,7 +2736,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Task")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.task){
                     this.refresh([data]);
                 }
             })

@@ -1419,7 +1419,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"IbzWeekly")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzweekly){
                     this.refresh([data]);
                 }
             })

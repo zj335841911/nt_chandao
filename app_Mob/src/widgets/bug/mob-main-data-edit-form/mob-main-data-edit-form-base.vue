@@ -2743,7 +2743,7 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
                 if(!Object.is(name,"Bug")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.bug){
                     this.refresh([data]);
                 }
             })

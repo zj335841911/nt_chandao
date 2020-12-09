@@ -1089,7 +1089,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
                 if(!Object.is(name,"Project")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.project){
                     this.refresh([data]);
                 }
             })

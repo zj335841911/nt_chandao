@@ -1528,7 +1528,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
                 if(!Object.is(name,"IbzDaily")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzdaily){
                     this.refresh([data]);
                 }
             })

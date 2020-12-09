@@ -1318,7 +1318,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Case")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.case){
                     this.refresh([data]);
                 }
             })

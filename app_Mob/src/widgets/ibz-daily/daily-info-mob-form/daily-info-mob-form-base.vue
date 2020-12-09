@@ -1410,7 +1410,7 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"IbzDaily")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzdaily){
                     this.refresh([data]);
                 }
             })

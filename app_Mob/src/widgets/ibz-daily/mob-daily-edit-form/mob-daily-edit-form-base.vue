@@ -1403,7 +1403,7 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"IbzDaily")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzdaily){
                     this.refresh([data]);
                 }
             })

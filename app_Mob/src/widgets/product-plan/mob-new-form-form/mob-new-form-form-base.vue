@@ -1312,7 +1312,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"ProductPlan")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.productplan){
                     this.refresh([data]);
                 }
             })
