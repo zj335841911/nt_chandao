@@ -126,6 +126,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
             return newMonthly;
         }
 
+        CachedBeanCopier.copy(get(et.getIbzmonthlyid()), newMonthly);
         String strAction = StaticDict.Action__type.SUBMIT.getValue();
         Action action = actionHelper.create(StaticDict.Action__object_type.MONTHLY.getValue(), newMonthly.getIbzmonthlyid(), strAction,
                 "", "", null, true);

@@ -89,6 +89,7 @@ public class IbzReportlyHelper extends ZTBaseHelper<IbzReportlyMapper, IbzReport
             return et;
         }
 
+        CachedBeanCopier.copy(get(et.getIbzreportlyid()), et);
         String strAction = StaticDict.Action__type.SUBMIT.getValue();
         Action action = actionHelper.create(StaticDict.Action__object_type.REPORTLY.getValue(), et.getIbzreportlyid(), strAction,
                 "", "", null, true);
