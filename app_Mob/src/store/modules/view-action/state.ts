@@ -633,6 +633,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a2ae9ac11aa48db204b35705bf573ebd',
                 'db8c84773e393175d84b15d23715c412',
             ],
         },
@@ -1754,6 +1755,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a2ae9ac11aa48db204b35705bf573ebd',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyMainInfoMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+                'db8c84773e393175d84b15d23715c412',
             ],
         },
         {

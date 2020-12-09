@@ -655,7 +655,32 @@ export default class IbzReportlyReportlyMobMDViewBase extends Vue {
      * @memberof IbzReportlyReportlyMobMDView
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        //this.$notice.warning('未指定关系视图');
+        const params: any = { ...paramJO };
+        let context = { ...this.context, ...contextJO };
+        if (args.length > 0) {
+            Object.assign(context, args[0]);
+        }
+        let response: any = null;
+        let panelNavParam = { } ;
+        let panelNavContext = { } ;
+        //导航参数处理
+        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+            { pathName: 'maininfomobeditview', parameterName: 'maininfomobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
+        if (response) {
+            if (!response || !Object.is(response.ret, 'OK')) {
+                return;
+            }
+            if (!xData || !(xData.refresh instanceof Function)) {
+                return;
+            }
+            xData.refresh(response.datas);
+        }
     }
 
 

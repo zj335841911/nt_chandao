@@ -24,6 +24,7 @@ export default {
     lastmonth:  commonLogic.appcommonhandle("上月",null),
     srfkey:  commonLogic.appcommonhandle("前端键值",null),
     noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
+    files:  commonLogic.appcommonhandle("文件",null),
   },
 	views: {
 		mobmapview: {

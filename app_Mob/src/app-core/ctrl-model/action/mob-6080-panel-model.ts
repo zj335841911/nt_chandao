@@ -84,6 +84,9 @@ export class Mob_6080Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

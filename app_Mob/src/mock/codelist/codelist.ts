@@ -5,6 +5,90 @@ import Mock from 'mockjs'
 
 const datas: Array<any> = [
         {
+        srfkey: 'StoryPoints',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '0',
+                label: '0',
+                text: '0',
+                value: '0',
+                disabled: false,
+            },
+            {
+                id: '0.5',
+                label: '0.5',
+                text: '0.5',
+                value: '0.5',
+                disabled: false,
+            },
+            {
+                id: '1',
+                label: '1',
+                text: '1',
+                value: '1',
+                disabled: false,
+            },
+            {
+                id: '2',
+                label: '2',
+                text: '2',
+                value: '2',
+                disabled: false,
+            },
+            {
+                id: '3',
+                label: '3',
+                text: '3',
+                value: '3',
+                disabled: false,
+            },
+            {
+                id: '5',
+                label: '5',
+                text: '5',
+                value: '5',
+                disabled: false,
+            },
+            {
+                id: '8',
+                label: '8',
+                text: '8',
+                value: '8',
+                disabled: false,
+            },
+            {
+                id: '13',
+                label: '13',
+                text: '13',
+                value: '13',
+                disabled: false,
+            },
+            {
+                id: '20',
+                label: '20',
+                text: '20',
+                value: '20',
+                disabled: false,
+            },
+            {
+                id: '40',
+                label: '40',
+                text: '40',
+                value: '40',
+                disabled: false,
+            },
+            {
+                id: '100',
+                label: '100',
+                text: '100',
+                value: '100',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__status',
         emptytext: '未定义',
         "codelisttype":"static",

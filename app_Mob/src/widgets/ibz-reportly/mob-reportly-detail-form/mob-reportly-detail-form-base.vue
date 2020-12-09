@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form story-form ">
+    <div ref='form' class="app-form ibzreportly-form ">
                 
 
 <app-form-group 
@@ -9,7 +9,7 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('story.mobmain_form.details.group1')" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
@@ -18,607 +18,139 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='prodoctname' 
+    name='ibzreportlyname' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="prodoctname_item"  
-    :itemValue="this.data.prodoctname" 
-    v-show="detailsModel.prodoctname.visible" 
-    :itemRules="this.rules.prodoctname" 
-    :caption="$t('story.mobmain_form.details.prodoctname')"  
+    ref="ibzreportlyname_item"  
+    :itemValue="this.data.ibzreportlyname" 
+    v-show="detailsModel.ibzreportlyname.visible" 
+    :itemRules="this.rules.ibzreportlyname" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.ibzreportlyname')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.prodoctname.disabled"
-    :error="detailsModel.prodoctname.error" 
+    :disabled="detailsModel.ibzreportlyname.disabled"
+    :error="detailsModel.ibzreportlyname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.prodoctname"
+    v-if="data.ibzreportlyname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.prodoctname" 
+    :value="data.ibzreportlyname" 
     :itemParam="{}"/>
 </app-form-item>
 
 
 
 <app-form-item 
-    name='branch' 
+    name='date' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="branch_item"  
-    :itemValue="this.data.branch" 
-    v-show="detailsModel.branch.visible" 
-    :itemRules="this.rules.branch" 
-    :caption="$t('story.mobmain_form.details.branch')"  
+    ref="date_item"  
+    :itemValue="this.data.date" 
+    v-show="detailsModel.date.visible" 
+    :itemRules="this.rules.date" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.date')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.branch.disabled"
-    :error="detailsModel.branch.error" 
+    :disabled="detailsModel.date.disabled"
+    :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    codeListType="DYNAMIC" 
-    tag="ProductBranch_Cache"
-    :isCache="false" 
-    v-if="data.branch"
-    :navigateContext ='{ "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%" } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.branch" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='modulename1' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="modulename1_item"  
-    :itemValue="this.data.modulename1" 
-    v-show="detailsModel.modulename1.visible" 
-    :itemRules="this.rules.modulename1" 
-    :caption="$t('story.mobmain_form.details.modulename1')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.modulename1.disabled"
-    :error="detailsModel.modulename1.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.modulename1"
+    v-if="data.date"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.modulename1" 
+    :value="data.date" 
     :itemParam="{}"/>
 </app-form-item>
 
 
 
 <app-form-item 
-    name='version' 
+    name='content' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="version_item"  
-    :itemValue="this.data.version" 
-    v-show="detailsModel.version.visible" 
-    :itemRules="this.rules.version" 
-    :caption="$t('story.mobmain_form.details.version')"  
+    ref="content_item"  
+    :itemValue="this.data.content" 
+    v-show="detailsModel.content.visible" 
+    :itemRules="this.rules.content" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.content')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.version.disabled"
-    :error="detailsModel.version.error" 
+    :disabled="detailsModel.content.disabled"
+    :error="detailsModel.content.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="CurStory"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.version.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.version"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.version = $event" />
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.content" @change="(val) =>{this.data.content =val}" :disabled="detailsModel.content.disabled" :data="JSON.stringify(this.data)"  name="content" :uploadparams='{objecttype:"reportly",version:"editor"}' :exportparams='{objecttype:"reportly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
 </app-form-item>
 
 
 
 <app-form-item 
-    name='title' 
+    name='reportto' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="title_item"  
-    :itemValue="this.data.title" 
-    v-show="detailsModel.title.visible" 
-    :itemRules="this.rules.title" 
-    :caption="$t('story.mobmain_form.details.title')"  
+    ref="reportto_item"  
+    :itemValue="this.data.reportto" 
+    v-show="detailsModel.reportto.visible" 
+    :itemRules="this.rules.reportto" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.reportto')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.title.disabled"
-    :error="detailsModel.title.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.title"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.title" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='type' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="type_item"  
-    :itemValue="this.data.type" 
-    v-show="detailsModel.type.visible" 
-    :itemRules="this.rules.type" 
-    :caption="$t('story.mobmain_form.details.type')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.type.disabled"
-    :error="detailsModel.type.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="STATIC" 
-    tag="Story__type"
-    :isCache="false" 
-    v-if="data.type"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.type" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='pri' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="pri_item"  
-    :itemValue="this.data.pri" 
-    v-show="detailsModel.pri.visible" 
-    :itemRules="this.rules.pri" 
-    :caption="$t('story.mobmain_form.details.pri')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.pri.disabled"
-    :error="detailsModel.pri.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="STATIC" 
-    tag="Story__pri"
-    :isCache="false" 
-    v-if="data.pri"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.pri" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='storypoints' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="storypoints_item"  
-    :itemValue="this.data.storypoints" 
-    v-show="detailsModel.storypoints.visible" 
-    :itemRules="this.rules.storypoints" 
-    :caption="$t('story.mobmain_form.details.storypoints')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.storypoints.disabled"
-    :error="detailsModel.storypoints.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="STATIC" 
-    tag="StoryPoints"
-    :isCache="false" 
-    v-if="data.storypoints"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.storypoints" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='status' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="status_item"  
-    :itemValue="this.data.status" 
-    v-show="detailsModel.status.visible" 
-    :itemRules="this.rules.status" 
-    :caption="$t('story.mobmain_form.details.status')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.status.disabled"
-    :error="detailsModel.status.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="STATIC" 
-    tag="Story__status"
-    :isCache="false" 
-    v-if="data.status"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.status" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='assignedto' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="assignedto_item"  
-    :itemValue="this.data.assignedto" 
-    v-show="detailsModel.assignedto.visible" 
-    :itemRules="this.rules.assignedto" 
-    :caption="$t('story.mobmain_form.details.assignedto')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.assignedto.disabled"
-    :error="detailsModel.assignedto.error" 
+    :disabled="detailsModel.reportto.disabled"
+    :error="detailsModel.reportto.error" 
     :isEmptyCaption="false">
         <app-mob-span  
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto"
+    v-if="data.reportto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.assignedto" 
+    :value="data.reportto" 
     :itemParam="{}"/>
 </app-form-item>
 
 
 
 <app-form-item 
-    name='assigneddate' 
+    name='mailto' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="assigneddate_item"  
-    :itemValue="this.data.assigneddate" 
-    v-show="detailsModel.assigneddate.visible" 
-    :itemRules="this.rules.assigneddate" 
-    :caption="$t('story.mobmain_form.details.assigneddate')"  
+    ref="mailto_item"  
+    :itemValue="this.data.mailto" 
+    v-show="detailsModel.mailto.visible" 
+    :itemRules="this.rules.mailto" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.mailto')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.assigneddate.disabled"
-    :error="detailsModel.assigneddate.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.assigneddate"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.assigneddate" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='source' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="source_item"  
-    :itemValue="this.data.source" 
-    v-show="detailsModel.source.visible" 
-    :itemRules="this.rules.source" 
-    :caption="$t('story.mobmain_form.details.source')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.source.disabled"
-    :error="detailsModel.source.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="STATIC" 
-    tag="Story__source"
-    :isCache="false" 
-    v-if="data.source"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.source" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='sourcenote' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="sourcenote_item"  
-    :itemValue="this.data.sourcenote" 
-    v-show="detailsModel.sourcenote.visible" 
-    :itemRules="this.rules.sourcenote" 
-    :caption="$t('story.mobmain_form.details.sourcenote')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.sourcenote.disabled"
-    :error="detailsModel.sourcenote.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.sourcenote"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.sourcenote" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='stage' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="stage_item"  
-    :itemValue="this.data.stage" 
-    v-show="detailsModel.stage.visible" 
-    :itemRules="this.rules.stage" 
-    :caption="$t('story.mobmain_form.details.stage')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.stage.disabled"
-    :error="detailsModel.stage.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="STATIC" 
-    tag="Story__stage"
-    :isCache="false" 
-    v-if="data.stage"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.stage" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='closedby' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="closedby_item"  
-    :itemValue="this.data.closedby" 
-    v-show="detailsModel.closedby.visible" 
-    :itemRules="this.rules.closedby" 
-    :caption="$t('story.mobmain_form.details.closedby')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.closedby.disabled"
-    :error="detailsModel.closedby.error" 
+    :disabled="detailsModel.mailto.disabled"
+    :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
         <app-mob-span  
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.closedby"
+    v-if="data.mailto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.closedby" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='closeddate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="closeddate_item"  
-    :itemValue="this.data.closeddate" 
-    v-show="detailsModel.closeddate.visible" 
-    :itemRules="this.rules.closeddate" 
-    :caption="$t('story.mobmain_form.details.closeddate')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.closeddate.disabled"
-    :error="detailsModel.closeddate.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.closeddate"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.closeddate" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='closedreason' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="closedreason_item"  
-    :itemValue="this.data.closedreason" 
-    v-show="detailsModel.closedreason.visible" 
-    :itemRules="this.rules.closedreason" 
-    :caption="$t('story.mobmain_form.details.closedreason')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.closedreason.disabled"
-    :error="detailsModel.closedreason.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="STATIC" 
-    tag="Story__closed_reason"
-    :isCache="false" 
-    v-if="data.closedreason"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.closedreason" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='spec' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="spec_item"  
-    :itemValue="this.data.spec" 
-    v-show="detailsModel.spec.visible" 
-    :itemRules="this.rules.spec" 
-    :caption="$t('story.mobmain_form.details.spec')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.spec.disabled"
-    :error="detailsModel.spec.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='verify' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="verify_item"  
-    :itemValue="this.data.verify" 
-    v-show="detailsModel.verify.visible" 
-    :itemRules="this.rules.verify" 
-    :caption="$t('story.mobmain_form.details.verify')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.verify.disabled"
-    :error="detailsModel.verify.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='mailtopk' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="mailtopk_item"  
-    :itemValue="this.data.mailtopk" 
-    v-show="detailsModel.mailtopk.visible" 
-    :itemRules="this.rules.mailtopk" 
-    :caption="$t('story.mobmain_form.details.mailtopk')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.mailtopk.disabled"
-    :error="detailsModel.mailtopk.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.mailtopk"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailtopk" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='keywords' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="keywords_item"  
-    :itemValue="this.data.keywords" 
-    v-show="detailsModel.keywords.visible" 
-    :itemRules="this.rules.keywords" 
-    :caption="$t('story.mobmain_form.details.keywords')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.keywords.disabled"
-    :error="detailsModel.keywords.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.keywords"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.keywords" 
+    :value="data.mailto" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -629,11 +161,11 @@
     layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('story.mobmain_form.details.grouppanel2')" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.grouppanel1')" 
     :isShowCaption="true" 
-    :titleBarCloseMode="1" 
+    :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
@@ -641,23 +173,23 @@
     
 <app-form-druipart
     class='' 
-    parameterName='story' 
+    parameterName='ibzreportly' 
     refviewtype='DEMOBMDVIEW9'  
-    refreshitems='version' 
+    refreshitems='' 
     viewname='file-mob-mdview9' 
-    v-show="detailsModel.druipart2.visible" 
-    :caption="$t('story.mobmain_form.details.druipart2')"  
-    paramItem='story' 
+    v-show="detailsModel.druipart1.visible" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.druipart1')"  
+    paramItem='ibzreportly' 
     style="" 
     :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
+    :parentdata='{"srfparentdename":"IBZ_REPORTLY","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
     tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "n_extra_eq": "%version%", "objecttype": "story" } ' 
+    :navigateParam ='{ "srfparentkey": "%ibzreportlyid%", "objecttype": "reportly" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -673,11 +205,11 @@
     layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('story.mobmain_form.details.grouppanel1')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="1" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.grouppanel2')" 
+    :isShowCaption="false" 
+    :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
@@ -685,23 +217,23 @@
     
 <app-form-druipart
     class='' 
-    parameterName='story' 
+    parameterName='ibzreportly' 
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
-    v-show="detailsModel.druipart1.visible" 
-    :caption="$t('story.mobmain_form.details.druipart1')"  
-    paramItem='story' 
+    v-show="detailsModel.druipart2.visible" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.druipart2')"  
+    paramItem='ibzreportly' 
     style="" 
     :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
+    :parentdata='{"srfparentdename":"IBZ_REPORTLY","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
     tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
+    :navigateParam ='{ "srfparentkey": "%ibzreportlyid%", "objecttype": "reportly" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -725,11 +257,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
-import MobMainService from '@/app-core/ctrl-service/story/mob-main-form-service';
+import IbzReportlyService from '@/app-core/service/ibz-reportly/ibz-reportly-service';
+import MobReportlyDetailService from '@/app-core/ctrl-service/ibz-reportly/mob-reportly-detail-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import IbzReportlyUIService from '@/ui-service/ibz-reportly/ibz-reportly-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -739,13 +271,13 @@ import {  Util } from '@/ibiz-core/utils';
 @Component({
     components: { }
 })
-export default class MobMainBase extends Vue implements ControlInterface {
+export default class MobReportlyDetailBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected name?: string;
 
@@ -753,7 +285,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected viewName!: string;
 
@@ -762,7 +294,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -770,7 +302,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -778,7 +310,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -787,7 +319,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -795,7 +327,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected getControlType(): string {
         return 'FORM'
@@ -805,7 +337,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -814,7 +346,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MobMainBase
+     * @memberof  MobReportlyDetailBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -826,33 +358,33 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MobMainService}
-     * @memberof MobMain
+     * @type {MobReportlyDetailService}
+     * @memberof MobReportlyDetail
      */
-    protected service: MobMainService = new MobMainService({$store:this.$store});
+    protected service: MobReportlyDetailService = new MobReportlyDetailService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof MobMain
+     * @type {IbzReportlyService}
+     * @memberof MobReportlyDetail
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: IbzReportlyService = new IbzReportlyService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {StoryUIService}
-     * @memberof MobMainBase
+     * @type {IbzReportlyUIService}
+     * @memberof MobReportlyDetailBase
      */  
-    public deUIService:StoryUIService = new StoryUIService(this.$store);
+    public deUIService:IbzReportlyUIService = new IbzReportlyUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -863,7 +395,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() srfwfmemo?: string;
 
@@ -871,7 +403,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     public getDatas(): any[] {
         return [this.data];
@@ -881,7 +413,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     public getData(): any {
         return this.data;
@@ -891,7 +423,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -899,7 +431,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -907,7 +439,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -915,7 +447,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected WFStartAction!: string;
     
@@ -923,7 +455,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected updateAction!: string;
     
@@ -931,7 +463,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected removeAction!: string;
 
@@ -947,7 +479,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -955,7 +487,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected loadAction!: string;
     
@@ -963,7 +495,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected createAction!: string;
 
@@ -971,7 +503,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected searchAction!: string;
 
@@ -979,7 +511,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Prop() protected viewtag!: string;
 
@@ -987,7 +519,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected formState: Subject<any> = new Subject();
 
@@ -997,7 +529,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MobMainBase
+     * @memberof MobReportlyDetailBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -1005,7 +537,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -1014,7 +546,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {Subject<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -1023,7 +555,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -1032,7 +564,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private oldData: any = {};
 
@@ -1040,7 +572,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected data: any = {
         srfupdatedate: null,
@@ -1051,39 +583,22 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        prodoctname: null,
-        branch: null,
-        product: null,
-        branchname: null,
-        modulename1: null,
-        version: null,
-        title: null,
-        type: null,
-        pri: null,
-        storypoints: null,
-        status: null,
-        assignedto: null,
-        assigneddate: null,
-        source: null,
-        sourcenote: null,
-        stage: null,
-        closedby: null,
-        closeddate: null,
-        closedreason: null,
-        spec: null,
-        verify: null,
+        ibzreportlyname: null,
+        date: null,
+        content: null,
+        reportto: null,
         mailto: null,
-        mailtopk: null,
-        keywords: null,
-        id: null,
-        story: null,
+        ibz_reportlyid: null,
+        account: null,
+        issubmit: null,
+        ibzreportly: null,
     };
 
     /**
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof MobMain
+      * @memberof MobReportlyDetail
       */
     protected currentAction: string = "";
 
@@ -1091,7 +606,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof MobMain
+      * @memberof MobReportlyDetail
       */
     protected drcounter: number = 0;
 
@@ -1099,7 +614,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof MobMain
+      * @memberof MobReportlyDetail
       */
     protected saveState:any ;
 
@@ -1107,7 +622,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
       * 异常信息缓存
       *
       * @type {any}
-      * @memberof MobMain
+      * @memberof MobReportlyDetail
       */
     public errorCache :any = {};
 
@@ -1115,7 +630,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected rules: any = {
     }
@@ -1124,7 +639,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobMainBase
+     * @memberof MobReportlyDetailBase
      */
     public deRules:any = {
     };
@@ -1204,28 +719,28 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel2: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzreportly.mobreportlydetail_form', extractMode: 'ITEM', details: [] } })
 , 
-        group1: new FormGroupPanelModel({ caption: '需求基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '操作历史', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzreportly.mobreportlydetail_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: '汇报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzreportly.mobreportlydetail_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfupdatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfkey: new FormItemModel({ caption: '汇报标识', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfmajortext: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '汇报名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1235,55 +750,21 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        prodoctname: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        ibzreportlyname: new FormItemModel({ caption: '汇报名称', detailType: 'FORMITEM', name: 'ibzreportlyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        date: new FormItemModel({ caption: '汇报日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        content: new FormItemModel({ caption: '工作内容', detailType: 'FORMITEM', name: 'content', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        modulename1: new FormItemModel({ caption: '所属模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        version: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        type: new FormItemModel({ caption: '需求类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        storypoints: new FormItemModel({ caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        source: new FormItemModel({ caption: '需求来源', detailType: 'FORMITEM', name: 'source', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        stage: new FormItemModel({ caption: '所处阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        closeddate: new FormItemModel({ caption: '关闭日期	', detailType: 'FORMITEM', name: 'closeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        closedreason: new FormItemModel({ caption: '关闭原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        ibz_reportlyid: new FormItemModel({ caption: '汇报标识', detailType: 'FORMITEM', name: 'ibz_reportlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        account: new FormItemModel({ caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1292,7 +773,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srfupdatedate')
     onSrfupdatedateChange(newVal: any, oldVal: any) {
@@ -1304,7 +785,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -1316,7 +797,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -1328,7 +809,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -1340,7 +821,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -1352,7 +833,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -1364,7 +845,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -1376,7 +857,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -1384,255 +865,51 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 prodoctname 值
+     * 监控表单属性 ibzreportlyname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
-    @Watch('data.prodoctname')
-    onProdoctnameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'prodoctname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.ibzreportlyname')
+    onIbzreportlynameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ibzreportlyname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 branch 值
+     * 监控表单属性 date 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
-    @Watch('data.branch')
-    onBranchChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    @Watch('data.date')
+    onDateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'date', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 product 值
+     * 监控表单属性 content 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
-    @Watch('data.product')
-    onProductChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    @Watch('data.content')
+    onContentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'content', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 branchname 值
+     * 监控表单属性 reportto 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
-    @Watch('data.branchname')
-    onBranchnameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branchname', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 modulename1 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.modulename1')
-    onModulename1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'modulename1', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 version 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.version')
-    onVersionChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'version', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 title 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.title')
-    onTitleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 type 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.type')
-    onTypeChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 pri 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.pri')
-    onPriChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 storypoints 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.storypoints')
-    onStorypointsChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'storypoints', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 status 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.status')
-    onStatusChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 assignedto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 assigneddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.assigneddate')
-    onAssigneddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assigneddate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 source 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.source')
-    onSourceChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'source', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 sourcenote 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.sourcenote')
-    onSourcenoteChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'sourcenote', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 stage 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.stage')
-    onStageChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'stage', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 closedby 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.closedby')
-    onClosedbyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'closedby', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 closeddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.closeddate')
-    onCloseddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'closeddate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 closedreason 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.closedreason')
-    onClosedreasonChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'closedreason', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 spec 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.spec')
-    onSpecChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'spec', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 verify 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.verify')
-    onVerifyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'verify', newVal: newVal, oldVal: oldVal });
+    @Watch('data.reportto')
+    onReporttoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'reportto', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1640,7 +917,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     @Watch('data.mailto')
     onMailtoChange(newVal: any, oldVal: any) {
@@ -1648,39 +925,39 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 mailtopk 值
+     * 监控表单属性 ibz_reportlyid 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
-    @Watch('data.mailtopk')
-    onMailtopkChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
+    @Watch('data.ibz_reportlyid')
+    onIbz_reportlyidChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ibz_reportlyid', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 keywords 值
+     * 监控表单属性 account 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
-    @Watch('data.keywords')
-    onKeywordsChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'keywords', newVal: newVal, oldVal: oldVal });
+    @Watch('data.account')
+    onAccountChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 id 值
+     * 监控表单属性 issubmit 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    @Watch('data.issubmit')
+    onIssubmitChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'issubmit', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1689,7 +966,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -1715,7 +992,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
@@ -1741,30 +1018,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        if (Object.is(name, 'version')) {
-            const details: string[] = ['title', 'spec', 'verify'];
-            if(await this.validItem('version', this.data['version'])){
-                this.updateFormItems('GetStorySpec', this.data, details, true);
-            }
-        }
     }
 
 
@@ -1796,13 +1049,13 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @public
      * @param {{ filter: string}} { filter}
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     public async validAll(filter:string = "defult") {
         let validateState = true;
         let filterProperty = ""
         if(filter === 'new'){
-            filterProperty= 'id'
+            filterProperty= 'ibzreportlyid'
         }
         for (let item of Object.keys(this.rules)) {
             if(!await this.validItem(item,this.data[item]) && item != filterProperty){
@@ -1819,7 +1072,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1837,7 +1090,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -1853,7 +1106,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1878,7 +1131,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @protected
      * @param {*} data
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1894,7 +1147,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @private
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1906,7 +1159,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1922,7 +1175,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1940,7 +1193,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected getValues(): any {
         return this.data;
@@ -1951,7 +1204,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1969,7 +1222,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1987,7 +1240,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1999,7 +1252,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected created(): void {
         this.afterCreated();
@@ -2008,11 +1261,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MobMain
+     *  @memberof MobReportlyDetail
      */    
     protected afterCreated(){
         if(this.isautoload){
-            this.autoLoad({srfkey:this.context.story});
+            this.autoLoad({srfkey:this.context.ibzreportly});
         }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
@@ -2061,7 +1314,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             });
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"Story")){
+                if(!Object.is(name,"IbzReportly")){
                     return;
                 }
                 if(Object.is(action,'appRefresh') && data.appRefreshAction){
@@ -2074,7 +1327,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected destroyed() {
         this.afterDestroy();
@@ -2083,7 +1336,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -2101,7 +1354,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof MobMain
+     * @memberof @memberof MobReportlyDetail
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -2111,7 +1364,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -2134,7 +1387,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -2156,7 +1409,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -2184,7 +1437,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -2196,8 +1449,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.story){
-                Object.assign(this.context, { story: data.story });
+            if(data.ibzreportly){
+                Object.assign(this.context, { ibzreportly: data.ibzreportly });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -2218,7 +1471,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -2262,7 +1515,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -2290,7 +1543,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
-        Object.assign(this.viewparams,{ title: arg.title});
+        Object.assign(this.viewparams,{ ibzreportlyname: arg.ibzreportlyname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -2304,7 +1557,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
+            AppCenterService.notifyMessage({name:"IbzReportly",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -2346,7 +1599,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"IbzReportly",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -2361,7 +1614,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -2369,7 +1622,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"IbzReportly",action:'appRefresh',data:data});
             return response
         } else if (response && response.status !== 401) {
         }
@@ -2384,7 +1637,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -2395,7 +1648,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"IbzReportly",action:'appRefresh',data:data});
             return response        
         } else if (response && response.status !== 401) {
             return response;
@@ -2411,7 +1664,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -2433,7 +1686,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"IbzReportly",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });
@@ -2452,7 +1705,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected onEnter($event: any): void {
     }
@@ -2463,7 +1716,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -2481,7 +1734,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -2500,7 +1753,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -2515,7 +1768,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof MobMain
+    * @memberof MobReportlyDetail
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -2538,14 +1791,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof MobMain
+     * @memberof MobReportlyDetail
      */
     public createDefault(){                    
     }
 
         /**
      * 更新默认值
-     * @memberof MobMainBase
+     * @memberof MobReportlyDetailBase
      */
     public updateDefault(){                    
     }
@@ -2574,5 +1827,5 @@ export default class MobMainBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './mob-main-form.less';
+@import './mob-reportly-detail-form.less';
 </style>

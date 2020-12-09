@@ -1,5 +1,19 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
+    StoryPoints: {
+        '0': '0',
+        '0.5': '0.5',
+        '1': '1',
+        '2': '2',
+        '3': '3',
+        '5': '5',
+        '8': '8',
+        '13': '13',
+        '20': '20',
+        '40': '40',
+        '100': '100',
+        empty: '',
+    },
     Bug__status: {
         'active': '激活',
         'resolved': '已解决',

@@ -24,6 +24,7 @@ export default {
     lastmonth: "上月",
     srfkey: "前端键值",
     noticeusers: "消息通知用户",
+    files: "文件",
   },
 	views: {
 		mobmapview: {
