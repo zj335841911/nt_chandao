@@ -124,6 +124,35 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			openlibviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			openlibviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			ibzlibmain_portlet: {
+			  ibzlibmain: {
+				  title: commonLogic.appcommonhandle("主信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			openlibviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			ibzlibcz_portlet: {
+			  ibzlibcz: {
+				  title: commonLogic.appcommonhandle("操作栏", null)
+			  }
+				uiactions: {
+					exit: commonLogic.appcommonhandle("返回",null),
+					ibzlib_editlibcz: commonLogic.appcommonhandle("编辑",null),
+					ibzlib_deletecz: commonLogic.appcommonhandle("删除",null),
+				},
+			},
 		};
 		return data;
 }

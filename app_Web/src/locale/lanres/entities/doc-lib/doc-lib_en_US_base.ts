@@ -497,6 +497,14 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			dashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

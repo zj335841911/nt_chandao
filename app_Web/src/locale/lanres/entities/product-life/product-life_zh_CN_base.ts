@@ -51,6 +51,13 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			getroadmaps_portlet: {
+			  getroadmaps: {
+				  title: commonLogic.appcommonhandle("产品路线图", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

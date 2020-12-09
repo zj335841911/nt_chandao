@@ -140,6 +140,34 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("添加备注",null),
 				},
 			},
+			producttrendstimeline_portlet: {
+			  producttrendstimeline: {
+				  title: commonLogic.appcommonhandle("最新动态", null)
+			  }
+				uiactions: {
+				},
+			},
+			actionhistory_portlet: {
+			  actionhistory: {
+				  title: commonLogic.appcommonhandle("历史记录", null)
+			  }
+				uiactions: {
+				},
+			},
+			projecttrendstimeline_portlet: {
+			  projecttrendstimeline: {
+				  title: commonLogic.appcommonhandle("最新动态", null)
+			  }
+				uiactions: {
+				},
+			},
+			alltrends_portlet: {
+			  alltrends: {
+				  title: commonLogic.appcommonhandle("动态", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

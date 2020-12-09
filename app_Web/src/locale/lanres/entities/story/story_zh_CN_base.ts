@@ -1570,6 +1570,106 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			mainviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			mainviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			storyspec_portlet: {
+			  storyspec: {
+				  title: commonLogic.appcommonhandle("需求描述", null)
+			  }
+				uiactions: {
+				},
+			},
+			mainviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			maintoolbar_portlet: {
+			  maintoolbar: {
+				  title: commonLogic.appcommonhandle("需求主数据操作栏", null)
+			  }
+				uiactions: {
+					exit: commonLogic.appcommonhandle("返回",null),
+					story_activitedash: commonLogic.appcommonhandle("激活",null),
+					story_changestorydetaildash: commonLogic.appcommonhandle("变更",null),
+					story_reviewstorydash: commonLogic.appcommonhandle("评审",null),
+					story_assigntodash: commonLogic.appcommonhandle("指派",null),
+					story_closestorydash: commonLogic.appcommonhandle("关闭",null),
+					story_substorycz: commonLogic.appcommonhandle("细分",null),
+					story_openbaseinfoc: commonLogic.appcommonhandle("编辑",null),
+					story_delete: commonLogic.appcommonhandle("删除",null),
+					story_returnedit: commonLogic.appcommonhandle("退出",null),
+				},
+			},
+			mainviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			baseinfo_portlet: {
+			  baseinfo: {
+				  title: commonLogic.appcommonhandle(" 需求基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			storyrelated_portlet: {
+			  storyrelated: {
+				  title: commonLogic.appcommonhandle("需求关联信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			assignedtomestory_portlet: {
+			  assignedtomestory: {
+				  title: commonLogic.appcommonhandle("指派需求", null)
+			  }
+				uiactions: {
+					story_more: commonLogic.appcommonhandle("MORE",null),
+				},
+			},
+			maindashboardview_linkdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			totalcuropenedstorypri_portlet: {
+			  totalcuropenedstorypri: {
+				  title: commonLogic.appcommonhandle("累计创建需求-优先级", null)
+			  }
+				uiactions: {
+				},
+			},
+			totalcuropenedstorystage_portlet: {
+			  totalcuropenedstorystage: {
+				  title: commonLogic.appcommonhandle("累计创建的需求-阶段", null)
+			  }
+				uiactions: {
+				},
+			},
+			mainview_editmodedashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			mainview_editmodedashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

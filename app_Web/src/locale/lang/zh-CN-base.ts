@@ -192,6 +192,7 @@ function getAppLocale(){
             },
             fileUpload: {
                 caption: "上传",
+                uploading: "上传中...",
             },
             searchButton: {
                 search: "搜索",

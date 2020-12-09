@@ -635,6 +635,68 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			maindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			productmaintoolbar_portlet: {
+			  productmaintoolbar: {
+				  title: commonLogic.appcommonhandle("主数据操作栏", null)
+			  }
+				uiactions: {
+				product_closeproduct: commonLogic.appcommonhandle("关闭",null),
+				product_openquickcfgview: commonLogic.appcommonhandle("编辑",null),
+				product_delete: commonLogic.appcommonhandle("删除",null),
+				product_returnedit: commonLogic.appcommonhandle("退出",null),
+				},
+			},
+			maindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			productinfo_portlet: {
+			  productinfo: {
+				  title: commonLogic.appcommonhandle("产品基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			productexpview_portlet: {
+			  productexpview: {
+				  title: commonLogic.appcommonhandle("产品统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			textexpview_portlet: {
+			  textexpview: {
+				  title: commonLogic.appcommonhandle("测试统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			unclosedproduct_portlet: {
+			  unclosedproduct: {
+				  title: commonLogic.appcommonhandle("未关闭产品", null)
+			  }
+				uiactions: {
+				},
+			},
+			productstatuschart_portlet: {
+			  productstatuschart: {
+				  title: commonLogic.appcommonhandle("产品总览", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

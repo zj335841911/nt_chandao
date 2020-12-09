@@ -51,6 +51,13 @@ function getLocaleResourceBase(){
 				ibzprojectmember_teammanagement: commonLogic.appcommonhandle("团队管理",null),
 				},
 			},
+			relatedmembers_portlet: {
+			  relatedmembers: {
+				  title: commonLogic.appcommonhandle("相关成员", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

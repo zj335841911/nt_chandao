@@ -192,6 +192,7 @@ function getAppLocale(){
             },
             fileUpload: {
                 caption: "Upload",
+                uploading: "Uploading...",
             },
             searchButton: {
                 search: "Search",

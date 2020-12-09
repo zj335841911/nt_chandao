@@ -196,6 +196,97 @@ function getLocaleResourceBase(){
 			monthopenedstory_chart: {
 				nodata:commonLogic.appcommonhandle("",null),
 			},
+			qadashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			qadashboardviewdashboard_container4_portlet: {
+			  qadashboardviewdashboard_container4: {
+				  title: commonLogic.appcommonhandle("累计创建Bug数和创建用例数", null)
+			  }
+				uiactions: {
+				},
+			},
+			qadashboardviewdashboard_container9_portlet: {
+				uiactions: {
+				},
+			},
+			qadashboardviewdashboard_container10_portlet: {
+				uiactions: {
+				},
+			},
+			qadashboardviewdashboard_container5_portlet: {
+			  qadashboardviewdashboard_container5: {
+				  title: commonLogic.appcommonhandle("月创建Bug数和创建用例数", null)
+			  }
+				uiactions: {
+				},
+			},
+			monthopenedbugandcase_portlet: {
+			  monthopenedbugandcase: {
+				  title: commonLogic.appcommonhandle("月创建Bug数和创建用例数", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container4_portlet: {
+			  dashboardviewdashboard_container4: {
+				  title: commonLogic.appcommonhandle("完成任务数和解决Bug数", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container5_portlet: {
+			  dashboardviewdashboard_container5: {
+				  title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
+			  }
+				uiactions: {
+				},
+			},
+			finishtaskandbug_portlet: {
+			  finishtaskandbug: {
+				  title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
+			  }
+				uiactions: {
+				},
+			},
+			podashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			podashboardviewdashboard_container4_portlet: {
+			  podashboardviewdashboard_container4: {
+				  title: commonLogic.appcommonhandle("所创建需求数和对应的优先级及状态", null)
+			  }
+				uiactions: {
+				},
+			},
+			podashboardviewdashboard_container9_portlet: {
+				uiactions: {
+				},
+			},
+			podashboardviewdashboard_container10_portlet: {
+				uiactions: {
+				},
+			},
+			podashboardviewdashboard_container5_portlet: {
+			  podashboardviewdashboard_container5: {
+				  title: commonLogic.appcommonhandle("月创建需求数", null)
+			  }
+				uiactions: {
+				},
+			},
+			monthopenedstory_portlet: {
+			  monthopenedstory: {
+				  title: commonLogic.appcommonhandle("月累计需求数", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

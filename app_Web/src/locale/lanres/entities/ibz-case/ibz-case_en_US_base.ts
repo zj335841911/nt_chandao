@@ -247,6 +247,69 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Save And Close Window",null),
 				},
 			},
+			dashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			casemain_portlet: {
+			  casemain: {
+				  title: commonLogic.appcommonhandle("主信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			ibzcases_portlet: {
+			  ibzcases: {
+				  title: commonLogic.appcommonhandle("用例库用例操作栏", null)
+			  }
+				uiactions: {
+				exit: commonLogic.appcommonhandle("返回",null),
+				ibzcase_editcasecz: commonLogic.appcommonhandle("编辑",null),
+				ibzcase_deletecz: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			dashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			caseinfo_portlet: {
+			  caseinfo: {
+				  title: commonLogic.appcommonhandle("用例库用例基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			casenewedit_portlet: {
+			  casenewedit: {
+				  title: commonLogic.appcommonhandle("用例库用例创建编辑", null)
+			  }
+				uiactions: {
+				},
+			},
+			opencaseviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			opencaseviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			opencaseviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			opencaseviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

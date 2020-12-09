@@ -968,6 +968,156 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Filter",null),
 				},
 			},
+			maindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maininfo_portlet: {
+			  maininfo: {
+				  title: commonLogic.appcommonhandle("看板主信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardquickaction_portlet: {
+			  dashboardquickaction: {
+				  title: commonLogic.appcommonhandle("操作栏", null)
+			  }
+				uiactions: {
+				exit: commonLogic.appcommonhandle("返回",null),
+				case_executecz: commonLogic.appcommonhandle("执行",null),
+				case_opentestrunresultviewcz: commonLogic.appcommonhandle("结果",null),
+				case_newbugbycaseresultcz: commonLogic.appcommonhandle("转Bug",null),
+				case_maineditcz: commonLogic.appcommonhandle("编辑",null),
+				refresh: commonLogic.appcommonhandle("刷新",null),
+				case_deletecz: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			maindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			maindetail_portlet: {
+			  maindetail: {
+				  title: commonLogic.appcommonhandle("基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			testmaindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			testmaindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			testmaindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			testdashboardquickaction_portlet: {
+			  testdashboardquickaction: {
+				  title: commonLogic.appcommonhandle("操作栏", null)
+			  }
+				uiactions: {
+				exit: commonLogic.appcommonhandle("返回",null),
+				case_caseexecute: commonLogic.appcommonhandle("执行",null),
+				case_caseopentestrunresultview: commonLogic.appcommonhandle("结果",null),
+				case_maineditcz: commonLogic.appcommonhandle("编辑",null),
+				refresh: commonLogic.appcommonhandle("刷新",null),
+				case_deletecz: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			testmaindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			testmaindetail_portlet: {
+			  testmaindetail: {
+				  title: commonLogic.appcommonhandle("基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			caseresultproject_portlet: {
+			  caseresultproject: {
+				  title: commonLogic.appcommonhandle("根据测试结果分类", null)
+			  }
+				uiactions: {
+				},
+			},
+			casetypeproject_portlet: {
+			  casetypeproject: {
+				  title: commonLogic.appcommonhandle("按用例类型统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			casemoduleproject_portlet: {
+			  casemoduleproject: {
+				  title: commonLogic.appcommonhandle("按用例模块统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			caselastrunnerproject_portlet: {
+			  caselastrunnerproject: {
+				  title: commonLogic.appcommonhandle("按用例执行人统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			caseresult_portlet: {
+			  caseresult: {
+				  title: commonLogic.appcommonhandle("按用例结果统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			casetype_portlet: {
+			  casetype: {
+				  title: commonLogic.appcommonhandle("按用例类型统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			casemodule_portlet: {
+			  casemodule: {
+				  title: commonLogic.appcommonhandle("按用例模块统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			caselastrunner_portlet: {
+			  caselastrunner: {
+				  title: commonLogic.appcommonhandle("按用例执行人统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			mecreatecase_portlet: {
+			  mecreatecase: {
+				  title: commonLogic.appcommonhandle("由我创建的用例", null)
+			  }
+				uiactions: {
+				},
+			},
+			totalcuropenedcase_portlet: {
+			  totalcuropenedcase: {
+				  title: commonLogic.appcommonhandle("累计创建用例", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

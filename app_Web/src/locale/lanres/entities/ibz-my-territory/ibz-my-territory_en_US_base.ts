@@ -318,6 +318,40 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			dashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			mywork_portlet: {
+			  mywork: {
+				  title: commonLogic.appcommonhandle("剩余工作", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container5_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container6_portlet: {
+			  dashboardviewdashboard_container6: {
+				  title: commonLogic.appcommonhandle("我收到的汇报", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

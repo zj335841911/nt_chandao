@@ -119,6 +119,47 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Filter",null),
 				},
 			},
+			maindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			cursuitcasegridview_portlet: {
+			  cursuitcasegridview: {
+				  title: commonLogic.appcommonhandle("关联套件", null)
+			  }
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			testsuitequickaction_portlet: {
+			  testsuitequickaction: {
+				  title: commonLogic.appcommonhandle("操作栏", null)
+			  }
+				uiactions: {
+				exit: commonLogic.appcommonhandle("返回",null),
+				testsuite_linkcasedash: commonLogic.appcommonhandle("关联用例",null),
+				testsuite_editsuitedash: commonLogic.appcommonhandle("编辑",null),
+				testsuite_deletedash: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			maindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			maininfoview_portlet: {
+			  maininfoview: {
+				  title: commonLogic.appcommonhandle("基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

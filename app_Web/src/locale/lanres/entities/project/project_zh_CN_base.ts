@@ -740,6 +740,72 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			maindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			projectmaintoolbar_portlet: {
+			  projectmaintoolbar: {
+				  title: commonLogic.appcommonhandle("项目主数据操作栏", null)
+			  }
+				uiactions: {
+					project_projectputoff: commonLogic.appcommonhandle("延期",null),
+					project_projectsuspend: commonLogic.appcommonhandle("挂起",null),
+					project_projectactivate: commonLogic.appcommonhandle("激活",null),
+					project_projectclose: commonLogic.appcommonhandle("关闭",null),
+					project_projectedit: commonLogic.appcommonhandle("编辑",null),
+					project_delete: commonLogic.appcommonhandle("删除",null),
+					project_returnedit: commonLogic.appcommonhandle("退出",null),
+				},
+			},
+			maindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			dashboradinfoview_portlet: {
+			  dashboradinfoview: {
+				  title: commonLogic.appcommonhandle("项目信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			projectexpview_portlet: {
+			  projectexpview: {
+				  title: commonLogic.appcommonhandle("项目统计", null)
+			  }
+				uiactions: {
+				},
+			},
+			unclosedproject_portlet: {
+			  unclosedproject: {
+				  title: commonLogic.appcommonhandle("未关闭的项目", null)
+			  }
+				uiactions: {
+				},
+			},
+			projectstatusbar_portlet: {
+			  projectstatusbar: {
+				  title: commonLogic.appcommonhandle("项目总览", null)
+			  }
+				uiactions: {
+				},
+			},
+			undoneproject_portlet: {
+			  undoneproject: {
+				  title: commonLogic.appcommonhandle("未完成项目", null)
+			  }
+				uiactions: {
+					project_moreundone: commonLogic.appcommonhandle("MORE",null),
+				},
+			},
 		};
 		return data;
 }

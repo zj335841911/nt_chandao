@@ -127,6 +127,10 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			mainviewdashboard_companycontainer1_portlet: {
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

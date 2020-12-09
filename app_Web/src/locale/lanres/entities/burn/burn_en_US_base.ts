@@ -38,6 +38,13 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("更新燃尽图",null),
 				},
 			},
+			burndownchart_portlet: {
+			  burndownchart: {
+				  title: commonLogic.appcommonhandle("燃尽图", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

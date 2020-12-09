@@ -537,6 +537,55 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			maindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindetail_portlet: {
+			  maindetail: {
+				  title: commonLogic.appcommonhandle("详细信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			actionbar_portlet: {
+			  actionbar: {
+				  title: commonLogic.appcommonhandle("操作栏", null)
+			  }
+				uiactions: {
+				exit: commonLogic.appcommonhandle("返回",null),
+				testtask_activitedash: commonLogic.appcommonhandle("激活",null),
+				testtask_startdash: commonLogic.appcommonhandle("开始",null),
+				testtask_closedash: commonLogic.appcommonhandle("关闭",null),
+				testtask_blockdash: commonLogic.appcommonhandle("阻塞",null),
+				},
+			},
+			maindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			maininfo_portlet: {
+			  maininfo: {
+				  title: commonLogic.appcommonhandle("基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			totesttesttask_portlet: {
+			  totesttesttask: {
+				  title: commonLogic.appcommonhandle("待测试版本", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

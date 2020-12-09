@@ -490,6 +490,94 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projectdashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container5_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container6_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container7_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container8_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container9_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container10_portlet: {
+				uiactions: {
+				},
+			},
+			projectdashboardviewdashboard_container11_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container5_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container6_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container7_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container8_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container9_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container10_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container11_portlet: {
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

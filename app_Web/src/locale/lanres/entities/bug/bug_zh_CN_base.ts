@@ -1615,6 +1615,203 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("保存并关闭",null),
 				},
 			},
+			maindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			stepsinfo_portlet: {
+			  stepsinfo: {
+				  title: commonLogic.appcommonhandle("重现步骤", null)
+			  }
+				uiactions: {
+				},
+			},
+			actionhistorylist_portlet: {
+			  actionhistorylist: {
+				  title: commonLogic.appcommonhandle("历史记录", null)
+			  }
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			bugdashboardactions_portlet: {
+			  bugdashboardactions: {
+				  title: commonLogic.appcommonhandle("操作栏", null)
+			  }
+				uiactions: {
+					exit: commonLogic.appcommonhandle("返回",null),
+					bug_maineditdash: commonLogic.appcommonhandle("编辑",null),
+					bug_closebugdash: commonLogic.appcommonhandle("关闭",null),
+					bug_resolvebugdash: commonLogic.appcommonhandle("解决",null),
+					bug_assingtobugcz: commonLogic.appcommonhandle("指派",null),
+					bug_confirmbugdash: commonLogic.appcommonhandle("确认",null),
+					bug_activation: commonLogic.appcommonhandle("激活",null),
+					bug_tostory: commonLogic.appcommonhandle("提需求",null),
+					bug_buildusecase: commonLogic.appcommonhandle("建用例",null),
+					bug_delete: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			maindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			bugseverity_project_portlet: {
+			  bugseverity_project: {
+				  title: commonLogic.appcommonhandle("Bug严重级别分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugtype_project_portlet: {
+			  bugtype_project: {
+				  title: commonLogic.appcommonhandle("Bug类型分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugstatus_project_portlet: {
+			  bugstatus_project: {
+				  title: commonLogic.appcommonhandle("Bug状态分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugresolution_project_portlet: {
+			  bugresolution_project: {
+				  title: commonLogic.appcommonhandle("Bug解决方案分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugopenedby_project_portlet: {
+			  bugopenedby_project: {
+				  title: commonLogic.appcommonhandle("Bug创建者分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugmodule_project_portlet: {
+			  bugmodule_project: {
+				  title: commonLogic.appcommonhandle("Bug模块分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugresolvedby_project_portlet: {
+			  bugresolvedby_project: {
+				  title: commonLogic.appcommonhandle("Bug解决者分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardbugmain_portlet: {
+			  dashboardbugmain: {
+				  title: commonLogic.appcommonhandle("基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardbuglife_portlet: {
+			  dashboardbuglife: {
+				  title: commonLogic.appcommonhandle("Bug的一生", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugseverity_portlet: {
+			  bugseverity: {
+				  title: commonLogic.appcommonhandle("Bug严重级别分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugtype_portlet: {
+			  bugtype: {
+				  title: commonLogic.appcommonhandle("Bug类型分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugstatus_portlet: {
+			  bugstatus: {
+				  title: commonLogic.appcommonhandle("Bug状态分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugresolution_portlet: {
+			  bugresolution: {
+				  title: commonLogic.appcommonhandle("Bug解决方案分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugopenedby_portlet: {
+			  bugopenedby: {
+				  title: commonLogic.appcommonhandle("Bug创建者分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugmodule_portlet: {
+			  bugmodule: {
+				  title: commonLogic.appcommonhandle("Bug模块分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			bugresolvedby_portlet: {
+			  bugresolvedby: {
+				  title: commonLogic.appcommonhandle("Bug解决者分布", null)
+			  }
+				uiactions: {
+				},
+			},
+			assignedtomebug_portlet: {
+			  assignedtomebug: {
+				  title: commonLogic.appcommonhandle("指派bug", null)
+			  }
+				uiactions: {
+					bug_more: commonLogic.appcommonhandle("MORE",null),
+				},
+			},
+			maindashboardview_linkdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			totalcuropenedbug_portlet: {
+			  totalcuropenedbug: {
+				  title: commonLogic.appcommonhandle("累计创建的Bug", null)
+			  }
+				uiactions: {
+				},
+			},
+			curuserresolvebug_portlet: {
+			  curuserresolvebug: {
+				  title: commonLogic.appcommonhandle("解决的Bug", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

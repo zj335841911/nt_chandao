@@ -404,6 +404,83 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
+			dashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			tododesc_portlet: {
+			  tododesc: {
+				  title: commonLogic.appcommonhandle("描述", null)
+			  }
+				uiactions: {
+				},
+			},
+			todoaction_portlet: {
+			  todoaction: {
+				  title: commonLogic.appcommonhandle("历史记录", null)
+			  }
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			tododashboardactions_portlet: {
+			  tododashboardactions: {
+				  title: commonLogic.appcommonhandle("操作栏", null)
+			  }
+				uiactions: {
+					exit: commonLogic.appcommonhandle("返回",null),
+					todo_edit1cz: commonLogic.appcommonhandle("编辑",null),
+					todo_deletecz: commonLogic.appcommonhandle("删除",null),
+					todo_assigntocz: commonLogic.appcommonhandle("指派",null),
+					todo_finishcz: commonLogic.appcommonhandle("完成",null),
+					todo_activatecz: commonLogic.appcommonhandle("激活",null),
+					todo_closecz: commonLogic.appcommonhandle("关闭",null),
+					todo_tobug: commonLogic.appcommonhandle("转Bug",null),
+					todo_totask: commonLogic.appcommonhandle("转任务",null),
+				},
+			},
+			dashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			todobase_portlet: {
+			  todobase: {
+				  title: commonLogic.appcommonhandle("基本信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			myupcoming_portlet: {
+			  myupcoming: {
+				  title: commonLogic.appcommonhandle("我的待办", null)
+			  }
+				uiactions: {
+					todo_more: commonLogic.appcommonhandle("MORE",null),
+				},
+			},
+			maindashboardview_linkdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

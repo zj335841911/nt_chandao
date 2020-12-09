@@ -52,6 +52,13 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			myreport_portlet: {
+			  myreport: {
+				  title: commonLogic.appcommonhandle("我收到的汇报", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

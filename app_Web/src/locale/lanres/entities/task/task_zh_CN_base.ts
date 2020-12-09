@@ -1557,6 +1557,101 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			maindashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindetail_portlet: {
+			  maindetail: {
+				  title: commonLogic.appcommonhandle("任务描述", null)
+			  }
+				uiactions: {
+				},
+			},
+			maindashboardviewdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			toolbar_portlet: {
+			  toolbar: {
+				  title: commonLogic.appcommonhandle("任务主信息操作栏", null)
+			  }
+				uiactions: {
+					exit: commonLogic.appcommonhandle("返回",null),
+					task_newsubtaskdash: commonLogic.appcommonhandle("子任务",null),
+					task_assigntaskdash: commonLogic.appcommonhandle("指派",null),
+					task_checkforwarddash: commonLogic.appcommonhandle("转交",null),
+					task_forwarddash: commonLogic.appcommonhandle("转交",null),
+					task_mstarttaskdash: commonLogic.appcommonhandle("开始",null),
+					task_starttaskdash: commonLogic.appcommonhandle("开始",null),
+					task_mworkhours: commonLogic.appcommonhandle("工时",null),
+					task_workhours: commonLogic.appcommonhandle("工时",null),
+					task_mpausetask: commonLogic.appcommonhandle("暂停",null),
+					task_pausetaskdash: commonLogic.appcommonhandle("暂停",null),
+					task_restartteamtask: commonLogic.appcommonhandle("继续",null),
+					task_restarttask: commonLogic.appcommonhandle("继续",null),
+					task_activationdash: commonLogic.appcommonhandle("激活",null),
+					task_mdonetask: commonLogic.appcommonhandle("完成",null),
+					task_donetaskdash: commonLogic.appcommonhandle("完成",null),
+					task_canceltaskdash: commonLogic.appcommonhandle("取消",null),
+					task_maineditdash: commonLogic.appcommonhandle("编辑",null),
+					task_closetaskdash: commonLogic.appcommonhandle("关闭",null),
+					task_delete: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			maindashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			maininfo_portlet: {
+			  maininfo: {
+				  title: commonLogic.appcommonhandle("任务主信息简介", null)
+			  }
+				uiactions: {
+				},
+			},
+			workinfo_portlet: {
+			  workinfo: {
+				  title: commonLogic.appcommonhandle("任务工时信息", null)
+			  }
+				uiactions: {
+				},
+			},
+			assigntome_portlet: {
+			  assigntome: {
+				  title: commonLogic.appcommonhandle("指派任务", null)
+			  }
+				uiactions: {
+					task_more: commonLogic.appcommonhandle("MORE",null),
+				},
+			},
+			maindashboardview_linkdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container4_portlet: {
+				uiactions: {
+				},
+			},
+			maindashboardview_linkdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			curfinishedbytask_portlet: {
+			  curfinishedbytask: {
+				  title: commonLogic.appcommonhandle("完成的任务", null)
+			  }
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }
