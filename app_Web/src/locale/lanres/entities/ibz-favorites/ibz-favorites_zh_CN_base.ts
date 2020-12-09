@@ -1,10 +1,42 @@
-!!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if obj.getTooltipPSLanguageRes()?? &...  [in template "TEMPLCODE_en_US" at line 140, column 83]
-----
+import commonLogic from '@/locale/logic/common/common-logic';
+function getLocaleResourceBase(){
+	const data:any = {
+		fields: {
+			createman: commonLogic.appcommonhandle("建立人",null),
+			ibzfavoritesid: commonLogic.appcommonhandle("收藏标识",null),
+			createdate: commonLogic.appcommonhandle("建立时间",null),
+			ibzfavoritesname: commonLogic.appcommonhandle("收藏名称",null),
+			updateman: commonLogic.appcommonhandle("更新人",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
+			objectid: commonLogic.appcommonhandle("数据对象标识",null),
+			account: commonLogic.appcommonhandle("收藏用户",null),
+			type: commonLogic.appcommonhandle("类型",null),
+		},
+			views: {
+				tabexpview: {
+					caption: commonLogic.appcommonhandle("我的收藏",null),
+					title: commonLogic.appcommonhandle("我的收藏",null),
+				},
+			},
+			tabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("需求",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("任务",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("用例",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("Bug",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+		};
+		return data;
+}
+export default getLocaleResourceBase;
