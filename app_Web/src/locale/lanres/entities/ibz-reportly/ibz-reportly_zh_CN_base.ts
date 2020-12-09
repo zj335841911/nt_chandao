@@ -120,7 +120,7 @@ export default {
 			ibz_reportlyid: commonLogic.appcommonhandle("",null), 
 			ibz_reportlyname: commonLogic.appcommonhandle("",null), 
 			account: commonLogic.appcommonhandle("",null), 
-			date: commonLogic.appcommonhandle("汇报日期",null), 
+			date: commonLogic.appcommonhandle("",null), 
 			content: commonLogic.appcommonhandle("",null), 
 		},
 		uiactions: {

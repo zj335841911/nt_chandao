@@ -1,6 +1,6 @@
 <i-form
     :model="this.data"
-    class="app-form"
+    class="app-form info-form-mode"
     ref="form"
     id="ibzreportly_calendarshow"
     style=""
@@ -28,7 +28,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -92,14 +92,11 @@
     :isEmptyCaption="true"
     labelPos="LEFT"
 >
-    <input-box 
-    v-model="data.ibz_reportlyname"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.ibz_reportlyname.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    
+<app-span name='ibz_reportlyname' :value="data.ibz_reportlyname" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -129,7 +126,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -163,21 +160,11 @@
     labelPos="LEFT"
 >
     
-<dropdown-list 
-    v-model="data.account"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.account.disabled"
-    valueType="string"
-    tag="UserRealName"
-    codelistType="DYNAMIC"
-    placeholder="请选择..."
+<app-span name='account' :value="data.account" dataType="SSCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
-></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -197,13 +184,17 @@
 
     :caption="$t('entities.ibzreportly.calendarshow_form.details.date')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="1"
     :isShowCaption="true"
     :error="detailsModel.date.error"
-    :isEmptyCaption="false"
+    :isEmptyCaption="true"
     labelPos="LEFT"
 >
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+    
+<app-span name='date' :value="data.date" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -233,7 +224,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -260,7 +251,7 @@
     :title="$t('entities.ibzreportly.calendarshow_form.uiactions.ibzreportly_edit')"
 >
     <menu-icon :item="{iconcls: 'fa fa-edit'}" />
-    <span >{{$t('entities.ibzreportly.calendarshow_form.details.button1')}}</span>
+
 </i-button>
 
 </i-col>
@@ -280,7 +271,7 @@
     :title="$t('entities.ibzreportly.calendarshow_form.uiactions.ibzreportly_submit')"
 >
     <menu-icon :item="{iconcls: 'fa fa-check'}" />
-    <span >{{$t('entities.ibzreportly.calendarshow_form.details.button2')}}</span>
+
 </i-button>
 
 </i-col>
@@ -309,7 +300,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -342,21 +333,11 @@
     :isEmptyCaption="true"
     labelPos="LEFT"
 >
-    <app-rich-text-editor
-    :formState="formState"
-    :value="data.content"
-    @change="(val) =>{this.data.content =val}"
-    @formitemvaluechange="onFormItemValueChange($event)"
-    :disabled="detailsModel.content.disabled"
-    :data="JSON.stringify(this.data)"
-    name="content"
-    :context="context"
-    :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
     
-    style=""
-></app-rich-text-editor>
+<app-span name='content' :value="data.content" dataType="HTMLTEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -386,7 +367,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -455,7 +436,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel

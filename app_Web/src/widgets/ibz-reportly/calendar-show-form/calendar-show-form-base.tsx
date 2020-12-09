@@ -215,7 +215,7 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzreportly.calendarshow_form', extractMode: 'ITEM', details: [] } }),
 
         button1: new FormButtonModel({
-    caption: '编辑', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '编辑', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     disabled: false,
     uiaction: {
         type: 'DEUIACTION',
@@ -229,7 +229,7 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
 }),
 
         button2: new FormButtonModel({
-    caption: '提交', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '提交', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     disabled: false,
     uiaction: {
         type: 'DEUIACTION',
@@ -334,7 +334,7 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
 }),
 
         date: new FormItemModel({
-    caption: '汇报日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
