@@ -30,7 +30,7 @@
                     :show-file-list="!rowPreview"
                 >
                     <el-button v-if="!isdrag" size="small" icon="el-icon-upload" :disabled="disabled || isUploading">{{
-                        this.$t('app.fileUpload.caption')
+                        isUploading?this.$t('app.fileUpload.uploading'):this.$t('app.fileUpload.caption') 
                     }}</el-button>
                     <i v-if="isdrag" class="el-icon-upload"></i>
                     <div v-if="isdrag" class="el-upload__text" v-html="$t('components.appFileUpload.uploadText')"></div>
