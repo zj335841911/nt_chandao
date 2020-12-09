@@ -285,4 +285,33 @@ export default class IbzReportlyServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzreportlies/searchmyreceived`,tempData,isloading);
     }
+
+    /**
+     * FetchMyReportlyMob接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportlyServiceBase
+     */
+    public async FetchMyReportlyMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzreportlies/fetchmyreportlymob`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMyReportlyMob接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportlyServiceBase
+     */
+    public async searchMyReportlyMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzreportlies/searchmyreportlymob`,tempData,isloading);
+    }
 }
