@@ -11,7 +11,7 @@
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"
-        placeholder="Bug标题"
+        :placeholder="$t('entities.bug.fields.title')"
         search
         @on-search="onSearch($event)"
     ></i-input>

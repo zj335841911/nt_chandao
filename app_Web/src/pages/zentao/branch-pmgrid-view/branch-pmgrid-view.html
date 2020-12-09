@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        placeholder="名称"
+        :placeholder="$t('entities.branch.fields.name')"
         search
         @on-search="onSearch($event)"
     ></i-input>

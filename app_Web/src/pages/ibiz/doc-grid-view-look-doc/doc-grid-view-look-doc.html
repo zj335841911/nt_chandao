@@ -7,7 +7,7 @@
         clearable
         
         v-model="query"
-        placeholder="文档标题"
+        :placeholder="$t('entities.doc.fields.title')"
         search
         @on-search="onSearch($event)"
     ></i-input>

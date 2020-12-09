@@ -7,7 +7,7 @@
         clearable
         
         v-model="query"
-        placeholder="产品名称,编号,产品代号"
+        :placeholder="+','+$t('entities.product.fields.code')"
         search
         @on-search="onSearch($event)"
     ></i-input>

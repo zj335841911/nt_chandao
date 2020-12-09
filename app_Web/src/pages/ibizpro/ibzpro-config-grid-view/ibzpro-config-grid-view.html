@@ -7,7 +7,7 @@
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"
-        placeholder="系统配置表名称"
+        :placeholder="$t('entities.ibzproconfig.fields.ibzpro_configname')"
         search
         @on-search="onSearch($event)"
     ></i-input>

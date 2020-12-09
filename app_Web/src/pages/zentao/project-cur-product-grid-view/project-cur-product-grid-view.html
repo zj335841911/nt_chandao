@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        placeholder="项目编号,项目名称,项目代号"
+        :placeholder="+','+$t('entities.project.fields.code')"
         search
         @on-search="onSearch($event)"
     ></i-input>

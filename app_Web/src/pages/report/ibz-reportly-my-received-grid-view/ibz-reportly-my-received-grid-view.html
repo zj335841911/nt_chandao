@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        placeholder="汇报名称"
+        :placeholder="$t('entities.ibzreportly.fields.ibz_reportlyname')"
         search
         @on-search="onSearch($event)"
     ></i-input>

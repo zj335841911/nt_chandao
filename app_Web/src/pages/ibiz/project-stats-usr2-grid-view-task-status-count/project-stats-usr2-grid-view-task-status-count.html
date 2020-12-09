@@ -7,7 +7,7 @@
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"
-        placeholder="项目名称"
+        :placeholder="$t('entities.projectstats.fields.name')"
         search
         @on-search="onSearch($event)"
     ></i-input>

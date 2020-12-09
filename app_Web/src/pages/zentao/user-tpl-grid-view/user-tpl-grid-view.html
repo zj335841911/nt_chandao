@@ -4,7 +4,7 @@
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"
-        placeholder="模板标题"
+        :placeholder="$t('entities.usertpl.fields.title')"
         search
         @on-search="onSearch($event)"
     ></i-input>

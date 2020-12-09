@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        placeholder="产品名称"
+        :placeholder="$t('entities.productstats.fields.name')"
         search
         @on-search="onSearch($event)"
     ></i-input>

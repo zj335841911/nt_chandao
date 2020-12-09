@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        placeholder="月报名称"
+        :placeholder="$t('entities.ibzmonthly.fields.ibz_monthlyname')"
         search
         @on-search="onSearch($event)"
     ></i-input>

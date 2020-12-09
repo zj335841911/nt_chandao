@@ -119,10 +119,8 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
      * @memberof ListExpViewlistexpbarBase
      */
     public placeholder = (this.$t('entities.project.fields.id') as string)
-+"，"+
-(this.$t('entities.project.fields.name') as string)
-+"，"+
-(this.$t('entities.project.fields.code') as string);
++"，"+(this.$t('entities.project.fields.name') as string)
++"，"+(this.$t('entities.project.fields.code') as string);
 
     /**
      * 呈现模式，可选值：horizontal或者vertical

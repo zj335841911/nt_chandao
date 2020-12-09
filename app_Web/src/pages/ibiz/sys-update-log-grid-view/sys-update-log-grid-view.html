@@ -7,7 +7,7 @@
         clearable
         
         v-model="query"
-        placeholder="更新名称"
+        :placeholder="$t('entities.sysupdatelog.fields.sys_update_logname')"
         search
         @on-search="onSearch($event)"
     ></i-input>
