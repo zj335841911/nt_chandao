@@ -588,9 +588,10 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
         content: null,
         reportto: null,
         mailto: null,
-        ibz_reportlyid: null,
+        ibzreportlyid: null,
         account: null,
         issubmit: null,
+        ibz_reportlyid: null,
         ibzreportly: null,
     };
 
@@ -760,11 +761,13 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        ibz_reportlyid: new FormItemModel({ caption: '汇报标识', detailType: 'FORMITEM', name: 'ibz_reportlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        ibzreportlyid: new FormItemModel({ caption: '汇报标识', detailType: 'FORMITEM', name: 'ibzreportlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         account: new FormItemModel({ caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        ibz_reportlyid: new FormItemModel({ caption: '汇报标识', detailType: 'FORMITEM', name: 'ibz_reportlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -925,15 +928,15 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
     }
 
     /**
-     * 监控表单属性 ibz_reportlyid 值
+     * 监控表单属性 ibzreportlyid 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobReportlyDetail
      */
-    @Watch('data.ibz_reportlyid')
-    onIbz_reportlyidChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'ibz_reportlyid', newVal: newVal, oldVal: oldVal });
+    @Watch('data.ibzreportlyid')
+    onIbzreportlyidChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ibzreportlyid', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -958,6 +961,18 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
     @Watch('data.issubmit')
     onIssubmitChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'issubmit', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 ibz_reportlyid 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobReportlyDetail
+     */
+    @Watch('data.ibz_reportlyid')
+    onIbz_reportlyidChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ibz_reportlyid', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -996,6 +1011,7 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

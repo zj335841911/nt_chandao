@@ -76,7 +76,7 @@ export class MobReportlyDetailModel {
                 dataType: 'SMCODELIST',
             },
             {
-                name: 'ibz_reportlyid',
+                name: 'ibzreportlyid',
                 prop: 'ibzreportlyid',
                 dataType: 'ACID',
             },
@@ -89,6 +89,11 @@ export class MobReportlyDetailModel {
                 name: 'issubmit',
                 prop: 'issubmit',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'ibz_reportlyid',
+                prop: 'ibzreportlyid',
+                dataType: 'ACID',
             },
             {
                 name: 'ibzreportly',
