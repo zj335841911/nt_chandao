@@ -1212,7 +1212,7 @@ export default class MyReBase extends Vue implements ControlInterface {
         MyReDaily: { name: 'MyReDaily',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DAILY', target: 'SINGLEKEY',icon:'',},
         MyReWeekly: { name: 'MyReWeekly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',},
         MyReMonthy: { name: 'MyReMonthy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'MONTHLY', target: 'SINGLEKEY',icon:'',},
-        MyReReportly: { name: 'MyReReportly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'REPORTLY', target: 'SINGLEKEY',icon:'',}
+        MyReReportly: { name: 'MyReReportly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',}
     };
 
     
