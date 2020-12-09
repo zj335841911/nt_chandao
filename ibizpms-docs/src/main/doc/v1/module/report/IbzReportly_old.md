@@ -103,6 +103,7 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |汇报名称(IBZ_REPORTLYNAME)|LIKE|
+|是否提交(ISSUBMIT)|EQ|
 |用户(ACCOUNT)|EQ|
 
 ## 导入模式

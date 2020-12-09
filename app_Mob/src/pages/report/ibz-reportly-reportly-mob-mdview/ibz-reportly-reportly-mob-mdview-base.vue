@@ -205,7 +205,7 @@ export default class IbzReportlyReportlyMobMDViewBase extends Vue {
      * @type {*}
      * @memberof IbzReportlyReportlyMobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_issubmit_eq': '0' };
 
     /**
      * 视图模型数据
