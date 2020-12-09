@@ -8178,7 +8178,8 @@ CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else
 t1.`COMMENT`,
 CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
 'weekly' as type 
-FROM `T_IBZ_WEEKLY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+FROM `T_IBZ_WEEKLY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 UNION
 SELECT
@@ -8205,6 +8206,32 @@ CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' el
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
 left join zt_action t11 on t11.objectID = t1.IBZ_MONTHLYID and t11.objectType = 'monthly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+where t1.ISSUBMIT = '1'
+UNION 
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+null as `CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_REPORTLYID` as IBZ_DAILYID,
+t1.`IBZ_REPORTLYNAME` as IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+null as TODAYTASK,
+null as TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+null as `UPDATEMANNAME`,
+CONCAT_WS('','工作内容：',case when t1.CONTENT is null then '无' else t1.CONTENT end) as WORKTODAY,
+null as `COMMENT`,
+null as PLANSTOMORROW,
+'reportly' as type 
+FROM `T_IBZ_REPORTLY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_REPORTLYID and t11.objectType = 'reportly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 ) t1
 WHERE (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
@@ -8347,7 +8374,7 @@ DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
 t1.`IBZ_REPORTLYID`,
 t1.`IBZ_REPORTLYNAME`,
 t1.`ISSUBMIT`,
-CONCAT_WS('','工作内容：',t1.CONTENT)  as `CONTENT`,
+CONCAT_WS('','工作内容：',case when t1.CONTENT is null then '无' else t1.CONTENT end)  as `CONTENT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
