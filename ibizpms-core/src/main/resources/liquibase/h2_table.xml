@@ -1314,7 +1314,7 @@
 
 
     <!--输出实体[IBZ_REPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_report-169-46">
+    <changeSet author="zentao" id="tab-ibz_report-170-46">
         <createTable tableName="t_ibz_daily">
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
