@@ -26,6 +26,7 @@ function getLocaleResourceBase(){
 			lastmonth: commonLogic.appcommonhandle("上月",null),
 			srfkey: commonLogic.appcommonhandle("前端键值",null),
 			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
+			files: commonLogic.appcommonhandle("文件",null),
 		},
 			views: {
 				myalltrendslistview: {
@@ -87,6 +88,7 @@ function getLocaleResourceBase(){
 					objecttype: commonLogic.appcommonhandle("对象类型",null), 
 					objectid: commonLogic.appcommonhandle("对象ID",null), 
 					comment: commonLogic.appcommonhandle("备注",null), 
+					files: commonLogic.appcommonhandle("文件",null), 
 					noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
 					id: commonLogic.appcommonhandle("id",null), 
 				},

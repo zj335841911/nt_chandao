@@ -161,6 +161,7 @@
 |-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW|&nbsp;|
+|-|汇报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试套件移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|

@@ -84,6 +84,9 @@ export default class AllTrendsModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

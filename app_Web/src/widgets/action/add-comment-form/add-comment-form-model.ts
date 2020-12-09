@@ -66,6 +66,11 @@ export default class AddCommentModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'LONGTEXT',
+      },
+      {
         name: 'noticeusers',
         prop: 'noticeusers',
         dataType: 'TEXT',

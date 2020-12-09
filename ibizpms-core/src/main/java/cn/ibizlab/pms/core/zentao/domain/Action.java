@@ -209,6 +209,13 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "noticeusers")
     @JsonProperty("noticeusers")
     private String noticeusers;
+    /**
+     * 文件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
     /**
      * 项目

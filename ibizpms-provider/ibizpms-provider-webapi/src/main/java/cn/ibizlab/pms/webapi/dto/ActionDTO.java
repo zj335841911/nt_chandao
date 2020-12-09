@@ -236,6 +236,15 @@ public class ActionDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String noticeusers;
 
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String files;
+
 
     /**
      * 设置 [EXTRA]

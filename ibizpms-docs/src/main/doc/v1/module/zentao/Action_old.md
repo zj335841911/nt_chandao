@@ -36,6 +36,7 @@ hide members
 |上月|LASTMONTH|TEXT|&nbsp;|
 |前端键值|SRFKEY|BIGINT|&nbsp;|
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
+|文件|FILES|LONGTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -63,6 +64,7 @@ hide members
 |上月|默认规则|内容长度必须小于等于[200]|
 |前端键值|默认规则|默认规则|
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
+|文件|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 
