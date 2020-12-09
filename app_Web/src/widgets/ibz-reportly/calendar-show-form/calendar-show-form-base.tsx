@@ -103,7 +103,7 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:IbzReportlyUIService  = new IbzReportlyUIService();
-        curUIService.IbzReportly_Edit(datas,contextJO, paramJO,  $event, xData,this,"IbzReportly");
+        curUIService.IbzReportly_CalendarShowEdit(datas,contextJO, paramJO,  $event, xData,this,"IbzReportly");
     }
 
     /**
@@ -131,7 +131,7 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:IbzReportlyUIService  = new IbzReportlyUIService();
-        curUIService.IbzReportly_Submit(datas,contextJO, paramJO,  $event, xData,this,"IbzReportly");
+        curUIService.IbzReportly_CalendarShowSubmit(datas,contextJO, paramJO,  $event, xData,this,"IbzReportly");
     }
 
 
@@ -220,9 +220,9 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
     disabled: false,
     uiaction: {
         type: 'DEUIACTION',
-        tag: 'Edit',
+        tag: 'CalendarShowEdit',
         actiontarget: 'SINGLEKEY',
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction: 'SRFUR__REPORTLY_EDIT_BUT',
         visible: true,
         disabled: false,
@@ -234,9 +234,9 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
     disabled: false,
     uiaction: {
         type: 'DEUIACTION',
-        tag: 'Submit',
+        tag: 'CalendarShowSubmit',
         actiontarget: 'SINGLEKEY',
-        noprivdisplaymode: 1,
+        noprivdisplaymode: 2,
         dataaccaction: 'SRFUR__REPORTLY_SUBMIT_BUT',
         visible: true,
         disabled: false,

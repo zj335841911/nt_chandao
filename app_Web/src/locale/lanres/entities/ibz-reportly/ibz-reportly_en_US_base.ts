@@ -126,8 +126,8 @@ export default {
 			issubmit: commonLogic.appcommonhandle("是否提交",null), 
 		},
 		uiactions: {
-        ibzreportly_edit: commonLogic.appcommonhandle("编辑",null),
-        ibzreportly_submit: commonLogic.appcommonhandle("提交",null),
+        ibzreportly_calendarshowedit: commonLogic.appcommonhandle("编辑",null),
+        ibzreportly_calendarshowsubmit: commonLogic.appcommonhandle("提交",null),
 		},
 	},
 	myreceived_grid: {
