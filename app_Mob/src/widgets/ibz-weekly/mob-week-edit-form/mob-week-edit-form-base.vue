@@ -40,7 +40,7 @@
     :context="context"
     :viewparams="viewparams"
     :value="data.thisweektask"   
-    :navigateContext ='{ } '
+    :navigateContext ='{ "date": "%date%" } '
     :navigateParam ='{ "date": "%date%" } '
     @change="($event)=>this.data.thisweektask = $event"/>
 </app-form-item>
