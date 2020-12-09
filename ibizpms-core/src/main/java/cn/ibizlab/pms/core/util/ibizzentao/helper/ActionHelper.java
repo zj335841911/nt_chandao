@@ -90,8 +90,12 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public boolean create(Action et) {
         et.setComment(et.getComment() == null ? "" : et.getComment());
         String noticeusers = et.getNoticeusers();
+        String files = et.getFiles();
         this.create(et.getObjecttype(), et.getObjectid(), StaticDict.Action__type.COMMENTED.getValue(), et.getComment(), "", null, true);
+        // 发送待阅提醒
         send(noticeusers, et);
+        // 保存文件
+        fileHelper.updateObjectID(et.getObjectid(), et.getObjecttype(), files, "0");//更新附件
         return true;
     }
 
