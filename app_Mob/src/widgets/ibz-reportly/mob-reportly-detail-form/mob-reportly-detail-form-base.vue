@@ -18,28 +18,31 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='ibzreportlyname' 
+    name='account' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="ibzreportlyname_item"  
-    :itemValue="this.data.ibzreportlyname" 
-    v-show="detailsModel.ibzreportlyname.visible" 
-    :itemRules="this.rules.ibzreportlyname" 
-    :caption="$t('ibzreportly.mobreportlydetail_form.details.ibzreportlyname')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.ibzreportlyname.disabled"
-    :error="detailsModel.ibzreportlyname.error" 
-    :isEmptyCaption="false">
+    labelPos="NONE" 
+    ref="account_item"  
+    :itemValue="this.data.account" 
+    v-show="detailsModel.account.visible" 
+    :itemRules="this.rules.account" 
+    :caption="$t('ibzreportly.mobreportlydetail_form.details.account')"  
+    :labelWidth="0"  
+    :isShowCaption="false"
+    :disabled="detailsModel.account.disabled"
+    :error="detailsModel.account.error" 
+    :isEmptyCaption="true">
         <app-mob-span  
-    v-if="data.ibzreportlyname"
+    codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.ibzreportlyname" 
+    :value="data.account" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -49,7 +52,7 @@
     name='date' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="date_item"  
     :itemValue="this.data.date" 
     v-show="detailsModel.date.visible" 
@@ -77,7 +80,7 @@
     name='content' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="content_item"  
     :itemValue="this.data.content" 
     v-show="detailsModel.content.visible" 
@@ -98,7 +101,7 @@
     name='reportto' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="reportto_item"  
     :itemValue="this.data.reportto" 
     v-show="detailsModel.reportto.visible" 
@@ -129,7 +132,7 @@
     name='mailto' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="mailto_item"  
     :itemValue="this.data.mailto" 
     v-show="detailsModel.mailto.visible" 
@@ -208,7 +211,7 @@
     v-show="detailsModel.grouppanel2.visible" 
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
     :caption="$t('ibzreportly.mobreportlydetail_form.details.grouppanel2')" 
-    :isShowCaption="false" 
+    :isShowCaption="true" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
@@ -583,13 +586,13 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        account: null,
         ibzreportlyname: null,
         date: null,
         content: null,
         reportto: null,
         mailto: null,
         ibz_reportlyid: null,
-        account: null,
         issubmit: null,
         ibzreportly: null,
     };
@@ -728,7 +731,7 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
 , 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '操作历史', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzreportly.mobreportlydetail_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '操作历史', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzreportly.mobreportlydetail_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '汇报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzreportly.mobreportlydetail_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -750,9 +753,11 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        account: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+, 
         ibzreportlyname: new FormItemModel({ caption: '汇报名称', detailType: 'FORMITEM', name: 'ibzreportlyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        date: new FormItemModel({ caption: '汇报日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         content: new FormItemModel({ caption: '工作内容', detailType: 'FORMITEM', name: 'content', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -761,8 +766,6 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_reportlyid: new FormItemModel({ caption: '汇报标识', detailType: 'FORMITEM', name: 'ibz_reportlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        account: new FormItemModel({ caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -865,6 +868,18 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
     }
 
     /**
+     * 监控表单属性 account 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobReportlyDetail
+     */
+    @Watch('data.account')
+    onAccountChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 ibzreportlyname 值
      *
      * @param {*} newVal
@@ -934,18 +949,6 @@ export default class MobReportlyDetailBase extends Vue implements ControlInterfa
     @Watch('data.ibz_reportlyid')
     onIbz_reportlyidChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'ibz_reportlyid', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 account 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobReportlyDetail
-     */
-    @Watch('data.account')
-    onAccountChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
     }
 
     /**

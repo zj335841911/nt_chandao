@@ -51,6 +51,11 @@ export class MobReportlyDetailModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'account',
+                prop: 'account',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'ibzreportlyname',
                 prop: 'ibzreportlyname',
                 dataType: 'TEXT',
@@ -79,11 +84,6 @@ export class MobReportlyDetailModel {
                 name: 'ibz_reportlyid',
                 prop: 'ibzreportlyid',
                 dataType: 'ACID',
-            },
-            {
-                name: 'account',
-                prop: 'account',
-                dataType: 'SSCODELIST',
             },
             {
                 name: 'issubmit',
