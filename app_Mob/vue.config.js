@@ -68,7 +68,7 @@ module.exports = {
         Object.assign(config, {
             output: {
                 ...config.output,
-                filename: `js/[name].${Timestamp}js`,
+                filename: `js/[name].${Timestamp}.js`,
                 chunkFilename: `js/[name].${Timestamp}.js`
             },
         });
