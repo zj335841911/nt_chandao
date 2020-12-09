@@ -191,7 +191,7 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'date': '%date%' };
 
     /**
      * 视图导航参数

@@ -5152,7 +5152,8 @@ public class StaticDict {
     public enum ReportType {
         WEEKLY("weekly","周报"),
         DAILY("daily","日报"),
-        MONTHLY("monthly","月报");
+        MONTHLY("monthly","月报"),
+        REPORTLY("reportly","汇报");
 
         private String value;
         private String text;

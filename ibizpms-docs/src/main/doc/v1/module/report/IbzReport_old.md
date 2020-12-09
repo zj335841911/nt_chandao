@@ -79,6 +79,7 @@
 |周报|weekly|
 |日报|daily|
 |月报|monthly|
+|汇报|reportly|
 
 ## 行为
 | 行为    | 类型    |  说明  |

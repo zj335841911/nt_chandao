@@ -332,6 +332,17 @@
                 
                 "disabled": false
             }
+            , {
+                "id": "reportly",
+                "label": "汇报",
+                "text": "汇报",
+                "default": false,
+                "data": "",
+                "value": "reportly",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
         ]
     }, 
     {

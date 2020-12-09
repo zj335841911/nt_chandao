@@ -226,6 +226,13 @@ const datas: Array<any> = [
                 value: 'monthly',
                 disabled: false,
             },
+            {
+                id: 'reportly',
+                label: '汇报',
+                text: '汇报',
+                value: 'reportly',
+                disabled: false,
+            },
         ]
     },
     {

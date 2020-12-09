@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="mdview-tools-select">
-                    <app-van-select  name="n_type_eq" title="模板" :items="[{value:'weekly',label:'周报'},{value:'daily',label:'日报'},{value:'monthly',label:'月报'},]" @onConfirm="onCategory"></app-van-select>
+                    <app-van-select  name="n_type_eq" title="模板" :items="[{value:'weekly',label:'周报'},{value:'daily',label:'日报'},{value:'monthly',label:'月报'},{value:'reportly',label:'汇报'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
             </div>
     </ion-header>

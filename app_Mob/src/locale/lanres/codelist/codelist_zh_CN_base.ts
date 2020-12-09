@@ -40,6 +40,7 @@ export default {
         'weekly': '周报',
         'daily': '日报',
         'monthly': '月报',
+        'reportly': '汇报',
         empty: '',
     },
     RelatedStory: {
