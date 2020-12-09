@@ -753,9 +753,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			projectmaintoolbar_portlet: {
-			  projectmaintoolbar: {
-				  title: commonLogic.appcommonhandle("项目主数据操作栏", null)
-			  }
+				projectmaintoolbar: {
+					title: commonLogic.appcommonhandle("项目主数据操作栏", null)
+				},
 				uiactions: {
 					project_projectputoff: commonLogic.appcommonhandle("延期",null),
 					project_projectsuspend: commonLogic.appcommonhandle("挂起",null),
@@ -771,37 +771,37 @@ function getLocaleResourceBase(){
 				},
 			},
 			dashboradinfoview_portlet: {
-			  dashboradinfoview: {
-				  title: commonLogic.appcommonhandle("项目信息", null)
-			  }
+				dashboradinfoview: {
+					title: commonLogic.appcommonhandle("项目信息", null)
+				},
 				uiactions: {
 				},
 			},
 			projectexpview_portlet: {
-			  projectexpview: {
-				  title: commonLogic.appcommonhandle("项目统计", null)
-			  }
+				projectexpview: {
+					title: commonLogic.appcommonhandle("项目统计", null)
+				},
 				uiactions: {
 				},
 			},
 			unclosedproject_portlet: {
-			  unclosedproject: {
-				  title: commonLogic.appcommonhandle("未关闭的项目", null)
-			  }
+				unclosedproject: {
+					title: commonLogic.appcommonhandle("未关闭的项目", null)
+				},
 				uiactions: {
 				},
 			},
 			projectstatusbar_portlet: {
-			  projectstatusbar: {
-				  title: commonLogic.appcommonhandle("项目总览", null)
-			  }
+				projectstatusbar: {
+					title: commonLogic.appcommonhandle("项目总览", null)
+				},
 				uiactions: {
 				},
 			},
 			undoneproject_portlet: {
-			  undoneproject: {
-				  title: commonLogic.appcommonhandle("未完成项目", null)
-			  }
+				undoneproject: {
+					title: commonLogic.appcommonhandle("未完成项目", null)
+				},
 				uiactions: {
 					project_moreundone: commonLogic.appcommonhandle("MORE",null),
 				},

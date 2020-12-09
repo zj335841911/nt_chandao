@@ -53,9 +53,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			myreport_portlet: {
-			  myreport: {
-				  title: commonLogic.appcommonhandle("我收到的汇报", null)
-			  }
+				myreport: {
+					title: commonLogic.appcommonhandle("我收到的汇报", null)
+				},
 				uiactions: {
 				},
 			},

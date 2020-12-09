@@ -127,9 +127,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			cursuitcasegridview_portlet: {
-			  cursuitcasegridview: {
-				  title: commonLogic.appcommonhandle("关联套件", null)
-			  }
+				cursuitcasegridview: {
+					title: commonLogic.appcommonhandle("关联套件", null)
+				},
 				uiactions: {
 				},
 			},
@@ -138,9 +138,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			testsuitequickaction_portlet: {
-			  testsuitequickaction: {
-				  title: commonLogic.appcommonhandle("操作栏", null)
-			  }
+				testsuitequickaction: {
+					title: commonLogic.appcommonhandle("操作栏", null)
+				},
 				uiactions: {
 					exit: commonLogic.appcommonhandle("返回",null),
 					testsuite_linkcasedash: commonLogic.appcommonhandle("关联用例",null),
@@ -153,9 +153,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			maininfoview_portlet: {
-			  maininfoview: {
-				  title: commonLogic.appcommonhandle("基本信息", null)
-			  }
+				maininfoview: {
+					title: commonLogic.appcommonhandle("基本信息", null)
+				},
 				uiactions: {
 				},
 			},

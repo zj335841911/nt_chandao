@@ -256,9 +256,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			casemain_portlet: {
-			  casemain: {
-				  title: commonLogic.appcommonhandle("主信息", null)
-			  }
+				casemain: {
+					title: commonLogic.appcommonhandle("主信息", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -267,9 +267,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			ibzcases_portlet: {
-			  ibzcases: {
-				  title: commonLogic.appcommonhandle("用例库用例操作栏", null)
-			  }
+				ibzcases: {
+					title: commonLogic.appcommonhandle("用例库用例操作栏", null)
+			  	},
 				uiactions: {
 				exit: commonLogic.appcommonhandle("返回",null),
 				ibzcase_editcasecz: commonLogic.appcommonhandle("编辑",null),
@@ -281,16 +281,16 @@ function getLocaleResourceBase(){
 				},
 			},
 			caseinfo_portlet: {
-			  caseinfo: {
-				  title: commonLogic.appcommonhandle("用例库用例基本信息", null)
-			  }
+				caseinfo: {
+					title: commonLogic.appcommonhandle("用例库用例基本信息", null)
+			  	},
 				uiactions: {
 				},
 			},
 			casenewedit_portlet: {
-			  casenewedit: {
-				  title: commonLogic.appcommonhandle("用例库用例创建编辑", null)
-			  }
+				casenewedit: {
+					title: commonLogic.appcommonhandle("用例库用例创建编辑", null)
+			  	},
 				uiactions: {
 				},
 			},

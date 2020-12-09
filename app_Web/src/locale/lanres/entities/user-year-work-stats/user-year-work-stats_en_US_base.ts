@@ -202,9 +202,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			qadashboardviewdashboard_container4_portlet: {
-			  qadashboardviewdashboard_container4: {
-				  title: commonLogic.appcommonhandle("累计创建Bug数和创建用例数", null)
-			  }
+				qadashboardviewdashboard_container4: {
+					title: commonLogic.appcommonhandle("累计创建Bug数和创建用例数", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -217,16 +217,16 @@ function getLocaleResourceBase(){
 				},
 			},
 			qadashboardviewdashboard_container5_portlet: {
-			  qadashboardviewdashboard_container5: {
-				  title: commonLogic.appcommonhandle("月创建Bug数和创建用例数", null)
-			  }
+				qadashboardviewdashboard_container5: {
+					title: commonLogic.appcommonhandle("月创建Bug数和创建用例数", null)
+			  	},
 				uiactions: {
 				},
 			},
 			monthopenedbugandcase_portlet: {
-			  monthopenedbugandcase: {
-				  title: commonLogic.appcommonhandle("月创建Bug数和创建用例数", null)
-			  }
+				monthopenedbugandcase: {
+					title: commonLogic.appcommonhandle("月创建Bug数和创建用例数", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -235,23 +235,23 @@ function getLocaleResourceBase(){
 				},
 			},
 			dashboardviewdashboard_container4_portlet: {
-			  dashboardviewdashboard_container4: {
-				  title: commonLogic.appcommonhandle("完成任务数和解决Bug数", null)
-			  }
+				dashboardviewdashboard_container4: {
+					title: commonLogic.appcommonhandle("完成任务数和解决Bug数", null)
+			  	},
 				uiactions: {
 				},
 			},
 			dashboardviewdashboard_container5_portlet: {
-			  dashboardviewdashboard_container5: {
-				  title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
-			  }
+				dashboardviewdashboard_container5: {
+					title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
+			  	},
 				uiactions: {
 				},
 			},
 			finishtaskandbug_portlet: {
-			  finishtaskandbug: {
-				  title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
-			  }
+				finishtaskandbug: {
+					title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -260,9 +260,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			podashboardviewdashboard_container4_portlet: {
-			  podashboardviewdashboard_container4: {
-				  title: commonLogic.appcommonhandle("所创建需求数和对应的优先级及状态", null)
-			  }
+				podashboardviewdashboard_container4: {
+					title: commonLogic.appcommonhandle("所创建需求数和对应的优先级及状态", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -275,16 +275,16 @@ function getLocaleResourceBase(){
 				},
 			},
 			podashboardviewdashboard_container5_portlet: {
-			  podashboardviewdashboard_container5: {
-				  title: commonLogic.appcommonhandle("月创建需求数", null)
-			  }
+				podashboardviewdashboard_container5: {
+					title: commonLogic.appcommonhandle("月创建需求数", null)
+			  	},
 				uiactions: {
 				},
 			},
 			monthopenedstory_portlet: {
-			  monthopenedstory: {
-				  title: commonLogic.appcommonhandle("月累计需求数", null)
-			  }
+				monthopenedstory: {
+					title: commonLogic.appcommonhandle("月累计需求数", null)
+			  	},
 				uiactions: {
 				},
 			},

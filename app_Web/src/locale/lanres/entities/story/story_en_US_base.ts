@@ -1580,9 +1580,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			storyspec_portlet: {
-			  storyspec: {
-				  title: commonLogic.appcommonhandle("需求描述", null)
-			  }
+				storyspec: {
+					title: commonLogic.appcommonhandle("需求描述", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -1591,9 +1591,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			maintoolbar_portlet: {
-			  maintoolbar: {
-				  title: commonLogic.appcommonhandle("需求主数据操作栏", null)
-			  }
+				maintoolbar: {
+					title: commonLogic.appcommonhandle("需求主数据操作栏", null)
+			  	},
 				uiactions: {
 				exit: commonLogic.appcommonhandle("返回",null),
 				story_activitedash: commonLogic.appcommonhandle("激活",null),
@@ -1612,23 +1612,23 @@ function getLocaleResourceBase(){
 				},
 			},
 			baseinfo_portlet: {
-			  baseinfo: {
-				  title: commonLogic.appcommonhandle(" 需求基本信息", null)
-			  }
+				baseinfo: {
+					title: commonLogic.appcommonhandle(" 需求基本信息", null)
+			  	},
 				uiactions: {
 				},
 			},
 			storyrelated_portlet: {
-			  storyrelated: {
-				  title: commonLogic.appcommonhandle("需求关联信息", null)
-			  }
+				storyrelated: {
+					title: commonLogic.appcommonhandle("需求关联信息", null)
+			  	},
 				uiactions: {
 				},
 			},
 			assignedtomestory_portlet: {
-			  assignedtomestory: {
-				  title: commonLogic.appcommonhandle("指派需求", null)
-			  }
+				assignedtomestory: {
+					title: commonLogic.appcommonhandle("指派需求", null)
+			  	},
 				uiactions: {
 				story_more: commonLogic.appcommonhandle("MORE",null),
 				},
@@ -1650,16 +1650,16 @@ function getLocaleResourceBase(){
 				},
 			},
 			totalcuropenedstorypri_portlet: {
-			  totalcuropenedstorypri: {
-				  title: commonLogic.appcommonhandle("累计创建需求-优先级", null)
-			  }
+				totalcuropenedstorypri: {
+					title: commonLogic.appcommonhandle("累计创建需求-优先级", null)
+			  	},
 				uiactions: {
 				},
 			},
 			totalcuropenedstorystage_portlet: {
-			  totalcuropenedstorystage: {
-				  title: commonLogic.appcommonhandle("累计创建的需求-阶段", null)
-			  }
+				totalcuropenedstorystage: {
+					title: commonLogic.appcommonhandle("累计创建的需求-阶段", null)
+			  	},
 				uiactions: {
 				},
 			},

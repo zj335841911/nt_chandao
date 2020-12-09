@@ -331,9 +331,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			mywork_portlet: {
-			  mywork: {
-				  title: commonLogic.appcommonhandle("剩余工作", null)
-			  }
+				mywork: {
+					title: commonLogic.appcommonhandle("剩余工作", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -342,9 +342,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			dashboardviewdashboard_container6_portlet: {
-			  dashboardviewdashboard_container6: {
-				  title: commonLogic.appcommonhandle("我收到的汇报", null)
-			  }
+				dashboardviewdashboard_container6: {
+					title: commonLogic.appcommonhandle("我收到的汇报", null)
+			  	},
 				uiactions: {
 				},
 			},

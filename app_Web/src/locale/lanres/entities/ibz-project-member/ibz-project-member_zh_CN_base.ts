@@ -51,9 +51,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			relatedmembers_portlet: {
-			  relatedmembers: {
-				  title: commonLogic.appcommonhandle("相关成员", null)
-			  }
+				relatedmembers: {
+					title: commonLogic.appcommonhandle("相关成员", null)
+				},
 				uiactions: {
 				},
 			},

@@ -133,9 +133,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			ibzlibmain_portlet: {
-			  ibzlibmain: {
-				  title: commonLogic.appcommonhandle("主信息", null)
-			  }
+				ibzlibmain: {
+					title: commonLogic.appcommonhandle("主信息", null)
+				},
 				uiactions: {
 				},
 			},
@@ -144,9 +144,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			ibzlibcz_portlet: {
-			  ibzlibcz: {
-				  title: commonLogic.appcommonhandle("操作栏", null)
-			  }
+				ibzlibcz: {
+					title: commonLogic.appcommonhandle("操作栏", null)
+				},
 				uiactions: {
 					exit: commonLogic.appcommonhandle("返回",null),
 					ibzlib_editlibcz: commonLogic.appcommonhandle("编辑",null),

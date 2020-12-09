@@ -185,9 +185,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			lastupdate_portlet: {
-			  lastupdate: {
-				  title: commonLogic.appcommonhandle("最近更新", null)
-			  }
+				lastupdate: {
+					title: commonLogic.appcommonhandle("最近更新", null)
+			  	},
 				uiactions: {
 				},
 			},

@@ -38,9 +38,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			burndownchart_portlet: {
-			  burndownchart: {
-				  title: commonLogic.appcommonhandle("燃尽图", null)
-			  }
+				burndownchart: {
+					title: commonLogic.appcommonhandle("燃尽图", null)
+				},
 				uiactions: {
 				},
 			},

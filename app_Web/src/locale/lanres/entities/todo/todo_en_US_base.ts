@@ -414,16 +414,16 @@ function getLocaleResourceBase(){
 				},
 			},
 			tododesc_portlet: {
-			  tododesc: {
-				  title: commonLogic.appcommonhandle("描述", null)
-			  }
+				tododesc: {
+					title: commonLogic.appcommonhandle("描述", null)
+			  	},
 				uiactions: {
 				},
 			},
 			todoaction_portlet: {
-			  todoaction: {
-				  title: commonLogic.appcommonhandle("历史记录", null)
-			  }
+				todoaction: {
+					title: commonLogic.appcommonhandle("历史记录", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -432,9 +432,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			tododashboardactions_portlet: {
-			  tododashboardactions: {
-				  title: commonLogic.appcommonhandle("操作栏", null)
-			  }
+				tododashboardactions: {
+					title: commonLogic.appcommonhandle("操作栏", null)
+			  	},
 				uiactions: {
 				exit: commonLogic.appcommonhandle("返回",null),
 				todo_edit1cz: commonLogic.appcommonhandle("编辑",null),
@@ -452,16 +452,16 @@ function getLocaleResourceBase(){
 				},
 			},
 			todobase_portlet: {
-			  todobase: {
-				  title: commonLogic.appcommonhandle("基本信息", null)
-			  }
+				todobase: {
+					title: commonLogic.appcommonhandle("基本信息", null)
+			  	},
 				uiactions: {
 				},
 			},
 			myupcoming_portlet: {
-			  myupcoming: {
-				  title: commonLogic.appcommonhandle("我的待办", null)
-			  }
+				myupcoming: {
+					title: commonLogic.appcommonhandle("我的待办", null)
+			  	},
 				uiactions: {
 				todo_more: commonLogic.appcommonhandle("MORE",null),
 				},

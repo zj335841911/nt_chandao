@@ -142,30 +142,30 @@ function getLocaleResourceBase(){
 				},
 			},
 			producttrendstimeline_portlet: {
-			  producttrendstimeline: {
-				  title: commonLogic.appcommonhandle("最新动态", null)
-			  }
+				producttrendstimeline: {
+					title: commonLogic.appcommonhandle("最新动态", null)
+			  	},
 				uiactions: {
 				},
 			},
 			actionhistory_portlet: {
-			  actionhistory: {
-				  title: commonLogic.appcommonhandle("历史记录", null)
-			  }
+				actionhistory: {
+					title: commonLogic.appcommonhandle("历史记录", null)
+			  	},
 				uiactions: {
 				},
 			},
 			projecttrendstimeline_portlet: {
-			  projecttrendstimeline: {
-				  title: commonLogic.appcommonhandle("最新动态", null)
-			  }
+				projecttrendstimeline: {
+					title: commonLogic.appcommonhandle("最新动态", null)
+			  	},
 				uiactions: {
 				},
 			},
 			alltrends_portlet: {
-			  alltrends: {
-				  title: commonLogic.appcommonhandle("动态", null)
-			  }
+				alltrends: {
+					title: commonLogic.appcommonhandle("动态", null)
+			  	},
 				uiactions: {
 				},
 			},

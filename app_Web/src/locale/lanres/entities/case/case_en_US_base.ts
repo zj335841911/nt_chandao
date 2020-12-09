@@ -977,9 +977,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			maininfo_portlet: {
-			  maininfo: {
-				  title: commonLogic.appcommonhandle("看板主信息", null)
-			  }
+				maininfo: {
+					title: commonLogic.appcommonhandle("看板主信息", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -988,9 +988,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			dashboardquickaction_portlet: {
-			  dashboardquickaction: {
-				  title: commonLogic.appcommonhandle("操作栏", null)
-			  }
+				dashboardquickaction: {
+					title: commonLogic.appcommonhandle("操作栏", null)
+			  	},
 				uiactions: {
 				exit: commonLogic.appcommonhandle("返回",null),
 				case_executecz: commonLogic.appcommonhandle("执行",null),
@@ -1006,9 +1006,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			maindetail_portlet: {
-			  maindetail: {
-				  title: commonLogic.appcommonhandle("基本信息", null)
-			  }
+				maindetail: {
+					title: commonLogic.appcommonhandle("基本信息", null)
+			  	},
 				uiactions: {
 				},
 			},
@@ -1025,9 +1025,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			testdashboardquickaction_portlet: {
-			  testdashboardquickaction: {
-				  title: commonLogic.appcommonhandle("操作栏", null)
-			  }
+				testdashboardquickaction: {
+					title: commonLogic.appcommonhandle("操作栏", null)
+			  	},
 				uiactions: {
 				exit: commonLogic.appcommonhandle("返回",null),
 				case_caseexecute: commonLogic.appcommonhandle("执行",null),
@@ -1042,79 +1042,79 @@ function getLocaleResourceBase(){
 				},
 			},
 			testmaindetail_portlet: {
-			  testmaindetail: {
-				  title: commonLogic.appcommonhandle("基本信息", null)
-			  }
+				testmaindetail: {
+					title: commonLogic.appcommonhandle("基本信息", null)
+			  	},
 				uiactions: {
 				},
 			},
 			caseresultproject_portlet: {
-			  caseresultproject: {
-				  title: commonLogic.appcommonhandle("根据测试结果分类", null)
-			  }
+				caseresultproject: {
+					title: commonLogic.appcommonhandle("根据测试结果分类", null)
+			  	},
 				uiactions: {
 				},
 			},
 			casetypeproject_portlet: {
-			  casetypeproject: {
-				  title: commonLogic.appcommonhandle("按用例类型统计", null)
-			  }
+				casetypeproject: {
+					title: commonLogic.appcommonhandle("按用例类型统计", null)
+			  	},
 				uiactions: {
 				},
 			},
 			casemoduleproject_portlet: {
-			  casemoduleproject: {
-				  title: commonLogic.appcommonhandle("按用例模块统计", null)
-			  }
+				casemoduleproject: {
+					title: commonLogic.appcommonhandle("按用例模块统计", null)
+			  	},
 				uiactions: {
 				},
 			},
 			caselastrunnerproject_portlet: {
-			  caselastrunnerproject: {
-				  title: commonLogic.appcommonhandle("按用例执行人统计", null)
-			  }
+				caselastrunnerproject: {
+					title: commonLogic.appcommonhandle("按用例执行人统计", null)
+			  	},
 				uiactions: {
 				},
 			},
 			caseresult_portlet: {
-			  caseresult: {
-				  title: commonLogic.appcommonhandle("按用例结果统计", null)
-			  }
+				caseresult: {
+					title: commonLogic.appcommonhandle("按用例结果统计", null)
+			  	},
 				uiactions: {
 				},
 			},
 			casetype_portlet: {
-			  casetype: {
-				  title: commonLogic.appcommonhandle("按用例类型统计", null)
-			  }
+				casetype: {
+					title: commonLogic.appcommonhandle("按用例类型统计", null)
+			  	},
 				uiactions: {
 				},
 			},
 			casemodule_portlet: {
-			  casemodule: {
-				  title: commonLogic.appcommonhandle("按用例模块统计", null)
-			  }
+				casemodule: {
+					title: commonLogic.appcommonhandle("按用例模块统计", null)
+			  	},
 				uiactions: {
 				},
 			},
 			caselastrunner_portlet: {
-			  caselastrunner: {
-				  title: commonLogic.appcommonhandle("按用例执行人统计", null)
-			  }
+				caselastrunner: {
+					title: commonLogic.appcommonhandle("按用例执行人统计", null)
+			  	},
 				uiactions: {
 				},
 			},
 			mecreatecase_portlet: {
-			  mecreatecase: {
-				  title: commonLogic.appcommonhandle("由我创建的用例", null)
-			  }
+				mecreatecase: {
+					title: commonLogic.appcommonhandle("由我创建的用例", null)
+			  	},
 				uiactions: {
 				},
 			},
 			totalcuropenedcase_portlet: {
-			  totalcuropenedcase: {
-				  title: commonLogic.appcommonhandle("累计创建用例", null)
-			  }
+				totalcuropenedcase: {
+					title: commonLogic.appcommonhandle("累计创建用例", null)
+			  	},
 				uiactions: {
 				},
 			},

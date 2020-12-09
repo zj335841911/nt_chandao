@@ -545,9 +545,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			maindetail_portlet: {
-			  maindetail: {
-				  title: commonLogic.appcommonhandle("详细信息", null)
-			  }
+				maindetail: {
+					title: commonLogic.appcommonhandle("详细信息", null)
+				},
 				uiactions: {
 				},
 			},
@@ -556,9 +556,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			actionbar_portlet: {
-			  actionbar: {
-				  title: commonLogic.appcommonhandle("操作栏", null)
-			  }
+				actionbar: {
+					title: commonLogic.appcommonhandle("操作栏", null)
+				},
 				uiactions: {
 					exit: commonLogic.appcommonhandle("返回",null),
 					testtask_activitedash: commonLogic.appcommonhandle("激活",null),
@@ -572,16 +572,16 @@ function getLocaleResourceBase(){
 				},
 			},
 			maininfo_portlet: {
-			  maininfo: {
-				  title: commonLogic.appcommonhandle("基本信息", null)
-			  }
+				maininfo: {
+					title: commonLogic.appcommonhandle("基本信息", null)
+				},
 				uiactions: {
 				},
 			},
 			totesttesttask_portlet: {
-			  totesttesttask: {
-				  title: commonLogic.appcommonhandle("待测试版本", null)
-			  }
+				totesttesttask: {
+					title: commonLogic.appcommonhandle("待测试版本", null)
+				},
 				uiactions: {
 				},
 			},

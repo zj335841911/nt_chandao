@@ -1566,9 +1566,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			maindetail_portlet: {
-			  maindetail: {
-				  title: commonLogic.appcommonhandle("任务描述", null)
-			  }
+				maindetail: {
+					title: commonLogic.appcommonhandle("任务描述", null)
+				},
 				uiactions: {
 				},
 			},
@@ -1577,9 +1577,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			toolbar_portlet: {
-			  toolbar: {
-				  title: commonLogic.appcommonhandle("任务主信息操作栏", null)
-			  }
+				toolbar: {
+					title: commonLogic.appcommonhandle("任务主信息操作栏", null)
+				},
 				uiactions: {
 					exit: commonLogic.appcommonhandle("返回",null),
 					task_newsubtaskdash: commonLogic.appcommonhandle("子任务",null),
@@ -1608,23 +1608,23 @@ function getLocaleResourceBase(){
 				},
 			},
 			maininfo_portlet: {
-			  maininfo: {
-				  title: commonLogic.appcommonhandle("任务主信息简介", null)
-			  }
+				maininfo: {
+					title: commonLogic.appcommonhandle("任务主信息简介", null)
+				},
 				uiactions: {
 				},
 			},
 			workinfo_portlet: {
-			  workinfo: {
-				  title: commonLogic.appcommonhandle("任务工时信息", null)
-			  }
+				workinfo: {
+					title: commonLogic.appcommonhandle("任务工时信息", null)
+				},
 				uiactions: {
 				},
 			},
 			assigntome_portlet: {
-			  assigntome: {
-				  title: commonLogic.appcommonhandle("指派任务", null)
-			  }
+				assigntome: {
+					title: commonLogic.appcommonhandle("指派任务", null)
+				},
 				uiactions: {
 					task_more: commonLogic.appcommonhandle("MORE",null),
 				},
@@ -1646,9 +1646,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			curfinishedbytask_portlet: {
-			  curfinishedbytask: {
-				  title: commonLogic.appcommonhandle("完成的任务", null)
-			  }
+				curfinishedbytask: {
+					title: commonLogic.appcommonhandle("完成的任务", null)
+				},
 				uiactions: {
 				},
 			},

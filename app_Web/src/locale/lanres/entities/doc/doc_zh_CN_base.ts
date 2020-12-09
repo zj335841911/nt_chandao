@@ -479,9 +479,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			mainbody_portlet: {
-			  mainbody: {
-				  title: commonLogic.appcommonhandle("正文", null)
-			  }
+				mainbody: {
+					title: commonLogic.appcommonhandle("正文", null)
+				},
 				uiactions: {
 				},
 			},
@@ -490,9 +490,9 @@ function getLocaleResourceBase(){
 				},
 			},
 			docaction_portlet: {
-			  docaction: {
-				  title: commonLogic.appcommonhandle("操作栏", null)
-			  }
+				docaction: {
+					title: commonLogic.appcommonhandle("操作栏", null)
+				},
 				uiactions: {
 					exit: commonLogic.appcommonhandle("返回",null),
 					doc_edit: commonLogic.appcommonhandle("编辑",null),
@@ -504,54 +504,54 @@ function getLocaleResourceBase(){
 				},
 			},
 			docsum_portlet: {
-			  docsum: {
-				  title: commonLogic.appcommonhandle("文本摘要", null)
-			  }
+				docsum: {
+					title: commonLogic.appcommonhandle("文本摘要", null)
+				},
 				uiactions: {
 				},
 			},
 			keywords_portlet: {
-			  keywords: {
-				  title: commonLogic.appcommonhandle("关键字", null)
-			  }
+				keywords: {
+					title: commonLogic.appcommonhandle("关键字", null)
+				},
 				uiactions: {
 				},
 			},
 			basic_portlet: {
-			  basic: {
-				  title: commonLogic.appcommonhandle("基本信息", null)
-			  }
+				basic: {
+					title: commonLogic.appcommonhandle("基本信息", null)
+				},
 				uiactions: {
 				},
 			},
 			recentupdate_portlet: {
-			  recentupdate: {
-				  title: commonLogic.appcommonhandle("最近更新", null)
-			  }
+				recentupdate: {
+					title: commonLogic.appcommonhandle("最近更新", null)
+				},
 				uiactions: {
 					doc_morerecentupdate: commonLogic.appcommonhandle("MORE",null),
 				},
 			},
 			mydoc_portlet: {
-			  mydoc: {
-				  title: commonLogic.appcommonhandle("我的文档", null)
-			  }
+				mydoc: {
+					title: commonLogic.appcommonhandle("我的文档", null)
+				},
 				uiactions: {
 					doc_moremydoc: commonLogic.appcommonhandle("MORE",null),
 				},
 			},
 			myfavourite_portlet: {
-			  myfavourite: {
-				  title: commonLogic.appcommonhandle("我的收藏", null)
-			  }
+				myfavourite: {
+					title: commonLogic.appcommonhandle("我的收藏", null)
+				},
 				uiactions: {
 					doc_moremyfavourite: commonLogic.appcommonhandle("MORE",null),
 				},
 			},
 			docstatus_portlet: {
-			  docstatus: {
-				  title: commonLogic.appcommonhandle("文档统计", null)
-			  }
+				docstatus: {
+					title: commonLogic.appcommonhandle("文档统计", null)
+				},
 				uiactions: {
 				},
 			},
