@@ -189,7 +189,7 @@ export default class StoryEditMobEditViewBase extends Vue {
      * @type {*}
      * @memberof StoryEditMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'product': 'null' };
 
     /**
      * 视图导航参数
