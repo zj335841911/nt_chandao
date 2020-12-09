@@ -2,7 +2,7 @@
     <div class="app-trends-list">
         <template v-for="item in data">
             <div :key="item.id" class="app-trends-list-item">
-               <span class="cin">{{item.date1}}</span> <div class="tag"><div class="tag_border"></div><div class="tag_line"></div></div> <span>{{item.userName}}</span><span>{{item.actionName}}</span><span>{{item.objecttype}}</span>
+               <span class="cin">{{item.date1}}</span> <div class="tag"><div class="tag_border"></div><div class="tag_line"></div></div> <span class="userName">{{item.userName}} </span><span class="userName">{{item.actionName}} </span><span >{{item.objecttype2}}</span>
             </div>
         </template>
     </div>
@@ -57,7 +57,7 @@ export default class appTrendsList extends Vue {
             const temp = items[index];
             temp.userName = this.getUserReName(temp.actor);
             temp.actionName = this.getActionReName(temp.actions);
-            temp.objecttype = this.getActionobjReName(temp.objecttype)
+            temp.objecttype2 = this.getActionobjReName(temp.objecttype)
             temp_items.push(temp);
         }
         this.data = temp_items;
@@ -119,6 +119,7 @@ export default class appTrendsList extends Vue {
         let index = this.actionobjType.findIndex((item:any) => { return item.value == id })
         return index > -1 ? this.actionobjType[index].label : "";
     }
+
     
 }
 </script>

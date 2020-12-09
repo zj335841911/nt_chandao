@@ -1,7 +1,8 @@
 .app-trends-list {
     padding: 10px;
     .app-trends-list-item {
-        display: flex;
+        display: -webkit-box;
+        position: relative;
         .tag {
             width: 20px;
             height: 40px;
@@ -24,6 +25,15 @@
             position: absolute;
             top: 2px;
             left: 14px;
+        }
+        .userName{
+            margin-right: 5px;
+        }
+        span.id {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #1a73e8;
         }
     }
 }
