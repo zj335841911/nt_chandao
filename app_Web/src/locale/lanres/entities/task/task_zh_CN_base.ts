@@ -1545,6 +1545,18 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			moretabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("分组视图",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("树状图",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

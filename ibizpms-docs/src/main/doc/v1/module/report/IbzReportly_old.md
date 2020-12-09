@@ -87,6 +87,7 @@
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_Default))|否|&nbsp;|
 |MyAllReportly|我所有的汇报([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_MyAllReportly))|否|&nbsp;|
 |MyReceived|我收到的汇报([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_MyReceived))|否|&nbsp;|
+|MyReportlyMob|我的未提交汇报([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_MyReportlyMob))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_View))|否|&nbsp;|
 
 * **数据集合**

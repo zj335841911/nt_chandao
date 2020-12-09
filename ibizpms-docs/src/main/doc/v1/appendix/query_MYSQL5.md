@@ -8337,6 +8337,10 @@ WHERE t1.issubmit = '1'
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO )) 
 
 ```
+### 我的未提交汇报(MyReportlyMob)<div id="IbzReportly_MyReportlyMob"></div>
+```sql
+
+```
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>
 ```sql
 SELECT
@@ -17430,7 +17434,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
+( FIND_IN_SET(t1.id,(select tomorrowplanstask from t_ibz_daily where IBZ_dailyID = ${srfdatacontext('srfparentkey')})) ) 
 
 ```
 ### 移动端下周计划参与(汇报)(NextWeekCompleteTaskMobZS)<div id="Task_NextWeekCompleteTaskMobZS"></div>

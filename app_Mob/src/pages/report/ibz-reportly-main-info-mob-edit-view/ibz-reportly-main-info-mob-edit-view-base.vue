@@ -57,6 +57,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobsubmit.disabled}" v-show="righttoolbarModels.deuiaction1_mobsubmit.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event)" size="large">
+                    <ion-icon name="check"></ion-icon>
                 
                 </ion-button>
                 
@@ -199,7 +200,7 @@ export default class IbzReportlyMainInfoMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzReportlyMainInfoMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'srfparentkey': '%ibzreportly%' };
 
     /**
      * 视图导航参数
@@ -208,7 +209,7 @@ export default class IbzReportlyMainInfoMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzReportlyMainInfoMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzreportly%' };
 
     /**
      * 视图模型数据

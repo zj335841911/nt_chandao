@@ -728,6 +728,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
         mailto: null,
         ibz_dailyid: null,
         todaytask: null,
+        tomorrowplanstask: null,
         issubmit: null,
         ibzdaily: null,
     };
@@ -915,6 +916,8 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
         ibz_dailyid: new FormItemModel({ caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         todaytask: new FormItemModel({ caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        tomorrowplanstask: new FormItemModel({ caption: '明日计划任务', detailType: 'FORMITEM', name: 'tomorrowplanstask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1137,6 +1140,18 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
     }
 
     /**
+     * 监控表单属性 tomorrowplanstask 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DailyInfoDingDing
+     */
+    @Watch('data.tomorrowplanstask')
+    onTomorrowplanstaskChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'tomorrowplanstask', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 issubmit 值
      *
      * @param {*} newVal
@@ -1184,6 +1199,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

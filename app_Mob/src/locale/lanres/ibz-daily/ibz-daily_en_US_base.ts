@@ -157,6 +157,7 @@ export default {
 			mailto: commonLogic.appcommonhandle("抄送给",null), 
 			ibz_dailyid: commonLogic.appcommonhandle("日报标识",null), 
 			todaytask: commonLogic.appcommonhandle("完成任务",null), 
+			tomorrowplanstask: commonLogic.appcommonhandle("明日计划任务",null), 
 			issubmit: commonLogic.appcommonhandle("是否提交",null), 
 		},
 		uiactions: {

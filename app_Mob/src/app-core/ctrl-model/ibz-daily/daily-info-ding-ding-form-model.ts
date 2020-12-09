@@ -101,6 +101,11 @@ export class DailyInfoDingDingModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'tomorrowplanstask',
+                prop: 'tomorrowplanstask',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'issubmit',
                 prop: 'issubmit',
                 dataType: 'SSCODELIST',

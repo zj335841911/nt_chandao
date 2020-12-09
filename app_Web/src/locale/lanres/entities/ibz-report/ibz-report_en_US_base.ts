@@ -35,6 +35,24 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("汇报分页导航视图（我收到的）",null),
 				},
 			},
+			mytabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("日报",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("周报",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("月报",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("汇报",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

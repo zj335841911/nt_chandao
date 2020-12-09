@@ -524,6 +524,18 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
+			maintabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("测试用例",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("测试版本详情",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }
