@@ -466,4 +466,4 @@ function getAppLocale(){
 }
 
 // 默认导出
-export default data;
+export default getAppLocale;
