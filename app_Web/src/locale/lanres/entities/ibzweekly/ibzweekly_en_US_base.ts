@@ -104,7 +104,7 @@ function getLocaleResourceBase(){
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
 					ibz_weeklyname: commonLogic.appcommonhandle("周报名称",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
-					thisweektask1: commonLogic.appcommonhandle("本周完成任务",null), 
+					thisweektask: commonLogic.appcommonhandle("本周完成任务",null), 
 					workthisweek: commonLogic.appcommonhandle("本周工作",null), 
 					nextweektask: commonLogic.appcommonhandle("下周计划任务",null), 
 					plannextweek: commonLogic.appcommonhandle("下周计划",null), 

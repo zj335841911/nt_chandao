@@ -10,7 +10,7 @@
     <row>
             <i-col
     class="form-layout-container"
-    v-show="detailsModel.thisweektask1.visible"
+    v-show="detailsModel.thisweektask.visible"
     :style="{}"
     
     
@@ -18,27 +18,27 @@
     
 >
     <app-form-item
-    name="thisweektask1"
-    :itemRules="this.rules().thisweektask1"
+    name="thisweektask"
+    :itemRules="this.rules().thisweektask"
     class=""
 
-    :caption="$t('entities.ibzweekly.main_form.details.thisweektask1')"
+    :caption="$t('entities.ibzweekly.main_form.details.thisweektask')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.thisweektask1.error"
+    :error="detailsModel.thisweektask.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
     
 <dropdown-list-mpicker 
-  v-model="data.thisweektask1"
+  v-model="data.thisweektask"
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.thisweektask1.disabled"
+  :localContext ='{ DATE:"%date%" }' 
+  :localParam ='{ date:"%date%" }' 
+  :disabled="detailsModel.thisweektask.disabled"
   tag='CodeList' 
   codelistType='DYNAMIC' 
   placeholder='请选择...' style="">

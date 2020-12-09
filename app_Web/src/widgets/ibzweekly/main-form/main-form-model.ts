@@ -66,7 +66,7 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
-        name: 'thisweektask1',
+        name: 'thisweektask',
         prop: 'thisweektask',
         dataType: 'SMCODELIST',
       },
