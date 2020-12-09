@@ -879,7 +879,8 @@ Save
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [我所有的汇报](#数据查询-我所有的汇报（MyAllReportly）) | MyAllReportly | 否 |
 | 3 | [我收到的汇报](#数据查询-我收到的汇报（MyReceived）) | MyReceived | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 4 | [我的未提交汇报](#数据查询-我的未提交汇报（MyReportlyMob）) | MyReportlyMob | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -976,6 +977,21 @@ FROM
 	AND t11.objectType = 'reportly' 
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
+```
+### 数据查询-我的未提交汇报（MyReportlyMob）
+#### 说明
+我的未提交汇报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

@@ -550,6 +550,90 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
+			testtabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("Bug",null),
+					},
+					tabviewpanel8: {
+						caption: commonLogic.appcommonhandle("看板",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("功能测试",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("测试单",null),
+					},
+					tabviewpanel5: {
+						caption: commonLogic.appcommonhandle("报告",null),
+					},
+					tabviewpanel6: {
+						caption: commonLogic.appcommonhandle("套件",null),
+					},
+					tabviewpanel7: {
+						caption: commonLogic.appcommonhandle("模块",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			maintabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("概况",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("需求",null),
+					},
+					tabviewpanel11: {
+						caption: commonLogic.appcommonhandle("看板",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("计划",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("发布",null),
+					},
+					tabviewpanel9: {
+						caption: commonLogic.appcommonhandle("路线图",null),
+					},
+					tabviewpanel5: {
+						caption: commonLogic.appcommonhandle("项目",null),
+					},
+					tabviewpanel8: {
+						caption: commonLogic.appcommonhandle("平台",null),
+					},
+					tabviewpanel7: {
+						caption: commonLogic.appcommonhandle("动态",null),
+					},
+					tabviewpanel6: {
+						caption: commonLogic.appcommonhandle("模块",null),
+					},
+					tabviewpanel10: {
+						caption: commonLogic.appcommonhandle("文档",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			mytesttabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("待测测试单",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("已测测试单",null),
+					},
+					tabviewpanel5: {
+						caption: commonLogic.appcommonhandle("给我的用例",null),
+					},
+					tabviewpanel6: {
+						caption: commonLogic.appcommonhandle("我建的用例",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

@@ -19,6 +19,24 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("我的收藏",null),
 				},
 			},
+			tabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("需求",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("任务",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("用例",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("Bug",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

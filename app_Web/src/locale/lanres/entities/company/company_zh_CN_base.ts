@@ -106,6 +106,27 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			maintabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("用户",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("部门",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("权限",null),
+					},
+					tabviewpanel5: {
+						caption: commonLogic.appcommonhandle("动态",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("公司",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

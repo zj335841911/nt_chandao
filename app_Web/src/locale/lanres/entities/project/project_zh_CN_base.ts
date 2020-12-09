@@ -677,6 +677,69 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
+			maintabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("概况",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("任务",null),
+					},
+					tabviewpanel6: {
+						caption: commonLogic.appcommonhandle("看板",null),
+					},
+					tabviewpanel11: {
+						caption: commonLogic.appcommonhandle("燃尽图",null),
+					},
+					tabviewpanel5: {
+						caption: commonLogic.appcommonhandle("透视表",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("甘特图",null),
+					},
+					tabviewpanel7: {
+						caption: commonLogic.appcommonhandle("需求",null),
+					},
+					tabviewpanel8: {
+						caption: commonLogic.appcommonhandle("测试",null),
+					},
+					tabviewpanel9: {
+						caption: commonLogic.appcommonhandle("更多",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("动态",null),
+					},
+					tabviewpanel10: {
+						caption: commonLogic.appcommonhandle("模块",null),
+					},
+					tabviewpanel14: {
+						caption: commonLogic.appcommonhandle("文档",null),
+					},
+					tabviewpanel12: {
+						caption: commonLogic.appcommonhandle("团队",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			testtabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("Bug",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("看板",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("版本",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("测试单",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

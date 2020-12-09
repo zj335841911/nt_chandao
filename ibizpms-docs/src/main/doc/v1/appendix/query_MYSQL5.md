@@ -8337,6 +8337,10 @@ WHERE t1.issubmit = '1'
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO )) 
 
 ```
+### 我的未提交汇报(MyReportlyMob)<div id="IbzReportly_MyReportlyMob"></div>
+```sql
+
+```
 ### 默认（全部数据）(VIEW)<div id="IbzReportly_View"></div>
 ```sql
 SELECT

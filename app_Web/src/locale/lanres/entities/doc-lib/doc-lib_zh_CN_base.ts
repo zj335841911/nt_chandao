@@ -478,6 +478,24 @@ function getLocaleResourceBase(){
 					doclib_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
 				},
 			},
+			libtabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("文档看板",null),
+					},
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("产品",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("项目",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("自定义",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

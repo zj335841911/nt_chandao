@@ -216,6 +216,24 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
+			maintabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("完成的需求",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("解决的Bug",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("遗留的Bug",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("发布详情",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

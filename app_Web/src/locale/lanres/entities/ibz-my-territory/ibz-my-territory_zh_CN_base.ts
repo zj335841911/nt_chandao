@@ -221,6 +221,102 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			tabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("首页",null),
+					},
+					tabviewpanel10: {
+						caption: commonLogic.appcommonhandle("日历",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("日程",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("任务",null),
+					},
+					tabviewpanel5: {
+						caption: commonLogic.appcommonhandle("BUG",null),
+					},
+					tabviewpanel6: {
+						caption: commonLogic.appcommonhandle("测试",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("需求",null),
+					},
+					tabviewpanel7: {
+						caption: commonLogic.appcommonhandle("项目",null),
+					},
+					tabviewpanel9: {
+						caption: commonLogic.appcommonhandle("动态",null),
+					},
+					tabviewpanel8: {
+						caption: commonLogic.appcommonhandle("联系人",null),
+					},
+					tabviewpanel11: {
+						caption: commonLogic.appcommonhandle("模板",null),
+					},
+					tabviewpanel12: {
+						caption: commonLogic.appcommonhandle("汇报",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			reporttabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("日报",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("周报",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("月报",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("汇报",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			usr3tabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("标签",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("关键字",null),
+					},
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("插件管理",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			statstabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("产品",null),
+					},
+					tabviewpanel5: {
+						caption: commonLogic.appcommonhandle("项目",null),
+					},
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("测试",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("组织",null),
+					},
+					tabviewpanel6: {
+						caption: commonLogic.appcommonhandle("用户",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

@@ -240,6 +240,21 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Filter",null),
 				},
 			},
+			maintabexptabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("需求",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("Bug",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("计划详情",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }
