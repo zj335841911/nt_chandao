@@ -587,6 +587,9 @@ export default {
     PlanTemplet: {
         "empty": commonLogic.appcommonhandle("",null),
     },
+    CodeList: {
+        "empty": commonLogic.appcommonhandle("",null),
+    },
     IsAssigned: {
         "assign": commonLogic.appcommonhandle("已指派",null),
         "noassign": commonLogic.appcommonhandle("未指派",null),

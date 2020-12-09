@@ -4246,6 +4246,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "CodeList",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchThisWeekCompleteTaskChoice",
+        "items": []
+    },
+    {
         srfkey: "IsAssigned",
         emptytext: "未定义",
         "codelisttype":"static",

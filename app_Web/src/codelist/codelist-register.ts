@@ -63,6 +63,7 @@ export class CodeListRegister {
         this.allCodeList.set('ProductPlan', () => import('@/codelist/product-plan'));
         this.allCodeList.set('UserRealNameProject', () => import('@/codelist/user-real-name-project'));
         this.allCodeList.set('PlanTemplet', () => import('@/codelist/plan-templet'));
+        this.allCodeList.set('CodeList', () => import('@/codelist/code-list'));
         this.allCodeList.set('AllRepo', () => import('@/codelist/all-repo'));
         this.allCodeList.set('ProjectTeam', () => import('@/codelist/project-team'));
         this.allCodeList.set('UserRealNameTaskTeam', () => import('@/codelist/user-real-name-task-team'));
