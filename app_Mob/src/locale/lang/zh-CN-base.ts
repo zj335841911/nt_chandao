@@ -46,6 +46,7 @@ import doc_zh_CN from '@locale/lanres/doc/doc_zh_CN';
 import systeam_zh_CN from '@locale/lanres/sys-team/sys-team_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/project-module/project-module_zh_CN';
+import ibzreportly_zh_CN from '@locale/lanres/ibz-reportly/ibz-reportly_zh_CN';
 import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
 import testtask_zh_CN from '@locale/lanres/test-task/test-task_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/test-suite/test-suite_zh_CN';
@@ -265,6 +266,7 @@ export default {
     systeam: systeam_zh_CN,
     bug: bug_zh_CN,
     projectmodule: projectmodule_zh_CN,
+    ibzreportly: ibzreportly_zh_CN,
     productstats: productstats_zh_CN,
     testtask: testtask_zh_CN,
     testsuite: testsuite_zh_CN,

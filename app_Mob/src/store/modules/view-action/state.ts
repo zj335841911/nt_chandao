@@ -2356,6 +2356,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'db8c84773e393175d84b15d23715c412',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyCreateMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b39f9237d088a6173a2d1889f2eaa562',
+            ],
+        },
+        {
             viewtag: 'dc1e0f061d279d7a5773df36833f94d2',
             viewmodule: 'ibiz',
             viewname: 'BugLogMobMDView9',

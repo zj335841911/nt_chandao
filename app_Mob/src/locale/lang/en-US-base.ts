@@ -46,6 +46,7 @@ import doc_en_US from '@locale/lanres/doc/doc_en_US';
 import systeam_en_US from '@locale/lanres/sys-team/sys-team_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/project-module/project-module_en_US';
+import ibzreportly_en_US from '@locale/lanres/ibz-reportly/ibz-reportly_en_US';
 import productstats_en_US from '@locale/lanres/product-stats/product-stats_en_US';
 import testtask_en_US from '@locale/lanres/test-task/test-task_en_US';
 import testsuite_en_US from '@locale/lanres/test-suite/test-suite_en_US';
@@ -264,6 +265,7 @@ export default {
     systeam: systeam_en_US,
     bug: bug_en_US,
     projectmodule: projectmodule_en_US,
+    ibzreportly: ibzreportly_en_US,
     productstats: productstats_en_US,
     testtask: testtask_en_US,
     testsuite: testsuite_en_US,

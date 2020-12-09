@@ -17896,7 +17896,8 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 t31.deleted = '0' 
-t1.`status` in ('wait','doing') 
+((t1.`status` in ('doing','wait') and t1.assignedTo = 'huajiyu') or (t1.finishedBy = 'huajiyu' and 
+YEARWEEK(DATE_FORMAT(DATE_SUB(t1.finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(NOW()) )) 
 
 ```
 ### 移动端本周已完成任务(汇报)(ThisWeekCompleteTaskMobZS)<div id="Task_ThisWeekCompleteTaskMobZS"></div>

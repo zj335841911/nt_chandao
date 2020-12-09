@@ -53,6 +53,7 @@ import './entity/docs/docs';
 import './entity/sys-teams/sys-teams';
 import './entity/bugs/bugs';
 import './entity/project-modules/project-modules';
+import './entity/ibz-reportlys/ibz-reportlys';
 import './entity/product-statss/product-statss';
 import './entity/test-tasks/test-tasks';
 import './entity/test-suites/test-suites';

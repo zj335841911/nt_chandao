@@ -216,6 +216,7 @@
 |-|产品移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|发布移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|汇报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
