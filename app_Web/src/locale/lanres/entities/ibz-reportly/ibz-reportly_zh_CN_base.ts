@@ -122,6 +122,7 @@ export default {
 			account: commonLogic.appcommonhandle("",null), 
 			date: commonLogic.appcommonhandle("",null), 
 			content: commonLogic.appcommonhandle("",null), 
+			issubmit: commonLogic.appcommonhandle("是否提交",null), 
 		},
 		uiactions: {
 			ibzreportly_edit: commonLogic.appcommonhandle("编辑",null),

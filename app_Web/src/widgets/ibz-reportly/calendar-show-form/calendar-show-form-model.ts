@@ -81,6 +81,11 @@ export default class CalendarShowModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'issubmit',
+        prop: 'issubmit',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'ibzreportly',
         prop: 'ibzreportlyid',
         dataType: 'FONTKEY',

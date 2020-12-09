@@ -172,6 +172,7 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
         account: null,
         date: null,
         content: null,
+        issubmit: null,
         ibzreportly: null,
     };
 
@@ -342,6 +343,13 @@ export class CalendarShowEditFormBase extends EditFormControlBase {
 
         content: new FormItemModel({
     caption: '', detailType: 'FORMITEM', name: 'content', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        issubmit: new FormItemModel({
+    caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
