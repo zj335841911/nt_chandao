@@ -16,5 +16,7 @@ export const UserComponent = {
         v.component('app-tree-word',() => import('@/ibiz-core/components/app-tree-word/app-tree-word.vue'));
         // 汇报列表组件
         v.component('app-report-list',() => import('@/ibiz-core/components/app-report-list/app-report-list.vue'));
+        // 全部动态列表组件
+        v.component('app-trends-list',() => import('@/ibiz-core/components/app-trends-list/app-trends-list.vue'));
     }
 };
