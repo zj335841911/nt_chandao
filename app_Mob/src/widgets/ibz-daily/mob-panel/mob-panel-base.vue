@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.account.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     <ion-label class="item-field-label ">用户</ion-label>
-                    <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.submittime.visible"  :lg="3" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.submittime" :context="context" :value="data.submittime" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.submittime" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 

@@ -14547,7 +14547,7 @@
     "field_logic_name":"本周完成任务",
     "entity_name":"IbzWeekly",
     "field_type":"SMCODELIST",
-    "dict":"MyCompleteTask",
+    "dict":"CodeList",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",

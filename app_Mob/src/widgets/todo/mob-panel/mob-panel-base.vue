@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.pri.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.pri" :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Pri"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Pri"></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.name.visible"  :lg="10" :size="10" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.date1.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -34,7 +34,7 @@
                 <ion-col v-show="detailsModel.begin.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.begin" :context="context" :value="data.begin" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="BeginendDropList"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.begin" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="BeginendDropList"></app-mob-span>
                 </div>
                 
                 
@@ -43,7 +43,7 @@
                 <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :offset="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Todo__status"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Todo__status"></app-mob-span>
                 </div>
                 
                 

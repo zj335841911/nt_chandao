@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.name.visible"  :lg="12" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.date.visible"  :lg="12" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 

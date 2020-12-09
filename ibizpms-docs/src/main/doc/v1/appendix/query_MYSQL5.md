@@ -16958,7 +16958,10 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')} ) ) ) 
+( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}  and
+DATE_FORMAT(t1.finisheddate,'%Y-%m-%d') = DATE_FORMAT((case when 
+ ${srfdatacontext('date')} is Null then now() else ${srfdatacontext('date')}  end),'%Y-%m-%d') ) ) ) 
+t31.deleted='0' 
 
 ```
 ### 已完成任务（移动端）(MyCompleteTaskMob)<div id="Task_MyCompleteTaskMob"></div>
@@ -17896,8 +17899,10 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 t31.deleted = '0' 
-((t1.`status` in ('doing','wait') and t1.assignedTo = 'huajiyu') or (t1.finishedBy = 'huajiyu' and 
-YEARWEEK(DATE_FORMAT(DATE_SUB(t1.finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(NOW()) )) 
+((t1.`status` in ('doing','wait') and t1.assignedTo =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}) or (t1.finishedBy =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} and 
+YEARWEEK(DATE_FORMAT(DATE_SUB(t1.finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(     
+(case when ${srfdatacontext('date')} is null then now() else ${srfdatacontext('date')} end )
+) )) 
 
 ```
 ### 移动端本周已完成任务(汇报)(ThisWeekCompleteTaskMobZS)<div id="Task_ThisWeekCompleteTaskMobZS"></div>

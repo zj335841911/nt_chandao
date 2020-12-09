@@ -707,6 +707,9 @@ export default {
         '#ff4e3e': '#ff4e3e',
         empty: '',
     },
+    CodeList: {
+        empty: '',
+    },
     Bug__severity_mob: {
         '1': '1',
         '2': '2',

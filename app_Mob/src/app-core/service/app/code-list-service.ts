@@ -13,6 +13,7 @@ import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  ProductPlan  from '@/app-core/code-list/product-plan';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
+import  CodeList  from '@/app-core/code-list/code-list';
 import  CurStory  from '@/app-core/code-list/cur-story';
 import  MyCompleteTask  from '@/app-core/code-list/my-complete-task';
 import  UserRealNameTaskTeam  from '@/app-core/code-list/user-real-name-task-team';
@@ -81,6 +82,8 @@ export class CodeListService {
         ProductPlan: new ProductPlan(),
         // 用户真实名称（项目团队成员）
         UserRealNameProject: new UserRealNameProject(),
+        // 周报我完成的任务(下拉框选择)
+        CodeList: new CodeList(),
         // 当前需求版本（动态）
         CurStory: new CurStory(),
         // 我完成的任务（汇报）

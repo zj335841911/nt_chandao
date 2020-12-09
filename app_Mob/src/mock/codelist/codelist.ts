@@ -3960,6 +3960,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "CodeList",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchThisWeekCompleteTaskChoice",
+        "items": []
+    },
+    {
         srfkey: 'Bug__severity_mob',
         emptytext: '未定义',
         "codelisttype":"static",

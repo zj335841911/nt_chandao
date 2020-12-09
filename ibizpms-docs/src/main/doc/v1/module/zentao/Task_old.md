@@ -1333,6 +1333,7 @@ hide footbox
 |ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
 |ThisWeekCompleteTask|本周完成的任务(汇报)|ThisWeekCompleteTask|否|&nbsp;|
+|ThisWeekCompleteTaskChoice|本周已完成任务(下拉框选择)|ThisWeekCompleteTaskChoice|否|&nbsp;|
 |ThisWeekCompleteTaskMobZS|移动端本周已完成任务(汇报)|ThisWeekCompleteTaskMobZS|否|&nbsp;|
 |ThisWeekCompleteTaskZS|本周完成的任务(汇报)|ThisWeekCompleteTaskZS|否|&nbsp;|
 |TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|

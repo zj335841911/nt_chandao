@@ -7257,7 +7257,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 否
 
 - 查询权限使用
-否
+是
 
 #### SQL
 - MYSQL5
@@ -7483,7 +7483,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 否
 
 - 查询权限使用
-否
+是
 
 #### SQL
 - MYSQL5
@@ -8753,10 +8753,11 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 21 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
 | 22 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
 | 23 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 24 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
-| 25 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 26 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 27 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 24 | [本周已完成任务(下拉框选择)](#数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
+| 25 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
+| 26 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 27 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 28 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -9080,6 +9081,20 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [本周完成的任务(汇报)（ThisWeekCompleteTask）](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) |
+### 数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）
+#### 说明
+本周已完成任务(下拉框选择)
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）](#数据查询-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) |
 ### 数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）
 #### 说明
 移动端本周已完成任务(汇报)

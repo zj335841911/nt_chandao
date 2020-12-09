@@ -9,7 +9,7 @@
                         <ion-col v-show="detailsModel.date1.visible"  :lg="8" :size="8" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
@@ -18,7 +18,7 @@
                         <ion-col v-show="detailsModel.actor.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.actor" :context="context" :value="data.actor" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.actor" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
@@ -31,7 +31,7 @@
                         <ion-col v-show="detailsModel.actions.visible"  :lg="7" :size="7" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.actions" :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
                         </div>
                         
                         
@@ -40,7 +40,7 @@
                         <ion-col v-show="detailsModel.objecttype.visible"  :lg="5" :size="5" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.objecttype" :context="context" :value="data.objecttype" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__object_type"></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.objecttype" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__object_type"></app-mob-span>
                         </div>
                         
                         

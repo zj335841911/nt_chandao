@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.type.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.type" :context="context" :value="data.type" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Casestep__type"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.type" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Casestep__type"></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.desc.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.desc" :context="context" :value="data.desc" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.desc" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.expect.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.expect" :context="context" :value="data.expect" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.expect" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 

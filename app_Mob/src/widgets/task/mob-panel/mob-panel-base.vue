@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.pri" :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Task__pri"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Task__pri"></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.name.visible"  :lg="11" :size="11" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Task__status"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Task__status"></app-mob-span>
                 </div>
                 
                 
@@ -55,7 +55,7 @@
                 <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -64,7 +64,7 @@
                 <ion-col v-show="detailsModel.left.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.left" :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 

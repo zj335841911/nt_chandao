@@ -14,7 +14,7 @@
                 <ion-col v-show="detailsModel.account.visible"  :lg="5" :size="5" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -23,7 +23,7 @@
                 <ion-col v-show="detailsModel.estimate.visible"  :lg="4" :size="4" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.estimate" :context="context" :value="data.estimate" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.estimate" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 

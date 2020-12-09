@@ -5,7 +5,7 @@
         <ion-col v-show="detailsModel.ibz_weeklyid.visible"  :lg="6" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             
-            <app-mob-span  v-if="data.ibz_weeklyid" :context="context" :value="data.ibz_weeklyid" :itemParam="{}"  ></app-mob-span>
+            <app-mob-span  :context="context" :value="data.ibz_weeklyid" :itemParam="{}"  ></app-mob-span>
         </div>
         
         
@@ -14,7 +14,7 @@
         <ion-col v-show="detailsModel.ibz_weeklyname.visible"  :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             <ion-label class="item-field-label ">周报名</ion-label>
-            <app-mob-span  v-if="data.ibz_weeklyname" :context="context" :value="data.ibz_weeklyname" :itemParam="{}"  ></app-mob-span>
+            <app-mob-span  :context="context" :value="data.ibz_weeklyname" :itemParam="{}"  ></app-mob-span>
         </div>
         
         
@@ -23,7 +23,7 @@
         <ion-col v-show="detailsModel.account.visible"  :lg="5" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             
-            <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+            <app-mob-span  :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
         </div>
         
         
@@ -32,7 +32,7 @@
         <ion-col v-show="detailsModel.date.visible"  :lg="8" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             
-            <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
+            <app-mob-span  :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
         </div>
         
         
@@ -41,7 +41,7 @@
         <ion-col v-show="detailsModel.reportto.visible"  :lg="8" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             <ion-label class="item-field-label ">汇报给</ion-label>
-            <app-mob-span  v-if="data.reportto" :context="context" :value="data.reportto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+            <app-mob-span  :context="context" :value="data.reportto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
         </div>
         
         

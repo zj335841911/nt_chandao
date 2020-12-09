@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.date.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.actor.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.actor" :context="context" :value="data.actor" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.actor" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.actions.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.actions" :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
                 </div>
                 
                 
