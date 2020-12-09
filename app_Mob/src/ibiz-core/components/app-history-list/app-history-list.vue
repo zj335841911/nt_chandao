@@ -67,7 +67,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { CodeListService } from "@/ibiz-core";
-
+import { Environment } from '@/environments/environment';
 
 @Component({
     components: {},
@@ -115,6 +115,13 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     @Prop() public itemNameDetail?: any;
+
+    /**
+     * 下载文件路径
+     *
+     * @memberof AppMobFileUpload
+     */
+    public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
 
     /**
      * 监听itemNameDetail
@@ -178,10 +185,15 @@ export default class APPHistoryList extends Vue {
                 }
                 if (v.item.length > 0) {
                     v.item.forEach((i: any) => {
+                        i.ibiznew = this.parseImgUrl(i.ibiznew);
+                        i.old = this.parseImgUrl(i.ibiznew);
                         i.file = (this.$t(v.objecttype + '.fields.' + i.field.toLowerCase()) as string);
                         v.old = i.old;
-                        v.new = i.ibiznew;
+                        v.new = i.ibiznew
                     });
+                }
+                if(v.comment){
+                  v.comment = this.parseImgUrl(v.comment);
                 }
             })
             this.setUerReName();
@@ -198,6 +210,19 @@ export default class APPHistoryList extends Vue {
             }
         }
     }
+
+    public parseImgUrl(html:any){
+      let that :any = this;
+       let parsehtml = html.replace(/<img [^>]*src=['"]\{([^\}'"]+)[^>]*>/gi,  (match:any, capture:any) =>{
+          let parseUrl = "";
+          if(match.indexOf('{') && match.indexOf('}')){
+            parseUrl = `${that.downloadUrl}/${capture.split('.')[0]}`;
+          }
+           return `<img src="${parseUrl?parseUrl:capture}"/>`
+        });
+        return parsehtml
+    }
+
     /**
      * 按钮文本
      *
