@@ -131,6 +131,22 @@ export class MyReceivedGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_reportly_myreceived_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MyReceivedGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MyReceivedGridBase
+     */
+    public minorSortPSDEF: string = 'date';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

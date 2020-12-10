@@ -156,6 +156,14 @@ function getLocaleResourceBase(){
 					uagridcolumn1: commonLogic.appcommonhandle("操作",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
+			exportColumns: {
+					ibz_reportlyid: commonLogic.appcommonhandle("汇报标识",null),
+					ibz_reportlyname: commonLogic.appcommonhandle("汇报名称",null),
+					account: commonLogic.appcommonhandle("用户",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					reportto: commonLogic.appcommonhandle("汇报给",null),
+					issubmit: commonLogic.appcommonhandle("是否提交",null),
+			},
 				uiactions: {
 				ibzreportly_edit: commonLogic.appcommonhandle("编辑",null),
 				ibzreportly_submit: commonLogic.appcommonhandle("提交",null),

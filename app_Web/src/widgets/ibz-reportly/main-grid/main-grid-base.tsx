@@ -153,6 +153,22 @@ export class MainGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_reportly_main_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'date';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -369,6 +385,60 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'ibz_reportlyid',
+            label: '汇报标识',
+            langtag: 'entities.ibzreportly.main_grid.exportColumns.ibz_reportlyid',
+            show: true,
+        },
+        {
+            name: 'ibz_reportlyname',
+            label: '汇报名称',
+            langtag: 'entities.ibzreportly.main_grid.exportColumns.ibz_reportlyname',
+            show: true,
+        },
+        {
+            name: 'account',
+            label: '用户',
+            langtag: 'entities.ibzreportly.main_grid.exportColumns.account',
+            show: true,
+        },
+        {
+            name: 'date',
+            label: '日期',
+            langtag: 'entities.ibzreportly.main_grid.exportColumns.date',
+            show: true,
+        },
+        {
+            name: 'reportto',
+            label: '汇报给',
+            langtag: 'entities.ibzreportly.main_grid.exportColumns.reportto',
+            show: true,
+        },
+        {
+            name: 'issubmit',
+            label: '是否提交',
+            langtag: 'entities.ibzreportly.main_grid.exportColumns.issubmit',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -394,6 +464,14 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: ',',
                 renderMode: 'string',
                 valueSeparator: ",",
+            },
+            {
+                name: 'issubmit',
+                srfkey: 'YesNo',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
             },
         ]);
     }
