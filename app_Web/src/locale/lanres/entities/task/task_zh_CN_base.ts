@@ -251,6 +251,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("完成任务",null),
 					title: commonLogic.appcommonhandle("完成任务",null),
 				},
+				childmoregridview: {
+					caption: commonLogic.appcommonhandle("子任务-更多",null),
+					title: commonLogic.appcommonhandle("任务表格视图（子任务-更多）",null),
+				},
 				pritaskgroupgridview: {
 					caption: commonLogic.appcommonhandle("优先级分组",null),
 					title: commonLogic.appcommonhandle("任务表格视图（优先级分组）",null),
@@ -1279,6 +1283,57 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			childmain_grid: {
+				columns: {
+					id: commonLogic.appcommonhandle("ID",null),
+					pri: commonLogic.appcommonhandle("P",null),
+					name: commonLogic.appcommonhandle("任务名称",null),
+					status1: commonLogic.appcommonhandle("任务状态",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+					assignedto: commonLogic.appcommonhandle("指派给",null),
+					finishedby: commonLogic.appcommonhandle("完成者",null),
+					estimate: commonLogic.appcommonhandle("预计",null),
+					consumed: commonLogic.appcommonhandle("消耗",null),
+					left: commonLogic.appcommonhandle("剩余",null),
+					progressrate: commonLogic.appcommonhandle("%",null),
+					uagridcolumn1: commonLogic.appcommonhandle("操作",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+			exportColumns: {
+					id: commonLogic.appcommonhandle("ID",null),
+					pri: commonLogic.appcommonhandle("P",null),
+					name: commonLogic.appcommonhandle("任务名称",null),
+					status: commonLogic.appcommonhandle("任务状态",null),
+					status1: commonLogic.appcommonhandle("任务状态",null),
+					assignedto: commonLogic.appcommonhandle("指派给",null),
+					finishedby: commonLogic.appcommonhandle("完成者",null),
+					estimate: commonLogic.appcommonhandle("预计",null),
+					consumed: commonLogic.appcommonhandle("消耗",null),
+					left: commonLogic.appcommonhandle("剩余",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
+					tasktype: commonLogic.appcommonhandle("任务类型",null),
+					product: commonLogic.appcommonhandle("产品",null),
+					projectname: commonLogic.appcommonhandle("所属项目",null),
+			},
+				uiactions: {
+					task_tasktobug: commonLogic.appcommonhandle("提缺陷",null),
+					task_confirmstorychange: commonLogic.appcommonhandle("确认",null),
+					task_mstarttaskdash1: commonLogic.appcommonhandle("开始",null),
+					task_starttask: commonLogic.appcommonhandle("开始",null),
+					task_closetask: commonLogic.appcommonhandle("关闭",null),
+					task_done: commonLogic.appcommonhandle("完成",null),
+					task_donetask: commonLogic.appcommonhandle("完成",null),
+					task_mainedit: commonLogic.appcommonhandle("编辑",null),
+					task_newsubtask: commonLogic.appcommonhandle("子任务",null),
+					copy: commonLogic.appcommonhandle("拷贝",null),
+					task_taskfavorites: commonLogic.appcommonhandle("收藏",null),
+					task_tasknfavorites: commonLogic.appcommonhandle("取消收藏",null),
+					task_assigntask: commonLogic.appcommonhandle("指派",null),
+					task_checkforward: commonLogic.appcommonhandle("转交",null),
+					task_forward: commonLogic.appcommonhandle("转交",null),
+				},
+			},
 			myfinishedbytask_chart: {
 				nodata:commonLogic.appcommonhandle("无",null),
 			},
@@ -1522,6 +1577,32 @@ function getLocaleResourceBase(){
 				},
 			},
 			usr2gridviewtoolbar_toolbar: {
+			},
+			childmoregridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("新建",null),
+					tip: commonLogic.appcommonhandle("新建",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("删除",null),
+					tip: commonLogic.appcommonhandle("删除",null),
+				},
+				seperator1: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				seperator3: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction5: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
 			},
 			taskgrouptree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),

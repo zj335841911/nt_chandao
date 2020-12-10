@@ -3903,6 +3903,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzWeeklyEditViewMainMyweekly",
             "viewtag": "cc0f54a8db5b9c161ec9f3d6b86e2a27"
         },
+        "taskchildmoregridview": {
+            "title": "任务表格视图（子任务-更多）",
+            "caption": "子任务-更多",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskChildMoreGridView",
+            "viewtag": "cc1f1d0cc16dddbdb7e9f9fd9aa443fa"
+        },
         "projectportalview": {
             "title": "项目主页",
             "caption": "项目主页",

@@ -945,6 +945,81 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+    * 添加更多行
+    * 
+    * @memberof MainBase
+    */
+    public addMore(){
+        if(this.items.length > 0){
+            this.items.forEach((item: any) => {
+                if(item.hasOwnProperty('items') && item.items.length > 0){
+                    const item: any = {
+                        more: true,
+                        id:'',
+                        pri:'',
+                        name:'',
+                        status1:'',
+                        deadline:'',
+                        assignedto:'',
+                        finishedby:'',
+                        estimate:'',
+                        consumed:'',
+                        left:'',
+                        progressrate:'',
+                        TaskToBug:{
+                            visabled: false
+                        },
+                        confirmStoryChange:{
+                            visabled: false
+                        },
+                        MStartTaskDash1:{
+                            visabled: false
+                        },
+                        CloseTask:{
+                            visabled: false
+                        },
+                        done:{
+                            visabled: false
+                        },
+                        MainEdit:{
+                            visabled: false
+                        },
+                        NewSubTask:{
+                            visabled: false
+                        },
+                        Copy:{
+                            visabled: false
+                        },
+                        TaskFavorites:{
+                            visabled: false
+                        },
+                        TaskNFavorites:{
+                            visabled: false
+                        },
+                    }
+                    item.items.push(item);
+                }
+            })
+        }
+    }
+
+    /**
+    * 合并更多行
+    * 
+    * @memberof MainBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','pri','name','status1','deadline','assignedto','finishedby','estimate','consumed','left','progressrate','uagridcolumn1'];
+        if(row && row.more) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+
+    /**
      * 表格数据加载
      *
      * @param {*} item

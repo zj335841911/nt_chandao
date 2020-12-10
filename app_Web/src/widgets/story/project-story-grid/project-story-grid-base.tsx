@@ -586,6 +586,55 @@ export class ProjectStoryGridBase extends GridControlBase {
     }
 
     /**
+    * 添加更多行
+    * 
+    * @memberof ProjectStoryBase
+    */
+    public addMore(){
+        if(this.items.length > 0){
+            this.items.forEach((item: any) => {
+                if(item.hasOwnProperty('items') && item.items.length > 0){
+                    const item: any = {
+                        more: true,
+                        id:'',
+                        pri:'',
+                        title:'',
+                        plan:'',
+                        openedby:'',
+                        assignedto:'',
+                        estimate:'',
+                        status:'',
+                        stage:'',
+                        Breakdowntasks:{
+                            visabled: false
+                        },
+                        ProjectUnlinkStory:{
+                            visabled: false
+                        },
+                    }
+                    item.items.push(item);
+                }
+            })
+        }
+    }
+
+    /**
+    * 合并更多行
+    * 
+    * @memberof ProjectStoryBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','pri','title','plan','openedby','assignedto','estimate','status','stage','uagridcolumn1'];
+        if(row && row.more) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+
+    /**
      * 表格数据加载
      *
      * @param {*} item

@@ -751,6 +751,7 @@ SRFNAVPARAM.project=%project%|
 |-|模块选择|DEPICKUPVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|实体2编辑视图|DEEDITVIEW|&nbsp;|
+|-|任务表格视图（子任务-更多）|DEGRIDVIEW|&nbsp;|
 |-|项目主页|APPPORTALVIEW|&nbsp;|
 |-|用例库用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
 |-|汇报分页导航视图（我收到的）|DETABEXPVIEW|&nbsp;|
