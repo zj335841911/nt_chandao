@@ -17908,7 +17908,7 @@ t31.deleted = '0'
 			t1.`status` IN ( 'doing', 'wait' ) 
 			AND t1.assignedTo = ${srfsessioncontext('srfloginname', '{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}) 
 		OR (
-			t1.finishedBy = ${srfsessioncontext('srfloginname', '{"defname":"FINISHEDBY","dename":"ZT_TASK"}')}
+			t1.finishedBy = ${srfsessioncontext('srfloginname', '{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}
 			AND DATE_FORMAT( t1.finishedDate, '%Y-%m' ) = DATE_FORMAT( CASE WHEN ${srfdatacontext('date')} IS NULL THEN now() ELSE ${srfdatacontext('date')} END, '%Y-%m' ) ) 
 		) 
 
