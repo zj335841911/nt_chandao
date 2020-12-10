@@ -280,7 +280,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobEditViewBase
      */
-    protected navContext: any = { 'story': 'null', 'objecttype': 'task', 'srfparentkey': '%task%' };
+    protected navContext: any = { 'objecttype': 'task', 'srfparentkey': '%task%' };
 
     /**
      * 视图导航参数
