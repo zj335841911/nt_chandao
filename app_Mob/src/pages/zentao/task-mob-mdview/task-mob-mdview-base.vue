@@ -812,7 +812,7 @@ export default class TaskMobMDViewBase extends Vue {
         }
         let response: any = null;
         let panelNavParam = { } ;
-        let panelNavContext = { } ;
+        let panelNavContext = { "story": "null" } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
