@@ -130,7 +130,7 @@ export class TaskRelatedGridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bug.taskrelated_grid.columns.title',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

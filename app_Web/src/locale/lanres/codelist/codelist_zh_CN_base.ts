@@ -723,6 +723,9 @@ function getLocaleResourceBase(){
           "active": commonLogic.appcommonhandle("未解决",null),
           "empty": commonLogic.appcommonhandle("",null),
       },
+      MonthlyCompleteTaskChoice: {
+          "empty": commonLogic.appcommonhandle("",null),
+      },
       PlanCodeList: {
           "empty": commonLogic.appcommonhandle("未计划",null),
       },

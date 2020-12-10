@@ -18,27 +18,27 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='consumed' 
+    name='myconsumed' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="consumed_item"  
-    :itemValue="this.data.consumed" 
-    v-show="detailsModel.consumed.visible" 
-    :itemRules="this.rules.consumed" 
-    :caption="$t('task.completeformmob_form.details.consumed')"  
+    ref="myconsumed_item"  
+    :itemValue="this.data.myconsumed" 
+    v-show="detailsModel.myconsumed.visible" 
+    :itemRules="this.rules.myconsumed" 
+    :caption="$t('task.completeformmob_form.details.myconsumed')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.consumed.disabled"
-    :error="detailsModel.consumed.error" 
+    :disabled="detailsModel.myconsumed.disabled"
+    :error="detailsModel.myconsumed.error" 
     :isEmptyCaption="false">
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.consumed"
-    unit="小时"
-    :disabled="detailsModel.consumed.disabled" 
-    @change="($event)=>this.data.consumed = $event"/>
+    :value="data.myconsumed"
+    unit=""
+    :disabled="detailsModel.myconsumed.disabled" 
+    @change="($event)=>this.data.myconsumed = $event"/>
 </app-form-item>
 
 
@@ -590,6 +590,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         srfsourcekey: null,
         id: null,
         project: null,
+        myconsumed: null,
         consumed: null,
         currentconsumed: null,
         totaltime: null,
@@ -775,6 +776,8 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 , 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        myconsumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'myconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         currentconsumed: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'currentconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -913,6 +916,18 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     @Watch('data.project')
     onProjectChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 myconsumed 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof CompleteFormMob
+     */
+    @Watch('data.myconsumed')
+    onMyconsumedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'myconsumed', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1059,6 +1074,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
