@@ -7,23 +7,22 @@ import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from '@service/app/codelist-service';
-import  ProjectTaskQCounterCounterService  from '@/counter/project-task-qcounter/project-task-qcounter-counter';
 
 
 /**
- * task表格视图视图基类
+ * 任务表格视图（子任务-更多）视图基类
  *
  * @export
- * @class TaskMainGridViewBase
+ * @class TaskChildMoreGridViewBase
  * @extends {GridViewBase}
  */
-export class TaskMainGridViewBase extends GridViewBase {
+export class TaskChildMoreGridViewBase extends GridViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     protected appDeName: string = 'task';
 
@@ -32,7 +31,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -41,7 +40,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     protected appDeMajor: string = 'name';
 
@@ -50,7 +49,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */ 
     protected dataControl: string = 'grid';
 
@@ -58,7 +57,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     protected appEntityService: TaskService = new TaskService;
 
@@ -66,49 +65,21 @@ export class TaskMainGridViewBase extends GridViewBase {
      * 实体权限服务对象
      *
      * @type TaskUIService
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
-
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskMainGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'PROJECT': {
-            isRawValue: false,
-            value: 'project',
-        }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskMainGridViewBase
-	 */
-    protected customViewParams: any = {
-        'project': {
-            isRawValue: false,
-            value: 'project',
-        }
-    };
 
     /**
      * 视图模型数据
      *
      * @protected
      * @type {*}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.task.views.maingridview.caption',
-        srfTitle: 'entities.task.views.maingridview.title',
-        srfSubTitle: 'entities.task.views.maingridview.subtitle',
+        srfCaption: 'entities.task.views.childmoregridview.caption',
+        srfTitle: 'entities.task.views.childmoregridview.title',
+        srfSubTitle: 'entities.task.views.childmoregridview.subtitle',
         dataInfo: '',
     };
 
@@ -117,7 +88,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     protected containerModel: any = {
         view_toolbar: {
@@ -128,38 +99,24 @@ export class TaskMainGridViewBase extends GridViewBase {
             name: 'grid',
             type: 'GRID',
         },
-        view_searchbar: {
-            name: 'searchbar',
-            type: 'SEARCHBAR',
-        },
     };
 
     /**
      * 工具栏模型
      *
      * @type {*}
-     * @memberof TaskMainGridView
+     * @memberof TaskChildMoreGridView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
 
+        deuiaction4: { name: 'deuiaction4', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
+
+        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
-
-        deuiaction4: { name: 'deuiaction4', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
-
-    };
-
-
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof TaskMainGridView
-     */
-    public maingridviewgrid_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '更多', 'isShowCaption': true, 'isShowIcon': true, tooltip: '更多', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChildMore', target: 'SINGLEKEY', class: '' } },
+        seperator3: {  name: 'seperator3', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
+        deuiaction5: { name: 'deuiaction5', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -170,18 +127,18 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
-	protected viewtag: string = 'a4af2d93ae66c9877ee99bfe7b93d22c';
+	protected viewtag: string = 'cc1f1d0cc16dddbdb7e9f9fd9aa443fa';
 
     /**
      * 视图名称
      *
      * @protected
      * @type {string}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */ 
-    protected viewName: string = 'TaskMainGridView';
+    protected viewName: string = 'TaskChildMoreGridView';
 
 
     /**
@@ -189,7 +146,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
 
@@ -198,7 +155,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */    
     public counterServiceArray: Array<any> = [
         
@@ -208,7 +165,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -222,7 +179,7 @@ export class TaskMainGridViewBase extends GridViewBase {
             grid: this.$refs.grid,
             keyPSDEField: 'task',
             majorPSDEField: 'name',
-            isLoadDefault: false,
+            isLoadDefault: true,
         });
     }
 
@@ -231,20 +188,20 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_create')) {
-            this.toolbar_deuiaction3_create_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.toolbar_deuiaction2_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction4')) {
             this.toolbar_deuiaction4_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.toolbar_deuiaction2_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction5')) {
+            this.toolbar_deuiaction5_click(null, '', $event2);
         }
     }
 
@@ -253,7 +210,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -264,7 +221,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -275,7 +232,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -286,7 +243,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -297,7 +254,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
@@ -311,7 +268,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction3_create_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -328,8 +285,35 @@ export class TaskMainGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_Create(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        this.New(datas, contextJO,paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -368,7 +352,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction5_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -389,34 +373,6 @@ export class TaskMainGridViewBase extends GridViewBase {
     }
 
     /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Task");
-    }
-
-    /**
      * 打开新建数据视图
      *
      * @param {any[]} args
@@ -424,7 +380,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof TaskMainGridView
+     * @memberof TaskChildMoreGridView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -482,7 +438,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof TaskMainGridView
+     * @memberof TaskChildMoreGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
@@ -526,6 +482,45 @@ export class TaskMainGridViewBase extends GridViewBase {
 
 
     /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TaskChildMoreGridViewBase
+     */
+    public New(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+         const _this: any = this;
+        if (_this.newdata && _this.newdata instanceof Function) {
+            const data: any = {};
+            _this.newdata([{ ...data }],[{ ...data }], params, $event, xData);
+        } else {
+            _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
+        }
+    }
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TaskChildMoreGridViewBase
+     */
+    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.remove instanceof Function)) {
+            return ;
+        }
+        xData.remove(args);
+    }
+
+    /**
      * 刷新
      *
      * @param {any[]} args 当前数据
@@ -534,7 +529,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -553,7 +548,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskChildMoreGridViewBase
      */
     public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -561,62 +556,5 @@ export class TaskMainGridViewBase extends GridViewBase {
             return ;
         }
         xData.exportExcel($event.exportparms);
-    }
-    /**
-     * 过滤
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof TaskMainGridViewBase
-     */
-    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (_this.hasOwnProperty('isExpandSearchForm')) {
-            _this.isExpandSearchForm = !_this.isExpandSearchForm;
-        }
-    }
-
-    /**
-     * ProjectTaskQCounterCounterService计数器服务对象
-     *
-     * @type {ProjectTaskQCounterCounterService}
-     * @memberof TaskMainGridViewBase
-     */
-    protected projecttaskqcountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store,context:this.context,viewparams:this.viewparams });
-
-    /**
-     * 是否启用快速分组
-     *
-     * @type {boolean}
-     * @memberof TaskMainGridViewBase
-     */
-    public isEnableQuickGroup: boolean = true;
-
-    /**
-     * 加载快速分组模型
-     *
-     * @protected
-     * @memberof TaskMainGridViewBase
-     */
-    protected loadQuickGroupModel(): void {
-        const quickGroupCodeList: any = { tag: 'Task_quickpacket', codelistType: 'STATIC' };
-        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
-            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
-            if (codelist) {
-                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
-            } else {
-                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
-            }
-        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
-            this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
-                this.quickGroupModel = res;
-            }).catch((error:any) => {
-                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
-            });
-        }
     }
 }

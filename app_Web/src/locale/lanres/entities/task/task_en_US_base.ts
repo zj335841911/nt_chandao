@@ -866,6 +866,57 @@ function getLocaleResourceBase(){
 				task_mainedit: commonLogic.appcommonhandle("编辑",null),
 				},
 			},
+			childmain_grid: {
+				columns: {
+					id: commonLogic.appcommonhandle("ID",null),
+					pri: commonLogic.appcommonhandle("P",null),
+					name: commonLogic.appcommonhandle("任务名称",null),
+					status1: commonLogic.appcommonhandle("任务状态",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+					assignedto: commonLogic.appcommonhandle("指派给",null),
+					finishedby: commonLogic.appcommonhandle("完成者",null),
+					estimate: commonLogic.appcommonhandle("预计",null),
+					consumed: commonLogic.appcommonhandle("消耗",null),
+					left: commonLogic.appcommonhandle("剩余",null),
+					progressrate: commonLogic.appcommonhandle("%",null),
+					uagridcolumn1: commonLogic.appcommonhandle("操作",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+			exportColumns: {
+					id: commonLogic.appcommonhandle("ID",null),
+					pri: commonLogic.appcommonhandle("P",null),
+					name: commonLogic.appcommonhandle("任务名称",null),
+					status: commonLogic.appcommonhandle("任务状态",null),
+					status1: commonLogic.appcommonhandle("任务状态",null),
+					assignedto: commonLogic.appcommonhandle("指派给",null),
+					finishedby: commonLogic.appcommonhandle("完成者",null),
+					estimate: commonLogic.appcommonhandle("预计",null),
+					consumed: commonLogic.appcommonhandle("消耗",null),
+					left: commonLogic.appcommonhandle("剩余",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
+					tasktype: commonLogic.appcommonhandle("任务类型",null),
+					product: commonLogic.appcommonhandle("产品",null),
+					projectname: commonLogic.appcommonhandle("所属项目",null),
+			},
+				uiactions: {
+				task_tasktobug: commonLogic.appcommonhandle("提缺陷",null),
+				task_confirmstorychange: commonLogic.appcommonhandle("确认",null),
+				task_mstarttaskdash1: commonLogic.appcommonhandle("开始",null),
+				task_starttask: commonLogic.appcommonhandle("开始",null),
+				task_closetask: commonLogic.appcommonhandle("关闭",null),
+				task_done: commonLogic.appcommonhandle("完成",null),
+				task_donetask: commonLogic.appcommonhandle("完成",null),
+				task_mainedit: commonLogic.appcommonhandle("编辑",null),
+				task_newsubtask: commonLogic.appcommonhandle("子任务",null),
+				copy: commonLogic.appcommonhandle("Copy",null),
+				task_taskfavorites: commonLogic.appcommonhandle("收藏",null),
+				task_tasknfavorites: commonLogic.appcommonhandle("取消收藏",null),
+				task_assigntask: commonLogic.appcommonhandle("指派",null),
+				task_checkforward: commonLogic.appcommonhandle("转交",null),
+				task_forward: commonLogic.appcommonhandle("转交",null),
+				},
+			},
 			main_grid: {
 				columns: {
 					id: commonLogic.appcommonhandle("ID",null),
@@ -900,6 +951,7 @@ function getLocaleResourceBase(){
 					projectname: commonLogic.appcommonhandle("所属项目",null),
 			},
 				uiactions: {
+				task_childmore: commonLogic.appcommonhandle("更多",null),
 				task_tasktobug: commonLogic.appcommonhandle("提缺陷",null),
 				task_confirmstorychange: commonLogic.appcommonhandle("确认",null),
 				task_mstarttaskdash1: commonLogic.appcommonhandle("开始",null),
@@ -1284,57 +1336,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			childmain_grid: {
-				columns: {
-					id: commonLogic.appcommonhandle("ID",null),
-					pri: commonLogic.appcommonhandle("P",null),
-					name: commonLogic.appcommonhandle("任务名称",null),
-					status1: commonLogic.appcommonhandle("任务状态",null),
-					deadline: commonLogic.appcommonhandle("截止日期",null),
-					assignedto: commonLogic.appcommonhandle("指派给",null),
-					finishedby: commonLogic.appcommonhandle("完成者",null),
-					estimate: commonLogic.appcommonhandle("预计",null),
-					consumed: commonLogic.appcommonhandle("消耗",null),
-					left: commonLogic.appcommonhandle("剩余",null),
-					progressrate: commonLogic.appcommonhandle("%",null),
-					uagridcolumn1: commonLogic.appcommonhandle("操作",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-			exportColumns: {
-					id: commonLogic.appcommonhandle("ID",null),
-					pri: commonLogic.appcommonhandle("P",null),
-					name: commonLogic.appcommonhandle("任务名称",null),
-					status: commonLogic.appcommonhandle("任务状态",null),
-					status1: commonLogic.appcommonhandle("任务状态",null),
-					assignedto: commonLogic.appcommonhandle("指派给",null),
-					finishedby: commonLogic.appcommonhandle("完成者",null),
-					estimate: commonLogic.appcommonhandle("预计",null),
-					consumed: commonLogic.appcommonhandle("消耗",null),
-					left: commonLogic.appcommonhandle("剩余",null),
-					deadline: commonLogic.appcommonhandle("截止日期",null),
-					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					tasktype: commonLogic.appcommonhandle("任务类型",null),
-					product: commonLogic.appcommonhandle("产品",null),
-					projectname: commonLogic.appcommonhandle("所属项目",null),
-			},
-				uiactions: {
-				task_tasktobug: commonLogic.appcommonhandle("提缺陷",null),
-				task_confirmstorychange: commonLogic.appcommonhandle("确认",null),
-				task_mstarttaskdash1: commonLogic.appcommonhandle("开始",null),
-				task_starttask: commonLogic.appcommonhandle("开始",null),
-				task_closetask: commonLogic.appcommonhandle("关闭",null),
-				task_done: commonLogic.appcommonhandle("完成",null),
-				task_donetask: commonLogic.appcommonhandle("完成",null),
-				task_mainedit: commonLogic.appcommonhandle("编辑",null),
-				task_newsubtask: commonLogic.appcommonhandle("子任务",null),
-				copy: commonLogic.appcommonhandle("Copy",null),
-				task_taskfavorites: commonLogic.appcommonhandle("收藏",null),
-				task_tasknfavorites: commonLogic.appcommonhandle("取消收藏",null),
-				task_assigntask: commonLogic.appcommonhandle("指派",null),
-				task_checkforward: commonLogic.appcommonhandle("转交",null),
-				task_forward: commonLogic.appcommonhandle("转交",null),
-				},
-			},
 			myfinishedbytask_chart: {
 				nodata:commonLogic.appcommonhandle("无",null),
 			},
@@ -1367,6 +1368,38 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Save And Close Window",null),
 				},
 			},
+			childmoregridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("New",null),
+					tip: commonLogic.appcommonhandle("New",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("Remove",null),
+					tip: commonLogic.appcommonhandle("Remove {0}",null),
+				},
+				seperator1: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				seperator3: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction5: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+			},
+			maingridviewgrid_quicktoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("更多",null),
+					tip: commonLogic.appcommonhandle("更多",null),
+				},
+			},
 			maingridviewtoolbar_toolbar: {
 				deuiaction3_create: {
 					caption: commonLogic.appcommonhandle("新建",null),
@@ -1383,6 +1416,12 @@ function getLocaleResourceBase(){
 				deuiaction4: {
 					caption: commonLogic.appcommonhandle("Filter",null),
 					tip: commonLogic.appcommonhandle("Filter",null),
+				},
+			},
+			maingridview_bymodulegrid_quicktoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("更多",null),
+					tip: commonLogic.appcommonhandle("更多",null),
 				},
 			},
 			maingridview_bymoduletoolbar_toolbar: {
@@ -1553,6 +1592,12 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Filter",null),
 				},
 			},
+			gridviewgrid_quicktoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("更多",null),
+					tip: commonLogic.appcommonhandle("更多",null),
+				},
+			},
 			gridviewtoolbar_toolbar: {
 				deuiaction3_create: {
 					caption: commonLogic.appcommonhandle("新建",null),
@@ -1571,6 +1616,12 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Filter",null),
 				},
 			},
+			pickupgridviewgrid_quicktoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("更多",null),
+					tip: commonLogic.appcommonhandle("更多",null),
+				},
+			},
 			wheditviewtoolbar_toolbar: {
 				deuiaction1: {
 					caption: commonLogic.appcommonhandle("Save And Close",null),
@@ -1578,32 +1629,6 @@ function getLocaleResourceBase(){
 				},
 			},
 			usr2gridviewtoolbar_toolbar: {
-			},
-			childmoregridviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("New",null),
-					tip: commonLogic.appcommonhandle("New",null),
-				},
-				deuiaction4: {
-					caption: commonLogic.appcommonhandle("Remove",null),
-					tip: commonLogic.appcommonhandle("Remove {0}",null),
-				},
-				seperator1: {
-					caption: commonLogic.appcommonhandle("",null),
-					tip: commonLogic.appcommonhandle("",null),
-				},
-				deuiaction2: {
-					caption: commonLogic.appcommonhandle("刷新",null),
-					tip: commonLogic.appcommonhandle("刷新",null),
-				},
-				seperator3: {
-					caption: commonLogic.appcommonhandle("",null),
-					tip: commonLogic.appcommonhandle("",null),
-				},
-				deuiaction5: {
-					caption: commonLogic.appcommonhandle("Export",null),
-					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
-				},
 			},
 			taskgrouptree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),

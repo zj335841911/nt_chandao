@@ -9077,6 +9077,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-option-view/product-plan-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/childmoregridview/:childmoregridview?',
+                    meta: {
+                        caption: 'entities.task.views.childmoregridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'childmoregridview', parameterName: 'childmoregridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-child-more-grid-view/task-child-more-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/childmoregridview/:childmoregridview?',
+                    meta: {
+                        caption: 'entities.task.views.childmoregridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'childmoregridview', parameterName: 'childmoregridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-child-more-grid-view/task-child-more-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/childmoregridview/:childmoregridview?',
+                    meta: {
+                        caption: 'entities.task.views.childmoregridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'childmoregridview', parameterName: 'childmoregridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-child-more-grid-view/task-child-more-grid-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/childmoregridview/:childmoregridview?',
+                    meta: {
+                        caption: 'entities.task.views.childmoregridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'childmoregridview', parameterName: 'childmoregridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-child-more-grid-view/task-child-more-grid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/editview/:editview?',
                     meta: {
                         caption: 'entities.project.views.editview.caption',

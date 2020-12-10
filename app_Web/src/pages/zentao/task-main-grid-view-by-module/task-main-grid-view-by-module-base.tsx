@@ -125,6 +125,18 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
     };
 
 
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof TaskMainGridView_ByModule
+     */
+    public maingridview_bymodulegrid_quicktoolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '更多', 'isShowCaption': true, 'isShowIcon': true, tooltip: '更多', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChildMore', target: 'SINGLEKEY', class: '' } },
+
+    };
+
+
 
 	/**
      * 视图唯一标识
