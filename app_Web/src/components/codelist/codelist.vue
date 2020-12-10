@@ -7,7 +7,7 @@
                     <i v-if="item.iconcls" :class="item.iconcls"></i>
                     <img v-if="item.icon" :src="getIcon(item.icon)" />
                     <span :class="item.class" :style="{ color: item.color }">
-                        {{ isUseLangres ? $t(item.text) : item.text }}
+                        {{ isUseLangres ? ($t(item.text) !== item.text) ? $t(item.text) : item.label : item.text }}
                     </span>
                     <span v-if="index != items.length-1">{{ textSeparator }}</span>
                </div>
