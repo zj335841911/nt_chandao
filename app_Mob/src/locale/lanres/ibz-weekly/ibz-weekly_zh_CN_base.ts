@@ -38,9 +38,6 @@ export default {
 		usr2mobeditview: {
 			caption: commonLogic.appcommonhandle("周报",null),
 		},
-		mobtabexpview: {
-			caption: commonLogic.appcommonhandle("周报",null),
-		},
 		mobeditview: {
 			caption: commonLogic.appcommonhandle("周报",null),
 		},
@@ -188,7 +185,5 @@ export default {
 			caption: commonLogic.appcommonhandle("新建",null),
 			tip: '新建',
 		},
-	},
-	mobtabexpviewrighttoolbar_toolbar: {
 	},
 };

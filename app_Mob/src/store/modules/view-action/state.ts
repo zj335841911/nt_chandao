@@ -1999,16 +1999,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'b6ecf21481870e7c0b0f9397897bbadb',
-            viewmodule: 'report',
-            viewname: 'IbzWeeklyMobTabExpView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'c18e8afb20aa65bc1b26322170cfd189',
-            ],
-        },
-        {
             viewtag: 'b731c5d991dcb4695d925bb8749fa6fc',
             viewmodule: 'zentao',
             viewname: 'DocLibProjectDocLibMobTreeView',
