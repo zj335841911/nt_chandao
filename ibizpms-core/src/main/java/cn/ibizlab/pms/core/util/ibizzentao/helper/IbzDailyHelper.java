@@ -15,6 +15,8 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
+import cn.ibizlab.pms.core.zentao.domain.Task;
+import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -22,6 +24,7 @@ import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
+import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,7 +36,9 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author 胡维
@@ -60,6 +65,9 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     @Autowired
     IIbzDailyService ibzDailyService;
 
+    @Autowired
+    ITaskService iTaskService;
+
     String[] diffAttrs = {"worktoday", "comment", "planstomorrow"};
 
     @Override
@@ -72,6 +80,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         }
         String files = et.getFiles();
         et.setIbzdailyname(String.format("%1$s-%2$s的日报", et.getIbzdailyname(), dateFormat.format(et.getDate())));
+        removeSomeTasks(et);
         if (!SqlHelper.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -87,6 +96,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         IbzDaily old = new IbzDaily();
         CachedBeanCopier.copy(get(et.getIbzdailyid()), old);
         String files = et.getFiles();
+        removeSomeTasks(et);
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_dailyid", et.getIbzdailyid()))) {
             return false;
         }
@@ -104,6 +114,18 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
             }
         }
         return true;
+    }
+
+    //判断任务状态是否时进行中，或者完成时间是今日
+    public void removeSomeTasks(IbzDaily et) {
+        String ids = et.getTodaytask();
+        Timestamp date = et.getDate() == null ? ZTDateUtil.now() : et.getDate();
+        List<Task> tasks = iTaskService.list(new QueryWrapper<Task>().last("and find_in_set(id,'" + ids + "')  and ((status = 'doing' and assignedTo = '" + AuthenticationUser.getAuthenticationUser().getUsername() + "')  or (status = 'done' and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT('" + date + "','%Y-%m-%d') ))"));
+        Set<String> taskIds = new HashSet<>();
+        for (Task task : tasks) {
+            taskIds.add(String.valueOf(task.getId()));
+        }
+        et.setTodaytask(Joiner.on(",").join(taskIds));
     }
 
     @Transactional(rollbackFor = Exception.class)
