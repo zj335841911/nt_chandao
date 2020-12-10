@@ -178,7 +178,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         if((params.get("multiple") == null && params.get("project") != null) || (params.get("multiple") != null && "0".equals(params.get("multiple")))) {
             // 项目团队
             log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("project").toString());
-            context.setN_username_in(params.get("allTeamAccount").toString().replace(",",";"));
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("project")));
         }else {
             // 任务团队
             log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
