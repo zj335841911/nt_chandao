@@ -243,6 +243,7 @@ export default {
 			srfsourcekey: commonLogic.appcommonhandle("",null), 
 			id: commonLogic.appcommonhandle("编号",null), 
 			project: commonLogic.appcommonhandle("所属项目",null), 
+			myconsumed: commonLogic.appcommonhandle("之前消耗",null), 
 			consumed: commonLogic.appcommonhandle("之前消耗",null), 
 			currentconsumed: commonLogic.appcommonhandle("本次消耗",null), 
 			totaltime: commonLogic.appcommonhandle("总计耗时",null), 
