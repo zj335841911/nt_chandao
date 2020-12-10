@@ -77,6 +77,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
 
         et.setIbzmonthlyname(String.format("%1$s-%2$s的月报" ,et.getIbzmonthlyname(), dateFormat.format(et.getDate())));
         String files = et.getFiles();
+        filterNCorrectTasks(et);
         if (!SqlHelper.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -92,6 +93,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         IbzMonthly old = new IbzMonthly();
         CachedBeanCopier.copy(get(et.getIbzmonthlyid()), old);
         String files = et.getFiles();
+        filterNCorrectTasks(et);
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_monthlyid", et.getIbzmonthlyid()))) {
             return false;
         }
@@ -198,7 +200,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
                 ibzMonthly.setDate(now);
                 ibzMonthly.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
                 ibzMonthly.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
-                this.create(getLastMonthlyPlans(ibzMonthly));
+                this.create(filterNCorrectTasks(getLastMonthlyPlans(ibzMonthly)));
             }
         }
         return et;
@@ -257,6 +259,23 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         }
 
         et.setThismonthtask(Joiner.on(",").join(taskIdSet));
+        return et;
+    }
+
+    public IbzMonthly filterNCorrectTasks(IbzMonthly et) {
+        if (et.getThismonthtask() == null) {
+            return et;
+        }
+        String taskIds = et.getThismonthtask();
+        List<Task> list = taskHelper.list(new QueryWrapper<Task>().last(" and ((`status` = 'doing' AND assignedTo = '" + et.getAccount() + "') OR (finishedBy = '" + et.getAccount() + "' AND DATE_FORMAT( finishedDate, '%Y-%m' ) = DATE_FORMAT( '" + et.getDate() + "', '%Y-%m' ))) and FIND_IN_SET(id, '" + taskIds + "') and project in (select id from zt_project where deleted = '0')"));
+        taskIds = "";
+        for (Task task : list) {
+            if (!"".equals(taskIds)) {
+                taskIds += ",";
+            }
+            taskIds += task.getId();
+        }
+        et.setThismonthtask(taskIds);
         return et;
     }
 }
