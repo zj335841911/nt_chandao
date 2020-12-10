@@ -17032,13 +17032,15 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-( ( ( t1.`STATUS` IN ( 'doing', 'wait' )  AND  t1.`ASSIGNEDTO` = $ { srfsessioncontext ( 'srfloginname', '{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}' ) } ) 
-	OR 
-	(t1.`FINISHEDBY` = $ { srfsessioncontext ( 'srfloginname', '{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}' ) } )
-	)
-	AND DATE_FORMAT( t1.finisheddate, '%Y-%m-%d' ) = DATE_FORMAT(
-					( CASE WHEN $ { srfdatacontext ( 'date' ) } IS NULL THEN now( ) ELSE $ { srfdatacontext ( 'date' ) } END ),'%Y-%m-%d' ) 
-			) 
+( (
+	(
+	t1.`STATUS` IN ( 'doing', 'wait' ) 
+	AND t1.`ASSIGNEDTO` = $ { srfsessioncontext ( 'srfloginname', '{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}' ) } 
+	) 
+	OR ( t1.`FINISHEDBY` = $ { srfsessioncontext ( 'srfloginname', '{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}' ) }  ) 
+	) 
+	 AND DATE_FORMAT( t1.finisheddate, '%Y-%m-%d' ) = DATE_FORMAT( ( CASE WHEN $ { srfdatacontext ( 'date' ) } IS NULL THEN now( ) ELSE $ { srfdatacontext ( 'date' ) } END ), '%Y-%m-%d' ) 
+	) 
 t31.deleted='0' 
 
 ```
