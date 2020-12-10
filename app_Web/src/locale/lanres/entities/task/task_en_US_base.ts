@@ -1300,6 +1300,23 @@ function getLocaleResourceBase(){
 					uagridcolumn1: commonLogic.appcommonhandle("操作",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
+			exportColumns: {
+					id: commonLogic.appcommonhandle("ID",null),
+					pri: commonLogic.appcommonhandle("P",null),
+					name: commonLogic.appcommonhandle("任务名称",null),
+					status: commonLogic.appcommonhandle("任务状态",null),
+					status1: commonLogic.appcommonhandle("任务状态",null),
+					assignedto: commonLogic.appcommonhandle("指派给",null),
+					finishedby: commonLogic.appcommonhandle("完成者",null),
+					estimate: commonLogic.appcommonhandle("预计",null),
+					consumed: commonLogic.appcommonhandle("消耗",null),
+					left: commonLogic.appcommonhandle("剩余",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
+					tasktype: commonLogic.appcommonhandle("任务类型",null),
+					product: commonLogic.appcommonhandle("产品",null),
+					projectname: commonLogic.appcommonhandle("所属项目",null),
+			},
 				uiactions: {
 				task_tasktobug: commonLogic.appcommonhandle("提缺陷",null),
 				task_confirmstorychange: commonLogic.appcommonhandle("确认",null),
@@ -1563,6 +1580,30 @@ function getLocaleResourceBase(){
 			usr2gridviewtoolbar_toolbar: {
 			},
 			childmoregridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("New",null),
+					tip: commonLogic.appcommonhandle("New",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("Remove",null),
+					tip: commonLogic.appcommonhandle("Remove {0}",null),
+				},
+				seperator1: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				seperator3: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction5: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
 			},
 			taskgrouptree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
