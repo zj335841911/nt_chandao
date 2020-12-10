@@ -1219,7 +1219,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 resolve(true);
             }).catch(({ errors, fields }) => {
                 const {field , message } = errors[0];
-                let _message :any = (this.$t(`project.mobnewform_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                let _message :any = (this.$t(`todo.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
                 this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
