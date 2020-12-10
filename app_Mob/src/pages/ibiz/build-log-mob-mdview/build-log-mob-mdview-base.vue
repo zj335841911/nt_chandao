@@ -518,12 +518,12 @@ export default class BuildLogMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -572,12 +572,12 @@ export default class BuildLogMobMDViewBase extends Vue {
         //导航参数处理
         const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
