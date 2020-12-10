@@ -661,6 +661,67 @@ export class MainInfoGridBase extends GridControlBase {
     }
 
     /**
+    * 添加更多行
+    * 
+    * @memberof MainInfoBase
+    */
+    public addMore(){
+        if(this.items.length > 0){
+            this.items.forEach((item: any) => {
+                if(item.hasOwnProperty('items') && item.items.length > 0){
+                    const item: any = {
+                        more: true,
+                        id:'',
+                        title:'',
+                        beginstr:'',
+                        endstr:'',
+                        storycnt:'',
+                        bugcnt:'',
+                        AddProject:{
+                            visabled: false
+                        },
+                        RelationStory:{
+                            visabled: false
+                        },
+                        RelationBug:{
+                            visabled: false
+                        },
+                        MainEdit:{
+                            visabled: false
+                        },
+                        NewSubPlan:{
+                            visabled: false
+                        },
+                        Copy:{
+                            visabled: false
+                        },
+                        Delete:{
+                            visabled: false
+                        },
+                    }
+                    item.items.push(item);
+                }
+            })
+        }
+    }
+
+    /**
+    * 合并更多行
+    * 
+    * @memberof MainInfoBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','title','beginstr','endstr','storycnt','bugcnt','actions'];
+        if(row && row.more) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+
+    /**
      * 表格数据加载
      *
      * @param {*} item

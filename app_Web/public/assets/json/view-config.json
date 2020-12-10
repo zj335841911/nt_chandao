@@ -4869,6 +4869,16 @@
         "viewtag": "cc0f54a8db5b9c161ec9f3d6b86e2a27",
         "memo": ""
     },
+    "taskchildmoregridview": {
+        "title": "任务表格视图（子任务-更多）",
+        "caption": "子任务-更多",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskChildMoreGridView",
+        "viewfilename": "task-child-more-grid-view",
+        "viewtag": "cc1f1d0cc16dddbdb7e9f9fd9aa443fa",
+        "memo": ""
+    },
     "projectportalview": {
         "title": "项目主页",
         "caption": "项目主页",
