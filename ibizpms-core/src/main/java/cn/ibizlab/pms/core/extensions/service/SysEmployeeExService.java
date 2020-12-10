@@ -5,9 +5,12 @@ import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.ou.service.impl.SysEmployeeServiceImpl;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.TeamHelper;
 import cn.ibizlab.pms.core.zentao.domain.Team;
+import cn.ibizlab.pms.core.zentao.domain.User;
 import cn.ibizlab.pms.core.zentao.domain.UserContact;
+import cn.ibizlab.pms.core.zentao.filter.UserSearchContext;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.service.IUserContactService;
+import cn.ibizlab.pms.core.zentao.service.IUserService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -39,14 +42,34 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     ITaskService iTaskService;
 
     @Autowired
+    IUserService iUserService;
+
+    @Autowired
     IUserContactService userContactService;
 
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchDefault");
         try {
-            context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
-            return super.searchDefault(context);
+//            context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
+//            return super.searchDefault(context);
+            UserSearchContext userSearchContext = new UserSearchContext();
+            userSearchContext.setSize(200);
+            userSearchContext.setN_account_in(context.getN_username_in());
+            userSearchContext.setN_account_notin(context.getN_username_notin());
+
+             Page<User> userPage =  iUserService.searchDefault(userSearchContext);
+            List<SysEmployee> list = new ArrayList<>();
+            for(User user : userPage.getContent()) {
+                SysEmployee sysEmployee = new SysEmployee();
+                sysEmployee.setUserid(String.valueOf(user.getId()));
+                sysEmployee.setUsername(user.getAccount());
+                sysEmployee.setPersonname(user.getRealname());
+
+                list.add(sysEmployee);
+            }
+            Page<SysEmployee> page = new PageImpl<SysEmployee>(list);
+            return page;
         }catch(Exception e) {
             List<SysEmployee> list = new ArrayList<>();
             Page<SysEmployee> page = new PageImpl<SysEmployee>(list);
