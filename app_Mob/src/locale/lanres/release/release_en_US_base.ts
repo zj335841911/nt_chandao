@@ -1,131 +1,31 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    stories: {
-		caption: "完成的需求",
-		rules: { 
-		}
-	},
-    marker: {
-		caption: "里程碑",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "ID",
-		rules: { 
-		}
-	},
-    leftbugs: {
-		caption: "遗留的Bug",
-		rules: { 
-		}
-	},
-    bugs: {
-		caption: "解决的Bug",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "发布名称",
-		rules: { 
-		}
-	},
-    date: {
-		caption: "发布日期",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "状态",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    desc: {
-		caption: "描述",
-		rules: { 
-		}
-	},
-    buildname: {
-		caption: "版本",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    build: {
-		caption: "版本",
-		rules: { 
-		}
-	},
-    branch: {
-		caption: "平台/分支",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品名称",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    backgroundid: {
-		caption: "后台体系",
-		rules: { 
-		}
-	},
-    sqlid: {
-		caption: "运行数据库",
-		rules: { 
-		}
-	},
-    frontapplication: {
-		caption: "系统应用",
-		rules: { 
-		}
-	},
-    rebuild: {
-		caption: "重新构建",
-		rules: { 
-		}
-	},
-    releasetype: {
-		caption: "运行模式",
-		rules: { 
-		}
-	},
-    builder: {
-		caption: "构建者",
-		rules: { 
-		}
-	},
-    builddate: {
-		caption: "打包日期",
-		rules: { 
-		}
-	},
-    noticeusers: {
-		caption: "消息通知用户",
-		rules: { 
-		}
-	},
+    stories:  commonLogic.appcommonhandle("完成的需求",null),
+    marker:  commonLogic.appcommonhandle("里程碑",null),
+    id:  commonLogic.appcommonhandle("ID",null),
+    leftBugs:  commonLogic.appcommonhandle("遗留的Bug",null),
+    bugs:  commonLogic.appcommonhandle("解决的Bug",null),
+    deleted:  commonLogic.appcommonhandle("已删除",null),
+    name:  commonLogic.appcommonhandle("发布名称",null),
+    date:  commonLogic.appcommonhandle("发布日期",null),
+    status:  commonLogic.appcommonhandle("状态",null),
+    subStatus:  commonLogic.appcommonhandle("子状态",null),
+    desc:  commonLogic.appcommonhandle("描述",null),
+    buildname:  commonLogic.appcommonhandle("版本",null),
+    product:  commonLogic.appcommonhandle("产品",null),
+    build:  commonLogic.appcommonhandle("版本",null),
+    branch:  commonLogic.appcommonhandle("平台/分支",null),
+    productName:  commonLogic.appcommonhandle("产品名称",null),
+    files:  commonLogic.appcommonhandle("附件",null),
+    backgroundid:  commonLogic.appcommonhandle("后台体系",null),
+    sqlid:  commonLogic.appcommonhandle("运行数据库",null),
+    frontapplication:  commonLogic.appcommonhandle("系统应用",null),
+    rebuild:  commonLogic.appcommonhandle("重新构建",null),
+    releasetype:  commonLogic.appcommonhandle("运行模式",null),
+    builder:  commonLogic.appcommonhandle("构建者",null),
+    builddate:  commonLogic.appcommonhandle("打包日期",null),
+    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
   },
 	views: {
 		mobtabexpview: {

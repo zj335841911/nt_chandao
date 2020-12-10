@@ -1,246 +1,54 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    fails: {
-		caption: "fails",
-		rules: { 
-		}
-	},
-    address: {
-		caption: "通讯地址",
-		rules: { 
-		}
-	},
-    password: {
-		caption: "密码",
-		rules: { 
-		}
-	},
-    weixin: {
-		caption: "微信",
-		rules: { 
-		}
-	},
-    dingding: {
-		caption: "钉钉",
-		rules: { 
-		}
-	},
-    account: {
-		caption: "账户",
-		rules: { 
-		}
-	},
-    ranzhi: {
-		caption: "ranzhi",
-		rules: { 
-		}
-	},
-    slack: {
-		caption: "slack",
-		rules: { 
-		}
-	},
-    realname: {
-		caption: "真实姓名",
-		rules: { 
-		}
-	},
-    locked: {
-		caption: "locked",
-		rules: { 
-		}
-	},
-    scorelevel: {
-		caption: "scoreLevel",
-		rules: { 
-		}
-	},
-    avatar: {
-		caption: "avatar",
-		rules: { 
-		}
-	},
-    zipcode: {
-		caption: "zipcode",
-		rules: { 
-		}
-	},
-    dept: {
-		caption: "所属部门",
-		rules: { 
-		}
-	},
-    commiter: {
-		caption: "源代码账户",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "逻辑删除标志",
-		rules: { 
-		}
-	},
-    last: {
-		caption: "最后登录",
-		rules: { 
-		}
-	},
-    skype: {
-		caption: "skype",
-		rules: { 
-		}
-	},
-    score: {
-		caption: "score",
-		rules: { 
-		}
-	},
-    whatsapp: {
-		caption: "whatsapp",
-		rules: { 
-		}
-	},
-    visits: {
-		caption: "访问次数",
-		rules: { 
-		}
-	},
-    mobile: {
-		caption: "手机",
-		rules: { 
-		}
-	},
-    clientlang: {
-		caption: "clientLang",
-		rules: { 
-		}
-	},
-    join: {
-		caption: "入职日期",
-		rules: { 
-		}
-	},
-    ip: {
-		caption: "ip",
-		rules: { 
-		}
-	},
-    email: {
-		caption: "邮箱",
-		rules: { 
-		}
-	},
-    nickname: {
-		caption: "nickname",
-		rules: { 
-		}
-	},
-    phone: {
-		caption: "电话",
-		rules: { 
-		}
-	},
-    birthday: {
-		caption: "birthday",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "ID",
-		rules: { 
-		}
-	},
-    qq: {
-		caption: "QQ",
-		rules: { 
-		}
-	},
-    gender: {
-		caption: "男女",
-		rules: { 
-		}
-	},
-    role: {
-		caption: "职位",
-		rules: { 
-		}
-	},
-    clientstatus: {
-		caption: "clientStatus",
-		rules: { 
-		}
-	},
-    mytasks: {
-		caption: "我的任务",
-		rules: { 
-		}
-	},
-    mybugs: {
-		caption: "我的bugs",
-		rules: { 
-		}
-	},
-    myebugs: {
-		caption: "我的过期bug数",
-		rules: { 
-		}
-	},
-    mystorys: {
-		caption: "我的需求数",
-		rules: { 
-		}
-	},
-    products: {
-		caption: "未关闭产品数",
-		rules: { 
-		}
-	},
-    eprojects: {
-		caption: "过期项目数",
-		rules: { 
-		}
-	},
-    projects: {
-		caption: "未关闭项目数",
-		rules: { 
-		}
-	},
-    myetasks: {
-		caption: "我的过期任务数",
-		rules: { 
-		}
-	},
-    mytodocnt: {
-		caption: "我的待办数",
-		rules: { 
-		}
-	},
-    myfavoritestorys: {
-		caption: "我收藏的需求数",
-		rules: { 
-		}
-	},
-    myfavoritebugs: {
-		caption: "我收藏的bugs",
-		rules: { 
-		}
-	},
-    myfavoritetasks: {
-		caption: "我收藏的任务",
-		rules: { 
-		}
-	},
-    myfavorites: {
-		caption: "我的收藏",
-		rules: { 
-		}
-	},
-    myterritorycnt: {
-		caption: "我的地盘",
-		rules: { 
-		}
-	},
+    fails:  commonLogic.appcommonhandle("fails",null),
+    address:  commonLogic.appcommonhandle("通讯地址",null),
+    password:  commonLogic.appcommonhandle("密码",null),
+    weixin:  commonLogic.appcommonhandle("微信",null),
+    dingding:  commonLogic.appcommonhandle("钉钉",null),
+    account:  commonLogic.appcommonhandle("账户",null),
+    ranzhi:  commonLogic.appcommonhandle("ranzhi",null),
+    slack:  commonLogic.appcommonhandle("slack",null),
+    realname:  commonLogic.appcommonhandle("真实姓名",null),
+    locked:  commonLogic.appcommonhandle("locked",null),
+    scoreLevel:  commonLogic.appcommonhandle("scoreLevel",null),
+    avatar:  commonLogic.appcommonhandle("avatar",null),
+    zipcode:  commonLogic.appcommonhandle("zipcode",null),
+    dept:  commonLogic.appcommonhandle("所属部门",null),
+    commiter:  commonLogic.appcommonhandle("源代码账户",null),
+    deleted:  commonLogic.appcommonhandle("逻辑删除标志",null),
+    last:  commonLogic.appcommonhandle("最后登录",null),
+    skype:  commonLogic.appcommonhandle("skype",null),
+    score:  commonLogic.appcommonhandle("score",null),
+    whatsapp:  commonLogic.appcommonhandle("whatsapp",null),
+    visits:  commonLogic.appcommonhandle("访问次数",null),
+    mobile:  commonLogic.appcommonhandle("手机",null),
+    clientLang:  commonLogic.appcommonhandle("clientLang",null),
+    join:  commonLogic.appcommonhandle("入职日期",null),
+    ip:  commonLogic.appcommonhandle("ip",null),
+    email:  commonLogic.appcommonhandle("邮箱",null),
+    nickname:  commonLogic.appcommonhandle("nickname",null),
+    phone:  commonLogic.appcommonhandle("电话",null),
+    birthday:  commonLogic.appcommonhandle("birthday",null),
+    id:  commonLogic.appcommonhandle("ID",null),
+    qq:  commonLogic.appcommonhandle("QQ",null),
+    gender:  commonLogic.appcommonhandle("男女",null),
+    role:  commonLogic.appcommonhandle("职位",null),
+    clientStatus:  commonLogic.appcommonhandle("clientStatus",null),
+    mytasks:  commonLogic.appcommonhandle("我的任务",null),
+    mybugs:  commonLogic.appcommonhandle("我的bugs",null),
+    myebugs:  commonLogic.appcommonhandle("我的过期bug数",null),
+    mystorys:  commonLogic.appcommonhandle("我的需求数",null),
+    products:  commonLogic.appcommonhandle("未关闭产品数",null),
+    eprojects:  commonLogic.appcommonhandle("过期项目数",null),
+    projects:  commonLogic.appcommonhandle("未关闭项目数",null),
+    myetasks:  commonLogic.appcommonhandle("我的过期任务数",null),
+    mytodocnt:  commonLogic.appcommonhandle("我的待办数",null),
+    myfavoritestorys:  commonLogic.appcommonhandle("我收藏的需求数",null),
+    myfavoritebugs:  commonLogic.appcommonhandle("我收藏的bugs",null),
+    myfavoritetasks:  commonLogic.appcommonhandle("我收藏的任务",null),
+    myfavorites:  commonLogic.appcommonhandle("我的收藏",null),
+    myterritorycnt:  commonLogic.appcommonhandle("我的地盘",null),
   },
 	views: {
 		mobcalendarview: {

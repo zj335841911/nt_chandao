@@ -1,241 +1,53 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    qd: {
-		caption: "测试负责人",
-		rules: { 
-		}
-	},
-    acl: {
-		caption: "访问控制",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "产品名称",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    whitelist: {
-		caption: "分组白名单",
-		rules: { 
-		}
-	},
-    rd: {
-		caption: "发布负责人",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "产品类型",
-		rules: { 
-		}
-	},
-    po: {
-		caption: "产品负责人",
-		rules: { 
-		}
-	},
-    desc: {
-		caption: "产品描述	",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "状态",
-		rules: { 
-		}
-	},
-    createdby: {
-		caption: "由谁创建",
-		rules: { 
-		}
-	},
-    createdversion: {
-		caption: "当前系统版本",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    code: {
-		caption: "产品代号",
-		rules: { 
-		}
-	},
-    createddate: {
-		caption: "创建日期",
-		rules: { 
-		}
-	},
-    linename: {
-		caption: "产品线",
-		rules: { 
-		}
-	},
-    line: {
-		caption: "产品线",
-		rules: { 
-		}
-	},
-    activebugcnt: {
-		caption: "未解决Bug数",
-		rules: { 
-		}
-	},
-    productplancnt: {
-		caption: "计划总数",
-		rules: { 
-		}
-	},
-    releasecnt: {
-		caption: "发布总数",
-		rules: { 
-		}
-	},
-    activestorycnt: {
-		caption: "激活需求数",
-		rules: { 
-		}
-	},
-    unconfirmbugcnt: {
-		caption: "未确认Bug数",
-		rules: { 
-		}
-	},
-    notclosedbugcnt: {
-		caption: "未关闭Bug数",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    relatedbugcnt: {
-		caption: "相关Bug数",
-		rules: { 
-		}
-	},
-    changedstorycnt: {
-		caption: "已变更需求",
-		rules: { 
-		}
-	},
-    draftstorycnt: {
-		caption: "草稿需求",
-		rules: { 
-		}
-	},
-    closedstorycnt: {
-		caption: "已关闭需求",
-		rules: { 
-		}
-	},
-    relatedprojects: {
-		caption: "关联项目数",
-		rules: { 
-		}
-	},
-    doccnt: {
-		caption: "文档数",
-		rules: { 
-		}
-	},
-    buildcnt: {
-		caption: "BUILD数",
-		rules: { 
-		}
-	},
-    casecnt: {
-		caption: "用例数",
-		rules: { 
-		}
-	},
-    srfcount: {
-		caption: "属性",
-		rules: { 
-		}
-	},
-    mobimage: {
-		caption: "移动端图片",
-		rules: { 
-		}
-	},
-    order1: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    istop: {
-		caption: "是否置顶",
-		rules: { 
-		}
-	},
-    testtaskcnt: {
-		caption: "测试单数",
-		rules: { 
-		}
-	},
-    testsuitecnt: {
-		caption: "套件数",
-		rules: { 
-		}
-	},
-    popk: {
-		caption: "产品负责人（选择）",
-		rules: { 
-		}
-	},
-    qdpk: {
-		caption: "测试负责人（选择）",
-		rules: { 
-		}
-	},
-    rdpk: {
-		caption: "发布负责人（选择）",
-		rules: { 
-		}
-	},
-    noticeusers: {
-		caption: "消息通知用户",
-		rules: { 
-		}
-	},
-    orgid: {
-		caption: "组织标识",
-		rules: { 
-		}
-	},
-    mdeptid: {
-		caption: "部门标识",
-		rules: { 
-		}
-	},
-    ibiz_id: {
-		caption: "IBIZ标识",
-		rules: { 
-		}
-	},
+    qd: "测试负责人",
+    acl: "访问控制",
+    name: "产品名称",
+    id: "编号",
+    deleted: "已删除",
+    whitelist: "分组白名单",
+    rd: "发布负责人",
+    order: "排序",
+    type: "产品类型",
+    po: "产品负责人",
+    desc: "产品描述	",
+    status: "状态",
+    createdby: "由谁创建",
+    createdversion: "当前系统版本",
+    substatus: "子状态",
+    code: "产品代号",
+    createddate: "创建日期",
+    linename: "产品线",
+    line: "产品线",
+    activebugcnt: "未解决Bug数",
+    productplancnt: "计划总数",
+    releasecnt: "发布总数",
+    activestorycnt: "激活需求数",
+    unconfirmbugcnt: "未确认Bug数",
+    notclosedbugcnt: "未关闭Bug数",
+    comment: "备注",
+    relatedbugcnt: "相关Bug数",
+    changedstorycnt: "已变更需求",
+    draftstorycnt: "草稿需求",
+    closedstorycnt: "已关闭需求",
+    relatedprojects: "关联项目数",
+    doccnt: "文档数",
+    buildcnt: "BUILD数",
+    casecnt: "用例数",
+    srfcount: "属性",
+    mobimage: "移动端图片",
+    order1: "排序",
+    istop: "是否置顶",
+    testtaskcnt: "测试单数",
+    testsuitecnt: "套件数",
+    popk: "产品负责人（选择）",
+    qdpk: "测试负责人（选择）",
+    rdpk: "发布负责人（选择）",
+    noticeusers: "消息通知用户",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
+    ibiz_id: "IBIZ标识",
   },
 	views: {
 		prodmobtabexpview: {

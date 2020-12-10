@@ -1,46 +1,14 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    account: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    left: {
-		caption: "预计剩余",
-		rules: { 
-		}
-	},
-    consumed: {
-		caption: "总计消耗",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    date: {
-		caption: "日期",
-		rules: { 
-		}
-	},
-    work: {
-		caption: "work",
-		rules: { 
-		}
-	},
-    task: {
-		caption: "任务",
-		rules: { 
-		}
-	},
-    dates: {
-		caption: "日期",
-		rules: { 
-		}
-	},
+    account: "用户",
+    left: "预计剩余",
+    consumed: "总计消耗",
+    id: "编号",
+    date: "日期",
+    work: "work",
+    task: "任务",
+    dates: "日期",
   },
 	views: {
 		mobeditview9: {

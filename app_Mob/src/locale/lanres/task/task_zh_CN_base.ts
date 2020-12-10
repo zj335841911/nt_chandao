@@ -1,361 +1,77 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    canceledby: {
-		caption: "由谁取消",
-		rules: { 
-		}
-	},
-    left: {
-		caption: "预计剩余",
-		rules: { 
-		}
-	},
-    openeddate: {
-		caption: "创建日期",
-		rules: { 
-		}
-	},
-    color: {
-		caption: "标题颜色",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    finishedby: {
-		caption: "由谁完成",
-		rules: { 
-		}
-	},
-    finishedlist: {
-		caption: "完成者列表",
-		rules: { 
-		}
-	},
-    realstarted: {
-		caption: "实际开始",
-		rules: { 
-		}
-	},
-    closedby: {
-		caption: "由谁关闭",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    closedreason: {
-		caption: "关闭原因",
-		rules: { 
-		}
-	},
-    lastediteddate: {
-		caption: "最后修改日期",
-		rules: { 
-		}
-	},
-    assigneddate: {
-		caption: "指派日期",
-		rules: { 
-		}
-	},
-    pri: {
-		caption: "优先级",
-		rules: { 
-		}
-	},
-    lasteditedby: {
-		caption: "最后修改",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "任务状态",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "任务名称",
-		rules: { 
-		}
-	},
-    closeddate: {
-		caption: "关闭时间",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "任务类型",
-		rules: { 
-		}
-	},
-    assignedto: {
-		caption: "指派给",
-		rules: { 
-		}
-	},
-    desc: {
-		caption: "任务描述",
-		rules: { 
-		}
-	},
-    eststarted: {
-		caption: "预计开始",
-		rules: { 
-		}
-	},
-    deadline: {
-		caption: "截止日期",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    consumed: {
-		caption: "总计消耗",
-		rules: { 
-		}
-	},
-    estimate: {
-		caption: "最初预计",
-		rules: { 
-		}
-	},
-    openedby: {
-		caption: "由谁创建",
-		rules: { 
-		}
-	},
-    canceleddate: {
-		caption: "取消时间",
-		rules: { 
-		}
-	},
-    finisheddate: {
-		caption: "实际完成",
-		rules: { 
-		}
-	},
-    modulename: {
-		caption: "所属模块",
-		rules: { 
-		}
-	},
-    storyname: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    projectname: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    storyversion: {
-		caption: "需求版本",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    parentname: {
-		caption: "父任务",
-		rules: { 
-		}
-	},
-    project: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    story: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    parent: {
-		caption: "父任务",
-		rules: { 
-		}
-	},
-    frombug: {
-		caption: "来源Bug",
-		rules: { 
-		}
-	},
-    duration: {
-		caption: "持续时间",
-		rules: { 
-		}
-	},
-    module: {
-		caption: "id",
-		rules: { 
-		}
-	},
-    path: {
-		caption: "模块路径",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    currentconsumed: {
-		caption: "本次消耗",
-		rules: { 
-		}
-	},
-    totaltime: {
-		caption: "总计耗时",
-		rules: { 
-		}
-	},
-    isleaf: {
-		caption: "是否子任务",
-		rules: { 
-		}
-	},
-    allmodules: {
-		caption: "所有模块",
-		rules: { 
-		}
-	},
-    multiple: {
-		caption: "多人任务",
-		rules: { 
-		}
-	},
-    taskteams: {
-		caption: "项目团队成员",
-		rules: { 
-		}
-	},
-    modulename1: {
-		caption: "所属模块",
-		rules: { 
-		}
-	},
-    ibztaskestimates: {
-		caption: "工时",
-		rules: { 
-		}
-	},
-    isfavorites: {
-		caption: "是否收藏",
-		rules: { 
-		}
-	},
-    status1: {
-		caption: "任务状态",
-		rules: { 
-		}
-	},
-    tasktype: {
-		caption: "任务类型",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    usernames: {
-		caption: "团队用户",
-		rules: { 
-		}
-	},
-    isfinished: {
-		caption: "是否完成",
-		rules: { 
-		}
-	},
-    replycount: {
-		caption: "回复数量",
-		rules: { 
-		}
-	},
-    hasdetail: {
-		caption: "是否填写描述",
-		rules: { 
-		}
-	},
-    updatedate: {
-		caption: "最后的更新日期",
-		rules: { 
-		}
-	},
-    noticeusers: {
-		caption: "消息通知用户",
-		rules: { 
-		}
-	},
-    progressrate: {
-		caption: "进度",
-		rules: { 
-		}
-	},
-    delay: {
-		caption: "延期",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    mailtoconact: {
-		caption: "联系人",
-		rules: { 
-		}
-	},
-    statusorder: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    myconsumed: {
-		caption: "之前消耗",
-		rules: { 
-		}
-	},
-    mytotaltime: {
-		caption: "我的总消耗",
-		rules: { 
-		}
-	},
-    assignedtozj: {
-		caption: "转交给",
-		rules: { 
-		}
-	},
+    canceledby: "由谁取消",
+    left: "预计剩余",
+    openeddate: "创建日期",
+    color: "标题颜色",
+    id: "编号",
+    finishedby: "由谁完成",
+    finishedlist: "完成者列表",
+    realstarted: "实际开始",
+    closedby: "由谁关闭",
+    substatus: "子状态",
+    closedreason: "关闭原因",
+    lastediteddate: "最后修改日期",
+    assigneddate: "指派日期",
+    pri: "优先级",
+    lasteditedby: "最后修改",
+    status: "任务状态",
+    name: "任务名称",
+    closeddate: "关闭时间",
+    type: "任务类型",
+    assignedto: "指派给",
+    desc: "任务描述",
+    eststarted: "预计开始",
+    deadline: "截止日期",
+    deleted: "已删除",
+    mailto: "抄送给",
+    consumed: "总计消耗",
+    estimate: "最初预计",
+    openedby: "由谁创建",
+    canceleddate: "取消时间",
+    finisheddate: "实际完成",
+    modulename: "所属模块",
+    storyname: "相关需求",
+    projectname: "所属项目",
+    product: "产品",
+    storyversion: "需求版本",
+    productname: "产品",
+    parentname: "父任务",
+    project: "所属项目",
+    story: "相关需求",
+    parent: "父任务",
+    frombug: "来源Bug",
+    duration: "持续时间",
+    module: "id",
+    path: "模块路径",
+    comment: "备注",
+    currentconsumed: "本次消耗",
+    totaltime: "总计耗时",
+    isleaf: "是否子任务",
+    allmodules: "所有模块",
+    multiple: "多人任务",
+    taskteams: "项目团队成员",
+    modulename1: "所属模块",
+    ibztaskestimates: "工时",
+    isfavorites: "是否收藏",
+    status1: "任务状态",
+    tasktype: "任务类型",
+    files: "附件",
+    usernames: "团队用户",
+    isfinished: "是否完成",
+    replycount: "回复数量",
+    hasdetail: "是否填写描述",
+    updatedate: "最后的更新日期",
+    noticeusers: "消息通知用户",
+    progressrate: "进度",
+    delay: "延期",
+    mailtopk: "抄送给",
+    mailtoconact: "联系人",
+    statusorder: "排序",
+    myconsumed: "之前消耗",
+    mytotaltime: "我的总消耗",
+    assignedtozj: "转交给",
   },
 	views: {
 		mobmdview: {

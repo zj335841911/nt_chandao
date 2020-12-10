@@ -1,361 +1,77 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    canceledby: {
-		caption: "由谁取消",
-		rules: { 
-		}
-	},
-    left: {
-		caption: "预计剩余",
-		rules: { 
-		}
-	},
-    openeddate: {
-		caption: "创建日期",
-		rules: { 
-		}
-	},
-    color: {
-		caption: "标题颜色",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    finishedby: {
-		caption: "由谁完成",
-		rules: { 
-		}
-	},
-    finishedlist: {
-		caption: "完成者列表",
-		rules: { 
-		}
-	},
-    realstarted: {
-		caption: "实际开始",
-		rules: { 
-		}
-	},
-    closedby: {
-		caption: "由谁关闭",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    closedreason: {
-		caption: "关闭原因",
-		rules: { 
-		}
-	},
-    lastediteddate: {
-		caption: "最后修改日期",
-		rules: { 
-		}
-	},
-    assigneddate: {
-		caption: "指派日期",
-		rules: { 
-		}
-	},
-    pri: {
-		caption: "优先级",
-		rules: { 
-		}
-	},
-    lasteditedby: {
-		caption: "最后修改",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "任务状态",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "任务名称",
-		rules: { 
-		}
-	},
-    closeddate: {
-		caption: "关闭时间",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "任务类型",
-		rules: { 
-		}
-	},
-    assignedto: {
-		caption: "指派给",
-		rules: { 
-		}
-	},
-    desc: {
-		caption: "任务描述",
-		rules: { 
-		}
-	},
-    eststarted: {
-		caption: "预计开始",
-		rules: { 
-		}
-	},
-    deadline: {
-		caption: "截止日期",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    consumed: {
-		caption: "总计消耗",
-		rules: { 
-		}
-	},
-    estimate: {
-		caption: "最初预计",
-		rules: { 
-		}
-	},
-    openedby: {
-		caption: "由谁创建",
-		rules: { 
-		}
-	},
-    canceleddate: {
-		caption: "取消时间",
-		rules: { 
-		}
-	},
-    finisheddate: {
-		caption: "实际完成",
-		rules: { 
-		}
-	},
-    modulename: {
-		caption: "所属模块",
-		rules: { 
-		}
-	},
-    storyname: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    projectname: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    storyversion: {
-		caption: "需求版本",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    parentname: {
-		caption: "父任务",
-		rules: { 
-		}
-	},
-    project: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    story: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    parent: {
-		caption: "父任务",
-		rules: { 
-		}
-	},
-    frombug: {
-		caption: "来源Bug",
-		rules: { 
-		}
-	},
-    duration: {
-		caption: "持续时间",
-		rules: { 
-		}
-	},
-    module: {
-		caption: "id",
-		rules: { 
-		}
-	},
-    path: {
-		caption: "模块路径",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    currentconsumed: {
-		caption: "本次消耗",
-		rules: { 
-		}
-	},
-    totaltime: {
-		caption: "总计耗时",
-		rules: { 
-		}
-	},
-    isleaf: {
-		caption: "是否子任务",
-		rules: { 
-		}
-	},
-    allmodules: {
-		caption: "所有模块",
-		rules: { 
-		}
-	},
-    multiple: {
-		caption: "多人任务",
-		rules: { 
-		}
-	},
-    taskteams: {
-		caption: "项目团队成员",
-		rules: { 
-		}
-	},
-    modulename1: {
-		caption: "所属模块",
-		rules: { 
-		}
-	},
-    ibztaskestimates: {
-		caption: "工时",
-		rules: { 
-		}
-	},
-    isfavorites: {
-		caption: "是否收藏",
-		rules: { 
-		}
-	},
-    status1: {
-		caption: "任务状态",
-		rules: { 
-		}
-	},
-    tasktype: {
-		caption: "任务类型",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    usernames: {
-		caption: "团队用户",
-		rules: { 
-		}
-	},
-    isfinished: {
-		caption: "是否完成",
-		rules: { 
-		}
-	},
-    replycount: {
-		caption: "回复数量",
-		rules: { 
-		}
-	},
-    hasdetail: {
-		caption: "是否填写描述",
-		rules: { 
-		}
-	},
-    updatedate: {
-		caption: "最后的更新日期",
-		rules: { 
-		}
-	},
-    noticeusers: {
-		caption: "消息通知用户",
-		rules: { 
-		}
-	},
-    progressrate: {
-		caption: "进度",
-		rules: { 
-		}
-	},
-    delay: {
-		caption: "延期",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    mailtoconact: {
-		caption: "联系人",
-		rules: { 
-		}
-	},
-    statusorder: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    myconsumed: {
-		caption: "之前消耗",
-		rules: { 
-		}
-	},
-    mytotaltime: {
-		caption: "我的总消耗",
-		rules: { 
-		}
-	},
-    assignedtozj: {
-		caption: "转交给",
-		rules: { 
-		}
-	},
+    canceledBy:  commonLogic.appcommonhandle("由谁取消",null),
+    left:  commonLogic.appcommonhandle("预计剩余",null),
+    openedDate:  commonLogic.appcommonhandle("创建日期",null),
+    color:  commonLogic.appcommonhandle("标题颜色",null),
+    id:  commonLogic.appcommonhandle("编号",null),
+    finishedBy:  commonLogic.appcommonhandle("由谁完成",null),
+    finishedList:  commonLogic.appcommonhandle("完成者列表",null),
+    realStarted:  commonLogic.appcommonhandle("实际开始",null),
+    closedBy:  commonLogic.appcommonhandle("由谁关闭",null),
+    subStatus:  commonLogic.appcommonhandle("子状态",null),
+    closedReason:  commonLogic.appcommonhandle("关闭原因",null),
+    lastEditedDate:  commonLogic.appcommonhandle("最后修改日期",null),
+    assignedDate:  commonLogic.appcommonhandle("指派日期",null),
+    pri:  commonLogic.appcommonhandle("优先级",null),
+    lastEditedBy:  commonLogic.appcommonhandle("最后修改",null),
+    status:  commonLogic.appcommonhandle("任务状态",null),
+    name:  commonLogic.appcommonhandle("任务名称",null),
+    closedDate:  commonLogic.appcommonhandle("关闭时间",null),
+    type:  commonLogic.appcommonhandle("任务类型",null),
+    assignedTo:  commonLogic.appcommonhandle("指派给",null),
+    desc:  commonLogic.appcommonhandle("任务描述",null),
+    estStarted:  commonLogic.appcommonhandle("预计开始",null),
+    deadline:  commonLogic.appcommonhandle("截止日期",null),
+    deleted:  commonLogic.appcommonhandle("已删除",null),
+    mailto:  commonLogic.appcommonhandle("抄送给",null),
+    consumed:  commonLogic.appcommonhandle("总计消耗",null),
+    estimate:  commonLogic.appcommonhandle("最初预计",null),
+    openedBy:  commonLogic.appcommonhandle("由谁创建",null),
+    canceledDate:  commonLogic.appcommonhandle("取消时间",null),
+    finishedDate:  commonLogic.appcommonhandle("实际完成",null),
+    modulename:  commonLogic.appcommonhandle("所属模块",null),
+    storyname:  commonLogic.appcommonhandle("相关需求",null),
+    projectName:  commonLogic.appcommonhandle("所属项目",null),
+    product:  commonLogic.appcommonhandle("产品",null),
+    storyVersion:  commonLogic.appcommonhandle("需求版本",null),
+    productName:  commonLogic.appcommonhandle("产品",null),
+    parentName:  commonLogic.appcommonhandle("父任务",null),
+    project:  commonLogic.appcommonhandle("所属项目",null),
+    story:  commonLogic.appcommonhandle("相关需求",null),
+    parent:  commonLogic.appcommonhandle("父任务",null),
+    fromBug:  commonLogic.appcommonhandle("来源Bug",null),
+    duration:  commonLogic.appcommonhandle("持续时间",null),
+    module:  commonLogic.appcommonhandle("id",null),
+    path:  commonLogic.appcommonhandle("模块路径",null),
+    comment:  commonLogic.appcommonhandle("备注",null),
+    currentConsumed:  commonLogic.appcommonhandle("本次消耗",null),
+    totalTime:  commonLogic.appcommonhandle("总计耗时",null),
+    isLeaf:  commonLogic.appcommonhandle("是否子任务",null),
+    allModules:  commonLogic.appcommonhandle("所有模块",null),
+    multiple:  commonLogic.appcommonhandle("多人任务",null),
+    taskteams:  commonLogic.appcommonhandle("项目团队成员",null),
+    modulename1:  commonLogic.appcommonhandle("所属模块",null),
+    ibztaskestimates:  commonLogic.appcommonhandle("工时",null),
+    isfavorites:  commonLogic.appcommonhandle("是否收藏",null),
+    status1:  commonLogic.appcommonhandle("任务状态",null),
+    tasktype:  commonLogic.appcommonhandle("任务类型",null),
+    files:  commonLogic.appcommonhandle("附件",null),
+    usernames:  commonLogic.appcommonhandle("团队用户",null),
+    isfinished:  commonLogic.appcommonhandle("是否完成",null),
+    replycount:  commonLogic.appcommonhandle("回复数量",null),
+    hasdetail:  commonLogic.appcommonhandle("是否填写描述",null),
+    updateDate:  commonLogic.appcommonhandle("最后的更新日期",null),
+    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
+    progressrate:  commonLogic.appcommonhandle("进度",null),
+    delay:  commonLogic.appcommonhandle("延期",null),
+    mailtopk:  commonLogic.appcommonhandle("抄送给",null),
+    mailtoconact:  commonLogic.appcommonhandle("联系人",null),
+    statusorder:  commonLogic.appcommonhandle("排序",null),
+    myconsumed:  commonLogic.appcommonhandle("之前消耗",null),
+    mytotaltime:  commonLogic.appcommonhandle("我的总消耗",null),
+    assignedToZj:  commonLogic.appcommonhandle("转交给",null),
   },
 	views: {
 		mobmdview: {

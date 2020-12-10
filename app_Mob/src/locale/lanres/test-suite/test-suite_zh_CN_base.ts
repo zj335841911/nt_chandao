@@ -1,61 +1,17 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    name: {
-		caption: "名称",
-		rules: { 
-		}
-	},
-    addeddate: {
-		caption: "创建时间",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    lasteditedby: {
-		caption: "最后编辑人",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "类型",
-		rules: { 
-		}
-	},
-    lastediteddate: {
-		caption: "最后编辑时间",
-		rules: { 
-		}
-	},
-    addedby: {
-		caption: "由谁创建",
-		rules: { 
-		}
-	},
-    desc: {
-		caption: "描述",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "所属产品",
-		rules: { 
-		}
-	},
-    casecnt: {
-		caption: "用例数",
-		rules: { 
-		}
-	},
+    name: "名称",
+    addeddate: "创建时间",
+    id: "编号",
+    deleted: "已删除",
+    lasteditedby: "最后编辑人",
+    type: "类型",
+    lastediteddate: "最后编辑时间",
+    addedby: "由谁创建",
+    desc: "描述",
+    product: "所属产品",
+    casecnt: "用例数",
   },
 	views: {
 		newmobeditview: {

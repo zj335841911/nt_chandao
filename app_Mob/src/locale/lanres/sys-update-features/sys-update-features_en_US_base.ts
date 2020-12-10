@@ -1,66 +1,18 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    sysupdatefeaturesname: {
-		caption: "系统更新功能名称",
-		rules: { 
-		}
-	},
-    sysupdatefeaturesid: {
-		caption: "系统更新功能标识",
-		rules: { 
-		}
-	},
-    createman: {
-		caption: "建立人",
-		rules: { 
-		}
-	},
-    updateman: {
-		caption: "更新人",
-		rules: { 
-		}
-	},
-    createdate: {
-		caption: "建立时间",
-		rules: { 
-		}
-	},
-    updatedate: {
-		caption: "更新时间",
-		rules: { 
-		}
-	},
-    sysupdatelogid: {
-		caption: "系统更新日志标识",
-		rules: { 
-		}
-	},
-    sysupdatelogname: {
-		caption: "所属更新",
-		rules: { 
-		}
-	},
-    upfeatures: {
-		caption: "更新功能",
-		rules: { 
-		}
-	},
-    featuresdesc: {
-		caption: "功能描述",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "更新类型",
-		rules: { 
-		}
-	},
-    displayorder: {
-		caption: "展示顺序",
-		rules: { 
-		}
-	},
+    sysUpdateFeaturesName:  commonLogic.appcommonhandle("系统更新功能名称",null),
+    sysUpdateFeaturesId:  commonLogic.appcommonhandle("系统更新功能标识",null),
+    createMan:  commonLogic.appcommonhandle("建立人",null),
+    updateMan:  commonLogic.appcommonhandle("更新人",null),
+    createDate:  commonLogic.appcommonhandle("建立时间",null),
+    updateDate:  commonLogic.appcommonhandle("更新时间",null),
+    sysUpdateLogId:  commonLogic.appcommonhandle("系统更新日志标识",null),
+    sysUpdateLogName:  commonLogic.appcommonhandle("所属更新",null),
+    upfeatures:  commonLogic.appcommonhandle("更新功能",null),
+    featuresdesc:  commonLogic.appcommonhandle("功能描述",null),
+    type:  commonLogic.appcommonhandle("更新类型",null),
+    displayorder:  commonLogic.appcommonhandle("展示顺序",null),
   },
 	views: {
 		ymobmdview9: {

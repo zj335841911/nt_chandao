@@ -1,81 +1,21 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    role: {
-		caption: "角色",
-		rules: { 
-		}
-	},
-    root: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    limited: {
-		caption: "受限用户",
-		rules: { 
-		}
-	},
-    total: {
-		caption: "总计可用",
-		rules: { 
-		}
-	},
-    username: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    days: {
-		caption: "可用工日",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "团队类型",
-		rules: { 
-		}
-	},
-    estimate: {
-		caption: "最初预计",
-		rules: { 
-		}
-	},
-    account: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    consumed: {
-		caption: "总计消耗",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    join: {
-		caption: "加盟日",
-		rules: { 
-		}
-	},
-    hours: {
-		caption: "可用工时/天",
-		rules: { 
-		}
-	},
-    left: {
-		caption: "预计剩余",
-		rules: { 
-		}
-	},
+    role: "角色",
+    root: "编号",
+    limited: "受限用户",
+    total: "总计可用",
+    username: "用户",
+    order: "排序",
+    days: "可用工日",
+    type: "团队类型",
+    estimate: "最初预计",
+    account: "用户",
+    consumed: "总计消耗",
+    id: "编号",
+    join: "加盟日",
+    hours: "可用工时/天",
+    left: "预计剩余",
   },
 	views: {
 		mobeditview9: {

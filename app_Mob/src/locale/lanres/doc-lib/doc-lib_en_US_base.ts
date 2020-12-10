@@ -1,116 +1,28 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    type: {
-		caption: "文档类型",
-		rules: { 
-		}
-	},
-    collector: {
-		caption: "收藏者",
-		rules: { 
-		}
-	},
-    acl: {
-		caption: "权限",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    groups: {
-		caption: "分组",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    users: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    main: {
-		caption: "是否是主库",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "文档库名称",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    project: {
-		caption: "项目库",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "产品库",
-		rules: { 
-		}
-	},
-    doccnt: {
-		caption: "文档数量",
-		rules: { 
-		}
-	},
-    doclibtype: {
-		caption: "文件库类型",
-		rules: { 
-		}
-	},
-    projectname: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "所属产品",
-		rules: { 
-		}
-	},
-    isfavourites: {
-		caption: "是否收藏",
-		rules: { 
-		}
-	},
-    orgid: {
-		caption: "组织标识",
-		rules: { 
-		}
-	},
-    mdeptid: {
-		caption: "部门标识",
-		rules: { 
-		}
-	},
-    root: {
-		caption: "Root",
-		rules: { 
-		}
-	},
-    modulecnt: {
-		caption: "文件夹数",
-		rules: { 
-		}
-	},
-    openeddate: {
-		caption: "创建时间",
-		rules: { 
-		}
-	},
+    type:  commonLogic.appcommonhandle("文档类型",null),
+    collector:  commonLogic.appcommonhandle("收藏者",null),
+    acl:  commonLogic.appcommonhandle("权限",null),
+    deleted:  commonLogic.appcommonhandle("已删除",null),
+    groups:  commonLogic.appcommonhandle("分组",null),
+    id:  commonLogic.appcommonhandle("编号",null),
+    users:  commonLogic.appcommonhandle("用户",null),
+    main:  commonLogic.appcommonhandle("是否是主库",null),
+    name:  commonLogic.appcommonhandle("文档库名称",null),
+    order:  commonLogic.appcommonhandle("排序",null),
+    project:  commonLogic.appcommonhandle("项目库",null),
+    product:  commonLogic.appcommonhandle("产品库",null),
+    doccnt:  commonLogic.appcommonhandle("文档数量",null),
+    doclibtype:  commonLogic.appcommonhandle("文件库类型",null),
+    projectName:  commonLogic.appcommonhandle("所属项目",null),
+    productName:  commonLogic.appcommonhandle("所属产品",null),
+    isfavourites:  commonLogic.appcommonhandle("是否收藏",null),
+    orgId:  commonLogic.appcommonhandle("组织标识",null),
+    mdeptId:  commonLogic.appcommonhandle("部门标识",null),
+    root:  commonLogic.appcommonhandle("Root",null),
+    modulecnt:  commonLogic.appcommonhandle("文件夹数",null),
+    openedDate:  commonLogic.appcommonhandle("创建时间",null),
   },
 	views: {
 		mobproducttreeview: {

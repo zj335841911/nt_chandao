@@ -1,91 +1,23 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    root: {
-		caption: "所属根",
-		rules: { 
-		}
-	},
-    grade: {
-		caption: "级别",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "类型",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "模块名称",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    owner: {
-		caption: "负责人",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "id",
-		rules: { 
-		}
-	},
-    collector: {
-		caption: "收藏者",
-		rules: { 
-		}
-	},
-    ibizshort: {
-		caption: "简称",
-		rules: { 
-		}
-	},
-    path: {
-		caption: "路径",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    parentname: {
-		caption: "上级模块",
-		rules: { 
-		}
-	},
-    branch: {
-		caption: "平台/分支",
-		rules: { 
-		}
-	},
-    parent: {
-		caption: "上级模块",
-		rules: { 
-		}
-	},
-    mdeptid: {
-		caption: "部门标识",
-		rules: { 
-		}
-	},
-    orgid: {
-		caption: "组织标识",
-		rules: { 
-		}
-	},
-    orderpk: {
-		caption: "数据选择排序",
-		rules: { 
-		}
-	},
+    root:  commonLogic.appcommonhandle("所属根",null),
+    grade:  commonLogic.appcommonhandle("级别",null),
+    type:  commonLogic.appcommonhandle("类型",null),
+    name:  commonLogic.appcommonhandle("模块名称",null),
+    order:  commonLogic.appcommonhandle("排序",null),
+    owner:  commonLogic.appcommonhandle("负责人",null),
+    id:  commonLogic.appcommonhandle("id",null),
+    collector:  commonLogic.appcommonhandle("收藏者",null),
+    iBizShort:  commonLogic.appcommonhandle("简称",null),
+    path:  commonLogic.appcommonhandle("路径",null),
+    deleted:  commonLogic.appcommonhandle("已删除",null),
+    parentName:  commonLogic.appcommonhandle("上级模块",null),
+    branch:  commonLogic.appcommonhandle("平台/分支",null),
+    parent:  commonLogic.appcommonhandle("上级模块",null),
+    mdeptId:  commonLogic.appcommonhandle("部门标识",null),
+    orgId:  commonLogic.appcommonhandle("组织标识",null),
+    orderpk:  commonLogic.appcommonhandle("数据选择排序",null),
   },
 	views: {
 		mobpickupview: {

@@ -1,46 +1,14 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    account: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    left: {
-		caption: "预计剩余",
-		rules: { 
-		}
-	},
-    consumed: {
-		caption: "总计消耗",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    date: {
-		caption: "日期",
-		rules: { 
-		}
-	},
-    work: {
-		caption: "work",
-		rules: { 
-		}
-	},
-    task: {
-		caption: "任务",
-		rules: { 
-		}
-	},
-    dates: {
-		caption: "日期",
-		rules: { 
-		}
-	},
+    account:  commonLogic.appcommonhandle("用户",null),
+    left:  commonLogic.appcommonhandle("预计剩余",null),
+    consumed:  commonLogic.appcommonhandle("总计消耗",null),
+    id:  commonLogic.appcommonhandle("编号",null),
+    date:  commonLogic.appcommonhandle("日期",null),
+    work:  commonLogic.appcommonhandle("work",null),
+    task:  commonLogic.appcommonhandle("任务",null),
+    dates:  commonLogic.appcommonhandle("日期",null),
   },
 	views: {
 		moboptionview: {

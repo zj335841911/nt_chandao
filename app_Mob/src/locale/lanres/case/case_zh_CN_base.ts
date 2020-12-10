@@ -1,301 +1,65 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    lastediteddate: {
-		caption: "修改日期",
-		rules: { 
-		}
-	},
-    scripteddate: {
-		caption: "scriptedDate",
-		rules: { 
-		}
-	},
-    color: {
-		caption: "标题颜色",
-		rules: { 
-		}
-	},
-    path: {
-		caption: "path",
-		rules: { 
-		}
-	},
-    openeddate: {
-		caption: "创建日期",
-		rules: { 
-		}
-	},
-    lastrunresult: {
-		caption: "结果",
-		rules: { 
-		}
-	},
-    linkcase: {
-		caption: "相关用例",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    howrun: {
-		caption: "howRun",
-		rules: { 
-		}
-	},
-    version: {
-		caption: "用例版本",
-		rules: { 
-		}
-	},
-    scriptedby: {
-		caption: "scriptedBy",
-		rules: { 
-		}
-	},
-    openedby: {
-		caption: "由谁创建",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "用例类型",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "用例状态",
-		rules: { 
-		}
-	},
-    auto: {
-		caption: "auto",
-		rules: { 
-		}
-	},
-    frequency: {
-		caption: "frequency",
-		rules: { 
-		}
-	},
-    title: {
-		caption: "用例标题",
-		rules: { 
-		}
-	},
-    lasteditedby: {
-		caption: "最后修改者",
-		rules: { 
-		}
-	},
-    reviewedby: {
-		caption: "由谁评审",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    revieweddate: {
-		caption: "评审时间",
-		rules: { 
-		}
-	},
-    pri: {
-		caption: "优先级",
-		rules: { 
-		}
-	},
-    stage: {
-		caption: "适用阶段",
-		rules: { 
-		}
-	},
-    scriptlocation: {
-		caption: "scriptLocation",
-		rules: { 
-		}
-	},
-    lastrundate: {
-		caption: "执行时间",
-		rules: { 
-		}
-	},
-    keywords: {
-		caption: "关键词",
-		rules: { 
-		}
-	},
-    scriptstatus: {
-		caption: "scriptStatus",
-		rules: { 
-		}
-	},
-    frame: {
-		caption: "工具/框架",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "用例编号",
-		rules: { 
-		}
-	},
-    precondition: {
-		caption: "前置条件",
-		rules: { 
-		}
-	},
-    lastrunner: {
-		caption: "执行人",
-		rules: { 
-		}
-	},
-    fromcaseversion: {
-		caption: "来源用例版本",
-		rules: { 
-		}
-	},
-    storyversion: {
-		caption: "需求版本",
-		rules: { 
-		}
-	},
-    fromcaseid: {
-		caption: "来源用例",
-		rules: { 
-		}
-	},
-    branch: {
-		caption: "平台/分支",
-		rules: { 
-		}
-	},
-    frombug: {
-		caption: "来源Bug",
-		rules: { 
-		}
-	},
-    story: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "所属产品",
-		rules: { 
-		}
-	},
-    lib: {
-		caption: "所属库",
-		rules: { 
-		}
-	},
-    module: {
-		caption: "所属模块",
-		rules: { 
-		}
-	},
-    modulename: {
-		caption: "模块名称",
-		rules: { 
-		}
-	},
-    storyname: {
-		caption: "需求名称",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品名称",
-		rules: { 
-		}
-	},
-    casesteps: {
-		caption: "用例步骤集合",
-		rules: { 
-		}
-	},
-    tobugcnt: {
-		caption: "转bug数",
-		rules: { 
-		}
-	},
-    resultcnt: {
-		caption: "测试结果数",
-		rules: { 
-		}
-	},
-    stepcnt: {
-		caption: "用例步骤数",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    resultfalicnt: {
-		caption: "测试失败数",
-		rules: { 
-		}
-	},
-    status1: {
-		caption: "用例状态",
-		rules: { 
-		}
-	},
-    assignedto: {
-		caption: "指派给",
-		rules: { 
-		}
-	},
-    task: {
-		caption: "属性",
-		rules: { 
-		}
-	},
-    libname: {
-		caption: "用例库",
-		rules: { 
-		}
-	},
-    lastrunresult1: {
-		caption: "测试用例结果",
-		rules: { 
-		}
-	},
-    isfavorites: {
-		caption: "是否收藏",
-		rules: { 
-		}
-	},
-    modulename1: {
-		caption: "模块名称",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    noticeusers: {
-		caption: "消息通知用户",
-		rules: { 
-		}
-	},
+    lastediteddate: "修改日期",
+    scripteddate: "scriptedDate",
+    color: "标题颜色",
+    path: "path",
+    openeddate: "创建日期",
+    lastrunresult: "结果",
+    linkcase: "相关用例",
+    order: "排序",
+    howrun: "howRun",
+    version: "用例版本",
+    scriptedby: "scriptedBy",
+    openedby: "由谁创建",
+    type: "用例类型",
+    status: "用例状态",
+    auto: "auto",
+    frequency: "frequency",
+    title: "用例标题",
+    lasteditedby: "最后修改者",
+    reviewedby: "由谁评审",
+    deleted: "已删除",
+    revieweddate: "评审时间",
+    pri: "优先级",
+    stage: "适用阶段",
+    scriptlocation: "scriptLocation",
+    lastrundate: "执行时间",
+    keywords: "关键词",
+    scriptstatus: "scriptStatus",
+    frame: "工具/框架",
+    substatus: "子状态",
+    id: "用例编号",
+    precondition: "前置条件",
+    lastrunner: "执行人",
+    fromcaseversion: "来源用例版本",
+    storyversion: "需求版本",
+    fromcaseid: "来源用例",
+    branch: "平台/分支",
+    frombug: "来源Bug",
+    story: "相关需求",
+    product: "所属产品",
+    lib: "所属库",
+    module: "所属模块",
+    modulename: "模块名称",
+    storyname: "需求名称",
+    productname: "产品名称",
+    casesteps: "用例步骤集合",
+    tobugcnt: "转bug数",
+    resultcnt: "测试结果数",
+    stepcnt: "用例步骤数",
+    comment: "备注",
+    resultfalicnt: "测试失败数",
+    status1: "用例状态",
+    assignedto: "指派给",
+    task: "属性",
+    libname: "用例库",
+    lastrunresult1: "测试用例结果",
+    isfavorites: "是否收藏",
+    modulename1: "模块名称",
+    files: "附件",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		mobmdview_testtask: {

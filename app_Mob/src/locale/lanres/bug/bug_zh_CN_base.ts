@@ -1,386 +1,82 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    severity: {
-		caption: "严重程度",
-		rules: { 
-		}
-	},
-    storyversion: {
-		caption: "需求版本",
-		rules: { 
-		}
-	},
-    linkbug: {
-		caption: "相关Bug",
-		rules: { 
-		}
-	},
-    activateddate: {
-		caption: "激活日期",
-		rules: { 
-		}
-	},
-    assignedto: {
-		caption: "指派给",
-		rules: { 
-		}
-	},
-    resolution: {
-		caption: "解决方案",
-		rules: { 
-		}
-	},
-    lastediteddate: {
-		caption: "修改日期",
-		rules: { 
-		}
-	},
-    result: {
-		caption: "result",
-		rules: { 
-		}
-	},
-    keywords: {
-		caption: "关键词",
-		rules: { 
-		}
-	},
-    closedby: {
-		caption: "由谁关闭",
-		rules: { 
-		}
-	},
-    browser: {
-		caption: "浏览器",
-		rules: { 
-		}
-	},
-    steps: {
-		caption: "重现步骤",
-		rules: { 
-		}
-	},
-    v2: {
-		caption: "v2",
-		rules: { 
-		}
-	},
-    confirmed: {
-		caption: "是否确认",
-		rules: { 
-		}
-	},
-    openedby: {
-		caption: "由谁创建",
-		rules: { 
-		}
-	},
-    activatedcount: {
-		caption: "激活次数",
-		rules: { 
-		}
-	},
-    openeddate: {
-		caption: "创建日期",
-		rules: { 
-		}
-	},
-    closeddate: {
-		caption: "关闭日期",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    assigneddate: {
-		caption: "指派日期",
-		rules: { 
-		}
-	},
-    deadline: {
-		caption: "截止日期",
-		rules: { 
-		}
-	},
-    color: {
-		caption: "标题颜色",
-		rules: { 
-		}
-	},
-    resolveddate: {
-		caption: "解决日期",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "Bug类型",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "Bug状态",
-		rules: { 
-		}
-	},
-    openedbuild: {
-		caption: "影响版本",
-		rules: { 
-		}
-	},
-    v1: {
-		caption: "v1",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    lines: {
-		caption: "lines",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "Bug编号",
-		rules: { 
-		}
-	},
-    found: {
-		caption: "found",
-		rules: { 
-		}
-	},
-    resolvedby: {
-		caption: "解决者",
-		rules: { 
-		}
-	},
-    resolvedbuild: {
-		caption: "解决版本",
-		rules: { 
-		}
-	},
-    pri: {
-		caption: "优先级",
-		rules: { 
-		}
-	},
-    os: {
-		caption: "操作系统",
-		rules: { 
-		}
-	},
-    hardware: {
-		caption: "hardware",
-		rules: { 
-		}
-	},
-    lasteditedby: {
-		caption: "最后修改者",
-		rules: { 
-		}
-	},
-    title: {
-		caption: "Bug标题",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    projectname: {
-		caption: "项目",
-		rules: { 
-		}
-	},
-    storyname: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    caseversion: {
-		caption: "用例版本",
-		rules: { 
-		}
-	},
-    repotype: {
-		caption: "代码类型",
-		rules: { 
-		}
-	},
-    tostory: {
-		caption: "转需求",
-		rules: { 
-		}
-	},
-    entry: {
-		caption: "应用",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "所属产品",
-		rules: { 
-		}
-	},
-    totask: {
-		caption: "转任务",
-		rules: { 
-		}
-	},
-    plan: {
-		caption: "所属计划",
-		rules: { 
-		}
-	},
-    module: {
-		caption: "所属模块",
-		rules: { 
-		}
-	},
-    branch: {
-		caption: "平台/分支",
-		rules: { 
-		}
-	},
-    duplicatebug: {
-		caption: "重复ID",
-		rules: { 
-		}
-	},
-    repo: {
-		caption: "代码",
-		rules: { 
-		}
-	},
-    story: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    ibizcase: {
-		caption: "相关用例",
-		rules: { 
-		}
-	},
-    project: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    task: {
-		caption: "相关任务",
-		rules: { 
-		}
-	},
-    testtask: {
-		caption: "测试单",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    taskname: {
-		caption: "相关任务",
-		rules: { 
-		}
-	},
-    modulename: {
-		caption: "模块名称",
-		rules: { 
-		}
-	},
-    branchname: {
-		caption: "平台/分支",
-		rules: { 
-		}
-	},
-    modulename1: {
-		caption: "模块名称",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    mobimage: {
-		caption: "移动端图片",
-		rules: { 
-		}
-	},
-    isfavorites: {
-		caption: "是否收藏",
-		rules: { 
-		}
-	},
-    buildname: {
-		caption: "版本名称",
-		rules: { 
-		}
-	},
-    buildproject: {
-		caption: "版本项目",
-		rules: { 
-		}
-	},
-    createbuild: {
-		caption: "创建版本",
-		rules: { 
-		}
-	},
-    overduebugs: {
-		caption: "过期天数",
-		rules: { 
-		}
-	},
-    casename: {
-		caption: "相关用例",
-		rules: { 
-		}
-	},
-    delay: {
-		caption: "延期",
-		rules: { 
-		}
-	},
-    noticeusers: {
-		caption: "消息通知用户",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    mailtoconact: {
-		caption: "联系人",
-		rules: { 
-		}
-	},
-    delayresolve: {
-		caption: "延期解决",
-		rules: { 
-		}
-	},
+    severity: "严重程度",
+    storyversion: "需求版本",
+    linkbug: "相关Bug",
+    activateddate: "激活日期",
+    assignedto: "指派给",
+    resolution: "解决方案",
+    lastediteddate: "修改日期",
+    result: "result",
+    keywords: "关键词",
+    closedby: "由谁关闭",
+    browser: "浏览器",
+    steps: "重现步骤",
+    v2: "v2",
+    confirmed: "是否确认",
+    openedby: "由谁创建",
+    activatedcount: "激活次数",
+    openeddate: "创建日期",
+    closeddate: "关闭日期",
+    mailto: "抄送给",
+    assigneddate: "指派日期",
+    deadline: "截止日期",
+    color: "标题颜色",
+    resolveddate: "解决日期",
+    type: "Bug类型",
+    status: "Bug状态",
+    openedbuild: "影响版本",
+    v1: "v1",
+    deleted: "已删除",
+    lines: "lines",
+    substatus: "子状态",
+    id: "Bug编号",
+    found: "found",
+    resolvedby: "解决者",
+    resolvedbuild: "解决版本",
+    pri: "优先级",
+    os: "操作系统",
+    hardware: "hardware",
+    lasteditedby: "最后修改者",
+    title: "Bug标题",
+    productname: "产品",
+    projectname: "项目",
+    storyname: "相关需求",
+    caseversion: "用例版本",
+    repotype: "代码类型",
+    tostory: "转需求",
+    entry: "应用",
+    product: "所属产品",
+    totask: "转任务",
+    plan: "所属计划",
+    module: "所属模块",
+    branch: "平台/分支",
+    duplicatebug: "重复ID",
+    repo: "代码",
+    story: "相关需求",
+    ibizcase: "相关用例",
+    project: "所属项目",
+    task: "相关任务",
+    testtask: "测试单",
+    comment: "备注",
+    taskname: "相关任务",
+    modulename: "模块名称",
+    branchname: "平台/分支",
+    modulename1: "模块名称",
+    files: "附件",
+    mobimage: "移动端图片",
+    isfavorites: "是否收藏",
+    buildname: "版本名称",
+    buildproject: "版本项目",
+    createbuild: "创建版本",
+    overduebugs: "过期天数",
+    casename: "相关用例",
+    delay: "延期",
+    noticeusers: "消息通知用户",
+    mailtopk: "抄送给",
+    mailtoconact: "联系人",
+    delayresolve: "延期解决",
   },
 	views: {
 		colsemobeditview: {

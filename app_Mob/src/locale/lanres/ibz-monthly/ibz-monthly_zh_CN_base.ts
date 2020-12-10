@@ -1,121 +1,29 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    ibzmonthlyid: {
-		caption: "月报标识",
-		rules: { 
-		}
-	},
-    createman: {
-		caption: "建立人",
-		rules: { 
-		}
-	},
-    updateman: {
-		caption: "更新人",
-		rules: { 
-		}
-	},
-    createdate: {
-		caption: "建立时间",
-		rules: { 
-		}
-	},
-    ibzmonthlyname: {
-		caption: "月报名称",
-		rules: { 
-		}
-	},
-    updatedate: {
-		caption: "更新时间",
-		rules: { 
-		}
-	},
-    date: {
-		caption: "日期",
-		rules: { 
-		}
-	},
-    account: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    workthismonth: {
-		caption: "本月工作",
-		rules: { 
-		}
-	},
-    plansnextmonth: {
-		caption: "下月计划",
-		rules: { 
-		}
-	},
-    reportto: {
-		caption: "汇报给",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "其他事项",
-		rules: { 
-		}
-	},
-    thismonthtask: {
-		caption: "本月完成任务",
-		rules: { 
-		}
-	},
-    nextmonthplanstask: {
-		caption: "下月计划任务",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    issubmit: {
-		caption: "是否提交",
-		rules: { 
-		}
-	},
-    updatemanname: {
-		caption: "更新人名称",
-		rules: { 
-		}
-	},
-    reportstatus: {
-		caption: "状态",
-		rules: { 
-		}
-	},
-    createmanname: {
-		caption: "建立人名称",
-		rules: { 
-		}
-	},
-    submittime: {
-		caption: "提交时间",
-		rules: { 
-		}
-	},
-    reporttopk: {
-		caption: "汇报给（选择）",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给（选择）",
-		rules: { 
-		}
-	},
+    ibzmonthlyid: "月报标识",
+    createman: "建立人",
+    updateman: "更新人",
+    createdate: "建立时间",
+    ibzmonthlyname: "月报名称",
+    updatedate: "更新时间",
+    date: "日期",
+    account: "用户",
+    workthismonth: "本月工作",
+    plansnextmonth: "下月计划",
+    reportto: "汇报给",
+    mailto: "抄送给",
+    comment: "其他事项",
+    thismonthtask: "本月完成任务",
+    nextmonthplanstask: "下月计划任务",
+    files: "附件",
+    issubmit: "是否提交",
+    updatemanname: "更新人名称",
+    reportstatus: "状态",
+    createmanname: "建立人名称",
+    submittime: "提交时间",
+    reporttopk: "汇报给（选择）",
+    mailtopk: "抄送给（选择）",
   },
 	views: {
 		mobeditview: {

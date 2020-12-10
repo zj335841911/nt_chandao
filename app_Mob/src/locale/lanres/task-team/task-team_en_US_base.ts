@@ -1,81 +1,21 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    role: {
-		caption: "角色",
-		rules: { 
-		}
-	},
-    root: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    limited: {
-		caption: "受限用户",
-		rules: { 
-		}
-	},
-    total: {
-		caption: "总计可用",
-		rules: { 
-		}
-	},
-    username: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序",
-		rules: { 
-		}
-	},
-    days: {
-		caption: "可用工日",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "团队类型",
-		rules: { 
-		}
-	},
-    estimate: {
-		caption: "最初预计",
-		rules: { 
-		}
-	},
-    account: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    consumed: {
-		caption: "总计消耗",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    join: {
-		caption: "加盟日",
-		rules: { 
-		}
-	},
-    hours: {
-		caption: "可用工时/天",
-		rules: { 
-		}
-	},
-    left: {
-		caption: "预计剩余",
-		rules: { 
-		}
-	},
+    role:  commonLogic.appcommonhandle("角色",null),
+    root:  commonLogic.appcommonhandle("编号",null),
+    limited:  commonLogic.appcommonhandle("受限用户",null),
+    total:  commonLogic.appcommonhandle("总计可用",null),
+    username:  commonLogic.appcommonhandle("用户",null),
+    order:  commonLogic.appcommonhandle("排序",null),
+    days:  commonLogic.appcommonhandle("可用工日",null),
+    type:  commonLogic.appcommonhandle("团队类型",null),
+    estimate:  commonLogic.appcommonhandle("最初预计",null),
+    account:  commonLogic.appcommonhandle("用户",null),
+    consumed:  commonLogic.appcommonhandle("总计消耗",null),
+    id:  commonLogic.appcommonhandle("编号",null),
+    join:  commonLogic.appcommonhandle("加盟日",null),
+    hours:  commonLogic.appcommonhandle("可用工时/天",null),
+    left:  commonLogic.appcommonhandle("预计剩余",null),
   },
 	views: {
 		mobmdview9: {

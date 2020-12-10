@@ -1,121 +1,29 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    ibzweeklyname: {
-		caption: "周报名称",
-		rules: { 
-		}
-	},
-    ibzweeklyid: {
-		caption: "周报标识",
-		rules: { 
-		}
-	},
-    createman: {
-		caption: "建立人",
-		rules: { 
-		}
-	},
-    createdate: {
-		caption: "建立时间",
-		rules: { 
-		}
-	},
-    updateman: {
-		caption: "更新人",
-		rules: { 
-		}
-	},
-    updatedate: {
-		caption: "更新时间",
-		rules: { 
-		}
-	},
-    account: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    issubmit: {
-		caption: "是否提交",
-		rules: { 
-		}
-	},
-    reportto: {
-		caption: "汇报给",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "其他事项",
-		rules: { 
-		}
-	},
-    date: {
-		caption: "日期",
-		rules: { 
-		}
-	},
-    workthisweek: {
-		caption: "本周工作",
-		rules: { 
-		}
-	},
-    plannextweek: {
-		caption: "下周计划",
-		rules: { 
-		}
-	},
-    thisweektask: {
-		caption: "本周完成任务",
-		rules: { 
-		}
-	},
-    nextweektask: {
-		caption: "下周计划任务",
-		rules: { 
-		}
-	},
-    updatemanname: {
-		caption: "更新人名称",
-		rules: { 
-		}
-	},
-    createmanname: {
-		caption: "建立人名称",
-		rules: { 
-		}
-	},
-    reportstatus: {
-		caption: "状态",
-		rules: { 
-		}
-	},
-    submittime: {
-		caption: "提交时间",
-		rules: { 
-		}
-	},
-    reporttopk: {
-		caption: "汇报给(选择)",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给(选择)",
-		rules: { 
-		}
-	},
+    ibzWeeklyName:  commonLogic.appcommonhandle("周报名称",null),
+    ibzWeeklyId:  commonLogic.appcommonhandle("周报标识",null),
+    createMan:  commonLogic.appcommonhandle("建立人",null),
+    createDate:  commonLogic.appcommonhandle("建立时间",null),
+    updateMan:  commonLogic.appcommonhandle("更新人",null),
+    updateDate:  commonLogic.appcommonhandle("更新时间",null),
+    account:  commonLogic.appcommonhandle("用户",null),
+    mailto:  commonLogic.appcommonhandle("抄送给",null),
+    files:  commonLogic.appcommonhandle("附件",null),
+    issubmit:  commonLogic.appcommonhandle("是否提交",null),
+    reportto:  commonLogic.appcommonhandle("汇报给",null),
+    comment:  commonLogic.appcommonhandle("其他事项",null),
+    date:  commonLogic.appcommonhandle("日期",null),
+    workthisweek:  commonLogic.appcommonhandle("本周工作",null),
+    plannextweek:  commonLogic.appcommonhandle("下周计划",null),
+    thisweektask:  commonLogic.appcommonhandle("本周完成任务",null),
+    nextweektask:  commonLogic.appcommonhandle("下周计划任务",null),
+    updateManName:  commonLogic.appcommonhandle("更新人名称",null),
+    createManName:  commonLogic.appcommonhandle("建立人名称",null),
+    reportstatus:  commonLogic.appcommonhandle("状态",null),
+    submittime:  commonLogic.appcommonhandle("提交时间",null),
+    reporttopk:  commonLogic.appcommonhandle("汇报给(选择)",null),
+    mailtopk:  commonLogic.appcommonhandle("抄送给(选择)",null),
   },
 	views: {
 		mobeditviewcreate: {

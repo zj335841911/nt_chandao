@@ -1,45 +1,13 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    content: {
-		caption: "文档正文",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "文档类型",
-		rules: { 
-		}
-	},
-    title: {
-		caption: "文档标题",
-		rules: { 
-		}
-	},
-    version: {
-		caption: "版本号",
-		rules: { 
-		}
-	},
-    digest: {
-		caption: "文档摘要",
-		rules: { 
-		}
-	},
-    doc: {
-		caption: "文档",
-		rules: { 
-		}
-	},
+    files:  commonLogic.appcommonhandle("附件",null),
+    id:  commonLogic.appcommonhandle("编号",null),
+    content:  commonLogic.appcommonhandle("文档正文",null),
+    type:  commonLogic.appcommonhandle("文档类型",null),
+    title:  commonLogic.appcommonhandle("文档标题",null),
+    version:  commonLogic.appcommonhandle("版本号",null),
+    digest:  commonLogic.appcommonhandle("文档摘要",null),
+    doc:  commonLogic.appcommonhandle("文档",null),
   },
 };

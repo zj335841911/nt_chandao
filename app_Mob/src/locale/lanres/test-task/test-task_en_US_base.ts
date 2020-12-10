@@ -1,126 +1,30 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    end: {
-		caption: "结束日期",
-		rules: { 
-		}
-	},
-    begin: {
-		caption: "开始日期",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    pri: {
-		caption: "优先级",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    report: {
-		caption: "report",
-		rules: { 
-		}
-	},
-    desc: {
-		caption: "描述",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "当前状态",
-		rules: { 
-		}
-	},
-    owner: {
-		caption: "负责人",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    auto: {
-		caption: "auto",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "名称",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "所属产品",
-		rules: { 
-		}
-	},
-    build: {
-		caption: "版本",
-		rules: { 
-		}
-	},
-    project: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    projecttname: {
-		caption: "项目",
-		rules: { 
-		}
-	},
-    buildname: {
-		caption: "版本",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    casecnt: {
-		caption: "用例数",
-		rules: { 
-		}
-	},
-    ownerpk: {
-		caption: "负责人（选择）",
-		rules: { 
-		}
-	},
-    mailtoconact: {
-		caption: "联系人",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
+    end:  commonLogic.appcommonhandle("结束日期",null),
+    begin:  commonLogic.appcommonhandle("开始日期",null),
+    mailto:  commonLogic.appcommonhandle("抄送给",null),
+    pri:  commonLogic.appcommonhandle("优先级",null),
+    subStatus:  commonLogic.appcommonhandle("子状态",null),
+    report:  commonLogic.appcommonhandle("report",null),
+    desc:  commonLogic.appcommonhandle("描述",null),
+    id:  commonLogic.appcommonhandle("编号",null),
+    status:  commonLogic.appcommonhandle("当前状态",null),
+    owner:  commonLogic.appcommonhandle("负责人",null),
+    deleted:  commonLogic.appcommonhandle("已删除",null),
+    auto:  commonLogic.appcommonhandle("auto",null),
+    name:  commonLogic.appcommonhandle("名称",null),
+    product:  commonLogic.appcommonhandle("所属产品",null),
+    build:  commonLogic.appcommonhandle("版本",null),
+    project:  commonLogic.appcommonhandle("所属项目",null),
+    productName:  commonLogic.appcommonhandle("产品",null),
+    projecttName:  commonLogic.appcommonhandle("项目",null),
+    buildName:  commonLogic.appcommonhandle("版本",null),
+    comment:  commonLogic.appcommonhandle("备注",null),
+    casecnt:  commonLogic.appcommonhandle("用例数",null),
+    ownerpk:  commonLogic.appcommonhandle("负责人（选择）",null),
+    mailtoconact:  commonLogic.appcommonhandle("联系人",null),
+    mailtopk:  commonLogic.appcommonhandle("抄送给",null),
   },
 	views: {
 		moboptionviewclose: {

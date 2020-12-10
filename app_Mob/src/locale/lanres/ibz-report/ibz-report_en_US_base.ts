@@ -1,131 +1,31 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    updatedate: {
-		caption: "更新时间",
-		rules: { 
-		}
-	},
-    worktoday: {
-		caption: "工作",
-		rules: { 
-		}
-	},
-    todaytask: {
-		caption: "完成任务",
-		rules: { 
-		}
-	},
-    tomorrowplanstask: {
-		caption: "计划任务",
-		rules: { 
-		}
-	},
-    createman: {
-		caption: "建立人",
-		rules: { 
-		}
-	},
-    reportto: {
-		caption: "汇报给",
-		rules: { 
-		}
-	},
-    createdate: {
-		caption: "建立时间",
-		rules: { 
-		}
-	},
-    date: {
-		caption: "日期",
-		rules: { 
-		}
-	},
-    issubmit: {
-		caption: "是否提交",
-		rules: { 
-		}
-	},
-    updatemanname: {
-		caption: "更新人名称",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    updateman: {
-		caption: "更新人",
-		rules: { 
-		}
-	},
-    reportstatus: {
-		caption: "状态",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "其他事项",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    ibzdailyid: {
-		caption: "汇报标识",
-		rules: { 
-		}
-	},
-    planstomorrow: {
-		caption: "计划",
-		rules: { 
-		}
-	},
-    account: {
-		caption: "用户",
-		rules: { 
-		}
-	},
-    createmanname: {
-		caption: "建立人名称",
-		rules: { 
-		}
-	},
-    ibzdailyname: {
-		caption: "汇报名称",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "类型",
-		rules: { 
-		}
-	},
-    dailycnt: {
-		caption: "未读日报数",
-		rules: { 
-		}
-	},
-    monthlycnt: {
-		caption: "未读月报数",
-		rules: { 
-		}
-	},
-    submittime: {
-		caption: "提交时间",
-		rules: { 
-		}
-	},
-    reportlycnt: {
-		caption: "未读汇报数",
-		rules: { 
-		}
-	},
+    updateDate:  commonLogic.appcommonhandle("更新时间",null),
+    worktoday:  commonLogic.appcommonhandle("工作",null),
+    todaytask:  commonLogic.appcommonhandle("完成任务",null),
+    tomorrowplanstask:  commonLogic.appcommonhandle("计划任务",null),
+    createMan:  commonLogic.appcommonhandle("建立人",null),
+    reportto:  commonLogic.appcommonhandle("汇报给",null),
+    createDate:  commonLogic.appcommonhandle("建立时间",null),
+    date:  commonLogic.appcommonhandle("日期",null),
+    issubmit:  commonLogic.appcommonhandle("是否提交",null),
+    updateManName:  commonLogic.appcommonhandle("更新人名称",null),
+    files:  commonLogic.appcommonhandle("附件",null),
+    updateMan:  commonLogic.appcommonhandle("更新人",null),
+    reportstatus:  commonLogic.appcommonhandle("状态",null),
+    comment:  commonLogic.appcommonhandle("其他事项",null),
+    mailto:  commonLogic.appcommonhandle("抄送给",null),
+    ibzDailyId:  commonLogic.appcommonhandle("汇报标识",null),
+    planstomorrow:  commonLogic.appcommonhandle("计划",null),
+    account:  commonLogic.appcommonhandle("用户",null),
+    createManName:  commonLogic.appcommonhandle("建立人名称",null),
+    ibzDailyName:  commonLogic.appcommonhandle("汇报名称",null),
+    type:  commonLogic.appcommonhandle("类型",null),
+    dailycnt:  commonLogic.appcommonhandle("未读日报数",null),
+    monthlyCnt:  commonLogic.appcommonhandle("未读月报数",null),
+    submittime:  commonLogic.appcommonhandle("提交时间",null),
+    reportlycnt:  commonLogic.appcommonhandle("未读汇报数",null),
   },
 	views: {
 		mobmdview: {

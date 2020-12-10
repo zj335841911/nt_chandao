@@ -1,341 +1,73 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    assignedto: {
-		caption: "指派给",
-		rules: { 
-		}
-	},
-    childstories: {
-		caption: "细分需求",
-		rules: { 
-		}
-	},
-    plan: {
-		caption: "所属计划",
-		rules: { 
-		}
-	},
-    version: {
-		caption: "版本号",
-		rules: { 
-		}
-	},
-    assigneddate: {
-		caption: "指派日期",
-		rules: { 
-		}
-	},
-    pri: {
-		caption: "优先级",
-		rules: { 
-		}
-	},
-    linkstories: {
-		caption: "相关需求",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "当前状态",
-		rules: { 
-		}
-	},
-    estimate: {
-		caption: "预计工时",
-		rules: { 
-		}
-	},
-    revieweddate: {
-		caption: "评审时间",
-		rules: { 
-		}
-	},
-    title: {
-		caption: "需求名称",
-		rules: { 
-		}
-	},
-    sourcenote: {
-		caption: "来源备注",
-		rules: { 
-		}
-	},
-    reviewedby: {
-		caption: "由谁评审",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    stagedby: {
-		caption: "设置阶段者",
-		rules: { 
-		}
-	},
-    openedby: {
-		caption: "由谁创建",
-		rules: { 
-		}
-	},
-    openeddate: {
-		caption: "创建日期",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    source: {
-		caption: "需求来源",
-		rules: { 
-		}
-	},
-    closedreason: {
-		caption: "关闭原因",
-		rules: { 
-		}
-	},
-    color: {
-		caption: "标题颜色",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    keywords: {
-		caption: "关键词",
-		rules: { 
-		}
-	},
-    lasteditedby: {
-		caption: "最后修改",
-		rules: { 
-		}
-	},
-    stage: {
-		caption: "所处阶段",
-		rules: { 
-		}
-	},
-    closeddate: {
-		caption: "关闭日期	",
-		rules: { 
-		}
-	},
-    closedby: {
-		caption: "由谁关闭",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "需求类型",
-		rules: { 
-		}
-	},
-    lastediteddate: {
-		caption: "最后修改日期",
-		rules: { 
-		}
-	},
-    path: {
-		caption: "模块路径",
-		rules: { 
-		}
-	},
-    parentname: {
-		caption: "父需求名称",
-		rules: { 
-		}
-	},
-    modulename: {
-		caption: "所属模块名称",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品名称",
-		rules: { 
-		}
-	},
-    frombug: {
-		caption: "来源Bug",
-		rules: { 
-		}
-	},
-    parent: {
-		caption: "父需求",
-		rules: { 
-		}
-	},
-    module: {
-		caption: "所属模块",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "所属产品",
-		rules: { 
-		}
-	},
-    duplicatestory: {
-		caption: "重复需求ID",
-		rules: { 
-		}
-	},
-    branch: {
-		caption: "平台/分支",
-		rules: { 
-		}
-	},
-    tobug: {
-		caption: "转Bug",
-		rules: { 
-		}
-	},
-    spec: {
-		caption: "需求描述",
-		rules: { 
-		}
-	},
-    verify: {
-		caption: "验收标准",
-		rules: { 
-		}
-	},
-    result: {
-		caption: "评审结果",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    isleaf: {
-		caption: "是否子需求",
-		rules: { 
-		}
-	},
-    files: {
-		caption: "附件",
-		rules: { 
-		}
-	},
-    branchname: {
-		caption: "平台/分支",
-		rules: { 
-		}
-	},
-    versionc: {
-		caption: "版本号",
-		rules: { 
-		}
-	},
-    modulename1: {
-		caption: "所属模块名称",
-		rules: { 
-		}
-	},
-    project: {
-		caption: "项目",
-		rules: { 
-		}
-	},
-    preversion: {
-		caption: "之前的版本",
-		rules: { 
-		}
-	},
-    neednotreview: {
-		caption: "不需要评审",
-		rules: { 
-		}
-	},
-    isfavorites: {
-		caption: "是否收藏",
-		rules: { 
-		}
-	},
-    ischild: {
-		caption: "是否可以细分",
-		rules: { 
-		}
-	},
-    mailtoconact: {
-		caption: "联系人",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    assignedtopk: {
-		caption: "指派给（选择）",
-		rules: { 
-		}
-	},
-    noticeusers: {
-		caption: "消息通知用户",
-		rules: { 
-		}
-	},
-    ibiz_sourceobject: {
-		caption: "来源对象",
-		rules: { 
-		}
-	},
-    sourceobject: {
-		caption: "来源对象",
-		rules: { 
-		}
-	},
-    ibiz_id: {
-		caption: "IBIZ标识",
-		rules: { 
-		}
-	},
-    sourcename: {
-		caption: "来源对象名称",
-		rules: { 
-		}
-	},
-    sourceid: {
-		caption: "来源对象标识",
-		rules: { 
-		}
-	},
-    ibiz_sourceid: {
-		caption: "来源对象标识",
-		rules: { 
-		}
-	},
-    ibiz_sourcename: {
-		caption: "来源对象名称",
-		rules: { 
-		}
-	},
-    storypoints: {
-		caption: "故事点",
-		rules: { 
-		}
-	},
+    assignedto: "指派给",
+    childstories: "细分需求",
+    plan: "所属计划",
+    version: "版本号",
+    assigneddate: "指派日期",
+    pri: "优先级",
+    linkstories: "相关需求",
+    status: "当前状态",
+    estimate: "预计工时",
+    revieweddate: "评审时间",
+    title: "需求名称",
+    sourcenote: "来源备注",
+    reviewedby: "由谁评审",
+    substatus: "子状态",
+    stagedby: "设置阶段者",
+    openedby: "由谁创建",
+    openeddate: "创建日期",
+    id: "编号",
+    source: "需求来源",
+    closedreason: "关闭原因",
+    color: "标题颜色",
+    mailto: "抄送给",
+    deleted: "已删除",
+    keywords: "关键词",
+    lasteditedby: "最后修改",
+    stage: "所处阶段",
+    closeddate: "关闭日期	",
+    closedby: "由谁关闭",
+    type: "需求类型",
+    lastediteddate: "最后修改日期",
+    path: "模块路径",
+    parentname: "父需求名称",
+    modulename: "所属模块名称",
+    productname: "产品名称",
+    frombug: "来源Bug",
+    parent: "父需求",
+    module: "所属模块",
+    product: "所属产品",
+    duplicatestory: "重复需求ID",
+    branch: "平台/分支",
+    tobug: "转Bug",
+    spec: "需求描述",
+    verify: "验收标准",
+    result: "评审结果",
+    comment: "备注",
+    isleaf: "是否子需求",
+    files: "附件",
+    branchname: "平台/分支",
+    versionc: "版本号",
+    modulename1: "所属模块名称",
+    project: "项目",
+    preversion: "之前的版本",
+    neednotreview: "不需要评审",
+    isfavorites: "是否收藏",
+    ischild: "是否可以细分",
+    mailtoconact: "联系人",
+    mailtopk: "抄送给",
+    assignedtopk: "指派给（选择）",
+    noticeusers: "消息通知用户",
+    ibiz_sourceobject: "来源对象",
+    sourceobject: "来源对象",
+    ibiz_id: "IBIZ标识",
+    sourcename: "来源对象名称",
+    sourceid: "来源对象标识",
+    ibiz_sourceid: "来源对象标识",
+    ibiz_sourcename: "来源对象名称",
+    storypoints: "故事点",
   },
 	views: {
 		newmobeditview: {

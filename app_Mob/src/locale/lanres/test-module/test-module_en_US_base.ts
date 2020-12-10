@@ -1,85 +1,21 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    path: {
-		caption: "path",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "逻辑删除标志",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "名称",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序值",
-		rules: { 
-		}
-	},
-    branch: {
-		caption: "branch",
-		rules: { 
-		}
-	},
-    ibizshort: {
-		caption: "简称",
-		rules: { 
-		}
-	},
-    grade: {
-		caption: "grade",
-		rules: { 
-		}
-	},
-    type: {
-		caption: "类型（story）",
-		rules: { 
-		}
-	},
-    owner: {
-		caption: "owner",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "id",
-		rules: { 
-		}
-	},
-    isleaf: {
-		caption: "叶子模块",
-		rules: { 
-		}
-	},
-    collector: {
-		caption: "collector",
-		rules: { 
-		}
-	},
-    parent: {
-		caption: "id",
-		rules: { 
-		}
-	},
-    parentname: {
-		caption: "上级模块",
-		rules: { 
-		}
-	},
-    root: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    rootname: {
-		caption: "测试",
-		rules: { 
-		}
-	},
+    path:  commonLogic.appcommonhandle("path",null),
+    deleted:  commonLogic.appcommonhandle("逻辑删除标志",null),
+    name:  commonLogic.appcommonhandle("名称",null),
+    order:  commonLogic.appcommonhandle("排序值",null),
+    branch:  commonLogic.appcommonhandle("branch",null),
+    iBizShort:  commonLogic.appcommonhandle("简称",null),
+    grade:  commonLogic.appcommonhandle("grade",null),
+    type:  commonLogic.appcommonhandle("类型（story）",null),
+    owner:  commonLogic.appcommonhandle("owner",null),
+    id:  commonLogic.appcommonhandle("id",null),
+    isLeaf:  commonLogic.appcommonhandle("叶子模块",null),
+    collector:  commonLogic.appcommonhandle("collector",null),
+    parent:  commonLogic.appcommonhandle("id",null),
+    parentName:  commonLogic.appcommonhandle("上级模块",null),
+    root:  commonLogic.appcommonhandle("编号",null),
+    rootName:  commonLogic.appcommonhandle("测试",null),
   },
 };

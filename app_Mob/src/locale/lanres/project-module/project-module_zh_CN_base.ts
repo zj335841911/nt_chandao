@@ -1,91 +1,23 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    type: {
-		caption: "类型（task）",
-		rules: { 
-		}
-	},
-    collector: {
-		caption: "collector",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "id",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "逻辑删除标志",
-		rules: { 
-		}
-	},
-    isleaf: {
-		caption: "叶子模块",
-		rules: { 
-		}
-	},
-    path: {
-		caption: "path",
-		rules: { 
-		}
-	},
-    owner: {
-		caption: "owner",
-		rules: { 
-		}
-	},
-    ibizshort: {
-		caption: "简称",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "名称",
-		rules: { 
-		}
-	},
-    grade: {
-		caption: "grade",
-		rules: { 
-		}
-	},
-    order: {
-		caption: "排序值",
-		rules: { 
-		}
-	},
-    branch: {
-		caption: "branch",
-		rules: { 
-		}
-	},
-    parent: {
-		caption: "id",
-		rules: { 
-		}
-	},
-    root: {
-		caption: "项目",
-		rules: { 
-		}
-	},
-    rootname: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    parentname: {
-		caption: "上级模块",
-		rules: { 
-		}
-	},
-    orderpk: {
-		caption: "数据选择排序",
-		rules: { 
-		}
-	},
+    type: "类型（task）",
+    collector: "collector",
+    id: "id",
+    deleted: "逻辑删除标志",
+    isleaf: "叶子模块",
+    path: "path",
+    owner: "owner",
+    ibizshort: "简称",
+    name: "名称",
+    grade: "grade",
+    order: "排序值",
+    branch: "branch",
+    parent: "id",
+    root: "项目",
+    rootname: "所属项目",
+    parentname: "上级模块",
+    orderpk: "数据选择排序",
   },
 	views: {
 		mobpickupmdview: {

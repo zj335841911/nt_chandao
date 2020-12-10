@@ -1,126 +1,30 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    end: {
-		caption: "结束日期",
-		rules: { 
-		}
-	},
-    begin: {
-		caption: "开始日期",
-		rules: { 
-		}
-	},
-    mailto: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
-    pri: {
-		caption: "优先级",
-		rules: { 
-		}
-	},
-    substatus: {
-		caption: "子状态",
-		rules: { 
-		}
-	},
-    report: {
-		caption: "report",
-		rules: { 
-		}
-	},
-    desc: {
-		caption: "描述",
-		rules: { 
-		}
-	},
-    id: {
-		caption: "编号",
-		rules: { 
-		}
-	},
-    status: {
-		caption: "当前状态",
-		rules: { 
-		}
-	},
-    owner: {
-		caption: "负责人",
-		rules: { 
-		}
-	},
-    deleted: {
-		caption: "已删除",
-		rules: { 
-		}
-	},
-    auto: {
-		caption: "auto",
-		rules: { 
-		}
-	},
-    name: {
-		caption: "名称",
-		rules: { 
-		}
-	},
-    product: {
-		caption: "所属产品",
-		rules: { 
-		}
-	},
-    build: {
-		caption: "版本",
-		rules: { 
-		}
-	},
-    project: {
-		caption: "所属项目",
-		rules: { 
-		}
-	},
-    productname: {
-		caption: "产品",
-		rules: { 
-		}
-	},
-    projecttname: {
-		caption: "项目",
-		rules: { 
-		}
-	},
-    buildname: {
-		caption: "版本",
-		rules: { 
-		}
-	},
-    comment: {
-		caption: "备注",
-		rules: { 
-		}
-	},
-    casecnt: {
-		caption: "用例数",
-		rules: { 
-		}
-	},
-    ownerpk: {
-		caption: "负责人（选择）",
-		rules: { 
-		}
-	},
-    mailtoconact: {
-		caption: "联系人",
-		rules: { 
-		}
-	},
-    mailtopk: {
-		caption: "抄送给",
-		rules: { 
-		}
-	},
+    end: "结束日期",
+    begin: "开始日期",
+    mailto: "抄送给",
+    pri: "优先级",
+    substatus: "子状态",
+    report: "report",
+    desc: "描述",
+    id: "编号",
+    status: "当前状态",
+    owner: "负责人",
+    deleted: "已删除",
+    auto: "auto",
+    name: "名称",
+    product: "所属产品",
+    build: "版本",
+    project: "所属项目",
+    productname: "产品",
+    projecttname: "项目",
+    buildname: "版本",
+    comment: "备注",
+    casecnt: "用例数",
+    ownerpk: "负责人（选择）",
+    mailtoconact: "联系人",
+    mailtopk: "抄送给",
   },
 	views: {
 		moboptionviewclose: {
