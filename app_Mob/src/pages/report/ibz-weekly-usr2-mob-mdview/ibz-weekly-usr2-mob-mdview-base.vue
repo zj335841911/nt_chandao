@@ -681,21 +681,21 @@ export default class IbzWeeklyUsr2MobMDViewBase extends Vue {
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
-        let context = { ...this.context, ...contextJO };
+        let _context = { ...this.context, ...contextJO };
         if (args.length > 0) {
-            Object.assign(context, args[0]);
+            Object.assign(_context, args[0]);
         }
         let response: any = null;
         let panelNavParam = { "srfparentkey": "%ibzweekly%", "objecttype": "weekly", "thisweektask": "%thisweektask%", "nextweektask": "%nextweektask%" } ;
         let panelNavContext = { "thisweektask": "%thisweektask%", "nextweektask": "%nextweektask%", "objecttype": "weekly", "srfparentkey": "%ibzweekly%" } ;
         //导航参数处理
-        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
             { pathName: 'usr2mobtabexpview', parameterName: 'usr2mobtabexpview' },
         ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {

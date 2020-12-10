@@ -709,15 +709,15 @@ export default class StoryUsr2MobMDView_5219Base extends Vue {
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
-        let context = { ...this.context, ...contextJO };
+        let _context = { ...this.context, ...contextJO };
         if (args.length > 0) {
-            Object.assign(context, args[0]);
+            Object.assign(_context, args[0]);
         }
         let response: any = null;
         let panelNavParam = { } ;
         let panelNavContext = { } ;
         //导航参数处理
-        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
         if (context.product && true) {
             deResParameters = [
@@ -729,7 +729,7 @@ export default class StoryUsr2MobMDView_5219Base extends Vue {
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
