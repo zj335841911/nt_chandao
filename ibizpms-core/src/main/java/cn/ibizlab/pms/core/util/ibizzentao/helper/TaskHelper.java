@@ -584,7 +584,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     } else if (!flag1) {
                         currentTask.setStatus(StaticDict.Task__status.DONE.getValue());
                         currentTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
-                        currentTask.setFinisheddate(now);
+                        currentTask.setFinisheddate(currentTask.getFinisheddate() == null ? ZTDateUtil.now() : currentTask.getFinisheddate());
                     }
                 }
                 if (!old.getAssignedto().equals(currentTask.getAssignedto()) || currentTask.getStatus().equals(StaticDict.Task__status.DONE.getValue())) {
@@ -1252,7 +1252,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (teams.size() == 0) {
             newTask.setLeft(0d);
             newTask.setStatus(StaticDict.Task__status.DONE.getValue());
-            newTask.setFinisheddate(ZTDateUtil.now());
+            newTask.setFinisheddate(et.getFinisheddate() == null ? ZTDateUtil.now() : et.getFinisheddate());
             newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
             consumed = et.getConsumed() - old.getConsumed();
             if (consumed < 0) {
@@ -1305,6 +1305,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     teamHelper.internalUpdate(team);
                 }
             }
+            newTask.setFinisheddate(et.getFinisheddate());
             computeHours4Multiple(old, newTask, null, false);
         }
 

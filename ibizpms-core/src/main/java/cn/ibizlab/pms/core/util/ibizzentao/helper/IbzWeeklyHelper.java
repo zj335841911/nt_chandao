@@ -79,6 +79,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
             throw new BadRequestAlertException(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week)+"已经存在，请勿重复创建！", StaticDict.ReportType.WEEKLY.getValue(), "");
         }
         et.setIbzweeklyname(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week));
+        removeSomeTask(et);
         if (!SqlHelper.retBool(this.baseMapper.insert(et))){
             return false;
         }
@@ -95,6 +96,20 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         int week = calendar.get(Calendar.WEEK_OF_MONTH); //当月第几周
         return week;
     }
+    //判断任务状态是否时进行中，或者完成时间时本周
+    public void removeSomeTask(IbzWeekly et){
+        String ids = et.getThisweektask();
+        Timestamp date = et.getDate() == null ? ZTDateUtil.now() : et.getDate();
+        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().last("and find_in_set(id,'"+ids+"')  and ((status = 'doing' and assignedTo = '"+AuthenticationUser.getAuthenticationUser().getUsername()+"')  or (status = 'done' and YEARWEEK(date_format(DATE_SUB(finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK('"+date+"') ))"));
+        String newIds = "";
+        for (Task t : tasks) {
+            if (newIds.length() > 0){
+                newIds += ",";
+            }
+            newIds += t.getId();
+        }
+        et.setThisweektask(newIds);
+    }
 
 
     @Override
@@ -103,6 +118,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         IbzWeekly old = new IbzWeekly();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), old);
         String files = et.getFiles();
+        removeSomeTask(et);
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_weeklyid", et.getIbzweeklyid()))) {
             return false;
         }
