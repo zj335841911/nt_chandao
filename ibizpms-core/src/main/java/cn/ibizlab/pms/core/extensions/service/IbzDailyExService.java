@@ -83,22 +83,25 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
     public IbzDaily getYesterdayDailyPlansTask(IbzDaily et) {
         //获取昨天的日报
         List<IbzDaily> list = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 day),'%Y-%m-%d')"));
+        IbzDaily yesterdayIbzDaily = new IbzDaily();
+        Set<String> taskIdsSet = new HashSet<>();
         if (list.size() > 0) {
-            IbzDaily yesterdayIbzDaily = list.get(0);
+            yesterdayIbzDaily = list.get(0);
             //今日新建日报时预显示的完成任务 包括 昨天计划参与任务 + 今日完成任务 要去重
             //昨天计划参与任务id
             String tomorrowplanstask = yesterdayIbzDaily.getTomorrowplanstask() == null ? "" : yesterdayIbzDaily.getTomorrowplanstask();
             String[] yesterdayDailyTomorrowTaskList = tomorrowplanstask.split(ZTBaseHelper.MULTIPLE_CHOICE);
-            Set<String> taskIdsSet = new HashSet<>(Arrays.asList(yesterdayDailyTomorrowTaskList));
-            Timestamp date = et.getDate();
-            //今日完成任务
-            List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT((case when "+date+" is Null then now() else "+date+" end),'%Y-%m-%d')"));
-            for (Task task : todayDailyCompleteTasks) {
-                taskIdsSet.add(String.valueOf(task.getId()));
-            }
-            et.setTodaytask(Joiner.on(",").join(taskIdsSet));
-            et.setWorktoday(yesterdayIbzDaily.getPlanstomorrow());
+            taskIdsSet = new HashSet<>(Arrays.asList(yesterdayDailyTomorrowTaskList));
         }
+        Timestamp date = et.getDate();
+        //今日完成任务
+        List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT((case when " + date + " is Null then now() else " + date + " end),'%Y-%m-%d')"));
+        for (Task task : todayDailyCompleteTasks) {
+            taskIdsSet.add(String.valueOf(task.getId()));
+        }
+        et.setTodaytask(Joiner.on(",").join(taskIdsSet));
+        et.setWorktoday(yesterdayIbzDaily.getPlanstomorrow());
+
         return et;
     }
 
