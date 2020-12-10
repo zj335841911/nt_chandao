@@ -133,6 +133,8 @@
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|账户(ACCOUNT)|IN|
+|账户(ACCOUNT)|NOTIN|
 |真实姓名(REALNAME)|LIKE|
 |所属部门(DEPT)|EQ|
 |职位(ROLE)|EQ|
