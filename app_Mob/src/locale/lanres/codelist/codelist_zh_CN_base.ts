@@ -84,6 +84,9 @@ export default {
     MyPlanTask: {
         empty: '',
     },
+    MonthlyCompleteTaskChoice: {
+        empty: '',
+    },
     Project__status: {
         'wait': '未开始',
         'doing': '进行中',

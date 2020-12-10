@@ -885,6 +885,28 @@ public class TaskResource {
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "获取我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchthismonthcompletetaskchoice")
+	public ResponseEntity<List<TaskDTO>> fetchThisMonthCompleteTaskChoice(TaskSearchContext context) {
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "查询我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "查询我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/searchthismonthcompletetaskchoice")
+	public ResponseEntity<Page<TaskDTO>> searchThisMonthCompleteTaskChoice(@RequestBody TaskSearchContext context) {
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisWeekCompleteTask-all')")
 	@ApiOperation(value = "获取本周完成的任务(汇报)", tags = {"任务" } ,notes = "获取本周完成的任务(汇报)")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchthisweekcompletetask")
@@ -1878,6 +1900,29 @@ public class TaskResource {
 	public ResponseEntity<Page<TaskDTO>> searchTaskRootTaskByStory(@PathVariable("story_id") Long story_id, @RequestBody TaskSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Task> domains = taskService.searchRootTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "根据需求获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据需求获取我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/fetchthismonthcompletetaskchoice")
+	public ResponseEntity<List<TaskDTO>> fetchTaskThisMonthCompleteTaskChoiceByStory(@PathVariable("story_id") Long story_id,TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "根据需求查询我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据需求查询我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/searchthismonthcompletetaskchoice")
+	public ResponseEntity<Page<TaskDTO>> searchTaskThisMonthCompleteTaskChoiceByStory(@PathVariable("story_id") Long story_id, @RequestBody TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2882,6 +2927,29 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "根据项目获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据项目获取我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchthismonthcompletetaskchoice")
+	public ResponseEntity<List<TaskDTO>> fetchTaskThisMonthCompleteTaskChoiceByProject(@PathVariable("project_id") Long project_id,TaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "根据项目查询我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据项目查询我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/searchthismonthcompletetaskchoice")
+	public ResponseEntity<Page<TaskDTO>> searchTaskThisMonthCompleteTaskChoiceByProject(@PathVariable("project_id") Long project_id, @RequestBody TaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisWeekCompleteTask-all')")
 	@ApiOperation(value = "根据项目获取本周完成的任务(汇报)", tags = {"任务" } ,notes = "根据项目获取本周完成的任务(汇报)")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchthisweekcompletetask")
@@ -3880,6 +3948,29 @@ public class TaskResource {
 	public ResponseEntity<Page<TaskDTO>> searchTaskRootTaskByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody TaskSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Task> domains = taskService.searchRootTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "根据产品需求获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据产品需求获取我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/fetchthismonthcompletetaskchoice")
+	public ResponseEntity<List<TaskDTO>> fetchTaskThisMonthCompleteTaskChoiceByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
+	@ApiOperation(value = "根据产品需求查询我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据产品需求查询我本月完成的任务（下拉列表框）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/searchthismonthcompletetaskchoice")
+	public ResponseEntity<Page<TaskDTO>> searchTaskThisMonthCompleteTaskChoiceByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchThisMonthCompleteTaskChoice(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

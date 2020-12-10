@@ -2,6 +2,7 @@ import { HttpResponse } from '@/ibiz-core/utils';
 import  RelatedStory  from '@/app-core/code-list/related-story';
 import  ProductBranch_Cache  from '@/app-core/code-list/product-branch-cache';
 import  MyPlanTask  from '@/app-core/code-list/my-plan-task';
+import  MonthlyCompleteTaskChoice  from '@/app-core/code-list/monthly-complete-task-choice';
 import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
 import  SysOperator  from '@/app-core/code-list/sys-operator';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
@@ -60,6 +61,8 @@ export class CodeListService {
         ProductBranch_Cache: new ProductBranch_Cache(),
         // 我计划参与的任务（汇报）
         MyPlanTask: new MyPlanTask(),
+        // 月报我完成的任务（下拉列表框）
+        MonthlyCompleteTaskChoice: new MonthlyCompleteTaskChoice(),
         // 当前产品计划（动态）_缓存
         CurProductPlan: new CurProductPlan(),
         // 云系统操作者

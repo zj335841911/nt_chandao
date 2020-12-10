@@ -34,7 +34,7 @@
     :isEmptyCaption="false">
         <app-mob-check-list 
     type="dynamic"  
-    tag="MyCompleteTask"
+    tag="MonthlyCompleteTaskChoice"
     :disabled="detailsModel.thismonthtask.disabled" 
     :data="data"
     :context="context"

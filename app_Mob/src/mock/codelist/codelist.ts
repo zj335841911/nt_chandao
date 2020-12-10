@@ -414,6 +414,14 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        "srfkey": "MonthlyCompleteTaskChoice",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchThisMonthCompleteTaskChoice",
+        "items": []
+    },
+    {
         srfkey: 'Project__status',
         emptytext: '未定义',
         "codelisttype":"static",

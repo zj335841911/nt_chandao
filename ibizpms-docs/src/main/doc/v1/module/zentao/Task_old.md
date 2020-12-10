@@ -1298,6 +1298,7 @@ hide footbox
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekPlanCompleteTask))|否|&nbsp;|
 |ProjectTask|项目任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ProjectTask))|否|&nbsp;|
 |RootTask|根任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_RootTask))|否|&nbsp;|
+|ThisMonthCompleteTaskChoice|我本月完成的任务（下拉列表框）([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisMonthCompleteTaskChoice))|否|&nbsp;|
 |ThisWeekCompleteTask|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTask))|否|&nbsp;|
 |ThisWeekCompleteTaskChoice|本周已完成任务(下拉框选择)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskChoice))|否|&nbsp;|
 |ThisWeekCompleteTaskMobZS|移动端本周已完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskMobZS))|否|&nbsp;|
@@ -1332,6 +1333,7 @@ hide footbox
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)|NextWeekPlanCompleteTask|否|&nbsp;|
 |ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
+|ThisMonthCompleteTaskChoice|我本月完成的任务（下拉列表框）|ThisMonthCompleteTaskChoice|否|&nbsp;|
 |ThisWeekCompleteTask|本周完成的任务(汇报)|ThisWeekCompleteTask|否|&nbsp;|
 |ThisWeekCompleteTaskChoice|本周已完成任务(下拉框选择)|ThisWeekCompleteTaskChoice|否|&nbsp;|
 |ThisWeekCompleteTaskMobZS|移动端本周已完成任务(汇报)|ThisWeekCompleteTaskMobZS|否|&nbsp;|

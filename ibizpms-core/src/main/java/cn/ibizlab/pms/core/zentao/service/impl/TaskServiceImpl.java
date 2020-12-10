@@ -617,6 +617,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     /**
+     * 查询集合 我本月完成的任务（下拉列表框）
+     */
+    @Override
+    public Page<Task> searchThisMonthCompleteTaskChoice(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisMonthCompleteTaskChoice(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 本周完成的任务(汇报)
      */
     @Override
