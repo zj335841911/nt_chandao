@@ -313,7 +313,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @type {boolean}
      * @memberof ProjectStoryGridBase
      */
-    protected isDeExport: boolean = true;
+    protected isDeExport: boolean = false;
 
     /**
      * 所有导出列成员
@@ -601,5 +601,119 @@ export class ProjectStoryGridBase extends GridControlBase {
                 this.setActionState(data);
             })
         }
+    }
+
+    /**
+     * 数据导出
+     *
+     * @param {*} [data={}]
+     * @returns {void}
+     * @memberof ProjectStoryGridBase
+     */
+    public exportExcel(data: any = {}): void {
+        // 导出Excel
+        const doExport = async (_data: any) => {
+            const tHeader: Array<any> = [];
+            const filterVal: Array<any> = [];
+            (this.isDeExport ? this.allExportColumns : this.allColumns).forEach((item: any) => {
+                item.show && item.label ? tHeader.push(this.$t(item.langtag)) : '';
+                item.show && item.name ? filterVal.push(item.name) : '';
+            });
+            const data = await this.formatExcelData(filterVal, _data);
+            this.$export.exportExcel().then((excel: any) => {
+                excel.export_json_to_excel({
+                    header: tHeader, //表头 必填
+                    data, //具体数据 必填
+                    filename: this.appDeLogicName + (this.$t('app.gridpage.grid') as string), //非必填
+                    autoWidth: true, //非必填
+                    bookType: 'xlsx', //非必填
+                });
+            });
+        };
+        const page: any = {};
+        // 设置page，size
+        if (Object.is(data.type, 'maxRowCount')) {
+            Object.assign(page, { page: 0, size: data.maxRowCount });
+        } else if (Object.is(data.type, 'activatedPage')) {
+            if (this.isDeExport) {
+                Object.assign(page, { page: this.curPage - 1, size: this.limit });
+            } else {
+                try {
+                    const datas = [...this.items];
+                    let exportData: Array<any> = [];
+                    datas.forEach((data: any) => {
+                        exportData.push(data);
+                        if(data.hasOwnProperty('items') && data.items && data.items instanceof Array){
+                            data.items.forEach((item: any) => {
+                                exportData.push(item);
+                            });
+                        }
+                    });
+                    doExport(JSON.parse(JSON.stringify(exportData)));
+                } catch (error) {
+                    console.error(error);
+                }
+                return;
+            }
+        }
+        // 设置排序
+        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + ',' + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        const arg: any = {};
+        Object.assign(arg, page);
+        // 获取query,搜索表单，viewparams等父数据
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
+        let post: any;
+        if (this.isDeExport) {
+            post = this.service.searchDEExportData(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
+        } else {
+            post = this.service.search(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
+        }
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                this.$Notice.error({
+                    title: '',
+                    desc: (this.$t('app.gridpage.exportFail') as string) + ',' + response.info,
+                });
+                return;
+            }
+            try {
+                const datas = [...response.data];
+                let exportData: Array<any> = [];
+                datas.forEach((data: any) => {
+                    exportData.push(data);
+                    if(data.hasOwnProperty('items') && data.items && data.items instanceof Array){
+                        data.items.forEach((item: any) => {
+                            exportData.push(item);
+                        });
+                    }
+                });
+                doExport(JSON.parse(JSON.stringify(exportData)));
+            } catch (error) {
+                console.error(error);
+            }
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: '', desc: this.$t('app.gridpage.exportFail') as string });
+        });
     }
 }

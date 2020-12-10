@@ -23,6 +23,36 @@ export default class MainModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'ibz_reportlyid',
+          prop: 'ibzreportlyid',
+          dataType: 'ACID',
+        },
+        {
+          name: 'ibz_reportlyname',
+          prop: 'ibzreportlyname',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'account',
+          prop: 'account',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'date',
+          prop: 'date',
+          dataType: 'DATE',
+        },
+        {
+          name: 'reportto',
+          prop: 'reportto',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'issubmit',
+          prop: 'issubmit',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
