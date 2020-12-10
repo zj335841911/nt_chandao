@@ -23,17 +23,22 @@ export default class MainModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
-      ]
-    }else{
-		  return [
         {
           name: 'ibz_plantempletname',
           prop: 'ibzplantempletname',
           dataType: 'TEXT',
         },
         {
-          name: 'updateman',
-          prop: 'updateman',
+          name: 'updatedate',
+          prop: 'updatedate',
+          dataType: 'DATETIME',
+        },
+      ]
+    }else{
+		  return [
+        {
+          name: 'ibz_plantempletname',
+          prop: 'ibzplantempletname',
           dataType: 'TEXT',
         },
         {

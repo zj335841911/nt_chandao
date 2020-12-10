@@ -54,10 +54,13 @@ function getLocaleResourceBase(){
 			main_grid: {
 				columns: {
 					ibz_plantempletname: commonLogic.appcommonhandle("模板名称",null),
-					updateman: commonLogic.appcommonhandle("更新人",null),
 					updatedate: commonLogic.appcommonhandle("更新时间",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
+			exportColumns: {
+					ibz_plantempletname: commonLogic.appcommonhandle("模板名称",null),
+					updatedate: commonLogic.appcommonhandle("更新时间",null),
+			},
 				uiactions: {
 				},
 			},

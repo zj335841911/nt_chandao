@@ -106,16 +106,7 @@ export class MainGridBase extends GridControlBase {
             label: '模板名称',
             langtag: 'entities.ibzplantemplet.main_grid.columns.ibz_plantempletname',
             show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'updateman',
-            label: '更新人',
-            langtag: 'entities.ibzplantemplet.main_grid.columns.updateman',
-            show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -230,7 +221,6 @@ export class MainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'ibz_plantempletname':false,
-        'updateman':false,
         'updatedate':false,
     };
 
@@ -291,6 +281,36 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'ibz_plantempletname',
+            label: '模板名称',
+            langtag: 'entities.ibzplantemplet.main_grid.exportColumns.ibz_plantempletname',
+            show: true,
+        },
+        {
+            name: 'updatedate',
+            label: '更新时间',
+            langtag: 'entities.ibzplantemplet.main_grid.exportColumns.updatedate',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -301,14 +321,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'updateman',
-                srfkey: 'SysOperator',
-                codelistType : 'DYNAMIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 
@@ -327,7 +339,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_plantempletname','updateman','updatedate'];
+        let allColumns:Array<any> = ['ibz_plantempletname','updatedate'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -407,7 +419,6 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 ibz_plantempletname:'',
-                updateman:'',
                 updatedate:'',
                 children: children
             }
@@ -434,7 +445,6 @@ export class MainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             ibz_plantempletname:'',
-            updateman:'',
             updatedate:'',
             children: child
         }
@@ -497,7 +507,6 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 ibz_plantempletname:'',
-                updateman:'',
                 updatedate:'',
                 children: children,
             }
