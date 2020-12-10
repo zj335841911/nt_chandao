@@ -1,29 +1,121 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    createman: "建立人",
-    ibzdailyid: "日报标识",
-    ibzdailyname: "日报名称",
-    updatedate: "更新时间",
-    createdate: "建立时间",
-    updateman: "更新人",
-    date: "日期",
-    account: "用户",
-    worktoday: "今日工作",
-    mailto: "抄送给",
-    files: "附件",
-    todaytask: "完成任务",
-    issubmit: "是否提交",
-    planstomorrow: "明日计划",
-    tomorrowplanstask: "明日计划任务",
-    reportto: "汇报给",
-    comment: "其他事项",
-    createmanname: "建立人名称",
-    updatemanname: "更新人名称",
-    reportstatus: "状态",
-    submittime: "提交时间",
-    reporttopk: "汇报给（选择）",
-    mailtopk: "抄送给（选择）",
+    createman: {
+		caption: "建立人",
+		rules: { 
+		}
+	},
+    ibzdailyid: {
+		caption: "日报标识",
+		rules: { 
+		}
+	},
+    ibzdailyname: {
+		caption: "日报名称",
+		rules: { 
+		}
+	},
+    updatedate: {
+		caption: "更新时间",
+		rules: { 
+		}
+	},
+    createdate: {
+		caption: "建立时间",
+		rules: { 
+		}
+	},
+    updateman: {
+		caption: "更新人",
+		rules: { 
+		}
+	},
+    date: {
+		caption: "日期",
+		rules: { 
+		}
+	},
+    account: {
+		caption: "用户",
+		rules: { 
+		}
+	},
+    worktoday: {
+		caption: "今日工作",
+		rules: { 
+		}
+	},
+    mailto: {
+		caption: "抄送给",
+		rules: { 
+		}
+	},
+    files: {
+		caption: "附件",
+		rules: { 
+		}
+	},
+    todaytask: {
+		caption: "完成任务",
+		rules: { 
+		}
+	},
+    issubmit: {
+		caption: "是否提交",
+		rules: { 
+		}
+	},
+    planstomorrow: {
+		caption: "明日计划",
+		rules: { 
+		}
+	},
+    tomorrowplanstask: {
+		caption: "明日计划任务",
+		rules: { 
+		}
+	},
+    reportto: {
+		caption: "汇报给",
+		rules: { 
+		}
+	},
+    comment: {
+		caption: "其他事项",
+		rules: { 
+		}
+	},
+    createmanname: {
+		caption: "建立人名称",
+		rules: { 
+		}
+	},
+    updatemanname: {
+		caption: "更新人名称",
+		rules: { 
+		}
+	},
+    reportstatus: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    submittime: {
+		caption: "提交时间",
+		rules: { 
+		}
+	},
+    reporttopk: {
+		caption: "汇报给（选择）",
+		rules: { 
+		}
+	},
+    mailtopk: {
+		caption: "抄送给（选择）",
+		rules: { 
+		}
+	},
   },
 	views: {
 		myremobeditview: {

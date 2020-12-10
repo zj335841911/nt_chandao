@@ -1,65 +1,301 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    lastEditedDate:  commonLogic.appcommonhandle("修改日期",null),
-    scriptedDate:  commonLogic.appcommonhandle("scriptedDate",null),
-    color:  commonLogic.appcommonhandle("标题颜色",null),
-    path:  commonLogic.appcommonhandle("path",null),
-    openedDate:  commonLogic.appcommonhandle("创建日期",null),
-    lastRunResult:  commonLogic.appcommonhandle("结果",null),
-    linkCase:  commonLogic.appcommonhandle("相关用例",null),
-    order:  commonLogic.appcommonhandle("排序",null),
-    howRun:  commonLogic.appcommonhandle("howRun",null),
-    version:  commonLogic.appcommonhandle("用例版本",null),
-    scriptedBy:  commonLogic.appcommonhandle("scriptedBy",null),
-    openedBy:  commonLogic.appcommonhandle("由谁创建",null),
-    type:  commonLogic.appcommonhandle("用例类型",null),
-    status:  commonLogic.appcommonhandle("用例状态",null),
-    auto:  commonLogic.appcommonhandle("auto",null),
-    frequency:  commonLogic.appcommonhandle("frequency",null),
-    title:  commonLogic.appcommonhandle("用例标题",null),
-    lastEditedBy:  commonLogic.appcommonhandle("最后修改者",null),
-    reviewedBy:  commonLogic.appcommonhandle("由谁评审",null),
-    deleted:  commonLogic.appcommonhandle("已删除",null),
-    reviewedDate:  commonLogic.appcommonhandle("评审时间",null),
-    pri:  commonLogic.appcommonhandle("优先级",null),
-    stage:  commonLogic.appcommonhandle("适用阶段",null),
-    scriptLocation:  commonLogic.appcommonhandle("scriptLocation",null),
-    lastRunDate:  commonLogic.appcommonhandle("执行时间",null),
-    keywords:  commonLogic.appcommonhandle("关键词",null),
-    scriptStatus:  commonLogic.appcommonhandle("scriptStatus",null),
-    frame:  commonLogic.appcommonhandle("工具/框架",null),
-    subStatus:  commonLogic.appcommonhandle("子状态",null),
-    id:  commonLogic.appcommonhandle("用例编号",null),
-    precondition:  commonLogic.appcommonhandle("前置条件",null),
-    lastRunner:  commonLogic.appcommonhandle("执行人",null),
-    fromCaseVersion:  commonLogic.appcommonhandle("来源用例版本",null),
-    storyVersion:  commonLogic.appcommonhandle("需求版本",null),
-    fromCaseId:  commonLogic.appcommonhandle("来源用例",null),
-    branch:  commonLogic.appcommonhandle("平台/分支",null),
-    fromBug:  commonLogic.appcommonhandle("来源Bug",null),
-    story:  commonLogic.appcommonhandle("相关需求",null),
-    product:  commonLogic.appcommonhandle("所属产品",null),
-    lib:  commonLogic.appcommonhandle("所属库",null),
-    module:  commonLogic.appcommonhandle("所属模块",null),
-    modulename:  commonLogic.appcommonhandle("模块名称",null),
-    storyname:  commonLogic.appcommonhandle("需求名称",null),
-    productName:  commonLogic.appcommonhandle("产品名称",null),
-    caseSteps:  commonLogic.appcommonhandle("用例步骤集合",null),
-    toBugCNT:  commonLogic.appcommonhandle("转bug数",null),
-    resultCNT:  commonLogic.appcommonhandle("测试结果数",null),
-    stepCNT:  commonLogic.appcommonhandle("用例步骤数",null),
-    comment:  commonLogic.appcommonhandle("备注",null),
-    resultfalicnt:  commonLogic.appcommonhandle("测试失败数",null),
-    status1:  commonLogic.appcommonhandle("用例状态",null),
-    assignedTo:  commonLogic.appcommonhandle("指派给",null),
-    task:  commonLogic.appcommonhandle("属性",null),
-    libname:  commonLogic.appcommonhandle("用例库",null),
-    lastrunresult1:  commonLogic.appcommonhandle("测试用例结果",null),
-    isfavorites:  commonLogic.appcommonhandle("是否收藏",null),
-    modulename1:  commonLogic.appcommonhandle("模块名称",null),
-    files:  commonLogic.appcommonhandle("附件",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
+    lastediteddate: {
+		caption: "修改日期",
+		rules: { 
+		}
+	},
+    scripteddate: {
+		caption: "scriptedDate",
+		rules: { 
+		}
+	},
+    color: {
+		caption: "标题颜色",
+		rules: { 
+		}
+	},
+    path: {
+		caption: "path",
+		rules: { 
+		}
+	},
+    openeddate: {
+		caption: "创建日期",
+		rules: { 
+		}
+	},
+    lastrunresult: {
+		caption: "结果",
+		rules: { 
+		}
+	},
+    linkcase: {
+		caption: "相关用例",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "排序",
+		rules: { 
+		}
+	},
+    howrun: {
+		caption: "howRun",
+		rules: { 
+		}
+	},
+    version: {
+		caption: "用例版本",
+		rules: { 
+		}
+	},
+    scriptedby: {
+		caption: "scriptedBy",
+		rules: { 
+		}
+	},
+    openedby: {
+		caption: "由谁创建",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "用例类型",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "用例状态",
+		rules: { 
+		}
+	},
+    auto: {
+		caption: "auto",
+		rules: { 
+		}
+	},
+    frequency: {
+		caption: "frequency",
+		rules: { 
+		}
+	},
+    title: {
+		caption: "用例标题",
+		rules: { 
+		}
+	},
+    lasteditedby: {
+		caption: "最后修改者",
+		rules: { 
+		}
+	},
+    reviewedby: {
+		caption: "由谁评审",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    revieweddate: {
+		caption: "评审时间",
+		rules: { 
+		}
+	},
+    pri: {
+		caption: "优先级",
+		rules: { 
+		}
+	},
+    stage: {
+		caption: "适用阶段",
+		rules: { 
+		}
+	},
+    scriptlocation: {
+		caption: "scriptLocation",
+		rules: { 
+		}
+	},
+    lastrundate: {
+		caption: "执行时间",
+		rules: { 
+		}
+	},
+    keywords: {
+		caption: "关键词",
+		rules: { 
+		}
+	},
+    scriptstatus: {
+		caption: "scriptStatus",
+		rules: { 
+		}
+	},
+    frame: {
+		caption: "工具/框架",
+		rules: { 
+		}
+	},
+    substatus: {
+		caption: "子状态",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "用例编号",
+		rules: { 
+		}
+	},
+    precondition: {
+		caption: "前置条件",
+		rules: { 
+		}
+	},
+    lastrunner: {
+		caption: "执行人",
+		rules: { 
+		}
+	},
+    fromcaseversion: {
+		caption: "来源用例版本",
+		rules: { 
+		}
+	},
+    storyversion: {
+		caption: "需求版本",
+		rules: { 
+		}
+	},
+    fromcaseid: {
+		caption: "来源用例",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "平台/分支",
+		rules: { 
+		}
+	},
+    frombug: {
+		caption: "来源Bug",
+		rules: { 
+		}
+	},
+    story: {
+		caption: "相关需求",
+		rules: { 
+		}
+	},
+    product: {
+		caption: "所属产品",
+		rules: { 
+		}
+	},
+    lib: {
+		caption: "所属库",
+		rules: { 
+		}
+	},
+    module: {
+		caption: "所属模块",
+		rules: { 
+		}
+	},
+    modulename: {
+		caption: "模块名称",
+		rules: { 
+		}
+	},
+    storyname: {
+		caption: "需求名称",
+		rules: { 
+		}
+	},
+    productname: {
+		caption: "产品名称",
+		rules: { 
+		}
+	},
+    casesteps: {
+		caption: "用例步骤集合",
+		rules: { 
+		}
+	},
+    tobugcnt: {
+		caption: "转bug数",
+		rules: { 
+		}
+	},
+    resultcnt: {
+		caption: "测试结果数",
+		rules: { 
+		}
+	},
+    stepcnt: {
+		caption: "用例步骤数",
+		rules: { 
+		}
+	},
+    comment: {
+		caption: "备注",
+		rules: { 
+		}
+	},
+    resultfalicnt: {
+		caption: "测试失败数",
+		rules: { 
+		}
+	},
+    status1: {
+		caption: "用例状态",
+		rules: { 
+		}
+	},
+    assignedto: {
+		caption: "指派给",
+		rules: { 
+		}
+	},
+    task: {
+		caption: "属性",
+		rules: { 
+		}
+	},
+    libname: {
+		caption: "用例库",
+		rules: { 
+		}
+	},
+    lastrunresult1: {
+		caption: "测试用例结果",
+		rules: { 
+		}
+	},
+    isfavorites: {
+		caption: "是否收藏",
+		rules: { 
+		}
+	},
+    modulename1: {
+		caption: "模块名称",
+		rules: { 
+		}
+	},
+    files: {
+		caption: "附件",
+		rules: { 
+		}
+	},
+    noticeusers: {
+		caption: "消息通知用户",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobmdview_testtask: {

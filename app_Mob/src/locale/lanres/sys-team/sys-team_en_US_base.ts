@@ -1,9 +1,25 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    teamId:  commonLogic.appcommonhandle("组标识",null),
-    teamName:  commonLogic.appcommonhandle("组名称",null),
-    memo:  commonLogic.appcommonhandle("备注",null),
-    domains:  commonLogic.appcommonhandle("区属",null),
+    teamid: {
+		caption: "组标识",
+		rules: { 
+		}
+	},
+    teamname: {
+		caption: "组名称",
+		rules: { 
+		}
+	},
+    memo: {
+		caption: "备注",
+		rules: { 
+		}
+	},
+    domains: {
+		caption: "区属",
+		rules: { 
+		}
+	},
   },
 };

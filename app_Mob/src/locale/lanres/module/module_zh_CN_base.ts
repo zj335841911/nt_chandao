@@ -1,23 +1,91 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    root: "所属根",
-    grade: "级别",
-    type: "类型",
-    name: "模块名称",
-    order: "排序",
-    owner: "负责人",
-    id: "id",
-    collector: "收藏者",
-    ibizshort: "简称",
-    path: "路径",
-    deleted: "已删除",
-    parentname: "上级模块",
-    branch: "平台/分支",
-    parent: "上级模块",
-    mdeptid: "部门标识",
-    orgid: "组织标识",
-    orderpk: "数据选择排序",
+    root: {
+		caption: "所属根",
+		rules: { 
+		}
+	},
+    grade: {
+		caption: "级别",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "类型",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "模块名称",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "排序",
+		rules: { 
+		}
+	},
+    owner: {
+		caption: "负责人",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "id",
+		rules: { 
+		}
+	},
+    collector: {
+		caption: "收藏者",
+		rules: { 
+		}
+	},
+    ibizshort: {
+		caption: "简称",
+		rules: { 
+		}
+	},
+    path: {
+		caption: "路径",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    parentname: {
+		caption: "上级模块",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "平台/分支",
+		rules: { 
+		}
+	},
+    parent: {
+		caption: "上级模块",
+		rules: { 
+		}
+	},
+    mdeptid: {
+		caption: "部门标识",
+		rules: { 
+		}
+	},
+    orgid: {
+		caption: "组织标识",
+		rules: { 
+		}
+	},
+    orderpk: {
+		caption: "数据选择排序",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobpickupview: {

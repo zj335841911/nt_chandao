@@ -1,38 +1,170 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    id:  commonLogic.appcommonhandle("项目编号",null),
-    storyCnt:  commonLogic.appcommonhandle("需求总数",null),
-    taskCnt:  commonLogic.appcommonhandle("任务总数",null),
-    totalEstimate:  commonLogic.appcommonhandle("任务最初预计总工时",null),
-    totalConsumed:  commonLogic.appcommonhandle("任务消耗总工时",null),
-    totalLeft:  commonLogic.appcommonhandle("任务预计剩余总工时",null),
-    unDoneTaskCnt:  commonLogic.appcommonhandle("未完成任务总数",null),
-    closedStoryCnt:  commonLogic.appcommonhandle("关闭需求总数",null),
-    bugCnt:  commonLogic.appcommonhandle("Bug总数",null),
-    activeBugCnt:  commonLogic.appcommonhandle("未解决Bug总数",null),
-    unClosedStoryCnt:  commonLogic.appcommonhandle("未关闭需求总数",null),
-    finishTaskCnt:  commonLogic.appcommonhandle("已结束任务总数",null),
-    finishBugCnt:  commonLogic.appcommonhandle("已解决Bug总数",null),
-    deleted:  commonLogic.appcommonhandle("已删除",null),
-    time:  commonLogic.appcommonhandle("工时",null),
-    type:  commonLogic.appcommonhandle("工时类型",null),
-    name:  commonLogic.appcommonhandle("项目名称",null),
-    unconfirmedBugCnt:  commonLogic.appcommonhandle("未确认Bug总数",null),
-    unclosedBugCnt:  commonLogic.appcommonhandle("未关闭Bug总数",null),
-    totalwh:  commonLogic.appcommonhandle("总工时",null),
-    releasedStoryCnt:  commonLogic.appcommonhandle("已发布需求数",null),
-    yesterdayctaskcnt:  commonLogic.appcommonhandle("昨日完成任务数",null),
-    yesterdayrbugcnt:  commonLogic.appcommonhandle("昨天解决Bug数",null),
-    end:  commonLogic.appcommonhandle("截止日期",null),
-    status:  commonLogic.appcommonhandle("状态",null),
-    order1:  commonLogic.appcommonhandle("项目排序",null),
-    istop:  commonLogic.appcommonhandle("是否置顶",null),
-    closedtaskcnt:  commonLogic.appcommonhandle("已关闭任务数",null),
-    canceltaskcnt:  commonLogic.appcommonhandle("已取消任务数",null),
-    pausetaskcnt:  commonLogic.appcommonhandle("已暂停任务数",null),
-    waittaskcnt:  commonLogic.appcommonhandle("未开始任务数",null),
-    doingtaskcnt:  commonLogic.appcommonhandle("进行中任务数",null),
-    donetaskcnt:  commonLogic.appcommonhandle("已完成任务数",null),
+    id: {
+		caption: "项目编号",
+		rules: { 
+		}
+	},
+    storycnt: {
+		caption: "需求总数",
+		rules: { 
+		}
+	},
+    taskcnt: {
+		caption: "任务总数",
+		rules: { 
+		}
+	},
+    totalestimate: {
+		caption: "任务最初预计总工时",
+		rules: { 
+		}
+	},
+    totalconsumed: {
+		caption: "任务消耗总工时",
+		rules: { 
+		}
+	},
+    totalleft: {
+		caption: "任务预计剩余总工时",
+		rules: { 
+		}
+	},
+    undonetaskcnt: {
+		caption: "未完成任务总数",
+		rules: { 
+		}
+	},
+    closedstorycnt: {
+		caption: "关闭需求总数",
+		rules: { 
+		}
+	},
+    bugcnt: {
+		caption: "Bug总数",
+		rules: { 
+		}
+	},
+    activebugcnt: {
+		caption: "未解决Bug总数",
+		rules: { 
+		}
+	},
+    unclosedstorycnt: {
+		caption: "未关闭需求总数",
+		rules: { 
+		}
+	},
+    finishtaskcnt: {
+		caption: "已结束任务总数",
+		rules: { 
+		}
+	},
+    finishbugcnt: {
+		caption: "已解决Bug总数",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    time: {
+		caption: "工时",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "工时类型",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "项目名称",
+		rules: { 
+		}
+	},
+    unconfirmedbugcnt: {
+		caption: "未确认Bug总数",
+		rules: { 
+		}
+	},
+    unclosedbugcnt: {
+		caption: "未关闭Bug总数",
+		rules: { 
+		}
+	},
+    totalwh: {
+		caption: "总工时",
+		rules: { 
+		}
+	},
+    releasedstorycnt: {
+		caption: "已发布需求数",
+		rules: { 
+		}
+	},
+    yesterdayctaskcnt: {
+		caption: "昨日完成任务数",
+		rules: { 
+		}
+	},
+    yesterdayrbugcnt: {
+		caption: "昨天解决Bug数",
+		rules: { 
+		}
+	},
+    end: {
+		caption: "截止日期",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    order1: {
+		caption: "项目排序",
+		rules: { 
+		}
+	},
+    istop: {
+		caption: "是否置顶",
+		rules: { 
+		}
+	},
+    closedtaskcnt: {
+		caption: "已关闭任务数",
+		rules: { 
+		}
+	},
+    canceltaskcnt: {
+		caption: "已取消任务数",
+		rules: { 
+		}
+	},
+    pausetaskcnt: {
+		caption: "已暂停任务数",
+		rules: { 
+		}
+	},
+    waittaskcnt: {
+		caption: "未开始任务数",
+		rules: { 
+		}
+	},
+    doingtaskcnt: {
+		caption: "进行中任务数",
+		rules: { 
+		}
+	},
+    donetaskcnt: {
+		caption: "已完成任务数",
+		rules: { 
+		}
+	},
   },
 };

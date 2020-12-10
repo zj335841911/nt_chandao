@@ -1,40 +1,180 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    groups:  commonLogic.appcommonhandle("分组",null),
-    editedDate:  commonLogic.appcommonhandle("更新时间",null),
-    views:  commonLogic.appcommonhandle("views",null),
-    version:  commonLogic.appcommonhandle("版本号",null),
-    editedBy:  commonLogic.appcommonhandle("由谁更新",null),
-    id:  commonLogic.appcommonhandle("文档编号",null),
-    title:  commonLogic.appcommonhandle("文档标题",null),
-    deleted:  commonLogic.appcommonhandle("已删除",null),
-    type:  commonLogic.appcommonhandle("文档类型",null),
-    addedDate:  commonLogic.appcommonhandle("添加时间",null),
-    acl:  commonLogic.appcommonhandle("权限",null),
-    users:  commonLogic.appcommonhandle("用户",null),
-    keywords:  commonLogic.appcommonhandle("关键字",null),
-    collector:  commonLogic.appcommonhandle("收藏者",null),
-    addedBy:  commonLogic.appcommonhandle("由谁添加",null),
-    lib:  commonLogic.appcommonhandle("所属文档库",null),
-    project:  commonLogic.appcommonhandle("所属项目",null),
-    product:  commonLogic.appcommonhandle("所属产品",null),
-    module:  commonLogic.appcommonhandle("所属分类",null),
-    projectName:  commonLogic.appcommonhandle("所属项目",null),
-    productName:  commonLogic.appcommonhandle("所属产品",null),
-    libname:  commonLogic.appcommonhandle("所属文档库",null),
-    modulename:  commonLogic.appcommonhandle("模块分类",null),
-    content:  commonLogic.appcommonhandle("文档正文",null),
-    files:  commonLogic.appcommonhandle("附件",null),
-    url:  commonLogic.appcommonhandle("文档链接",null),
-    docqtype:  commonLogic.appcommonhandle("文档查询类型",null),
-    isfavourites:  commonLogic.appcommonhandle("是否收藏",null),
-    alldoccnt:  commonLogic.appcommonhandle("所有文档数量",null),
-    recentupdatecnt:  commonLogic.appcommonhandle("最近更新数量",null),
-    todayupdatecnt:  commonLogic.appcommonhandle("今日更新数量",null),
-    recentaddcnt:  commonLogic.appcommonhandle("最近添加数量",null),
-    mydoccnt:  commonLogic.appcommonhandle("我的文档数量",null),
-    myfavouritecnt:  commonLogic.appcommonhandle("我的收藏数量",null),
-    doccnt:  commonLogic.appcommonhandle("文档数",null),
+    groups: {
+		caption: "分组",
+		rules: { 
+		}
+	},
+    editeddate: {
+		caption: "更新时间",
+		rules: { 
+		}
+	},
+    views: {
+		caption: "views",
+		rules: { 
+		}
+	},
+    version: {
+		caption: "版本号",
+		rules: { 
+		}
+	},
+    editedby: {
+		caption: "由谁更新",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "文档编号",
+		rules: { 
+		}
+	},
+    title: {
+		caption: "文档标题",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "文档类型",
+		rules: { 
+		}
+	},
+    addeddate: {
+		caption: "添加时间",
+		rules: { 
+		}
+	},
+    acl: {
+		caption: "权限",
+		rules: { 
+		}
+	},
+    users: {
+		caption: "用户",
+		rules: { 
+		}
+	},
+    keywords: {
+		caption: "关键字",
+		rules: { 
+		}
+	},
+    collector: {
+		caption: "收藏者",
+		rules: { 
+		}
+	},
+    addedby: {
+		caption: "由谁添加",
+		rules: { 
+		}
+	},
+    lib: {
+		caption: "所属文档库",
+		rules: { 
+		}
+	},
+    project: {
+		caption: "所属项目",
+		rules: { 
+		}
+	},
+    product: {
+		caption: "所属产品",
+		rules: { 
+		}
+	},
+    module: {
+		caption: "所属分类",
+		rules: { 
+		}
+	},
+    projectname: {
+		caption: "所属项目",
+		rules: { 
+		}
+	},
+    productname: {
+		caption: "所属产品",
+		rules: { 
+		}
+	},
+    libname: {
+		caption: "所属文档库",
+		rules: { 
+		}
+	},
+    modulename: {
+		caption: "模块分类",
+		rules: { 
+		}
+	},
+    content: {
+		caption: "文档正文",
+		rules: { 
+		}
+	},
+    files: {
+		caption: "附件",
+		rules: { 
+		}
+	},
+    url: {
+		caption: "文档链接",
+		rules: { 
+		}
+	},
+    docqtype: {
+		caption: "文档查询类型",
+		rules: { 
+		}
+	},
+    isfavourites: {
+		caption: "是否收藏",
+		rules: { 
+		}
+	},
+    alldoccnt: {
+		caption: "所有文档数量",
+		rules: { 
+		}
+	},
+    recentupdatecnt: {
+		caption: "最近更新数量",
+		rules: { 
+		}
+	},
+    todayupdatecnt: {
+		caption: "今日更新数量",
+		rules: { 
+		}
+	},
+    recentaddcnt: {
+		caption: "最近添加数量",
+		rules: { 
+		}
+	},
+    mydoccnt: {
+		caption: "我的文档数量",
+		rules: { 
+		}
+	},
+    myfavouritecnt: {
+		caption: "我的收藏数量",
+		rules: { 
+		}
+	},
+    doccnt: {
+		caption: "文档数",
+		rules: { 
+		}
+	},
   },
 };

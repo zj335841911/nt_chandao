@@ -1,37 +1,161 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    id: "产品编号",
-    deleted: "已删除",
-    storycnt: "需求总数",
-    productplancnt: "计划总数",
-    releasecnt: "发布总数",
-    waitstorycnt: "未开始需求数",
-    plannedstorycnt: "已计划需求数",
-    developingstorycnt: "开发中需求数",
-    testingstorycnt: "测试中需求数",
-    releasedstorycnt: "已发布需求数",
-    unendproductplancnt: "未过期计划数",
-    resprojectcnt: "关联项目数",
-    undoneresprojectcnt: "未完成关联项目数",
-    normalreleasecnt: "维护中发布数",
-    activestorycnt: "激活需求数",
-    activebugcnt: "未解决Bug数",
-    name: "产品名称",
-    assigntomebugcnt: "指派给我的Bug数",
-    notclosedbugcnt: "未关闭Bug数",
-    bugcnt: "所有Bug数",
-    unconfirmbugcnt: "未确认Bug数",
-    yesterdayclosedbugcnt: "昨天关闭Bug数",
-    yesterdayconfirmbugcnt: "昨天确认Bug数",
-    yesterdayresolvedbugcnt: "昨天解决Bug数",
-    postponedprojectcnt: "已延期",
-    currproject: "当前项目",
-    status: "状态",
-    code: "产品代号",
-    type: "产品类型",
-    order1: "产品排序",
-    istop: "是否置顶",
+    id: {
+		caption: "产品编号",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    storycnt: {
+		caption: "需求总数",
+		rules: { 
+		}
+	},
+    productplancnt: {
+		caption: "计划总数",
+		rules: { 
+		}
+	},
+    releasecnt: {
+		caption: "发布总数",
+		rules: { 
+		}
+	},
+    waitstorycnt: {
+		caption: "未开始需求数",
+		rules: { 
+		}
+	},
+    plannedstorycnt: {
+		caption: "已计划需求数",
+		rules: { 
+		}
+	},
+    developingstorycnt: {
+		caption: "开发中需求数",
+		rules: { 
+		}
+	},
+    testingstorycnt: {
+		caption: "测试中需求数",
+		rules: { 
+		}
+	},
+    releasedstorycnt: {
+		caption: "已发布需求数",
+		rules: { 
+		}
+	},
+    unendproductplancnt: {
+		caption: "未过期计划数",
+		rules: { 
+		}
+	},
+    resprojectcnt: {
+		caption: "关联项目数",
+		rules: { 
+		}
+	},
+    undoneresprojectcnt: {
+		caption: "未完成关联项目数",
+		rules: { 
+		}
+	},
+    normalreleasecnt: {
+		caption: "维护中发布数",
+		rules: { 
+		}
+	},
+    activestorycnt: {
+		caption: "激活需求数",
+		rules: { 
+		}
+	},
+    activebugcnt: {
+		caption: "未解决Bug数",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "产品名称",
+		rules: { 
+		}
+	},
+    assigntomebugcnt: {
+		caption: "指派给我的Bug数",
+		rules: { 
+		}
+	},
+    notclosedbugcnt: {
+		caption: "未关闭Bug数",
+		rules: { 
+		}
+	},
+    bugcnt: {
+		caption: "所有Bug数",
+		rules: { 
+		}
+	},
+    unconfirmbugcnt: {
+		caption: "未确认Bug数",
+		rules: { 
+		}
+	},
+    yesterdayclosedbugcnt: {
+		caption: "昨天关闭Bug数",
+		rules: { 
+		}
+	},
+    yesterdayconfirmbugcnt: {
+		caption: "昨天确认Bug数",
+		rules: { 
+		}
+	},
+    yesterdayresolvedbugcnt: {
+		caption: "昨天解决Bug数",
+		rules: { 
+		}
+	},
+    postponedprojectcnt: {
+		caption: "已延期",
+		rules: { 
+		}
+	},
+    currproject: {
+		caption: "当前项目",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    code: {
+		caption: "产品代号",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "产品类型",
+		rules: { 
+		}
+	},
+    order1: {
+		caption: "产品排序",
+		rules: { 
+		}
+	},
+    istop: {
+		caption: "是否置顶",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobmdview: {

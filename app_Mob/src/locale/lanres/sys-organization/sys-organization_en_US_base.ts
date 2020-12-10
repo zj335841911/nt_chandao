@@ -1,17 +1,65 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    orgId:  commonLogic.appcommonhandle("The workflow start node was not found",null),
-    orgCode:  commonLogic.appcommonhandle("Updated By",null),
-    orgName:  commonLogic.appcommonhandle("名称",null),
-    parentOrgId:  commonLogic.appcommonhandle("上级单位",null),
-    shortName:  commonLogic.appcommonhandle("Cancel",null),
-    orgLevel:  commonLogic.appcommonhandle("单位级别",null),
-    showOrder:  commonLogic.appcommonhandle("Audit",null),
-    parentOrgName:  commonLogic.appcommonhandle("上级单位",null),
-    domains:  commonLogic.appcommonhandle("区属",null),
-    enable:  commonLogic.appcommonhandle("the workflow instance current processing step is invalid",null),
-    createDate:  commonLogic.appcommonhandle("Print",null),
-    updateDate:  commonLogic.appcommonhandle("Actor",null),
+    orgid: {
+		caption: "The workflow start node was not found",
+		rules: { 
+		}
+	},
+    orgcode: {
+		caption: "Updated By",
+		rules: { 
+		}
+	},
+    orgname: {
+		caption: "名称",
+		rules: { 
+		}
+	},
+    parentorgid: {
+		caption: "上级单位",
+		rules: { 
+		}
+	},
+    shortname: {
+		caption: "Cancel",
+		rules: { 
+		}
+	},
+    orglevel: {
+		caption: "单位级别",
+		rules: { 
+		}
+	},
+    showorder: {
+		caption: "Audit",
+		rules: { 
+		}
+	},
+    parentorgname: {
+		caption: "上级单位",
+		rules: { 
+		}
+	},
+    domains: {
+		caption: "区属",
+		rules: { 
+		}
+	},
+    enable: {
+		caption: "the workflow instance current processing step is invalid",
+		rules: { 
+		}
+	},
+    createdate: {
+		caption: "Print",
+		rules: { 
+		}
+	},
+    updatedate: {
+		caption: "Actor",
+		rules: { 
+		}
+	},
   },
 };

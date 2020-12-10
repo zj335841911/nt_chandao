@@ -1,23 +1,91 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    path:  commonLogic.appcommonhandle("path",null),
-    deleted:  commonLogic.appcommonhandle("逻辑删除标志",null),
-    name:  commonLogic.appcommonhandle("名称",null),
-    branch:  commonLogic.appcommonhandle("branch",null),
-    iBizShort:  commonLogic.appcommonhandle("简称",null),
-    order:  commonLogic.appcommonhandle("排序值",null),
-    grade:  commonLogic.appcommonhandle("grade",null),
-    type:  commonLogic.appcommonhandle("类型（story）",null),
-    owner:  commonLogic.appcommonhandle("owner",null),
-    isLeaf:  commonLogic.appcommonhandle("叶子模块",null),
-    id:  commonLogic.appcommonhandle("id",null),
-    collector:  commonLogic.appcommonhandle("collector",null),
-    root:  commonLogic.appcommonhandle("产品",null),
-    parent:  commonLogic.appcommonhandle("id",null),
-    rootName:  commonLogic.appcommonhandle("所属产品",null),
-    parentName:  commonLogic.appcommonhandle("上级模块",null),
-    orderpk:  commonLogic.appcommonhandle("数据选择排序",null),
+    path: {
+		caption: "path",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "逻辑删除标志",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "名称",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "branch",
+		rules: { 
+		}
+	},
+    ibizshort: {
+		caption: "简称",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "排序值",
+		rules: { 
+		}
+	},
+    grade: {
+		caption: "grade",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "类型（story）",
+		rules: { 
+		}
+	},
+    owner: {
+		caption: "owner",
+		rules: { 
+		}
+	},
+    isleaf: {
+		caption: "叶子模块",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "id",
+		rules: { 
+		}
+	},
+    collector: {
+		caption: "collector",
+		rules: { 
+		}
+	},
+    root: {
+		caption: "产品",
+		rules: { 
+		}
+	},
+    parent: {
+		caption: "id",
+		rules: { 
+		}
+	},
+    rootname: {
+		caption: "所属产品",
+		rules: { 
+		}
+	},
+    parentname: {
+		caption: "上级模块",
+		rules: { 
+		}
+	},
+    orderpk: {
+		caption: "数据选择排序",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobpickupview: {

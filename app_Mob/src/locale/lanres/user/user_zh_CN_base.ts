@@ -1,40 +1,176 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    password: "密码",
-    address: "通讯地址",
-    weixin: "微信",
-    dingding: "钉钉",
-    fails: "fails",
-    slack: "slack",
-    ranzhi: "ranzhi",
-    account: "账户",
-    locked: "locked",
-    avatar: "avatar",
-    scorelevel: "scoreLevel",
-    realname: "真实姓名",
-    zipcode: "zipcode",
-    dept: "所属部门",
-    commiter: "源代码账户",
-    role: "职位",
-    deleted: "逻辑删除标志",
-    last: "最后登录",
-    clientstatus: "clientStatus",
-    skype: "skype",
-    whatsapp: "whatsapp",
-    score: "score",
-    gender: "性别",
-    mobile: "手机",
-    clientlang: "clientLang",
-    visits: "访问次数",
-    join: "入职日期",
-    email: "邮箱",
-    ip: "ip",
-    birthday: "birthday",
-    nickname: "nickname",
-    phone: "电话",
-    id: "ID",
-    qq: "QQ",
+    password: {
+		caption: "密码",
+		rules: { 
+		}
+	},
+    address: {
+		caption: "通讯地址",
+		rules: { 
+		}
+	},
+    weixin: {
+		caption: "微信",
+		rules: { 
+		}
+	},
+    dingding: {
+		caption: "钉钉",
+		rules: { 
+		}
+	},
+    fails: {
+		caption: "fails",
+		rules: { 
+		}
+	},
+    slack: {
+		caption: "slack",
+		rules: { 
+		}
+	},
+    ranzhi: {
+		caption: "ranzhi",
+		rules: { 
+		}
+	},
+    account: {
+		caption: "账户",
+		rules: { 
+		}
+	},
+    locked: {
+		caption: "locked",
+		rules: { 
+		}
+	},
+    avatar: {
+		caption: "avatar",
+		rules: { 
+		}
+	},
+    scorelevel: {
+		caption: "scoreLevel",
+		rules: { 
+		}
+	},
+    realname: {
+		caption: "真实姓名",
+		rules: { 
+		}
+	},
+    zipcode: {
+		caption: "zipcode",
+		rules: { 
+		}
+	},
+    dept: {
+		caption: "所属部门",
+		rules: { 
+		}
+	},
+    commiter: {
+		caption: "源代码账户",
+		rules: { 
+		}
+	},
+    role: {
+		caption: "职位",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "逻辑删除标志",
+		rules: { 
+		}
+	},
+    last: {
+		caption: "最后登录",
+		rules: { 
+		}
+	},
+    clientstatus: {
+		caption: "clientStatus",
+		rules: { 
+		}
+	},
+    skype: {
+		caption: "skype",
+		rules: { 
+		}
+	},
+    whatsapp: {
+		caption: "whatsapp",
+		rules: { 
+		}
+	},
+    score: {
+		caption: "score",
+		rules: { 
+		}
+	},
+    gender: {
+		caption: "性别",
+		rules: { 
+		}
+	},
+    mobile: {
+		caption: "手机",
+		rules: { 
+		}
+	},
+    clientlang: {
+		caption: "clientLang",
+		rules: { 
+		}
+	},
+    visits: {
+		caption: "访问次数",
+		rules: { 
+		}
+	},
+    join: {
+		caption: "入职日期",
+		rules: { 
+		}
+	},
+    email: {
+		caption: "邮箱",
+		rules: { 
+		}
+	},
+    ip: {
+		caption: "ip",
+		rules: { 
+		}
+	},
+    birthday: {
+		caption: "birthday",
+		rules: { 
+		}
+	},
+    nickname: {
+		caption: "nickname",
+		rules: { 
+		}
+	},
+    phone: {
+		caption: "电话",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "ID",
+		rules: { 
+		}
+	},
+    qq: {
+		caption: "QQ",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobmpickupview: {

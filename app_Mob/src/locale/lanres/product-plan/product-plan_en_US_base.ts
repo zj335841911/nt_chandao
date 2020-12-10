@@ -1,28 +1,116 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    title:  commonLogic.appcommonhandle("名称",null),
-    id:  commonLogic.appcommonhandle("编号",null),
-    begin:  commonLogic.appcommonhandle("开始日期",null),
-    desc:  commonLogic.appcommonhandle("描述",null),
-    end:  commonLogic.appcommonhandle("结束日期",null),
-    deleted:  commonLogic.appcommonhandle("已删除",null),
-    order:  commonLogic.appcommonhandle("排序",null),
-    parentName:  commonLogic.appcommonhandle("父计划名称",null),
-    branch:  commonLogic.appcommonhandle("平台/分支",null),
-    parent:  commonLogic.appcommonhandle("父计划",null),
-    product:  commonLogic.appcommonhandle("产品",null),
-    statuss:  commonLogic.appcommonhandle("状态",null),
-    future:  commonLogic.appcommonhandle("待定",null),
-    delta:  commonLogic.appcommonhandle("周期",null),
-    oldtitle:  commonLogic.appcommonhandle("上一次计划名称",null),
-    storyCnt:  commonLogic.appcommonhandle("需求数",null),
-    bugCnt:  commonLogic.appcommonhandle("bug数",null),
-    isexpired:  commonLogic.appcommonhandle("是否过期",null),
-    estimatecnt:  commonLogic.appcommonhandle("工时数",null),
-    beginstr:  commonLogic.appcommonhandle("开始日期",null),
-    endstr:  commonLogic.appcommonhandle("结束日期",null),
-    plantemplet:  commonLogic.appcommonhandle("计划模板",null),
+    title: {
+		caption: "名称",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "编号",
+		rules: { 
+		}
+	},
+    begin: {
+		caption: "开始日期",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "描述",
+		rules: { 
+		}
+	},
+    end: {
+		caption: "结束日期",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "排序",
+		rules: { 
+		}
+	},
+    parentname: {
+		caption: "父计划名称",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "平台/分支",
+		rules: { 
+		}
+	},
+    parent: {
+		caption: "父计划",
+		rules: { 
+		}
+	},
+    product: {
+		caption: "产品",
+		rules: { 
+		}
+	},
+    statuss: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    future: {
+		caption: "待定",
+		rules: { 
+		}
+	},
+    delta: {
+		caption: "周期",
+		rules: { 
+		}
+	},
+    oldtitle: {
+		caption: "上一次计划名称",
+		rules: { 
+		}
+	},
+    storycnt: {
+		caption: "需求数",
+		rules: { 
+		}
+	},
+    bugcnt: {
+		caption: "bug数",
+		rules: { 
+		}
+	},
+    isexpired: {
+		caption: "是否过期",
+		rules: { 
+		}
+	},
+    estimatecnt: {
+		caption: "工时数",
+		rules: { 
+		}
+	},
+    beginstr: {
+		caption: "开始日期",
+		rules: { 
+		}
+	},
+    endstr: {
+		caption: "结束日期",
+		rules: { 
+		}
+	},
+    plantemplet: {
+		caption: "计划模板",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobmdview: {

@@ -1,40 +1,176 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    id: "编号",
-    account: "所有者",
-    closeddate: "关闭时间",
-    closedby: "由谁关闭",
-    type: "类型",
-    end: "结束",
-    desc: "描述",
-    finishedby: "由谁完成",
-    begin: "开始",
-    idvalue: "关联编号",
-    assignedby: "由谁指派",
-    finisheddate: "完成时间",
-    cycle: "周期",
-    assignedto: "指派给",
-    status: "状态",
-    name: "待办名称",
-    assigneddate: "指派日期",
-    pri: "优先级",
-    date: "日期",
-    ibizprivate: "私人事务",
-    config: "config",
-    config_day: "间隔天数",
-    config_beforedays: "提前",
-    config_week: "周期设置周几",
-    config_month: "周期设置月",
-    config_type: "周期类型",
-    config_end: "过期时间",
-    bug: "待办名称",
-    task: "待办名称",
-    story: "待办名称",
-    date1: "日期",
-    date_disable: "待定",
-    assignedtopk: "指派给（选择）",
-    noticeusers: "消息通知用户",
+    id: {
+		caption: "编号",
+		rules: { 
+		}
+	},
+    account: {
+		caption: "所有者",
+		rules: { 
+		}
+	},
+    closeddate: {
+		caption: "关闭时间",
+		rules: { 
+		}
+	},
+    closedby: {
+		caption: "由谁关闭",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "类型",
+		rules: { 
+		}
+	},
+    end: {
+		caption: "结束",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "描述",
+		rules: { 
+		}
+	},
+    finishedby: {
+		caption: "由谁完成",
+		rules: { 
+		}
+	},
+    begin: {
+		caption: "开始",
+		rules: { 
+		}
+	},
+    idvalue: {
+		caption: "关联编号",
+		rules: { 
+		}
+	},
+    assignedby: {
+		caption: "由谁指派",
+		rules: { 
+		}
+	},
+    finisheddate: {
+		caption: "完成时间",
+		rules: { 
+		}
+	},
+    cycle: {
+		caption: "周期",
+		rules: { 
+		}
+	},
+    assignedto: {
+		caption: "指派给",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "待办名称",
+		rules: { 
+		}
+	},
+    assigneddate: {
+		caption: "指派日期",
+		rules: { 
+		}
+	},
+    pri: {
+		caption: "优先级",
+		rules: { 
+		}
+	},
+    date: {
+		caption: "日期",
+		rules: { 
+		}
+	},
+    ibizprivate: {
+		caption: "私人事务",
+		rules: { 
+		}
+	},
+    config: {
+		caption: "config",
+		rules: { 
+		}
+	},
+    config_day: {
+		caption: "间隔天数",
+		rules: { 
+		}
+	},
+    config_beforedays: {
+		caption: "提前",
+		rules: { 
+		}
+	},
+    config_week: {
+		caption: "周期设置周几",
+		rules: { 
+		}
+	},
+    config_month: {
+		caption: "周期设置月",
+		rules: { 
+		}
+	},
+    config_type: {
+		caption: "周期类型",
+		rules: { 
+		}
+	},
+    config_end: {
+		caption: "过期时间",
+		rules: { 
+		}
+	},
+    bug: {
+		caption: "待办名称",
+		rules: { 
+		}
+	},
+    task: {
+		caption: "待办名称",
+		rules: { 
+		}
+	},
+    story: {
+		caption: "待办名称",
+		rules: { 
+		}
+	},
+    date1: {
+		caption: "日期",
+		rules: { 
+		}
+	},
+    date_disable: {
+		caption: "待定",
+		rules: { 
+		}
+	},
+    assignedtopk: {
+		caption: "指派给（选择）",
+		rules: { 
+		}
+	},
+    noticeusers: {
+		caption: "消息通知用户",
+		rules: { 
+		}
+	},
   },
 	views: {
 		newmobeditview: {

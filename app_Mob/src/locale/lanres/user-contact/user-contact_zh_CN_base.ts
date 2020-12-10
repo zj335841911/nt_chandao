@@ -1,9 +1,25 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    userlist: "userList",
-    listname: "标题",
-    id: "id",
-    account: "account",
+    userlist: {
+		caption: "userList",
+		rules: { 
+		}
+	},
+    listname: {
+		caption: "标题",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "id",
+		rules: { 
+		}
+	},
+    account: {
+		caption: "account",
+		rules: { 
+		}
+	},
   },
 };

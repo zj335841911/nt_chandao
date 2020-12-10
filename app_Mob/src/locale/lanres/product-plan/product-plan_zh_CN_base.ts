@@ -1,28 +1,116 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    title: "名称",
-    id: "编号",
-    begin: "开始日期",
-    desc: "描述",
-    end: "结束日期",
-    deleted: "已删除",
-    order: "排序",
-    parentname: "父计划名称",
-    branch: "平台/分支",
-    parent: "父计划",
-    product: "产品",
-    statuss: "状态",
-    future: "待定",
-    delta: "周期",
-    oldtitle: "上一次计划名称",
-    storycnt: "需求数",
-    bugcnt: "bug数",
-    isexpired: "是否过期",
-    estimatecnt: "工时数",
-    beginstr: "开始日期",
-    endstr: "结束日期",
-    plantemplet: "计划模板",
+    title: {
+		caption: "名称",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "编号",
+		rules: { 
+		}
+	},
+    begin: {
+		caption: "开始日期",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "描述",
+		rules: { 
+		}
+	},
+    end: {
+		caption: "结束日期",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "排序",
+		rules: { 
+		}
+	},
+    parentname: {
+		caption: "父计划名称",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "平台/分支",
+		rules: { 
+		}
+	},
+    parent: {
+		caption: "父计划",
+		rules: { 
+		}
+	},
+    product: {
+		caption: "产品",
+		rules: { 
+		}
+	},
+    statuss: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    future: {
+		caption: "待定",
+		rules: { 
+		}
+	},
+    delta: {
+		caption: "周期",
+		rules: { 
+		}
+	},
+    oldtitle: {
+		caption: "上一次计划名称",
+		rules: { 
+		}
+	},
+    storycnt: {
+		caption: "需求数",
+		rules: { 
+		}
+	},
+    bugcnt: {
+		caption: "bug数",
+		rules: { 
+		}
+	},
+    isexpired: {
+		caption: "是否过期",
+		rules: { 
+		}
+	},
+    estimatecnt: {
+		caption: "工时数",
+		rules: { 
+		}
+	},
+    beginstr: {
+		caption: "开始日期",
+		rules: { 
+		}
+	},
+    endstr: {
+		caption: "结束日期",
+		rules: { 
+		}
+	},
+    plantemplet: {
+		caption: "计划模板",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobmdview: {

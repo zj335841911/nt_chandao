@@ -1,23 +1,91 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    ibzreportlyid: "汇报标识",
-    ibzreportlyname: "汇报名称",
-    updateman: "更新人",
-    createdate: "建立时间",
-    createman: "建立人",
-    updatedate: "更新时间",
-    content: "工作内容",
-    files: "附件",
-    reportto: "汇报给",
-    mailto: "抄送给",
-    date: "汇报日期",
-    issubmit: "是否提交",
-    submittime: "提交时间",
-    account: "用户",
-    reportstatus: "状态",
-    reporttopk: "汇报给（选择）",
-    mailtopk: "抄送给（选择）",
+    ibzreportlyid: {
+		caption: "汇报标识",
+		rules: { 
+		}
+	},
+    ibzreportlyname: {
+		caption: "汇报名称",
+		rules: { 
+		}
+	},
+    updateman: {
+		caption: "更新人",
+		rules: { 
+		}
+	},
+    createdate: {
+		caption: "建立时间",
+		rules: { 
+		}
+	},
+    createman: {
+		caption: "建立人",
+		rules: { 
+		}
+	},
+    updatedate: {
+		caption: "更新时间",
+		rules: { 
+		}
+	},
+    content: {
+		caption: "工作内容",
+		rules: { 
+		}
+	},
+    files: {
+		caption: "附件",
+		rules: { 
+		}
+	},
+    reportto: {
+		caption: "汇报给",
+		rules: { 
+		}
+	},
+    mailto: {
+		caption: "抄送给",
+		rules: { 
+		}
+	},
+    date: {
+		caption: "汇报日期",
+		rules: { 
+		}
+	},
+    issubmit: {
+		caption: "是否提交",
+		rules: { 
+		}
+	},
+    submittime: {
+		caption: "提交时间",
+		rules: { 
+		}
+	},
+    account: {
+		caption: "用户",
+		rules: { 
+		}
+	},
+    reportstatus: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    reporttopk: {
+		caption: "汇报给（选择）",
+		rules: { 
+		}
+	},
+    mailtopk: {
+		caption: "抄送给（选择）",
+		rules: { 
+		}
+	},
   },
 	views: {
 		reportlymobmdview: {

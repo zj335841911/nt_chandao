@@ -1,31 +1,131 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    stories: "完成的需求",
-    marker: "里程碑",
-    id: "ID",
-    leftbugs: "遗留的Bug",
-    bugs: "解决的Bug",
-    deleted: "已删除",
-    name: "发布名称",
-    date: "发布日期",
-    status: "状态",
-    substatus: "子状态",
-    desc: "描述",
-    buildname: "版本",
-    product: "产品",
-    build: "版本",
-    branch: "平台/分支",
-    productname: "产品名称",
-    files: "附件",
-    backgroundid: "后台体系",
-    sqlid: "运行数据库",
-    frontapplication: "系统应用",
-    rebuild: "重新构建",
-    releasetype: "运行模式",
-    builder: "构建者",
-    builddate: "打包日期",
-    noticeusers: "消息通知用户",
+    stories: {
+		caption: "完成的需求",
+		rules: { 
+		}
+	},
+    marker: {
+		caption: "里程碑",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "ID",
+		rules: { 
+		}
+	},
+    leftbugs: {
+		caption: "遗留的Bug",
+		rules: { 
+		}
+	},
+    bugs: {
+		caption: "解决的Bug",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "发布名称",
+		rules: { 
+		}
+	},
+    date: {
+		caption: "发布日期",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    substatus: {
+		caption: "子状态",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "描述",
+		rules: { 
+		}
+	},
+    buildname: {
+		caption: "版本",
+		rules: { 
+		}
+	},
+    product: {
+		caption: "产品",
+		rules: { 
+		}
+	},
+    build: {
+		caption: "版本",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "平台/分支",
+		rules: { 
+		}
+	},
+    productname: {
+		caption: "产品名称",
+		rules: { 
+		}
+	},
+    files: {
+		caption: "附件",
+		rules: { 
+		}
+	},
+    backgroundid: {
+		caption: "后台体系",
+		rules: { 
+		}
+	},
+    sqlid: {
+		caption: "运行数据库",
+		rules: { 
+		}
+	},
+    frontapplication: {
+		caption: "系统应用",
+		rules: { 
+		}
+	},
+    rebuild: {
+		caption: "重新构建",
+		rules: { 
+		}
+	},
+    releasetype: {
+		caption: "运行模式",
+		rules: { 
+		}
+	},
+    builder: {
+		caption: "构建者",
+		rules: { 
+		}
+	},
+    builddate: {
+		caption: "打包日期",
+		rules: { 
+		}
+	},
+    noticeusers: {
+		caption: "消息通知用户",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobtabexpview: {

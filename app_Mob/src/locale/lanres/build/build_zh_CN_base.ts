@@ -1,30 +1,126 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    name: "名称编号",
-    builder: "构建者",
-    desc: "描述",
-    id: "id",
-    deleted: "已删除",
-    scmpath: "源代码地址",
-    filepath: "下载地址",
-    stories: "完成的需求",
-    bugs: "解决的Bug",
-    date: "打包日期",
-    product: "产品",
-    branch: "平台/分支",
-    project: "所属项目",
-    productname: "产品名称",
-    ids: "Bug版本健值",
-    files: "附件",
-    rebuild: "重新构建",
-    releasetype: "运行模式",
-    frontapplication: "系统应用",
-    backgroundid: "后台体系",
-    sqlid: "运行数据库",
-    createbugcnt: "产生的bug",
-    builderpk: "构建者（选择）",
-    noticeusers: "消息通知用户",
+    name: {
+		caption: "名称编号",
+		rules: { 
+		}
+	},
+    builder: {
+		caption: "构建者",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "描述",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "id",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    scmpath: {
+		caption: "源代码地址",
+		rules: { 
+		}
+	},
+    filepath: {
+		caption: "下载地址",
+		rules: { 
+		}
+	},
+    stories: {
+		caption: "完成的需求",
+		rules: { 
+		}
+	},
+    bugs: {
+		caption: "解决的Bug",
+		rules: { 
+		}
+	},
+    date: {
+		caption: "打包日期",
+		rules: { 
+		}
+	},
+    product: {
+		caption: "产品",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "平台/分支",
+		rules: { 
+		}
+	},
+    project: {
+		caption: "所属项目",
+		rules: { 
+		}
+	},
+    productname: {
+		caption: "产品名称",
+		rules: { 
+		}
+	},
+    ids: {
+		caption: "Bug版本健值",
+		rules: { 
+		}
+	},
+    files: {
+		caption: "附件",
+		rules: { 
+		}
+	},
+    rebuild: {
+		caption: "重新构建",
+		rules: { 
+		}
+	},
+    releasetype: {
+		caption: "运行模式",
+		rules: { 
+		}
+	},
+    frontapplication: {
+		caption: "系统应用",
+		rules: { 
+		}
+	},
+    backgroundid: {
+		caption: "后台体系",
+		rules: { 
+		}
+	},
+    sqlid: {
+		caption: "运行数据库",
+		rules: { 
+		}
+	},
+    createbugcnt: {
+		caption: "产生的bug",
+		rules: { 
+		}
+	},
+    builderpk: {
+		caption: "构建者（选择）",
+		rules: { 
+		}
+	},
+    noticeusers: {
+		caption: "消息通知用户",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobpickupmdview: {

@@ -1,80 +1,376 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    openedversion: "当前系统版本",
-    begin: "开始时间",
-    acl: "访问控制",
-    deleted: "已删除",
-    desc: "项目描述",
-    pm: "项目负责人",
-    id: "项目编号",
-    name: "项目名称",
-    substatus: "子状态",
-    order: "项目排序",
-    rd: "发布负责人",
-    whitelist: "分组白名单",
-    pri: "优先级",
-    end: "结束日期",
-    canceleddate: "取消日期",
-    code: "项目代号",
-    catid: "catID",
-    statge: "statge",
-    canceledby: "由谁取消",
-    iscat: "isCat",
-    openeddate: "创建日期",
-    closedby: "由谁关闭",
-    type: "项目类型",
-    po: "产品负责人",
-    status: "项目状态",
-    days: "可用工作日",
-    team: "团队名称",
-    closeddate: "关闭日期",
-    openedby: "由谁创建",
-    qd: "测试负责人",
-    parentname: "parent",
-    parent: "父项目",
-    taskcnt: "任务总数",
-    bugcnt: "Bug总数",
-    storycnt: "需求总数",
-    products: "关联产品",
-    branchs: "关联产品平台集合",
-    plans: "关联计划",
-    srfarray: "关联数据数组",
-    comment: "备注",
-    period: "时间段",
-    account: "项目团队成员",
-    join: "加盟日",
-    hours: "可用工时/天",
-    role: "角色",
-    totalconsumed: "任务消耗总工时",
-    totalwh: "总工时",
-    totalleft: "任务预计剩余总工时",
-    totalestimate: "任务最初预计总工时",
-    totalhours: "可用工时",
-    mobimage: "移动端图片",
-    accounts: "项目团队相关成员",
-    order1: "项目排序",
-    istop: "是否置顶",
-    dept: "选择部门",
-    managemembers: "复制团队",
-    buildcnt: "版本总数",
-    teamcnt: "团队成员总数",
-    alltaskcnt: "所有任务数",
-    unclosetaskcnt: "未关闭任务数",
-    asstomytaskcnt: "指派给我任务数",
-    unstarttaskcnt: "未开始任务数",
-    moretaskcnt: "更多任务数",
-    ystarttaskcnt: "进行中任务数",
-    uncompletetaskcnt: "未完成任务数",
-    ycompletetaskcnt: "已完成任务数",
-    mycompletetaskcnt: "我完成任务数",
-    closetaskcnt: "关闭任务数",
-    canceltaskcnt: "取消任务数",
-    storychangecnt: "需求变更数",
-    noticeusers: "消息通知用户",
-    doclibcnt: "文档数量",
-    orgid: "组织标识",
-    mdeptid: "部门标识",
+    openedversion: {
+		caption: "当前系统版本",
+		rules: { 
+		}
+	},
+    begin: {
+		caption: "开始时间",
+		rules: { 
+		}
+	},
+    acl: {
+		caption: "访问控制",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "项目描述",
+		rules: { 
+		}
+	},
+    pm: {
+		caption: "项目负责人",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "项目编号",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "项目名称",
+		rules: { 
+		}
+	},
+    substatus: {
+		caption: "子状态",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "项目排序",
+		rules: { 
+		}
+	},
+    rd: {
+		caption: "发布负责人",
+		rules: { 
+		}
+	},
+    whitelist: {
+		caption: "分组白名单",
+		rules: { 
+		}
+	},
+    pri: {
+		caption: "优先级",
+		rules: { 
+		}
+	},
+    end: {
+		caption: "结束日期",
+		rules: { 
+		}
+	},
+    canceleddate: {
+		caption: "取消日期",
+		rules: { 
+		}
+	},
+    code: {
+		caption: "项目代号",
+		rules: { 
+		}
+	},
+    catid: {
+		caption: "catID",
+		rules: { 
+		}
+	},
+    statge: {
+		caption: "statge",
+		rules: { 
+		}
+	},
+    canceledby: {
+		caption: "由谁取消",
+		rules: { 
+		}
+	},
+    iscat: {
+		caption: "isCat",
+		rules: { 
+		}
+	},
+    openeddate: {
+		caption: "创建日期",
+		rules: { 
+		}
+	},
+    closedby: {
+		caption: "由谁关闭",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "项目类型",
+		rules: { 
+		}
+	},
+    po: {
+		caption: "产品负责人",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "项目状态",
+		rules: { 
+		}
+	},
+    days: {
+		caption: "可用工作日",
+		rules: { 
+		}
+	},
+    team: {
+		caption: "团队名称",
+		rules: { 
+		}
+	},
+    closeddate: {
+		caption: "关闭日期",
+		rules: { 
+		}
+	},
+    openedby: {
+		caption: "由谁创建",
+		rules: { 
+		}
+	},
+    qd: {
+		caption: "测试负责人",
+		rules: { 
+		}
+	},
+    parentname: {
+		caption: "parent",
+		rules: { 
+		}
+	},
+    parent: {
+		caption: "父项目",
+		rules: { 
+		}
+	},
+    taskcnt: {
+		caption: "任务总数",
+		rules: { 
+		}
+	},
+    bugcnt: {
+		caption: "Bug总数",
+		rules: { 
+		}
+	},
+    storycnt: {
+		caption: "需求总数",
+		rules: { 
+		}
+	},
+    products: {
+		caption: "关联产品",
+		rules: { 
+		}
+	},
+    branchs: {
+		caption: "关联产品平台集合",
+		rules: { 
+		}
+	},
+    plans: {
+		caption: "关联计划",
+		rules: { 
+		}
+	},
+    srfarray: {
+		caption: "关联数据数组",
+		rules: { 
+		}
+	},
+    comment: {
+		caption: "备注",
+		rules: { 
+		}
+	},
+    period: {
+		caption: "时间段",
+		rules: { 
+		}
+	},
+    account: {
+		caption: "项目团队成员",
+		rules: { 
+		}
+	},
+    join: {
+		caption: "加盟日",
+		rules: { 
+		}
+	},
+    hours: {
+		caption: "可用工时/天",
+		rules: { 
+		}
+	},
+    role: {
+		caption: "角色",
+		rules: { 
+		}
+	},
+    totalconsumed: {
+		caption: "任务消耗总工时",
+		rules: { 
+		}
+	},
+    totalwh: {
+		caption: "总工时",
+		rules: { 
+		}
+	},
+    totalleft: {
+		caption: "任务预计剩余总工时",
+		rules: { 
+		}
+	},
+    totalestimate: {
+		caption: "任务最初预计总工时",
+		rules: { 
+		}
+	},
+    totalhours: {
+		caption: "可用工时",
+		rules: { 
+		}
+	},
+    mobimage: {
+		caption: "移动端图片",
+		rules: { 
+		}
+	},
+    accounts: {
+		caption: "项目团队相关成员",
+		rules: { 
+		}
+	},
+    order1: {
+		caption: "项目排序",
+		rules: { 
+		}
+	},
+    istop: {
+		caption: "是否置顶",
+		rules: { 
+		}
+	},
+    dept: {
+		caption: "选择部门",
+		rules: { 
+		}
+	},
+    managemembers: {
+		caption: "复制团队",
+		rules: { 
+		}
+	},
+    buildcnt: {
+		caption: "版本总数",
+		rules: { 
+		}
+	},
+    teamcnt: {
+		caption: "团队成员总数",
+		rules: { 
+		}
+	},
+    alltaskcnt: {
+		caption: "所有任务数",
+		rules: { 
+		}
+	},
+    unclosetaskcnt: {
+		caption: "未关闭任务数",
+		rules: { 
+		}
+	},
+    asstomytaskcnt: {
+		caption: "指派给我任务数",
+		rules: { 
+		}
+	},
+    unstarttaskcnt: {
+		caption: "未开始任务数",
+		rules: { 
+		}
+	},
+    moretaskcnt: {
+		caption: "更多任务数",
+		rules: { 
+		}
+	},
+    ystarttaskcnt: {
+		caption: "进行中任务数",
+		rules: { 
+		}
+	},
+    uncompletetaskcnt: {
+		caption: "未完成任务数",
+		rules: { 
+		}
+	},
+    ycompletetaskcnt: {
+		caption: "已完成任务数",
+		rules: { 
+		}
+	},
+    mycompletetaskcnt: {
+		caption: "我完成任务数",
+		rules: { 
+		}
+	},
+    closetaskcnt: {
+		caption: "关闭任务数",
+		rules: { 
+		}
+	},
+    canceltaskcnt: {
+		caption: "取消任务数",
+		rules: { 
+		}
+	},
+    storychangecnt: {
+		caption: "需求变更数",
+		rules: { 
+		}
+	},
+    noticeusers: {
+		caption: "消息通知用户",
+		rules: { 
+		}
+	},
+    doclibcnt: {
+		caption: "文档数量",
+		rules: { 
+		}
+	},
+    orgid: {
+		caption: "组织标识",
+		rules: { 
+		}
+	},
+    mdeptid: {
+		caption: "部门标识",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobchartview: {

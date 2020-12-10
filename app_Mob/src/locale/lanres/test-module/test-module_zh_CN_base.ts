@@ -1,21 +1,85 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    path: "path",
-    deleted: "逻辑删除标志",
-    name: "名称",
-    order: "排序值",
-    branch: "branch",
-    ibizshort: "简称",
-    grade: "grade",
-    type: "类型（story）",
-    owner: "owner",
-    id: "id",
-    isleaf: "叶子模块",
-    collector: "collector",
-    parent: "id",
-    parentname: "上级模块",
-    root: "编号",
-    rootname: "测试",
+    path: {
+		caption: "path",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "逻辑删除标志",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "名称",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "排序值",
+		rules: { 
+		}
+	},
+    branch: {
+		caption: "branch",
+		rules: { 
+		}
+	},
+    ibizshort: {
+		caption: "简称",
+		rules: { 
+		}
+	},
+    grade: {
+		caption: "grade",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "类型（story）",
+		rules: { 
+		}
+	},
+    owner: {
+		caption: "owner",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "id",
+		rules: { 
+		}
+	},
+    isleaf: {
+		caption: "叶子模块",
+		rules: { 
+		}
+	},
+    collector: {
+		caption: "collector",
+		rules: { 
+		}
+	},
+    parent: {
+		caption: "id",
+		rules: { 
+		}
+	},
+    parentname: {
+		caption: "上级模块",
+		rules: { 
+		}
+	},
+    root: {
+		caption: "编号",
+		rules: { 
+		}
+	},
+    rootname: {
+		caption: "测试",
+		rules: { 
+		}
+	},
   },
 };

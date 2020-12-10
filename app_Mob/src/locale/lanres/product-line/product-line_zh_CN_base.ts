@@ -1,12 +1,36 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    productlinename: "产品线名称",
-    productlineid: "产品线标识",
-    updateman: "更新人",
-    updatedate: "更新时间",
-    createdate: "建立时间",
-    createman: "建立人",
+    productlinename: {
+		caption: "产品线名称",
+		rules: { 
+		}
+	},
+    productlineid: {
+		caption: "产品线标识",
+		rules: { 
+		}
+	},
+    updateman: {
+		caption: "更新人",
+		rules: { 
+		}
+	},
+    updatedate: {
+		caption: "更新时间",
+		rules: { 
+		}
+	},
+    createdate: {
+		caption: "建立时间",
+		rules: { 
+		}
+	},
+    createman: {
+		caption: "建立人",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobpickupmdview: {

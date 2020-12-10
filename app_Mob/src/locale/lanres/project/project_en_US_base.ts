@@ -1,80 +1,376 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    openedVersion:  commonLogic.appcommonhandle("当前系统版本",null),
-    begin:  commonLogic.appcommonhandle("开始时间",null),
-    acl:  commonLogic.appcommonhandle("访问控制",null),
-    deleted:  commonLogic.appcommonhandle("已删除",null),
-    desc:  commonLogic.appcommonhandle("项目描述",null),
-    pM:  commonLogic.appcommonhandle("项目负责人",null),
-    id:  commonLogic.appcommonhandle("项目编号",null),
-    name:  commonLogic.appcommonhandle("项目名称",null),
-    subStatus:  commonLogic.appcommonhandle("子状态",null),
-    order:  commonLogic.appcommonhandle("项目排序",null),
-    rD:  commonLogic.appcommonhandle("发布负责人",null),
-    whitelist:  commonLogic.appcommonhandle("分组白名单",null),
-    pri:  commonLogic.appcommonhandle("优先级",null),
-    end:  commonLogic.appcommonhandle("结束日期",null),
-    canceledDate:  commonLogic.appcommonhandle("取消日期",null),
-    code:  commonLogic.appcommonhandle("项目代号",null),
-    catID:  commonLogic.appcommonhandle("catID",null),
-    statge:  commonLogic.appcommonhandle("statge",null),
-    canceledBy:  commonLogic.appcommonhandle("由谁取消",null),
-    isCat:  commonLogic.appcommonhandle("isCat",null),
-    openedDate:  commonLogic.appcommonhandle("创建日期",null),
-    closedBy:  commonLogic.appcommonhandle("由谁关闭",null),
-    type:  commonLogic.appcommonhandle("项目类型",null),
-    pO:  commonLogic.appcommonhandle("产品负责人",null),
-    status:  commonLogic.appcommonhandle("项目状态",null),
-    days:  commonLogic.appcommonhandle("可用工作日",null),
-    team:  commonLogic.appcommonhandle("团队名称",null),
-    closedDate:  commonLogic.appcommonhandle("关闭日期",null),
-    openedBy:  commonLogic.appcommonhandle("由谁创建",null),
-    qD:  commonLogic.appcommonhandle("测试负责人",null),
-    parentName:  commonLogic.appcommonhandle("parent",null),
-    parent:  commonLogic.appcommonhandle("父项目",null),
-    taskCnt:  commonLogic.appcommonhandle("任务总数",null),
-    bugCnt:  commonLogic.appcommonhandle("Bug总数",null),
-    storyCnt:  commonLogic.appcommonhandle("需求总数",null),
-    products:  commonLogic.appcommonhandle("关联产品",null),
-    branchs:  commonLogic.appcommonhandle("关联产品平台集合",null),
-    plans:  commonLogic.appcommonhandle("关联计划",null),
-    srfArray:  commonLogic.appcommonhandle("关联数据数组",null),
-    comment:  commonLogic.appcommonhandle("备注",null),
-    period:  commonLogic.appcommonhandle("时间段",null),
-    account:  commonLogic.appcommonhandle("项目团队成员",null),
-    join:  commonLogic.appcommonhandle("加盟日",null),
-    hours:  commonLogic.appcommonhandle("可用工时/天",null),
-    role:  commonLogic.appcommonhandle("角色",null),
-    totalConsumed:  commonLogic.appcommonhandle("任务消耗总工时",null),
-    totalwh:  commonLogic.appcommonhandle("总工时",null),
-    totalLeft:  commonLogic.appcommonhandle("任务预计剩余总工时",null),
-    totalEstimate:  commonLogic.appcommonhandle("任务最初预计总工时",null),
-    totalhours:  commonLogic.appcommonhandle("可用工时",null),
-    mobimage:  commonLogic.appcommonhandle("移动端图片",null),
-    accounts:  commonLogic.appcommonhandle("项目团队相关成员",null),
-    order1:  commonLogic.appcommonhandle("项目排序",null),
-    istop:  commonLogic.appcommonhandle("是否置顶",null),
-    dept:  commonLogic.appcommonhandle("选择部门",null),
-    managemembers:  commonLogic.appcommonhandle("复制团队",null),
-    buildcnt:  commonLogic.appcommonhandle("版本总数",null),
-    teamcnt:  commonLogic.appcommonhandle("团队成员总数",null),
-    alltaskcnt:  commonLogic.appcommonhandle("所有任务数",null),
-    unclosetaskcnt:  commonLogic.appcommonhandle("未关闭任务数",null),
-    asstomytaskcnt:  commonLogic.appcommonhandle("指派给我任务数",null),
-    unstarttaskcnt:  commonLogic.appcommonhandle("未开始任务数",null),
-    moretaskcnt:  commonLogic.appcommonhandle("更多任务数",null),
-    yStarttaskcnt:  commonLogic.appcommonhandle("进行中任务数",null),
-    uncompletetaskcnt:  commonLogic.appcommonhandle("未完成任务数",null),
-    ycompletetaskcnt:  commonLogic.appcommonhandle("已完成任务数",null),
-    mycompletetaskcnt:  commonLogic.appcommonhandle("我完成任务数",null),
-    closetaskcnt:  commonLogic.appcommonhandle("关闭任务数",null),
-    canceltaskcnt:  commonLogic.appcommonhandle("取消任务数",null),
-    storychangecnt:  commonLogic.appcommonhandle("需求变更数",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
-    doclibcnt:  commonLogic.appcommonhandle("文档数量",null),
-    orgId:  commonLogic.appcommonhandle("组织标识",null),
-    mdeptId:  commonLogic.appcommonhandle("部门标识",null),
+    openedversion: {
+		caption: "当前系统版本",
+		rules: { 
+		}
+	},
+    begin: {
+		caption: "开始时间",
+		rules: { 
+		}
+	},
+    acl: {
+		caption: "访问控制",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "项目描述",
+		rules: { 
+		}
+	},
+    pm: {
+		caption: "项目负责人",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "项目编号",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "项目名称",
+		rules: { 
+		}
+	},
+    substatus: {
+		caption: "子状态",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "项目排序",
+		rules: { 
+		}
+	},
+    rd: {
+		caption: "发布负责人",
+		rules: { 
+		}
+	},
+    whitelist: {
+		caption: "分组白名单",
+		rules: { 
+		}
+	},
+    pri: {
+		caption: "优先级",
+		rules: { 
+		}
+	},
+    end: {
+		caption: "结束日期",
+		rules: { 
+		}
+	},
+    canceleddate: {
+		caption: "取消日期",
+		rules: { 
+		}
+	},
+    code: {
+		caption: "项目代号",
+		rules: { 
+		}
+	},
+    catid: {
+		caption: "catID",
+		rules: { 
+		}
+	},
+    statge: {
+		caption: "statge",
+		rules: { 
+		}
+	},
+    canceledby: {
+		caption: "由谁取消",
+		rules: { 
+		}
+	},
+    iscat: {
+		caption: "isCat",
+		rules: { 
+		}
+	},
+    openeddate: {
+		caption: "创建日期",
+		rules: { 
+		}
+	},
+    closedby: {
+		caption: "由谁关闭",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "项目类型",
+		rules: { 
+		}
+	},
+    po: {
+		caption: "产品负责人",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "项目状态",
+		rules: { 
+		}
+	},
+    days: {
+		caption: "可用工作日",
+		rules: { 
+		}
+	},
+    team: {
+		caption: "团队名称",
+		rules: { 
+		}
+	},
+    closeddate: {
+		caption: "关闭日期",
+		rules: { 
+		}
+	},
+    openedby: {
+		caption: "由谁创建",
+		rules: { 
+		}
+	},
+    qd: {
+		caption: "测试负责人",
+		rules: { 
+		}
+	},
+    parentname: {
+		caption: "parent",
+		rules: { 
+		}
+	},
+    parent: {
+		caption: "父项目",
+		rules: { 
+		}
+	},
+    taskcnt: {
+		caption: "任务总数",
+		rules: { 
+		}
+	},
+    bugcnt: {
+		caption: "Bug总数",
+		rules: { 
+		}
+	},
+    storycnt: {
+		caption: "需求总数",
+		rules: { 
+		}
+	},
+    products: {
+		caption: "关联产品",
+		rules: { 
+		}
+	},
+    branchs: {
+		caption: "关联产品平台集合",
+		rules: { 
+		}
+	},
+    plans: {
+		caption: "关联计划",
+		rules: { 
+		}
+	},
+    srfarray: {
+		caption: "关联数据数组",
+		rules: { 
+		}
+	},
+    comment: {
+		caption: "备注",
+		rules: { 
+		}
+	},
+    period: {
+		caption: "时间段",
+		rules: { 
+		}
+	},
+    account: {
+		caption: "项目团队成员",
+		rules: { 
+		}
+	},
+    join: {
+		caption: "加盟日",
+		rules: { 
+		}
+	},
+    hours: {
+		caption: "可用工时/天",
+		rules: { 
+		}
+	},
+    role: {
+		caption: "角色",
+		rules: { 
+		}
+	},
+    totalconsumed: {
+		caption: "任务消耗总工时",
+		rules: { 
+		}
+	},
+    totalwh: {
+		caption: "总工时",
+		rules: { 
+		}
+	},
+    totalleft: {
+		caption: "任务预计剩余总工时",
+		rules: { 
+		}
+	},
+    totalestimate: {
+		caption: "任务最初预计总工时",
+		rules: { 
+		}
+	},
+    totalhours: {
+		caption: "可用工时",
+		rules: { 
+		}
+	},
+    mobimage: {
+		caption: "移动端图片",
+		rules: { 
+		}
+	},
+    accounts: {
+		caption: "项目团队相关成员",
+		rules: { 
+		}
+	},
+    order1: {
+		caption: "项目排序",
+		rules: { 
+		}
+	},
+    istop: {
+		caption: "是否置顶",
+		rules: { 
+		}
+	},
+    dept: {
+		caption: "选择部门",
+		rules: { 
+		}
+	},
+    managemembers: {
+		caption: "复制团队",
+		rules: { 
+		}
+	},
+    buildcnt: {
+		caption: "版本总数",
+		rules: { 
+		}
+	},
+    teamcnt: {
+		caption: "团队成员总数",
+		rules: { 
+		}
+	},
+    alltaskcnt: {
+		caption: "所有任务数",
+		rules: { 
+		}
+	},
+    unclosetaskcnt: {
+		caption: "未关闭任务数",
+		rules: { 
+		}
+	},
+    asstomytaskcnt: {
+		caption: "指派给我任务数",
+		rules: { 
+		}
+	},
+    unstarttaskcnt: {
+		caption: "未开始任务数",
+		rules: { 
+		}
+	},
+    moretaskcnt: {
+		caption: "更多任务数",
+		rules: { 
+		}
+	},
+    ystarttaskcnt: {
+		caption: "进行中任务数",
+		rules: { 
+		}
+	},
+    uncompletetaskcnt: {
+		caption: "未完成任务数",
+		rules: { 
+		}
+	},
+    ycompletetaskcnt: {
+		caption: "已完成任务数",
+		rules: { 
+		}
+	},
+    mycompletetaskcnt: {
+		caption: "我完成任务数",
+		rules: { 
+		}
+	},
+    closetaskcnt: {
+		caption: "关闭任务数",
+		rules: { 
+		}
+	},
+    canceltaskcnt: {
+		caption: "取消任务数",
+		rules: { 
+		}
+	},
+    storychangecnt: {
+		caption: "需求变更数",
+		rules: { 
+		}
+	},
+    noticeusers: {
+		caption: "消息通知用户",
+		rules: { 
+		}
+	},
+    doclibcnt: {
+		caption: "文档数量",
+		rules: { 
+		}
+	},
+    orgid: {
+		caption: "组织标识",
+		rules: { 
+		}
+	},
+    mdeptid: {
+		caption: "部门标识",
+		rules: { 
+		}
+	},
   },
 	views: {
 		mobchartview: {

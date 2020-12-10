@@ -1,18 +1,66 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    sysupdatefeaturesname: "系统更新功能名称",
-    sysupdatefeaturesid: "系统更新功能标识",
-    createman: "建立人",
-    updateman: "更新人",
-    createdate: "建立时间",
-    updatedate: "更新时间",
-    sysupdatelogid: "系统更新日志标识",
-    sysupdatelogname: "所属更新",
-    upfeatures: "更新功能",
-    featuresdesc: "功能描述",
-    type: "更新类型",
-    displayorder: "展示顺序",
+    sysupdatefeaturesname: {
+		caption: "系统更新功能名称",
+		rules: { 
+		}
+	},
+    sysupdatefeaturesid: {
+		caption: "系统更新功能标识",
+		rules: { 
+		}
+	},
+    createman: {
+		caption: "建立人",
+		rules: { 
+		}
+	},
+    updateman: {
+		caption: "更新人",
+		rules: { 
+		}
+	},
+    createdate: {
+		caption: "建立时间",
+		rules: { 
+		}
+	},
+    updatedate: {
+		caption: "更新时间",
+		rules: { 
+		}
+	},
+    sysupdatelogid: {
+		caption: "系统更新日志标识",
+		rules: { 
+		}
+	},
+    sysupdatelogname: {
+		caption: "所属更新",
+		rules: { 
+		}
+	},
+    upfeatures: {
+		caption: "更新功能",
+		rules: { 
+		}
+	},
+    featuresdesc: {
+		caption: "功能描述",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "更新类型",
+		rules: { 
+		}
+	},
+    displayorder: {
+		caption: "展示顺序",
+		rules: { 
+		}
+	},
   },
 	views: {
 		ymobmdview9: {

@@ -1,53 +1,241 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    qD:  commonLogic.appcommonhandle("测试负责人",null),
-    acl:  commonLogic.appcommonhandle("访问控制",null),
-    name:  commonLogic.appcommonhandle("产品名称",null),
-    id:  commonLogic.appcommonhandle("编号",null),
-    deleted:  commonLogic.appcommonhandle("已删除",null),
-    whitelist:  commonLogic.appcommonhandle("分组白名单",null),
-    rD:  commonLogic.appcommonhandle("发布负责人",null),
-    order:  commonLogic.appcommonhandle("排序",null),
-    type:  commonLogic.appcommonhandle("产品类型",null),
-    pO:  commonLogic.appcommonhandle("产品负责人",null),
-    desc:  commonLogic.appcommonhandle("产品描述	",null),
-    status:  commonLogic.appcommonhandle("状态",null),
-    createdBy:  commonLogic.appcommonhandle("由谁创建",null),
-    createdVersion:  commonLogic.appcommonhandle("当前系统版本",null),
-    subStatus:  commonLogic.appcommonhandle("子状态",null),
-    code:  commonLogic.appcommonhandle("产品代号",null),
-    createdDate:  commonLogic.appcommonhandle("创建日期",null),
-    lineName:  commonLogic.appcommonhandle("产品线",null),
-    line:  commonLogic.appcommonhandle("产品线",null),
-    activeBugCnt:  commonLogic.appcommonhandle("未解决Bug数",null),
-    productPlanCnt:  commonLogic.appcommonhandle("计划总数",null),
-    releaseCnt:  commonLogic.appcommonhandle("发布总数",null),
-    activeStoryCnt:  commonLogic.appcommonhandle("激活需求数",null),
-    unconfirmBugCnt:  commonLogic.appcommonhandle("未确认Bug数",null),
-    notClosedBugCnt:  commonLogic.appcommonhandle("未关闭Bug数",null),
-    comment:  commonLogic.appcommonhandle("备注",null),
-    relatedBUGCNT:  commonLogic.appcommonhandle("相关Bug数",null),
-    changedstorycnt:  commonLogic.appcommonhandle("已变更需求",null),
-    draftstorycnt:  commonLogic.appcommonhandle("草稿需求",null),
-    closedStoryCnt:  commonLogic.appcommonhandle("已关闭需求",null),
-    relatedprojects:  commonLogic.appcommonhandle("关联项目数",null),
-    doccnt:  commonLogic.appcommonhandle("文档数",null),
-    buildcnt:  commonLogic.appcommonhandle("BUILD数",null),
-    casecnt:  commonLogic.appcommonhandle("用例数",null),
-    srfcount:  commonLogic.appcommonhandle("属性",null),
-    mobimage:  commonLogic.appcommonhandle("移动端图片",null),
-    order1:  commonLogic.appcommonhandle("排序",null),
-    istop:  commonLogic.appcommonhandle("是否置顶",null),
-    testtaskcnt:  commonLogic.appcommonhandle("测试单数",null),
-    testsuitecnt:  commonLogic.appcommonhandle("套件数",null),
-    popk:  commonLogic.appcommonhandle("产品负责人（选择）",null),
-    qdpk:  commonLogic.appcommonhandle("测试负责人（选择）",null),
-    rdpk:  commonLogic.appcommonhandle("发布负责人（选择）",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
-    orgId:  commonLogic.appcommonhandle("组织标识",null),
-    mdeptId:  commonLogic.appcommonhandle("部门标识",null),
-    iBIZ_ID:  commonLogic.appcommonhandle("IBIZ标识",null),
+    qd: {
+		caption: "测试负责人",
+		rules: { 
+		}
+	},
+    acl: {
+		caption: "访问控制",
+		rules: { 
+		}
+	},
+    name: {
+		caption: "产品名称",
+		rules: { 
+		}
+	},
+    id: {
+		caption: "编号",
+		rules: { 
+		}
+	},
+    deleted: {
+		caption: "已删除",
+		rules: { 
+		}
+	},
+    whitelist: {
+		caption: "分组白名单",
+		rules: { 
+		}
+	},
+    rd: {
+		caption: "发布负责人",
+		rules: { 
+		}
+	},
+    order: {
+		caption: "排序",
+		rules: { 
+		}
+	},
+    type: {
+		caption: "产品类型",
+		rules: { 
+		}
+	},
+    po: {
+		caption: "产品负责人",
+		rules: { 
+		}
+	},
+    desc: {
+		caption: "产品描述	",
+		rules: { 
+		}
+	},
+    status: {
+		caption: "状态",
+		rules: { 
+		}
+	},
+    createdby: {
+		caption: "由谁创建",
+		rules: { 
+		}
+	},
+    createdversion: {
+		caption: "当前系统版本",
+		rules: { 
+		}
+	},
+    substatus: {
+		caption: "子状态",
+		rules: { 
+		}
+	},
+    code: {
+		caption: "产品代号",
+		rules: { 
+		}
+	},
+    createddate: {
+		caption: "创建日期",
+		rules: { 
+		}
+	},
+    linename: {
+		caption: "产品线",
+		rules: { 
+		}
+	},
+    line: {
+		caption: "产品线",
+		rules: { 
+		}
+	},
+    activebugcnt: {
+		caption: "未解决Bug数",
+		rules: { 
+		}
+	},
+    productplancnt: {
+		caption: "计划总数",
+		rules: { 
+		}
+	},
+    releasecnt: {
+		caption: "发布总数",
+		rules: { 
+		}
+	},
+    activestorycnt: {
+		caption: "激活需求数",
+		rules: { 
+		}
+	},
+    unconfirmbugcnt: {
+		caption: "未确认Bug数",
+		rules: { 
+		}
+	},
+    notclosedbugcnt: {
+		caption: "未关闭Bug数",
+		rules: { 
+		}
+	},
+    comment: {
+		caption: "备注",
+		rules: { 
+		}
+	},
+    relatedbugcnt: {
+		caption: "相关Bug数",
+		rules: { 
+		}
+	},
+    changedstorycnt: {
+		caption: "已变更需求",
+		rules: { 
+		}
+	},
+    draftstorycnt: {
+		caption: "草稿需求",
+		rules: { 
+		}
+	},
+    closedstorycnt: {
+		caption: "已关闭需求",
+		rules: { 
+		}
+	},
+    relatedprojects: {
+		caption: "关联项目数",
+		rules: { 
+		}
+	},
+    doccnt: {
+		caption: "文档数",
+		rules: { 
+		}
+	},
+    buildcnt: {
+		caption: "BUILD数",
+		rules: { 
+		}
+	},
+    casecnt: {
+		caption: "用例数",
+		rules: { 
+		}
+	},
+    srfcount: {
+		caption: "属性",
+		rules: { 
+		}
+	},
+    mobimage: {
+		caption: "移动端图片",
+		rules: { 
+		}
+	},
+    order1: {
+		caption: "排序",
+		rules: { 
+		}
+	},
+    istop: {
+		caption: "是否置顶",
+		rules: { 
+		}
+	},
+    testtaskcnt: {
+		caption: "测试单数",
+		rules: { 
+		}
+	},
+    testsuitecnt: {
+		caption: "套件数",
+		rules: { 
+		}
+	},
+    popk: {
+		caption: "产品负责人（选择）",
+		rules: { 
+		}
+	},
+    qdpk: {
+		caption: "测试负责人（选择）",
+		rules: { 
+		}
+	},
+    rdpk: {
+		caption: "发布负责人（选择）",
+		rules: { 
+		}
+	},
+    noticeusers: {
+		caption: "消息通知用户",
+		rules: { 
+		}
+	},
+    orgid: {
+		caption: "组织标识",
+		rules: { 
+		}
+	},
+    mdeptid: {
+		caption: "部门标识",
+		rules: { 
+		}
+	},
+    ibiz_id: {
+		caption: "IBIZ标识",
+		rules: { 
+		}
+	},
   },
 	views: {
 		prodmobtabexpview: {
