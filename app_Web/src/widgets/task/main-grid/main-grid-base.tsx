@@ -1010,20 +1010,20 @@ export class MainGridBase extends GridControlBase {
     public addMore(){
         if(this.items.length > 0){
             this.items.forEach((item: any) => {
-                if(item.hasOwnProperty('items') && item.items.length > 0){
+                if(item.hasOwnProperty('items') && item.items.length == 20){
                     const item: any = {
-                        more: true,
-                        id:'',
-                        pri:'',
-                        name:'',
-                        status1:'',
-                        deadline:'',
-                        assignedto:'',
-                        finishedby:'',
-                        estimate:'',
-                        consumed:'',
-                        left:'',
-                        progressrate:'',
+                        children: true,
+                        id: this.$util.createUUID(),                
+                        pri: '',
+                        name: '',
+                        status1: '',
+                        deadline: '',
+                        assignedto: '',
+                        finishedby: '',
+                        estimate: '',
+                        consumed: '',
+                        left: '',
+                        progressrate: '',
                         TaskToBug:{
                             visabled: false
                         },
@@ -1068,10 +1068,10 @@ export class MainGridBase extends GridControlBase {
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
         let allColumns:Array<any> = ['id','pri','name','status1','deadline','assignedto','finishedby','estimate','consumed','left','progressrate','uagridcolumn1'];
-        if(row && row.more) {
-            if(columnIndex == (this.isSingleSelect ? 0:1)) {
-                return [1, allColumns.length+1];
-            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 2:3)) {
+                return [1, allColumns.length];
+            } else if(columnIndex !== (this.isSingleSelect ? 2:3)) {
                 return [0,0];
             }
         }

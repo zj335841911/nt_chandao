@@ -668,15 +668,15 @@ export class MainInfoGridBase extends GridControlBase {
     public addMore(){
         if(this.items.length > 0){
             this.items.forEach((item: any) => {
-                if(item.hasOwnProperty('items') && item.items.length > 0){
+                if(item.hasOwnProperty('items') && item.items.length == 20){
                     const item: any = {
-                        more: true,
-                        id:'',
-                        title:'',
-                        beginstr:'',
-                        endstr:'',
-                        storycnt:'',
-                        bugcnt:'',
+                        children: true,
+                        id: this.$util.createUUID(),                
+                        title: '',
+                        beginstr: '',
+                        endstr: '',
+                        storycnt: '',
+                        bugcnt: '',
                         AddProject:{
                             visabled: false
                         },
@@ -712,10 +712,10 @@ export class MainInfoGridBase extends GridControlBase {
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
         let allColumns:Array<any> = ['id','title','beginstr','endstr','storycnt','bugcnt','actions'];
-        if(row && row.more) {
-            if(columnIndex == (this.isSingleSelect ? 0:1)) {
-                return [1, allColumns.length+1];
-            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 2:3)) {
+                return [1, allColumns.length];
+            } else if(columnIndex !== (this.isSingleSelect ? 2:3)) {
                 return [0,0];
             }
         }
