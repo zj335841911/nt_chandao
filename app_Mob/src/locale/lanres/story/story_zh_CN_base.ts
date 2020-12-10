@@ -379,6 +379,7 @@ export default {
 			assignedtopk: commonLogic.appcommonhandle("由谁评审",null), 
 			neednotreview: commonLogic.appcommonhandle("",null), 
 			pri: commonLogic.appcommonhandle("优先级",null), 
+			storypoints: commonLogic.appcommonhandle("故事点",null), 
 			estimate: commonLogic.appcommonhandle("预计",null), 
 			spec: commonLogic.appcommonhandle("需求描述",null), 
 			verify: commonLogic.appcommonhandle("验收标准",null), 

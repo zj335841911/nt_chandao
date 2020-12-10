@@ -319,6 +319,37 @@
 
 
 <app-form-item 
+    name='storypoints' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="storypoints_item"  
+    :itemValue="this.data.storypoints" 
+    v-show="detailsModel.storypoints.visible" 
+    :itemRules="this.rules.storypoints" 
+    :caption="$t('story.mobmainedit_form.details.storypoints')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.storypoints.disabled"
+    :error="detailsModel.storypoints.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="StoryPoints"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.storypoints.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.storypoints"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.storypoints = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
     name='estimate' 
     class='' 
     uiStyle="DEFAULT"  
@@ -800,6 +831,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         assignedtopk: null,
         neednotreview: null,
         pri: null,
+        storypoints: null,
         estimate: null,
         spec: null,
         verify: null,
@@ -988,6 +1020,8 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        storypoints: new FormItemModel({ caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         estimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1260,6 +1294,18 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 storypoints 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.storypoints')
+    onStorypointsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'storypoints', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 estimate 值
      *
      * @param {*} newVal
@@ -1433,6 +1479,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
             }
             this.detailsModel.assignedtopk.setDisabled(!ret);
         }
+
 
 
 
