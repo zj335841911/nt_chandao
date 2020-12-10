@@ -18,6 +18,9 @@ export class MobModel {
 				name: 'left',
 			},
 			{
+				name: 'parentname',
+			},
+			{
 				name: 'assignedto',
 			},
 			{
@@ -28,6 +31,9 @@ export class MobModel {
 			},
 			{
 				name: 'status',
+			},
+			{
+				name: 'parent',
 			},
 			{
 				name: 'srfkey',
@@ -47,11 +53,6 @@ export class MobModel {
 			{
 				name: 'story',
 				prop: 'story',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'parent',
-				prop: 'parent',
 				dataType: 'PICKUP',
 			},
 			{

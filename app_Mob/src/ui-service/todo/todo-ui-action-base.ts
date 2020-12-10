@@ -428,6 +428,11 @@ export default class TodoUIActionBase extends EntityUIActionBase {
             placement: 'POPUPMODAL',
         };
         response = await this.openService.openModal(view, _context, _params);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
         return response;
     }
 
