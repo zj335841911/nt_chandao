@@ -246,7 +246,7 @@ export default class TaskMobMDViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'story': 'null' };
 
     /**
      * 视图导航参数
