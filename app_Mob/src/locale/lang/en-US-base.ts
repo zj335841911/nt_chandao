@@ -78,6 +78,13 @@ export default {
             search: 'Search',
             reset: 'Reset',
         },
+        form: {
+            rules: {
+                'required': 'cannot be empty',
+                'string' : 'must be a string',
+                'number' : 'must be a number'
+            }
+        },
         // 非实体视图
         views: {
             appindexview: {
