@@ -165,6 +165,12 @@ export default class AppReportList extends Vue {
         temp.sort(function(now:any, next:any) {
             return  new Date(next.date).getTime() - new Date(now.date).getTime();
         });
+        for (let index = 0; index < temp.length; index++) {
+            const element = temp[index];
+            element.items.sort(function(now:any, next:any) {
+                return next.submittime.replace(":","") - now.submittime.replace(":","");
+            });
+        }
         return temp;
     }
 
