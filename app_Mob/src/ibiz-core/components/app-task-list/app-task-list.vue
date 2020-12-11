@@ -75,7 +75,6 @@ export default class appTaskList extends Vue {
         this.item.openeddate = this.item.openeddate.substring(5,10);
         this.item.assignedto_text = this.item.assignedto_text.substring(0,1);
         this.$forceUpdate();
-        console.log(this.item);
     }
 
     /**
