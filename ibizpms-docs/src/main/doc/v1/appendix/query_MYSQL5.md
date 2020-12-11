@@ -18041,10 +18041,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 
 WHERE t1.DELETED = '0' 
 t31.deleted = '0' 
-((t1.`status` in ('doing') and t1.assignedTo =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}) or (t1.finishedBy =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} and 
-YEARWEEK(DATE_FORMAT(DATE_SUB(t1.finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(     
-(case when ${srfdatacontext('date')} is null then now() else ${srfdatacontext('date')} end )
-) )) 
+EXISTS(SELECT 1 from zt_taskestimate t2 where t1.id = t2.task and t2.account = ${srfsessioncontext('srfloginname')} and YEARWEEK(DATE_FORMAT(DATE_SUB(t2.date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(case when ${srfdatacontext('date')} is null then ${srfdatacontext('date')} else NOW() end,'%Y-%m-%d')) ) 
 
 ```
 ### 移动端本周已完成任务(汇报)(ThisWeekCompleteTaskMobZS)<div id="Task_ThisWeekCompleteTaskMobZS"></div>
