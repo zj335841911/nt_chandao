@@ -132,6 +132,7 @@
 |-|日报移动端多数据视图(完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|月报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务预计选项操作视图|DEMOBOPTVIEW|&nbsp;|
+|-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
@@ -140,6 +141,7 @@
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|周报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|

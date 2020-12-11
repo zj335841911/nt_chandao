@@ -684,8 +684,8 @@ export const viewstate: any = {
             refviews: [
                 'a2ae9ac11aa48db204b35705bf573ebd',
                 '5cf685aa2765b112906a6b8ed57cdfc1',
-                '339eb0f210b333b047528dcd30df2dde',
                 '7ef67652765553e5d81c39ae576780a8',
+                '8cbcf5204d650b152d4c8ff4980f78e8',
             ],
         },
         {
@@ -1440,6 +1440,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8143fb83617574eebbaa7f0819539924',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditViewMainMyTijiao',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df36c08961d3d1737f2f8d55a53fa46c',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
             viewtag: '81d40495e3ca8e2b6530decbba345dca',
             viewmodule: 'ibiz',
             viewname: 'ProductPlanNewMobEditView',
@@ -1523,6 +1535,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '8cbcf5204d650b152d4c8ff4980f78e8',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2MobTabExpViewMyTiJiao',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'dca81c1a74e59de75d199229ca890abb',
+                '8143fb83617574eebbaa7f0819539924',
+                '1bd9873e7212574f35571116edb7da0b',
             ],
         },
         {
