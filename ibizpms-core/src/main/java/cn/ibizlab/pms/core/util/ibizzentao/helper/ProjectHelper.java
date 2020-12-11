@@ -99,7 +99,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         //DocLib
         DocLib docLib = new DocLib();
         docLib.setType(StaticDict.Action__object_type.PROJECT.getValue());
-        docLib.setProduct(et.getId());
+        docLib.setProject(et.getId());
         if("project".equals(srfmstatus[1])) {
             docLib.setName("项目主库");
         }else if("iteration".equals(srfmstatus[1])) {
