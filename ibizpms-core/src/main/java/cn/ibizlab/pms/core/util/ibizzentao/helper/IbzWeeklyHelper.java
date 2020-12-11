@@ -100,7 +100,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
     public void removeSomeTask(IbzWeekly et){
         String ids = et.getThisweektask();
         Timestamp date = et.getDate() == null ? ZTDateUtil.now() : et.getDate();
-        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().last("and find_in_set(id,'"+ids+"')  and ((status = 'doing' and assignedTo = '"+AuthenticationUser.getAuthenticationUser().getUsername()+"')  or (status = 'done' and YEARWEEK(date_format(DATE_SUB(finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK('"+date+"') ))"));
+        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().last("and find_in_set(id,'"+ids+"') and project IN ( SELECT id FROM zt_project WHERE deleted = '0' ) and  EXISTS(select 1 from zt_taskestimate t2 where zt_task.id = t2.task and t2.account = '"+AuthenticationUser.getAuthenticationUser().getUsername()+"' and YEARWEEK(t2.date,1) = YEARWEEK('"+date+"',1) ) "));
         String newIds = "";
         for (Task t : tasks) {
             if (newIds.length() > 0){

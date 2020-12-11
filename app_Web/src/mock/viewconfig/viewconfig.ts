@@ -687,6 +687,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibProductTreeExpView",
             "viewtag": "22dcf6656e1b870d0427a450cdbd7d20"
         },
+        "taskzsgridview9weeknextweekplan": {
+            "title": "任务表格视图（展示）",
+            "caption": "展示",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "report",
+            "viewname": "TaskZsGridView9WeekNextWeekPlan",
+            "viewtag": "230bcf0d1c95c90d4985fcf6e6e3e261"
+        },
         "projectteammaingridview": {
             "title": "项目团队表格视图",
             "caption": "项目团队",
@@ -3638,14 +3646,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzMyTerritoryTestTreeExpView",
             "viewtag": "bef7c08b651990569cd09ce805ebcfe3"
-        },
-        "taskusr2gridview": {
-            "title": "任务表格视图",
-            "caption": "任务",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "zentao",
-            "viewname": "TaskUsr2GridView",
-            "viewtag": "bf911962d0a1ec51e903e512c2700650"
         },
         "fileproductgridview": {
             "title": "file表格视图",
