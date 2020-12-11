@@ -153,7 +153,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.consumed"></app-format-data>
+                            <app-format-data dataType="FLOAT" precision="2" :data="row.consumed"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
@@ -165,7 +165,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.left"></app-format-data>
+                            <app-format-data dataType="FLOAT" precision="2" :data="row.left"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
