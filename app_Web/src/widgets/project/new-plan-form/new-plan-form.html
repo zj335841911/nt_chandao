@@ -387,8 +387,15 @@
     :lg="{ span: 24, offset: 0 }"
     
 >
-    !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 69, column 1:
-Unexpected directive, "</#if>". Check if you have a valid #if-#elseif-#else structure.
+    !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if filed.getPSAppDataEntity?? && fie...  [in template "TEMPLCODE_en_US" in macro "getItemLocaleTag" at line 5, column 3]
+	- Reached through: @getItemLocaleTag field  [in template "TEMPLCODE_en_US" at line 12, column 356]
+----
 
 </i-col>
     
