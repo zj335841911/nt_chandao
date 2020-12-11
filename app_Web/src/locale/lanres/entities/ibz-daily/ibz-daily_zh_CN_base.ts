@@ -93,35 +93,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			createdailyeditform_form: {
-				details: {
-					group1: commonLogic.appcommonhandle("日报基本信息",null), 
-					formpage1: commonLogic.appcommonhandle("基本信息",null), 
-					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
-					srforikey: commonLogic.appcommonhandle("",null), 
-					srfkey: commonLogic.appcommonhandle("日报标识",null), 
-					srfmajortext: commonLogic.appcommonhandle("日报名称",null), 
-					srftempmode: commonLogic.appcommonhandle("",null), 
-					srfuf: commonLogic.appcommonhandle("",null), 
-					srfdeid: commonLogic.appcommonhandle("",null), 
-					srfsourcekey: commonLogic.appcommonhandle("",null), 
-					ibz_dailyname: commonLogic.appcommonhandle("日报名称",null), 
-					date: commonLogic.appcommonhandle("日期",null), 
-					todaytask: commonLogic.appcommonhandle("完成任务",null), 
-					worktoday: commonLogic.appcommonhandle("今日工作",null), 
-					tomorrowplanstask: commonLogic.appcommonhandle("明日计划任务",null), 
-					planstomorrow: commonLogic.appcommonhandle("明日计划",null), 
-					comment: commonLogic.appcommonhandle("其他事项",null), 
-					files: commonLogic.appcommonhandle("附件",null), 
-					reportto: commonLogic.appcommonhandle("汇报给",null), 
-					mailto: commonLogic.appcommonhandle("抄送给",null), 
-					ibz_dailyid: commonLogic.appcommonhandle("日报标识",null), 
-					account: commonLogic.appcommonhandle("用户",null), 
-					issubmit: commonLogic.appcommonhandle("是否提交",null), 
-				},
-				uiactions: {
-				},
-			},
 			editdailyeditform_form: {
 				details: {
 					group1: commonLogic.appcommonhandle("日报基本信息",null), 
@@ -187,6 +158,35 @@ function getLocaleResourceBase(){
 					ibzdaily_submit: commonLogic.appcommonhandle("提交",null),
 				},
 			},
+			createdailyeditform_form: {
+				details: {
+					group1: commonLogic.appcommonhandle("日报基本信息",null), 
+					formpage1: commonLogic.appcommonhandle("基本信息",null), 
+					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+					srforikey: commonLogic.appcommonhandle("",null), 
+					srfkey: commonLogic.appcommonhandle("日报标识",null), 
+					srfmajortext: commonLogic.appcommonhandle("日报名称",null), 
+					srftempmode: commonLogic.appcommonhandle("",null), 
+					srfuf: commonLogic.appcommonhandle("",null), 
+					srfdeid: commonLogic.appcommonhandle("",null), 
+					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					ibz_dailyname: commonLogic.appcommonhandle("日报名称",null), 
+					date: commonLogic.appcommonhandle("日期",null), 
+					todaytask: commonLogic.appcommonhandle("完成任务",null), 
+					worktoday: commonLogic.appcommonhandle("今日工作",null), 
+					tomorrowplanstask: commonLogic.appcommonhandle("明日计划任务",null), 
+					planstomorrow: commonLogic.appcommonhandle("明日计划",null), 
+					comment: commonLogic.appcommonhandle("其他事项",null), 
+					files: commonLogic.appcommonhandle("附件",null), 
+					reportto: commonLogic.appcommonhandle("汇报给",null), 
+					mailto: commonLogic.appcommonhandle("抄送给",null), 
+					ibz_dailyid: commonLogic.appcommonhandle("日报标识",null), 
+					account: commonLogic.appcommonhandle("用户",null), 
+					issubmit: commonLogic.appcommonhandle("是否提交",null), 
+				},
+				uiactions: {
+				},
+			},
 			mymain_grid: {
 				columns: {
 					ibz_dailyid: commonLogic.appcommonhandle("编号",null),
@@ -222,12 +222,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			dailyeditviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("保存并关闭",null),
-					tip: commonLogic.appcommonhandle("保存并关闭",null),
-				},
-			},
 			dailyinfocalendareditviewtoolbar_toolbar: {
 			},
 			maineditviewtoolbar_toolbar: {
@@ -237,6 +231,12 @@ function getLocaleResourceBase(){
 				},
 			},
 			dailyinfoeditviewtoolbar_toolbar: {
+			},
+			dailyeditviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("保存并关闭",null),
+					tip: commonLogic.appcommonhandle("保存并关闭",null),
+				},
 			},
 			dailygridviewtoolbar_toolbar: {
 				deuiaction1_createuserdaily: {

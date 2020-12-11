@@ -6,7 +6,6 @@ import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import MyWorkPCService from './my-work-pc-calendar-service';
-import IbzDailyUIService from '@/uiservice/ibz-daily/ibz-daily-ui-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
 import Vue from 'vue';
 import FullCalendar from '@fullcalendar/vue'
@@ -76,211 +75,6 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * @memberof MyWorkPCBase
      */  
     public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
-
-    /**
-     * cm 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof MyWorkPCCalendarBase
-     */
-    public cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.cm_deuiaction1_click(null, 'cm', $event2);
-        }
-    }
-
-    /**
-     * calendarexpbar_calendar_quicktoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof MyWorkPCCalendarBase
-     */
-    public calendarexpbar_calendar_quicktoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.calendarexpbar_calendar_quicktoolbar_deuiaction1_click(null, 'calendarexpbar_calendar_quicktoolbar', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.calendarexpbar_calendar_quicktoolbar_deuiaction2_click(null, 'calendarexpbar_calendar_quicktoolbar', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction4')) {
-            this.calendarexpbar_calendar_quicktoolbar_deuiaction4_click(null, 'calendarexpbar_calendar_quicktoolbar', $event2);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public calendarexpbar_calendar_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.New(datas, contextJO,paramJO,  $event, xData,this,"IbzMyTerritory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public calendarexpbar_calendar_quicktoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"IbzMyTerritory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public calendarexpbar_calendar_quicktoolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"IbzMyTerritory");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
-        curUIService.IbzDaily_create(datas,contextJO, paramJO,  $event, xData,this,"IbzMyTerritory");
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IbzMyTerritoryCalendarExpViewBase
-     */
-    public New(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-         const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = {};
-            _this.newdata([{ ...data }],[{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-
-    /**
-     * 刷新
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IbzMyTerritoryCalendarExpViewBase
-     */
-    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.refresh && xData.refresh instanceof Function) {
-            xData.refresh(args);
-        } else if (_this.refresh && _this.refresh instanceof Function) {
-            _this.refresh(args);
-        }
-    }
-
-    /**
-     * 导出
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IbzMyTerritoryCalendarExpViewBase
-     */
-    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
-            return ;
-        }
-        xData.exportExcel($event.exportparms);
-    }
 
 
     /**
@@ -492,7 +286,6 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * @memberof MyWorkPCBase
      */
      public actionModel: any = {
-        daily_deuiaction1: {name:'deuiaction1',nodeOwner:'daily',type: 'DEUIACTION', tag: 'create', actiontarget: 'NONE', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
     /**
@@ -726,17 +519,6 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     placement: '',
                     deResParameters: [],
                     parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailyinfocalendareditview', parameterName: 'dailyinfocalendareditview' } ],
-                };
-                break;
-            case "ibzdaily": 
-                view = {
-                    viewname: 'ibz-daily-daily-edit-view', 
-                    height: 0, 
-                    width: 0,
-                    title: this.$t('entities.ibzdaily.views.dailyeditview.title'),
-                    placement: 'DRAWER_RIGHT',
-                    deResParameters: [],
-                    parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailyeditview', parameterName: 'dailyeditview' } ],
                 };
                 break;
         }
@@ -1035,20 +817,6 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         }
     }
 
-          /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof IbzMyTerritoryCalendarExpView
-     */
-    public calendarexpviewcalendarexpbar_calendar_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
-
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
-
-    };
-
 
 
     /**
@@ -1132,73 +900,8 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             const data: any = JSON.parse(JSON.stringify(event));
             this.selections = [event];
             switch(event.itemType){
-            case "daily":
-                content = this.renderContextMenuDaily();
-                break;
             }
         }
         return content;
-    }
-
-    /**
-     * 绘制daily类型右键菜单
-     *
-     * @returns
-     * @memberof MyWorkPCBase
-     */
-    public renderContextMenuDaily() {
-        return (
-            <div class="calendar-menu">
-                        <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.cm_click({tag: $event})}>
-                <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
-                        <i class="fa fa-plus"></i>
-                        
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-            </div>
-        );
-    }
-
-
-
-    /**
-     * 时间点击
-     *
-     * @param {*} $event 当前时间
-     * @param {*} jsEvent 原生事件对象  
-     * @returns
-     * @memberof MyWorkPCBase
-     */
-    public onDayClick($event: any, jsEvent: any) {
-        let content: any = this.renderQuickBar.bind(this);
-        const height = 2 * 32;
-        const container = this.$apppopover.openPopover(jsEvent, content, "auto", true, 103, height);
-    }
-
-    /**
-     * 绘制快速工具栏项
-     * 
-     * @returns
-     * @memberof MyWorkPCBase
-     */
-    public renderQuickBar() {
-        return (
-            <div class="calendar-quickbar">
-                <dropdown class="calendar-quickbar-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.calendarexpbar_calendar_quicktoolbar_click({tag: $event})}>
-                    <dropdown-menu slot="list">
-                        <dropdown-item name="deuiaction1" v-show={this.calendarexpviewcalendarexpbar_calendar_quicktoolbarModels.deuiaction1.visible} disabled={this.calendarexpviewcalendarexpbar_calendar_quicktoolbarModels.deuiaction1.disabled}>
-                            <i class="fa fa-plus"></i>
-                            
-                        </dropdown-item>
-                        <dropdown-item name="deuiaction2" v-show={this.calendarexpviewcalendarexpbar_calendar_quicktoolbarModels.deuiaction2.visible} disabled={this.calendarexpviewcalendarexpbar_calendar_quicktoolbarModels.deuiaction2.disabled}>
-                            <i class="fa fa-refresh"></i>
-                            
-                        </dropdown-item>
-                    </dropdown-menu>
-                </dropdown>
-            </div>
-        )
     }
 }
