@@ -32,6 +32,9 @@ export default {
 		usr2mobtabexpview: {
 			caption: commonLogic.appcommonhandle("周报",null),
 		},
+		usr2mobtabexpviewmyreceived: {
+			caption: commonLogic.appcommonhandle("周报",null),
+		},
 		usr2mobmdview: {
 			caption: commonLogic.appcommonhandle("周报",null),
 		},
@@ -45,6 +48,9 @@ export default {
 			caption: commonLogic.appcommonhandle("周报",null),
 		},
 		mobeditviewmian: {
+			caption: commonLogic.appcommonhandle("周报",null),
+		},
+		mobeditviewmainreceived: {
 			caption: commonLogic.appcommonhandle("周报",null),
 		},
 	},
@@ -184,6 +190,16 @@ export default {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("新建",null),
 			tip: '新建',
+		},
+	},
+	mobeditviewmainreceivedrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("编辑",null),
+			tip: '编辑',
+		},
+		deuiaction2: {
+			caption: commonLogic.appcommonhandle("提交",null),
+			tip: '提交',
 		},
 	},
 };

@@ -1579,6 +1579,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '9235135a1631832f2d1374311581cbef',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2MobTabExpViewMyReceived',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'dca81c1a74e59de75d199229ca890abb',
+                'fbca44c9e6b602b694348be947f36525',
+                '1bd9873e7212574f35571116edb7da0b',
+            ],
+        },
+        {
             viewtag: '92ce5515ece97c1e9ad8f6676c3a260f',
             viewmodule: 'zentao',
             viewname: 'StoryUsr2MobMDView_5219',
@@ -2714,8 +2726,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '339eb0f210b333b047528dcd30df2dde',
                 '6e4746425c0ac72e63db9efe5e592d40',
+                '9235135a1631832f2d1374311581cbef',
                 'f04572d16a18f7a597843a128db20fb0',
                 'e1db10fc06a638e6943a54a5380a6641',
             ],
@@ -2761,6 +2773,18 @@ export const viewstate: any = {
             refviews: [
                 'b3cea9761156b75453811e307c3ac47f',
                 '69a540ab88c1edd1da7f89cebe5f4588',
+            ],
+        },
+        {
+            viewtag: 'fbca44c9e6b602b694348be947f36525',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditViewMainReceived',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df36c08961d3d1737f2f8d55a53fa46c',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
             ],
         },
         {
