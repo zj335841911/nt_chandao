@@ -775,6 +775,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestResultTestTaskMEditView9",
             "viewtag": "27374a7bc38f2581e433db58d85e14e4"
         },
+        "taskmonthlycompletezsgridview": {
+            "title": "任务表格视图（展示）",
+            "caption": "展示",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "TaskMonthlyCompleteZsGridView",
+            "viewtag": "277d3227691197cf610211b0051693e4"
+        },
         "caseoptionview": {
             "title": "执行",
             "caption": "执行",

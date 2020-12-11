@@ -959,6 +959,16 @@
         "viewtag": "27374a7bc38f2581e433db58d85e14e4",
         "memo": ""
     },
+    "taskmonthlycompletezsgridview": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "TaskMonthlyCompleteZsGridView",
+        "viewfilename": "task-monthly-complete-zs-grid-view",
+        "viewtag": "277d3227691197cf610211b0051693e4",
+        "memo": ""
+    },
     "caseoptionview": {
         "title": "执行",
         "caption": "执行",

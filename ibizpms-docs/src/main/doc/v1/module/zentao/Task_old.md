@@ -1324,6 +1324,7 @@ hide footbox
 |MyCompleteTask|我完成的任务（汇报）|MyCompleteTask|否|&nbsp;|
 |MyCompleteTaskMobDaily|我完成的任务（移动端日报）|MyCompleteTaskMob|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）|MyCompleteTaskMobMonthly|否|&nbsp;|
+|MyCompleteTaskMonthlyZS|我完成的任务（月报展示）|MyCompleteTaskMonthlyZS|否|&nbsp;|
 |MyCompleteTaskZS|我完成的任务（汇报）|MyCompleteTaskZS|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
 |MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）|MyPlansTaskMobMonthly|否|&nbsp;|

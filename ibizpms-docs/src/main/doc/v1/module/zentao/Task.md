@@ -7499,7 +7499,7 @@ t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CLOSEDREASON`,
 t1.`COLOR`,
-t1.`CONSUMED`,
+(select sum(IFNULL(consumed,0)) from zt_taskestimate where task = t1.id and account = ${srfsessioncontext('srfloginname','{"defname":"ACCOUNT","dename":"ZT_TASKESTIMATE"}')} and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m')) as `CONSUMED`,
 t1.`DEADLINE`,
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
@@ -7544,8 +7544,7 @@ t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
 t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`,
-(select sum(IFNULL(consumed,0)) from zt_taskestimate where task = t1.id and account = ${srfsessioncontext('srfloginname','{"defname":"ACCOUNT","dename":"ZT_TASKESTIMATE"}')} and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m')) as `CONSUMED`
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
@@ -7575,7 +7574,7 @@ t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CLOSEDREASON`,
 t1.`COLOR`,
-t1.`CONSUMED`,
+(SELECT sum(tt.consumed) from zt_taskestimate tt where tt.task = t1.id and tt.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d' ) and tt.account =${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}) as 'consumed',
 t1.`DEADLINE`,
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
@@ -8620,7 +8619,7 @@ t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CLOSEDREASON`,
 t1.`COLOR`,
-t1.`CONSUMED`,
+(select SUM(t.consumed) from zt_taskestimate t where t.task = t1.id and t.account = 'huajiyu' ) as `consumed`,
 t1.`DEADLINE`,
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
@@ -8895,23 +8894,24 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 10 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
 | 11 | [我完成的任务（移动端日报）](#数据集合-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
 | 12 | [我完成的任务（移动端月报）](#数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
-| 13 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
-| 14 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 15 | [我计划参与的任务（移动端月报）](#数据集合-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
-| 16 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 17 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
-| 18 | [移动端下周计划参与(汇报)](#数据集合-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
-| 19 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
-| 20 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 21 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 22 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 23 | [我本月完成的任务（下拉列表框）](#数据集合-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
-| 24 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 25 | [本周已完成任务(下拉框选择)](#数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
-| 26 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
-| 27 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 28 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 29 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 13 | [我完成的任务（月报展示）](#数据集合-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
+| 14 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
+| 15 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 16 | [我计划参与的任务（移动端月报）](#数据集合-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
+| 17 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 18 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
+| 19 | [移动端下周计划参与(汇报)](#数据集合-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
+| 20 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
+| 21 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 22 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 23 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 24 | [我本月完成的任务（下拉列表框）](#数据集合-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
+| 25 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 26 | [本周已完成任务(下拉框选择)](#数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
+| 27 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
+| 28 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 29 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 30 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -9081,6 +9081,20 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）](#数据查询-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) |
+### 数据集合-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）
+#### 说明
+我完成的任务（月报展示）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）](#数据查询-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) |
 ### 数据集合-我完成的任务（汇报）（MyCompleteTaskZS）
 #### 说明
 我完成的任务（汇报）
