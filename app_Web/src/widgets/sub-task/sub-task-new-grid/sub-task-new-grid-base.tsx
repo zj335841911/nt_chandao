@@ -506,6 +506,9 @@ export class SubTaskNewGridBase extends GridControlBase {
      * @memberof SubTaskNewBase
      */
     public createDefault(row: any){                    
+        if (row.hasOwnProperty('module')) {
+            row['module'] = this.viewparams['module'];
+        }
         if (row.hasOwnProperty('isleaf')) {
             row['isleaf'] = '1';
         }

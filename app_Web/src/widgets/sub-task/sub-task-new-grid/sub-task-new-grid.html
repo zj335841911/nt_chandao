@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('modulename')">
-                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.subtask.subtasknew_grid.columns.modulename')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.subtask.subtasknew_grid.columns.modulename')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.subtask.subtasknew_grid.columns.modulename')}}
@@ -69,7 +69,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storyname')">
-                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.subtask.subtasknew_grid.columns.storyname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.subtask.subtasknew_grid.columns.storyname')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.subtask.subtasknew_grid.columns.storyname')}}
@@ -250,7 +250,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('desc')">
-                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.subtask.subtasknew_grid.columns.desc')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.subtask.subtasknew_grid.columns.desc')" :width="400"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.subtask.subtasknew_grid.columns.desc')}}
