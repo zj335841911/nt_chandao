@@ -8619,7 +8619,7 @@ t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CLOSEDREASON`,
 t1.`COLOR`,
-(select SUM(t.consumed) from zt_taskestimate t where t.task = t1.id and t.account = 'huajiyu' 
+(select IFNULL(SUM(t.consumed),0) from zt_taskestimate t where t.task = t1.id and t.account = 'huajiyu' 
 and YEARWEEK(t.date,1) = YEARWEEK(${srfdatacontext('date')},1) ) as `consumed`,
 t1.`DEADLINE`,
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
