@@ -470,13 +470,13 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :context="context"
     :viewparams="viewparams"
     :localContext ='{}'
-    :localParam ='{todaytask:"%thismonthtask%"}'
+    :localParam ='{todaytask:"%thismonthtask%",date:"%date%"}'
     parameterName="ibzmonthly"
     parentName="IbzMonthly"  
     refviewtype="DEGRIDVIEW9" 
     refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname="task-zs-grid-view9" 
+    viewname="task-monthly-complete-zs-grid-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

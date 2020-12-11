@@ -4539,16 +4539,6 @@
         "viewtag": "bef7c08b651990569cd09ce805ebcfe3",
         "memo": ""
     },
-    "taskusr2gridview": {
-        "title": "任务表格视图",
-        "caption": "任务",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "zentao",
-        "viewname": "TaskUsr2GridView",
-        "viewfilename": "task-usr2-grid-view",
-        "viewtag": "bf911962d0a1ec51e903e512c2700650",
-        "memo": ""
-    },
     "fileproductgridview": {
         "title": "file表格视图",
         "caption": "附件",
@@ -4687,6 +4677,16 @@
         "viewname": "CaseGridView9_MeCretae",
         "viewfilename": "case-grid-view9-me-cretae",
         "viewtag": "c5b7fb7289325c348ca867eb86185986",
+        "memo": ""
+    },
+    "taskdailycompletezsgridview": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "report",
+        "viewname": "TaskDailyCompleteZsGridView",
+        "viewfilename": "task-daily-complete-zs-grid-view",
+        "viewtag": "c5bd098c86809d2a2934bdf16b3d25f7",
         "memo": ""
     },
     "ibzlibmodulegridview": {

@@ -267,7 +267,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
             return et;
         }
         String taskIds = et.getThismonthtask();
-        List<Task> list = taskHelper.list(new QueryWrapper<Task>().last(" and ((`status` = 'doing' AND assignedTo = '" + et.getAccount() + "') OR (finishedBy = '" + et.getAccount() + "' AND DATE_FORMAT( finishedDate, '%Y-%m' ) = DATE_FORMAT( '" + et.getDate() + "', '%Y-%m' ))) and FIND_IN_SET(id, '" + taskIds + "') and project in (select id from zt_project where deleted = '0')"));
+        List<Task> list = taskHelper.list(new QueryWrapper<Task>().last(" and id in (select task from zt_taskestimate where account = '" + et.getAccount() + "' and DATE_FORMAT( date, '%Y-%m' ) = DATE_FORMAT( '" + et.getDate() + "', '%Y-%m' )) and FIND_IN_SET(id, '" + taskIds + "') and project in (select id from zt_project where deleted = '0')"));
         taskIds = "";
         for (Task task : list) {
             if (!"".equals(taskIds)) {

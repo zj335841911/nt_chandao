@@ -3639,14 +3639,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryTestTreeExpView",
             "viewtag": "bef7c08b651990569cd09ce805ebcfe3"
         },
-        "taskusr2gridview": {
-            "title": "任务表格视图",
-            "caption": "任务",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "zentao",
-            "viewname": "TaskUsr2GridView",
-            "viewtag": "bf911962d0a1ec51e903e512c2700650"
-        },
         "fileproductgridview": {
             "title": "file表格视图",
             "caption": "附件",
@@ -3758,6 +3750,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseGridView9_MeCretae",
             "viewtag": "c5b7fb7289325c348ca867eb86185986"
+        },
+        "taskdailycompletezsgridview": {
+            "title": "任务表格视图（展示）",
+            "caption": "展示",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "report",
+            "viewname": "TaskDailyCompleteZsGridView",
+            "viewtag": "c5bd098c86809d2a2934bdf16b3d25f7"
         },
         "ibzlibmodulegridview": {
             "title": "用例库模块表格视图",

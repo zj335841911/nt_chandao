@@ -853,6 +853,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '277d3227691197cf610211b0051693e4',
+            viewmodule: 'ibiz',
+            viewname: 'TaskMonthlyCompleteZsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '27e6b14e0243582fc67753b58a64066d',
             viewmodule: 'zentao',
             viewname: 'CaseOptionView',
@@ -2351,6 +2361,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+                'c5bd098c86809d2a2934bdf16b3d25f7',
                 '371c02ab5108f29501f89e273ebd39d1',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
@@ -2959,6 +2970,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+                '277d3227691197cf610211b0051693e4',
                 '371c02ab5108f29501f89e273ebd39d1',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
@@ -4243,6 +4255,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c5bd098c86809d2a2934bdf16b3d25f7',
+            viewmodule: 'report',
+            viewname: 'TaskDailyCompleteZsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: 'c5bf2f708034d7488fbb4aa848d15d1d',
             viewmodule: 'ibiz',
             viewname: 'IbzLibModuleGridView',
@@ -4665,6 +4687,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+                '277d3227691197cf610211b0051693e4',
                 '371c02ab5108f29501f89e273ebd39d1',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
@@ -5272,6 +5295,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+                'c5bd098c86809d2a2934bdf16b3d25f7',
                 '371c02ab5108f29501f89e273ebd39d1',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
