@@ -126,13 +126,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.sys_update_logname.required,
                     type: 'string',
-                    message: `${this.$t('entities.sysupdatelog.main_form.details.sys_update_logname')}  值不能为空`,
+                    message: `${this.$t('entities.sysupdatelog.main_form.details.sys_update_logname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.sys_update_logname.required,
                     type: 'string',
-                    message: `${this.$t('entities.sysupdatelog.main_form.details.sys_update_logname')}  值不能为空`,
+                    message: `${this.$t('entities.sysupdatelog.main_form.details.sys_update_logname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -140,13 +140,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.update.required,
                     type: 'string',
-                    message: `${this.$t('entities.sysupdatelog.main_form.details.update')}  值不能为空`,
+                    message: `${this.$t('entities.sysupdatelog.main_form.details.update')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.update.required,
                     type: 'string',
-                    message: `${this.$t('entities.sysupdatelog.main_form.details.update')}  值不能为空`,
+                    message: `${this.$t('entities.sysupdatelog.main_form.details.update')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -154,13 +154,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.updatebranch.required,
                     type: 'string',
-                    message: `${this.$t('entities.sysupdatelog.main_form.details.updatebranch')}  值不能为空`,
+                    message: `${this.$t('entities.sysupdatelog.main_form.details.updatebranch')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.updatebranch.required,
                     type: 'string',
-                    message: `${this.$t('entities.sysupdatelog.main_form.details.updatebranch')}  值不能为空`,
+                    message: `${this.$t('entities.sysupdatelog.main_form.details.updatebranch')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

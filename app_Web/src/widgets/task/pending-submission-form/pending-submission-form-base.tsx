@@ -147,13 +147,13 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.projectname.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.projectname')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.projectname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.projectname.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.projectname')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.projectname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -161,13 +161,13 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.type')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.type')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -175,13 +175,13 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.assignedto')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.assignedto')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -189,13 +189,13 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.name')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: `${this.$t('entities.task.pendingsubmission_form.details.name')}  值不能为空`,
+                    message: `${this.$t('entities.task.pendingsubmission_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

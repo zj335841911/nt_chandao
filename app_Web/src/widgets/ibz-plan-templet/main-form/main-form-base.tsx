@@ -130,13 +130,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.ibz_plantempletname.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzplantemplet.main_form.details.ibz_plantempletname')}  值不能为空`,
+                    message: `${this.$t('entities.ibzplantemplet.main_form.details.ibz_plantempletname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.ibz_plantempletname.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzplantemplet.main_form.details.ibz_plantempletname')}  值不能为空`,
+                    message: `${this.$t('entities.ibzplantemplet.main_form.details.ibz_plantempletname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -144,13 +144,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.acl.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzplantemplet.main_form.details.acl')}  值不能为空`,
+                    message: `${this.$t('entities.ibzplantemplet.main_form.details.acl')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.acl.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzplantemplet.main_form.details.acl')}  值不能为空`,
+                    message: `${this.$t('entities.ibzplantemplet.main_form.details.acl')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

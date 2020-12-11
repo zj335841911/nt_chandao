@@ -125,7 +125,13 @@ function getAppLocale(){
                 noData: "暂无数据",
                 startsuccess:"启动成功",
                 createFailed: '无法创建',
-                isExist: '已存在'
+                isExist: '已存在',
+                valueNotEmpty: '值不能为空',
+                required: '必须填写',
+                valueMustBe: '值必须为',
+                number: '数值',
+                string: '字符串',
+                type: '类型'
             },
             local:{
                 new: "新建",

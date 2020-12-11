@@ -129,13 +129,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.workthisweek.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  值不能为空`,
+                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.workthisweek.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  值不能为空`,
+                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -143,13 +143,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.reportto.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzweekly.main_form.details.reportto')}  值不能为空`,
+                    message: `${this.$t('entities.ibzweekly.main_form.details.reportto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.reportto.required,
                     type: 'string',
-                    message: `${this.$t('entities.ibzweekly.main_form.details.reportto')}  值不能为空`,
+                    message: `${this.$t('entities.ibzweekly.main_form.details.reportto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

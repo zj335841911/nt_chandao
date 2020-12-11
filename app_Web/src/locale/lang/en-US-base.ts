@@ -125,7 +125,13 @@ function getAppLocale(){
                 noData: "No data",
                 startsuccess:"Start successful",
                 createFailed: 'Unable to create',
-                isExist: 'existed'
+                isExist: 'existed',
+                valueNotEmpty: 'value is not empty',
+                required: 'is Required',
+                valueMustBe: 'value must be',
+                number: 'Number',
+                string: 'String',
+                type: 'Type'
             },
             local:{
                 new: "New",
