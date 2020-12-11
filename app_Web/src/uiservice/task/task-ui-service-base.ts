@@ -1623,10 +1623,11 @@ export default class TaskUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(params,{n_parent_eq:"%parent%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { task: '%parent%' });
-        Object.assign(params, { parent: '%parent%' });
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
         Object.assign(params, { name: '%name%' });
         if(_this.context){
             parentContext = _this.context;
