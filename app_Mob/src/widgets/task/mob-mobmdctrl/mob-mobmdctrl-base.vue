@@ -1,9 +1,14 @@
 <template>
     <div  class="app-mob-mdctrl task-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-            <ion-list class="items" ref="ionlist">
-                <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                <ion-list class="items" ref="ionlist" >
+                  <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
+                      <app-task-list  :item="item"></app-task-list>
+                      <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                  </template>
+                </ion-list>
+                <ion-list class="items" ref="ionlist"  >
+                  <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.confirmStoryChangeCz.visabled" :disabled="item.confirmStoryChangeCz.disabled" color="primary" @click="mdctrl_click($event, 'u50d1ea3', item)"><ion-icon v-if="item.confirmStoryChangeCz.icon && item.confirmStoryChangeCz.isShowIcon" :name="item.confirmStoryChangeCz.icon"></ion-icon><ion-label v-if="item.confirmStoryChangeCz.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
@@ -18,95 +23,16 @@
                             <ion-item-option v-show="item.ConsumedMobTaskTeam.visabled" :disabled="item.ConsumedMobTaskTeam.disabled" color="primary" @click="mdctrl_click($event, 'ue6a8f61', item)"><ion-icon v-if="item.ConsumedMobTaskTeam.icon && item.ConsumedMobTaskTeam.isShowIcon" :name="item.ConsumedMobTaskTeam.icon"></ion-icon><ion-label v-if="item.ConsumedMobTaskTeam.isShowCaption">工时</ion-label></ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u2ec10d0', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                    </ion-item-sliding>
-                </template>
-            </ion-list>
-            <ion-list class="items" ref="ionlist" >
-                <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.confirmStoryChangeCz.visabled" :disabled="item.confirmStoryChangeCz.disabled" color="primary" @click="mdctrl_click($event, 'u50d1ea3', item)"><ion-icon v-if="item.confirmStoryChangeCz.icon && item.confirmStoryChangeCz.isShowIcon" :name="item.confirmStoryChangeCz.icon"></ion-icon><ion-label v-if="item.confirmStoryChangeCz.isShowCaption">确认</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e33b1f', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StartMobTeamTask.visabled" :disabled="item.StartMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'uc655bcc', item)"><ion-icon v-if="item.StartMobTeamTask.icon && item.StartMobTeamTask.isShowIcon" :name="item.StartMobTeamTask.icon"></ion-icon><ion-label v-if="item.StartMobTeamTask.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uaa5b5c3', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.finishTask1.visabled" :disabled="item.finishTask1.disabled" color="primary" @click="mdctrl_click($event, 'uc50cd90', item)"><ion-icon v-if="item.finishTask1.icon && item.finishTask1.isShowIcon" :name="item.finishTask1.icon"></ion-icon><ion-label v-if="item.finishTask1.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseMobTeamTask.visabled" :disabled="item.PauseMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'ue0846ea', item)"><ion-icon v-if="item.PauseMobTeamTask.icon && item.PauseMobTeamTask.isShowIcon" :name="item.PauseMobTeamTask.icon"></ion-icon><ion-label v-if="item.PauseMobTeamTask.isShowCaption">暂停</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u77523c1', item)"><ion-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></ion-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u3834ce6', item)"><ion-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></ion-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ActiveMobTask.visabled" :disabled="item.ActiveMobTask.disabled" color="primary" @click="mdctrl_click($event, 'uadbed1d', item)"><ion-icon v-if="item.ActiveMobTask.icon && item.ActiveMobTask.isShowIcon" :name="item.ActiveMobTask.icon"></ion-icon><ion-label v-if="item.ActiveMobTask.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ConsumedMobTaskTeam.visabled" :disabled="item.ConsumedMobTaskTeam.disabled" color="primary" @click="mdctrl_click($event, 'ue6a8f61', item)"><ion-icon v-if="item.ConsumedMobTaskTeam.icon && item.ConsumedMobTaskTeam.isShowIcon" :name="item.ConsumedMobTaskTeam.icon"></ion-icon><ion-label v-if="item.ConsumedMobTaskTeam.isShowCaption">工时</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u2ec10d0', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
-                        </ion-item-options>
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                      </ion-item-sliding>
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
-                    <app-list-swipe :items="items"></app-list-swipe>
-                </template>
-                <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
-                    <li v-for="item in items" @click="goPage(item)" :key="item.srfkey" class="app-mob-mdctrl-item">
-                        <van-panel :title="item.srfmajortext ">
-                            <div class="van-cell van-panel__header" >
-                                <div class="van-cell__title time">
-                                    <div class="van-cell__label">
-                                        {{ item.starttime }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title subtitle">
-                                    <span>步骤</span>
-                                    <div class="van-cell__label">
-                                        {{ item.wfstep }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title content" >
-                                    <span>{{item.startusername}}</span>
-                                    <div class="van-cell__label">
-                                        {{ item.documentcentername }}
-                                    </div>
-                                </div>
-                            </div>
-                        </van-panel>
-                    </li>
-                </template>
-                <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-list>
-                    <div class="pickUpList">
-                    <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-radio-group>
-                    </div>
-                </template>
-            </ion-list>
+                    <ion-item>
+                      <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
+                          <app-task-list  :item="item"></app-task-list>
+                      </template>
+                      <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
+                          <app-task-list  :item="item"></app-task-list>
+                      </template>
+                    </ion-item>
+                  </ion-item-sliding>
+                </ion-list>
              <div  v-if="items.length == 0" class="no-data">
                 <div>暂无数据</div>
             </div>
