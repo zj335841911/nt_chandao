@@ -251,6 +251,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("任务",null),
 					title: commonLogic.appcommonhandle("任务表格视图",null),
 				},
+				dailycompletezsgridview: {
+					caption: commonLogic.appcommonhandle("展示",null),
+					title: commonLogic.appcommonhandle("任务表格视图（展示）",null),
+				},
 				donetaskview: {
 					caption: commonLogic.appcommonhandle("完成任务",null),
 					title: commonLogic.appcommonhandle("完成任务",null),

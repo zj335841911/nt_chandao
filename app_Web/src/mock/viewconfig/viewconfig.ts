@@ -3759,6 +3759,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseGridView9_MeCretae",
             "viewtag": "c5b7fb7289325c348ca867eb86185986"
         },
+        "taskdailycompletezsgridview": {
+            "title": "任务表格视图（展示）",
+            "caption": "展示",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "report",
+            "viewname": "TaskDailyCompleteZsGridView",
+            "viewtag": "c5bd098c86809d2a2934bdf16b3d25f7"
+        },
         "ibzlibmodulegridview": {
             "title": "用例库模块表格视图",
             "caption": "用例库模块",

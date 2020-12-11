@@ -4689,6 +4689,16 @@
         "viewtag": "c5b7fb7289325c348ca867eb86185986",
         "memo": ""
     },
+    "taskdailycompletezsgridview": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "report",
+        "viewname": "TaskDailyCompleteZsGridView",
+        "viewfilename": "task-daily-complete-zs-grid-view",
+        "viewtag": "c5bd098c86809d2a2934bdf16b3d25f7",
+        "memo": ""
+    },
     "ibzlibmodulegridview": {
         "title": "用例库模块表格视图",
         "caption": "用例库模块",
