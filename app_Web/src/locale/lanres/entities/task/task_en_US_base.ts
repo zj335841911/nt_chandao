@@ -1160,6 +1160,7 @@ function getLocaleResourceBase(){
 				columns: {
 					name: commonLogic.appcommonhandle("任务名称",null),
 					status1: commonLogic.appcommonhandle("任务状态",null),
+					consumed: commonLogic.appcommonhandle("总计消耗",null),
 					left: commonLogic.appcommonhandle("剩余",null),
 					progressrate: commonLogic.appcommonhandle("%",null),
 					deadline: commonLogic.appcommonhandle("截止日期",null),

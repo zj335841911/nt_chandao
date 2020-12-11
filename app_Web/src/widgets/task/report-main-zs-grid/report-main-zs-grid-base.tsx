@@ -152,6 +152,15 @@ export class ReportMainZSGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'consumed',
+            label: '总计消耗',
+            langtag: 'entities.task.reportmainzs_grid.columns.consumed',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'left',
             label: '剩余',
             langtag: 'entities.task.reportmainzs_grid.columns.left',
@@ -281,6 +290,7 @@ export class ReportMainZSGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'name':false,
         'status1':false,
+        'consumed':false,
         'left':false,
         'progressrate':false,
         'deadline':false,
@@ -379,7 +389,7 @@ export class ReportMainZSGridBase extends GridControlBase {
     * @memberof ReportMainZSBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','status1','left','progressrate','deadline'];
+        let allColumns:Array<any> = ['name','status1','consumed','left','progressrate','deadline'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -460,6 +470,7 @@ export class ReportMainZSGridBase extends GridControlBase {
                 group: group.label,
                 name:'',
                 status1:'',
+                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',
@@ -489,6 +500,7 @@ export class ReportMainZSGridBase extends GridControlBase {
             group: '其他',
             name:'',
             status1:'',
+            consumed:'',
             left:'',
             progressrate:'',
             deadline:'',
@@ -554,6 +566,7 @@ export class ReportMainZSGridBase extends GridControlBase {
                 group: group,
                 name:'',
                 status1:'',
+                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',
