@@ -2,6 +2,7 @@
     <template slot="quickGroupSearch">
         <app-quick-group
             :items="quickGroupModel"
+            :tag="quickGroupCodelistTag"
             
             @valuechange="quickGroupValueChange($event)"
         ></app-quick-group>

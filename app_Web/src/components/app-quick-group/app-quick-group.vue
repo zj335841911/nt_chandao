@@ -8,7 +8,7 @@
             >
                 <i v-if="item.iconcls && !Object.is(item.iconcls, '')" :class="item.iconcls"></i>
                 <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
-                <span class="app-quick-item-label">{{ item.label }}</span>
+                <span class="app-quick-item-label">{{ tag ? $t('codelist.'+tag+'.'+item.value) : item.label }}</span>
                 <span
                     v-show="
                         isSelectedItem(item) &&
@@ -29,7 +29,7 @@
                 <span :style="{ color: item.color }" :class="{ 'app-seleted-item': isSelectedItem(item) }">
                     <i v-if="item.iconcls && !Object.is(item.iconcls, '')" :class="item.iconcls"></i>
                     <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
-                    <span class="app-quick-item-label">{{ item.label }}</span>
+                    <span class="app-quick-item-label">{{ tag ? $t('codelist.'+tag+'.'+item.value) : item.label }}</span>
                     <span
                         v-show="
                             isSelectedItem(item) &&
@@ -78,6 +78,14 @@ export default class AppQuickGroup extends Vue {
      */
     @Prop({ default: () => [] })
     public items!: Array<any>;
+
+    /**
+     * 分组代码表标识
+     *
+     * @type {Array<any>}
+     * @memberof AppQuickGroup
+     */
+    @Prop() public tag: any;
 
     /**
      * 渲染列表
