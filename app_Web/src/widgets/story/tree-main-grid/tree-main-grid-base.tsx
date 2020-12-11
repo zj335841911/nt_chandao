@@ -886,8 +886,8 @@ export class TreeMainGridBase extends GridControlBase {
     public addMore(){
         if(this.items.length > 0){
             this.items.forEach((item: any) => {
-                if(item.hasOwnProperty('items') && item.items.length == 20){
-                    const item: any = {
+                if(item.hasOwnProperty('items') && item.items && item.items.length == 20){
+                    const moreitem: any = {
                         children: true,
                         id: this.$util.createUUID(),                
                         pri: '',
@@ -930,7 +930,7 @@ export class TreeMainGridBase extends GridControlBase {
                             visabled: false
                         },
                     }
-                    item.items.push(item);
+                    item.items.push(moreitem);
                 }
             })
         }
@@ -949,6 +949,24 @@ export class TreeMainGridBase extends GridControlBase {
             } else if(columnIndex !== (this.isSingleSelect ? 2:3)) {
                 return [0,0];
             }
+        }
+    }
+
+    /**
+     * 获取对应行class
+     *
+     * @param {{ row: any, rowIndex: number }} args row 行数据，rowIndex 行索引
+     * @returns {string}
+     * @memberof TreeMainGridBase
+     */
+    public getRowClassName(args: { row: any; rowIndex: number }): string {
+        if(args.row.children){
+            return 'grid-selected-row grid-more-row';
+        }else{
+            let isSelected = this.selections.some((item: any) => {
+                return Object.is(item[this.appDeName], args.row[this.appDeName]);
+            });
+            return isSelected ? 'grid-selected-row' : '';
         }
     }
 
