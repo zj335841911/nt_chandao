@@ -1,0 +1,53 @@
+.app-task-list-item {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    .app-task-list-item_top,
+    .app-task-list-item_bottom {
+        display: flex;
+        align-items: center;
+    }
+    .app-task-list-item_top {
+        padding: 10px 10px 0 10px;
+        .multiple {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            background: red;
+            text-align: center;
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+    }
+    .app-task-list-item_bottom {
+        padding: 10px;
+        height: 45px;
+        align-items: center;
+        .speace {
+            flex: 5;
+        }
+        .status {
+            flex: 2.5;
+        }
+        .openeddate {
+            flex: 2.5;
+        }
+        .assignedto {
+            flex: 3;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    .assignedto_item {
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        background: red;
+        line-height: 25px;
+        text-align: center;
+        color: #fff;
+    }
+}
