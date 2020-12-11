@@ -577,6 +577,7 @@ export class ProjectStoryGridBase extends GridControlBase {
                 }
             }, 300);
             // 
+            this.addMore();
         }).catch((response: any) => {
             if (response && response.status === 401) {
                 return;
