@@ -2,7 +2,7 @@
     <div class="app-trends-list">
         <template v-for="item in data">
             <div :key="item.id" class="app-trends-list-item">
-               <span class="cin">{{item.date1}}</span> <div class="tag"><div class="tag_border"></div><div class="tag_line"></div></div> <span class="userName">{{item.userName}} </span><span class="userName">{{item.actionName}} </span><span >{{item.objecttype2}}</span>
+               <span class="cin">{{item.date1}}</span> <div class="tag"><div class="tag_border"></div><div class="tag_line"></div></div> <span class="userName">{{item.userName}} </span><span class="userName">{{item.actionName}} </span><span >{{($t('codelist.'+'Action__object_type'+'.'+item.objecttype)!== ('codelist.'+'Action__object_type'+'.'+item.objecttype))?$t('codelist.'+'Action__object_type'+'.'+item.objecttype) : item.objecttype2}}</span>
             </div>
         </template>
     </div>

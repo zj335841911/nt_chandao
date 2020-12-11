@@ -4,24 +4,14 @@
       <div v-for="(item,index) in items" :key="item.id" class="oneitem" ref="oneitem" >
         <template v-if="index < 3  || isShow">
               <div class="header"><span>{{item.date}}</span><span>{{item.method}}</span></div>
-              <template v-if="item.item.length == 0">
-                <div  class="footer" >                
-                  <span>{{$t('by')}} </span>
-                  <strong >{{item.actorText}}</strong> 
-                  {{item.method}} 
-                  <div class="info">
-                    <span v-if="item.comment && item.actions=='commented'" v-html="item.comment"></span>
-                  </div>
-                </div>
-              </template>
-              <template v-else>
+              <template>
                   <div  class="footer" >                
                     <span>{{$t('by')}} </span>
                     <strong >{{item.actorText}}</strong> 
                     {{item.method}} 
                   <div class="info">
                     <template v-for="_item in item.item">
-                      <span :key="_item.id" class="info_item"> 
+                      <span v-if="!(item.actions == 'recordestimate' || item.actions == 'delayed' )" :key="_item.id" class="info_item"> 
                         修改了<strong >{{_item.fieldText}}</strong >
                         <span v-if="_item.old"> {{$t('oldvalue')}} </span>
                         <span v-html="_item.old"></span>,
@@ -29,6 +19,7 @@
                         <span v-html="_item.ibiznew"></span>
                       </span>
                     </template>
+                    <span v-if="item.comment" v-html="item.comment"></span>
                   </div>
                   </div>
               </template>
@@ -128,7 +119,7 @@ export default class APPHistoryList extends Vue {
                   _item.ibiznew = this.parseImgUrl(_item.ibiznew);
                   _item.old = this.parseImgUrl(_item.old);
                   _item.fieldText = (this.$t(item.objecttype + '.fields.' + _item.field.toLowerCase()) as string);
-                  if(_item.field == 'updatedate'){
+                  if(_item.field.indexOf('time') != -1 || _item.field.indexOf('date') != -1){
                     _item.old = _item.old.substring(0,19);
                     _item.ibiznew = _item.ibiznew.substring(0,19);
                   }
