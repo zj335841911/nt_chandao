@@ -659,10 +659,7 @@
     :lg="{ span: 24, offset: 0 }"
     
 >
-    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'entities.project.products
-', prop: 'products', unique: true },{ name: '关联产品平台集合',localetag: 'entities.project.branchs
-', prop: 'branchs', hidden: true },{ name: '关联计划',localetag: 'entities.project.plans
-', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'entities.project.fields.products', prop: 'products', unique: true },{ name: '关联产品平台集合',localetag: 'entities.project.fields.branchs', prop: 'branchs', hidden: true },{ name: '关联计划',localetag: 'entities.project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
    <template slot="products" slot-scope="{item}">
       <div style="display: flex;">
          <dropdown-list-dynamic 
