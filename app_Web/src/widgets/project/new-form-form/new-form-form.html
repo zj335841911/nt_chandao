@@ -387,54 +387,8 @@
     :lg="{ span: 24, offset: 0 }"
     
 >
-    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品', prop: 'products', unique: true },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联计划', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
-   <template slot="products" slot-scope="{item}">
-      <div style="display: flex;">
-         <dropdown-list-dynamic 
-            v-model="item.products" 
-            :data="{...data, ...item}" 
-            :context="context"
-            :viewparams="viewparams"
-            :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
-            :disabled="detailsModel.formitemex2.disabled" 
-            valueType="string"
-            tag='Product' 
-            codelistType='DYNAMIC'
-            placeholder="" style="flex-grow: 1;">
-         </dropdown-list-dynamic>
-         <dropdown-list-dynamic 
-   v-model="item.branchs" 
-   :data="{...data, ...item}" 
-   :context="context"
-   :viewparams="viewparams"
-   :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
-   :disabled="detailsModel.formitemex2.disabled" 
-   valueType="string"
-   tag='ProductBranch' 
-   codelistType='DYNAMIC'
-   placeholder="" style="width: 100px;flex-shrink: 0;margin-left: 5px;">
-</dropdown-list-dynamic>
-
-      </div>
-   </template>
-   <template slot="plans" slot-scope="{item}">
-      <div style="display: flex;">
-         <dropdown-list-dynamic 
-            v-model="item.plans" 
-            :data="{...data, ...item}" 
-            :context="context"
-            :viewparams="viewparams"
-            :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
-            :disabled="detailsModel.formitemex2.disabled" 
-            valueType="string"
-            tag='ProductPlan' 
-            codelistType='DYNAMIC'
-            placeholder="" style="flex-grow: 1;">
-         </dropdown-list-dynamic>
-      </div>
-   </template>
-</comb-form-item>
-
+    !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 69, column 1:
+Unexpected directive, "</#if>". Check if you have a valid #if-#elseif-#else structure.
 
 </i-col>
     
