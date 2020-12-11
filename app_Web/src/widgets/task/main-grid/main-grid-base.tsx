@@ -1015,7 +1015,7 @@ export class MainGridBase extends GridControlBase {
                         children: true,
                         toolcaption: '更多',
                         tooltip: '更多',
-                        tag: 'deuiaction1'
+                        tag: 'deuiaction1',
                         parent: item.id,
                         id: this.$util.createUUID(),                
                         pri: '',
