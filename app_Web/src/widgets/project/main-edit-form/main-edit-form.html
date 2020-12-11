@@ -659,15 +659,57 @@
     :lg="{ span: 24, offset: 0 }"
     
 >
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'entities.project.products
+', prop: 'products', unique: true },{ name: '关联产品平台集合',localetag: 'entities.project.branchs
+', prop: 'branchs', hidden: true },{ name: '关联计划',localetag: 'entities.project.plans
+', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
+   <template slot="products" slot-scope="{item}">
+      <div style="display: flex;">
+         <dropdown-list-dynamic 
+            v-model="item.products" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
+            :disabled="detailsModel.formitemex2.disabled" 
+            valueType="string"
+            tag='Product' 
+            codelistType='DYNAMIC'
+            placeholder="" style="flex-grow: 1;">
+         </dropdown-list-dynamic>
+         <dropdown-list-dynamic 
+   v-model="item.branchs" 
+   :data="{...data, ...item}" 
+   :context="context"
+   :viewparams="viewparams"
+   :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
+   :disabled="detailsModel.formitemex2.disabled" 
+   valueType="string"
+   tag='ProductBranch' 
+   codelistType='DYNAMIC'
+   placeholder="" style="width: 100px;flex-shrink: 0;margin-left: 5px;">
+</dropdown-list-dynamic>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if filed.getPSAppDataEntity?? && fie...  [in template "TEMPLCODE_en_US" in macro "getItemLocaleTag" at line 5, column 3]
-	- Reached through: @getItemLocaleTag field  [in template "TEMPLCODE_en_US" at line 12, column 356]
-----
+      </div>
+   </template>
+   <template slot="plans" slot-scope="{item}">
+      <div style="display: flex;">
+         <dropdown-list-dynamic 
+            v-model="item.plans" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
+            :disabled="detailsModel.formitemex2.disabled" 
+            valueType="string"
+            tag='ProductPlan' 
+            codelistType='DYNAMIC'
+            placeholder="" style="flex-grow: 1;">
+         </dropdown-list-dynamic>
+      </div>
+   </template>
+</comb-form-item>
+
 
 </i-col>
     
