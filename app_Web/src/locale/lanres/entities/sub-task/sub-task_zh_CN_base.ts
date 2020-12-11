@@ -88,6 +88,7 @@ function getLocaleResourceBase(){
 					type: commonLogic.appcommonhandle("任务类型",null),
 					assignedto: commonLogic.appcommonhandle("指派给",null),
 					eststarted: commonLogic.appcommonhandle("预计开始",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
 					desc: commonLogic.appcommonhandle("任务描述",null),
 					pri: commonLogic.appcommonhandle("优先级",null),
 				},

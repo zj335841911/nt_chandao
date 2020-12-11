@@ -69,7 +69,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storyname')">
-                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.subtask.subtasknew_grid.columns.storyname')" :width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.subtask.subtasknew_grid.columns.storyname')" :width="300"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.subtask.subtasknew_grid.columns.storyname')}}
@@ -226,7 +226,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('eststarted')">
-                <el-table-column show-overflow-tooltip :prop="'eststarted'" :label="$t('entities.subtask.subtasknew_grid.columns.eststarted')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'eststarted'" :label="$t('entities.subtask.subtasknew_grid.columns.eststarted')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.subtask.subtasknew_grid.columns.eststarted')}}
@@ -249,8 +249,32 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('deadline')">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.subtask.subtasknew_grid.columns.deadline')" :width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.subtask.subtasknew_grid.columns.deadline')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :disabled="getColumnDisabled(row,column.property)" :value="row[column.property]" style="" @on-change="(val1, val2) => { row[column.property] = val1; gridEditItemChange(row, column.property, val1, $index)}"></date-picker>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+                                    <app-span
+                                        name="deadline"
+                                        editorType="DATEPICKER"
+            :value="row.deadline" dataType="DATE" precision="0" 
+                                    ></app-span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('desc')">
-                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.subtask.subtasknew_grid.columns.desc')" :width="400"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.subtask.subtasknew_grid.columns.desc')" :width="500"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.subtask.subtasknew_grid.columns.desc')}}
