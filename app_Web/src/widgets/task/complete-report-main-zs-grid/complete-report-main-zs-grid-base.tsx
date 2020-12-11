@@ -153,7 +153,7 @@ export class CompleteReportMainZSGridBase extends GridControlBase {
         },
         {
             name: 'consumed',
-            label: '总计消耗',
+            label: '工时',
             langtag: 'entities.task.completereportmainzs_grid.columns.consumed',
             show: true,
             unit: 'PX',
