@@ -29,13 +29,7 @@
             </ion-list>
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
-                      <van-collapse v-model="activeName" @change="changeCollapse">
-                        <van-collapse-item v-if="obj.items && obj.items.length > 0" :name="obj.text">
-                          <template #title>
-                            <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
-                          </template>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.confirmStoryChangeCz.visabled" :disabled="item.confirmStoryChangeCz.disabled" color="primary" @click="mdctrl_click($event, 'u50d1ea3', item)"><ion-icon v-if="item.confirmStoryChangeCz.icon && item.confirmStoryChangeCz.isShowIcon" :name="item.confirmStoryChangeCz.icon"></ion-icon><ion-label v-if="item.confirmStoryChangeCz.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
@@ -57,10 +51,6 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
-                        </van-collapse-item>
-                      </van-collapse>
-                      </div>
-
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -790,7 +780,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {boolean}
     * @memberof Mob
     */
-    public isEnableGroup:boolean =  true;
+    public isEnableGroup:boolean =  false;
 
     /**
     * 代码表分组细节
@@ -806,7 +796,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {string}
     * @memberof Mob
     */
-    public group_mode = 'AUTO';
+    public group_mode = 'NONE';
 
     /**
     * 分组数据
@@ -831,7 +821,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {array}
     * @memberof Mob
     */
-    public group_field:string = 'parentname';
+    public group_field:string = '';
 
     /**
      * 分组方法
@@ -847,28 +837,6 @@ export default class MobBase extends Vue implements ControlInterface {
       }
     }
 
-    /**
-     * vant折叠面板数据
-     *
-     * @memberof Mob
-     */
-    public activeName:Array<any> = [];
-
-    /**
-     * 只需第一次赋值面板
-     *
-     * @memberof Mob
-     */
-    public valve:number = 0;
-
-    /**
-     * 折叠面板改变时
-     *
-     * @memberof Mob
-     */
-    public changeCollapse($event:any){
-      this.activeName = $event;
-    }
 
     /**
     * 存放数据选择数组(单选)
@@ -1202,31 +1170,6 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
 
-    /**
-     * 
-     * 自动分组，获取分组数据
-     *
-     * @memberof Mob
-     */
-    public getGroupDataAuto(items:any){
-      let groups:Array<any> = [];
-      items.forEach((item:any)=>{
-        if(item.hasOwnProperty(this.group_field)){
-          groups.push(item[this.group_field]);
-        }
-      })
-      groups = [...new Set(groups)];
-      groups.forEach((group:any,index:number)=>{
-        this.group_data[index] = {};
-        this.group_data[index].items = [];
-        items.forEach((item:any,i:number)=>{
-          if (group == item[this.group_field]) {
-            this.group_data[index].text = group;
-            this.group_data[index].items.push(item);
-          }
-        })
-      })
-    }
 
     /**
      * checkbox 选中回调

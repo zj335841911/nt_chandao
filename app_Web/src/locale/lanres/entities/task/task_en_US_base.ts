@@ -96,6 +96,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("任务",null),
 					title: commonLogic.appcommonhandle("任务表格视图",null),
 				},
+				monthlycompletezsgridview: {
+					caption: commonLogic.appcommonhandle("展示",null),
+					title: commonLogic.appcommonhandle("任务表格视图（展示）",null),
+				},
 				maingridview9_child: {
 					caption: commonLogic.appcommonhandle("任务",null),
 					title: commonLogic.appcommonhandle("任务表格视图",null),
@@ -244,9 +248,9 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("日历航显示",null),
 					title: commonLogic.appcommonhandle("任务编辑视图（日历航显示）",null),
 				},
-				usr2gridview: {
-					caption: commonLogic.appcommonhandle("任务",null),
-					title: commonLogic.appcommonhandle("任务表格视图",null),
+				dailycompletezsgridview: {
+					caption: commonLogic.appcommonhandle("展示",null),
+					title: commonLogic.appcommonhandle("任务表格视图（展示）",null),
 				},
 				donetaskview: {
 					caption: commonLogic.appcommonhandle("完成任务",null),
@@ -1156,10 +1160,11 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			reportmainzs_grid: {
+			completereportmainzs_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("任务名称",null),
 					status1: commonLogic.appcommonhandle("任务状态",null),
+					consumed: commonLogic.appcommonhandle("总计消耗",null),
 					left: commonLogic.appcommonhandle("剩余",null),
 					progressrate: commonLogic.appcommonhandle("%",null),
 					deadline: commonLogic.appcommonhandle("截止日期",null),
@@ -1219,6 +1224,18 @@ function getLocaleResourceBase(){
 				task_checkforward: commonLogic.appcommonhandle("转交",null),
 				task_forward: commonLogic.appcommonhandle("转交",null),
 				task_assigntask: commonLogic.appcommonhandle("指派",null),
+				},
+			},
+			reportmainzs_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("任务名称",null),
+					status1: commonLogic.appcommonhandle("任务状态",null),
+					left: commonLogic.appcommonhandle("剩余",null),
+					progressrate: commonLogic.appcommonhandle("%",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
 				},
 			},
 			main2my_grid: {
@@ -1627,8 +1644,6 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Save And Close",null),
 					tip: commonLogic.appcommonhandle("Save And Close Window",null),
 				},
-			},
-			usr2gridviewtoolbar_toolbar: {
 			},
 			taskgrouptree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),

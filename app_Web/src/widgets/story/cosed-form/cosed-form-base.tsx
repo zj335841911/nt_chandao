@@ -128,13 +128,13 @@ export class CosedEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.closedreason.required,
                     type: 'string',
-                    message: `${this.$t('entities.story.cosed_form.details.closedreason')}  值不能为空`,
+                    message: `${this.$t('entities.story.cosed_form.details.closedreason')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.closedreason.required,
                     type: 'string',
-                    message: `${this.$t('entities.story.cosed_form.details.closedreason')}  值不能为空`,
+                    message: `${this.$t('entities.story.cosed_form.details.closedreason')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

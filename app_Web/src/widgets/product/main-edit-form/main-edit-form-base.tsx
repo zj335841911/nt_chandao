@@ -155,13 +155,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: `${this.$t('entities.product.main_edit_form.details.name')}  值不能为空`,
+                    message: `${this.$t('entities.product.main_edit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: `${this.$t('entities.product.main_edit_form.details.name')}  值不能为空`,
+                    message: `${this.$t('entities.product.main_edit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -169,13 +169,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: `${this.$t('entities.product.main_edit_form.details.code')}  值不能为空`,
+                    message: `${this.$t('entities.product.main_edit_form.details.code')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: `${this.$t('entities.product.main_edit_form.details.code')}  值不能为空`,
+                    message: `${this.$t('entities.product.main_edit_form.details.code')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

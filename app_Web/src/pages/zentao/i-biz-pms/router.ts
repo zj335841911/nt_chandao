@@ -6127,6 +6127,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/doc-basic-edit-view9/doc-basic-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/dailycompletezsgridview/:dailycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.dailycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailycompletezsgridview', parameterName: 'dailycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-complete-zs-grid-view/task-daily-complete-zs-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/dailycompletezsgridview/:dailycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.dailycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailycompletezsgridview', parameterName: 'dailycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-complete-zs-grid-view/task-daily-complete-zs-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/dailycompletezsgridview/:dailycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.dailycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailycompletezsgridview', parameterName: 'dailycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-complete-zs-grid-view/task-daily-complete-zs-grid-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/dailycompletezsgridview/:dailycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.dailycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailycompletezsgridview', parameterName: 'dailycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-complete-zs-grid-view/task-daily-complete-zs-grid-view.vue'),
+                },
+                {
                     path: 'actions/:action?/editview/:editview?',
                     meta: {
                         caption: 'entities.action.views.editview.caption',
@@ -6978,20 +7046,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-case-to-bug-edit-view/bug-case-to-bug-edit-view.vue'),
                 },
                 {
-                    path: 'ibzdailies/:ibzdaily?/dailyeditview/:dailyeditview?',
-                    meta: {
-                        caption: 'entities.ibzdaily.views.dailyeditview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-                            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-daily-daily-edit-view/ibz-daily-daily-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/htmlview/:htmlview?',
                     meta: {
                         caption: 'entities.product.views.htmlview.caption',
@@ -7004,6 +7058,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
+                },
+                {
+                    path: 'ibzdailies/:ibzdaily?/dailyeditview/:dailyeditview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.dailyeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-edit-view/ibz-daily-daily-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/gridview9_substory/:gridview9_substory?',
@@ -10965,20 +11033,6 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-monthly-my-received-grid-view/ibz-monthly-my-received-grid-view.vue'),
                 },
                 {
-                    path: 'productlives/:productlife?/roadmapslistview9/:roadmapslistview9?',
-                    meta: {
-                        caption: 'entities.productlife.views.roadmapslistview9.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productlives', parameterName: 'productlife' },
-                            { pathName: 'roadmapslistview9', parameterName: 'roadmapslistview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-life-road-map-slist-view9/product-life-road-map-slist-view9.vue'),
-                },
-                {
                     path: 'ibzdailies/:ibzdaily?/mymaineditview/:mymaineditview?',
                     meta: {
                         caption: 'entities.ibzdaily.views.mymaineditview.caption',
@@ -10991,6 +11045,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/report/ibz-daily-mymain-edit-view/ibz-daily-mymain-edit-view.vue'),
+                },
+                {
+                    path: 'productlives/:productlife?/roadmapslistview9/:roadmapslistview9?',
+                    meta: {
+                        caption: 'entities.productlife.views.roadmapslistview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productlives', parameterName: 'productlife' },
+                            { pathName: 'roadmapslistview9', parameterName: 'roadmapslistview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-life-road-map-slist-view9/product-life-road-map-slist-view9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assignedtotaskgroupgridview/:assignedtotaskgroupgridview?',
@@ -12820,6 +12888,74 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/sys-update-features-edit-view/sys-update-features-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/monthlycompletezsgridview/:monthlycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.monthlycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlycompletezsgridview', parameterName: 'monthlycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-monthly-complete-zs-grid-view/task-monthly-complete-zs-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/monthlycompletezsgridview/:monthlycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.monthlycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlycompletezsgridview', parameterName: 'monthlycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-monthly-complete-zs-grid-view/task-monthly-complete-zs-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/monthlycompletezsgridview/:monthlycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.monthlycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlycompletezsgridview', parameterName: 'monthlycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-monthly-complete-zs-grid-view/task-monthly-complete-zs-grid-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/monthlycompletezsgridview/:monthlycompletezsgridview?',
+                    meta: {
+                        caption: 'entities.task.views.monthlycompletezsgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlycompletezsgridview', parameterName: 'monthlycompletezsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-monthly-complete-zs-grid-view/task-monthly-complete-zs-grid-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview_edit/:editview_edit?',

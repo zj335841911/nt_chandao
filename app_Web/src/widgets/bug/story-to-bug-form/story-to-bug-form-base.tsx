@@ -145,13 +145,13 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.productname.required,
                     type: 'string',
-                    message: `${this.$t('entities.bug.storytobug_form.details.productname')}  值不能为空`,
+                    message: `${this.$t('entities.bug.storytobug_form.details.productname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.productname.required,
                     type: 'string',
-                    message: `${this.$t('entities.bug.storytobug_form.details.productname')}  值不能为空`,
+                    message: `${this.$t('entities.bug.storytobug_form.details.productname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -159,13 +159,13 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.openedbuild.required,
                     type: 'string',
-                    message: `${this.$t('entities.bug.storytobug_form.details.openedbuild')}  值不能为空`,
+                    message: `${this.$t('entities.bug.storytobug_form.details.openedbuild')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.openedbuild.required,
                     type: 'string',
-                    message: `${this.$t('entities.bug.storytobug_form.details.openedbuild')}  值不能为空`,
+                    message: `${this.$t('entities.bug.storytobug_form.details.openedbuild')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -173,13 +173,13 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: `${this.$t('entities.bug.storytobug_form.details.title')}  值不能为空`,
+                    message: `${this.$t('entities.bug.storytobug_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: `${this.$t('entities.bug.storytobug_form.details.title')}  值不能为空`,
+                    message: `${this.$t('entities.bug.storytobug_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

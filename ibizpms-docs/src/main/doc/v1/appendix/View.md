@@ -363,6 +363,7 @@
 |-|doclib数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|模块|DEEDITVIEW|&nbsp;|
 |-|测试结果多表单编辑视图|DEMEDITVIEW9|&nbsp;|
+|-|任务表格视图（展示）|DEGRIDVIEW9|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|产品汇总表图表视图|DECHARTVIEW9|&nbsp;|
@@ -721,7 +722,6 @@ SRFNAVPARAM.project=%project%|
 |-|月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|待办事宜表格视图|DEGRIDVIEW|&nbsp;|
 |-|我的地盘树导航视图（测试统计）|DETREEEXPVIEW|&nbsp;|
-|-|任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|file表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|
 |-|解决Bug|DEOPTVIEW|&nbsp;|
@@ -736,6 +736,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例库模块编辑视图|DEEDITVIEW|&nbsp;|
 |-|月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
+|-|任务表格视图（展示）|DEGRIDVIEW9|&nbsp;|
 |-|用例库模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|需求图表视图（累计创建需求-阶段）|DECHARTVIEW9|&nbsp;|
 |-|转BUG|DEEDITVIEW|&nbsp;|

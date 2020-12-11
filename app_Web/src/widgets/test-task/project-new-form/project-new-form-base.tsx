@@ -132,13 +132,13 @@ export class ProjectNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.buildname.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.buildname')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.buildname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.buildname.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.buildname')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.buildname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -146,13 +146,13 @@ export class ProjectNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.begin.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.begin')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.begin')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.begin.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.begin')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.begin')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -160,13 +160,13 @@ export class ProjectNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.end.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.end')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.end')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.end.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.end')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.end')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
                 {
@@ -188,13 +188,13 @@ export class ProjectNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.name')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: `${this.$t('entities.testtask.projectnew_form.details.name')}  值不能为空`,
+                    message: `${this.$t('entities.testtask.projectnew_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
