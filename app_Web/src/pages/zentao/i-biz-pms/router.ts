@@ -6978,20 +6978,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-case-to-bug-edit-view/bug-case-to-bug-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/htmlview/:htmlview?',
-                    meta: {
-                        caption: 'entities.product.views.htmlview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'htmlview', parameterName: 'htmlview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
-                },
-                {
                     path: 'ibzdailies/:ibzdaily?/dailyeditview/:dailyeditview?',
                     meta: {
                         caption: 'entities.ibzdaily.views.dailyeditview.caption',
@@ -7004,6 +6990,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/report/ibz-daily-daily-edit-view/ibz-daily-daily-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/htmlview/:htmlview?',
+                    meta: {
+                        caption: 'entities.product.views.htmlview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'htmlview', parameterName: 'htmlview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/gridview9_substory/:gridview9_substory?',

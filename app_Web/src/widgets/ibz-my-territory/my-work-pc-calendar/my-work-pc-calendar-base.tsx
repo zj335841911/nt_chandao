@@ -6,6 +6,7 @@ import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import MyWorkPCService from './my-work-pc-calendar-service';
+import IbzDailyUIService from '@/uiservice/ibz-daily/ibz-daily-ui-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
 import Vue from 'vue';
 import FullCalendar from '@fullcalendar/vue'
@@ -75,6 +76,48 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * @memberof MyWorkPCBase
      */  
     public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
+    /**
+     * cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof MyWorkPCCalendarBase
+     */
+    public cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.cm_deuiaction1_click(null, 'cm', $event2);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
+        curUIService.IbzDaily_create(datas,contextJO, paramJO,  $event, xData,this,"IbzMyTerritory");
+    }
 
 
     /**
@@ -286,6 +329,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * @memberof MyWorkPCBase
      */
      public actionModel: any = {
+        daily_deuiaction1: {name:'deuiaction1',nodeOwner:'daily',type: 'DEUIACTION', tag: 'create', actiontarget: 'NONE', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
     /**
@@ -519,6 +563,17 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     placement: '',
                     deResParameters: [],
                     parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailyinfocalendareditview', parameterName: 'dailyinfocalendareditview' } ],
+                };
+                break;
+            case "ibzdaily": 
+                view = {
+                    viewname: 'ibz-daily-daily-edit-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.ibzdaily.views.dailyeditview.title'),
+                    placement: 'DRAWER_RIGHT',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailyeditview', parameterName: 'dailyeditview' } ],
                 };
                 break;
         }
@@ -912,8 +967,32 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             const data: any = JSON.parse(JSON.stringify(event));
             this.selections = [event];
             switch(event.itemType){
+            case "daily":
+                content = this.renderContextMenuDaily();
+                break;
             }
         }
         return content;
+    }
+
+    /**
+     * 绘制daily类型右键菜单
+     *
+     * @returns
+     * @memberof MyWorkPCBase
+     */
+    public renderContextMenuDaily() {
+        return (
+            <div class="calendar-menu">
+                        <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        <i class="fa fa-plus"></i>
+                        
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+            </div>
+        );
     }
 }

@@ -193,6 +193,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			dailyeditviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("保存并关闭",null),
+					tip: commonLogic.appcommonhandle("保存并关闭",null),
+				},
+			},
 			dailyinfocalendareditviewtoolbar_toolbar: {
 			},
 			maineditviewtoolbar_toolbar: {
@@ -202,12 +208,6 @@ function getLocaleResourceBase(){
 				},
 			},
 			dailyinfoeditviewtoolbar_toolbar: {
-			},
-			dailyeditviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("保存并关闭",null),
-					tip: commonLogic.appcommonhandle("保存并关闭",null),
-				},
 			},
 			dailygridviewtoolbar_toolbar: {
 				deuiaction1_createuserdaily: {

@@ -220,6 +220,7 @@ function getLocaleResourceBase(){
 			myworkpc_calendar: {
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
+				ibzdaily_create: commonLogic.appcommonhandle("新建",null),
 				},
 			},
 			tabexpviewtabexppanel_tabexppanel: {
