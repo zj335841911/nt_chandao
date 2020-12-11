@@ -1625,8 +1625,8 @@ export default class TaskUIServiceBase extends UIService {
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { task: '%task%' });
-        Object.assign(params, { id: '%task%' });
+        Object.assign(context, { task: '%parent%' });
+        Object.assign(params, { parent: '%parent%' });
         Object.assign(params, { name: '%name%' });
         if(_this.context){
             parentContext = _this.context;
