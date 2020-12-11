@@ -511,8 +511,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{thisweektask:"%nextweektask%"}'
+    :localContext ='{DATE:"%date%"}'
+    :localParam ='{date:"%date%",thisweektask:"%nextweektask%"}'
     parameterName="ibzweekly"
     parentName="IBZWEEKLY"  
     refviewtype="DEGRIDVIEW9" 

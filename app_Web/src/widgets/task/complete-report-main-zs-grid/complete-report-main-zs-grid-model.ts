@@ -37,8 +37,8 @@ export default class CompleteReportMainZSModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'consumed',
-          prop: 'consumed',
+          name: 'myconsumed',
+          prop: 'myconsumed',
           dataType: 'FLOAT',
         },
         {
@@ -104,6 +104,11 @@ export default class CompleteReportMainZSModel {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
         },
         {
           name: 'isfavorites',
