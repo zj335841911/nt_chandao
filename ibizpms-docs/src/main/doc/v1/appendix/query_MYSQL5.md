@@ -17032,8 +17032,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-((t1.`status` = 'doing' and t1.assignedTo =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}) or (t1.finishedBy =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} and 
-DATE_FORMAT( t1.finishedDate, '%Y-%m-%d' ) = DATE_FORMAT( CASE WHEN ${srfdatacontext('date')} IS NULL THEN now() ELSE ${srfdatacontext('date')} END, '%Y-%m-%d' ) )) 
+EXISTS(select 1 from zt_taskestimate t where t.task = t1.id and t.account = ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} and DATE_FORMAT( t.date, '%Y-%m-%d' ) = DATE_FORMAT( CASE WHEN ${srfdatacontext('date')} IS NULL THEN now() ELSE ${srfdatacontext('date')} END, '%Y-%m-%d' )) 
 t31.deleted='0' 
 
 ```

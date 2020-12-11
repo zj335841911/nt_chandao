@@ -146,6 +146,20 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			calendarexpviewcalendarexpbar_calendar_quicktoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("New",null),
+					tip: commonLogic.appcommonhandle("New",null),
+				},
+				seperator1: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("Save",null),
@@ -162,6 +176,20 @@ function getLocaleResourceBase(){
 				tbitem7: {
 					caption: commonLogic.appcommonhandle("Remove And Close",null),
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
+				},
+			},
+			calendarviewcalendar_quicktoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("New",null),
+					tip: commonLogic.appcommonhandle("New",null),
+				},
+				seperator1: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
 				},
 			},
 			productsum_treeview: {
@@ -220,6 +248,9 @@ function getLocaleResourceBase(){
 			myworkpc_calendar: {
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
+				new: commonLogic.appcommonhandle("New",null),
+				refresh: commonLogic.appcommonhandle("刷新",null),
+				exportexcel: commonLogic.appcommonhandle("Export",null),
 				ibzdaily_create: commonLogic.appcommonhandle("新建",null),
 				},
 			},

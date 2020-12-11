@@ -92,6 +92,21 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
         },
     };
 
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof IbzMyTerritoryCalendarExpView
+     */
+    public calendarexpviewcalendarexpbar_calendar_quicktoolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
+
+        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+
+    };
+
+
 
 	/**
      * 视图唯一标识
