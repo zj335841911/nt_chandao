@@ -55,10 +55,11 @@ export default class AppRichTextEditor extends Vue {
      * @type {string}
      * @memberof AppRichTextEditor
      */
-    @Watch("value")
+    @Watch("value",{immediate:true})
     onValueChange(){
       const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
-      this.showVal = this.value ? this.value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`) : "";
+      this.showVal = this.value ? this.parseImgUrl(this.value) : "";
+      this.$forceUpdate();
     }
 
     /**
@@ -159,10 +160,28 @@ export default class AppRichTextEditor extends Vue {
       }
       let curVal:any = null;
       if(this.value){
-        const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
-        curVal = this.value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`);
+        curVal =this.parseImgUrl(this.value)
       }
       this.openPopupModal({ viewname: 'app-rich-text-pms', title: 'app-rich-text-pms'},{},{value:curVal,uploadUrl:this.uploadUrl,export_params:this.export_params});
+    }
+
+
+    /**
+     * 图片解析
+     *
+     * @type {String}
+     * @memberof APPHistoryList
+     */
+    public parseImgUrl(html:any){
+      let that :any = this;
+       let parsehtml = html.replace(/<img [^>]*src=['"]\{([^\}'"]+)[^>]*>/gi,  (match:any, capture:any) =>{
+          let parseUrl = "";
+          if(match.indexOf('{') && match.indexOf('}')){
+            parseUrl = `${that.downloadUrl}/${capture.split('.')[0]}`;
+          }
+           return `<img src="${parseUrl?parseUrl:capture}"/>`
+        });
+        return parsehtml
     }
 
     /**
