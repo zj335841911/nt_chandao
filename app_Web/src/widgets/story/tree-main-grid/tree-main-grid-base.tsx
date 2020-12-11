@@ -889,6 +889,7 @@ export class TreeMainGridBase extends GridControlBase {
                 if(item.hasOwnProperty('items') && item.items && item.items.length == 20){
                     const moreitem: any = {
                         children: true,
+                        parent: item.id,
                         id: this.$util.createUUID(),                
                         pri: '',
                         title: '',
@@ -939,14 +940,14 @@ export class TreeMainGridBase extends GridControlBase {
     /**
     * 合并更多行
     * 
+    * @param {{ row, column, rowIndex, columnIndex }} row 行数据 column 列数据 rowIndex 行索引 columnIndex 列索引
     * @memberof TreeMainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','title','plan','openedby','assignedto','estimate','status','stage','modulename','uagridcolumn1'];
         if(row && row.children) {
-            if(columnIndex == (this.isSingleSelect ? 2:3)) {
-                return [1, allColumns.length];
-            } else if(columnIndex !== (this.isSingleSelect ? 2:3)) {
+            if(columnIndex == this.allColumns.length) {
+                return [1, this.allColumns.length+1];
+            } else {
                 return [0,0];
             }
         }
@@ -968,6 +969,16 @@ export class TreeMainGridBase extends GridControlBase {
             });
             return isSelected ? 'grid-selected-row' : '';
         }
+    }
+
+    /**
+     * 加载更多
+     *  
+     * @param $event
+     * @memberof TreeMainGridBase
+     */
+    public loadMore($event: any){
+        let _this: any = this;
     }
 
     /**

@@ -21,8 +21,6 @@
         ref='multipleTable' :data="items" :show-header="!isHideHeader">
             <template slot="empty">
                 无数据 
-                <span class="quick-toolbar">
-                </span>
             </template>
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
@@ -174,7 +172,12 @@
                        </span>
                     </template>
                     <template slot-scope="scope">
-                        <div style="text-align: center;">
+                        <template v-if="scope.row.children">
+                            <span>
+                                <a :title="scope.row.tooltip" @click="loadMore(scope.row)">{{ scope.row.toolcaption }}</a>
+                            </span>
+                        </template>
+                        <div v-else style="text-align: center;">
                             <a v-show="scope.row.StoryToBug.visible" :disabled="scope.row.StoryToBug.disabled" @click="uiAction(scope.row, 'StoryToBug', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_storytobug')">
                                 <i class="fa fa-bug"></i>
                                 

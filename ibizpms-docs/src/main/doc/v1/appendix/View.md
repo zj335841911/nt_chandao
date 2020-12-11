@@ -65,6 +65,7 @@
 |-|周报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|汇报移动端多数据视图（我提交的）|DEMOBMDVIEW|&nbsp;|
 |-|系统更新日志移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|系统日志移动端多数据视图（更多）|DEMOBMDVIEW|&nbsp;|
 |-|月报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|系统日志移动端多数据视图（通用）|DEMOBMDVIEW9|&nbsp;|
 |-|Bug选项操作视图（激活Bug）|DEMOBOPTVIEW|&nbsp;|

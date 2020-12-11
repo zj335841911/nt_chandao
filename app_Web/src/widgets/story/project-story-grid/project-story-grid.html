@@ -21,8 +21,6 @@
         ref='multipleTable' :data="items" :show-header="!isHideHeader">
             <template slot="empty">
                 无数据 
-                <span class="quick-toolbar">
-                </span>
             </template>
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
@@ -170,7 +168,12 @@
                        </span>
                     </template>
                     <template slot-scope="scope">
-                        <div style="text-align: center;">
+                        <template v-if="scope.row.children">
+                            <span>
+                                <a :title="scope.row.tooltip" @click="loadMore(scope.row)">{{ scope.row.toolcaption }}</a>
+                            </span>
+                        </template>
+                        <div v-else style="text-align: center;">
                             <a v-show="scope.row.Breakdowntasks.visible" :disabled="scope.row.Breakdowntasks.disabled" @click="uiAction(scope.row, 'Breakdowntasks', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_breakdowntasks')">
                                 <i class="fa fa-plus"></i>
                                 
