@@ -30,6 +30,9 @@ export default {
 		mobmapview: {
 			caption: commonLogic.appcommonhandle("系统日志",null),
 		},
+		moremobmdview: {
+			caption: commonLogic.appcommonhandle("更多",null),
+		},
 		mobmdview9: {
 			caption: commonLogic.appcommonhandle("通用",null),
 		},

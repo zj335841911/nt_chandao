@@ -54,6 +54,7 @@ export const PageComponents = {
         Vue.component('story-rmob-option-view', () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'));
         Vue.component('test-task-mob-option-view-start', () => import('@pages/zentao/test-task-mob-option-view-start/test-task-mob-option-view-start.vue'));
         Vue.component('bug-close-mob-option-view', () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'));
+        Vue.component('action-more-mob-mdview', () => import('@pages/zentao/action-more-mob-mdview/action-more-mob-mdview.vue'));
         Vue.component('project-module-mob-pickup-mdview', () => import('@pages/ibiz/project-module-mob-pickup-mdview/project-module-mob-pickup-mdview.vue'));
         Vue.component('ibz-daily-daily-plans-tomorrow-task-mob-mdview', () => import('@pages/report/ibz-daily-daily-plans-tomorrow-task-mob-mdview/ibz-daily-daily-plans-tomorrow-task-mob-mdview.vue'));
         Vue.component('todo-mob-mdview', () => import('@pages/ibiz/todo-mob-mdview/todo-mob-mdview.vue'));

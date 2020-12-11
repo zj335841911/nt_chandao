@@ -2280,6 +2280,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
                 },
                 {
+                    path: 'actions/:action?/moremobmdview',
+                    name: 'action_moremobmdview',
+                    meta: {
+                        caption: 'action.views.moremobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'moremobmdview', parameterName: 'moremobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-more-mob-mdview/action-more-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/projectmodules/:projectmodule?/mobpickupmdview',
                     name: 'projectmodule_mobpickupmdview',
                     meta: {

@@ -143,6 +143,37 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
     
 
     /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof Dashboard_sysportlet7Base
+     */
+    protected async dashboard_sysportlet7_u598b386_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('action_ui_action');
+        if (curUIService) {
+            curUIService.Action_more(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
      * 关闭视图
      *
      * @param {any[]} args
@@ -204,6 +235,10 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @memberof AllTrendsMob
      */
     protected actionBarModelData: any[] = [
+        {
+            viewlogicname: "dashboard_sysportlet7_u598b386_click",
+            name: "更多",
+        }
     ];
 
     /**
@@ -214,6 +249,9 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @memberof AllTrendsMob
      */
     protected handleItemClick($event: any) {
+        if (Object.is($event, 'dashboard_sysportlet7_u598b386_click')) {
+            this.dashboard_sysportlet7_u598b386_click(null);
+        }
     }
 
     /**
