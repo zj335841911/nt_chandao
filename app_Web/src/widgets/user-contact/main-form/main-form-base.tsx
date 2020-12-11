@@ -118,13 +118,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.listname.required,
                     type: 'string',
-                    message: '列表名称 值不能为空',
+                    message: `${this.$t('entities.usercontact.main_form.details.listname')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.listname.required,
                     type: 'string',
-                    message: '列表名称 值不能为空',
+                    message: `${this.$t('entities.usercontact.main_form.details.listname')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],

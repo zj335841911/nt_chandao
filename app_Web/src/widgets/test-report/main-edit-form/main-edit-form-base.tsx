@@ -138,13 +138,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.owner.required,
                     type: 'string',
-                    message: '负责人 值不能为空',
+                    message: `${this.$t('entities.testreport.mainedit_form.details.owner')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.owner.required,
                     type: 'string',
-                    message: '负责人 值不能为空',
+                    message: `${this.$t('entities.testreport.mainedit_form.details.owner')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
@@ -152,13 +152,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '标题 值不能为空',
+                    message: `${this.$t('entities.testreport.mainedit_form.details.title')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '标题 值不能为空',
+                    message: `${this.$t('entities.testreport.mainedit_form.details.title')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],

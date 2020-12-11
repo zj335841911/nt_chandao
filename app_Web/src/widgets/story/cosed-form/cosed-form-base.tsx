@@ -128,13 +128,13 @@ export class CosedEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.closedreason.required,
                     type: 'string',
-                    message: '关闭原因 值不能为空',
+                    message: `${this.$t('entities.story.cosed_form.details.closedreason')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.closedreason.required,
                     type: 'string',
-                    message: '关闭原因 值不能为空',
+                    message: `${this.$t('entities.story.cosed_form.details.closedreason')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],

@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzDailyDailyEditViewBase } from './ibz-daily-daily-edit-view-base';
-import view_form from '@widgets/ibz-daily/daily-edit-form/daily-edit-form.vue';
+import view_form from '@widgets/ibz-daily/create-daily-edit-form-form/create-daily-edit-form-form.vue';
 
 /**
  * 日报编辑视图视图

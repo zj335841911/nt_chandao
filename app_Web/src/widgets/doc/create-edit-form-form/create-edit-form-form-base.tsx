@@ -127,13 +127,13 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.libname.required,
                     type: 'string',
-                    message: '所属文档库 值不能为空',
+                    message: `${this.$t('entities.doc.createeditform_form.details.libname')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.libname.required,
                     type: 'string',
-                    message: '所属文档库 值不能为空',
+                    message: `${this.$t('entities.doc.createeditform_form.details.libname')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
@@ -141,13 +141,13 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '文档标题 值不能为空',
+                    message: `${this.$t('entities.doc.createeditform_form.details.title')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '文档标题 值不能为空',
+                    message: `${this.$t('entities.doc.createeditform_form.details.title')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],

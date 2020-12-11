@@ -154,13 +154,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '产品名称 值不能为空',
+                    message: `${this.$t('entities.product.main_form.details.name')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '产品名称 值不能为空',
+                    message: `${this.$t('entities.product.main_form.details.name')}  值不能为空`,
                     trigger: 'blur',
                 },
                 {
@@ -182,13 +182,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: '产品代号 值不能为空',
+                    message: `${this.$t('entities.product.main_form.details.code')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: '产品代号 值不能为空',
+                    message: `${this.$t('entities.product.main_form.details.code')}  值不能为空`,
                     trigger: 'blur',
                 },
                 {

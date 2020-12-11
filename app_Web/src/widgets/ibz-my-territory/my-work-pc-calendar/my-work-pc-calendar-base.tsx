@@ -900,18 +900,6 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     }
 
     /**
-     * 时间点击
-     *
-     * @param {*} $event 当前时间
-     * @param {*} jsEvent 原生事件对象  
-     * @returns
-     * @memberof MyWorkPCBase
-     */
-    public onDayClick($event: any,jsEvent:any){
-        console.log($event+'---------'+jsEvent);
-    }
-
-    /**
      * 事件绘制回调
      *
      * @param {*} info 信息

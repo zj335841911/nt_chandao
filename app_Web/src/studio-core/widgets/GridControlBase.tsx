@@ -591,6 +591,8 @@ export class GridControlBase extends MDControlBase {
         const page: any = {};
         if (this.isEnablePagingBar) {
             Object.assign(page, { page: this.curPage - 1, size: this.limit });
+        } else {
+            Object.assign(page, { size: this.limit });
         }
         // 设置排序
         if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {

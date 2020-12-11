@@ -125,13 +125,13 @@ export class EditFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '发布名称 值不能为空',
+                    message: `${this.$t('entities.release.editform_form.details.name')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '发布名称 值不能为空',
+                    message: `${this.$t('entities.release.editform_form.details.name')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
@@ -139,13 +139,13 @@ export class EditFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.date.required,
                     type: 'string',
-                    message: '发布日期 值不能为空',
+                    message: `${this.$t('entities.release.editform_form.details.date')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.date.required,
                     type: 'string',
-                    message: '发布日期 值不能为空',
+                    message: `${this.$t('entities.release.editform_form.details.date')}  值不能为空`,
                     trigger: 'blur',
                 },
                 {

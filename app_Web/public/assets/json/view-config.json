@@ -2420,7 +2420,7 @@
         "memo": ""
     },
     "ibzdailymaineditview": {
-        "title": "日报编辑视图（主数据）",
+        "title": "日报编辑视图（编辑）",
         "caption": "日报",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "report",

@@ -133,13 +133,13 @@ export class ForwardEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '转交给 值不能为空',
+                    message: `${this.$t('entities.task.forward_form.details.assignedto')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '转交给 值不能为空',
+                    message: `${this.$t('entities.task.forward_form.details.assignedto')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
@@ -147,13 +147,13 @@ export class ForwardEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.left.required,
                     type: 'number',
-                    message: '预计剩余 值不能为空',
+                    message: `${this.$t('entities.task.forward_form.details.left')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.left.required,
                     type: 'number',
-                    message: '预计剩余 值不能为空',
+                    message: `${this.$t('entities.task.forward_form.details.left')}  值不能为空`,
                     trigger: 'blur',
                 },
                 {

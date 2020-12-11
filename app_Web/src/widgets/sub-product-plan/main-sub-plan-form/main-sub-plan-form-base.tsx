@@ -125,13 +125,13 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '名称 值不能为空',
+                    message: `${this.$t('entities.subproductplan.mainsubplan_form.details.title')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '名称 值不能为空',
+                    message: `${this.$t('entities.subproductplan.mainsubplan_form.details.title')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],

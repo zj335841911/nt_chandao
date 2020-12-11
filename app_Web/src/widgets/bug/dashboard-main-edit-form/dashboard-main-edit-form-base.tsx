@@ -167,13 +167,13 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: 'Bug标题 值不能为空',
+                    message: `${this.$t('entities.bug.dashboardmainedit_form.details.title')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: 'Bug标题 值不能为空',
+                    message: `${this.$t('entities.bug.dashboardmainedit_form.details.title')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
@@ -181,13 +181,13 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.openedbuild.required,
                     type: 'string',
-                    message: '影响版本 值不能为空',
+                    message: `${this.$t('entities.bug.dashboardmainedit_form.details.openedbuild')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.openedbuild.required,
                     type: 'string',
-                    message: '影响版本 值不能为空',
+                    message: `${this.$t('entities.bug.dashboardmainedit_form.details.openedbuild')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],

@@ -120,13 +120,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.date.required,
                     type: 'string',
-                    message: '日期 值不能为空',
+                    message: `${this.$t('entities.taskestimate.main_form.details.date')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.date.required,
                     type: 'string',
-                    message: '日期 值不能为空',
+                    message: `${this.$t('entities.taskestimate.main_form.details.date')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
@@ -134,13 +134,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.consumed.required,
                     type: 'number',
-                    message: '工时 值不能为空',
+                    message: `${this.$t('entities.taskestimate.main_form.details.consumed')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.consumed.required,
                     type: 'number',
-                    message: '工时 值不能为空',
+                    message: `${this.$t('entities.taskestimate.main_form.details.consumed')}  值不能为空`,
                     trigger: 'blur',
                 },
                 {
@@ -162,13 +162,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.left.required,
                     type: 'number',
-                    message: '剩余 值不能为空',
+                    message: `${this.$t('entities.taskestimate.main_form.details.left')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.left.required,
                     type: 'number',
-                    message: '剩余 值不能为空',
+                    message: `${this.$t('entities.taskestimate.main_form.details.left')}  值不能为空`,
                     trigger: 'blur',
                 },
                 {

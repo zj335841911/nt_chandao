@@ -137,13 +137,13 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '需求名称 值不能为空',
+                    message: `${this.$t('entities.story.storyspec_editmode_form.details.title')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '需求名称 值不能为空',
+                    message: `${this.$t('entities.story.storyspec_editmode_form.details.title')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],

@@ -7,7 +7,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import IbzDailyUIService from '@/uiservice/ibz-daily/ibz-daily-ui-service';
 
 /**
- * 日报编辑视图（主数据）视图基类
+ * 日报编辑视图（编辑）视图基类
  *
  * @export
  * @class IbzDailymainEditViewBase

@@ -166,13 +166,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '任务名称 值不能为空',
+                    message: `${this.$t('entities.task.mainedit_form.details.name')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '任务名称 值不能为空',
+                    message: `${this.$t('entities.task.mainedit_form.details.name')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
@@ -180,13 +180,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '任务类型 值不能为空',
+                    message: `${this.$t('entities.task.mainedit_form.details.type')}  值不能为空`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '任务类型 值不能为空',
+                    message: `${this.$t('entities.task.mainedit_form.details.type')}  值不能为空`,
                     trigger: 'blur',
                 },
         ],
