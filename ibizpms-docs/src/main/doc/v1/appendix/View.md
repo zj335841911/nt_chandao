@@ -352,6 +352,7 @@
 |-|任务|DEEDITVIEW|&nbsp;|
 |-|文档库分类数据多项选择视图|DEMPICKUPVIEW|&nbsp;|
 |-|文档库树导航视图（产品文档库）|DETREEEXPVIEW|&nbsp;|
+|-|任务表格视图（展示）|DEGRIDVIEW9|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|

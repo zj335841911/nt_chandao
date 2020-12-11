@@ -169,6 +169,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+                '230bcf0d1c95c90d4985fcf6e6e3e261',
                 '6af549668ff8757cf378a5a50d8917e4',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
@@ -748,6 +749,16 @@ export const viewstate: any = {
                 'bfdd5a8d625f1be3f009084fbc16c909',
                 '1cfbd454f62ef5339730bf627e66a486',
                 '686d79c8c3e4e2aaaa43edcfb6caf39c',
+            ],
+        },
+        {
+            viewtag: '230bcf0d1c95c90d4985fcf6e6e3e261',
+            viewmodule: 'report',
+            viewname: 'TaskZsGridView9WeekNextWeekPlan',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
             ],
         },
         {
@@ -4410,6 +4421,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+                '230bcf0d1c95c90d4985fcf6e6e3e261',
                 '6af549668ff8757cf378a5a50d8917e4',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
