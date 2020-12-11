@@ -120,7 +120,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     public void removeSomeTasks(IbzDaily et) {
         String ids = et.getTodaytask();
         Timestamp date = et.getDate() == null ? ZTDateUtil.now() : et.getDate();
-        List<Task> tasks = iTaskService.list(new QueryWrapper<Task>().last("and find_in_set(id,'" + ids + "')  and ((status = 'doing' and assignedTo = '" + AuthenticationUser.getAuthenticationUser().getUsername() + "')  or (status = 'done' and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT('" + date + "','%Y-%m-%d') ))"));
+        List<Task> tasks = iTaskService.list(new QueryWrapper<Task>().last(" and id in (select task from zt_taskestimate where account = '" + et.getAccount() + "' and DATE_FORMAT( date, '%Y-%m-%d' ) = DATE_FORMAT( '" + date + "', '%Y-%m-%d' )) and FIND_IN_SET(id, '" + ids + "') and project in (select id from zt_project where deleted = '0')"));
         Set<String> taskIds = new HashSet<>();
         for (Task task : tasks) {
             taskIds.add(String.valueOf(task.getId()));
