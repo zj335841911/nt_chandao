@@ -659,7 +659,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @param $event
      * @memberof ProjectStoryGridBase
      */
-    public loadMore($event: any){
+    public loadMore(tag: string,$event: any){
         let _this: any = this;
     }
 

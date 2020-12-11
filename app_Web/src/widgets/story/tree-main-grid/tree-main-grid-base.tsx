@@ -977,7 +977,7 @@ export class TreeMainGridBase extends GridControlBase {
      * @param $event
      * @memberof TreeMainGridBase
      */
-    public loadMore($event: any){
+    public loadMore(tag: string,$event: any){
         let _this: any = this;
     }
 

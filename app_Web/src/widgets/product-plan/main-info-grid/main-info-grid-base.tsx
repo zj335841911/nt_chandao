@@ -746,7 +746,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param $event
      * @memberof MainInfoGridBase
      */
-    public loadMore($event: any){
+    public loadMore(tag: string,$event: any){
         let _this: any = this;
     }
 
