@@ -152,9 +152,9 @@ export class CompleteReportMainZSGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'myconsumed',
-            label: '之前消耗',
-            langtag: 'entities.task.completereportmainzs_grid.columns.myconsumed',
+            name: 'consumed',
+            label: '总计消耗',
+            langtag: 'entities.task.completereportmainzs_grid.columns.consumed',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -290,7 +290,7 @@ export class CompleteReportMainZSGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'name':false,
         'status1':false,
-        'myconsumed':false,
+        'consumed':false,
         'left':false,
         'progressrate':false,
         'deadline':false,
@@ -389,7 +389,7 @@ export class CompleteReportMainZSGridBase extends GridControlBase {
     * @memberof CompleteReportMainZSBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','status1','myconsumed','left','progressrate','deadline'];
+        let allColumns:Array<any> = ['name','status1','consumed','left','progressrate','deadline'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -470,7 +470,7 @@ export class CompleteReportMainZSGridBase extends GridControlBase {
                 group: group.label,
                 name:'',
                 status1:'',
-                myconsumed:'',
+                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',
@@ -500,7 +500,7 @@ export class CompleteReportMainZSGridBase extends GridControlBase {
             group: '其他',
             name:'',
             status1:'',
-            myconsumed:'',
+            consumed:'',
             left:'',
             progressrate:'',
             deadline:'',
@@ -566,7 +566,7 @@ export class CompleteReportMainZSGridBase extends GridControlBase {
                 group: group,
                 name:'',
                 status1:'',
-                myconsumed:'',
+                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',
