@@ -166,7 +166,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    public minorSortPSDEF: string = 'date';
+    public minorSortPSDEF: string = 'ibz_reportlyid';
 
     /**
      * 所有列成员

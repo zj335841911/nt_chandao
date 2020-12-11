@@ -144,7 +144,7 @@ export class MyReceivedGridBase extends GridControlBase {
      * @type {string}
      * @memberof MyReceivedGridBase
      */
-    public minorSortPSDEF: string = 'date';
+    public minorSortPSDEF: string = 'ibz_reportlyid';
 
     /**
      * 所有列成员
