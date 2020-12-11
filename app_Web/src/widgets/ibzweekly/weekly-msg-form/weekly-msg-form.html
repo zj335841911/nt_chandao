@@ -438,8 +438,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{thisweektask:"%thisweektask%"}'
+    :localContext ='{DATE:"%date%"}'
+    :localParam ='{date:"%date%",thisweektask:"%thisweektask%"}'
     parameterName="ibzweekly"
     parentName="IBZWEEKLY"  
     refviewtype="DEGRIDVIEW9" 
@@ -511,8 +511,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{DATE:"%date%"}'
-    :localParam ='{date:"%date%",thisweektask:"%nextweektask%"}'
+    :localContext ='{}'
+    :localParam ='{thisweektask:"%nextweektask%"}'
     parameterName="ibzweekly"
     parentName="IBZWEEKLY"  
     refviewtype="DEGRIDVIEW9" 

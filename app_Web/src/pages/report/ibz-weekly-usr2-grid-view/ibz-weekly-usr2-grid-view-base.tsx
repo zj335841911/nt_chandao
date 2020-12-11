@@ -455,20 +455,12 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
      * @memberof IbzWeeklyUsr2GridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = {DATE:"%date%"};
-        const localViewParam: any ={date:"%date%"};
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
             Object.assign(tempContext,args[0]);
-        }
-        if(localContext && Object.keys(localContext).length >0){
-            let _context:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localContext);
-            Object.assign(tempContext,_context);
-        }
-        if(localViewParam && Object.keys(localViewParam).length >0){
-            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
-            Object.assign(data,_param);
         }
         const deResParameters: any[] = [];
         const parameters: any[] = [
