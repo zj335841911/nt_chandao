@@ -889,7 +889,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param $event
      * @memberof MyFavoriteMainGridBase
      */
-    public loadMore(tag: string,$event: any){
+    public loadMore($event: any){
         let _this: any = this;
     }
 
