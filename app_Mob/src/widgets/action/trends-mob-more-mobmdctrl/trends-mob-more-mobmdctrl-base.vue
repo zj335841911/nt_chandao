@@ -405,7 +405,7 @@ export default class TrendsMobMoreBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof TrendsMobMore
     */
-    public pageSize: number = 10;
+    public pageSize: number = 30;
 
     /**
     * 总页数

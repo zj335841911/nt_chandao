@@ -53,7 +53,7 @@
             <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="plus"></ion-icon>
+                    <ion-icon name="add"></ion-icon>
                 
                 </ion-button>
                 
