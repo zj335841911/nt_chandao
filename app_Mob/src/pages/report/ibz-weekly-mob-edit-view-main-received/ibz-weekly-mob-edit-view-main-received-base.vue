@@ -2,31 +2,6 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-weekly-mob-edit-view-main-received': true }">
     
     <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="edit"> </ion-icon>
-                    
-                    </ion-button>
-                
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="check"> </ion-icon>
-                    
-                    </ion-button>
-                
-                    </div>
-                </div>
-            </ion-buttons>
-        </ion-toolbar>
 
     
     </ion-header>
