@@ -248,10 +248,6 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("日历航显示",null),
 					title: commonLogic.appcommonhandle("任务编辑视图（日历航显示）",null),
 				},
-				usr2gridview: {
-					caption: commonLogic.appcommonhandle("任务",null),
-					title: commonLogic.appcommonhandle("任务表格视图",null),
-				},
 				dailycompletezsgridview: {
 					caption: commonLogic.appcommonhandle("展示",null),
 					title: commonLogic.appcommonhandle("任务表格视图（展示）",null),
@@ -1648,8 +1644,6 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Save And Close",null),
 					tip: commonLogic.appcommonhandle("Save And Close Window",null),
 				},
-			},
-			usr2gridviewtoolbar_toolbar: {
 			},
 			taskgrouptree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
