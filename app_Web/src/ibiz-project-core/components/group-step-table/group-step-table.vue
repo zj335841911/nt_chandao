@@ -25,12 +25,12 @@
                                     </slot>
                                 </div>
                                 <div v-if="isEdit && !(Object.is(item[groupfield],'group') && Object.is(col.name,'expect'))" class="table-td-edit">
-                                    <div :class="['table-edit-item',gridItemsModel[index][col.name].error ? 'table-edit-error':'']">
+                                    <div :class="['table-edit-item',(gridItemsModel && gridItemsModel[index] && gridItemsModel[index][col.name])? gridItemsModel[index][col.name].error ? 'table-edit-error':'' :'']">
                                         <slot v-if="refreshSelect" :name="col.name" :row="item" :$index="index" :column="col" >
                                             <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
                                         </slot>
                                     </div>
-                                    <el-select :class="['table-edit-group',gridItemsModel[index][groupfield].error ? 'table-edit-error':'']" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
+                                    <el-select :class="['table-edit-group',(gridItemsModel && gridItemsModel[index] && gridItemsModel[index][groupfield])? gridItemsModel[index][groupfield].error ? 'table-edit-error':'' :'']" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
                                         <template v-for="(option, n) of groupItems">
                                             <el-option :key="n" :label="option.label" :value="option.value"></el-option>
                                         </template>
@@ -97,7 +97,7 @@ export default class GroupStepTable extends Vue {
      * @type {any[]}
      * @memberof GroupStepTable
      */
-    @Prop() gridItemsModel!: any[];
+    @Prop() gridItemsModel!:any[];
 
     /**
      * 下拉列表组件刷新
