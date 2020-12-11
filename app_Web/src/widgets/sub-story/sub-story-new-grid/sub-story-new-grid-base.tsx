@@ -311,8 +311,8 @@ export class SubStoryNewGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块名称 值不能为空', trigger: 'blur' },
         ],
         module: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
         ],
         pri: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'change' },
@@ -471,6 +471,9 @@ export class SubStoryNewGridBase extends GridControlBase {
     public createDefault(row: any){                    
         if (row.hasOwnProperty('product')) {
             row['product'] = this.viewparams['product'];
+        }
+        if (row.hasOwnProperty('module')) {
+            row['module'] = this.viewparams['module'];
         }
         if (row.hasOwnProperty('parent')) {
             row['parent'] = this.viewparams['parent'];

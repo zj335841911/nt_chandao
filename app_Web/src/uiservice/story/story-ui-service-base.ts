@@ -393,6 +393,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{MODULE:"%module%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",module:"%module%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
@@ -419,8 +421,8 @@ export default class StoryUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'substories', parameterName: 'substory' },
         ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {
                     if (!result || !Object.is(result.ret, 'OK')) {
                         return;
@@ -434,11 +436,12 @@ export default class StoryUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'story-sub-grid-view', 
-                height: 600, 
-                width: 1200,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.substory.views.subgridview.title'),
+                placement: 'DRAWER_TOP',
             };
-            openPopupModal(view, data);
+            openDrawer(view, data);
     }
 
     /**
@@ -1740,8 +1743,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%"});
+        Object.assign(context,{MODULE:"%module%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",module:"%module%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
@@ -1768,8 +1771,8 @@ export default class StoryUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'substories', parameterName: 'substory' },
         ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {
                     if (!result || !Object.is(result.ret, 'OK')) {
                         return;
@@ -1783,11 +1786,12 @@ export default class StoryUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'story-sub-grid-view', 
-                height: 600, 
-                width: 1200,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.substory.views.subgridview.title'),
+                placement: 'DRAWER_TOP',
             };
-            openPopupModal(view, data);
+            openDrawer(view, data);
     }
 
     /**
