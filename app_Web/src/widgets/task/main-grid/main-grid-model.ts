@@ -122,6 +122,11 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'isleaf',
+          prop: 'isleaf',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfmstag',
         },
         {
