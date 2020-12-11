@@ -631,14 +631,6 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'more',
-            label: '更多',
-            langtag: 'entities.task.main_grid.columns.more',
-            show: false,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.task.main_grid.columns.uagridcolumn1',
@@ -693,7 +685,6 @@ export class MainGridBase extends GridControlBase {
         'consumed':false,
         'left':false,
         'progressrate':false,
-        'more':false,
         'uagridcolumn1':false,
     };
 
@@ -1033,7 +1024,6 @@ export class MainGridBase extends GridControlBase {
                         consumed: '',
                         left: '',
                         progressrate: '',
-                        more: '',
                         TaskToBug:{
                             visabled: false
                         },
@@ -1077,7 +1067,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','name','status1','deadline','assignedto','finishedby','estimate','consumed','left','progressrate','more','uagridcolumn1'];
+        let allColumns:Array<any> = ['id','pri','name','status1','deadline','assignedto','finishedby','estimate','consumed','left','progressrate','uagridcolumn1'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 2:3)) {
                 return [1, allColumns.length];

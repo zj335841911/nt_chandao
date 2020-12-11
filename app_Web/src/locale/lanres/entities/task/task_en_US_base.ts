@@ -930,7 +930,6 @@ function getLocaleResourceBase(){
 					consumed: commonLogic.appcommonhandle("消耗",null),
 					left: commonLogic.appcommonhandle("剩余",null),
 					progressrate: commonLogic.appcommonhandle("%",null),
-					more: commonLogic.appcommonhandle("更多",null),
 					uagridcolumn1: commonLogic.appcommonhandle("操作",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),

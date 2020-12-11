@@ -237,18 +237,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('more')">
-                <el-table-column show-overflow-tooltip :prop="'more'" :label="$t('entities.task.main_grid.columns.more')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.more')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.more}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="270"  :align="'center'">
                     <template v-slot:header="{column}">
