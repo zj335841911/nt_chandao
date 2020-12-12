@@ -261,7 +261,7 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("完成任务",null),
 				},
 				childmoregridview: {
-					caption: commonLogic.appcommonhandle("子任务-更多",null),
+					caption: commonLogic.appcommonhandle("子任务",null),
 					title: commonLogic.appcommonhandle("任务表格视图（子任务-更多）",null),
 				},
 				pritaskgroupgridview: {
@@ -1414,6 +1414,14 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("导出",null),
 					tip: commonLogic.appcommonhandle("导出",null),
 				},
+				seperator4: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
+				},
 			},
 			maingridviewgrid_quicktoolbar_toolbar: {
 				deuiaction1: {
@@ -1469,6 +1477,14 @@ function getLocaleResourceBase(){
 				deuiaction5: {
 					caption: commonLogic.appcommonhandle("导出",null),
 					tip: commonLogic.appcommonhandle("导出",null),
+				},
+				seperator4: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
 			kanbanviewtoolbar_toolbar: {

@@ -86,6 +86,14 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Export",null),
 					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
 				},
+				seperator4: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("Filter",null),
+					tip: commonLogic.appcommonhandle("Filter",null),
+				},
 			},
 			editviewtoolbar_toolbar: {
 				deuiaction1: {

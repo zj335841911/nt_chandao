@@ -155,6 +155,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("",null),
 					tip: commonLogic.appcommonhandle("",null),
 				},
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
+				},
 				deuiaction6_togglefilter: {
 					caption: commonLogic.appcommonhandle("过滤",null),
 					tip: commonLogic.appcommonhandle("过滤",null),

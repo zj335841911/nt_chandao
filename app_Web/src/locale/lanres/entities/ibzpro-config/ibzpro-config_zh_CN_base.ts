@@ -93,6 +93,14 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("导出",null),
 					tip: commonLogic.appcommonhandle("导出",null),
 				},
+				seperator4: {
+					caption: commonLogic.appcommonhandle("",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
+				},
 			},
 			editviewtoolbar_toolbar: {
 				deuiaction1: {

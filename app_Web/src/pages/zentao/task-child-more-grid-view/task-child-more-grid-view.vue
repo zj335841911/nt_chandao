@@ -3,6 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskChildMoreGridViewBase } from './task-child-more-grid-view-base';
+import view_searchbar from '@widgets/task/custom-searchbar/custom-searchbar.vue';
 import view_grid from '@widgets/task/child-main-grid/child-main-grid.vue';
 
 /**
@@ -14,6 +15,7 @@ import view_grid from '@widgets/task/child-main-grid/child-main-grid.vue';
  */
 @Component({
     components: {
+        view_searchbar, 
         view_grid, 
     }
 })

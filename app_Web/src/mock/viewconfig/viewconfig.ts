@@ -3921,7 +3921,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "taskchildmoregridview": {
             "title": "任务表格视图（子任务-更多）",
-            "caption": "子任务-更多",
+            "caption": "子任务",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "TaskChildMoreGridView",
