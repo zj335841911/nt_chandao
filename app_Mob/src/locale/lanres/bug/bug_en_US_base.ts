@@ -368,7 +368,7 @@ export default {
 			title: commonLogic.appcommonhandle("Bug标题",null), 
 			product: commonLogic.appcommonhandle("所属产品",null), 
 			productname: commonLogic.appcommonhandle("产品",null), 
-			branch: commonLogic.appcommonhandle("",null), 
+			branch: commonLogic.appcommonhandle("平台/分支",null), 
 			branchname: commonLogic.appcommonhandle("平台/分支",null), 
 			module: commonLogic.appcommonhandle("所属模块",null), 
 			modulename: commonLogic.appcommonhandle("模块名称",null), 

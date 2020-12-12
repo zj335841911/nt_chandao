@@ -57,12 +57,6 @@ export class MobMainDataEditService extends FormServiceBase {
             const response: any = await service.FetchCurUer(data);
             return this.doItems(response);
         }
-        if (Object.is(serviceName, 'BranchService') && Object.is(interfaceName, 'FetchDefault')) {
-            const service: any = await this.getService('branch');
-            await this.onBeforeAction(interfaceName, context, data, isLoading);
-            const response: any = await service.FetchDefault(data);
-            return this.doItems(response);
-        }
         if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchBugModule')) {
             const service: any = await this.getService('module');
             await this.onBeforeAction(interfaceName, context, data, isLoading);

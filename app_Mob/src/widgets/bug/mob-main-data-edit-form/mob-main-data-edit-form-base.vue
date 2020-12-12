@@ -142,32 +142,23 @@
     v-show="detailsModel.branch.visible" 
     :itemRules="this.rules.branch" 
     :caption="$t('bug.mobmaindataedit_form.details.branch')"  
-    :labelWidth="1"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.branch.disabled"
     :error="detailsModel.branch.error" 
-    :isEmptyCaption="true">
-        <app-mob-select-drop-down 
-    name='branch' 
-    deMajorField='name'
-    deKeyField='id'
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="ProductBranch"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.branch.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.branch"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.branch.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'branch', interfaceName: 'FetchDefault'}"
-    :value="data.branch" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.branch = $event">
-</app-mob-select-drop-down>
+    @change="($event)=>this.data.branch = $event" />
 </app-form-item>
 
 
@@ -1688,7 +1679,7 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
 , 
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branch: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 

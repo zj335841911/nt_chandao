@@ -152,8 +152,8 @@
     tag="CurProductBuild"
     :isCache="false" 
     v-if="data.openedbuild"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
+    :navigateContext ='{ "bugproduct": "%product%", "bugproject": "%project%" } '
+    :navigateParam ='{ "bugproject": "%project%", "bugproduct": "%product%" } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"

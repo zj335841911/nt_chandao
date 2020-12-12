@@ -108,7 +108,7 @@ export class MobEditTableModel {
             {
                 name: 'mailto',
                 prop: 'mailto',
-                dataType: 'LONGTEXT',
+                dataType: 'SMCODELIST',
             },
             {
                 name: 'mailtopk',

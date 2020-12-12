@@ -58,7 +58,7 @@ export class MobCloseModel {
             {
                 name: 'mailto',
                 prop: 'mailto',
-                dataType: 'LONGTEXT',
+                dataType: 'SMCODELIST',
             },
             {
                 name: 'mailtopk',

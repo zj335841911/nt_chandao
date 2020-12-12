@@ -103,7 +103,7 @@ export class MobEditFormModel {
             {
                 name: 'mailto',
                 prop: 'mailto',
-                dataType: 'LONGTEXT',
+                dataType: 'SMCODELIST',
             },
             {
                 name: 'mailtopk',
