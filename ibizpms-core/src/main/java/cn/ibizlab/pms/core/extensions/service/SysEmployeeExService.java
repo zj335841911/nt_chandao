@@ -51,25 +51,8 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchDefault");
         try {
-//            context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
-//            return super.searchDefault(context);
-            UserSearchContext userSearchContext = new UserSearchContext();
-            userSearchContext.setSize(200);
-            userSearchContext.setN_account_in(context.getN_username_in());
-            userSearchContext.setN_account_notin(context.getN_username_notin());
-
-             Page<User> userPage =  iUserService.searchDefault(userSearchContext);
-            List<SysEmployee> list = new ArrayList<>();
-            for(User user : userPage.getContent()) {
-                SysEmployee sysEmployee = new SysEmployee();
-                sysEmployee.setUserid(String.valueOf(user.getId()));
-                sysEmployee.setUsername(user.getAccount());
-                sysEmployee.setPersonname(user.getRealname());
-
-                list.add(sysEmployee);
-            }
-            Page<SysEmployee> page = new PageImpl<SysEmployee>(list);
-            return page;
+            context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
+           return super.searchDefault(context);
         }catch(Exception e) {
             List<SysEmployee> list = new ArrayList<>();
             Page<SysEmployee> page = new PageImpl<SysEmployee>(list);
