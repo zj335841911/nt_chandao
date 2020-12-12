@@ -195,6 +195,43 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('storypoints')">
+                <el-table-column show-overflow-tooltip :prop="'storypoints'" :label="$t('entities.substory.substorynew_grid.columns.storypoints')" :width="100"  :align="'left'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.substory.substorynew_grid.columns.storypoints')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                
+            <app-picker  
+              :formState="viewState" 
+              :data="row"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              :disabled="getColumnDisabled(row,column.property)" 
+              name='storypoints' 
+              :service="service"
+              :acParams="{ }"
+              valueitem='' 
+              :value="row[column.property]" 
+              editortype="dropdown" 
+              style="" 
+              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
+            </app-picker>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <codelist :value="row.storypoints" tag="StoryPoints" codelistType="STATIC" ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('estimate')">
                 <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.substory.substorynew_grid.columns.estimate')" :width="80"  :align="'left'">
                     <template v-slot:header="{column}">

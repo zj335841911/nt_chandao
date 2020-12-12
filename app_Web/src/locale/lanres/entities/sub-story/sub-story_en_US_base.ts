@@ -84,6 +84,7 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("需求名称",null),
 					spec: commonLogic.appcommonhandle("需求描述",null),
 					pri: commonLogic.appcommonhandle("优先级",null),
+					storypoints: commonLogic.appcommonhandle("故事点",null),
 					estimate: commonLogic.appcommonhandle("预计工时",null),
 					neednotreview: commonLogic.appcommonhandle("需要评审",null),
 					product: commonLogic.appcommonhandle("所属产品",null),

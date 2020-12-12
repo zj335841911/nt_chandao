@@ -57,6 +57,12 @@ export default class SubStoryNewModel {
           isEditable:true
         },
         {
+          name: 'storypoints',
+          prop: 'storypoints',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'FLOAT',

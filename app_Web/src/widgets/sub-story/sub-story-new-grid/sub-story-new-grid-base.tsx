@@ -171,6 +171,15 @@ export class SubStoryNewGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'storypoints',
+            label: '故事点',
+            langtag: 'entities.substory.substorynew_grid.columns.storypoints',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: true,
+            enableCond: 3 ,
+        },
+        {
             name: 'estimate',
             label: '预计工时',
             langtag: 'entities.substory.substorynew_grid.columns.estimate',
@@ -224,6 +233,7 @@ export class SubStoryNewGridBase extends GridControlBase {
           pri: new FormItemModel(),
           title: new FormItemModel(),
           plan: new FormItemModel(),
+          storypoints: new FormItemModel(),
           parent: new FormItemModel(),
           estimate: new FormItemModel(),
           srfkey: new FormItemModel(),
@@ -326,6 +336,10 @@ export class SubStoryNewGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属计划 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属计划 值不能为空', trigger: 'blur' },
         ],
+        storypoints: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '故事点 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '故事点 值不能为空', trigger: 'blur' },
+        ],
         parent: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '父需求 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '父需求 值不能为空', trigger: 'blur' },
@@ -362,6 +376,7 @@ export class SubStoryNewGridBase extends GridControlBase {
         'title':true,
         'spec':true,
         'pri':true,
+        'storypoints':true,
         'estimate':true,
         'neednotreview':true,
         'product':true,
@@ -452,6 +467,14 @@ export class SubStoryNewGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
+                name: 'storypoints',
+                srfkey: 'StoryPoints',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
                 name: 'neednotreview',
                 srfkey: 'YesNo2',
                 codelistType : 'STATIC',
@@ -495,7 +518,7 @@ export class SubStoryNewGridBase extends GridControlBase {
     * @memberof SubStoryNewBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['modulename','plan','title','spec','pri','estimate','neednotreview','product','parent'];
+        let allColumns:Array<any> = ['modulename','plan','title','spec','pri','storypoints','estimate','neednotreview','product','parent'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -579,6 +602,7 @@ export class SubStoryNewGridBase extends GridControlBase {
                 title:'',
                 spec:'',
                 pri:'',
+                storypoints:'',
                 estimate:'',
                 neednotreview:'',
                 product:'',
@@ -612,6 +636,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             title:'',
             spec:'',
             pri:'',
+            storypoints:'',
             estimate:'',
             neednotreview:'',
             product:'',
@@ -681,6 +706,7 @@ export class SubStoryNewGridBase extends GridControlBase {
                 title:'',
                 spec:'',
                 pri:'',
+                storypoints:'',
                 estimate:'',
                 neednotreview:'',
                 product:'',
