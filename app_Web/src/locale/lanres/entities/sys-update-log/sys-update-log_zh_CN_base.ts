@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("系统更新日志", null),
 		fields: {
 			sysupdatelogid: commonLogic.appcommonhandle("系统更新日志标识",null),
 			sysupdatelogname: commonLogic.appcommonhandle("更新名称",null),

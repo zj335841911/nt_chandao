@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("产品生命周期", null),
 		fields: {
 			branch: commonLogic.appcommonhandle("平台/分支",null),
 			createman: commonLogic.appcommonhandle("建立人",null),

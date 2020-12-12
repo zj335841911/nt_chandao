@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("需求模块", null),
 		fields: {
 			id: commonLogic.appcommonhandle("id",null),
 			name: commonLogic.appcommonhandle("名称",null),

@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("测试运行", null),
 		fields: {
 			lastrunresult: commonLogic.appcommonhandle("结果",null),
 			lastrundate: commonLogic.appcommonhandle("最后执行时间",null),

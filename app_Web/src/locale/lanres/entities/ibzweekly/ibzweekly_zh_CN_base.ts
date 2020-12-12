@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("周报", null),
 		fields: {
 			ibzweeklyname: commonLogic.appcommonhandle("周报名称",null),
 			ibzweeklyid: commonLogic.appcommonhandle("周报标识",null),

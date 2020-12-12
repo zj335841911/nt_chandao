@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("后台服务架构", null),
 		fields: {
 			pssyssfpubname: commonLogic.appcommonhandle("后台服务架构名称",null),
 			pssyssfpubid: commonLogic.appcommonhandle("后台服务架构标识",null),

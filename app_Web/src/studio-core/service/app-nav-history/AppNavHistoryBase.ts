@@ -237,7 +237,8 @@ export class AppNavHistoryBase {
                 sortIndex: AppNavHistoryBase.sortIndex++
             };
             const { caption, info } = item.meta;
-            item.caption = i18n.t(caption) + (info ? ' - ' + info : '');
+            item.caption = caption;
+            item.info = info ? ' - ' + info : '';
             this.historyList.push(item);
         }
     }

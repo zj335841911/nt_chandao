@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("Bug", null),
 		fields: {
 			severity: commonLogic.appcommonhandle("严重程度",null),
 			storyversion: commonLogic.appcommonhandle("需求版本",null),

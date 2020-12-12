@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("系统数据库", null),
 		fields: {
 			pssystemdbcfgname: commonLogic.appcommonhandle("系统数据库名称",null),
 			pssystemdbcfgid: commonLogic.appcommonhandle("系统数据库标识",null),

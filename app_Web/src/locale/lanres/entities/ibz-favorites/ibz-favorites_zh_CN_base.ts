@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("收藏", null),
 		fields: {
 			createman: commonLogic.appcommonhandle("建立人",null),
 			ibzfavoritesid: commonLogic.appcommonhandle("收藏标识",null),

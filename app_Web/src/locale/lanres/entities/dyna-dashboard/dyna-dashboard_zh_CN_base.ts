@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("动态数据看板", null),
 		fields: {
 			dynadashboardid: commonLogic.appcommonhandle("动态数据看板标识",null),
 			dynadashboardname: commonLogic.appcommonhandle("动态数据看板名称",null),

@@ -1,6 +1,7 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
+		appdename: commonLogic.appcommonhandle("系统配置表", null),
 		fields: {
 			ibzproconfigname: commonLogic.appcommonhandle("系统配置表名称",null),
 			ibzproconfigid: commonLogic.appcommonhandle("系统配置表标识",null),
