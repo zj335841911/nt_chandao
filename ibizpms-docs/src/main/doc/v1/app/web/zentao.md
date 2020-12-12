@@ -15,13 +15,14 @@
 *** 计划模板
 *** 统计
 *** 年度统计
-*** 用例库
-*** 用户
 *** iBiz软件生产管理
-*** 更新日志
-*** 插件管理
-*** 汇报角色角色
-*** 系统配置
+*** 用例库
+*** 系统管理
+**** 用户
+**** 系统配置
+**** 汇报角色角色
+**** 插件管理
+**** 更新日志
 ** 左侧分页导航
 *** 产品
 *** 项目
@@ -51,13 +52,14 @@
 |计划模板|[查看功能](func/IbzPlanTempletGridView.md)|
 |统计|[查看功能](func/IbzMyTerritoryStatsTabExpView.md)|
 |年度统计|[查看功能](func/UserYearWorkStatsEditView.md)|
-|用例库|[查看功能](func/IbzLibGridView.md)|
-|用户|-|
 |iBiz软件生产管理|[查看功能](func/ProductHtmlView.md)|
-|更新日志|[查看功能](func/SysUpdateLogGridView.md)|
-|插件管理|[查看功能](func/IbzMyTerritoryUsr3TabExpView.md)|
-|汇报角色角色|[查看功能](func/IbzReportRoleConfigGridView.md)|
+|用例库|[查看功能](func/IbzLibGridView.md)|
+|系统管理|-|
+|用户|-|
 |系统配置|[查看功能](func/IbzproConfigGridView.md)|
+|汇报角色角色|[查看功能](func/IbzReportRoleConfigGridView.md)|
+|插件管理|[查看功能](func/IbzMyTerritoryUsr3TabExpView.md)|
+|更新日志|[查看功能](func/SysUpdateLogGridView.md)|
 |左侧分页导航|-|
 |产品|[查看功能](func/ProductLeftSidebarListView.md)|
 |项目|[查看功能](func/ProjectLeftSidebarListView.md)|
