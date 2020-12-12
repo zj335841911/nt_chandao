@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'latestupdateeq': {
             label: '最新更新',
+            localetag: 'entities.sysupdatelog.fields.latestupdate',
             name: 'latestupdateeq',
             prop: 'latestupdate',
             mode: 'EQ',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'lognamelike': {
             label: '更新名称',
+            localetag: 'entities.sysupdatelog.fields.sysupdatelogname',
             name: 'lognamelike',
             prop: 'sysupdatelogname',
             mode: 'LIKE',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'updatebrancheq': {
             label: '更新平台',
+            localetag: 'entities.sysupdatelog.fields.updatebranch',
             name: 'updatebrancheq',
             prop: 'updatebranch',
             mode: 'EQ',

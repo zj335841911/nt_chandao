@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'titlelike': {
             label: '文档标题',
+            localetag: 'entities.doc.fields.title',
             name: 'titlelike',
             prop: 'title',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'typeeq': {
             label: '文档类型',
+            localetag: 'entities.doc.fields.type',
             name: 'typeeq',
             prop: 'type',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'acleq': {
             label: '权限',
+            localetag: 'entities.doc.fields.acl',
             name: 'acleq',
             prop: 'acl',
             mode: 'EQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'addedbyeq': {
             label: '由谁添加',
+            localetag: 'entities.doc.fields.addedby',
             name: 'addedbyeq',
             prop: 'addedby',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'collectorlike': {
             label: '收藏者',
+            localetag: 'entities.doc.fields.collector',
             name: 'collectorlike',
             prop: 'collector',
             mode: 'LIKE',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'libnameeq': {
             label: '所属文档库',
+            localetag: 'entities.doc.fields.libname',
             name: 'libnameeq',
             prop: 'libname',
             mode: 'EQ',
@@ -128,6 +134,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'libnamelike': {
             label: '所属文档库',
+            localetag: 'entities.doc.fields.libname',
             name: 'libnamelike',
             prop: 'libname',
             mode: 'LIKE',
@@ -135,6 +142,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'modulenameeq': {
             label: '模块分类',
+            localetag: 'entities.doc.fields.modulename',
             name: 'modulenameeq',
             prop: 'modulename',
             mode: 'EQ',
@@ -142,6 +150,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'modulenamelike': {
             label: '模块分类',
+            localetag: 'entities.doc.fields.modulename',
             name: 'modulenamelike',
             prop: 'modulename',
             mode: 'LIKE',
@@ -149,6 +158,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnameeq': {
             label: '所属产品',
+            localetag: 'entities.doc.fields.productname',
             name: 'productnameeq',
             prop: 'productname',
             mode: 'EQ',
@@ -156,6 +166,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnamelike': {
             label: '所属产品',
+            localetag: 'entities.doc.fields.productname',
             name: 'productnamelike',
             prop: 'productname',
             mode: 'LIKE',
@@ -163,6 +174,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'projectnameeq': {
             label: '所属项目',
+            localetag: 'entities.doc.fields.projectname',
             name: 'projectnameeq',
             prop: 'projectname',
             mode: 'EQ',
@@ -170,6 +182,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'projectnamelike': {
             label: '所属项目',
+            localetag: 'entities.doc.fields.projectname',
             name: 'projectnamelike',
             prop: 'projectname',
             mode: 'LIKE',

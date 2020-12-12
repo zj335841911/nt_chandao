@@ -33,7 +33,7 @@
                         clearable
                         :placeholder="$t('components.filterTree.placeholder')"
                     >
-                        <el-option v-for="item in fieldItems" :key="item.value" :label="item.label" :value="item.value">
+                        <el-option v-for="item in fieldItems" :key="item.value" :label="item.localetag ? $t(item.localetag) : item.label" :value="item.value">
                         </el-option>
                     </el-select>
                     <filter-mode
@@ -136,6 +136,7 @@ export default class FilterTree extends Vue {
                 this.fieldItems.push({
                     label: field.label,
                     value: field.prop,
+                    localetag: field.localetag,
                     modes: this.getFieldModes(field.prop),
                 });
             }

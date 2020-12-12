@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'namelike': {
             label: '发布名称',
+            localetag: 'entities.release.fields.name',
             name: 'namelike',
             prop: 'name',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statuseq': {
             label: '状态',
+            localetag: 'entities.release.fields.status',
             name: 'statuseq',
             prop: 'status',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'brancheq': {
             label: '平台/分支',
+            localetag: 'entities.release.fields.branch',
             name: 'brancheq',
             prop: 'branch',
             mode: 'EQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'buildnameeq': {
             label: '版本',
+            localetag: 'entities.release.fields.buildname',
             name: 'buildnameeq',
             prop: 'buildname',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'buildnamelike': {
             label: '版本',
+            localetag: 'entities.release.fields.buildname',
             name: 'buildnamelike',
             prop: 'buildname',
             mode: 'LIKE',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'datelteq': {
             label: '发布日期',
+            localetag: 'entities.release.fields.date',
             name: 'datelteq',
             prop: 'date',
             mode: 'LTANDEQ',
@@ -128,6 +134,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'markereq': {
             label: '里程碑',
+            localetag: 'entities.release.fields.marker',
             name: 'markereq',
             prop: 'marker',
             mode: 'EQ',
@@ -135,6 +142,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnameeq': {
             label: '产品名称',
+            localetag: 'entities.release.fields.productname',
             name: 'productnameeq',
             prop: 'productname',
             mode: 'EQ',
@@ -142,6 +150,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnamelike': {
             label: '产品名称',
+            localetag: 'entities.release.fields.productname',
             name: 'productnamelike',
             prop: 'productname',
             mode: 'LIKE',
@@ -149,6 +158,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'rebuildeq': {
             label: '重新构建',
+            localetag: 'entities.release.fields.rebuild',
             name: 'rebuildeq',
             prop: 'rebuild',
             mode: 'EQ',
@@ -156,6 +166,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'releasetypeeq': {
             label: '运行模式',
+            localetag: 'entities.release.fields.releasetype',
             name: 'releasetypeeq',
             prop: 'releasetype',
             mode: 'EQ',

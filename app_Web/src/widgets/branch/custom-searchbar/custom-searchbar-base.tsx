@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'namelike': {
             label: '名称',
+            localetag: 'entities.branch.fields.name',
             name: 'namelike',
             prop: 'name',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'producteq': {
             label: '所属产品',
+            localetag: 'entities.branch.fields.product',
             name: 'producteq',
             prop: 'product',
             mode: 'EQ',

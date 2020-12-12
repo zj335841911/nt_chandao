@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'ideq': {
             label: '编号',
+            localetag: 'entities.product.fields.id',
             name: 'ideq',
             prop: 'id',
             mode: 'EQ',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'nameeq': {
             label: '产品名称',
+            localetag: 'entities.product.fields.name',
             name: 'nameeq',
             prop: 'name',
             mode: 'LIKE',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'typeeq': {
             label: '产品类型',
+            localetag: 'entities.product.fields.type',
             name: 'typeeq',
             prop: 'type',
             mode: 'EQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'acleq': {
             label: '访问控制',
+            localetag: 'entities.product.fields.acl',
             name: 'acleq',
             prop: 'acl',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statuseq': {
             label: '状态',
+            localetag: 'entities.product.fields.status',
             name: 'statuseq',
             prop: 'status',
             mode: 'EQ',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statusisnotnull': {
             label: '状态',
+            localetag: 'entities.product.fields.status',
             name: 'statusisnotnull',
             prop: 'status',
             mode: 'ISNOTNULL',
@@ -128,6 +134,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'linenameeq': {
             label: '产品线',
+            localetag: 'entities.product.fields.linename',
             name: 'linenameeq',
             prop: 'linename',
             mode: 'EQ',
@@ -135,6 +142,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'linenamelike': {
             label: '产品线',
+            localetag: 'entities.product.fields.linename',
             name: 'linenamelike',
             prop: 'linename',
             mode: 'LIKE',

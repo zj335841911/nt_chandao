@@ -16,9 +16,9 @@
 *** 统计
 *** 年度统计
 *** iBiz软件生产管理
-*** 用例库
 *** 系统管理
 **** 用户
+**** 用例库
 **** 系统配置
 **** 汇报角色角色
 **** 插件管理
@@ -53,9 +53,9 @@
 |统计|[查看功能](func/IbzMyTerritoryStatsTabExpView.md)|
 |年度统计|[查看功能](func/UserYearWorkStatsEditView.md)|
 |iBiz软件生产管理|[查看功能](func/ProductHtmlView.md)|
-|用例库|[查看功能](func/IbzLibGridView.md)|
 |系统管理|-|
 |用户|-|
+|用例库|[查看功能](func/IbzLibGridView.md)|
 |系统配置|[查看功能](func/IbzproConfigGridView.md)|
 |汇报角色角色|[查看功能](func/IbzReportRoleConfigGridView.md)|
 |插件管理|[查看功能](func/IbzMyTerritoryUsr3TabExpView.md)|

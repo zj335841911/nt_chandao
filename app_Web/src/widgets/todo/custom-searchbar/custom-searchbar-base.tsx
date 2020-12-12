@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'namelike': {
             label: '待办名称',
+            localetag: 'entities.todo.fields.name',
             name: 'namelike',
             prop: 'name',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'typeeq': {
             label: '类型',
+            localetag: 'entities.todo.fields.type',
             name: 'typeeq',
             prop: 'type',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'typenoteq': {
             label: '类型',
+            localetag: 'entities.todo.fields.type',
             name: 'typenoteq',
             prop: 'type',
             mode: 'NOTEQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statuseq': {
             label: '状态',
+            localetag: 'entities.todo.fields.status',
             name: 'statuseq',
             prop: 'status',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statusnoteq': {
             label: '状态',
+            localetag: 'entities.todo.fields.status',
             name: 'statusnoteq',
             prop: 'status',
             mode: 'NOTEQ',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'accounteq': {
             label: '所有者',
+            localetag: 'entities.todo.fields.account',
             name: 'accounteq',
             prop: 'account',
             mode: 'EQ',
@@ -128,6 +134,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'begineq': {
             label: '开始',
+            localetag: 'entities.todo.fields.begin',
             name: 'begineq',
             prop: 'begin',
             mode: 'EQ',
@@ -135,6 +142,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'config_typeeq': {
             label: '周期类型',
+            localetag: 'entities.todo.fields.config_type',
             name: 'config_typeeq',
             prop: 'config_type',
             mode: 'EQ',
@@ -142,6 +150,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'cycleeq': {
             label: '周期',
+            localetag: 'entities.todo.fields.cycle',
             name: 'cycleeq',
             prop: 'cycle',
             mode: 'EQ',
@@ -149,6 +158,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'dateeq': {
             label: '日期',
+            localetag: 'entities.todo.fields.date',
             name: 'dateeq',
             prop: 'date',
             mode: 'EQ',
@@ -156,6 +166,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'dategteq': {
             label: '日期',
+            localetag: 'entities.todo.fields.date',
             name: 'dategteq',
             prop: 'date',
             mode: 'GTANDEQ',
@@ -163,6 +174,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'datelteq': {
             label: '日期',
+            localetag: 'entities.todo.fields.date',
             name: 'datelteq',
             prop: 'date',
             mode: 'LTANDEQ',
@@ -170,6 +182,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'datenoteq': {
             label: '日期',
+            localetag: 'entities.todo.fields.date',
             name: 'datenoteq',
             prop: 'date',
             mode: 'NOTEQ',
@@ -177,6 +190,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'endeq': {
             label: '结束',
+            localetag: 'entities.todo.fields.end',
             name: 'endeq',
             prop: 'end',
             mode: 'EQ',
@@ -184,6 +198,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'privateeq': {
             label: '私人事务',
+            localetag: 'entities.todo.fields.ibizprivate',
             name: 'privateeq',
             prop: 'ibizprivate',
             mode: 'EQ',

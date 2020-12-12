@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'namelike': {
             label: '名称',
+            localetag: 'entities.testtask.fields.name',
             name: 'namelike',
             prop: 'name',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'ownereq': {
             label: '负责人',
+            localetag: 'entities.testtask.fields.owner',
             name: 'ownereq',
             prop: 'owner',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'prieq': {
             label: '优先级',
+            localetag: 'entities.testtask.fields.pri',
             name: 'prieq',
             prop: 'pri',
             mode: 'EQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'buildnameeq': {
             label: '版本',
+            localetag: 'entities.testtask.fields.buildname',
             name: 'buildnameeq',
             prop: 'buildname',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'buildnamelike': {
             label: '版本',
+            localetag: 'entities.testtask.fields.buildname',
             name: 'buildnamelike',
             prop: 'buildname',
             mode: 'LIKE',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnameeq': {
             label: '产品',
+            localetag: 'entities.testtask.fields.productname',
             name: 'productnameeq',
             prop: 'productname',
             mode: 'EQ',
@@ -128,6 +134,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnamelike': {
             label: '产品',
+            localetag: 'entities.testtask.fields.productname',
             name: 'productnamelike',
             prop: 'productname',
             mode: 'LIKE',
@@ -135,6 +142,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'projectnameeq': {
             label: '项目',
+            localetag: 'entities.testtask.fields.projecttname',
             name: 'projectnameeq',
             prop: 'projecttname',
             mode: 'EQ',
@@ -142,6 +150,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'projectnamelike': {
             label: '项目',
+            localetag: 'entities.testtask.fields.projecttname',
             name: 'projectnamelike',
             prop: 'projecttname',
             mode: 'LIKE',
@@ -149,6 +158,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statuseq': {
             label: '当前状态',
+            localetag: 'entities.testtask.fields.status',
             name: 'statuseq',
             prop: 'status',
             mode: 'EQ',
@@ -156,6 +166,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statusnoteq': {
             label: '当前状态',
+            localetag: 'entities.testtask.fields.status',
             name: 'statusnoteq',
             prop: 'status',
             mode: 'NOTEQ',

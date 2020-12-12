@@ -180,6 +180,7 @@ export default class AppVuePivotTable extends Vue {
                 }
                 let col: any = { ...item };
                 col.prop = col.name;
+                col.label = col.langtag ? this.$t(col.langtag) : col.label;
                 this.columns.push(col);
             });
         }
