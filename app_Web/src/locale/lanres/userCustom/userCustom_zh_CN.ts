@@ -1,2 +1,10 @@
 // 用户自定义语言资源 中文
-export default {};
+import commonLogic from '@/locale/logic/common/common-logic';
+function userCustom(){
+    const data:any = {
+        
+    }
+    return data;
+}
+
+export default userCustom;
