@@ -1182,12 +1182,11 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 #### SQL
 - MYSQL5
 ```SQL
+select t1.* from (select '0' as deleted, 0 as ID, '/' as `name`,-1 as ORDERPK, ${srfwebcontext('product','{"defname":"product","dename":"ZT_PRODUCT"}')} as root, 'story' as type  from dual
+union 
 SELECT
-	t1.`BRANCH`,
 	t1.`DELETED`,
-	t1.`GRADE`,
 	t1.`ID`,
-	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
 	CONCAT('/',(select GROUP_CONCAT(tt.name SEPARATOR '/') from zt_module tt where FIND_IN_SET(tt.id,t1.path) and tt.type = 'story' GROUP BY tt.root)) as `NAME`,
 (CONCAT_ws(
 	'',
@@ -1214,19 +1213,11 @@ GROUP BY
 	tt.root 
 	LIMIT 0,1
 	) else t1.`ORDER` end)) as ORDERPK,
-	t1.`ORDER`,
-	t1.`OWNER`,
-	t1.`PARENT`,
-	t21.`NAME` AS `PARENTNAME`,
-	t1.`PATH`,
 	t1.`ROOT`,
-	t11.`NAME` AS `ROOTNAME`,
-	t1.`SHORT`,
 	t1.`TYPE` 
 FROM
 	`zt_module` t1
-	LEFT JOIN zt_product t11 ON t1.ROOT = t11.ID
-	LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
+	) t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
