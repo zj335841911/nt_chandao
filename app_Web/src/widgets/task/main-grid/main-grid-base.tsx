@@ -530,7 +530,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof TaskMainGridView
      */
     public maingridviewgrid_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '更多', 'isShowCaption': true, 'isShowIcon': true, tooltip: '更多', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChildMore', target: 'SINGLEKEY', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.task.maingridviewgrid_quicktoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.task.maingridviewgrid_quicktoolbar_toolbar.deuiaction1.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChildMore', target: 'SINGLEKEY', class: '' } },
 
     };
 

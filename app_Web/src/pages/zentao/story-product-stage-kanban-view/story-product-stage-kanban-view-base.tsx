@@ -109,7 +109,7 @@ export class StoryProductStageKanbanViewBase extends KanBanViewBase {
      * @memberof StoryProductStageKanbanView
      */
     public toolBarModels: any = {
-        deuiaction1_refresh: { name: 'deuiaction1_refresh', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction1_refresh: { name: 'deuiaction1_refresh', caption: 'entities.story.productstagekanbanviewtoolbar_toolbar.deuiaction1_refresh.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.story.productstagekanbanviewtoolbar_toolbar.deuiaction1_refresh.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 

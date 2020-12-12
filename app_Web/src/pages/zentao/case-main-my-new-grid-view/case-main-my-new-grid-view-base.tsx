@@ -126,7 +126,7 @@ export class CaseMainMyNewGridViewBase extends GridViewBase {
      * @memberof CaseMainMyNewGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.case.mainmynewgridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.case.mainmynewgridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 

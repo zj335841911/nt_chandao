@@ -112,13 +112,13 @@ export class TaskPriTaskGroupGridViewBase extends GridViewBase {
      * @memberof TaskPriTaskGroupGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.task.pritaskgroupgridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.task.pritaskgroupgridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.task.pritaskgroupgridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.task.pritaskgroupgridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         seperator3: {  name: 'seperator3', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction4: { name: 'deuiaction4', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction4: { name: 'deuiaction4', caption: 'entities.task.pritaskgroupgridviewtoolbar_toolbar.deuiaction4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.task.pritaskgroupgridviewtoolbar_toolbar.deuiaction4.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 

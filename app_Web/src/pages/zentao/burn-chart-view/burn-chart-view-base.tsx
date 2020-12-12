@@ -100,7 +100,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartView
      */
     public toolBarModels: any = {
-        deuiaction1_computeburn: { name: 'deuiaction1_computeburn', caption: '更新燃尽图', 'isShowCaption': false, 'isShowIcon': true, tooltip: '更新燃尽图', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ComputeBurn', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_computeburn: { name: 'deuiaction1_computeburn', caption: 'entities.burn.chartviewtoolbar_toolbar.deuiaction1_computeburn.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.burn.chartviewtoolbar_toolbar.deuiaction1_computeburn.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ComputeBurn', target: 'SINGLEKEY', class: '' } },
 
     };
 

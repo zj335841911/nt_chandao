@@ -112,9 +112,9 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      * @memberof BugBuildSubGridView_New_9212
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '提Bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提Bug', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', uiaction: { tag: 'createBugByBuild', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.bug.buildsubgridview_new_9212toolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.buildsubgridview_new_9212toolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', uiaction: { tag: 'createBugByBuild', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.bug.buildsubgridview_new_9212toolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.buildsubgridview_new_9212toolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 

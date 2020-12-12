@@ -140,13 +140,13 @@ export class BugPlanSubGridViewBase extends GridViewBase {
      * @memberof BugPlanSubGridView
      */
     public toolBarModels: any = {
-        deuiaction3_planrelationbug: { name: 'deuiaction3_planrelationbug', caption: '关联Bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联Bug', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'PlanRelationBug', target: 'NONE', class: '' } },
+        deuiaction3_planrelationbug: { name: 'deuiaction3_planrelationbug', caption: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationbug.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationbug.tip', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'PlanRelationBug', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
-        deuiaction4: { name: 'deuiaction4', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.plansubgridviewtoolbar_toolbar.deuiaction4.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 

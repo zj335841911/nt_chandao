@@ -130,13 +130,13 @@ export class BuildMainGridViewBase extends GridViewBase {
      * @memberof BuildMainGridView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '创建版本', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建版本', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction3_create: { name: 'deuiaction3_create', caption: 'entities.build.maingridviewtoolbar_toolbar.deuiaction3_create.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.build.maingridviewtoolbar_toolbar.deuiaction3_create.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.build.maingridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.build.maingridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.build.maingridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.build.maingridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
-        deuiaction4: { name: 'deuiaction4', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: 'entities.build.maingridviewtoolbar_toolbar.deuiaction4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.build.maingridviewtoolbar_toolbar.deuiaction4.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 

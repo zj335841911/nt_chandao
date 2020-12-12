@@ -112,7 +112,7 @@ export class ProductSumStoryHoursSumGridViewBase extends GridViewBase {
      * @memberof ProductSumStoryHoursSumGridView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.productsum.storyhourssumgridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.productsum.storyhourssumgridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 

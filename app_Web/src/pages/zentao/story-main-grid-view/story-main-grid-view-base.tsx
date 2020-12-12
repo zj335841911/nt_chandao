@@ -126,11 +126,11 @@ export class StoryMainGridViewBase extends GridViewBase {
      * @memberof StoryMainGridView
      */
     public toolBarModels: any = {
-        deuiaction1_create: { name: 'deuiaction1_create', caption: '新建需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建需求', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction1_create: { name: 'deuiaction1_create', caption: 'entities.story.maingridviewtoolbar_toolbar.deuiaction1_create.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.story.maingridviewtoolbar_toolbar.deuiaction1_create.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction4: { name: 'deuiaction4', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction4: { name: 'deuiaction4', caption: 'entities.story.maingridviewtoolbar_toolbar.deuiaction4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.story.maingridviewtoolbar_toolbar.deuiaction4.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
-        deuiaction3: { name: 'deuiaction3', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: 'entities.story.maingridviewtoolbar_toolbar.deuiaction3.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.story.maingridviewtoolbar_toolbar.deuiaction3.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 
