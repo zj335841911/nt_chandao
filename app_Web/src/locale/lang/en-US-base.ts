@@ -466,7 +466,7 @@ function getAppLocale(){
         },
         components: components_en_US,
         codelist: codelist_en_US(),
-        userCustom: userCustom_en_US,
+        userCustom: userCustom_en_US(),
     };
     // 合并用户自定义多语言
     Util.mergeDeepObject(data, enUSUser); 

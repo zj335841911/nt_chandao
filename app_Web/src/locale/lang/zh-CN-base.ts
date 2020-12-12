@@ -465,7 +465,7 @@ function getAppLocale(){
         },
         components: components_zh_CN,
         codelist: codelist_zh_CN(),
-        userCustom: userCustom_zh_CN,
+        userCustom: userCustom_zh_CN(),
     };
     // 合并用户自定义多语言
     Util.mergeDeepObject(data, zhCNUser);
