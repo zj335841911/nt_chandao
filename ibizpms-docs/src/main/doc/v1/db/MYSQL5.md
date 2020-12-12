@@ -163423,7 +163423,7 @@ CREATE TABLE `zt_testsuite`(
 | PROJECTTNAME        | 项目  | VARCHAR      |   90   | &nbsp; |
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
 | MAILTOPK        | 抄送给  | VARCHAR      |   65,535   | &nbsp; |
-| MAILTO        | 抄送给  | CLOB      |   65,535   | &nbsp; |
+| MAILTO        | 抄送给  | VARCHAR      |   65,535   | &nbsp; |
 | STATUS        | 当前状态  | VARCHAR      |   7   | &nbsp; |
 | NAME        | 名称  | VARCHAR      |   90   | &nbsp; |
 | SUBSTATUS        | 子状态  | VARCHAR      |   30   | &nbsp; |
@@ -164515,7 +164515,7 @@ CREATE TABLE `zt_testsuite`(
 CREATE TABLE `zt_testtask`(
 `END`  DATETIME COMMENT '结束日期' 
 ,`BEGIN`  DATETIME COMMENT '开始日期' 
-,`MAILTO`  MEDIUMTEXT COMMENT '抄送给' 
+,`MAILTO`  VARCHAR(4000) COMMENT '抄送给' 
 ,`PRI`  INTEGER COMMENT '优先级' 
 ,`SUBSTATUS`  VARCHAR(30) COMMENT '子状态' 
 ,`REPORT`  MEDIUMTEXT COMMENT 'report' 

@@ -2614,7 +2614,7 @@
                 </column>
                 <column name="BEGIN" remarks="" type="DATETIME">
                 </column>
-                <column name="MAILTO" remarks="" type="TEXT(65535)">
+                <column name="MAILTO" remarks="" type="VARCHAR(65535)">
                 </column>
                 <column name="PRI" remarks="" type="INT">
                 </column>

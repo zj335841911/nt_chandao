@@ -108,7 +108,7 @@ export default class MainEditModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'mailtoconact',

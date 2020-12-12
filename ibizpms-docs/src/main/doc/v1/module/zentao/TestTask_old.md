@@ -18,7 +18,7 @@ hide members
 | --------   |------------| -----   |  -------- | 
 |结束日期|END|DATE|&nbsp;|
 |开始日期|BEGIN|DATE|&nbsp;|
-|抄送给|MAILTO|LONGTEXT|&nbsp;|
+|抄送给|MAILTO|SMCODELIST|&nbsp;|
 |优先级|PRI|NSCODELIST|&nbsp;|
 |子状态|SUBSTATUS|TEXT|&nbsp;|
 |report|REPORT|LONGTEXT|&nbsp;|
