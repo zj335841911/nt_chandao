@@ -657,11 +657,10 @@ export class ProjectStoryGridBase extends GridControlBase {
     /**
      * 加载更多
      *  
-     * @param $event
+     * @param data
      * @memberof ProjectStoryGridBase
      */
-    public loadMore($event: any){
-        let _this: any = this;
+    public loadMore(data: any){
     }
 
     /**

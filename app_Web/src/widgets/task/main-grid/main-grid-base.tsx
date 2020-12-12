@@ -1103,13 +1103,12 @@ export class MainGridBase extends GridControlBase {
     /**
      * 加载更多
      *  
-     * @param $event
+     * @param data
      * @memberof MainGridBase
      */
-    public loadMore($event: any){
-        let _this: any = this;
-        if(_this.grid_quicktoolbar_click && _this.grid_quicktoolbar_click instanceof Function){
-            _this.grid_quicktoolbar_click({tag: $event.tag},$event);
+    public loadMore(data: any){
+        if (Object.is(data.tag, 'deuiaction1')) {
+            this.grid_quicktoolbar_deuiaction1_click(data, 'grid_quicktoolbar', null);
         }
     }
 

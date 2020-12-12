@@ -744,11 +744,10 @@ export class MainInfoGridBase extends GridControlBase {
     /**
      * 加载更多
      *  
-     * @param $event
+     * @param data
      * @memberof MainInfoGridBase
      */
-    public loadMore($event: any){
-        let _this: any = this;
+    public loadMore(data: any){
     }
 
     /**
