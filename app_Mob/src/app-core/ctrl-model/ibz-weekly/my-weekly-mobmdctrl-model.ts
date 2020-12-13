@@ -32,7 +32,7 @@ export class MyWeeklyModel {
 			{
 				name: 'planstomorrow',
 				prop: 'plannextweek',
-				dataType: 'SMCODELIST',
+				dataType: 'HTMLTEXT',
 			},
 			{
 				name: 'ibz_weeklyname',

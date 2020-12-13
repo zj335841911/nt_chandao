@@ -69002,11 +69002,11 @@ CREATE TABLE `T_IBZ_TOP`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | CREATEMANNAME        | 建立人名称  | VARCHAR      |   60   | &nbsp; |
 | REPORTTO        | 汇报给  | VARCHAR      |   60   | &nbsp; |
-| COMMENT        | 其他事项  | VARCHAR      |   100   | &nbsp; |
+| COMMENT        | 其他事项  | CLOB      |   1,048,576   | &nbsp; |
 | REPORTTOPK        | 汇报给(选择)  | VARCHAR      |   200   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | WORKTHISWEEK        | 本周工作  | CLOB      |   1,048,576   | &nbsp; |
-| PLANNEXTWEEK        | 下周计划  | VARCHAR      |   4,000   | &nbsp; |
+| PLANNEXTWEEK        | 下周计划  | CLOB      |   1,048,576   | &nbsp; |
 | SUBMITTIME        | 提交时间  | DATETIME      |   -1   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
 | REPORTSTATUS        | 状态  | VARCHAR      |   60   | &nbsp; |
@@ -69189,10 +69189,10 @@ CREATE TABLE `T_IBZ_WEEKLY`(
 ,`MAILTO`  VARCHAR(2000) COMMENT '抄送给' 
 ,`ISSUBMIT`  VARCHAR(60) COMMENT '是否提交' 
 ,`REPORTTO`  VARCHAR(60) COMMENT '汇报给' 
-,`COMMENT`  VARCHAR(100) COMMENT '其他事项' 
+,`COMMENT`  MEDIUMTEXT COMMENT '其他事项' 
 ,`DATE`  DATETIME COMMENT '日期' 
 ,`WORKTHISWEEK`  MEDIUMTEXT COMMENT '本周工作' 
-,`PLANNEXTWEEK`  VARCHAR(4000) COMMENT '下周计划' 
+,`PLANNEXTWEEK`  MEDIUMTEXT COMMENT '下周计划' 
 ,`THISWEEKTASK`  VARCHAR(100) COMMENT '本周完成任务' 
 ,`NEXTWEEKTASK`  VARCHAR(100) COMMENT '下周计划任务' 
 ,`UPDATEMANNAME`  VARCHAR(60) COMMENT '更新人名称' 

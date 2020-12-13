@@ -27,10 +27,10 @@
 | 9 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 否 | 是 |
 | 10 | [是否提交](#属性-是否提交（ISSUBMIT）) | ISSUBMIT | 单项选择(文本值) | 否 | 否 | 是 |
 | 11 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
-| 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
+| 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 13 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 14 | [本周工作](#属性-本周工作（WORKTHISWEEK）) | WORKTHISWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
-| 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | 多项选择(文本值) | 否 | 否 | 是 |
+| 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 16 | [本周完成任务](#属性-本周完成任务（THISWEEKTASK）) | THISWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 17 | [下周计划任务](#属性-下周计划任务（NEXTWEEKTASK）) | NEXTWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 18 | [更新人名称](#属性-更新人名称（UPDATEMANNAME）) | UPDATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
@@ -466,7 +466,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-文本，可指定长度
+HTML文本，没有长度限制
 
 - Java类型
 String
@@ -577,7 +577,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-多项选择(文本值)
+HTML文本，没有长度限制
 
 - Java类型
 String
@@ -589,7 +589,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[我计划参与的任务（汇报）（MyPlanTask）](../../codelist/MyPlanTask)】
+无
 
 - 数据格式
 无
@@ -1235,7 +1235,6 @@ Save
 ```SQL
 SELECT
 t1.`ACCOUNT`,
-t1.`COMMENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`CREATEMANNAME`,
@@ -1246,7 +1245,6 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.mailto AS `MAILTOPK`,
 t1.`NEXTWEEKTASK`,
-t1.`PLANNEXTWEEK`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
 t1.reportto AS `REPORTTOPK`,

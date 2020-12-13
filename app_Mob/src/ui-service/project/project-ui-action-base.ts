@@ -237,18 +237,6 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
                     xData.refresh(args);
                     AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
                 }
-                const { data: result } = response;
-                let _args: any[] = [];
-                if (Object.is(container.$util.typeOf(result), 'array')) {
-                    _args = [...result];
-                } else if (Object.is(container.$util.typeOf(result), 'object')) {
-                    _args = [{...result}];
-                } else {
-                    _args = [...args];
-                }
-                if (this.globaluiservice.Exit && this.globaluiservice.Exit instanceof Function) {
-                    this.globaluiservice.Exit(response.data, contextJO, paramJO, $event, xData, container);
-                }
             } else {
                 this.notice.error('系统异常！');
             }

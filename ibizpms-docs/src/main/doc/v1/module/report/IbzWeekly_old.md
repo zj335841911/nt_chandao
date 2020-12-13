@@ -20,10 +20,10 @@
 |附件|FILES|TEXT|&nbsp;|
 |是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
 |汇报给|REPORTTO|SSCODELIST|&nbsp;|
-|其他事项|COMMENT|TEXT|&nbsp;|
+|其他事项|COMMENT|HTMLTEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
 |本周工作|WORKTHISWEEK|HTMLTEXT|&nbsp;|
-|下周计划|PLANNEXTWEEK|SMCODELIST|&nbsp;|
+|下周计划|PLANNEXTWEEK|HTMLTEXT|&nbsp;|
 |本周完成任务|THISWEEKTASK|SMCODELIST|&nbsp;|
 |下周计划任务|NEXTWEEKTASK|SMCODELIST|&nbsp;|
 |更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
@@ -47,10 +47,10 @@
 |附件|默认规则|内容长度必须小于等于[100]|
 |是否提交|默认规则|内容长度必须小于等于[60]|
 |汇报给|默认规则|内容长度必须小于等于[60]|
-|其他事项|默认规则|内容长度必须小于等于[100]|
+|其他事项|默认规则|内容长度必须小于等于[1048576]|
 |日期|默认规则|默认规则|
 |本周工作|默认规则|内容长度必须小于等于[1048576]|
-|下周计划|默认规则|内容长度必须小于等于[4000]|
+|下周计划|默认规则|内容长度必须小于等于[1048576]|
 |本周完成任务|默认规则|内容长度必须小于等于[100]|
 |下周计划任务|默认规则|内容长度必须小于等于[100]|
 |更新人名称|默认规则|内容长度必须小于等于[60]|

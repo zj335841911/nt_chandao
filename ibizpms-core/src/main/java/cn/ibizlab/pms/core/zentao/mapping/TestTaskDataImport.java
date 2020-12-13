@@ -9,6 +9,7 @@ public interface TestTaskDataImport {
     @Mappings({
         @Mapping(target = "id", source = "id"),
         @Mapping(target = "projecttname", source = "projecttname"),
+        @Mapping(target = "substatus", source = "substatus"),
         @Mapping(target = "begin", source = "begin"),
         @Mapping(target = "desc", source = "desc"),
         @Mapping(target = "mailto", source = "mailto"),
@@ -23,10 +24,9 @@ public interface TestTaskDataImport {
         @Mapping(target = "status", source = "status"),
         @Mapping(target = "build", source = "build"),
         @Mapping(target = "buildname", source = "buildname"),
-        @Mapping(target = "project", source = "project"),
         @Mapping(target = "name", source = "name"),
-        @Mapping(target = "substatus", source = "substatus"),
         @Mapping(target = "auto", source = "auto"),
+        @Mapping(target = "project", source = "project"),
     })
     @BeanMapping(ignoreByDefault = true)
     TestTask toDomain(TestTask entity);

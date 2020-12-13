@@ -1448,7 +1448,7 @@
 
 
     <!--输出实体[IBZ_WEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_weekly-545-50">
+    <changeSet author="zentao" id="tab-ibz_weekly-548-50">
         <createTable tableName="T_IBZ_WEEKLY">
                 <column name="IBZ_WEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1471,13 +1471,13 @@
                 </column>
                 <column name="REPORTTO" remarks="" type="VARCHAR(60)">
                 </column>
-                <column name="COMMENT" remarks="" type="VARCHAR(100)">
+                <column name="COMMENT" remarks="" type="TEXT(1048576)">
                 </column>
                 <column name="DATE" remarks="" type="DATETIME">
                 </column>
                 <column name="WORKTHISWEEK" remarks="" type="TEXT(1048576)">
                 </column>
-                <column name="PLANNEXTWEEK" remarks="" type="VARCHAR(4000)">
+                <column name="PLANNEXTWEEK" remarks="" type="TEXT(1048576)">
                 </column>
                 <column name="THISWEEKTASK" remarks="" type="VARCHAR(100)">
                 </column>
@@ -3086,7 +3086,7 @@
         <!--输出实体[IBZ_PRODUCTSTATS]外键关系 -->
         <!--输出实体[IBZ_PRODUCTSUM]外键关系 -->
         <!--输出实体[ZT_PROJECT]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_project-1061-175">
+    <changeSet author="zentao" id="fk-zt_project-1062-175">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_project" constraintName="DER1N__ZT_PROJECT__ZT_PROJECT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_PROJECTMODULE]外键关系 -->
