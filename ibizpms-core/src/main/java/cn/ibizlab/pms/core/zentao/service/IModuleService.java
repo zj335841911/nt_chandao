@@ -45,6 +45,7 @@ public interface IModuleService extends IService<Module> {
     Module getDraft(Module et);
     boolean checkKey(Module et);
     Module fix(Module et);
+    boolean fixBatch(List<Module> etList);
     boolean save(Module et);
     void saveBatch(List<Module> list);
     Page<Module> searchBugModule(ModuleSearchContext context);

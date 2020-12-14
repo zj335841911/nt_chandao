@@ -36,7 +36,9 @@ public interface IIbiLoginService extends IService<IbiLogin> {
     final static String OBJECT_SOURCE_PATH = "ibilogins";
 
     IbiLogin getUser(IbiLogin et);
+    boolean getUserBatch(List<IbiLogin> etList);
     IbiLogin ztlogin(IbiLogin et);
+    boolean ztloginBatch(List<IbiLogin> etList);
     Page<IbiLogin> searchDefault(IbiLoginSearchContext context);
     /**
      * 自定义查询SQL

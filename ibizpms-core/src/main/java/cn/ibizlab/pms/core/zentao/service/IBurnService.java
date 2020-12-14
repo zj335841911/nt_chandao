@@ -45,6 +45,7 @@ public interface IBurnService extends IService<Burn> {
     Burn getDraft(Burn et);
     boolean checkKey(Burn et);
     Burn computeBurn(Burn et);
+    boolean computeBurnBatch(List<Burn> etList);
     boolean save(Burn et);
     void saveBatch(List<Burn> list);
     Page<Burn> searchDefault(BurnSearchContext context);

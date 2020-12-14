@@ -47,6 +47,7 @@ public interface IBranchService extends IService<Branch> {
     boolean save(Branch et);
     void saveBatch(List<Branch> list);
     Branch sort(Branch et);
+    boolean sortBatch(List<Branch> etList);
     Page<Branch> searchCurProduct(BranchSearchContext context);
     Page<Branch> searchDefault(BranchSearchContext context);
     List<Branch> selectByProduct(Long id);

@@ -46,6 +46,7 @@ public interface IActionService extends IService<Action> {
     boolean checkKey(Action et);
     Action comment(Action et);
     Action editComment(Action et);
+    boolean editCommentBatch(List<Action> etList);
     boolean save(Action et);
     void saveBatch(List<Action> list);
     Page<Action> searchDefault(ActionSearchContext context);

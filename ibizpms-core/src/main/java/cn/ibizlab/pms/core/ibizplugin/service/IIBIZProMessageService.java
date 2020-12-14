@@ -44,10 +44,13 @@ public interface IIBIZProMessageService {
     IBIZProMessage getDraft(IBIZProMessage et);
     boolean checkKey(IBIZProMessage et);
     IBIZProMessage markDone(IBIZProMessage et);
+    boolean markDoneBatch(List<IBIZProMessage> etList);
     IBIZProMessage markRead(IBIZProMessage et);
+    boolean markReadBatch(List<IBIZProMessage> etList);
     boolean save(IBIZProMessage et);
     void saveBatch(List<IBIZProMessage> list);
     IBIZProMessage send(IBIZProMessage et);
+    boolean sendBatch(List<IBIZProMessage> etList);
     Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context);
     Page<IBIZProMessage> searchUserAllMessages(IBIZProMessageSearchContext context);
     Page<IBIZProMessage> searchUserUnreadMessages(IBIZProMessageSearchContext context);
