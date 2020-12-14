@@ -225,7 +225,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
                     ibzDaily.setDate(now);
                     ibzDaily.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
                     ibzDaily.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
-                    this.create(getYesterdayPlans(et));
+                    this.create(getYesterdayPlans(ibzDaily));
                 }
             }
         }
