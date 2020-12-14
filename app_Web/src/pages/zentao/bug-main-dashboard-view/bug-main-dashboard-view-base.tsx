@@ -67,7 +67,7 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
     protected customViewNavContexts: any = {
         'BUGPRODUCT': {
             isRawValue: false,
-            value: 'bugproduct',
+            value: 'product',
         },
         'OBJECTTYPE': {
             isRawValue: true,
