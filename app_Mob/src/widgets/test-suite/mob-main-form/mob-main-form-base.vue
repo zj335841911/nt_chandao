@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="Testsuite__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -95,7 +93,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.addedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -123,7 +120,6 @@
     :error="detailsModel.addeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.addeddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -154,7 +150,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.lasteditedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -182,7 +177,6 @@
     :error="detailsModel.lastediteddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.lastediteddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

@@ -176,14 +176,17 @@
     :disabled="detailsModel.private.disabled"
     :error="detailsModel.private.error" 
     :isEmptyCaption="false">
-        <app-mob-radio-list 
-    style="width: 100%;" 
-    type="static" 
-    tag="YesNo2"
-    :value="data.private"  
+        <app-mob-check-list 
+    type="static"  
+    tag="Private_choose"
     :disabled="detailsModel.private.disabled" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.private"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
     @change="($event)=>this.data.private = $event"/>
-
 </app-form-item>
 
 

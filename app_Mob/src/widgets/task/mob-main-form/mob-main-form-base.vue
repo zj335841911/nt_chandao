@@ -33,7 +33,6 @@
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.projectname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -61,7 +60,6 @@
     :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.modulename"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -89,7 +87,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     codeListType="STATIC" 
     tag="Task__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -151,7 +147,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -179,7 +174,6 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.assigneddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -255,7 +249,6 @@
     codeListType="STATIC" 
     tag="Task__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -286,7 +279,6 @@
     codeListType="STATIC" 
     tag="Task__pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -314,7 +306,6 @@
     :error="detailsModel.estimate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.estimate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -342,7 +333,6 @@
     :error="detailsModel.consumed.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.consumed"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -370,7 +360,6 @@
     :error="detailsModel.left.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.left"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -398,7 +387,6 @@
     :error="detailsModel.eststarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.eststarted"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -426,7 +414,6 @@
     :error="detailsModel.realstarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.realstarted"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -454,7 +441,6 @@
     :error="detailsModel.deadline.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.deadline"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -485,7 +471,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.finishedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -516,7 +501,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.closedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -544,7 +528,6 @@
     :error="detailsModel.closeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.closeddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -575,7 +558,6 @@
     codeListType="STATIC" 
     tag="Task__closed_reason"
     :isCache="false" 
-    v-if="data.closedreason"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

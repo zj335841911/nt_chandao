@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -61,7 +60,6 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.date"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -89,7 +87,6 @@
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.buildname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     codeListType="STATIC" 
     tag="YesNo"
     :isCache="false" 
-    v-if="data.marker"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -151,7 +147,6 @@
     codeListType="STATIC" 
     tag="Release__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

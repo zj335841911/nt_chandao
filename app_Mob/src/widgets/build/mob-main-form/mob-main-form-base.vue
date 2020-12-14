@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -61,7 +60,6 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.date"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -92,7 +90,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.builder"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     :error="detailsModel.scmpath.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.scmpath"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -148,7 +144,6 @@
     :error="detailsModel.filepath.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.filepath"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

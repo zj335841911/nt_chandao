@@ -33,7 +33,6 @@
     :error="detailsModel.prodoctname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.prodoctname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="DYNAMIC" 
     tag="ProductBranch_Cache"
     :isCache="false" 
-    v-if="data.branch"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.modulename1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.modulename1"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -151,7 +148,6 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -182,7 +178,6 @@
     codeListType="STATIC" 
     tag="Story__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -213,7 +208,6 @@
     codeListType="STATIC" 
     tag="Story__pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -244,7 +238,6 @@
     codeListType="STATIC" 
     tag="StoryPoints"
     :isCache="false" 
-    v-if="data.storypoints"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -275,7 +268,6 @@
     codeListType="STATIC" 
     tag="Story__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -306,7 +298,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -334,7 +325,6 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.assigneddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -365,7 +355,6 @@
     codeListType="STATIC" 
     tag="Story__source"
     :isCache="false" 
-    v-if="data.source"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -393,7 +382,6 @@
     :error="detailsModel.sourcenote.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.sourcenote"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -424,7 +412,6 @@
     codeListType="STATIC" 
     tag="Story__stage"
     :isCache="false" 
-    v-if="data.stage"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -455,7 +442,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.closedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -483,7 +469,6 @@
     :error="detailsModel.closeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.closeddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -514,7 +499,6 @@
     codeListType="STATIC" 
     tag="Story__closed_reason"
     :isCache="false" 
-    v-if="data.closedreason"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -584,7 +568,6 @@
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.mailtopk"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -612,7 +595,6 @@
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.keywords"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

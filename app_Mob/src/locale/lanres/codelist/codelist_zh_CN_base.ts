@@ -728,6 +728,10 @@ export default {
     CodeList: {
         empty: commonLogic.appcommonhandle("",null),
     },
+    Private_choose: {
+        '1': commonLogic.appcommonhandle("是",null),
+        empty: commonLogic.appcommonhandle("",null),
+    },
     Bug__severity_mob: {
         '1': commonLogic.appcommonhandle("1",null),
         '2': commonLogic.appcommonhandle("2",null),
