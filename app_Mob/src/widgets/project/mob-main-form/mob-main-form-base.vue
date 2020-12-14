@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -61,7 +60,6 @@
     :error="detailsModel.code.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.code"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -92,7 +90,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.pm"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -123,7 +120,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.po"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -154,7 +150,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.qd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -185,7 +180,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.rd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -213,7 +207,6 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.begin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -241,7 +234,6 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.end"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -269,7 +261,6 @@
     :error="detailsModel.days.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.days"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -297,7 +288,6 @@
     :error="detailsModel.team.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.team"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -328,7 +318,6 @@
     codeListType="STATIC" 
     tag="Project__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -356,7 +345,6 @@
     :error="detailsModel.storycnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.storycnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -384,7 +372,6 @@
     :error="detailsModel.bugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.bugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -412,7 +399,6 @@
     :error="detailsModel.taskcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.taskcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -440,7 +426,6 @@
     :error="detailsModel.totalestimate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.totalestimate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -468,7 +453,6 @@
     :error="detailsModel.totalconsumed.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.totalconsumed"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

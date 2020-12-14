@@ -796,7 +796,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.openedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

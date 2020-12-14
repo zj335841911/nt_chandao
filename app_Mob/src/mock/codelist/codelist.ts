@@ -4067,6 +4067,20 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'Private_choose',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: '是',
+                text: '是',
+                value: '1',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__severity_mob',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -4195,6 +4209,34 @@ const datas: Array<any> = [
                 label: '研究中',
                 text: '研究中',
                 value: 'investigate',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'CycleType',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'day',
+                label: '天',
+                text: '天',
+                value: 'day',
+                disabled: false,
+            },
+            {
+                id: 'week',
+                label: '周',
+                text: '周',
+                value: 'week',
+                disabled: false,
+            },
+            {
+                id: 'month',
+                label: '月度',
+                text: '月度',
+                value: 'month',
                 disabled: false,
             },
         ]

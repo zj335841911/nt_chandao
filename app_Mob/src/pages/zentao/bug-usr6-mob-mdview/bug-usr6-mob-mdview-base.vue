@@ -8,6 +8,20 @@
     </ion-header>
 
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
             viewName="BugUsr6MobMDView"  
@@ -37,11 +51,8 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!isChoose" class = "fab_container">
-            <div class="scroll_tool">
-                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
-            </div>
-            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
+                <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
+            <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="link"></ion-icon>
@@ -53,6 +64,9 @@
             </div>
         </div>
         
+    <div class="scroll_tool">
+        <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+    </div>
     </ion-footer>
 </ion-page>
 </template>
@@ -377,6 +391,23 @@ export default class BugUsr6MobMDViewBase extends Vue {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof BugUsr6MobMDViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        let mdctrl: any = this.$refs.mdctrl;
+        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
+            const response: any = await mdctrl.pullDownToRefresh();
+            if (response) {
+                $event.srcElement.complete();
+            }
+        }
     }
 
     /**
@@ -864,7 +895,9 @@ export default class BugUsr6MobMDViewBase extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

@@ -7,6 +7,20 @@
     </ion-header>
 
     <ion-content >
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
                 <view_form
             :viewState="viewState"
             viewName="ProductPlanMobEditView"  
@@ -34,8 +48,8 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+                <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
+            <ion-button  v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
@@ -383,6 +397,19 @@ export default class ProductPlanMobEditViewBase extends Vue {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof ProductPlanMobEditViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        setTimeout(() => {
+            $event.srcElement.complete();
+        }, 2000);
     }
 
     /**

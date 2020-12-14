@@ -728,6 +728,10 @@ export default {
     CodeList: {
         empty: commonLogic.appcommonhandle("",null),
     },
+    Private_choose: {
+        '1': commonLogic.appcommonhandle("是",null),
+        empty: commonLogic.appcommonhandle("",null),
+    },
     Bug__severity_mob: {
         '1': commonLogic.appcommonhandle("1",null),
         '2': commonLogic.appcommonhandle("2",null),
@@ -751,6 +755,12 @@ export default {
         'normal': commonLogic.appcommonhandle("正常",null),
         'blocked': commonLogic.appcommonhandle("被阻塞",null),
         'investigate': commonLogic.appcommonhandle("研究中",null),
+        empty: commonLogic.appcommonhandle("",null),
+    },
+    CycleType: {
+        'day': commonLogic.appcommonhandle("天",null),
+        'week': commonLogic.appcommonhandle("周",null),
+        'month': commonLogic.appcommonhandle("月度",null),
         empty: commonLogic.appcommonhandle("",null),
     },
     Story__stage: {

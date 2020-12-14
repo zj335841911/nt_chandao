@@ -226,13 +226,13 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         Todo old = new Todo();
         CachedBeanCopier.copy(get(et.getId()), old);
 
-        if (StringUtils.compare(et.getType(), StaticDict.Type.TASK.getValue()) == 0) {
-            et.setName(et.getTask());
-        } else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0) {
-            et.setName(et.getBug());
-        } else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0) {
-            et.setName(et.getStory());
-        }
+//        if (StringUtils.compare(et.getType(), StaticDict.Type.TASK.getValue()) == 0) {
+//            et.setName(et.getTask());
+//        } else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0) {
+//            et.setName(et.getBug());
+//        } else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0) {
+//            et.setName(et.getStory());
+//        }
         if (et.getCycle() != null && et.getCycle() == 1) {
             JSONObject config = new JSONObject();
             config.put(FIELD_BEGIN, et.getDate());

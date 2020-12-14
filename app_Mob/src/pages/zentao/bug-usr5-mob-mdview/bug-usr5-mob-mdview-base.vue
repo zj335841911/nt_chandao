@@ -57,6 +57,9 @@
     </ion-content>
     <ion-footer class="view-footer">
         
+    <div class="scroll_tool">
+        <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+    </div>
     </ion-footer>
 </ion-page>
 </template>
@@ -767,7 +770,9 @@ export default class BugUsr5MobMDViewBase extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

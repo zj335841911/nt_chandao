@@ -81,7 +81,6 @@
     codeListType="DYNAMIC" 
     tag="SysOperator"
     :isCache="false" 
-    v-if="data.createman"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -109,7 +108,6 @@
     :error="detailsModel.createdate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.createdate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -140,7 +138,6 @@
     codeListType="DYNAMIC" 
     tag="SysOperator"
     :isCache="false" 
-    v-if="data.updateman"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -168,7 +165,6 @@
     :error="detailsModel.updatedate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.updatedate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

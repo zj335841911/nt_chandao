@@ -108,7 +108,7 @@
              <div  v-if="items.length == 0" class="no-data">
                 <div>暂无数据</div>
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
+            <div v-show=" loadStatus && !allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          
@@ -555,6 +555,14 @@ export default class MobBase extends Vue implements ControlInterface {
     public  selectdata :any = [];
 
     /**
+    * 加载显示状态
+    *
+    * @type {boolean}
+    * @memberof Mob
+    */
+    public loadStatus: boolean = false;
+
+    /**
     * 关闭行为
     *
     * @type {Function}
@@ -876,7 +884,6 @@ export default class MobBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -1255,15 +1262,6 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * vue 生命周期 activated
-     *
-     * @memberof Mob
-     */
-    public activated() {
-        this.closeSlidings()
-    }
-
-    /**
      * 列表项左滑右滑触发行为
      *
      * @param {*} $event 点击鼠标事件
@@ -1293,24 +1291,17 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'udf35ec2')) {
             this.mdctrl_udf35ec2_click();
         }
-        this.closeSlidings();
+        this.closeSlidings(item);
     }
 
     /**
      * 关闭列表项左滑右滑
      * @memberof Mdctrl
      */
-    public closeSlidings () {
-        let ionlist:any = this.$refs.ionlist;
-        if (ionlist && ionlist.children) {
-          ionlist.children.forEach((sliding:any) => {
-            if(typeof sliding.close === 'function'){
-              sliding.close();
-            }
-            if(typeof sliding.closeOpened === 'function'){
-            sliding.closeOpened();
-            }
-          })
+    public closeSlidings (item: any) {
+        const ele :any= this.$refs[item.srfkey];
+        if(ele[0] && this.$util.isFunction(ele[0].closeOpened)){
+            ele[0].closeOpened();
         }
     }
 

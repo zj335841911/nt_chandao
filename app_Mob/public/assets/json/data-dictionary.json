@@ -6144,6 +6144,24 @@
         "items": []
     }, 
     {
+        "srfkey": "Private_choose",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "是",
+                "text": "是",
+                "default": false,
+                "data": "",
+                "value": "1",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Bug__severity_mob",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -6348,6 +6366,46 @@
                 "isValueNumber":false,
                 
                 "color": "rgba(245, 12, 12, 1)",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "CycleType",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "day",
+                "label": "天",
+                "text": "天",
+                "default": false,
+                "data": "",
+                "value": "day",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "week",
+                "label": "周",
+                "text": "周",
+                "default": false,
+                "data": "",
+                "value": "week",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "month",
+                "label": "月度",
+                "text": "月度",
+                "default": false,
+                "data": "",
+                "value": "month",
+                "isValueNumber":false,
+                
                 "disabled": false
             }
         ]
