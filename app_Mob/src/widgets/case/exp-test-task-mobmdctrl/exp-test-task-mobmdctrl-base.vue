@@ -687,7 +687,6 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -1034,15 +1033,6 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     }
 
     /**
-     * vue 生命周期 activated
-     *
-     * @memberof Exp_TestTask
-     */
-    public activated() {
-        this.closeSlidings()
-    }
-
-    /**
      * 列表项左滑右滑触发行为
      *
      * @param {*} $event 点击鼠标事件
@@ -1057,24 +1047,17 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'ua077d7d')) {
             this.mdctrl_ua077d7d_click();
         }
-        this.closeSlidings();
+        this.closeSlidings(item);
     }
 
     /**
      * 关闭列表项左滑右滑
      * @memberof Mdctrl
      */
-    public closeSlidings () {
-        let ionlist:any = this.$refs.ionlist;
-        if (ionlist && ionlist.children) {
-          ionlist.children.forEach((sliding:any) => {
-            if(typeof sliding.close === 'function'){
-              sliding.close();
-            }
-            if(typeof sliding.closeOpened === 'function'){
-            sliding.closeOpened();
-            }
-          })
+    public closeSlidings (item: any) {
+        const ele :any= this.$refs[item.srfkey];
+        if(ele[0] && this.$util.isFunction(ele[0].closeOpened)){
+            ele[0].closeOpened();
         }
     }
 
