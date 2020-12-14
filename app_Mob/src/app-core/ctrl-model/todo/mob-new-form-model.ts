@@ -76,6 +76,21 @@ export class MobNewModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'bug',
+                prop: 'bug',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'task',
+                prop: 'task',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'story',
+                prop: 'story',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'private',
                 prop: 'ibizprivate',
                 dataType: 'NSCODELIST',

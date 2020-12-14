@@ -556,6 +556,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
         begin: null,
         end: null,
         type: null,
+        bug: null,
+        task: null,
+        story: null,
         private: null,
         desc: null,
         id: null,
@@ -719,6 +722,12 @@ export default class MobNewBase extends Vue implements ControlInterface {
         end: new FormItemModel({ caption: '结束', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        bug: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'bug', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        task: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        story: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         private: new FormItemModel({ caption: '私人事务', detailType: 'FORMITEM', name: 'private', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -885,6 +894,42 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 bug 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.bug')
+    onBugChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'bug', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 task 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.task')
+    onTaskChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'task', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 story 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.story')
+    onStoryChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 private 值
      *
      * @param {*} newVal
@@ -956,6 +1001,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
 
 
 
