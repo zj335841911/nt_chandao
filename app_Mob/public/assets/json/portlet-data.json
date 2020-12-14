@@ -78,7 +78,7 @@
 "detailText":"项目统计",
 "portletTYpe":"CHART",
 "detailImage":"assets/images/add-bug-age-card.jpg",
-"componentName":"app-project-project-status-bar-mobb-portlet",
+"componentName":"app-project-project-status-bar-mob-portlet",
 "portletName": "项目统计"},
 {"type":"app",
 "appCodeName":"Mob",
