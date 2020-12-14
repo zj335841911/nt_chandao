@@ -61,14 +61,14 @@
             				valueitem="srfkey">
             <span v-if="row.parent === '-1'">
             	<span title="父计划" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">父</span>
-            	<span>{{row.title}}</span>
+            	<span> {{row.title}}</span>
             </span>
             <span v-else-if="row.parent === '0'">
             	<span>{{row.title}}</span>
             </span>
             <span v-else>
             	<span title="子计划" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
-            	<span>{{row.title}}</span>
+            	<span> {{row.title}}</span>
             </span>
             </app-column-link></span>
                         </template>
