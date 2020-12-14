@@ -60,26 +60,30 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                                  <span><app-column-link 
+                                  <span><app-column-link
             		deKeyField='story'
             		 :context="JSON.parse(JSON.stringify(context))"
-            		 :localParam="{product: '%product%'}"
             		 :viewparams="JSON.parse(JSON.stringify(viewparams))"
             		 :data="row"
-            		 :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false}"
-            				valueitem="srfkey">
-            <span v-if="row.parent === -1">
+            		 :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            			{ pathName: 'products', parameterName: 'product' },
+            			]
+            			,parameters: [
+            			{ pathName: 'stories', parameterName: 'story' },
+            			{ pathName: 'mainview', parameterName: 'mainview' }
+            			]}" valueitem="srfkey" @refresh="refresh.apply(_self, arguments)">
+            <span v-if="row.parent === '-1'">
             	<span title="父需求" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">父</span>
             	<span :style="{'color':row.color}"> {{row.title}}</span>
             </span>
-            <span v-else-if="row.parent === 0">
+            <span v-else-if="row.parent === '0'">
             	<span :style="{'color':row.color}"> {{row.title}}</span>
             </span>
             <span v-else>
             	<span title="子需求" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
             	<span :style="{'color':row.color}"> {{row.title}}</span>
             </span>
-            </app-column-link></span>
+            </app-column-link ></span>
                         </template>
                     </template>
                 </el-table-column>
