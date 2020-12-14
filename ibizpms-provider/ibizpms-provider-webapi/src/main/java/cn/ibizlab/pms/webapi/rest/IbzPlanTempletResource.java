@@ -137,6 +137,12 @@ public class IbzPlanTempletResource {
         ibzplantempletdto = ibzplantempletMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzplantempletdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzPlanTemplet-GetPlan-all')")
+    @ApiOperation(value = "批量处理[获取计划]", tags = {"计划模板" },  notes = "批量处理[获取计划]")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzplantemplets/{ibzplantemplet_id}/getplanbatch")
+    public ResponseEntity<Boolean> getPlanBatch(@RequestBody List<IbzPlanTempletDTO> ibzplantempletdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzplantempletService.getPlanBatch(ibzplantempletMapping.toDomain(ibzplantempletdtos)));
+    }
 
     @PreAuthorize("hasPermission(this.ibzplantempletMapping.toDomain(#ibzplantempletdto),'pms-IbzPlanTemplet-Save')")
     @ApiOperation(value = "保存计划模板", tags = {"计划模板" },  notes = "保存计划模板")

@@ -124,6 +124,12 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Activate-all')")
+    @ApiOperation(value = "批量处理[激活]", tags = {"测试版本" },  notes = "批量处理[激活]")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/activatebatch")
+    public ResponseEntity<Boolean> activateBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.activateBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
     @ApiOperation(value = "阻塞", tags = {"测试版本" },  notes = "阻塞")
@@ -134,6 +140,12 @@ public class TestTaskResource {
         domain = testtaskService.block(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
+    @ApiOperation(value = "批量处理[阻塞]", tags = {"测试版本" },  notes = "批量处理[阻塞]")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/blockbatch")
+    public ResponseEntity<Boolean> blockBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.blockBatch(testtaskMapping.toDomain(testtaskdtos)));
     }
 
     @ApiOperation(value = "检查测试版本", tags = {"测试版本" },  notes = "检查测试版本")
@@ -152,6 +164,12 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Close-all')")
+    @ApiOperation(value = "批量处理[关闭]", tags = {"测试版本" },  notes = "批量处理[关闭]")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/closebatch")
+    public ResponseEntity<Boolean> closeBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.closeBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
     @ApiOperation(value = "关联测试用例", tags = {"测试版本" },  notes = "关联测试用例")
@@ -162,6 +180,12 @@ public class TestTaskResource {
         domain = testtaskService.linkCase(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
+    @ApiOperation(value = "批量处理[关联测试用例]", tags = {"测试版本" },  notes = "批量处理[关联测试用例]")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/linkcasebatch")
+    public ResponseEntity<Boolean> linkCaseBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.linkCaseBatch(testtaskMapping.toDomain(testtaskdtos)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-MobTestTaskCounter-all')")
@@ -200,6 +224,12 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Start-all')")
+    @ApiOperation(value = "批量处理[开始]", tags = {"测试版本" },  notes = "批量处理[开始]")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/startbatch")
+    public ResponseEntity<Boolean> startBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.startBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
     @ApiOperation(value = "关联测试用例", tags = {"测试版本" },  notes = "关联测试用例")
@@ -210,6 +240,12 @@ public class TestTaskResource {
         domain = testtaskService.unlinkCase(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
+    @ApiOperation(value = "批量处理[关联测试用例]", tags = {"测试版本" },  notes = "批量处理[关联测试用例]")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/unlinkcasebatch")
+    public ResponseEntity<Boolean> unlinkCaseBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.unlinkCaseBatch(testtaskMapping.toDomain(testtaskdtos)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
@@ -346,7 +382,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品测试版本]", tags = {"测试版本" },  notes = "批量处理[根据产品测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/activatebatch")
+    public ResponseEntity<Boolean> activateByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.activateBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/block")
@@ -357,7 +397,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品测试版本]", tags = {"测试版本" },  notes = "批量处理[根据产品测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/blockbatch")
+    public ResponseEntity<Boolean> blockByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.blockBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @ApiOperation(value = "根据产品检查测试版本", tags = {"测试版本" },  notes = "根据产品检查测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestTaskDTO testtaskdto) {
@@ -374,7 +418,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品测试版本]", tags = {"测试版本" },  notes = "批量处理[根据产品测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/closebatch")
+    public ResponseEntity<Boolean> closeByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.closeBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/linkcase")
@@ -385,7 +433,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品测试版本]", tags = {"测试版本" },  notes = "批量处理[根据产品测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/linkcasebatch")
+    public ResponseEntity<Boolean> linkCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.linkCaseBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-MobTestTaskCounter-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/mobtesttaskcounter")
@@ -396,7 +448,6 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
     @ApiOperation(value = "根据产品保存测试版本", tags = {"测试版本" },  notes = "根据产品保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/save")
@@ -428,7 +479,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品测试版本]", tags = {"测试版本" },  notes = "批量处理[根据产品测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/startbatch")
+    public ResponseEntity<Boolean> startByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.startBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
     @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/unlinkcase")
@@ -439,7 +494,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品测试版本]", tags = {"测试版本" },  notes = "批量处理[根据产品测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/unlinkcasebatch")
+    public ResponseEntity<Boolean> unlinkCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.unlinkCaseBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试版本" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testtasks/fetchdefault")
@@ -575,7 +634,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目测试版本]", tags = {"测试版本" },  notes = "批量处理[根据项目测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/activatebatch")
+    public ResponseEntity<Boolean> activateByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.activateBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Block-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/block")
@@ -586,7 +649,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目测试版本]", tags = {"测试版本" },  notes = "批量处理[根据项目测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/blockbatch")
+    public ResponseEntity<Boolean> blockByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.blockBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @ApiOperation(value = "根据项目检查测试版本", tags = {"测试版本" },  notes = "根据项目检查测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") Long project_id, @RequestBody TestTaskDTO testtaskdto) {
@@ -603,7 +670,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目测试版本]", tags = {"测试版本" },  notes = "批量处理[根据项目测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/closebatch")
+    public ResponseEntity<Boolean> closeByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.closeBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-LinkCase-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/linkcase")
@@ -614,7 +685,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目测试版本]", tags = {"测试版本" },  notes = "批量处理[根据项目测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/linkcasebatch")
+    public ResponseEntity<Boolean> linkCaseByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.linkCaseBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-MobTestTaskCounter-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/mobtesttaskcounter")
@@ -625,7 +700,6 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
     @ApiOperation(value = "根据项目保存测试版本", tags = {"测试版本" },  notes = "根据项目保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/save")
@@ -657,7 +731,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目测试版本]", tags = {"测试版本" },  notes = "批量处理[根据项目测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/startbatch")
+    public ResponseEntity<Boolean> startByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.startBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-UnlinkCase-all')")
     @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/unlinkcase")
@@ -668,7 +746,11 @@ public class TestTaskResource {
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目测试版本]", tags = {"测试版本" },  notes = "批量处理[根据项目测试版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/unlinkcasebatch")
+    public ResponseEntity<Boolean> unlinkCaseByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskService.unlinkCaseBatch(testtaskMapping.toDomain(testtaskdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"测试版本" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/testtasks/fetchdefault")
