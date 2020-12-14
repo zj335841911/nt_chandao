@@ -757,6 +757,12 @@ export default {
         'investigate': commonLogic.appcommonhandle("研究中",null),
         empty: commonLogic.appcommonhandle("",null),
     },
+    CycleType: {
+        'day': commonLogic.appcommonhandle("天",null),
+        'week': commonLogic.appcommonhandle("周",null),
+        'month': commonLogic.appcommonhandle("月度",null),
+        empty: commonLogic.appcommonhandle("",null),
+    },
     Story__stage: {
         'wait': commonLogic.appcommonhandle("未开始",null),
         'planned': commonLogic.appcommonhandle("已计划",null),

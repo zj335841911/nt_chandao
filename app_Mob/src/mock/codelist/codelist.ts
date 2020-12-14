@@ -4214,6 +4214,34 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'CycleType',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'day',
+                label: '天',
+                text: '天',
+                value: 'day',
+                disabled: false,
+            },
+            {
+                id: 'week',
+                label: '周',
+                text: '周',
+                value: 'week',
+                disabled: false,
+            },
+            {
+                id: 'month',
+                label: '月度',
+                text: '月度',
+                value: 'month',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Story__stage',
         emptytext: '未定义',
         "codelisttype":"static",

@@ -81,9 +81,24 @@ export class MobNewModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'idvalue',
+                prop: 'idvalue',
+                dataType: 'BIGINT',
+            },
+            {
                 name: 'task',
                 prop: 'task',
                 dataType: 'TEXT',
+            },
+            {
+                name: 'config_type',
+                prop: 'config_type',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'cycle',
+                prop: 'cycle',
+                dataType: 'INT',
             },
             {
                 name: 'story',
