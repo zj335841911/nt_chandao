@@ -5,7 +5,7 @@
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    {{$t('userCustom.mywork.mytask')}}
+                    我的任务
                 
                 
                 
@@ -22,7 +22,7 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    {{$t('userCustom.mywork.deferredTask')}}
+                    已延期任务
                 
                 
                 
