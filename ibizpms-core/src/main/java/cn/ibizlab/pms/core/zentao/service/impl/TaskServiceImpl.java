@@ -448,6 +448,14 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 		}
 	  	return et;
 	}
+		@Override
+    @Transactional
+    public boolean sendMessageBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   sendMessage(et);
+		 }
+	 	 return true;
+    }
       /**
    * 发送消息前置处理逻辑。
    */

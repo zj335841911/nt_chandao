@@ -455,6 +455,14 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 		}
 	  	return et;
 	}
+		@Override
+    @Transactional
+    public boolean sendMessageBatch (List<Bug> etList) {
+		 for(Bug et : etList) {
+		   sendMessage(et);
+		 }
+	 	 return true;
+    }
       /**
    * 发送消息前置处理逻辑。
    */

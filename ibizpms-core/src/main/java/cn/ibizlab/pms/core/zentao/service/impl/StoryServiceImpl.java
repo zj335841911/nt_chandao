@@ -661,6 +661,14 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 		}
 	  	return et;
 	}
+		@Override
+    @Transactional
+    public boolean sendMessageBatch (List<Story> etList) {
+		 for(Story et : etList) {
+		   sendMessage(et);
+		 }
+	 	 return true;
+    }
       /**
    * 发送消息前置处理逻辑。
    */

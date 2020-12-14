@@ -240,6 +240,14 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 		}
 	  	return et;
 	}
+		@Override
+    @Transactional
+    public boolean sendMessageBatch (List<Todo> etList) {
+		 for(Todo et : etList) {
+		   sendMessage(et);
+		 }
+	 	 return true;
+    }
       /**
    * 发送消息前置处理逻辑。
    */
