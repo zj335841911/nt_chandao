@@ -187,21 +187,21 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'privateeq')">
                     
-<dropdown-list 
-    v-model="data.privateeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.privateeq.disabled"
-    valueType="number"
-    tag="YesNo2"
-    codelistType="STATIC"
-    placeholder="请选择..."
-    style="width:100px;"
-></dropdown-list>
+<app-checkbox-list 
+  v-model="data.privateeq" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.privateeq.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='Private_choose' 
+  codelistType='STATIC' 
+  mode=""
+  name="privateeq" 
+  style="width:100px;">
+</app-checkbox-list>
+
                 </template>
             </template>
         </filter-tree>

@@ -154,7 +154,7 @@ export default class EditFormModel {
       {
         name: 'private',
         prop: 'ibizprivate',
-        dataType: 'NSCODELIST',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',

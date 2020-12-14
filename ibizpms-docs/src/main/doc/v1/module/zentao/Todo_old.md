@@ -28,7 +28,7 @@
 |指派日期|ASSIGNEDDATE|DATE|&nbsp;|
 |优先级|PRI|INT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
-|私人事务|PRIVATE|NSCODELIST|&nbsp;|
+|私人事务|PRIVATE|SMCODELIST|&nbsp;|
 |config|CONFIG|TEXT|&nbsp;|
 |间隔天数|CONFIG_DAY|INT|&nbsp;|
 |提前|CONFIG_BEFOREDAYS|INT|&nbsp;|
@@ -66,7 +66,7 @@
 |指派日期|默认规则|默认规则|
 |优先级|默认规则|默认规则|
 |日期|默认规则|默认规则|
-|私人事务|默认规则|默认规则|
+|私人事务|默认规则|内容长度必须小于等于[4000]|
 |config|默认规则|内容长度必须小于等于[255]|
 |间隔天数|默认规则|默认规则|
 |提前|默认规则|默认规则|

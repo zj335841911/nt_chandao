@@ -164721,7 +164721,7 @@ CREATE TABLE `zt_testtask`(
 | FINISHEDBY        | 由谁完成  | VARCHAR      |   30   | &nbsp; |
 | ASSIGNEDTOPK        | 指派给（选择）  | VARCHAR      |   200   | &nbsp; |
 | FINISHEDDATE        | 完成时间  | DATETIME      |   -1   | &nbsp; |
-| PRIVATE        | 私人事务  | INTEGER      |   -1   | &nbsp; |
+| PRIVATE        | 私人事务  | VARCHAR      |   4,000   | &nbsp; |
 | CLOSEDBY        | 由谁关闭  | VARCHAR      |   30   | &nbsp; |
 | CYCLE        | 周期  | INTEGER      |   3   | &nbsp; |
 
@@ -165845,7 +165845,7 @@ CREATE TABLE `zt_todo`(
 ,`ASSIGNEDDATE`  DATETIME COMMENT '指派日期' 
 ,`PRI`  INTEGER COMMENT '优先级' 
 ,`DATE`  DATETIME COMMENT '日期' 
-,`PRIVATE`  INTEGER COMMENT '私人事务' 
+,`PRIVATE`  VARCHAR(4000) COMMENT '私人事务' 
 ,`CONFIG`  VARCHAR(255) COMMENT 'config' 
 )COMMENT='待办';
 ```

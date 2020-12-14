@@ -202,7 +202,8 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizprivate")
     @JsonProperty("ibizprivate")
-    private Integer ibizprivate;
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
+    private String ibizprivate;
 
     /**
      * 属性 [CONFIG]
@@ -468,7 +469,7 @@ public class TodoDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRIVATE]
      */
-    public void setIbizprivate(Integer  ibizprivate){
+    public void setIbizprivate(String  ibizprivate){
         this.ibizprivate = ibizprivate ;
         this.modify("private",ibizprivate);
     }
