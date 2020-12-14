@@ -53,7 +53,7 @@ export default class MySubmit extends MySubmitBase {
         if (Object.is(tag, 'u5cb5aa3')) {
             this.mdctrl_u5cb5aa3_click();
         }
-        this.closeSlidings();
+        this.closeSlidings(item);
     }
 
 }
