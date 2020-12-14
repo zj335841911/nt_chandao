@@ -144,7 +144,7 @@ export class MyReceviedWeeklyGridBase extends GridControlBase {
      * @type {string}
      * @memberof MyReceviedWeeklyGridBase
      */
-    public minorSortPSDEF: string = 'ibz_weeklyid';
+    public minorSortPSDEF: string = 'date';
 
     /**
      * 所有列成员
