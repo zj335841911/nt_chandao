@@ -320,6 +320,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
                 bugs += data.get(FIELD_ID);
             }
             productPlan.set(FIELD_BUGS,bugs);
+            productPlan.set(FIELD_SRFACTIONPARAM,et.get(FIELD_SRFACTIONPARAM));
             SpringContextHolder.getBean(ProductPlanHelper.class).linkBug(productPlan);
         }
         return et;

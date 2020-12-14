@@ -167,7 +167,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public void sendTodo(Long id, String name, String noticeusers, String touser, String ccuser, String logicname, String type, String path, String actiontextname) {
         try {
             String noticeuserss = "";
-            if(touser!= null && !"".equals(touser)) {
+            if(touser != null && !"".equals(touser)) {
                 noticeuserss += touser + MULTIPLE_CHOICE;
             }
             JSONObject param = new JSONObject();
@@ -183,13 +183,18 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             if(noticeuserss.length() == 0) {
                 return;
             }
+
             IBIZProMessage ibizProMessage = new IBIZProMessage();
+            if (touser == null || "".equals(touser)){
+                return;
+            }
+            ibizProMessage.setTo(touser);
 
             ibizProMessage.setCc(noticeuserss);
 
             ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUsername());
 
-            ibizProMessage.setType(StaticDict.Message__type.TOREAD.getValue());
+            ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
             ibizProMessage.setIbizpromessagename(name);
             param.put("objectid", id);
             param.put("objecttype", type);
