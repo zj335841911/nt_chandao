@@ -23,7 +23,13 @@
             </ion-list>
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                      <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
+                      <van-collapse v-model="activeName" @change="changeCollapse">
+                        <van-collapse-item v-if="obj.items && obj.items.length > 0" :name="obj.text">
+                          <template #title>
+                            <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                          </template>
+                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><ion-icon v-if="item.assignToMob.icon && item.assignToMob.isShowIcon" :name="item.assignToMob.icon"></ion-icon><ion-label v-if="item.assignToMob.isShowCaption">指派</ion-label></ion-item-option>
                             <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)"><ion-icon v-if="item.activateMob.icon && item.activateMob.isShowIcon" :name="item.activateMob.icon"></ion-icon><ion-label v-if="item.activateMob.isShowCaption">激活</ion-label></ion-item-option>
@@ -39,6 +45,10 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
+                        </van-collapse-item>
+                      </van-collapse>
+                      </div>
+
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -590,7 +600,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {boolean}
     * @memberof Mob
     */
-    public isEnableGroup:boolean =  false;
+    public isEnableGroup:boolean =  true;
 
     /**
     * 代码表分组细节
@@ -598,7 +608,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {Object}
     * @memberof Mob
     */
-    public group_detail:any = [];
+    public group_detail:any =   [ {"value":'wait',"text":'未开始'}, {"value":'doing',"text":'进行中'}, {"value":'done',"text":'已完成'}, {"value":'closed',"text":'已关闭'},];
 
     /**
     * 分组模式
@@ -606,7 +616,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {string}
     * @memberof Mob
     */
-    public group_mode = 'NONE';
+    public group_mode = 'CODELIST';
 
     /**
     * 分组数据
@@ -631,7 +641,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {array}
     * @memberof Mob
     */
-    public group_field:string = '';
+    public group_field:string = 'status';
 
     /**
      * 分组方法
@@ -647,6 +657,28 @@ export default class MobBase extends Vue implements ControlInterface {
       }
     }
 
+    /**
+     * vant折叠面板数据
+     *
+     * @memberof Mob
+     */
+    public activeName:Array<any> = [];
+
+    /**
+     * 只需第一次赋值面板
+     *
+     * @memberof Mob
+     */
+    public valve:number = 0;
+
+    /**
+     * 折叠面板改变时
+     *
+     * @memberof Mob
+     */
+    public changeCollapse($event:any){
+      this.activeName = $event;
+    }
 
     /**
     * 存放数据选择数组(单选)
@@ -979,6 +1011,38 @@ export default class MobBase extends Vue implements ControlInterface {
         return response;
     }
 
+    /**
+     * 代码表分组，获取分组数据
+     *
+     * @memberof Mob
+     */
+    public getGroupDataByCodeList(items:any){
+      let group:Array<any> = [];
+      this.group_detail.forEach((obj:any,index:number)=>{
+        let data:any = [];
+        items.forEach((item:any,i:number)=>{
+          if (item[this.group_field] === obj.value) {
+            data.push(item);
+          }
+        })
+        group.push(data);
+      })
+      group.forEach((arr:any,index:number)=>{
+        this.group_data[index] = {};
+        this.group_data[index].text = this.group_detail[index].text;
+        this.group_data[index].items = arr;
+      })
+      this.group_data.forEach((item:any,i:number)=>{
+        if (item.items.length == 0) {
+          this.group_data.splice(i,1);
+        }
+      })
+      // vant 折叠面板
+      if (this.valve == 0) {
+        this.activeName[0] = this.group_data[0].text;
+        this.valve++;
+      }
+    }
 
 
     /**
