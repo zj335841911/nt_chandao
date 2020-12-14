@@ -44,7 +44,7 @@
               </div>
               <div class="drag-list-pic"><img  :src="item.detailImage?item.detailImage:'assets/images/add-task-list-card.jpg'" alt=""></div>
               <div class="drag-list-text">
-                <div>{{item.portletName}}</div>
+                <div>{{$t( `app.portlets.${item.portletCodeName.toLowerCase()}.caption`)}}</div>
                 <div v-if="item.detailText">{{item.detailText}}</div>
                 <div v-else>暂无描述</div>
               </div>
