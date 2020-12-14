@@ -1,33 +1,67 @@
 <template>
-<div class="view-container app-mob-pickup-mdview project-mob-pickup-mdview">
-    <div class="view-content">
-        <view_mdctrl
-    :viewState="viewState"
-    viewName="ProjectMobPickupMDView"  
-    :viewparams="viewparams" 
-    :context="context" 
-    viewType="DEMOBPICKUPMDVIEW"
-    controlStyle="LISTVIEW"
-    updateAction="Update"
-    removeAction="Remove"
-    loaddraftAction=""
-    loadAction="Get"
-    createAction="Create"
-    fetchAction="FetchDefault" 
-    :isMutli="!isSingleSelect"
-    :isNeedLoaddingText="!isPortalView"
-    :showBusyIndicator="true" 
-    :isTempMode="false"
-    name="mdctrl"  
-    ref='mdctrl' 
-    @selectionchange="mdctrl_selectionchange($event)"  
-    @beforeload="mdctrl_beforeload($event)"  
-    @rowclick="mdctrl_rowclick($event)"  
-    @load="mdctrl_load($event)"  
-    @closeview="closeView($event)">
-</view_mdctrl>
-    </div>
-</div>
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupmdview': true, 'project-mob-pickup-mdview': true }">
+    
+    <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
+
+    
+    </ion-header>
+
+    <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+                <view_mdctrl
+            :viewState="viewState"
+            viewName="ProjectMobPickupMDView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            viewType="DEMOBPICKUPMDVIEW"
+            controlStyle="LISTVIEW"
+            updateAction="Update"
+            removeAction="Remove"
+            loaddraftAction=""
+            loadAction="Get"
+            createAction="Create"
+            fetchAction="FetchDefault" 
+            :isMutli="!isSingleSelect"
+            :isNeedLoaddingText="!isPortalView"
+            :showBusyIndicator="true" 
+            :isTempMode="false"
+            name="mdctrl"  
+            ref='mdctrl' 
+            @selectionchange="mdctrl_selectionchange($event)"  
+            @beforeload="mdctrl_beforeload($event)"  
+            @rowclick="mdctrl_rowclick($event)"  
+            @load="mdctrl_load($event)"  
+            @closeview="closeView($event)">
+        </view_mdctrl>
+    </ion-content>
+    <ion-footer class="view-footer">
+                <div v-show="isChoose" class="batch_btn">
+                    <div class="selectall" v-show="isChoose">
+                        <ion-checkbox ref="selectAll"  :checked="isSelectAll"   @click="onSelectallClick(!isSelectAll)" ></ion-checkbox>
+                        <ion-label class="selectal-label">全选</ion-label>
+                    </div>
+                    <div class="batch_btn_content">
+                        <div class="app-toolbar-container ">
+            <div class="app-quick-toolbar toolbar-left-bottons">
+            </div>
+        </div>
+                <ion-button class="app-view-toolbar-button"  @click="cancelSelect" >
+                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                    {{$t('app.button.cancel')}}
+                </ion-button>
+            </div> 
+        </div>     
+
+    </ion-footer>
+</ion-page>
 </template>
 
 <script lang='ts'>
@@ -590,6 +624,70 @@ export default class ProjectMobPickupMDViewBase extends Vue {
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
+    /**
+     * onScroll滚动事件
+     *
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public async onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+                    let ionScroll :any= this.$refs.ionScroll;
+        if(ionScroll){
+            let ele =  await ionScroll.getScrollElement();
+            if(ele){
+                let scrollTop = ele.scrollTop;
+                let clientHeight = ele.clientHeight;
+                let scrollHeight = ele.scrollHeight;
+                if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                    let mdctrl:any = this.$refs.mdctrl; 
+                    if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
+                        mdctrl.loadBottom();
+                    }           
+                }
+            }
+        }
+
+    }
+
+    /**
+     * onScroll滚动结束事件
+     *
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public onScrollEnd(){
+        this.isScrollStop = true;
+    }
+
+    /**
+     * 返回顶部
+     *
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
+        }
+    }
+
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public isScrollStop = true;
 
 
    /**
