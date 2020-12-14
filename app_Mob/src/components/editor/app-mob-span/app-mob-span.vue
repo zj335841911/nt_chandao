@@ -1,8 +1,8 @@
 <template>
-    <div class="app-mob-span" oncontextmenu="return false;">
+    <div class="app-mob-span" oncontextmenu="return false;" :class="currentItem && currentItem.className?currentItem.className:''" >
         <ion-input v-if="!codeListType" readonly :value="text" ></ion-input>
         <ion-input v-if="codeListType == 'DYNAMIC'" readonly :value="($t('userCustom.'+tag+'.'+value)!== ('userCustom.'+tag+'.'+value))?$t('userCustom.'+tag+'.'+value) : text" ></ion-input>
-        <ion-input :style="{color:currentItem && currentItem.color?currentItem.color:''}" :class="currentItem && currentItem.className?currentItem.className:''" v-if="codeListType == 'STATIC'" readonly :value="($t('codelist.'+tag+'.'+value)!== ('codelist.'+tag+'.'+value))?$t('codelist.'+tag+'.'+value) : text" ></ion-input>
+        <ion-input :style="{color:currentItem && currentItem.color?currentItem.color:''}"  v-if="codeListType == 'STATIC'" readonly :value="($t('codelist.'+tag+'.'+value)!== ('codelist.'+tag+'.'+value))?$t('codelist.'+tag+'.'+value) : text" ></ion-input>
     </div>
 </template>
 
