@@ -1010,6 +1010,14 @@ export default class MobNewBase extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = false;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'EQ', 'custom')) {
+                ret = true;
+            }
+            this.detailsModel.name.setDisabled(!ret);
+        }
 
 
 
