@@ -11,7 +11,13 @@
             <div class="speace">{{item.tasktype_text}}</div>
             <div class="status" :style="{'color':item.status_color}">{{item.status_text}}</div>
             <div class="openeddate">{{item.openeddate}}</div>
-            <div class="assignedto"><div class="assignedto_item">{{item.assignedto_text}}</div></div>
+            <div class="assignedto" >
+                <div v-if="item.multiple != '1'" class="assignedto_item">{{item.assignedto_text}}</div>
+                <template v-for="(_item,index) in assignedtoArr" >
+                    <div v-if="item.multiple == '1' && index < 2 " :key="_item" class="assignedto_item">{{_item}}</div>
+                </template>
+                <div class="ion" v-if="assignedtoArr.length >= 3"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></div>
+            </div>
         </div>
     </div>
 </template>
@@ -33,6 +39,8 @@ export default class appTaskList extends Vue {
     on_item_change(){
         this.parseData();
     }
+
+    public assignedtoArr :string[] = [];
 
     /**
      * 任务优先级代码表
@@ -69,11 +77,23 @@ export default class appTaskList extends Vue {
         this.item.pri_text = this.getCodeListText('Task__pri',this.item.pri).label;
         this.item.status_text = this.getCodeListText('Task__status',this.item.status).label;
         this.item.status_color = this.getCodeListText('Task__status',this.item.status).color;
-        this.item.assignedto_text = this.getCodeListText('UserRealName',this.item.assignedto).label;
         this.item.tasktype_text = this.getCodeListText('Task__type',this.item.type).label;
-
         this.item.openeddate = this.item.openeddate.substring(5,10);
-        this.item.assignedto_text = this.item.assignedto_text.substring(0,1);
+        // 设置指派名称
+        // 多人
+        if(Object.is(this.item.multiple,'1')){
+            const assignedto: any = this.item.assignedto.split(',')
+            for (let index = 0; index < assignedto.length; index++) {
+                const element = assignedto[index];
+                let name = this.getCodeListText('UserRealName',element).label;
+                if(name) name = name.substring(0,1);
+                this.assignedtoArr.push(name);
+            }
+        }else{
+        // 单人
+            this.item.assignedto_text = this.getCodeListText('UserRealName',this.item.assignedto).label;
+            this.item.assignedto_text = this.item.assignedto_text.substring(0,1);
+        }
         this.$forceUpdate();
     }
 
