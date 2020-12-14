@@ -4,5 +4,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if obj.getCapPSLanguageRes()?? && ob...  [in template "TEMPLCODE_en_US" at line 57, column 26]
+	- Failed at: #if obj.getCapPSLanguageRes?? && obj...  [in template "TEMPLCODE_en_US" at line 57, column 26]
 ----
