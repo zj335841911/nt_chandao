@@ -13,25 +13,6 @@
         </ion-toolbar>
 
     
-                    <div class="mdview-tools">
-                <div class="bug-usr3-mob-pickup-build-resolved-mdview-toolbar default-sort">
-                    <div class="view-tool">
-                        <div class="view-tool-sorts">
-                            <div class="view-tool-sorts-item">
-                                <span :class="{text:true,active:hasColor}" @click="onSort('PRI')">优先级</span>
-                                <span class="sort-icon" @click="onSort('PRI')">
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></ion-icon>
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></ion-icon>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mdview-tools-select">
-                    <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
-                    <app-van-select  name="n_resolution_eq" title="解决方案" :items="[{value:'bydesign',label:'设计如此'},{value:'duplicate',label:'重复Bug'},{value:'external',label:'外部原因'},{value:'fixed',label:'已解决'},{value:'notrepro',label:'无法重现'},{value:'postponed',label:'延期处理'},{value:'willnotfix',label:'不予解决'},{value:'tostory',label:'转为需求'},]" @onConfirm="onCategory"></app-van-select>
-                </div>
-            </div>
     </ion-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
@@ -70,7 +51,7 @@
         </ion-footer>
     </van-popup>
     <div id="searchformbugusr3mobpickupbuildresolvedmdview"></div>
-    <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+    <ion-content >
                 <view_mdctrl
             :viewState="viewState"
             viewName="BugUsr3MobPickupBuildResolvedMDView"  
@@ -97,9 +78,6 @@
             @closeview="closeView($event)">
         </view_mdctrl>
     </ion-content>
-    <ion-footer class="view-footer">
-        
-    </ion-footer>
 </ion-page>
 </template>
 

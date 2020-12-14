@@ -15,7 +15,7 @@
     
     </ion-header>
 
-    <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+    <ion-content >
                 <view_mdctrl
             :viewState="viewState"
             viewName="BuildMobPickupMDView"  
@@ -42,9 +42,6 @@
             @closeview="closeView($event)">
         </view_mdctrl>
     </ion-content>
-    <ion-footer class="view-footer">
-        
-    </ion-footer>
 </ion-page>
 </template>
 

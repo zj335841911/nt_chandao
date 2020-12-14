@@ -15,7 +15,7 @@
     
     </ion-header>
 
-    <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+    <ion-content >
                 <view_mdctrl
             :viewState="viewState"
             viewName="ProjectMobPickupMDView"  
@@ -42,25 +42,6 @@
             @closeview="closeView($event)">
         </view_mdctrl>
     </ion-content>
-    <ion-footer class="view-footer">
-                <div v-show="isChoose" class="batch_btn">
-                    <div class="selectall" v-show="isChoose">
-                        <ion-checkbox ref="selectAll"  :checked="isSelectAll"   @click="onSelectallClick(!isSelectAll)" ></ion-checkbox>
-                        <ion-label class="selectal-label">全选</ion-label>
-                    </div>
-                    <div class="batch_btn_content">
-                        <div class="app-toolbar-container ">
-            <div class="app-quick-toolbar toolbar-left-bottons">
-            </div>
-        </div>
-                <ion-button class="app-view-toolbar-button"  @click="cancelSelect" >
-                    <ion-icon name="arrow-undo-outline"></ion-icon>
-                    {{$t('app.button.cancel')}}
-                </ion-button>
-            </div> 
-        </div>     
-
-    </ion-footer>
 </ion-page>
 </template>
 
