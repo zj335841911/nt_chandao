@@ -448,7 +448,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 		}
 	  	return et;
 	}
-		@Override
+
+	@Override
     @Transactional
     public boolean sendMessageBatch (List<Task> etList) {
 		 for(Task et : etList) {
@@ -479,7 +480,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 	  	return et;
 	}
 
-		@Override
+	@Override
     @Transactional
     public boolean sendMsgPreProcessBatch (List<Task> etList) {
 		 for(Task et : etList) {

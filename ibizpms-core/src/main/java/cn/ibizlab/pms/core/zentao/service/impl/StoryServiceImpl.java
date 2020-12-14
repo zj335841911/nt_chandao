@@ -661,7 +661,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 		}
 	  	return et;
 	}
-		@Override
+
+	@Override
     @Transactional
     public boolean sendMessageBatch (List<Story> etList) {
 		 for(Story et : etList) {
@@ -692,7 +693,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 	  	return et;
 	}
 
-		@Override
+	@Override
     @Transactional
     public boolean sendMsgPreProcessBatch (List<Story> etList) {
 		 for(Story et : etList) {

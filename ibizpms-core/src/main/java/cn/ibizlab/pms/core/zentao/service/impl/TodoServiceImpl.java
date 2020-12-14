@@ -240,7 +240,8 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 		}
 	  	return et;
 	}
-		@Override
+
+	@Override
     @Transactional
     public boolean sendMessageBatch (List<Todo> etList) {
 		 for(Todo et : etList) {
@@ -271,7 +272,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 	  	return et;
 	}
 
-		@Override
+	@Override
     @Transactional
     public boolean sendMsgPreProcessBatch (List<Todo> etList) {
 		 for(Todo et : etList) {
