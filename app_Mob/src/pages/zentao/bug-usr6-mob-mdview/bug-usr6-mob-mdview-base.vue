@@ -601,8 +601,8 @@ export default class BugUsr6MobMDViewBase extends Vue {
         // _this 指向容器对象
         const _this: any = this;
         let contextJO: any = {};
-        let paramJO: any = {};
-        
+        let paramJO: any = {"productplan":"%productplan%"};
+        Object.assign(paramJO, {"productplan":"%productplan%"});
         xData = this.$refs.mdctrl;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];
