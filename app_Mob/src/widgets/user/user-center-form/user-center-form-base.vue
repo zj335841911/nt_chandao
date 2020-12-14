@@ -33,7 +33,6 @@
     :error="detailsModel.realname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.realname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="User__gender"
     :isCache="false" 
-    v-if="data.gender"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     :error="detailsModel.address.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.address"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -148,7 +144,6 @@
     :error="detailsModel.dingding.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.dingding"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -176,7 +171,6 @@
     :error="detailsModel.phone.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.phone"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -204,7 +198,6 @@
     :error="detailsModel.mobile.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.mobile"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -235,7 +228,6 @@
     codeListType="DYNAMIC" 
     tag="Role"
     :isCache="false" 
-    v-if="data.role"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -263,7 +255,6 @@
     :error="detailsModel.qq.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.qq"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -291,7 +282,6 @@
     :error="detailsModel.weixin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.weixin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

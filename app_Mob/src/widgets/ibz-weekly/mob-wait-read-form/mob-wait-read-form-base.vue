@@ -36,7 +36,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.date"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -248,7 +246,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.reportto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -279,7 +276,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.mailto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

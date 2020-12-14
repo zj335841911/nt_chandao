@@ -33,7 +33,6 @@
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.productname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

@@ -977,7 +977,9 @@ export default class ProjectMobMDViewBase extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

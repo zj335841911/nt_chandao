@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -61,7 +60,6 @@
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.buildname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -92,7 +90,6 @@
     codeListType="STATIC" 
     tag="Testtask__pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -123,7 +120,6 @@
     codeListType="STATIC" 
     tag="Testtask__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -154,7 +150,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.owner"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -182,7 +177,6 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.begin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -210,7 +204,6 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.end"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="Product__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -95,7 +93,6 @@
     codeListType="STATIC" 
     tag="Product__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -126,7 +123,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.po"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -157,7 +153,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.qd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -188,7 +183,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.rd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -216,7 +210,6 @@
     :error="detailsModel.productplancnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.productplancnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -244,7 +237,6 @@
     :error="detailsModel.activestorycnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.activestorycnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -272,7 +264,6 @@
     :error="detailsModel.buildcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.buildcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -300,7 +291,6 @@
     :error="detailsModel.relatedbugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.relatedbugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -328,7 +318,6 @@
     :error="detailsModel.unconfirmbugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.unconfirmbugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -356,7 +345,6 @@
     :error="detailsModel.activebugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.activebugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -384,7 +372,6 @@
     :error="detailsModel.notclosedbugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.notclosedbugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -412,7 +399,6 @@
     :error="detailsModel.casecnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.casecnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

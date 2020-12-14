@@ -117,7 +117,7 @@
                 </div>
             </div>
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
+            <div v-show=" loadStatus && !allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          
@@ -607,6 +607,14 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @memberof AssMobDASHBOARD
     */
     public  selectdata :any = [];
+
+    /**
+    * 加载显示状态
+    *
+    * @type {boolean}
+    * @memberof AssMobDASHBOARD
+    */
+    public loadStatus: boolean = false;
 
     /**
     * 关闭行为

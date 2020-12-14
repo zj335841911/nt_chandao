@@ -33,7 +33,6 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="Testcase__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -95,7 +93,6 @@
     codeListType="STATIC" 
     tag="Testcase__stage"
     :isCache="false" 
-    v-if="data.stage"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -123,7 +120,6 @@
     :error="detailsModel.precondition.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.precondition"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -154,7 +150,6 @@
     codeListType="DYNAMIC" 
     tag="CurCaseVersion"
     :isCache="false" 
-    v-if="data.version"
     :navigateContext ='{ "case": "%id%" } '
     :navigateParam ='{ "case": "%id%" } ' 
     :data="data"
@@ -208,7 +203,6 @@
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.keywords"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

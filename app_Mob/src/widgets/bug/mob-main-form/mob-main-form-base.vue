@@ -33,7 +33,6 @@
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.productname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="DYNAMIC" 
     tag="ProductBranch"
     :isCache="false" 
-    v-if="data.branch"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.modulename1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.modulename1"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.projectname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -151,7 +147,6 @@
     codeListType="DYNAMIC" 
     tag="CurProductBuild"
     :isCache="false" 
-    v-if="data.openedbuild"
     :navigateContext ='{ "bugproduct": "%product%", "bugproject": "%project%" } '
     :navigateParam ='{ "bugproject": "%project%", "bugproduct": "%product%" } ' 
     :data="data"
@@ -179,7 +174,6 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -210,7 +204,6 @@
     codeListType="STATIC" 
     tag="Bug__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -241,7 +234,6 @@
     codeListType="STATIC" 
     tag="Bug__severity"
     :isCache="false" 
-    v-if="data.severity"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -272,7 +264,6 @@
     codeListType="STATIC" 
     tag="Bug__pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -303,7 +294,6 @@
     codeListType="STATIC" 
     tag="Bug__os"
     :isCache="false" 
-    v-if="data.os"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -334,7 +324,6 @@
     codeListType="STATIC" 
     tag="Bug__browser"
     :isCache="false" 
-    v-if="data.browser"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -362,7 +351,6 @@
     :error="detailsModel.deadline.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.deadline"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -390,7 +378,6 @@
     :error="detailsModel.repotype.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.repotype"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -421,7 +408,6 @@
     codeListType="STATIC" 
     tag="Bug__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -452,7 +438,6 @@
     codeListType="STATIC" 
     tag="Bug__resolution"
     :isCache="false" 
-    v-if="data.resolution"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -480,7 +465,6 @@
     :error="detailsModel.resolveddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.resolveddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -511,7 +495,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.resolvedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"

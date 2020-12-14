@@ -88,7 +88,7 @@
              <div  v-if="items.length == 0" class="no-data">
                 <div>暂无数据</div>
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
+            <div v-show=" loadStatus && !allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          
@@ -378,6 +378,14 @@ export default class MOB_Build_StoryBase extends Vue implements ControlInterface
     * @memberof MOB_Build_Story
     */
     public  selectdata :any = [];
+
+    /**
+    * 加载显示状态
+    *
+    * @type {boolean}
+    * @memberof MOB_Build_Story
+    */
+    public loadStatus: boolean = false;
 
     /**
     * 关闭行为
