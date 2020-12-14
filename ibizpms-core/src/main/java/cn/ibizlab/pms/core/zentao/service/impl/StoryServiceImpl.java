@@ -691,6 +691,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 	  	
 	  	return et;
 	}
+
+		@Override
+    @Transactional
+    public boolean sendMsgPreProcessBatch (List<Story> etList) {
+		 for(Story et : etList) {
+		   sendMsgPreProcess(et);
+		 }
+	 	 return true;
+    }
     @Override
     @Transactional
     public Story storyFavorites(Story et) {

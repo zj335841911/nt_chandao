@@ -478,6 +478,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 	  	
 	  	return et;
 	}
+
+		@Override
+    @Transactional
+    public boolean sendMsgPreProcessBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   sendMsgPreProcess(et);
+		 }
+	 	 return true;
+    }
        @Override
     @Transactional
     public Task start(Task et) {
