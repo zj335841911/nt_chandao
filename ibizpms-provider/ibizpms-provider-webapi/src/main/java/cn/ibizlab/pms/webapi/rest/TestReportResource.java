@@ -256,7 +256,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
     @ApiOperation(value = "根据产品建立测试报告", tags = {"测试报告" },  notes = "根据产品建立测试报告")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testreports")
@@ -352,7 +351,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskOvProject-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/getinfotesttaskovproject")
@@ -363,7 +361,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskProject-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/getinfotesttaskproject")
@@ -374,7 +371,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskR-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/getinfotesttaskr")
@@ -385,7 +381,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskS-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/getinfotesttasks")
@@ -396,7 +391,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportBasicInfo-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/gettestreportbasicinfo")
@@ -407,7 +401,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportProject-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/gettestreportproject")
@@ -418,7 +411,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Save-all')")
     @ApiOperation(value = "根据产品保存测试报告", tags = {"测试报告" },  notes = "根据产品保存测试报告")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testreports/save")
@@ -473,7 +465,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
     @ApiOperation(value = "根据项目建立测试报告", tags = {"测试报告" },  notes = "根据项目建立测试报告")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testreports")
@@ -569,7 +560,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskOvProject-all')")
     @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testreports/{testreport_id}/getinfotesttaskovproject")
@@ -580,7 +570,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskProject-all')")
     @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testreports/{testreport_id}/getinfotesttaskproject")
@@ -591,7 +580,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskR-all')")
     @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testreports/{testreport_id}/getinfotesttaskr")
@@ -602,7 +590,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskS-all')")
     @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testreports/{testreport_id}/getinfotesttasks")
@@ -613,7 +600,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportBasicInfo-all')")
     @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testreports/{testreport_id}/gettestreportbasicinfo")
@@ -624,7 +610,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportProject-all')")
     @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testreports/{testreport_id}/gettestreportproject")
@@ -635,7 +620,6 @@ public class TestReportResource {
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Save-all')")
     @ApiOperation(value = "根据项目保存测试报告", tags = {"测试报告" },  notes = "根据项目保存测试报告")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testreports/save")

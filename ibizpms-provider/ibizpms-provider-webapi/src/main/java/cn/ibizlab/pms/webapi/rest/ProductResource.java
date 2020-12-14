@@ -141,6 +141,12 @@ public class ProductResource {
         productdto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
+    @ApiOperation(value = "批量处理[关闭]", tags = {"产品" },  notes = "批量处理[关闭]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/closebatch")
+    public ResponseEntity<Boolean> closeBatch(@RequestBody List<ProductDTO> productdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(productService.closeBatch(productMapping.toDomain(productdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductCounter-all')")
     @ApiOperation(value = "产品移动端计数器方法", tags = {"产品" },  notes = "产品移动端计数器方法")

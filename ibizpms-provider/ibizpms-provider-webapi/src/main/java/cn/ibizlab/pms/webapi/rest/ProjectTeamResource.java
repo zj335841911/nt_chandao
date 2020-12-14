@@ -57,6 +57,12 @@ public class ProjectTeamResource {
         projectteamdto = projectteamMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectteamdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
+    @ApiOperation(value = "批量处理[获取成员角色]", tags = {"项目团队" },  notes = "批量处理[获取成员角色]")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/{projectteam_id}/getuserrolebatch")
+    public ResponseEntity<Boolean> getUserRoleBatch(@RequestBody List<ProjectTeamDTO> projectteamdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.getUserRoleBatch(projectteamMapping.toDomain(projectteamdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
     @ApiOperation(value = "新建项目团队", tags = {"项目团队" },  notes = "新建项目团队")
@@ -223,7 +229,11 @@ public class ProjectTeamResource {
         projectteamdto = projectteamMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectteamdto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目项目团队]", tags = {"项目团队" },  notes = "批量处理[根据项目项目团队]")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrolebatch")
+    public ResponseEntity<Boolean> getUserRoleByProject(@PathVariable("project_id") Long project_id, @RequestBody List<ProjectTeamDTO> projectteamdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.getUserRoleBatch(projectteamMapping.toDomain(projectteamdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
     @ApiOperation(value = "根据项目建立项目团队", tags = {"项目团队" },  notes = "根据项目建立项目团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectteams")
