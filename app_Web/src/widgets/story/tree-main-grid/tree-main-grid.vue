@@ -68,7 +68,17 @@
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mainview', parameterName: 'mainview' }
             ]}" valueitem="srfkey" @refresh="refresh.apply(_self, arguments)">
-                            <span :style="{'color':row.color}">{{row.title}}</span>
+                            <span v-if="row.parent === '-1'">
+                              <span title="父需求" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">父</span>
+                              <span :style="{'color':row.color}"> {{row.title}}</span>
+                            </span>
+                            <span v-else-if="row.parent === '0'">
+                              <span :style="{'color':row.color}">{{row.title}}</span>
+                            </span>
+                            <span v-else>
+                              <span title="子需求" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
+                              <span :style="{'color':row.color}"> {{row.title}}</span>
+                            </span>
                         </app-column-link >
                     </template>
                 </el-table-column>
