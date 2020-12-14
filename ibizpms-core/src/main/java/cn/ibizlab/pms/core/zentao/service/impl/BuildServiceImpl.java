@@ -127,20 +127,20 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public boolean checkKey(Build et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Build linkStory(Build et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BuildHelper.class).linkStory(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean linkStoryBatch (List<Build> etList) {
-		for(Build et : etList) {
-		  linkStory(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean linkStoryBatch (List<Build> etList) {
+		 for(Build et : etList) {
+		   linkStory(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     @Transactional

@@ -133,20 +133,20 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public boolean checkKey(Module et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Module fix(Module et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ModuleHelper.class).fix(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean fixBatch (List<Module> etList) {
-		for(Module et : etList) {
-		  fix(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean fixBatch (List<Module> etList) {
+		 for(Module et : etList) {
+		   fix(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     @Transactional

@@ -181,20 +181,20 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         saveOrUpdateBatch(list, batchSize);
     }
 
-        @Override
+       @Override
     @Transactional
     public Branch sort(Branch et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BranchHelper.class).sort(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean sortBatch (List<Branch> etList) {
-		for(Branch et : etList) {
-		  sort(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean sortBatch (List<Branch> etList) {
+		 for(Branch et : etList) {
+		   sort(et);
+		 }
+	 	 return true;
+    }
 
 
     @Override

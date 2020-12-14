@@ -123,20 +123,20 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
          return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Action editComment(Action et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ActionHelper.class).editComment(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean editCommentBatch (List<Action> etList) {
-		for(Action et : etList) {
-		  editComment(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean editCommentBatch (List<Action> etList) {
+		 for(Action et : etList) {
+		   editComment(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     @Transactional

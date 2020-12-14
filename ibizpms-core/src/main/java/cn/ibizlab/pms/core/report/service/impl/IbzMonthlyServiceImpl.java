@@ -122,20 +122,20 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         return true;
     }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly createUserMonthly(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).createUserMonthly(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean createUserMonthlyBatch (List<IbzMonthly> etList) {
-		for(IbzMonthly et : etList) {
-		  createUserMonthly(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean createUserMonthlyBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   createUserMonthly(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     @Transactional
@@ -152,35 +152,35 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         return true;
     }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly haveRead(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).haveRead(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean haveReadBatch (List<IbzMonthly> etList) {
-		for(IbzMonthly et : etList) {
-		  haveRead(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean haveReadBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   haveRead(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly pushUserMonthly(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).pushUserMonthly(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean pushUserMonthlyBatch (List<IbzMonthly> etList) {
-		for(IbzMonthly et : etList) {
-		  pushUserMonthly(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean pushUserMonthlyBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   pushUserMonthly(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     @Transactional
@@ -214,20 +214,20 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         saveOrUpdateBatch(list, batchSize);
     }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly submit(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).submit(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean submitBatch (List<IbzMonthly> etList) {
-		for(IbzMonthly et : etList) {
-		  submit(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean submitBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   submit(et);
+		 }
+	 	 return true;
+    }
 
 
 

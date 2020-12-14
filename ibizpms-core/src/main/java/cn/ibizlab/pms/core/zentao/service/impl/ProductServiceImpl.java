@@ -196,20 +196,20 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public boolean checkKey(Product et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Product close(Product et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductHelper.class).close(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean closeBatch (List<Product> etList) {
-		for(Product et : etList) {
-		  close(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean closeBatch (List<Product> etList) {
+		 for(Product et : etList) {
+		   close(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     @Transactional

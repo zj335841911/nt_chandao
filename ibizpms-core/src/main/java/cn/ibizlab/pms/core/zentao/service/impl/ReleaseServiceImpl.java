@@ -125,114 +125,114 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Release activate(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).activate(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean activateBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  activate(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean activateBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   activate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Release batchUnlinkBug(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).batchUnlinkBug(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean batchUnlinkBugBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  batchUnlinkBug(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean batchUnlinkBugBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   batchUnlinkBug(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Release changeStatus(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).changeStatus(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean changeStatusBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  changeStatus(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean changeStatusBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   changeStatus(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     public boolean checkKey(Release et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Release linkBug(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkBug(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean linkBugBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  linkBug(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean linkBugBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   linkBug(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Release linkBugbyBug(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkBugbyBug(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean linkBugbyBugBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  linkBugbyBug(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean linkBugbyBugBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   linkBugbyBug(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Release linkBugbyLeftBug(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkBugbyLeftBug(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean linkBugbyLeftBugBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  linkBugbyLeftBug(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean linkBugbyLeftBugBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   linkBugbyLeftBug(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Release linkStory(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkStory(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean linkStoryBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  linkStory(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean linkStoryBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   linkStory(et);
+		 }
+	 	 return true;
+    }
 
     @Override
     @Transactional
@@ -290,35 +290,35 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         saveOrUpdateBatch(list, batchSize);
     }
 
-        @Override
+       @Override
     @Transactional
     public Release terminate(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).terminate(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean terminateBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  terminate(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean terminateBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   terminate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Release unlinkBug(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).unlinkBug(et);
     }
 	
 	@Override
-   @Transactional
-   public boolean unlinkBugBatch (List<Release> etList) {
-		for(Release et : etList) {
-		  unlinkBug(et);
-		}
-	 	return true;
-   }
+    @Transactional
+    public boolean unlinkBugBatch (List<Release> etList) {
+		 for(Release et : etList) {
+		   unlinkBug(et);
+		 }
+	 	 return true;
+    }
 
 
     @Override
