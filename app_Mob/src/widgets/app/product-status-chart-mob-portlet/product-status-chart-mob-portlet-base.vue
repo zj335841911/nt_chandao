@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet product-dashboard_sysportlet8 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>产品总览</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.portlets.productstatuschartmob.caption')}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
@@ -369,7 +369,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return '产品总览'
+        return (this.$t('app.portlets.productstatuschartmob.caption') as string)
     }
 
     /**
