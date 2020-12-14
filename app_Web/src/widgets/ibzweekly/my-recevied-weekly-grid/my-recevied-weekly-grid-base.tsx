@@ -131,6 +131,22 @@ export class MyReceviedWeeklyGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_weekly_myreceviedweekly_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MyReceviedWeeklyGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MyReceviedWeeklyGridBase
+     */
+    public minorSortPSDEF: string = 'ibz_weeklyid';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
