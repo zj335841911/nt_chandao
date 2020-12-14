@@ -7123,7 +7123,7 @@ DEFAULT
 ```SQL
 SELECT
 t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
+case when exists (select 1 from zt_team t where t.type = 'task' and t1.id = t.root) then (select GROUP_CONCAT(t.account) from zt_team t where t.type = 'task' and t1.id = t.root) else t1.assignedTo end as `ASSIGNEDTO`,
 t1.`CANCELEDBY`,
 t1.`CANCELEDDATE`,
 t1.`CLOSEDBY`,
