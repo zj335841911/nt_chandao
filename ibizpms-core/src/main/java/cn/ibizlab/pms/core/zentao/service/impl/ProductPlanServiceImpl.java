@@ -139,12 +139,30 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public ProductPlan batchUnlinkBug(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).batchUnlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean batchUnlinkBugBatch (List<ProductPlan> etList) {
+		for(ProductPlan et : etList) {
+		  batchUnlinkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public ProductPlan batchUnlinkStory(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).batchUnlinkStory(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean batchUnlinkStoryBatch (List<ProductPlan> etList) {
+		for(ProductPlan et : etList) {
+		  batchUnlinkStory(et);
+		}
+	 	return true;
+   }
 
     @Override
     public boolean checkKey(ProductPlan et) {
@@ -170,12 +188,30 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public ProductPlan linkBug(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).linkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean linkBugBatch (List<ProductPlan> etList) {
+		for(ProductPlan et : etList) {
+		  linkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public ProductPlan linkStory(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).linkStory(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean linkStoryBatch (List<ProductPlan> etList) {
+		for(ProductPlan et : etList) {
+		  linkStory(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -223,12 +259,30 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public ProductPlan unlinkBug(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).unlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean unlinkBugBatch (List<ProductPlan> etList) {
+		for(ProductPlan et : etList) {
+		  unlinkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public ProductPlan unlinkStory(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).unlinkStory(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean unlinkStoryBatch (List<ProductPlan> etList) {
+		for(ProductPlan et : etList) {
+		  unlinkStory(et);
+		}
+	 	return true;
+   }
 
 
     @Override

@@ -169,18 +169,45 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public Bug activate(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).activate(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean activateBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  activate(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug assignTo(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).assignTo(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean assignToBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  assignTo(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug batchUnlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).batchUnlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean batchUnlinkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  batchUnlinkBug(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -201,18 +228,45 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public Bug buildBatchUnlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).buildBatchUnlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean buildBatchUnlinkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  buildBatchUnlinkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug buildLinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).buildLinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean buildLinkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  buildLinkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug buildUnlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).buildUnlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean buildUnlinkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  buildUnlinkBug(et);
+		}
+	 	return true;
+   }
 
     @Override
     public boolean checkKey(Bug et) {
@@ -223,54 +277,135 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public Bug close(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).close(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean closeBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  close(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug confirm(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).confirm(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean confirmBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  confirm(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug linkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).linkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean linkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  linkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug releaaseBatchUnlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).releaaseBatchUnlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean releaaseBatchUnlinkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  releaaseBatchUnlinkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug releaseLinkBugbyBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).releaseLinkBugbyBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean releaseLinkBugbyBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  releaseLinkBugbyBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug releaseLinkBugbyLeftBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).releaseLinkBugbyLeftBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean releaseLinkBugbyLeftBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  releaseLinkBugbyLeftBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug releaseUnLinkBugbyLeftBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).releaseUnLinkBugbyLeftBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean releaseUnLinkBugbyLeftBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  releaseUnLinkBugbyLeftBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug releaseUnlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).releaseUnlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean releaseUnlinkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  releaseUnlinkBug(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug resolve(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).resolve(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean resolveBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  resolve(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -347,12 +482,30 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public Bug toStory(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).toStory(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean toStoryBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  toStory(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Bug unlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).unlinkBug(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean unlinkBugBatch (List<Bug> etList) {
+		for(Bug et : etList) {
+		  unlinkBug(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional

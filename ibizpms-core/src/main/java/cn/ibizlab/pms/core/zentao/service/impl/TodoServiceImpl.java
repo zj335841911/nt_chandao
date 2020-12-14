@@ -120,12 +120,30 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public Todo activate(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).activate(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean activateBatch (List<Todo> etList) {
+		for(Todo et : etList) {
+		  activate(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Todo assignTo(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).assignTo(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean assignToBatch (List<Todo> etList) {
+		for(Todo et : etList) {
+		  assignTo(et);
+		}
+	 	return true;
+   }
 
     @Override
     public boolean checkKey(Todo et) {
@@ -136,6 +154,15 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public Todo close(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).close(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean closeBatch (List<Todo> etList) {
+		for(Todo et : etList) {
+		  close(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -157,6 +184,15 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public Todo finish(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).finish(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean finishBatch (List<Todo> etList) {
+		for(Todo et : etList) {
+		  finish(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional

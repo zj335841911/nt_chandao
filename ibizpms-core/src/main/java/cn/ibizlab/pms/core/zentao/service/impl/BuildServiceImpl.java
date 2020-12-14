@@ -132,6 +132,15 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public Build linkStory(Build et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BuildHelper.class).linkStory(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean linkStoryBatch (List<Build> etList) {
+		for(Build et : etList) {
+		  linkStory(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional

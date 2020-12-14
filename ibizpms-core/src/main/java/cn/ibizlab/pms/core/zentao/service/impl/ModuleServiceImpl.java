@@ -138,6 +138,15 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public Module fix(Module et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ModuleHelper.class).fix(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean fixBatch (List<Module> etList) {
+		for(Module et : etList) {
+		  fix(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional

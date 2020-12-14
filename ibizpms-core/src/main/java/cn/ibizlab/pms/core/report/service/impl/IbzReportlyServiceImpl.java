@@ -111,6 +111,15 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
     public IbzReportly haveRead(IbzReportly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzReportlyHelper.class).haveRead(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean haveReadBatch (List<IbzReportly> etList) {
+		for(IbzReportly et : etList) {
+		  haveRead(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -149,6 +158,15 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
     public IbzReportly submit(IbzReportly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzReportlyHelper.class).submit(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean submitBatch (List<IbzReportly> etList) {
+		for(IbzReportly et : etList) {
+		  submit(et);
+		}
+	 	return true;
+   }
 
 
 

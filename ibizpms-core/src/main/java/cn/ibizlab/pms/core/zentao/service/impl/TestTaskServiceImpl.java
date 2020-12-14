@@ -133,12 +133,30 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public TestTask activate(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).activate(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean activateBatch (List<TestTask> etList) {
+		for(TestTask et : etList) {
+		  activate(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public TestTask block(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).block(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean blockBatch (List<TestTask> etList) {
+		for(TestTask et : etList) {
+		  block(et);
+		}
+	 	return true;
+   }
 
     @Override
     public boolean checkKey(TestTask et) {
@@ -149,12 +167,30 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public TestTask close(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).close(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean closeBatch (List<TestTask> etList) {
+		for(TestTask et : etList) {
+		  close(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public TestTask linkCase(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).linkCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean linkCaseBatch (List<TestTask> etList) {
+		for(TestTask et : etList) {
+		  linkCase(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -202,12 +238,30 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public TestTask start(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).start(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean startBatch (List<TestTask> etList) {
+		for(TestTask et : etList) {
+		  start(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public TestTask unlinkCase(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).unlinkCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean unlinkCaseBatch (List<TestTask> etList) {
+		for(TestTask et : etList) {
+		  unlinkCase(et);
+		}
+	 	return true;
+   }
 
 
     @Override

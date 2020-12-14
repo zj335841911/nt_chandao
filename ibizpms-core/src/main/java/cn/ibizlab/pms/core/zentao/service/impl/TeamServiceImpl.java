@@ -123,6 +123,15 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
     public Team managePorjectMembers(Team et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TeamHelper.class).managePorjectMembers(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean managePorjectMembersBatch (List<Team> etList) {
+		for(Team et : etList) {
+		  managePorjectMembers(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -161,6 +170,15 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
     public Team unlinkPorjectMember(Team et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TeamHelper.class).unlinkPorjectMember(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean unlinkPorjectMemberBatch (List<Team> etList) {
+		for(Team et : etList) {
+		  unlinkPorjectMember(et);
+		}
+	 	return true;
+   }
 
 
 

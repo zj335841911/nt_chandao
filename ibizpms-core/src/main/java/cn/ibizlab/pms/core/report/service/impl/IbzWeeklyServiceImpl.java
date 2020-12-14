@@ -120,6 +120,15 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     public IbzWeekly createEveryWeekReport(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).createEveryWeekReport(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean createEveryWeekReportBatch (List<IbzWeekly> etList) {
+		for(IbzWeekly et : etList) {
+		  createEveryWeekReport(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -156,6 +165,15 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     public IbzWeekly haveRead(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).haveRead(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean haveReadBatch (List<IbzWeekly> etList) {
+		for(IbzWeekly et : etList) {
+		  haveRead(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -177,6 +195,15 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     public IbzWeekly pushUserWeekly(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).pushUserWeekly(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean pushUserWeeklyBatch (List<IbzWeekly> etList) {
+		for(IbzWeekly et : etList) {
+		  pushUserWeekly(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -215,6 +242,15 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     public IbzWeekly submit(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).submit(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean submitBatch (List<IbzWeekly> etList) {
+		for(IbzWeekly et : etList) {
+		  submit(et);
+		}
+	 	return true;
+   }
 
 
 

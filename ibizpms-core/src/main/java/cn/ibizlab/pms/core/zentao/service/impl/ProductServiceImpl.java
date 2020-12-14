@@ -201,6 +201,15 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public Product close(Product et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductHelper.class).close(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean closeBatch (List<Product> etList) {
+		for(Product et : etList) {
+		  close(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional

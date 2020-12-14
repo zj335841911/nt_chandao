@@ -184,12 +184,30 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public Case confirmChange(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).confirmChange(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean confirmChangeBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  confirmChange(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Case confirmstorychange(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).confirmstorychange(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean confirmstorychangeBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  confirmstorychange(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -226,18 +244,45 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public Case linkCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).linkCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean linkCaseBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  linkCase(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Case mobLinkCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).mobLinkCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean mobLinkCaseBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  mobLinkCase(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Case runCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).runCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean runCaseBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  runCase(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -285,6 +330,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public Case testRunCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).testRunCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean testRunCaseBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  testRunCase(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -298,12 +352,30 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public Case testsuitelinkCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).testsuitelinkCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean testsuitelinkCaseBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  testsuitelinkCase(et);
+		}
+	 	return true;
+   }
 
         @Override
     @Transactional
     public Case unlinkCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).unlinkCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean unlinkCaseBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  unlinkCase(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
@@ -317,6 +389,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public Case unlinkSuiteCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).unlinkSuiteCase(et);
     }
+	
+	@Override
+   @Transactional
+   public boolean unlinkSuiteCaseBatch (List<Case> etList) {
+		for(Case et : etList) {
+		  unlinkSuiteCase(et);
+		}
+	 	return true;
+   }
 
     @Override
     @Transactional
