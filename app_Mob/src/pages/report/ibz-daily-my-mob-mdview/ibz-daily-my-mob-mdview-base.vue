@@ -47,9 +47,6 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div v-show="!isChoose" class = "fab_container">
-            <div class="scroll_tool">
-                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
-            </div>
             <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobcreate.disabled}" v-show="righttoolbarModels.deuiaction1_mobcreate.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_mobcreate.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobcreate' }, $event)" size="large">
@@ -62,6 +59,9 @@
             </div>
         </div>
         
+    <div class="scroll_tool">
+        <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+    </div>
     </ion-footer>
 </ion-page>
 </template>
