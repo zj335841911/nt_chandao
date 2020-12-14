@@ -5,7 +5,7 @@
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    我的任务
+                    {{$t('userCustom.mywork.mytask')}}
                 
                 
                 
@@ -22,7 +22,7 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    已延期任务
+                    {{$t('userCustom.mywork.deferredTask')}}
                 
                 
                 
@@ -90,7 +90,7 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem5.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    未关闭的项目
+                    {{$t('userCustom.mywork.noCloseProject')}}
                 
                 
                 
@@ -107,7 +107,7 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem7.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    已延期项目
+                    {{$t('userCustom.mywork.deferredProjects')}}
                 
                 
                 
@@ -124,7 +124,7 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem6.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    未关闭的产品
+                    {{$t('userCustom.mywork.noCloseProduct')}}
                 
                 
                 
