@@ -1,96 +1,31 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupmdview': true, 'bug-usr3-mob-pickup-mdview': true }">
-    
-    <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
-
-    
-    </ion-header>
-
-    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
-            <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
-            </ion-toolbar>
-        </ion-header>
-        <div class="searchform_content">
-            <view_searchform
+<ion-page class="view-container app-mob-pickup-mdview bug-usr3-mob-pickup-mdview">
+    <ion-content class="view-content" :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+        <view_mdctrl
     :viewState="viewState"
     viewName="BugUsr3MobPickupMDView"  
     :viewparams="viewparams" 
     :context="context" 
-     
-    :viewtag="viewtag"
-    :showBusyIndicator="true"
-    updateAction=""
-    removeAction=""
-    loaddraftAction="FilterGetDraft"
-    loadAction="FilterGet"
-    createAction=""
-    WFSubmitAction=""
-    WFStartAction=""
-    style='' 
-    name="searchform"  
-    ref='searchform' 
+    viewType="DEMOBPICKUPMDVIEW"
+    controlStyle="LISTVIEW"
+    updateAction="Update"
+    removeAction="Remove"
+    loaddraftAction=""
+    loadAction="Get"
+    createAction="Create"
+    fetchAction="FetchReleaseLinkableResolvedBug" 
+    :isMutli="!isSingleSelect"
+    :isNeedLoaddingText="!isPortalView"
+    :showBusyIndicator="true" 
+    :isTempMode="false"
+    name="mdctrl"  
+    ref='mdctrl' 
+    @selectionchange="mdctrl_selectionchange($event)"  
+    @beforeload="mdctrl_beforeload($event)"  
+    @rowclick="mdctrl_rowclick($event)"  
+    @load="mdctrl_load($event)"  
     @closeview="closeView($event)">
-</view_searchform>
-        </div>
-        <ion-footer>
-        <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
-        </div>
-        </ion-footer>
-    </van-popup>
-    <div id="searchformbugusr3mobpickupmdview"></div>
-    <ion-content >
-        <ion-refresher 
-            slot="fixed" 
-            ref="loadmore" 
-            pull-factor="0.5" 
-            pull-min="50" 
-            pull-max="100" 
-            @ionRefresh="pullDownToRefresh($event)">
-            <ion-refresher-content
-                pulling-icon="arrow-down-outline"
-                :pulling-text="$t('app.pulling_text')"
-                refreshing-spinner="circles"
-                refreshing-text="">
-            </ion-refresher-content>
-        </ion-refresher>
-                <view_mdctrl
-            :viewState="viewState"
-            viewName="BugUsr3MobPickupMDView"  
-            :viewparams="viewparams" 
-            :context="context" 
-            viewType="DEMOBPICKUPMDVIEW"
-            controlStyle="LISTVIEW"
-            updateAction="Update"
-            removeAction="Remove"
-            loaddraftAction=""
-            loadAction="Get"
-            createAction="Create"
-            fetchAction="FetchReleaseLinkableResolvedBug" 
-            :isMutli="!isSingleSelect"
-            :isNeedLoaddingText="!isPortalView"
-            :showBusyIndicator="true" 
-            :isTempMode="false"
-            name="mdctrl"  
-            ref='mdctrl' 
-            @selectionchange="mdctrl_selectionchange($event)"  
-            @beforeload="mdctrl_beforeload($event)"  
-            @rowclick="mdctrl_rowclick($event)"  
-            @load="mdctrl_load($event)"  
-            @closeview="closeView($event)">
-        </view_mdctrl>
+</view_mdctrl>
     </ion-content>
 </ion-page>
 </template>

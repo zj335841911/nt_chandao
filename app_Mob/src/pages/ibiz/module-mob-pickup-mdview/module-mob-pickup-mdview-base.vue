@@ -1,46 +1,31 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupmdview': true, 'module-mob-pickup-mdview': true }">
-    
-    <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
-
-    
-    </ion-header>
-
-    <ion-content >
-                <view_mdctrl
-            :viewState="viewState"
-            viewName="ModuleMobPickupMDView"  
-            :viewparams="viewparams" 
-            :context="context" 
-            viewType="DEMOBPICKUPMDVIEW"
-            controlStyle="LISTVIEW"
-            updateAction="Update"
-            removeAction="Remove"
-            loaddraftAction=""
-            loadAction="Get"
-            createAction="Create"
-            fetchAction="FetchLine" 
-            :isMutli="!isSingleSelect"
-            :isNeedLoaddingText="!isPortalView"
-            :showBusyIndicator="true" 
-            :isTempMode="false"
-            name="mdctrl"  
-            ref='mdctrl' 
-            @selectionchange="mdctrl_selectionchange($event)"  
-            @beforeload="mdctrl_beforeload($event)"  
-            @rowclick="mdctrl_rowclick($event)"  
-            @load="mdctrl_load($event)"  
-            @closeview="closeView($event)">
-        </view_mdctrl>
+<ion-page class="view-container app-mob-pickup-mdview module-mob-pickup-mdview">
+    <ion-content class="view-content" :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+        <view_mdctrl
+    :viewState="viewState"
+    viewName="ModuleMobPickupMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+    viewType="DEMOBPICKUPMDVIEW"
+    controlStyle="LISTVIEW"
+    updateAction="Update"
+    removeAction="Remove"
+    loaddraftAction=""
+    loadAction="Get"
+    createAction="Create"
+    fetchAction="FetchLine" 
+    :isMutli="!isSingleSelect"
+    :isNeedLoaddingText="!isPortalView"
+    :showBusyIndicator="true" 
+    :isTempMode="false"
+    name="mdctrl"  
+    ref='mdctrl' 
+    @selectionchange="mdctrl_selectionchange($event)"  
+    @beforeload="mdctrl_beforeload($event)"  
+    @rowclick="mdctrl_rowclick($event)"  
+    @load="mdctrl_load($event)"  
+    @closeview="closeView($event)">
+</view_mdctrl>
     </ion-content>
 </ion-page>
 </template>
