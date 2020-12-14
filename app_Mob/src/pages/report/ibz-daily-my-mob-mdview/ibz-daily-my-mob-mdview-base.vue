@@ -46,8 +46,8 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!isChoose" class = "fab_container">
-            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
+                <div v-show="!isChoose" class = "fab_container" :style="button_style">
+            <div :id="viewtag+'_bottom_button'" class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobcreate.disabled}" v-show="righttoolbarModels.deuiaction1_mobcreate.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_mobcreate.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobcreate' }, $event)" size="large">
                     <ion-icon name="add"></ion-icon>
