@@ -98,10 +98,14 @@ export class EditFormEditFormBase extends EditFormControlBase {
         config_day: null,
         config_week: null,
         config_month: null,
+        idvalue: null,
         config_beforedays: null,
         formitem: null,
         config_end: null,
         type: null,
+        story: null,
+        bug: null,
+        task: null,
         pri: null,
         name: null,
         desc: null,
@@ -250,6 +254,13 @@ export class EditFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        idvalue: new FormItemModel({
+    caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         config_beforedays: new FormItemModel({
     caption: '提前', detailType: 'FORMITEM', name: 'config_beforedays', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -278,6 +289,27 @@ export class EditFormEditFormBase extends EditFormControlBase {
     enableCond: 0,
 }),
 
+        story: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        bug: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'bug', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        task: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -289,7 +321,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
     caption: '待办名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
-    enableCond: 0,
+    enableCond: 3,
 }),
 
         desc: new FormItemModel({
@@ -413,6 +445,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'cycle_enable')) {
             let ret = false;
             const _cycle_enable = this.data.cycle_enable;
@@ -423,6 +456,17 @@ export class EditFormEditFormBase extends EditFormControlBase {
         }
 
 
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = false;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'EQ', 'custom') || this.$verify.testCond(_type, 'EQ', 'cycle')) {
+                ret = true;
+            }
+            this.detailsModel.name.setDisabled(!ret);
+        }
 
 
 
