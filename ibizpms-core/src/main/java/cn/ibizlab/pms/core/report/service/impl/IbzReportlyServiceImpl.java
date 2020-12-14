@@ -247,3 +247,4 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
 
 
 
+
