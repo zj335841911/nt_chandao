@@ -29,7 +29,7 @@
             removeAction="Remove"
             loaddraftAction="GetDraft"
             loadAction="Get"
-            createAction="Create"
+            createAction="ImportPlanStories"
             WFSubmitAction=""
             WFStartAction=""
             style='' 
