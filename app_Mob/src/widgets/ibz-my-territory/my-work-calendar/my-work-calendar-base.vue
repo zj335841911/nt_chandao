@@ -16,7 +16,7 @@
                 :sign="sign"
                 :events="eventsDate"
                 :tileContent="tileContent"/>
-            <ion-segment :value="activeItem" @ionChange="ionChange">
+            <ion-segment :scrollable="true" :value="activeItem" @ionChange="ionChange">
                 <ion-segment-button value="bug">
                     <ion-label>Bug</ion-label>
                 </ion-segment-button>
