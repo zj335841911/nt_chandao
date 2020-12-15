@@ -29,7 +29,7 @@
 {"type":"app",
 "appCodeName":"Story",
 "appName":"需求",
-"portletCodeName": "mobMyFavoriteStory",
+"portletCodeName": "mobMyFavoriteStory1",
 "detailText":"快速查看我收藏的需求",
 "portletTYpe":"VIEW",
 "detailImage":"assets/images/myfavoritestory.jpg",

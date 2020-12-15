@@ -116,7 +116,7 @@ export default {
              myfavoritetask: {
                 caption: commonLogic.appcommonhandle("我收藏的任务",null),
              },
-             mobmyfavoritestory: {
+             mobmyfavoritestory1: {
                 caption: commonLogic.appcommonhandle("我收藏的需求",null),
              },
              my: {

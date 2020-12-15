@@ -166,7 +166,7 @@
             if (_this.value) {
               const select:any = _this.$refs.checkList;
               if(_this.value && this.$util.isFunction(_this.value.split)){
-                let arr = _this.value.tostring().split(',')
+                let arr = (_this.value as string).split(',')
                 select.value = arr;
               }else{
                 select.value = (_this.value as string);
