@@ -5,16 +5,20 @@
             <div class="multiple" v-else-if="item.parent == '1'">父</div>
             <div class="multiple" v-else-if="item.isleaf == '1'">子</div>
             <strong><div class="name" :style="{'color':item.color}"> {{item.srfmajortext}}</div></strong>
-            <!-- <div class="pri">{{item.pri_text}}</div> -->
+            <div class="pri" :class="item.pri_className">{{item.pri_text}}</div>
+        </div>
+        <div class="app-task-list-item_center">
+            <div class="deadline">{{item.deadline}}</div>
+            <div class="delay" v-if="item.delay">{{item.delay}}</div>
         </div>
         <div class="app-task-list-item_bottom">
             <div class="speace">{{item.tasktype_text}}</div>
             <div class="status" :style="{'color':item.status_color}">{{item.status_text}}</div>
-            <div class="openeddate">{{item.openeddate}}</div>
+            <!-- <div class="openeddate">{{item.openeddate}}</div> -->
             <div class="assignedto" >
                 <div v-if="item.multiple != '1'" class="assignedto_item">{{item.assignedto_text}}</div>
                 <template v-for="(_item,index) in assignedtoArr" >
-                    <div v-if="item.multiple == '1' && index < 2 " :key="_item" class="assignedto_item">{{_item}}</div>
+                    <div v-if="item.multiple == '1' && index < 2 " :key="index" class="assignedto_item">{{_item}}</div>
                 </template>
                 <div class="ion" v-if="assignedtoArr.length >= 3"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></div>
             </div>
@@ -75,6 +79,7 @@ export default class appTaskList extends Vue {
      */
     public parseData(){
         this.item.pri_text = this.getCodeListText('Task__pri',this.item.pri).label;
+        this.item.pri_className = this.getCodeListText('Task__pri',this.item.pri).className;
         this.item.status_text = this.getCodeListText('Task__status',this.item.status).label;
         this.item.status_color = this.getCodeListText('Task__status',this.item.status).color;
         this.item.tasktype_text = this.getCodeListText('Task__type',this.item.type).label;
