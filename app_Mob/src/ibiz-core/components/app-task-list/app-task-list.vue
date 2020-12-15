@@ -1,9 +1,7 @@
 <template>
     <div class="app-task-list-item">
         <div class="app-task-list-item_top">
-            <div class="multiple" v-if="item.multiple == '1'">多</div>
-            <div class="multiple" v-else-if="item.parent == '1'">父</div>
-            <div class="multiple" v-else-if="item.isleaf == '1'">子</div>
+            <div class="left_tag" v-if="item.left_tag">{{item.left_tag}}</div>
             <strong><div class="name" :style="{'color':item.color}"> {{item.srfmajortext}}</div></strong>
             <div class="pri" :class="item.pri_className">{{item.pri_text}}</div>
         </div>
@@ -44,6 +42,9 @@ export default class appTaskList extends Vue {
         this.parseData();
     }
 
+    /**
+     * 多人任务指派
+     */
     public assignedtoArr :string[] = [];
 
     /**
@@ -78,6 +79,14 @@ export default class appTaskList extends Vue {
      * 解析
      */
     public parseData(){
+        // 任务标记
+        if(Object.is(this.item.multiple,'1')){
+            this.item.left_tag = '多';
+        }else if(Object.is(this.item.parent,'-1')){
+            this.item.left_tag = '父';
+        }else if(Object.is(this.item.isleaf,'1')){
+            this.item.left_tag = '子';
+        }
         this.item.pri_text = this.getCodeListText('Task__pri',this.item.pri).label;
         this.item.pri_className = this.getCodeListText('Task__pri',this.item.pri).className;
         this.item.status_text = this.getCodeListText('Task__status',this.item.status).label;
