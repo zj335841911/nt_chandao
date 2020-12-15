@@ -7277,7 +7277,6 @@ SELECT
 		AND t11.action = 'read' 
 		AND t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.account =  #{srf.sessioncontext.srfloginname} 
-t1.date BETWEEN "n_date_gtandeq" and "n_submittime_ltandeq" 
 
 ```
 ### 我收到的日报(MyDaily)<div id="IbzDaily_MyDaily"></div>
