@@ -11503,7 +11503,7 @@ FROM
 		'0' AS deleted,
 		0 AS ID,
 		'/' AS `name`,- 1 AS ORDERPK,
-		$ { srfwebcontext ( 'product', '{"defname":"product","dename":"ZT_PRODUCT"}' )} AS root,
+		${srfwebcontext('product','{"defname":"product","dename":"ZT_PRODUCT"}')} AS root,
 		'story' AS type 
 	FROM
 	DUAL UNION
