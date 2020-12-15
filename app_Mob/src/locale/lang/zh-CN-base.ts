@@ -116,7 +116,7 @@ export default {
              myfavoritetask: {
                 caption: commonLogic.appcommonhandle("我收藏的任务",null),
              },
-             myfavoritestory: {
+             mobmyfavoritestory: {
                 caption: commonLogic.appcommonhandle("我收藏的需求",null),
              },
              my: {
@@ -125,7 +125,7 @@ export default {
              mywork: {
                 caption: commonLogic.appcommonhandle("我的工作",null),
              },
-             asstomybug: {
+             mybugmob: {
                 caption: commonLogic.appcommonhandle("指派给我的Bug",null),
              },
              mytaskmob: {
