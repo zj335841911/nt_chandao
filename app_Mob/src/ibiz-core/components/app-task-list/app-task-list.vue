@@ -18,7 +18,7 @@
             <div class="assignedto" >
                 <div v-if="item.multiple != '1'" class="assignedto_item">{{item.assignedto_text}}</div>
                 <template v-for="(_item,index) in assignedtoArr" >
-                    <div v-if="item.multiple == '1' && index < 2 " :key="_item" class="assignedto_item">{{_item}}</div>
+                    <div v-if="item.multiple == '1' && index < 2 " :key="index" class="assignedto_item">{{_item}}</div>
                 </template>
                 <div class="ion" v-if="assignedtoArr.length >= 3"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></div>
             </div>
