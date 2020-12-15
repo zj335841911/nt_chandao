@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'story-link-story-mob-mpickup-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'story-usr3-mob-mpickup-view': true }">
     
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
@@ -22,7 +22,7 @@
     <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="StoryLinkStoryMobMPickupView"  
+            viewName="StoryUsr3MobMPickupView"  
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"
@@ -60,13 +60,13 @@ import { AnimationService } from '@ibiz-core/service/animation-service'
     components: {
     },
 })
-export default class StoryLinkStoryMobMPickupViewBase extends Vue {
+export default class StoryUsr3MobMPickupViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -74,7 +74,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected appEntityService: StoryService = new StoryService();
 
@@ -82,7 +82,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type StoryUIService
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
@@ -91,7 +91,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -102,7 +102,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Prop() protected _context!: string;
 
@@ -110,7 +110,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -118,7 +118,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -126,15 +126,15 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof StoryLinkStoryMobMPickupViewBase
+	 * @memberof StoryUsr3MobMPickupViewBase
 	 */
-	protected viewtag: string = '4b500f8f7a721180f34e61392e89e08e';
+	protected viewtag: string = '81aa541d8518eab302ea934bb0706c0e';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected context: any = {};
 
@@ -142,7 +142,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected viewparams: any = {};
 
@@ -150,7 +150,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -158,14 +158,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     public titleStatus :boolean = true;
 
@@ -174,31 +174,31 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'project': '%project%' };
 
     /**
      * 视图导航参数
      *
      * @protected
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': '%project%' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected model: any = {
-        srfTitle: '需求移动端多数据选择视图（关联需求）',
-        srfCaption: 'story.views.linkstorymobmpickupview.caption',
+        srfTitle: '需求实体移动端多数据选择视图(项目下关联需求)',
+        srfCaption: 'story.views.usr3mobmpickupview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.linkstorymobmpickupview',
+        viewname:'story.usr3mobmpickupview',
         iconcls: '',
         icon: 'star-o'
     }
@@ -208,7 +208,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  StoryLinkStoryMobMPickupViewBase
+     * @memberof  StoryUsr3MobMPickupViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -237,7 +237,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -250,7 +250,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected containerModel: any = {
         view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
@@ -266,7 +266,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -275,7 +275,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -283,14 +283,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -303,7 +303,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -319,14 +319,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected engine: MobMPickupViewEngine = new MobMPickupViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -341,7 +341,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected created() {
         this.afterCreated();
@@ -350,7 +350,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -366,7 +366,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -375,7 +375,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     public activated() {
         this.thirdPartyInit();
@@ -386,7 +386,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -396,7 +396,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -414,7 +414,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -426,7 +426,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -435,7 +435,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -453,7 +453,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected pickupviewpanel_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', $event);
@@ -464,7 +464,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected pickupviewpanel_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('pickupviewpanel', 'load', $event);
@@ -475,7 +475,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -499,7 +499,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -529,7 +529,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -541,7 +541,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -563,7 +563,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobMPickupViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -574,7 +574,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图选中数据
      *
      * @type {any[]}
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobMPickupView
      */
     public viewSelections: any[] = [];
 
@@ -582,7 +582,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否显示按钮
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobMPickupView
      */
     @Prop({default: true}) public isShowButtons!: boolean;
 
@@ -590,14 +590,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobMPickupView
      */
     public isSingleSelect: boolean = false;
 
     /**
      * 确定
      *
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobMPickupView
      */
     public onClickOk(): void {
         this.viewDatasChange(this.viewSelections);
@@ -607,7 +607,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 取消
      *
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobMPickupView
      */
     public onClickCancel(): void {
         this.$emit('close', null);
@@ -616,14 +616,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 快速搜索值
      *
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobMPickupView
      */
     public quickValue = "";
 
     /**
      * 快速搜索
      *
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobMPickupView
      */
     public async quickValueChange(event: any) {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
@@ -637,5 +637,5 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './story-link-story-mob-mpickup-view.less';
+@import './story-usr3-mob-mpickup-view.less';
 </style>

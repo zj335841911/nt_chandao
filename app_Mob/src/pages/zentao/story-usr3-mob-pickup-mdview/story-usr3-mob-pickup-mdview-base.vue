@@ -1,48 +1,32 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'story-link-story-mob-mpickup-view': true }">
-    
-    <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
-
-    
-              <ion-toolbar>
-    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
-  </ion-toolbar>
-
-    </ion-header>
-
-    <ion-content >
-                <view_pickupviewpanel
-            :viewState="viewState"
-            viewName="StoryLinkStoryMobMPickupView"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :isSingleSelect="isSingleSelect"
-            :isShowButtons="isShowButtons"
-            name="pickupviewpanel"  
-            ref='pickupviewpanel' 
-            @selectionchange="pickupviewpanel_selectionchange($event)"  
-            @load="pickupviewpanel_load($event)"  
-            @closeview="closeView($event)">
-        </view_pickupviewpanel>
+<ion-page class="view-container app-mob-pickup-mdview story-usr3-mob-pickup-mdview">
+    <ion-content class="view-content" :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+        <view_mdctrl
+    :viewState="viewState"
+    viewName="StoryUsr3MobPickupMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+    viewType="DEMOBPICKUPMDVIEW"
+    controlStyle="LISTVIEW"
+    updateAction="Update"
+    removeAction="Remove"
+    loaddraftAction=""
+    loadAction="Get"
+    createAction="Create"
+    fetchAction="FetchProjectLinkStory" 
+    :isMutli="!isSingleSelect"
+    :isNeedLoaddingText="!isPortalView"
+    :showBusyIndicator="true" 
+    :isTempMode="false"
+    name="mdctrl"  
+    ref='mdctrl' 
+    @selectionchange="mdctrl_selectionchange($event)"  
+    @beforeload="mdctrl_beforeload($event)"  
+    @rowclick="mdctrl_rowclick($event)"  
+    @load="mdctrl_load($event)"  
+    @closeview="closeView($event)">
+</view_mdctrl>
     </ion-content>
-    <ion-footer class="view-footer">
-        <div class="mpicker_buttons">
-    <div class="demobmpickupview_button">
-      <div class="selectedCount"  >已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
-      <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
-    </div>
-</div>
-
-    </ion-footer>
 </ion-page>
 </template>
 
@@ -52,7 +36,7 @@ import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
-import MobMPickupViewEngine from '@engine/view/mob-mpickup-view-engine';
+import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
 import { AnimationService } from '@ibiz-core/service/animation-service'
 
@@ -60,13 +44,13 @@ import { AnimationService } from '@ibiz-core/service/animation-service'
     components: {
     },
 })
-export default class StoryLinkStoryMobMPickupViewBase extends Vue {
+export default class StoryUsr3MobPickupMDViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -74,7 +58,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected appEntityService: StoryService = new StoryService();
 
@@ -82,7 +66,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type StoryUIService
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
@@ -91,7 +75,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -102,7 +86,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Prop() protected _context!: string;
 
@@ -110,7 +94,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -118,7 +102,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -126,15 +110,15 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof StoryLinkStoryMobMPickupViewBase
+	 * @memberof StoryUsr3MobPickupMDViewBase
 	 */
-	protected viewtag: string = '4b500f8f7a721180f34e61392e89e08e';
+	protected viewtag: string = '92bead85a453146078e920330be49623';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected context: any = {};
 
@@ -142,7 +126,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected viewparams: any = {};
 
@@ -150,7 +134,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -158,14 +142,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     public titleStatus :boolean = true;
 
@@ -174,7 +158,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected navContext: any = {};
 
@@ -183,22 +167,22 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': '%project%' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected model: any = {
-        srfTitle: '需求移动端多数据选择视图（关联需求）',
-        srfCaption: 'story.views.linkstorymobmpickupview.caption',
+        srfTitle: '需求实体移动端选择多数据视图（部件视图）(项目下)',
+        srfCaption: 'story.views.usr3mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.linkstorymobmpickupview',
+        viewname:'story.usr3mobpickupmdview',
         iconcls: '',
         icon: 'star-o'
     }
@@ -208,7 +192,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  StoryLinkStoryMobMPickupViewBase
+     * @memberof  StoryUsr3MobPickupMDViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -237,7 +221,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -250,23 +234,17 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected containerModel: any = {
-        view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -275,7 +253,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -283,14 +261,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -303,7 +281,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -313,25 +291,23 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
         return true;
     }
 
-
-
     /**
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
-    protected engine: MobMPickupViewEngine = new MobMPickupViewEngine();
+    protected engine: MobPickupMDViewEngine = new MobPickupMDViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
-            pickupviewpanel: this.$refs.pickupviewpanel,
+            mdctrl: this.$refs.mdctrl,
             keyPSDEField: 'story',
             majorPSDEField: 'title',
             isLoadDefault: true,
@@ -341,7 +317,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected created() {
         this.afterCreated();
@@ -350,7 +326,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -366,7 +342,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -375,7 +351,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     public activated() {
         this.thirdPartyInit();
@@ -386,7 +362,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -396,7 +372,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -405,16 +381,13 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
-        if(this.viewparams.selectedData){
-            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
-        }
 
     }
 
     /**
      * 第三方容器初始化
      * 
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -426,7 +399,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -435,7 +408,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -449,25 +422,47 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     }
 
     /**
-     * pickupviewpanel 部件 selectionchange 事件
+     * mdctrl 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
-    protected pickupviewpanel_selectionchange($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', $event);
+    protected mdctrl_selectionchange($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
     }
 
     /**
-     * pickupviewpanel 部件 load 事件
+     * mdctrl 部件 beforeload 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
-    protected pickupviewpanel_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('pickupviewpanel', 'load', $event);
+    protected mdctrl_beforeload($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
+    }
+
+    /**
+     * mdctrl 部件 rowclick 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryUsr3MobPickupMDViewBase
+     */
+    protected mdctrl_rowclick($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
+    }
+
+    /**
+     * mdctrl 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryUsr3MobPickupMDViewBase
+     */
+    protected mdctrl_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
 
@@ -475,7 +470,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -499,7 +494,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -529,7 +524,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -541,7 +536,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -563,79 +558,106 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof StoryLinkStoryMobMPickupViewBase
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
-
     /**
-     * 视图选中数据
+     * onScroll滚动事件
      *
-     * @type {any[]}
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
-    public viewSelections: any[] = [];
+    public async onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+                    let ionScroll :any= this.$refs.ionScroll;
+        if(ionScroll){
+            let ele =  await ionScroll.getScrollElement();
+            if(ele){
+                let scrollTop = ele.scrollTop;
+                let clientHeight = ele.clientHeight;
+                let scrollHeight = ele.scrollHeight;
+                if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                    let mdctrl:any = this.$refs.mdctrl; 
+                    if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
+                        mdctrl.loadBottom();
+                    }           
+                }
+            }
+        }
 
-    /**
-     * 是否显示按钮
-     *
-     * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupView
-     */
-    @Prop({default: true}) public isShowButtons!: boolean;
-
-    /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof StoryLinkStoryMobMPickupView
-     */
-    public isSingleSelect: boolean = false;
-
-    /**
-     * 确定
-     *
-     * @memberof StoryLinkStoryMobMPickupView
-     */
-    public onClickOk(): void {
-        this.viewDatasChange(this.viewSelections);
-        this.$emit('close', this.viewSelections);
     }
 
     /**
-     * 取消
+     * onScroll滚动结束事件
      *
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
-    public onClickCancel(): void {
-        this.$emit('close', null);
+    public onScrollEnd(){
+        this.isScrollStop = true;
     }
 
     /**
-     * 快速搜索值
+     * 返回顶部
      *
-     * @memberof StoryLinkStoryMobMPickupView
+     * @memberof StoryUsr3MobPickupMDViewBase
      */
-    public quickValue = "";
-
-    /**
-     * 快速搜索
-     *
-     * @memberof StoryLinkStoryMobMPickupView
-     */
-    public async quickValueChange(event: any) {
-        const pickupviewpanel: any = this.$refs.pickupviewpanel;
-        if (pickupviewpanel) {
-            this.quickValue = event.detail.value;
-            pickupviewpanel.quickSearch(this.quickValue);
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
         }
     }
 
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof StoryUsr3MobPickupMDViewBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof StoryUsr3MobPickupMDViewBase
+     */
+    public isScrollStop = true;
+
+
+   /**
+     * 是否单选
+     *
+     * @type {boolean}
+     * @memberof StoryUsr3MobPickupMDView
+     */
+    @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+    /**
+     * 搜索值
+     *
+     * @memberof StoryUsr3MobPickupMDView
+     */
+    public query = "";
+    
+    /**
+     * 快速搜索
+     *
+     * @memberof StoryUsr3MobPickupMDView
+     */
+    public quickSearch(value:any){
+        this.query = value;
+        this.viewState.next({tag:'mdctrl',action:'quicksearch',data: value});
+    }
+    
 }
 </script>
 
 <style lang='less'>
-@import './story-link-story-mob-mpickup-view.less';
+@import './story-usr3-mob-pickup-mdview.less';
 </style>

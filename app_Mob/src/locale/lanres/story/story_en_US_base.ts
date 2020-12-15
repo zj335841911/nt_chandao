@@ -115,10 +115,16 @@ export default {
 		assmobmdview9: {
 			caption: commonLogic.appcommonhandle("需求",null),
 		},
+		usr3mobmpickupview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
 		usr2mobmpickupview: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
 		},
 		favoritemobmdview9: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		usr3mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("需求",null),
 		},
 		usr2mobmdview_5219: {
@@ -466,6 +472,10 @@ export default {
 		deuiaction1_deletemob: {
 			caption: commonLogic.appcommonhandle("删除",null),
 			tip: 'deuiaction1_deletemob',
+		},
+		deuiaction1_projectlinkstoriesmob: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+			tip: 'deuiaction1_projectlinkstoriesmob',
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {

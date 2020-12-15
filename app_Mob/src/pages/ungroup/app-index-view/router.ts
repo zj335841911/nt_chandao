@@ -2323,6 +2323,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-module-mob-pickup-mdview/project-module-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr3mobpickupmdview',
+                    name: 'story_usr3mobpickupmdview',
+                    meta: {
+                        caption: 'story.views.usr3mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobpickupmdview', parameterName: 'usr3mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-pickup-mdview/story-usr3-mob-pickup-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr3mobpickupmdview',
+                    name: 'story_usr3mobpickupmdview',
+                    meta: {
+                        caption: 'story.views.usr3mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobpickupmdview', parameterName: 'usr3mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-pickup-mdview/story-usr3-mob-pickup-mdview.vue'),
+                },
+                {
                     path: 'ibzdailies/:ibzdaily?/dailyplanstomorrowtaskmobmdview',
                     name: 'ibzdaily_dailyplanstomorrowtaskmobmdview',
                     meta: {
@@ -2925,6 +2958,39 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/bug-mob-edit-view/bug-mob-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/usr3mobmpickupview',
+                    name: 'story_usr3mobmpickupview',
+                    meta: {
+                        caption: 'story.views.usr3mobmpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobmpickupview', parameterName: 'usr3mobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-mpickup-view/story-usr3-mob-mpickup-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr3mobmpickupview',
+                    name: 'story_usr3mobmpickupview',
+                    meta: {
+                        caption: 'story.views.usr3mobmpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobmpickupview', parameterName: 'usr3mobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-mpickup-view/story-usr3-mob-mpickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmoremobmdview',
@@ -4043,20 +4109,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-usr3-mob-pickup-mdview/bug-usr3-mob-pickup-mdview.vue'),
                 },
                 {
-                    path: 'ibzweeklies/:ibzweekly?/mobeditview',
-                    name: 'ibzweekly_mobeditview',
-                    meta: {
-                        caption: 'ibzweekly.views.mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-weekly-mob-edit-view/ibz-weekly-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr3mobmpickupbuildcreatebugview',
                     name: 'bug_usr3mobmpickupbuildcreatebugview',
                     meta: {
@@ -4140,6 +4192,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-usr3-mob-mpickup-build-create-bug-view/bug-usr3-mob-mpickup-build-create-bug-view.vue'),
+                },
+                {
+                    path: 'ibzweeklies/:ibzweekly?/mobeditview',
+                    name: 'ibzweekly_mobeditview',
+                    meta: {
+                        caption: 'ibzweekly.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-mob-edit-view/ibz-weekly-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/usr2mobmpickupbuildview',

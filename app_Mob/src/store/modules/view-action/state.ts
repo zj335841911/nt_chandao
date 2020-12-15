@@ -1462,6 +1462,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '81aa541d8518eab302ea934bb0706c0e',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr3MobMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '92bead85a453146078e920330be49623',
+            ],
+        },
+        {
             viewtag: '81d40495e3ca8e2b6530decbba345dca',
             viewmodule: 'ibiz',
             viewname: 'ProductPlanNewMobEditView',
@@ -1622,6 +1632,15 @@ export const viewstate: any = {
                 'dca81c1a74e59de75d199229ca890abb',
                 'fbca44c9e6b602b694348be947f36525',
                 '1bd9873e7212574f35571116edb7da0b',
+            ],
+        },
+        {
+            viewtag: '92bead85a453146078e920330be49623',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr3MobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2282,6 +2301,7 @@ export const viewstate: any = {
                 'eef4931ab99bfda807489700470bad47',
                 '26c517c1103ef90cfe64c59190017447',
                 'b52bf86837838dcfd5b787fad0350f22',
+                '81aa541d8518eab302ea934bb0706c0e',
             ],
         },
         {
