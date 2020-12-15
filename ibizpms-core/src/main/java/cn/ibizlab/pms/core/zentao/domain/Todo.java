@@ -195,7 +195,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 私人事务
      */
-    @DEField(name = "private")
+    @DEField(defaultValue = "0")
     @TableField(value = "`private`")
     @JSONField(name = "ibizprivate")
     @JsonProperty("ibizprivate")
