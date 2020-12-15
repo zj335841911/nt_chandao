@@ -51,7 +51,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         }
          et.setDate(et.getDate() == null ? ZTDateUtil.now() : et.getDate());
         if (et.getCycle() != null && et.getCycle() == 1) {
-            et.setType(StaticDict.Type.CYCLE.getValue());
+            et.setType(StaticDict.TypeAll.CYCLE.getValue());
             JSONObject config = new JSONObject();
             config.put(FIELD_BEGIN, et.getDate());
             config.put(FIELD_TYPE, et.getConfigType());
@@ -122,7 +122,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         Todo newTodo = new Todo();
         CachedBeanCopier.copy(todo,newTodo);
 
-        newTodo.setType(StaticDict.Type.CYCLE.getValue());
+        newTodo.setType(StaticDict.TypeAll.CYCLE.getValue());
         newTodo.setIdvalue(todo.getId());
         newTodo.setCycle(0);
 
