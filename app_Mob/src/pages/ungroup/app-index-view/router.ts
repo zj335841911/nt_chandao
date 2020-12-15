@@ -2927,6 +2927,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-mob-edit-view/bug-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr3mobmpickupview',
+                    name: 'story_usr3mobmpickupview',
+                    meta: {
+                        caption: 'story.views.usr3mobmpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobmpickupview', parameterName: 'usr3mobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-mpickup-view/story-usr3-mob-mpickup-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr3mobmpickupview',
+                    name: 'story_usr3mobmpickupview',
+                    meta: {
+                        caption: 'story.views.usr3mobmpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobmpickupview', parameterName: 'usr3mobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-mpickup-view/story-usr3-mob-mpickup-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmoremobmdview',
                     name: 'task_assmoremobmdview',
                     meta: {

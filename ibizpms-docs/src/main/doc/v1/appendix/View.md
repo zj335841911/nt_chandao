@@ -134,6 +134,7 @@
 |-|月报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务预计选项操作视图|DEMOBOPTVIEW|&nbsp;|
 |-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|需求实体移动端多数据选择视图(项目下关联需求)|DEMOBMPICKUPVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
@@ -148,6 +149,7 @@
 |-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|项目移动端编辑视图激活）|DEMOBEDITVIEW|&nbsp;|
 |-|周报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
+|-|需求实体移动端选择多数据视图（部件视图）(项目下)|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug选项操作视图（指派Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|系统更新功能移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

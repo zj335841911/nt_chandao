@@ -105,8 +105,10 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'asmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'usr3mobmpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'usr2mobmpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'favoritemobmdview9',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'usr3mobpickupmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'usr2mobmdview_5219',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'cmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'usr4mobmdview',srfappde:'stories'});
@@ -346,10 +348,10 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             return response;
         };
         const view: any = { 
-            viewname: 'story-link-story-mob-mpickup-view', 
+            viewname: 'story-usr3-mob-mpickup-view', 
             height: 0, 
             width: 0,  
-            title: '需求移动端多数据选择视图（关联需求）', 
+            title: '需求实体移动端多数据选择视图(项目下关联需求)', 
             placement: '',
         };
         const result: any = await this.openService.openModal(view, _context, _params);
