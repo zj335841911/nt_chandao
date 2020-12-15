@@ -176,7 +176,7 @@ export default class StoryUsr3MobMPickupViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr3MobMPickupViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'project': '%project%' };
 
     /**
      * 视图导航参数
@@ -185,7 +185,7 @@ export default class StoryUsr3MobMPickupViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr3MobMPickupViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': '%project%' };
 
     /**
      * 视图模型数据
