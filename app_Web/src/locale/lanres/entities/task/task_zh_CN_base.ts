@@ -1724,6 +1724,7 @@ function getLocaleResourceBase(){
 				},
 				uiactions: {
 					exit: commonLogic.appcommonhandle("返回",null),
+					task_confirmstorychangecz: commonLogic.appcommonhandle("确认",null),
 					task_newsubtaskdash: commonLogic.appcommonhandle("子任务",null),
 					task_assigntaskdash: commonLogic.appcommonhandle("指派",null),
 					task_checkforwarddash: commonLogic.appcommonhandle("转交",null),
