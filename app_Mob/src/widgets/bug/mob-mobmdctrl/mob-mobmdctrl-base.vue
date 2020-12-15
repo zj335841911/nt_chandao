@@ -3,7 +3,7 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                 <ion-list class="items" ref="ionlist" >
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                      <app-bug-list  :item="item"></app-case-list>
+                      <app-bug-list  :item="item"></app-bug-list>
                       <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
@@ -19,10 +19,10 @@
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                          <app-bug-list  :item="item"></app-case-list>
+                          <app-bug-list  :item="item"></app-bug-list>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                          <app-bug-list  :item="item"></app-case-list>
+                          <app-bug-list  :item="item"></app-bug-list>
                       </template>
                     </ion-item>
                   </ion-item-sliding>
