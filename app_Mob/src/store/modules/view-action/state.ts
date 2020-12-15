@@ -2298,6 +2298,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd07ba02c63fe9e8d03ed3802ae9abcb0',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanUsr2MobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'd096e8789265e730da5eefa1423479dc',
             viewmodule: 'ibiz',
             viewname: 'StoryMobEditView',

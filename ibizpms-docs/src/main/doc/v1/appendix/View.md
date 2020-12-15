@@ -211,6 +211,7 @@
 |-|任务预计多表单编辑视图|DEMOBMEDITVIEW9|&nbsp;|
 |-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品线移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
+|-|产品计划实体移动端选择多数据视图（部件视图）(项目按计划关联需求)|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|需求移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|

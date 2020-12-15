@@ -34,6 +34,9 @@ export default {
 		mobtabexpview: {
 			caption: commonLogic.appcommonhandle("产品计划",null),
 		},
+		usr2mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("产品计划",null),
+		},
 		editmobeditview: {
 			caption: commonLogic.appcommonhandle("产品计划",null),
 		},
