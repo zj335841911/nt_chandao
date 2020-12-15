@@ -17,11 +17,35 @@
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 38, column 9]
-----
-无法获取指定编辑器[DROPDOWNLIST]发布代码[FORMITEM][EDITOR.vue]模板
+<app-form-item 
+    name='plan' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="plan_item"  
+    :itemValue="this.data.plan" 
+    v-show="detailsModel.plan.visible" 
+    :itemRules="this.rules.plan" 
+    :caption="$t('story.mobaccordingtoplan_form.details.plan')"  
+    :labelWidth="1"  
+    :isShowCaption="true"
+    :disabled="detailsModel.plan.disabled"
+    :error="detailsModel.plan.error" 
+    :isEmptyCaption="true">
+        <app-mob-select 
+    tag="ProjectProductPlan"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.plan.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.plan"  
+    :navigateContext ='{ "project": "%project%", "srfparentkey": "%project%" } '
+    :navigateParam ='{ "srfparentkey": "%project%", "project": "%project%" } '
+    @change="($event)=>this.data.plan = $event" />
+</app-form-item>
+
 
     
 </app-form-group>
