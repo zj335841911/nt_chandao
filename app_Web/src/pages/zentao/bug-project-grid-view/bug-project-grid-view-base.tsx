@@ -445,7 +445,7 @@ export class BugProjectGridViewBase extends GridViewBase {
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = {PRODUCT:"%product%"};
-        const localViewParam: any ={product:"%product%"};
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
@@ -454,10 +454,6 @@ export class BugProjectGridViewBase extends GridViewBase {
         if(localContext && Object.keys(localContext).length >0){
             let _context:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localContext);
             Object.assign(tempContext,_context);
-        }
-        if(localViewParam && Object.keys(localViewParam).length >0){
-            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
-            Object.assign(data,_param);
         }
         let deResParameters: any[] = [];
         if(tempContext.product && true){
