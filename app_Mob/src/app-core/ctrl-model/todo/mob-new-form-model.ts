@@ -108,7 +108,7 @@ export class MobNewModel {
             {
                 name: 'private',
                 prop: 'ibizprivate',
-                dataType: 'NSCODELIST',
+                dataType: 'SMCODELIST',
             },
             {
                 name: 'desc',
