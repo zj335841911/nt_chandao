@@ -98,7 +98,7 @@
                 <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
             <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbar2Models.deuiaction1.disabled}" v-show="righttoolbar2Models.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbar2Models.deuiaction1.disabled" @click="righttoolbar2_click({ tag: 'deuiaction1' }, $event)" size="large">
+                <ion-button :disabled="righttoolbar2Models.deuiaction1.disabled" @click="righttoolbar2_click({ tag: 'deuiaction1' }, $event),popUpGroup()" size="large">
                     <ion-icon name="link"></ion-icon>
                 
                 </ion-button>

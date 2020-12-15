@@ -39,7 +39,7 @@
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobeditedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobeditedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobeditedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobeditedit' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobeditedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobeditedit' }, $event),popUpGroup()" size="large">
                     <ion-icon name="edit"></ion-icon>
                 <span class="btn-inner-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditedit.caption')}}</span>
                 </ion-button>
@@ -47,7 +47,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event),popUpGroup()" size="large">
                     <ion-icon name="remove"></ion-icon>
                 <span class="btn-inner-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
                 </ion-button>

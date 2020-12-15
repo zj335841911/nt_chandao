@@ -331,7 +331,7 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
                 this.load(data);
             });
         }
-        this.load();
+        this.load({});
     }
 
     /**

@@ -48,7 +48,7 @@
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event),popUpGroup()" size="large">
                     <ion-icon name="edit"></ion-icon>
                 
                 </ion-button>
@@ -56,7 +56,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_submitmob.disabled}" v-show="righttoolbarModels.deuiaction1_submitmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_submitmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_submitmob' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_submitmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_submitmob' }, $event),popUpGroup()" size="large">
                     <ion-icon name="check"></ion-icon>
                 
                 </ion-button>

@@ -331,7 +331,7 @@ export default class ReportNewBase extends Vue implements ControlInterface {
                 this.load(data);
             });
         }
-        this.load();
+        this.load({});
     }
 
     /**
