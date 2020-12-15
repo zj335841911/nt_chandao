@@ -216,7 +216,7 @@ export default class Usr3MobMPickupViewpickupviewpanelBase extends Vue implement
      * @memberof Usr3MobMPickupViewpickupviewpanel
      */
     protected view: any = {
-        viewname: 'story-usr3-mob-mpickup-view',
+        viewname: 'story-usr3-mob-pickup-mdview',
         data: {},
     }
 

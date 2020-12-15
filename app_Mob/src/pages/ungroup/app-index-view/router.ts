@@ -2323,6 +2323,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-module-mob-pickup-mdview/project-module-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr3mobpickupmdview',
+                    name: 'story_usr3mobpickupmdview',
+                    meta: {
+                        caption: 'story.views.usr3mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobpickupmdview', parameterName: 'usr3mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-pickup-mdview/story-usr3-mob-pickup-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr3mobpickupmdview',
+                    name: 'story_usr3mobpickupmdview',
+                    meta: {
+                        caption: 'story.views.usr3mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobpickupmdview', parameterName: 'usr3mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-pickup-mdview/story-usr3-mob-pickup-mdview.vue'),
+                },
+                {
                     path: 'ibzdailies/:ibzdaily?/dailyplanstomorrowtaskmobmdview',
                     name: 'ibzdaily_dailyplanstomorrowtaskmobmdview',
                     meta: {
