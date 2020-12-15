@@ -15,7 +15,7 @@
 
     
                     <ion-toolbar>
-                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                        <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel2">
                             
                             完成的需求</ion-segment-button>

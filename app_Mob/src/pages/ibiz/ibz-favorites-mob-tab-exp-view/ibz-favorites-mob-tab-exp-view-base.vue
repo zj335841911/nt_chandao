@@ -6,7 +6,7 @@
 
     
                     <ion-toolbar>
-                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                        <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
                             <ion-badge color="danger">{{counter.counterData.myfavoritestorys?counter.counterData.myfavoritestorys:''}}</ion-badge>
                             需求</ion-segment-button>

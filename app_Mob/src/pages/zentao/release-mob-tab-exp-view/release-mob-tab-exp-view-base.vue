@@ -15,7 +15,7 @@
 
     
                     <ion-toolbar>
-                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                        <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel2">
                             <ion-badge color="danger">{{counter.counterData.stories?counter.counterData.stories:''}}</ion-badge>
                             完成的需求</ion-segment-button>
