@@ -1050,7 +1050,7 @@
                 "value": 1,
                 "isValueNumber":true,
                 
-                "className":"text-blue-border-color",
+                "className":"text-blue-border-color-lang",
                 "disabled": false
             }
             , {
@@ -1062,7 +1062,7 @@
                 "value": 2,
                 "isValueNumber":true,
                 
-                "className":"text-red-border-color",
+                "className":"text-red-border-color-lang",
                 "disabled": false
             }
             , {
@@ -1074,7 +1074,7 @@
                 "value": 3,
                 "isValueNumber":true,
                 
-                "className":"text-pink-border-color",
+                "className":"text-pink-border-color-lang",
                 "disabled": false
             }
             , {
