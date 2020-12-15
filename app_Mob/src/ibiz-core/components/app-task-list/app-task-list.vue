@@ -14,9 +14,13 @@
             <div class="status" :style="{'color':item.status_color}">{{item.status_text}}</div>
             <!-- <div class="openeddate">{{item.openeddate}}</div> -->
             <div class="assignedto" >
-                <div v-if="item.multiple != '1'" class="assignedto_item">{{item.assignedto_text}}</div>
+                <div v-if="item.multiple != '1' && !item.assignedto_img" class="assignedto_item">{{item.assignedto_text}}</div>
+                <div v-if="item.assignedto_img" class="assignedto_item_img"><img :src="item.assignedto_img" alt=""></div>
                 <template v-for="(_item,index) in assignedtoArr" >
-                    <div v-if="item.multiple == '1' && index < 2 " :key="index" class="assignedto_item">{{_item}}</div>
+                    <template v-if="item.multiple == '1' && index < 2 " >
+                        <div v-if="!_item.img" :key="index" class="assignedto_item">{{_item.name}}</div>
+                        <div v-if="_item.img" :key="index" class="assignedto_item_img"><img :src="_item.img" alt=""></div>
+                    </template>
                 </template>
                 <div class="ion" v-if="assignedtoArr.length >= 3"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></div>
             </div>
@@ -45,7 +49,15 @@ export default class appTaskList extends Vue {
     /**
      * 多人任务指派
      */
-    public assignedtoArr :string[] = [];
+    public assignedtoArr :any[] = [];
+
+    /**
+     * 图片地址
+     *
+     * @param {*} nodes
+     * @memberof EmpTreeBase
+     */
+    public imageUrl = 'ibizutil/download';
 
     /**
      * 任务优先级代码表
@@ -94,12 +106,14 @@ export default class appTaskList extends Vue {
                 const element = assignedto[index];
                 let name = this.getCodeListText('UserRealName',element).label;
                 if(name) name = name.substring(0,1);
-                this.assignedtoArr.push(name);
+                let img = this.getUserImg(element);
+                this.assignedtoArr.push({name:name,img:img});
             }
         }else{
         // 单人
             this.item.assignedto_text = this.getCodeListText('UserRealName',this.item.assignedto).label;
             this.item.assignedto_text = this.item.assignedto_text?this.item.assignedto_text.substring(0,1):"";
+            this.item.assignedto_img = this.getUserImg(this.item.assignedto);
         }
         // 任务标记
         if(Object.is(this.item.multiple,'1')){
@@ -110,6 +124,17 @@ export default class appTaskList extends Vue {
             this.item.left_tag = '子';
         }
         this.$forceUpdate();
+    }
+
+    /**
+     * 获取用户头像
+     */
+    public getUserImg(value:string) {
+        let icon = JSON.parse(this.getCodeListText('UserRealName',value).icon);
+        if(icon && icon[0] && icon[0].id){
+            return `${this.imageUrl}/${icon[0].id}`;
+        }
+        return '';
     }
 
     /**
