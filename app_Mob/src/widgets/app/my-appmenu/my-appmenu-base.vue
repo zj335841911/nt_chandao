@@ -526,6 +526,9 @@ export default class MyBase extends Vue implements ControlInterface {
                     this.computedEffectiveMenus(_item.items);
                 }
             }
+            if(Object.is(_item.id,'setting' )){
+                _item.hidden = false;
+            }
         })
     }
 

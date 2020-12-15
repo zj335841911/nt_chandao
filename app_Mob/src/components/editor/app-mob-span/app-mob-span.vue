@@ -211,7 +211,7 @@ export default class AppSpan extends Vue {
             if (typeof this.value === "number") { // 值为数值类型
                 this.text = this.value;
             } else {  // 值为字符串类型
-                valueArr = this.value.split(",");
+                valueArr = this.value?this.value.split(","):"";
                 if (valueArr.length > 1) {  // 值为多数据类型
                     valueArr.forEach((val: string) => {
                         this.items.forEach((item: any) => {

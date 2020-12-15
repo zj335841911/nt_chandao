@@ -454,6 +454,9 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
                     this.computedEffectiveMenus(_item.items);
                 }
             }
+            if(Object.is(_item.id,'setting' )){
+                _item.hidden = false;
+            }
         })
     }
 
