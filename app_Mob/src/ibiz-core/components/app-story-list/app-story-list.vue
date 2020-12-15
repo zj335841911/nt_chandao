@@ -10,7 +10,7 @@
             <div class="status" :style="{'color':item.status_color}">{{item.status_text}}</div>
             <div class="stage" :style="{'color':item.stage_color}">{{item.stage_text}}</div>
             <div class="assignedto">
-                <div v-if="item.assignedto_text != null" class="assignedto_item">{{item.assignedto_text}}</div>
+                <div v-if="item.assignedto_text" class="assignedto_item">{{item.assignedto_text}}</div>
             </div>
         </div>
     </div>
