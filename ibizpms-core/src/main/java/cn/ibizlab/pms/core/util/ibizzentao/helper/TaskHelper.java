@@ -1529,7 +1529,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         task.setId(et.getId());
         task.setStoryversion(storyService.get(et.getStory()).getVersion());
         this.internalUpdate(task);
-        actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.CONFIRMED.getValue(), "", "", "", true);
+        actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.CONFIRMED.getValue(), "", "", null, true);
         return et;
     }
 
