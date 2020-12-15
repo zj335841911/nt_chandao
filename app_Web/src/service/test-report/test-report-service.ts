@@ -139,7 +139,9 @@ export default class TestReportService extends TestReportServiceBase {
             context.testreport = 0;
             data.id = 0;
             data.project = context.project;
-            data.tasks = context.tasks;
+            if (!data.tasks) {
+                data.tasks = context.tasks;
+            }
             let res: any = await Http.getInstance().put(`/projects/${context.project}/testreports/${context.testreport}/getinfotesttaskr`, data, isloading);
 
             return res;
@@ -150,7 +152,9 @@ export default class TestReportService extends TestReportServiceBase {
             context.testreport = 0;
             data.id = 0;
             data.project = context.project;
-            data.tasks = context.tasks;
+            if (!data.tasks) {
+                data.tasks = context.tasks;
+            }
             let res: any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/getinfotesttaskr`, data, isloading);
 
             return res;
@@ -181,7 +185,9 @@ export default class TestReportService extends TestReportServiceBase {
             context.testreport = 0;
             data.id = 0;
             data.project = context.project;
-            data.tasks = context.tasks;
+            if (!data.tasks) {
+                data.tasks = context.tasks;
+            }
             let res: any = await Http.getInstance().put(`/projects/${context.project}/testreports/${context.testreport}/getinfotaskovbytime`, data, isloading);
 
             return res;
@@ -192,7 +198,9 @@ export default class TestReportService extends TestReportServiceBase {
             context.testreport = 0;
             data.id = 0;
             data.project = context.project;
-            data.tasks = context.tasks;
+            if (!data.tasks) {
+                data.tasks = context.tasks;
+            }
             let res: any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/getinfotaskovbytime`, data, isloading);
 
             return res;
