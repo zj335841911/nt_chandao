@@ -169,7 +169,7 @@ export default class StoryUsr3MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr3MobPickupMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': '%project%' };
 
     /**
      * 视图模型数据
