@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.myfavoritemain_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.myfavoritemain_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.story.myfavoritemain_grid.columns.pri')}}
