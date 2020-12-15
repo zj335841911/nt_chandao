@@ -473,10 +473,6 @@ export default {
 			caption: commonLogic.appcommonhandle("删除",null),
 			tip: '删除',
 		},
-		deuiaction1_projectlinkstoriesmob: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-			tip: '关联需求',
-		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
