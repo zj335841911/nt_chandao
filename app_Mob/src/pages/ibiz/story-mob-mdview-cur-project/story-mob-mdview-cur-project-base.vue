@@ -94,9 +94,9 @@
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="link"></ion-icon>
-                <span class="btn-inner-text">{{$t('story.mobmdviewcurprojectrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+                
                 </ion-button>
-                <span class="btn-out-text">{{$t('story.mobmdviewcurprojectrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+                
             </div>
         
             </div>
@@ -348,7 +348,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
     * @memberof StoryMobMDViewCurProject
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', caption: '关联需求', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStoriesMob', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStoriesMob', target: 'NONE' } },
 
     };
 
