@@ -13035,7 +13035,7 @@ select t1.* from (select t1.* from (SELECT
 	t1.`DELETED`,
 	t1.`ID`,
 	CONCAT(
-	'/',
+	'/', case when t1.parent > 0 then
 	(
 SELECT
 	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
@@ -13046,22 +13046,11 @@ WHERE
 	AND tt.type = 'story' 
 GROUP BY
 	tt.root 
-	) 
+	) else t1.`name` end
 	) AS `NAME`,
 	(CONCAT_ws(
-	'',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
+	'', 
+ case when t1.parent > 0 then (
 SELECT
 	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
 FROM
@@ -13089,7 +13078,7 @@ FROM
 	t1.`DELETED`,
 	t1.`ID`,
 	CONCAT(
-	'/',
+	'/', case when t1.parent > 0 then
 	(
 SELECT
 	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
@@ -13100,10 +13089,10 @@ WHERE
 	AND tt.type = 'task' 
 GROUP BY
 	tt.root 
-	) 
+	) else t1.`name` end 
 	) AS `NAME`,
 		(CONCAT_WS(
-	'',
+	'', case when t1.parent > 0 then
 	(
 SELECT
 	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
@@ -13114,8 +13103,8 @@ WHERE
 	AND tt.type = 'task' 
 GROUP BY
 	tt.root
-LIMIT 0,1	
-	) 
+LIMIT 0,1 
+	) else t1.`order` end
 	)) AS `ORDERPK`,
 	t1.`ORDER`,
 	t1.`PARENT`,
