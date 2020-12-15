@@ -22,5 +22,7 @@ export const UserComponent = {
         v.component('app-task-list',() => import('@/ibiz-core/components/app-task-list/app-task-list.vue'));
         // 需求列表组件
         v.component('app-story-list',() => import('@/ibiz-core/components/app-story-list/app-story-list.vue'));
+        //bug列表组件
+        v.component('app-bug-list',() => import('@/ibiz-core/components/app-bug-list/app-bug-list.vue'));
     }
 };
