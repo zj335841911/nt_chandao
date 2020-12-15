@@ -104,6 +104,7 @@
 |-|日报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|发布移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|我的收藏|DEMOBTABEXPVIEW|&nbsp;|
+|-|需求选项需求实体移动端选项操作视图(项目按照计划关联)视图|DEMOBOPTVIEW|&nbsp;|
 |-|月报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|日报移动端编辑视图（编辑）|DEMOBEDITVIEW|&nbsp;|
@@ -140,7 +141,6 @@
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
-|-|需求实体移动端选择多数据视图（部件视图）(按照计划关联)|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|

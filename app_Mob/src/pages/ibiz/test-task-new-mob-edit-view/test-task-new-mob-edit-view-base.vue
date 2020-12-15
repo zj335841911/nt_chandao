@@ -189,7 +189,7 @@ export default class TestTaskNewMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestTaskNewMobEditViewBase
      */
-    protected navContext: any = { 'build': '%build%', 'project': '%project%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -198,7 +198,7 @@ export default class TestTaskNewMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestTaskNewMobEditViewBase
      */
-    protected navParam: any = { 'project': '%project%', 'build': '%build%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
