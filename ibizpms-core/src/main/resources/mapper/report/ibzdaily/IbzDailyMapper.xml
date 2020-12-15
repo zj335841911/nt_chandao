@@ -71,6 +71,7 @@
     <sql id="MyAllDaily" databaseId="mysql">
 		<![CDATA[ SELECT 		t1.`ACCOUNT`, 		t1.`CREATEDATE`, 		t1.`CREATEMAN`, 		t1.`CREATEMANNAME`, 		t1.`DATE`, 		t1.`IBZ_DAILYID`, 		t1.`IBZ_DAILYNAME`, 		t1.`ISSUBMIT`, 		t1.`MAILTO`, 		t1.MAILTO AS `MAILTOPK`, 		( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`, 		t1.`REPORTTO`, 		t1.REPORTTO AS `REPORTTOPK`, 		t1.`SUBMITTIME`, 		t1.`TODAYTASK`, 		t1.`TOMORROWPLANSTASK`, 		t1.`UPDATEDATE`, 		t1.`UPDATEMAN`, 		t1.`UPDATEMANNAME`  	FROM 		`T_IBZ_DAILY` t1 		LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_DAILYID  		AND t11.objectType = 'daily'  		AND t11.action = 'read'  		AND t11.actor = #{srf.sessioncontext.srfloginname}
 					 WHERE 	t1.account =  #{srf.sessioncontext.srfloginname}
+						 AND t1.date BETWEEN \"n_date_gtandeq\" and \"n_submittime_ltandeq\"
 			]]>
     </sql>
     <!--数据查询[MyDaily]-->

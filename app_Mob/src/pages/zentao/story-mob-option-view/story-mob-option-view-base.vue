@@ -190,7 +190,7 @@ export default class StoryMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof StoryMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': '%project%', 'objecttype': 'story' };
 
     /**
      * 视图模型数据

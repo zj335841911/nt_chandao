@@ -331,6 +331,7 @@ export default class ListMenuBase extends Vue implements ControlInterface {
                 this.load(data);
             });
         }
+        this.load();
     }
 
     /**
