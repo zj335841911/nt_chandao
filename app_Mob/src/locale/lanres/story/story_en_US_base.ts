@@ -463,10 +463,6 @@ export default {
 			caption: commonLogic.appcommonhandle("编辑",null),
 			tip: 'deuiaction1_openbaseinfoeditviewmob',
 		},
-		deuiaction1_projectlinkstoriesmob: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-			tip: 'deuiaction1_projectlinkstoriesmob',
-		},
 		deuiaction1_deletemob: {
 			caption: commonLogic.appcommonhandle("删除",null),
 			tip: 'deuiaction1_deletemob',
