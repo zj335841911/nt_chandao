@@ -401,6 +401,26 @@ export default {
 		uiactions: {
 		},
 	},
+	mobaccordingtoplan_form: {
+		details: {
+			group1: commonLogic.appcommonhandle("(此操作会将所选计划下面的需求全部关联到此项目中)",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("需求名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			title: commonLogic.appcommonhandle("需求名称",null), 
+			project: commonLogic.appcommonhandle("项目",null), 
+			plan: commonLogic.appcommonhandle("",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
 	activitemob_form: {
 		details: {
 			druipart1: commonLogic.appcommonhandle("",null), 
@@ -500,11 +520,19 @@ export default {
 			caption: commonLogic.appcommonhandle("关联需求",null),
 			tip: 'deuiaction1',
 		},
+		deuiaction2: {
+			caption: commonLogic.appcommonhandle("按照计划关联",null),
+			tip: 'deuiaction2',
+		},
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
 			tip: 'deuiaction1',
+		},
+		deuiaction2: {
+			caption: commonLogic.appcommonhandle("按照计划关联",null),
+			tip: 'deuiaction2',
 		},
 	},
 };
