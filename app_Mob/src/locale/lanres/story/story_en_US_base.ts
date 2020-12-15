@@ -121,6 +121,9 @@ export default {
 		usr2mobmpickupview: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
 		},
+		usr4mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
 		favoritemobmdview9: {
 			caption: commonLogic.appcommonhandle("需求",null),
 		},

@@ -1528,6 +1528,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '894891daad9363554bee4beda35b763f',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr4MobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '899ab4d4cfc33b089a9c4aa5118acbf3',
             viewmodule: 'ibiz',
             viewname: 'TodoMobMDView',

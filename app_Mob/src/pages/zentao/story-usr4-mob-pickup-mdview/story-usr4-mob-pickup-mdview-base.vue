@@ -1,76 +1,81 @@
 <template>
-<div class="view-container app-mob-pickup-mdview sys-employee-mpk-mob-pickup-tree-view">
-    <div class="view-content">
-        <view_tree
+<ion-page class="view-container app-mob-pickup-mdview story-usr4-mob-pickup-mdview">
+    <ion-content class="view-content" :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+        <view_mdctrl
     :viewState="viewState"
-    viewName="SysEmployeeMpkMobPickupTreeView"  
+    viewName="StoryUsr4MobPickupMDView"  
     :viewparams="viewparams" 
     :context="context" 
-    :isOptional="false"
-    updateAction='Update'
-    removeAction='Remove'
-    loadAction='Get'
-    createAction='Create'
-    viewType="DEMOBPICKUPTREEVIEW"
-    :isSingleSelect="isSingleSelect"
-    name="tree"  
-    ref='tree' 
-    @selectchange="tree_selectchange($event)"  
-    @click="tree_click($event)"  
-    @load="tree_load($event)"  
+    viewType="DEMOBPICKUPMDVIEW"
+    controlStyle="LISTVIEW"
+    updateAction="Update"
+    removeAction="Remove"
+    loaddraftAction=""
+    loadAction="Get"
+    createAction="Create"
+    fetchAction="FetchDefault" 
+    :isMutli="!isSingleSelect"
+    :isNeedLoaddingText="!isPortalView"
+    :showBusyIndicator="true" 
+    :isTempMode="false"
+    name="mdctrl"  
+    ref='mdctrl' 
+    @selectionchange="mdctrl_selectionchange($event)"  
+    @beforeload="mdctrl_beforeload($event)"  
+    @rowclick="mdctrl_rowclick($event)"  
+    @load="mdctrl_load($event)"  
     @closeview="closeView($event)">
-</view_tree>
-    </div>
-</div>
+</view_mdctrl>
+    </ion-content>
+</ion-page>
 </template>
-
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SysEmployeeService from '@/app-core/service/sys-employee/sys-employee-service';
+import StoryService from '@/app-core/service/story/story-service';
 
-import MobPickupTreeViewEngine from '@engine/view/mob-pickup-tree-view-engine';
-import SysEmployeeUIService from '@/ui-service/sys-employee/sys-employee-ui-action';
+import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
+import StoryUIService from '@/ui-service/story/story-ui-action';
 import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
     },
 })
-export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
+export default class StoryUsr4MobPickupMDViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {SysEmployeeService}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @type {StoryService}
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
-    protected appEntityService: SysEmployeeService = new SysEmployeeService();
+    protected appEntityService: StoryService = new StoryService();
 
     /**
      * 实体UI服务对象
      *
-     * @type SysEmployeeUIService
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @type StoryUIService
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
-    public appUIService: SysEmployeeUIService = new SysEmployeeUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -81,7 +86,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Prop() protected _context!: string;
 
@@ -89,7 +94,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -97,7 +102,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -105,15 +110,15 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof SysEmployeeMpkMobPickupTreeViewBase
+	 * @memberof StoryUsr4MobPickupMDViewBase
 	 */
-	protected viewtag: string = '3f3ce1e1a97aa0a275343052c5fb6d6c';
+	protected viewtag: string = '894891daad9363554bee4beda35b763f';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected context: any = {};
 
@@ -121,7 +126,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected viewparams: any = {};
 
@@ -129,7 +134,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -137,14 +142,14 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     public titleStatus :boolean = true;
 
@@ -153,7 +158,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected navContext: any = {};
 
@@ -162,7 +167,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected navParam: any = {};
 
@@ -170,16 +175,16 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected model: any = {
-        srfTitle: '人员移动端选择树视图',
-        srfCaption: 'sysemployee.views.mpkmobpickuptreeview.caption',
+        srfTitle: '需求实体移动端选择多数据视图（部件视图）(按照计划关联)',
+        srfCaption: 'story.views.usr4mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'sysemployee.mpkmobpickuptreeview',
+        viewname:'story.usr4mobpickupmdview',
         iconcls: '',
-        icon: ''
+        icon: 'star-o'
     }
 
     /**
@@ -187,7 +192,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof  StoryUsr4MobPickupMDViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -216,7 +221,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -229,17 +234,17 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected containerModel: any = {
-        view_tree: { name: 'tree', type: 'TREEVIEW' },
+        view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -248,7 +253,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -256,14 +261,14 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -276,7 +281,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -290,21 +295,21 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
-    protected engine: MobPickupTreeViewEngine = new MobPickupTreeViewEngine();
+    protected engine: MobPickupMDViewEngine = new MobPickupMDViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
-            tree: this.$refs.tree,
-            keyPSDEField: 'sysemployee',
-            majorPSDEField: 'personname',
+            mdctrl: this.$refs.mdctrl,
+            keyPSDEField: 'story',
+            majorPSDEField: 'title',
             isLoadDefault: true,
         });
     }
@@ -312,7 +317,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected created() {
         this.afterCreated();
@@ -321,7 +326,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -329,15 +334,6 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        if (this.panelViewState) {
-            this.panelStateEvent = this.panelViewState.subscribe((res: any) => {
-                if (Object.is(res.tag, 'pickupviewpanel')) {
-                    if (Object.is(res.action, 'refresh')) {
-                        this.viewState.next({ tag: 'tree', action: 'refresh', data: res.data });
-                    }
-                }
-            });
-        }
 
 
     }
@@ -346,7 +342,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -355,7 +351,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     public activated() {
         this.thirdPartyInit();
@@ -366,7 +362,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -376,7 +372,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -391,7 +387,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -403,7 +399,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -412,7 +408,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -422,43 +418,51 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
                 }
             });
         }
-    if (this.panelStateEvent) {
-        this.panelStateEvent.unsubscribe();
-    }
 
     }
 
     /**
-     * tree 部件 selectchange 事件
+     * mdctrl 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
-    protected tree_selectchange($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('tree', 'selectchange', $event);
+    protected mdctrl_selectionchange($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
     }
 
     /**
-     * tree 部件 click 事件
+     * mdctrl 部件 beforeload 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
-    protected tree_click($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('tree', 'click', $event);
+    protected mdctrl_beforeload($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
     }
 
     /**
-     * tree 部件 load 事件
+     * mdctrl 部件 rowclick 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
-    protected tree_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('tree', 'load', $event);
+    protected mdctrl_rowclick($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
+    }
+
+    /**
+     * mdctrl 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof StoryUsr4MobPickupMDViewBase
+     */
+    protected mdctrl_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
 
@@ -466,7 +470,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -490,7 +494,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -520,7 +524,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -532,7 +536,7 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -554,59 +558,106 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
+     * @memberof StoryUsr4MobPickupMDViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
+    /**
+     * onScroll滚动事件
+     *
+     * @memberof StoryUsr4MobPickupMDViewBase
+     */
+    public async onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+                    let ionScroll :any= this.$refs.ionScroll;
+        if(ionScroll){
+            let ele =  await ionScroll.getScrollElement();
+            if(ele){
+                let scrollTop = ele.scrollTop;
+                let clientHeight = ele.clientHeight;
+                let scrollHeight = ele.scrollHeight;
+                if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                    let mdctrl:any = this.$refs.mdctrl; 
+                    if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
+                        mdctrl.loadBottom();
+                    }           
+                }
+            }
+        }
+
+    }
+
+    /**
+     * onScroll滚动结束事件
+     *
+     * @memberof StoryUsr4MobPickupMDViewBase
+     */
+    public onScrollEnd(){
+        this.isScrollStop = true;
+    }
+
+    /**
+     * 返回顶部
+     *
+     * @memberof StoryUsr4MobPickupMDViewBase
+     */
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
+        }
+    }
+
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof StoryUsr4MobPickupMDViewBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof StoryUsr4MobPickupMDViewBase
+     */
+    public isScrollStop = true;
 
 
    /**
      * 是否单选
      *
      * @type {boolean}
-     * @memberof SysEmployeeMpkMobPickupTreeView
+     * @memberof StoryUsr4MobPickupMDView
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
     /**
      * 搜索值
      *
-     * @memberof SysEmployeeMpkMobPickupTreeView
+     * @memberof StoryUsr4MobPickupMDView
      */
     public query = "";
     
     /**
      * 快速搜索
      *
-     * @memberof SysEmployeeMpkMobPickupTreeView
+     * @memberof StoryUsr4MobPickupMDView
      */
     public quickSearch(value:any){
         this.query = value;
-        this.viewState.next({tag:'tree',action:'quicksearch',data: value});
+        this.viewState.next({tag:'mdctrl',action:'quicksearch',data: value});
     }
-
-    /**
-     * 面板通知对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
-     */
-    @Prop() protected panelViewState?: Subject<ViewState>;
-
-    /**
-     * 面板订阅对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof SysEmployeeMpkMobPickupTreeViewBase
-     */
-    public panelStateEvent :Subscription | undefined;
-
-
+    
 }
 </script>
 
 <style lang='less'>
-@import './sys-employee-mpk-mob-pickup-tree-view.less';
+@import './story-usr4-mob-pickup-mdview.less';
 </style>

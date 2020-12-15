@@ -1174,6 +1174,9 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
                 if (Object.is('refresh_parent', action)) {
                     this.refresh_parent();
                 }
+                if (Object.is('quicksearch', action)) {
+                    this.webLoad(data);
+                }
                 if (Object.is('refresh', action)) {
                     this.selectedNodes = data;
                     this.parseNodes(this.nodes);
