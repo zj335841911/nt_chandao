@@ -10,7 +10,6 @@
                 <ion-list class="items" ref="ionlist"  >
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.projectLinkStoriesMob.visabled" :disabled="item.projectLinkStoriesMob.disabled" color="primary" @click="mdctrl_click($event, 'u72e1edf', item)"><ion-icon v-if="item.projectLinkStoriesMob.icon && item.projectLinkStoriesMob.isShowIcon" :name="item.projectLinkStoriesMob.icon"></ion-icon><ion-label v-if="item.projectLinkStoriesMob.isShowCaption">关联需求</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ProjectUnlinkStoryMob.visabled" :disabled="item.ProjectUnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u3a6091c', item)"><ion-icon v-if="item.ProjectUnlinkStoryMob.icon && item.ProjectUnlinkStoryMob.isShowIcon" :name="item.ProjectUnlinkStoryMob.icon"></ion-icon><ion-label v-if="item.ProjectUnlinkStoryMob.isShowCaption">移除</ion-label></ion-item-option>
                         </ion-item-options>
                     <ion-item>
@@ -160,37 +159,6 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
      */  
     public deUIService:StoryUIService = new StoryUIService(this.$store);
     
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u72e1edf_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        Object.assign(paramJO, {});
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
-        if (curUIService) {
-            curUIService.Story_projectLinkStoriesMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 逻辑事件
@@ -1013,9 +981,6 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u72e1edf')) {
-            this.mdctrl_u72e1edf_click();
-        }
         if (Object.is(tag, 'u3a6091c')) {
             this.mdctrl_u3a6091c_click();
         }
@@ -1107,7 +1072,6 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
      * @memberof MOBPorjectBase
      */  
     public ActionModel:any ={
-        projectLinkStoriesMob: { name: 'projectLinkStoriesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'NONE',icon:'link',isShowCaption:false,isShowIcon:true},
         ProjectUnlinkStoryMob: { name: 'ProjectUnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'close-circle',isShowCaption:false,isShowIcon:true}
     };
 

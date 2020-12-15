@@ -493,7 +493,15 @@ export default {
 		},
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+			tip: '关联需求',
+		},
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+			tip: '关联需求',
+		},
 	},
 };
