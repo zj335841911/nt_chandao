@@ -90,16 +90,26 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
-            <div  class="bottom_button" >
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+            <ion-button  v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" size="large">
                     <ion-icon name="link"></ion-icon>
                 
                 </ion-button>
                 
             </div>
         
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" size="large">
+                <span class="btn-inner-text">{{$t('story.mobmdviewcurprojectrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobmdviewcurprojectrighttoolbar_toolbar.deuiaction2.caption')}}</span>
             </div>
+        
+                </div>
+            </van-popup>
         </div>
         
     <div class="scroll_tool">
@@ -349,6 +359,8 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
     */
     public righttoolbarModels: any = {
             deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStoriesMob', target: 'NONE' } },
+
+            deuiaction2: { name: 'deuiaction2', caption: '按照计划关联', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'MobAccordingToPlanLinkStory', target: 'NONE' } },
 
     };
 
@@ -673,6 +685,9 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.righttoolbar_deuiaction1_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.righttoolbar_deuiaction2_click($event, '', $event2);
+        }
     }
 
 
@@ -705,6 +720,38 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_projectLinkStoriesMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    protected async righttoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_MobAccordingToPlanLinkStory(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

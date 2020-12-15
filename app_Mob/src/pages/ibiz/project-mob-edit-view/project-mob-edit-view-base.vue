@@ -41,7 +41,7 @@
                 
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" size="large">
                     <ion-icon name="color-wand"></ion-icon>
                 <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
                 </ion-button>
@@ -49,7 +49,7 @@
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" size="large">
                     <ion-icon name="pause"></ion-icon>
                 <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
                 </ion-button>
@@ -57,7 +57,7 @@
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" size="large">
                     <ion-icon name="power"></ion-icon>
                 <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}</span>
                 </ion-button>
@@ -65,7 +65,7 @@
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction4.disabled}" v-show="righttoolbarModels.deuiaction4.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event),popUpGroup()" size="large">
                     <ion-icon name="close"></ion-icon>
                 <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}</span>
                 </ion-button>

@@ -46,7 +46,7 @@
                 <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
             <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
-                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event),popUpGroup()" size="large">
                     <ion-icon name="checkmark-outline"></ion-icon>
                 
                 </ion-button>
@@ -189,7 +189,7 @@ export default class TestTaskNewMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestTaskNewMobEditViewBase
      */
-    protected navContext: any = { 'build': '%build%', 'project': '%project%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -198,7 +198,7 @@ export default class TestTaskNewMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestTaskNewMobEditViewBase
      */
-    protected navParam: any = { 'project': '%project%', 'build': '%build%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据

@@ -299,6 +299,8 @@ yyyy-MM-dd
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `>=` |
+| 3 | `<=` |
 
 #### 关系属性
 无
@@ -1172,10 +1174,12 @@ Save
 | ---- | ---- | ---- |
 | 1 | [日报名称（IBZ_DAILYNAME）](#属性-日报名称（IBZ_DAILYNAME）) | `%like%` |
 | 2 | [日期（DATE）](#属性-日期（DATE）) | `=` |
-| 3 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `=` |
-| 4 | [是否提交（ISSUBMIT）](#属性-是否提交（ISSUBMIT）) | `=` |
-| 5 | [汇报给（REPORTTO）](#属性-汇报给（REPORTTO）) | `=` |
-| 6 | [状态（REPORTSTATUS）](#属性-状态（REPORTSTATUS）) | `=` |
+| 3 | [日期（DATE）](#属性-日期（DATE）) | `>=` |
+| 4 | [日期（DATE）](#属性-日期（DATE）) | `<=` |
+| 5 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `=` |
+| 6 | [是否提交（ISSUBMIT）](#属性-是否提交（ISSUBMIT）) | `=` |
+| 7 | [汇报给（REPORTTO）](#属性-汇报给（REPORTTO）) | `=` |
+| 8 | [状态（REPORTSTATUS）](#属性-状态（REPORTSTATUS）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

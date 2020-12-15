@@ -49,7 +49,7 @@
                 <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
             <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobcreate.disabled}" v-show="righttoolbarModels.deuiaction1_mobcreate.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobcreate.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobcreate' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobcreate.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobcreate' }, $event),popUpGroup()" size="large">
                     <ion-icon name="add"></ion-icon>
                 
                 </ion-button>

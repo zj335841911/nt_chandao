@@ -331,6 +331,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                 this.load(data);
             });
         }
+        this.load({});
     }
 
     /**

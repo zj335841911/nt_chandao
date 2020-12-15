@@ -118,7 +118,7 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdview_testtaskrighttoolbar_toolbar: {
+	mobmdview_testtaskrighttoolbar2_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
 			tip: 'deuiaction1',

@@ -48,7 +48,7 @@
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmstorychangecz.disabled}" v-show="righttoolbarModels.deuiaction1_confirmstorychangecz.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmstorychangecz.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmstorychangecz.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event),popUpGroup()" size="large">
                     <ion-icon name="search"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychangecz.caption')}}</span>
                 </ion-button>
@@ -56,7 +56,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_startmobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_startmobteamtask.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_startmobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_startmobteamtask' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_startmobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_startmobteamtask' }, $event),popUpGroup()" size="large">
                     <ion-icon name="play"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_startmobteamtask.caption')}}</span>
                 </ion-button>
@@ -64,7 +64,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event),popUpGroup()" size="large">
                     <ion-icon name="people"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}</span>
                 </ion-button>
@@ -72,7 +72,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activemobtask.disabled}" v-show="righttoolbarModels.deuiaction1_activemobtask.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_activemobtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activemobtask' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_activemobtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activemobtask' }, $event),popUpGroup()" size="large">
                     <ion-icon name="magic"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_activemobtask.caption')}}</span>
                 </ion-button>
@@ -80,7 +80,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled}" v-show="righttoolbarModels.deuiaction1_consumedmobtaskteam.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_consumedmobtaskteam' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_consumedmobtaskteam' }, $event),popUpGroup()" size="large">
                     <ion-icon name="clock-o"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_consumedmobtaskteam.caption')}}</span>
                 </ion-button>
@@ -88,7 +88,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_finishtask1.disabled}" v-show="righttoolbarModels.deuiaction1_finishtask1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_finishtask1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_finishtask1' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_finishtask1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_finishtask1' }, $event),popUpGroup()" size="large">
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_finishtask1.caption')}}</span>
                 </ion-button>
@@ -96,7 +96,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausemobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_pausemobteamtask.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_pausemobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausemobteamtask' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_pausemobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausemobteamtask' }, $event),popUpGroup()" size="large">
                     <ion-icon name="pause"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausemobteamtask.caption')}}</span>
                 </ion-button>
@@ -104,7 +104,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_restartmobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_restartmobteamtask.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_restartmobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_restartmobteamtask' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_restartmobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_restartmobteamtask' }, $event),popUpGroup()" size="large">
                     <ion-icon name="step-forward"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_restartmobteamtask.caption')}}</span>
                 </ion-button>
@@ -112,7 +112,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_canceltaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event),popUpGroup()" size="large">
                     <ion-icon name="power"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_canceltaskmob.caption')}}</span>
                 </ion-button>
@@ -120,7 +120,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_closetaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_closetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event),popUpGroup()" size="large">
                     <ion-icon name="backspace"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_closetaskmob.caption')}}</span>
                 </ion-button>
@@ -128,7 +128,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" size="large">
                     <ion-icon name="edit"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
                 </ion-button>
@@ -136,7 +136,7 @@
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" size="large">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event),popUpGroup()" size="large">
                     <ion-icon name="remove"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
                 </ion-button>

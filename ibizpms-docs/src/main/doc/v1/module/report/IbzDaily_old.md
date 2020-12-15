@@ -123,6 +123,8 @@
 | --------   |------------|
 |日报名称(IBZ_DAILYNAME)|LIKE|
 |日期(DATE)|EQ|
+|日期(DATE)|GTANDEQ|
+|日期(DATE)|LTANDEQ|
 |用户(ACCOUNT)|EQ|
 |是否提交(ISSUBMIT)|EQ|
 |汇报给(REPORTTO)|EQ|

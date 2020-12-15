@@ -720,13 +720,13 @@ export default class MyWorkBase extends Vue implements ControlInterface {
         switch(deName){
             case "ibzdaily": 
                 view = {
-                    viewname: 'ibz-daily-daily-info-mob-edit-view', 
+                    viewname: 'ibz-daily-daily-mob-tab-exp-view', 
                     height: 0, 
                     width: 0,  
-                    title: '日报移动端编辑视图(日报描述)', 
+                    title: '日报分页导航视图', 
                     placement: '',
                     deResParameters: [],
-                    parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailyinfomobeditview', parameterName: 'dailyinfomobeditview' } ],
+                    parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailymobtabexpview', parameterName: 'dailymobtabexpview' } ],
                 };
                 break;
             case "task": 

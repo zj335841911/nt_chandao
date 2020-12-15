@@ -26,5 +26,7 @@ export const UserComponent = {
         v.component('app-bug-list',() => import('@/ibiz-core/components/app-bug-list/app-bug-list.vue'));
         // 项目团队列表组件
         v.component('app-projectteam-list',() => import('@/ibiz-core/components/app-projectteam-list/app-projectteam-list.vue'));
+        // 测试用例列表组件
+        v.component('app-case-list',() => import('@/ibiz-core/components/app-case-list/app-case-list.vue'));
     }
 };

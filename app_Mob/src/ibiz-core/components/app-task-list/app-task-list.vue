@@ -99,7 +99,7 @@ export default class appTaskList extends Vue {
         }else{
         // 单人
             this.item.assignedto_text = this.getCodeListText('UserRealName',this.item.assignedto).label;
-            this.item.assignedto_text = this.item.assignedto_text.substring(0,1);
+            this.item.assignedto_text = this.item.assignedto_text?this.item.assignedto_text.substring(0,1):"";
         }
         // 任务标记
         if(Object.is(this.item.multiple,'1')){

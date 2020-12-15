@@ -36,7 +36,7 @@
     name='projecttname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='project' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -76,7 +76,7 @@
     name='buildname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='build' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
