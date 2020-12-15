@@ -30,6 +30,9 @@ export class MobModel {
 				name: 'pri',
 			},
 			{
+				name: 'deadline',
+			},
+			{
 				name: 'status',
 			},
 			{
