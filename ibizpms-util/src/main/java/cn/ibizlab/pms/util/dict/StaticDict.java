@@ -1700,8 +1700,7 @@ public class StaticDict {
         CUSTOM("custom","自定义"),
         BUG("bug","Bug"),
         TASK("task","项目任务"),
-        STORY("story","项目需求"),
-        CYCLE("cycle","周期");
+        STORY("story","项目需求");
 
         private String value;
         private String text;

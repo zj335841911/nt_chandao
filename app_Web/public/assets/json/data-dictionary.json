@@ -4803,18 +4803,6 @@
                 "disabled": false,
                 "default": false
             }
-            , {
-                "id": "cycle",
-                "label": "周期",
-                "text": "周期",
-                "class":"",
-                "data":"",
-                "codename":"Cycle",
-                "value": "cycle",
-                
-                "disabled": true,
-                "default": false
-            }
         ]
     }, 
     {

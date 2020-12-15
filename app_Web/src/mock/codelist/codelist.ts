@@ -4103,16 +4103,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
-            {
-                id: "cycle",
-                label: "周期",
-                text: "周期",
-                "data":"",
-                "codename":"Cycle",
-                value: "cycle",
-                
-                disabled: true,
-            },
         ]
     },
     {
