@@ -65,7 +65,7 @@
 {"type":"app",
 "appCodeName":"Story",
 "appName":"需求",
-"portletCodeName": "MyStoryMob",
+"portletCodeName": "MyStory",
 "detailText":"快速查看在所有参与产品中指派给我的需求",
 "portletTYpe":"VIEW",
 "detailImage":"assets/images/add-story-list-card.jpg",

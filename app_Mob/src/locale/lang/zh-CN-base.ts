@@ -131,7 +131,7 @@ export default {
              mytaskmob: {
                 caption: commonLogic.appcommonhandle("指派给我的任务",null),
              },
-             mystorymob: {
+             mystory: {
                 caption: commonLogic.appcommonhandle("指派给我的需求",null),
              },
              reportnew: {
