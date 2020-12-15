@@ -322,7 +322,7 @@ export default class StoryUsr2MobMDViewBase extends Vue {
     public righttoolbarModels: any = {
             deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStoriesMob', target: 'NONE' } },
 
-            deuiaction2: { name: 'deuiaction2', caption: '按照计划关联', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobAccordingToPlanLinkStory', target: 'SINGLEKEY' } },
+            deuiaction2: { name: 'deuiaction2', caption: '按照计划关联', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobAccordingToPlanLinkStory', target: 'NONE' } },
 
     };
 

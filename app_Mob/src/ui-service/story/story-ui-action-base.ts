@@ -717,10 +717,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      */
     public async Story_MobAccordingToPlanLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
