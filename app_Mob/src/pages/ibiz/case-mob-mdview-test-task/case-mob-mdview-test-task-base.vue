@@ -97,8 +97,8 @@
     <ion-footer class="view-footer">
                 <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
             <div  class="bottom_button" >
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                <div :class="{'sub-item':true,'disabled':righttoolbar2Models.deuiaction1.disabled}" v-show="righttoolbar2Models.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbar2Models.deuiaction1.disabled" @click="righttoolbar2_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="link"></ion-icon>
                 
                 </ion-button>
@@ -324,8 +324,8 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      */
     protected containerModel: any = {
         view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_righttoolbar2: { name: 'righttoolbar2', type: 'TOOLBAR' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -347,14 +347,13 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
 
 
 
-
    /**
     * 工具栏 CaseMobMDView_TestTask 模型
     *
     * @type {*}
     * @memberof CaseMobMDView_TestTask
     */
-    public righttoolbarModels: any = {
+    public righttoolbar2Models: any = {
             deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'MobTaskLinkCase', target: 'NONE' } },
 
     };
@@ -365,7 +364,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      * @type {boolean}
      * @memberof CaseMobMDView_TestTask 
      */
-    public righttoolbarShowState: boolean = false;
+    public righttoolbar2ShowState: boolean = false;
 
     /**
      * 工具栏权限
@@ -375,9 +374,9 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      */
     get getToolBarLimit() {
         let toolBarVisable:boolean = false;
-        if(this.righttoolbarModels){
-            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
-                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+        if(this.righttoolbar2Models){
+            Object.keys(this.righttoolbar2Models).forEach((tbitem:any)=>{
+                if(this.righttoolbar2Models[tbitem].type !== 'ITEMS' && this.righttoolbar2Models[tbitem].visabled === true){
                     toolBarVisable = true;
                     return;
                 }
@@ -407,12 +406,13 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
     
 
 
+
     /**
      * 工具栏模型集合名
      *
      * @memberof CaseMobMDView_TestTaskBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = ['righttoolbar2Models',]
 
     /**
      * 解析视图参数
@@ -642,6 +642,19 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
     }
 
     /**
+     * righttoolbar2 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof CaseMobMDView_TestTaskBase
+     */
+    protected righttoolbar2_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar2_deuiaction1_click($event, '', $event2);
+        }
+    }
+
+    /**
      * mdctrl 部件 selectionchange 事件
      *
      * @param {*} [args={}]
@@ -685,19 +698,6 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
-    /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof CaseMobMDView_TestTaskBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.righttoolbar_deuiaction1_click($event, '', $event2);
-        }
-    }
-
 
     /**
      * 逻辑事件
@@ -709,7 +709,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      * @returns {Promise<any>}
      * @memberof CaseMobMDView_TestTaskBase
      */
-    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar2_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数

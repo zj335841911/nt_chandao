@@ -1113,6 +1113,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5de478b9876d5aa79de141207737d7fc',
+            viewmodule: 'zentao',
+            viewname: 'StoryMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'eef4931ab99bfda807489700470bad47',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
             viewtag: '5fe25d42c90a7c54a91c4b284851f70e',
             viewmodule: 'report',
             viewname: 'IbzMonthlyMySubmitMobMDView',

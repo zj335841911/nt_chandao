@@ -106,6 +106,9 @@ export default {
 		usr3mobmdview: {
 			caption: commonLogic.appcommonhandle("需求",null),
 		},
+		moboptionview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
 		favoritemoremobmdview: {
 			caption: commonLogic.appcommonhandle("我收藏的需求",null),
 		},
