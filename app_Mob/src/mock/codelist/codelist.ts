@@ -4068,20 +4068,6 @@ const datas: Array<any> = [
         "items": []
     },
     {
-        srfkey: 'Private_choose',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: '1',
-                label: '是',
-                text: '是',
-                value: '1',
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: 'Bug__severity_mob',
         emptytext: '未定义',
         "codelisttype":"static",

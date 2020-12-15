@@ -6141,24 +6141,6 @@
         "items": []
     }, 
     {
-        "srfkey": "Private_choose",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "1",
-                "label": "是",
-                "text": "是",
-                "default": false,
-                "data": "",
-                "value": "1",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "Bug__severity_mob",
         "emptytext": "未定义",
         "codelisttype":"static",
