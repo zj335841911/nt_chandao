@@ -691,7 +691,6 @@ export default {
         'bug': commonLogic.appcommonhandle("Bug",null),
         'task': commonLogic.appcommonhandle("项目任务",null),
         'story': commonLogic.appcommonhandle("项目需求",null),
-        'cycle': commonLogic.appcommonhandle("周期",null),
         empty: commonLogic.appcommonhandle("",null),
     },
     Task__closed_reason: {

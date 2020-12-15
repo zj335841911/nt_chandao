@@ -5878,17 +5878,6 @@
                 
                 "disabled": false
             }
-            , {
-                "id": "cycle",
-                "label": "周期",
-                "text": "周期",
-                "default": false,
-                "data": "",
-                "value": "cycle",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
         ]
     }, 
     {

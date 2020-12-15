@@ -1,84 +1,24 @@
 <template>
     <div  class="app-mob-mdctrl case-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-            <ion-list class="items" ref="ionlist">
-                <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                    </ion-item-sliding>
-                </template>
-            </ion-list>
-            <ion-list class="items" ref="ionlist" >
-                <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                      </ion-item-sliding>
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
-                    <app-list-swipe :items="items"></app-list-swipe>
-                </template>
-                <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
-                    <li v-for="item in items" @click="goPage(item)" :key="item.srfkey" class="app-mob-mdctrl-item">
-                        <van-panel :title="item.srfmajortext ">
-                            <div class="van-cell van-panel__header" >
-                                <div class="van-cell__title time">
-                                    <div class="van-cell__label">
-                                        {{ item.starttime }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title subtitle">
-                                    <span>步骤</span>
-                                    <div class="van-cell__label">
-                                        {{ item.wfstep }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title content" >
-                                    <span>{{item.startusername}}</span>
-                                    <div class="van-cell__label">
-                                        {{ item.documentcentername }}
-                                    </div>
-                                </div>
-                            </div>
-                        </van-panel>
-                    </li>
-                </template>
-                <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-list>
-                    <div class="pickUpList">
-                    <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-radio-group>
-                    </div>
-                </template>
-            </ion-list>
+                <ion-list class="items" ref="ionlist" >
+                  <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
+                      <app-case-list  :item="item"></app-case-list>
+                      <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                  </template>
+                </ion-list>
+                <ion-list class="items" ref="ionlist"  >
+                  <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                    <ion-item>
+                      <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
+                          <app-case-list  :item="item"></app-case-list>
+                      </template>
+                      <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
+                          <app-case-list  :item="item"></app-case-list>
+                      </template>
+                    </ion-item>
+                  </ion-item-sliding>
+                </ion-list>
              <div  v-if="items.length == 0" class="no-data">
                 <div>暂无数据</div>
             </div>
