@@ -1,9 +1,9 @@
 <template>
-    <transition name="fade">
+    <!-- <transition name="fade"> -->
         <app-keep-alive :routerList="getRouterList">
             <router-view :key="this.$route.fullPath"></router-view>
         </app-keep-alive>
-    </transition>
+    <!-- </transition> -->
 
 </template>
 
