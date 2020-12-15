@@ -99,46 +99,31 @@ export default {
         },
         portlets:{
              productstatuschartmob: {
-                caption: commonLogic.appcommonhandle("产品总览",null),
+                caption: commonLogic.appcommonhandle("产品总览（移动端）",null),
              },
              alltrendsmob: {
-                caption: commonLogic.appcommonhandle("全部动态",null),
-             },
-             listmenu: {
-                caption: commonLogic.appcommonhandle("列表",null),
-             },
-             iconstylemenu: {
-                caption: commonLogic.appcommonhandle("图标",null),
-             },
-             imgswipestylemenu: {
-                caption: commonLogic.appcommonhandle("图片滑动",null),
+                caption: commonLogic.appcommonhandle("全部动态（移动端）",null),
              },
              myfavoritetask: {
-                caption: commonLogic.appcommonhandle("我收藏的任务",null),
+                caption: commonLogic.appcommonhandle("我收藏的任务（移动端）",null),
              },
              mobmyfavoritestory1: {
-                caption: commonLogic.appcommonhandle("我收藏的需求",null),
-             },
-             my: {
-                caption: commonLogic.appcommonhandle("我的地盘",null),
+                caption: commonLogic.appcommonhandle("我收藏的需求（MOB）",null),
              },
              mywork: {
-                caption: commonLogic.appcommonhandle("我的工作",null),
+                caption: commonLogic.appcommonhandle("我的工作（移动端）",null),
              },
              mybugmob: {
-                caption: commonLogic.appcommonhandle("指派给我的Bug",null),
+                caption: commonLogic.appcommonhandle("我的Bug（移动端）",null),
              },
              mytaskmob: {
-                caption: commonLogic.appcommonhandle("指派给我的任务",null),
+                caption: commonLogic.appcommonhandle("我的任务（移动端）",null),
              },
              mystory: {
-                caption: commonLogic.appcommonhandle("指派给我的需求",null),
-             },
-             reportnew: {
-                caption: commonLogic.appcommonhandle("汇报",null),
+                caption: commonLogic.appcommonhandle("我的需求（移动端）",null),
              },
              projectstatusbarmob: {
-                caption: commonLogic.appcommonhandle("项目统计",null),
+                caption: commonLogic.appcommonhandle("项目统计（移动端）",null),
              },
         },
         menus: {
