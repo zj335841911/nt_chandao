@@ -444,7 +444,7 @@ export class BugProjectGridViewBase extends GridViewBase {
      * @memberof BugProjectGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = {PRODUCT:"%product%"};
+        const localContext: any = {PROJECT:"%project%",PRODUCT:"%product%"};
         const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
