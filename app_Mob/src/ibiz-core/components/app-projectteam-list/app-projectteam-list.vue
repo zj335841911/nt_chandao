@@ -1,10 +1,24 @@
 <template>
     <div class="app-projectteam-list-item">
         <div class="app-projectteam-list-item_top">
-            <div class="account_part">
-              <div class="account_part_item">{{item.account_part}}</div>
+            <div v-if="item.account_icon" class="account_part"><img class="tree_item_img" v-if="item.strIcon" :src="item.strIcon" /></div>
+            <div v-else class="account_part">{{item.account_part}}</div>
+            <div>
+                <strong><div class="account_text">{{item.account_text}}</div></strong>
+                <div class="role">{{item.role}}</div>
             </div>
-            <div>{{item.account_text}}</div>
+        </div>
+        <div class="app-projectteam-list-item_center">
+            <span class="title"><strong>加盟日</strong></span>
+            <span class="left">{{item.join}}</span>
+            <span class="title"><strong>可用工日</strong></span>
+            <span class="right">{{item.days}}</span>
+        </div>
+        <div class="app-projectteam-list-item_center">
+            <span class="title"><strong>可用工时/天</strong></span>
+            <span class="left">{{item.hours}}</span>
+            <span class="title"><strong>总计</strong></span>
+            <span class="right">{{item.total}}</span>
         </div>
     </div>
 </template>
@@ -42,9 +56,13 @@ export default class appProjectTeamList extends Vue {
     /**
      * 解析
      */
-    public parseData(){
-        this.item.account_text = this.getCodeListText('UserRealName',this.item.account).label;
-        this.item.account_part = this.item.assignedto_text.substring(0, 1);
+    public parseData() {
+        this.item.account_text = this.getCodeListText('UserRealName', this.item.account).label;
+        if (!this.item.account_text) {
+            this.item.account_text = this.item.account;
+        }
+        this.item.account_icon = this.getCodeListText('UserRealName', this.item.account).icon;
+        this.item.account_part = this.item.account_text.substring(0, 1);
         this.$forceUpdate();
     }
 
