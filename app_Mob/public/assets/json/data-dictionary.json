@@ -1086,7 +1086,7 @@
                 "value": 4,
                 "isValueNumber":true,
                 
-                "className":"text-green-border-color",
+                "className":"text-green-border-color-lang",
                 "disabled": false
             }
         ]
@@ -6976,7 +6976,7 @@
                 "value": 4,
                 "isValueNumber":true,
                 
-                "className":"text-green-border-color",
+                "className":"text-green-border-color-lang",
                 "disabled": false
             }
         ]
