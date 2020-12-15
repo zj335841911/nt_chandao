@@ -4111,7 +4111,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "codename":"Cycle",
                 value: "cycle",
                 
-                disabled: false,
+                disabled: true,
             },
         ]
     },

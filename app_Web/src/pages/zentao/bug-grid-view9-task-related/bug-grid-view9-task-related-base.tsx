@@ -80,6 +80,10 @@ export class BugGridView9_TaskRelatedBase extends GridView9Base {
         'N_TASK_EQ': {
             isRawValue: false,
             value: 'srfparentkey',
+        },
+        'STORY': {
+            isRawValue: true,
+            value: 'null',
         }
     };
 
