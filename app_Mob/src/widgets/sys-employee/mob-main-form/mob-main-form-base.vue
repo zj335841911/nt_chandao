@@ -2,36 +2,14 @@
     <div ref='form' class="app-form sysemployee-form ">
                 
 
-<app-form-item 
-    name='usericon' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="usericon_item"  
-    :itemValue="this.data.usericon" 
-    v-show="detailsModel.usericon.visible" 
-    :itemRules="this.rules.usericon" 
-    :caption="$t('sysemployee.mobmain_form.details.usericon')"  
-    :labelWidth="60"  
-    :isShowCaption="true"
-    :disabled="detailsModel.usericon.disabled"
-    :error="detailsModel.usericon.error" 
-    :isEmptyCaption="false">
-        <app-mob-picture 
-    name='usericon' 
-    style="overflow: auto;" 
-    :multiple="false" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.usericon" 
-    :disabled="detailsModel.usericon.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}'
-    @formitemvaluechange="onFormItemValueChange" />
-</app-form-item>
+    !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${editor.name}  [in template "TEMPLCODE_zh_CN" at line 2, column 11]
+----
 
 
 
