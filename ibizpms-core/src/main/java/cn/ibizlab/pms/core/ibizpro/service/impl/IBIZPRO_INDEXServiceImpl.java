@@ -200,6 +200,27 @@ public class IBIZPRO_INDEXServiceImpl extends ServiceImpl<IBIZPRO_INDEXMapper, I
         return true;
     }
 
+    @Override
+    public List<IBIZPRO_INDEX> getIbizproIndexByIds(List<Long> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<IBIZPRO_INDEX> getIbizproIndexByEntities(List<IBIZPRO_INDEX> entities) {
+        List ids =new ArrayList();
+        for(IBIZPRO_INDEX entity : entities){
+            Serializable id=entity.getIndexid();
+            if (!ObjectUtils.isEmpty(id)) {
+                ids.add(id);
+            }
+        }
+        if (ids.size() > 0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
+    }
 
 
 

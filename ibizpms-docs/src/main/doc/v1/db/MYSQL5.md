@@ -34453,7 +34453,9 @@ CREATE TABLE `zt_history`(
 | DELETED        | 逻辑标识  | VARCHAR      |   200   | &nbsp; |
 | INDEX_TYPE        | 类型  | VARCHAR      |   200   | &nbsp; |
 | INDEXID        | 主键  |       |   -1   | 主键&nbsp; |
+| MDEPTID        | 部门标识  | VARCHAR      |   200   | &nbsp; |
 | INDEXNAME        | 名称  | VARCHAR      |   200   | &nbsp; |
+| ORGID        | 组织标识  | VARCHAR      |   200   | &nbsp; |
 
 
 

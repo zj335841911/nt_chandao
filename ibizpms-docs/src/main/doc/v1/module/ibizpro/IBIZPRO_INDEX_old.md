@@ -21,6 +21,8 @@ hide members
 |主键|INDEXID|BIGINT|&nbsp;|
 |名称|INDEXNAME|TEXT|&nbsp;|
 |逻辑标识|DELETED|YESNO|&nbsp;|
+|组织标识|ORGID|TEXT|&nbsp;|
+|部门标识|MDEPTID|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -29,6 +31,8 @@ hide members
 |主键|默认规则|默认规则|
 |名称|默认规则|内容长度必须小于等于[200]|
 |逻辑标识|默认规则|内容长度必须小于等于[200]|
+|组织标识|默认规则|内容长度必须小于等于[200]|
+|部门标识|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

@@ -63,6 +63,8 @@ public interface IIBIZPRO_INDEXService extends IService<IBIZPRO_INDEX> {
      */
     boolean execute(String sql, Map param);
 
+    List<IBIZPRO_INDEX> getIbizproIndexByIds(List<Long> ids);
+    List<IBIZPRO_INDEX> getIbizproIndexByEntities(List<IBIZPRO_INDEX> entities);
 }
 
 
