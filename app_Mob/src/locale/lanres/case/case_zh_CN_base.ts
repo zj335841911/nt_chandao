@@ -154,6 +154,10 @@ export default {
 	mobeditviewrighttoolbar_toolbar: {
 	},
 	createcasemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("保存",null),
+			tip: '保存',
+		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {

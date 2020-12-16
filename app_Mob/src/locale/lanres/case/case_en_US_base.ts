@@ -154,6 +154,10 @@ export default {
 	mobeditviewrighttoolbar_toolbar: {
 	},
 	createcasemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("Save And Close",null),
+			tip: 'tbitem1',
+		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
