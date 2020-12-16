@@ -27,6 +27,7 @@ export default class IndexMobModel {
 				name: 'indextype',
 				prop: 'indextype',
 				dataType: 'SSCODELIST',
+        codelist:{tag:'IndexType',codelistType:'STATIC'},
 			},
 			{
 				name: 'indexname',
