@@ -17,7 +17,7 @@
     :disabled="detailsModel.usericon.disabled"
     :error="detailsModel.usericon.error" 
     :isEmptyCaption="false">
-        <app-mob-picture 
+        <app-mob-picture-pms 
     name='usericon' 
     style="overflow: auto;" 
     :multiple="false" 
