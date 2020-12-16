@@ -91,7 +91,7 @@
     name='buildname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='buildname' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
