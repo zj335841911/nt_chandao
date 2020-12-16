@@ -38,6 +38,7 @@ import './entity/product-statss/product-statss';
 import './entity/ibz-project-members/ibz-project-members';
 import './entity/actions/actions';
 import './entity/bug-statss/bug-statss';
+import './entity/ibizpro-indexs/ibizpro-indexs';
 import './entity/groups/groups';
 import './entity/ibzpro-products/ibzpro-products';
 import './entity/case-steps/case-steps';

@@ -395,7 +395,7 @@
       * [我的地盘](app/Web/func/IbzMyTerritoryTabExpView.md)
       * [task主数据视图（链接）](app/Web/func/Taskmaindashboardview_link.md)
       * [todo主数据视图（链接）](app/Web/func/Todomaindashboardview_link.md)
-      * [人员树导航视图](app/Web/func/SysEmployeeTreeExpView.md)
+      * [人员树导航视图](app/Web/func/TaskTreeExpView.md)
       * [系统配置](app/Web/func/IbzproConfigGridView.md)
       * [用户管理](app/Web/func/UserTreeExpView.md)
       * [系统更新日志](app/Web/func/SysUpdateLogGridView.md)

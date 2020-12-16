@@ -61,7 +61,7 @@
 |汇报角色角色|[查看功能](func/IbzReportRoleConfigGridView.md)|
 |插件管理|[查看功能](func/IbzMyTerritoryUsr3TabExpView.md)|
 |更新日志|[查看功能](func/SysUpdateLogGridView.md)|
-|人员|[查看功能](func/SysEmployeeTreeExpView.md)|
+|人员|[查看功能](func/TaskTreeExpView.md)|
 |左侧分页导航|-|
 |产品|[查看功能](func/ProductLeftSidebarListView.md)|
 |项目|[查看功能](func/ProjectLeftSidebarListView.md)|

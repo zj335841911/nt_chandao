@@ -402,7 +402,7 @@ export class ZentaoBase extends Vue {
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+            { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'treeexpview', parameterName: 'treeexpview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
