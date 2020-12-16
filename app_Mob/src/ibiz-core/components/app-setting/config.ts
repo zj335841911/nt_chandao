@@ -10,14 +10,6 @@ export const settingConfig = {
       component :'app-user-header',
     },
     {
-      name: "accountInformation",
-      isEnable: true,
-      text: "账号信息",
-      position: "center",
-      sort: "100",
-      entext:'Account information',
-    },
-    {
       name: "theme",
       isEnable: true,
       text: "主题",
