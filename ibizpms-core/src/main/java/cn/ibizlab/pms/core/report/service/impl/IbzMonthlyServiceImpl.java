@@ -113,7 +113,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean createGetInfoBatch(List<IbzMonthly> etList) {
         for(IbzMonthly et : etList) {
@@ -143,7 +143,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean editGetCompleteTaskBatch(List<IbzMonthly> etList) {
         for(IbzMonthly et : etList) {

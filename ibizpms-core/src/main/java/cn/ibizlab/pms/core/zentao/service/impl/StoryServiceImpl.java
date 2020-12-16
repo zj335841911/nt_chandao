@@ -174,7 +174,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean allPushBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -204,7 +204,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean batchAssignToBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -219,7 +219,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean batchChangeBranchBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -234,7 +234,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean batchChangeModuleBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -249,7 +249,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean batchChangePlanBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -264,7 +264,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean batchChangeStageBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -279,7 +279,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean batchCloseBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -294,7 +294,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean batchReviewBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -324,7 +324,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean bugToStoryBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -425,7 +425,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getStorySpecBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -529,7 +529,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean pushBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -589,7 +589,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean resetReviewedByBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -721,7 +721,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean syncFromIbizBatch(List<Story> etList) {
         for(Story et : etList) {

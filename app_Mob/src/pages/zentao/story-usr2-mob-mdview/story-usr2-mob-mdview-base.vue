@@ -19,7 +19,8 @@
                     </ion-button>
                 
                             <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" >
-                    {{$t('story.usr2mobmdviewrighttoolbar_toolbar.deuiaction2.caption')}}
+                        <ion-icon class="ibiz-button-icon" name="linkedin-square"> </ion-icon>
+                    
                     </ion-button>
                 
                     </div>
@@ -322,7 +323,7 @@ export default class StoryUsr2MobMDViewBase extends Vue {
     public righttoolbarModels: any = {
             deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStoriesMob', target: 'NONE' } },
 
-            deuiaction2: { name: 'deuiaction2', caption: '按照计划关联', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'MobAccordingToPlanLinkStory', target: 'NONE' } },
+            deuiaction2: { name: 'deuiaction2', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'MobAccordingToPlanLinkStory', target: 'NONE' } },
 
     };
 

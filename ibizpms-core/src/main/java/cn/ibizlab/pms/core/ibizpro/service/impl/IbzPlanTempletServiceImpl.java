@@ -131,7 +131,7 @@ public class IbzPlanTempletServiceImpl extends ServiceImpl<IbzPlanTempletMapper,
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getPlanBatch(List<IbzPlanTemplet> etList) {
         for(IbzPlanTemplet et : etList) {

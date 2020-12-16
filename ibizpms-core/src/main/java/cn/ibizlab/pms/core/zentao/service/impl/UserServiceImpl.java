@@ -163,7 +163,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean syncAccountBatch(List<User> etList) {
         for(User et : etList) {

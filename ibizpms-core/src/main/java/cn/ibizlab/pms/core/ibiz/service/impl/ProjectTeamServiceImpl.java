@@ -132,7 +132,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getUserRoleBatch(List<ProjectTeam> etList) {
         for(ProjectTeam et : etList) {

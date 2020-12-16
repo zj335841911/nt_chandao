@@ -127,7 +127,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean markDoneBatch(List<IBIZProMessage> etList) {
         for(IBIZProMessage et : etList) {
@@ -144,7 +144,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean markReadBatch(List<IBIZProMessage> etList) {
         for(IBIZProMessage et : etList) {
@@ -180,7 +180,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean sendBatch(List<IBIZProMessage> etList) {
         for(IBIZProMessage et : etList) {

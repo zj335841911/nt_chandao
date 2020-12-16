@@ -215,7 +215,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getByTestTaskBatch(List<Case> etList) {
         for(Case et : etList) {
@@ -230,7 +230,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getTestTaskCntRunBatch(List<Case> etList) {
         for(Case et : etList) {

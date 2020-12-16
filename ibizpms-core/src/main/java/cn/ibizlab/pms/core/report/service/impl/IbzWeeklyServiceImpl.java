@@ -136,7 +136,7 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean createGetLastWeekPlanAndWorkBatch(List<IbzWeekly> etList) {
         for(IbzWeekly et : etList) {
@@ -151,7 +151,7 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean editGetLastWeekTaskAndComTaskBatch(List<IbzWeekly> etList) {
         for(IbzWeekly et : etList) {
@@ -181,7 +181,7 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean jugThisWeekCreateWeeklyBatch(List<IbzWeekly> etList) {
         for(IbzWeekly et : etList) {

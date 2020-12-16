@@ -125,7 +125,7 @@ export class MyWorkModel {
                         },
                         {
                             name:'end',
-                            prop:'n_submittime_ltandeq'
+                            prop:'n_date_ltandeq'
                         },
                     ];
                 break;

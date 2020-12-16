@@ -134,7 +134,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getLastUpdateInfoBatch(List<SysUpdateLog> etList) {
         for(SysUpdateLog et : etList) {

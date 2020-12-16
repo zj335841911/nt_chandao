@@ -135,7 +135,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean computeBurnBatch(List<Burn> etList) {
         for(Burn et : etList) {

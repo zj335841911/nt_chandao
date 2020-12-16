@@ -4,5 +4,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if dataimport.getMemo()?? && dataexp...  [in template "CODETEMPL_en_US" at line 522, column 1]
+	- Failed at: #if dataimport.getMemo()?? && dataexp...  [in template "CODETEMPL_zh_CN" at line 522, column 1]
 ----

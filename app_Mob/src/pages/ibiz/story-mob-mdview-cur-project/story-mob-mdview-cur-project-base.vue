@@ -103,9 +103,10 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" size="large">
-                <span class="btn-inner-text">{{$t('story.mobmdviewcurprojectrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+                    <ion-icon name="linkedin-square"></ion-icon>
+                
                 </ion-button>
-                <span class="btn-out-text">{{$t('story.mobmdviewcurprojectrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+                
             </div>
         
                 </div>
@@ -360,7 +361,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
     public righttoolbarModels: any = {
             deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStoriesMob', target: 'NONE' } },
 
-            deuiaction2: { name: 'deuiaction2', caption: '按照计划关联', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'MobAccordingToPlanLinkStory', target: 'NONE' } },
+            deuiaction2: { name: 'deuiaction2', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'MobAccordingToPlanLinkStory', target: 'NONE' } },
 
     };
 

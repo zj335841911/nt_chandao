@@ -166,7 +166,7 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         getinfoLogic.execute(et);
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getUserYearActionBatch(List<UserYearWorkStats> etList) {
         for(UserYearWorkStats et : etList) {
@@ -214,7 +214,7 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         updateinfoLogic.execute(et);
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean updateTitleByYearBatch(List<UserYearWorkStats> etList) {
         for(UserYearWorkStats et : etList) {

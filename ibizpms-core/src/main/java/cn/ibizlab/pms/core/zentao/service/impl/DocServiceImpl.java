@@ -131,7 +131,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean byVersionUpdateContextBatch(List<Doc> etList) {
         for(Doc et : etList) {
@@ -150,7 +150,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean collectBatch(List<Doc> etList) {
         for(Doc et : etList) {
@@ -165,7 +165,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getDocStatusBatch(List<Doc> etList) {
         for(Doc et : etList) {
@@ -180,7 +180,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean onlyCollectDocBatch(List<Doc> etList) {
         for(Doc et : etList) {
@@ -195,7 +195,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean onlyUnCollectDocBatch(List<Doc> etList) {
         for(Doc et : etList) {
@@ -244,7 +244,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean unCollectBatch(List<Doc> etList) {
         for(Doc et : etList) {

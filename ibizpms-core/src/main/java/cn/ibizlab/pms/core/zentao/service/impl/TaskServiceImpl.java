@@ -309,7 +309,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getTeamUserLeftActivityBatch(List<Task> etList) {
         for(Task et : etList) {
@@ -324,7 +324,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getTeamUserLeftStartBatch(List<Task> etList) {
         for(Task et : etList) {
@@ -516,7 +516,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean taskForwardBatch(List<Task> etList) {
         for(Task et : etList) {

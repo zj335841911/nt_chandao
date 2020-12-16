@@ -195,7 +195,7 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean syncFromIBIZBatch(List<ProductModule> etList) {
         for(ProductModule et : etList) {

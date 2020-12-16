@@ -128,7 +128,7 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getYeaterdayDailyPlansTaskEditBatch(List<IbzDaily> etList) {
         for(IbzDaily et : etList) {
@@ -143,7 +143,7 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean getYesterdayDailyPlansTaskBatch(List<IbzDaily> etList) {
         for(IbzDaily et : etList) {
@@ -173,7 +173,7 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean linkCompleteTaskBatch(List<IbzDaily> etList) {
         for(IbzDaily et : etList) {

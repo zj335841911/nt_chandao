@@ -162,7 +162,7 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean syncFromIBIZBatch(List<IBZProStory> etList) {
         for(IBZProStory et : etList) {

@@ -165,7 +165,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean collectBatch(List<DocLibModule> etList) {
         for(DocLibModule et : etList) {
@@ -235,7 +235,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean unCollectBatch(List<DocLibModule> etList) {
         for(DocLibModule et : etList) {

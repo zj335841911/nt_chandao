@@ -155,7 +155,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean oneClickReleaseBatch(List<Build> etList) {
         for(Build et : etList) {

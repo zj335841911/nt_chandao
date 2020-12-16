@@ -247,7 +247,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     @Transactional
     public boolean oneClickReleaseBatch(List<Release> etList) {
         for(Release et : etList) {

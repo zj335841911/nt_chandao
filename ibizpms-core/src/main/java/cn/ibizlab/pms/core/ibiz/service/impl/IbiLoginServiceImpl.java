@@ -56,7 +56,7 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     public boolean getUserBatch(List<IbiLogin> etList) {
         for(IbiLogin et : etList) {
             getUser(et);
@@ -69,7 +69,7 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
         //自定义代码
         return et;
     }
-    @Override
+   @Override
     public boolean ztloginBatch(List<IbiLogin> etList) {
         for(IbiLogin et : etList) {
             ztlogin(et);
