@@ -4063,6 +4063,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestPortalView",
             "viewtag": "D1283E46-401A-4CFD-A7A1-BF5B90197463"
         },
+        "sysemployeetreeexpview": {
+            "title": "人员树导航视图",
+            "caption": "人员",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeTreeExpView",
+            "viewtag": "d1c2669aa1d4bc3973882f4cbb3a9539"
+        },
         "ibzcasedashboardview": {
             "title": "用例库用例数据看板视图",
             "caption": "测试用例",

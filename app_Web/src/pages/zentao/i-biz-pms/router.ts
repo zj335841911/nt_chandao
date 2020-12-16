@@ -231,6 +231,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-project-trends-list-view/action-project-trends-list-view.vue'),
                 },
                 {
+                    path: 'sysemployees/:sysemployee?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-tree-exp-view/sys-employee-tree-exp-view.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/editview/:editview?',
                     meta: {
                         caption: 'entities.ibzlibmodule.views.editview.caption',
@@ -9601,6 +9615,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9-related/story-main-view9-related.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+                    meta: {
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+                    meta: {
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+                    meta: {
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+                    meta: {
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
                         caption: 'entities.ibzcasestep.views.maingridview9_editmode.caption',
@@ -9677,74 +9759,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
-                    meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
-                    meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
-                },
-                {
-                    path: 'products/:product?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
-                    meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
-                },
-                {
-                    path: 'cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
-                    meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
                 },
                 {
                     path: 'ibzlibs/:ibzlib?/tabexpview/:tabexpview?',

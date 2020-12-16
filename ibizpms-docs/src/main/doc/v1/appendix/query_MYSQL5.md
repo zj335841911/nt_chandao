@@ -6728,81 +6728,106 @@ t1.`ORGID`
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
+,v1.deleted AS `DELETED`
+,v1.orgid AS `ORGID`
+,v1.MDEPTID AS `MDEPTID`
 FROM
 (SELECT
 t1.`ID`,
-t1.`TITLE`
-FROM `zt_bug` t1 
+t1.`TITLE`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted
+FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
+where t11.deleted = '0'
 ) v1
 UNION ALL
 SELECT
 'case' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
 ,v2.`TITLE` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
+,v2.deleted AS `DELETED`
+,v2.orgid AS `ORGID`
+,v2.MDEPTID AS `MDEPTID`
 FROM
 (SELECT
 t1.`ID`,
-t1.`TITLE`
-FROM `zt_case` t1 
+t1.`TITLE`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted
+FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
+where t11.deleted = '0'
 ) v2
 UNION ALL
 SELECT
 'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
 ,v3.`NAME` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
+,v3.deleted AS `DELETED`
+,v3.orgid AS `ORGID`
+,v3.MDEPTID AS `MDEPTID`
 FROM
 (SELECT
 t1.`ID`,
-t1.`NAME`
+t1.`NAME`,
+t1.orgid,
+t1.MDEPTID,
+t1.deleted
 FROM `zt_product` t1 
 ) v3
 UNION ALL
 SELECT
 'project' AS `INDEX_TYPE`,v4.`ID` AS `INDEXID`
 ,v4.`NAME` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
+,v4.deleted AS `DELETED`
+,v4.orgid AS `ORGID`
+,v4.MDEPTID AS `MDEPTID`
 FROM
 (SELECT
 t1.`ID`,
-t1.`NAME`
+t1.`NAME`,
+t1.orgid,
+t1.MDEPTID,
+t1.deleted
 FROM `zt_project` t1 
 ) v4
 UNION ALL
 SELECT
 'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
 ,v5.`TITLE` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
+,v5.deleted AS `DELETED`
+,v5.orgid AS `ORGID`
+,v5.MDEPTID AS `MDEPTID`
 FROM
 (SELECT
 t1.`ID`,
-t1.`TITLE`
-FROM `zt_story` t1 
+t1.`TITLE`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted
+FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
+where t11.deleted = '0'
 ) v5
 UNION ALL
 SELECT
 'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
 ,v6.`NAME` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
+,v6.deleted AS `DELETED`
+,v6.orgid AS `ORGID`
+,v6.MDEPTID AS `MDEPTID`
 FROM
 (SELECT
 t1.`ID`,
-t1.`NAME`
-FROM `zt_task` t1 
+t1.`NAME`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted
+FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
+where t11.deleted = '0'
 ) v6
-) t1 
+) t1
+WHERE t1.DELETED = '0' 
+t1.orgid = #{srf.sessioncontext.srforgid} 
+aa 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IBIZPRO_INDEX_View"></div>

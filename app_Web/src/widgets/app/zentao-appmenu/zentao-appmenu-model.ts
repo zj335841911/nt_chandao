@@ -408,6 +408,28 @@ export default class ZentaoModel {
                 	],
                 }
                 ,
+                		        {
+                	id: '1CC661E6-9593-4C82-98B5-01496AE8D80C',
+                	name: 'menuitem26',
+                	text: '人员',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '人员',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc8',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'sys-employee-tree-exp-view',
+                	authtag:'Web-zentao-menuitem26',
+                	localetag: 'app.menus.zentao.menuitem26',
+                }
+                ,
         	],
         }
         ,
@@ -816,6 +838,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc8',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'sysemployeetreeexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/sysemployees/:sysemployee?/treeexpview/:treeexpview?',
+            parameters: [
+                { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                { pathName: 'treeexpview', parameterName: 'treeexpview' },
             ],
         },
         {

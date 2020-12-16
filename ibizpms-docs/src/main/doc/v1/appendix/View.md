@@ -783,6 +783,7 @@ SRFNAVPARAM.project=%project%|
 |-|平台数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|测试运行编辑视图|DEEDITVIEW9|&nbsp;|
 |-|测试主页|APPPORTALVIEW|&nbsp;|
+|-|人员树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|用例库用例数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试|DETABEXPVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;|

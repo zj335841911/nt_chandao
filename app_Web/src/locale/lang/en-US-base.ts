@@ -259,6 +259,7 @@ function getAppLocale(){
                     menuitem19: commonLogic.appcommonhandle("汇报角色角色",null),
                     menuitem17: commonLogic.appcommonhandle("插件管理",null),
                     menuitem8: commonLogic.appcommonhandle("更新日志",null),
+                    menuitem26: commonLogic.appcommonhandle("人员",null),
                     left_exp: commonLogic.appcommonhandle("左侧分页导航",null),
                     menuitem4: commonLogic.appcommonhandle("Product",null),
                     menuitem5: commonLogic.appcommonhandle("项目",null),
