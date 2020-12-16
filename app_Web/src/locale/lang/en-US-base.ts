@@ -254,6 +254,7 @@ function getAppLocale(){
                     menuitem25: commonLogic.appcommonhandle("年度统计",null),
                     menuitem7: commonLogic.appcommonhandle("iBiz软件生产管理",null),
                     menuitem26: commonLogic.appcommonhandle("人员",null),
+                    menuitem27: commonLogic.appcommonhandle("全文检索",null),
                     menuitem24: commonLogic.appcommonhandle("系统管理",null),
                     menuitem11: commonLogic.appcommonhandle("用户",null),
                     menuitem10: commonLogic.appcommonhandle("用例库",null),

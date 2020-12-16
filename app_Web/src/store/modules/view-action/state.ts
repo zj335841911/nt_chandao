@@ -354,6 +354,23 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '10aa6afcd73e77c44c698319a1b4edcd',
+            viewmodule: 'ibizpro',
+            viewname: 'IBIZPRO_INDEXListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                'f83dac873b9215483c4bb91673284b41',
+                'd7dd357c2488e9f3440971b4407d52a1',
+                '31dc3f821fafa9e92cc28d217373a67b',
+                '4863a523ac490ebce771717756f0c6a8',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+                'e042a1dee405b0a853f315b39a375783',
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: '10ec8362fe511f35dcf896a048770011',
             viewmodule: 'zentao',
             viewname: 'TodoBaseEditView9',
@@ -657,6 +674,7 @@ export const viewstate: any = {
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '143e97f1ddaf50560e1602118613f0f0',
                 '5df2233b712eaa394f21be39b5807181',
+                '10aa6afcd73e77c44c698319a1b4edcd',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
                 'e698418f007d36b627d6af23c1042f31',
             ],
@@ -1053,6 +1071,16 @@ export const viewstate: any = {
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
+            ],
+        },
+        {
+            viewtag: '31dc3f821fafa9e92cc28d217373a67b',
+            viewmodule: 'ibizpro',
+            viewname: 'IBIZPRO_INDEXIndexPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '92269965704a55f1342317470d86e5e3',
             ],
         },
         {
@@ -3128,6 +3156,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '92269965704a55f1342317470d86e5e3',
+            viewmodule: 'ibizpro',
+            viewname: 'IBIZPRO_INDEXIndexPickupDataView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '927d6e92ed15eeb2397da22824122b27',
             viewmodule: 'zentao',
             viewname: 'TodoTodoCreateView',
@@ -4714,6 +4751,23 @@ export const viewstate: any = {
             refviews: [
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: 'd7dd357c2488e9f3440971b4407d52a1',
+            viewmodule: 'ibizpro',
+            viewname: 'IBIZPRO_INDEXRedirectView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                '1540523a668e920d831510cfbec2c5e2',
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '575fecad655143bbd28f17c581725a4e',
+                '23cc93d7fdddff5077a7952d26802a7b',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                'fd0b8748ff96edcde009d39903a9f211',
+                'ea141fddc78fd1af4d06e494baf12cc1',
             ],
         },
         {

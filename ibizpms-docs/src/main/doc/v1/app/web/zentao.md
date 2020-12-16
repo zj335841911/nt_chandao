@@ -17,6 +17,7 @@
 *** 年度统计
 *** iBiz软件生产管理
 *** 人员
+*** 全文检索
 *** 系统管理
 **** 用户
 **** 用例库
@@ -55,6 +56,7 @@
 |年度统计|[查看功能](func/UserYearWorkStatsEditView.md)|
 |iBiz软件生产管理|[查看功能](func/ProductHtmlView.md)|
 |人员|[查看功能](func/TaskTreeExpView.md)|
+|全文检索|[查看功能](func/IBIZPRO_INDEXListView.md)|
 |系统管理|-|
 |用户|-|
 |用例库|[查看功能](func/IbzLibGridView.md)|
