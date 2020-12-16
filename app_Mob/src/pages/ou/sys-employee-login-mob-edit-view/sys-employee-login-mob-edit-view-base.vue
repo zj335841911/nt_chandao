@@ -16,6 +16,31 @@
     </ion-header>
 
     <ion-content >
+                <view_form
+            :viewState="viewState"
+            viewName="SysEmployeeLoginMobEditView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :autosave="false" 
+            :viewtag="viewtag"
+            :showBusyIndicator="true"
+            updateAction="Update"
+            removeAction="Remove"
+            loaddraftAction="GetDraft"
+            loadAction="Get"
+            createAction="Create"
+            WFSubmitAction=""
+            WFStartAction=""
+            style='' 
+            name="form"  
+            ref='form' 
+            @save="form_save($event)"  
+            @beforeload="form_beforeload($event)"  
+            @remove="form_remove($event)"  
+            @beforesave="form_beforesave($event)"  
+            @load="form_load($event)"  
+            @closeview="closeView($event)">
+        </view_form>
     </ion-content>
 </ion-page>
 </template>
@@ -227,6 +252,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
      * @memberof SysEmployeeLoginMobEditViewBase
      */
     protected containerModel: any = {
+        view_form: { name: 'form', type: 'FORM' },
     };
 
     /**
@@ -245,6 +271,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
      * @memberof SysEmployeeLoginMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
     /**
      * 工具栏模型集合名
@@ -295,6 +322,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
     protected engineInit(): void {
         this.engine.init({
             view: this,
+            form: this.$refs.form,
             keyPSDEField: 'sysemployee',
             majorPSDEField: 'personname',
             isLoadDefault: true,
@@ -412,6 +440,61 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
 
     }
 
+    /**
+     * form 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof SysEmployeeLoginMobEditViewBase
+     */
+    protected form_save($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'save', $event);
+    }
+
+    /**
+     * form 部件 beforeload 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof SysEmployeeLoginMobEditViewBase
+     */
+    protected form_beforeload($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'beforeload', $event);
+    }
+
+    /**
+     * form 部件 remove 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof SysEmployeeLoginMobEditViewBase
+     */
+    protected form_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'remove', $event);
+    }
+
+    /**
+     * form 部件 beforesave 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof SysEmployeeLoginMobEditViewBase
+     */
+    protected form_beforesave($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'beforesave', $event);
+    }
+
+    /**
+     * form 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof SysEmployeeLoginMobEditViewBase
+     */
+    protected form_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'load', $event);
+    }
+
 
     /**
      * 第三方关闭视图
@@ -521,6 +604,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
      */
     protected defSave(): void {
         const _this: any = this;
+        const xData: any = _this.$refs.form;
         if (xData && xData.save instanceof Function) {
             const _data = _this.viewparams;
             xData.save(_data).then((response: any) => {
