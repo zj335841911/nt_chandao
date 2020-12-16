@@ -74,14 +74,6 @@
         
         
         
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction5.disabled}" v-show="righttoolbarModels.deuiaction5.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction5.disabled" @click="righttoolbar_click({ tag: 'deuiaction5' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="user"></ion-icon>
-                <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
-            </div>
-        
                 </div>
             </van-popup>
         </div>
@@ -331,8 +323,6 @@ export default class ProjectMobEditViewBase extends Vue {
           deuiaction2: { name: 'deuiaction2', caption: '挂起', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_SUSPEND_BUT', uiaction: { tag: 'ProjectSuspendMob', target: 'SINGLEKEY' } },
           deuiaction3: { name: 'deuiaction3', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CLOSED_BUT', uiaction: { tag: 'ProjectCloseMob', target: 'SINGLEKEY' } },
           deuiaction4: { name: 'deuiaction4', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
-
-            deuiaction5: { name: 'deuiaction5', caption: '添加团队成员', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'AddTeamMember', target: 'NONE' } },
 
     };
 
@@ -635,9 +625,6 @@ export default class ProjectMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction4')) {
             this.righttoolbar_deuiaction4_click($event, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction5')) {
-            this.righttoolbar_deuiaction5_click($event, '', $event2);
-        }
     }
 
 
@@ -766,38 +753,6 @@ export default class ProjectMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('project_ui_action');
         if (curUIService) {
             curUIService.Project_deleteMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof ProjectMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction5_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
-        if (curUIService) {
-            curUIService.Project_AddTeamMember(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
