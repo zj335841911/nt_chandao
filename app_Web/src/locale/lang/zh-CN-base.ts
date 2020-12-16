@@ -22,6 +22,7 @@ import employeeload_zh_CN from '@locale/lanres/entities/emp-loyeeload/emp-loyeel
 import doccontent_zh_CN from '@locale/lanres/entities/doc-content/doc-content_zh_CN';
 import ibzreport_zh_CN from '@locale/lanres/entities/ibz-report/ibz-report_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
+import syspost_zh_CN from '@locale/lanres/entities/sys-post/sys-post_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
 import taskstats_zh_CN from '@locale/lanres/entities/task-stats/task-stats_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
@@ -46,6 +47,7 @@ import todo_zh_CN from '@locale/lanres/entities/todo/todo_zh_CN';
 import ibzlibmodule_zh_CN from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_zh_CN';
 import subtask_zh_CN from '@locale/lanres/entities/sub-task/sub-task_zh_CN';
 import useryearworkstats_zh_CN from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_zh_CN';
+import sysorganization_zh_CN from '@locale/lanres/entities/sys-organization/sys-organization_zh_CN';
 import ibizproplugin_zh_CN from '@locale/lanres/entities/ibizpro-plugin/ibizpro-plugin_zh_CN';
 import ibzlibcasesteptmp_zh_CN from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_zh_CN';
 import project_zh_CN from '@locale/lanres/entities/project/project_zh_CN';
@@ -88,6 +90,7 @@ import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import pssysapp_zh_CN from '@locale/lanres/entities/pssys-app/pssys-app_zh_CN';
 import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
+import systeammember_zh_CN from '@locale/lanres/entities/sys-team-member/sys-team-member_zh_CN';
 import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
 import sysupdatefeatures_zh_CN from '@locale/lanres/entities/sys-update-features/sys-update-features_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
@@ -395,6 +398,7 @@ function getAppLocale(){
             doccontent: doccontent_zh_CN(),
             ibzreport: ibzreport_zh_CN(),
             storyspec: storyspec_zh_CN(),
+            syspost: syspost_zh_CN(),
             usertpl: usertpl_zh_CN(),
             taskstats: taskstats_zh_CN(),
             ibzfavorites: ibzfavorites_zh_CN(),
@@ -419,6 +423,7 @@ function getAppLocale(){
             ibzlibmodule: ibzlibmodule_zh_CN(),
             subtask: subtask_zh_CN(),
             useryearworkstats: useryearworkstats_zh_CN(),
+            sysorganization: sysorganization_zh_CN(),
             ibizproplugin: ibizproplugin_zh_CN(),
             ibzlibcasesteptmp: ibzlibcasesteptmp_zh_CN(),
             project: project_zh_CN(),
@@ -461,6 +466,7 @@ function getAppLocale(){
             ibzdoc: ibzdoc_zh_CN(),
             pssysapp: pssysapp_zh_CN(),
             ibzcase: ibzcase_zh_CN(),
+            systeammember: systeammember_zh_CN(),
             pssystemdbcfg: pssystemdbcfg_zh_CN(),
             sysupdatefeatures: sysupdatefeatures_zh_CN(),
             release: release_zh_CN(),
