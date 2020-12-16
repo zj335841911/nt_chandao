@@ -86,9 +86,6 @@ export default {
 	},
 	mobmain_form: {
 		details: {
-			druipart1: commonLogic.appcommonhandle("",null), 
-			druipart2: commonLogic.appcommonhandle("",null), 
-			grouppanel1: commonLogic.appcommonhandle("历史记录",null), 
 			group1: commonLogic.appcommonhandle("测试用例基本信息",null), 
 			formpage1: commonLogic.appcommonhandle("基本信息",null), 
 			srfupdatedate: commonLogic.appcommonhandle("修改日期",null), 
