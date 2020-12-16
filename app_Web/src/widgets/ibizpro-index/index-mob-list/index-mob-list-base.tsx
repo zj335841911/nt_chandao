@@ -65,6 +65,7 @@ export class IndexMobListBase extends ListControlBase {
      */  
     public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
 
+    
 
     /**
      * 排序方向
