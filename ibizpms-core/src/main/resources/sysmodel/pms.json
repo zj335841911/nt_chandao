@@ -3967,6 +3967,12 @@
      "code_name":"ZTTestsuite",
      "entity_name":"ZT_CASE",
      "ref_entity_name":"ZT_TESTSUITE"
+    },
+    {"name":"DERINDEX_ZT_CASE_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Case",
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"IBIZPRO_INDEX"
     }
     ]
  }
@@ -7993,6 +7999,24 @@
      "relation_type":"DERINDEX",
      "code_name":"Bug",
      "entity_name":"ZT_BUG",
+     "ref_entity_name":"IBIZPRO_INDEX"
+    },
+    {"name":"DERINDEX_ZT_CASE_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Case",
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"IBIZPRO_INDEX"
+    },
+    {"name":"DERINDEX_ZT_PRODUCT_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Product",
+     "entity_name":"ZT_PRODUCT",
+     "ref_entity_name":"IBIZPRO_INDEX"
+    },
+    {"name":"DERINDEX_ZT_PROJECT_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Project",
+     "entity_name":"ZT_PROJECT",
      "ref_entity_name":"IBIZPRO_INDEX"
     },
     {"name":"DERINDEX_ZT_STORY_IBIZPRO_INDEX",
@@ -25922,6 +25946,12 @@
      "code_name":"ModuleLine",
      "entity_name":"ZT_PRODUCT",
      "ref_entity_name":"ZT_MODULE"
+    },
+    {"name":"DERINDEX_ZT_PRODUCT_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Product",
+     "entity_name":"ZT_PRODUCT",
+     "ref_entity_name":"IBIZPRO_INDEX"
     }
     ]
  }
@@ -29025,6 +29055,12 @@
      "code_name":"IBizParent",
      "entity_name":"ZT_PROJECT",
      "ref_entity_name":"ZT_PROJECT"
+    },
+    {"name":"DERINDEX_ZT_PROJECT_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Project",
+     "entity_name":"ZT_PROJECT",
+     "ref_entity_name":"IBIZPRO_INDEX"
     }
     ]
  }
