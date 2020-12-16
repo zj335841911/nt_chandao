@@ -272,7 +272,7 @@ export default class ZentaoModel {
                 	textcls: '',
                 	appfunctag: 'AppFunc8',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'task-tree-exp-view',
+                	viewname: 'sys-employee-tree-exp-view',
                 	authtag:'Web-zentao-menuitem26',
                 	localetag: 'app.menus.zentao.menuitem26',
                 }
@@ -913,11 +913,11 @@ export default class ZentaoModel {
             appfunctag: 'AppFunc8',
             appfuncyype: 'APPVIEW',
             openmode: '',
-            codename: 'tasktreeexpview',
+            codename: 'sysemployeetreeexpview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/tasks/:task?/treeexpview/:treeexpview?',
+            routepath: '/ibizpms/:ibizpms?/sysemployees/:sysemployee?/treeexpview/:treeexpview?',
             parameters: [
-                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'sysemployees', parameterName: 'sysemployee' },
                 { pathName: 'treeexpview', parameterName: 'treeexpview' },
             ],
         },
