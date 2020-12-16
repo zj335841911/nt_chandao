@@ -6714,6 +6714,65 @@ FROM `zt_history` t1
 
 ```
 
+# **索引检索**(IBIZPRO_INDEX)
+
+### 数据查询(DEFAULT)<div id="IBIZPRO_INDEX_Default"></div>
+```sql
+SELECT
+t1.`INDEXID`,
+t1.`INDEXNAME`,
+t1.`INDEX_TYPE`
+FROM (SELECT
+'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
+,v1.`TITLE` AS `INDEXNAME`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_bug` t1 
+) v1
+UNION ALL
+SELECT
+'story' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
+,v2.`TITLE` AS `INDEXNAME`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_story` t1 
+) v2
+) t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IBIZPRO_INDEX_View"></div>
+```sql
+SELECT
+t1.`INDEXID`,
+t1.`INDEXNAME`,
+t1.`INDEX_TYPE`
+FROM (SELECT
+'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
+,v1.`TITLE` AS `INDEXNAME`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_bug` t1 
+) v1
+UNION ALL
+SELECT
+'story' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
+,v2.`TITLE` AS `INDEXNAME`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_story` t1 
+) v2
+) t1 
+
+```
+
 # **关键字**(IBIZPRO_KEYWORD)
 
 ### 数据查询(DEFAULT)<div id="IBIZProKeyword_Default"></div>

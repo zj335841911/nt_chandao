@@ -20,6 +20,7 @@ Bug *-- 需求
 产品 *-- 需求 
 需求 *-- 需求 
 需求 *-- 需求 
+索引检索 <|-- 需求 
 hide members
 {% endplantuml %}
 

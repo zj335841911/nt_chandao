@@ -371,7 +371,34 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         usericon: null,
+        addr: null,
+        avatar: null,
+        bcode: null,
+        createdate: null,
+        createman: null,
+        domains: null,
+        email: null,
+        enable: null,
+        ipaddr: null,
+        lang: null,
+        mdeptcode: null,
+        mdeptid: null,
+        nickname: null,
+        showorder: null,
+        memo: null,
         userid: null,
+        username: null,
+        updateman: null,
+        usercode: null,
+        updatedate: null,
+        sex: null,
+        phone: null,
+        reserver: null,
+        orgname: null,
+        personname: null,
+        mdeptname: null,
+        orgid: null,
+        orgcode: null,
         sysemployee: null,
     };
 
@@ -523,7 +550,61 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         usericon: new FormItemModel({ caption: '头像', detailType: 'FORMITEM', name: 'usericon', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        addr: new FormItemModel({ caption: '地址', detailType: 'FORMITEM', name: 'addr', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        avatar: new FormItemModel({ caption: '社交账号', detailType: 'FORMITEM', name: 'avatar', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        bcode: new FormItemModel({ caption: '业务编码', detailType: 'FORMITEM', name: 'bcode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        createdate: new FormItemModel({ caption: '创建时间', detailType: 'FORMITEM', name: 'createdate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        createman: new FormItemModel({ caption: '建立人', detailType: 'FORMITEM', name: 'createman', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        domains: new FormItemModel({ caption: '区属', detailType: 'FORMITEM', name: 'domains', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        email: new FormItemModel({ caption: '邮件', detailType: 'FORMITEM', name: 'email', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        enable: new FormItemModel({ caption: '逻辑有效', detailType: 'FORMITEM', name: 'enable', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        ipaddr: new FormItemModel({ caption: 'ip地址', detailType: 'FORMITEM', name: 'ipaddr', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        lang: new FormItemModel({ caption: '语言', detailType: 'FORMITEM', name: 'lang', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mdeptcode: new FormItemModel({ caption: '主部门代码', detailType: 'FORMITEM', name: 'mdeptcode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mdeptid: new FormItemModel({ caption: '主部门', detailType: 'FORMITEM', name: 'mdeptid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        nickname: new FormItemModel({ caption: '昵称别名', detailType: 'FORMITEM', name: 'nickname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        showorder: new FormItemModel({ caption: '排序', detailType: 'FORMITEM', name: 'showorder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        memo: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'memo', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         userid: new FormItemModel({ caption: '用户标识', detailType: 'FORMITEM', name: 'userid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        username: new FormItemModel({ caption: '用户全局名', detailType: 'FORMITEM', name: 'username', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        updateman: new FormItemModel({ caption: '更新人', detailType: 'FORMITEM', name: 'updateman', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        usercode: new FormItemModel({ caption: '用户工号', detailType: 'FORMITEM', name: 'usercode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 1 })
+, 
+        updatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        sex: new FormItemModel({ caption: '性别', detailType: 'FORMITEM', name: 'sex', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        phone: new FormItemModel({ caption: '联系方式', detailType: 'FORMITEM', name: 'phone', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        reserver: new FormItemModel({ caption: '保留', detailType: 'FORMITEM', name: 'reserver', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        orgname: new FormItemModel({ caption: '单位名称', detailType: 'FORMITEM', name: 'orgname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        personname: new FormItemModel({ caption: '姓名', detailType: 'FORMITEM', name: 'personname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mdeptname: new FormItemModel({ caption: '主部门名称', detailType: 'FORMITEM', name: 'mdeptname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        orgid: new FormItemModel({ caption: '单位', detailType: 'FORMITEM', name: 'orgid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        orgcode: new FormItemModel({ caption: '单位代码', detailType: 'FORMITEM', name: 'orgcode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -636,6 +717,186 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 addr 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.addr')
+    onAddrChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'addr', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 avatar 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.avatar')
+    onAvatarChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'avatar', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 bcode 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.bcode')
+    onBcodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'bcode', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 createdate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.createdate')
+    onCreatedateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'createdate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 createman 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.createman')
+    onCreatemanChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'createman', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 domains 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.domains')
+    onDomainsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'domains', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 email 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.email')
+    onEmailChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'email', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 enable 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.enable')
+    onEnableChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'enable', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 ipaddr 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.ipaddr')
+    onIpaddrChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ipaddr', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 lang 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.lang')
+    onLangChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'lang', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mdeptcode 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.mdeptcode')
+    onMdeptcodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mdeptcode', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mdeptid 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.mdeptid')
+    onMdeptidChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mdeptid', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 nickname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.nickname')
+    onNicknameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'nickname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 showorder 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.showorder')
+    onShoworderChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'showorder', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 memo 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.memo')
+    onMemoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'memo', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 userid 值
      *
      * @param {*} newVal
@@ -645,6 +906,150 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.userid')
     onUseridChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'userid', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 username 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.username')
+    onUsernameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'username', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 updateman 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.updateman')
+    onUpdatemanChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'updateman', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 usercode 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.usercode')
+    onUsercodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'usercode', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 updatedate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.updatedate')
+    onUpdatedateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'updatedate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 sex 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.sex')
+    onSexChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'sex', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 phone 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.phone')
+    onPhoneChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'phone', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 reserver 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.reserver')
+    onReserverChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'reserver', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 orgname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.orgname')
+    onOrgnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'orgname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 personname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.personname')
+    onPersonnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'personname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mdeptname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.mdeptname')
+    onMdeptnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mdeptname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 orgid 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.orgid')
+    onOrgidChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'orgid', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 orgcode 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.orgcode')
+    onOrgcodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'orgcode', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -683,6 +1088,33 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

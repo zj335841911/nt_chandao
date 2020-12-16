@@ -21,7 +21,7 @@
     name='usercode' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="usercode_item"  
     :itemValue="this.data.usercode" 
     v-show="detailsModel.usercode.visible" 
@@ -48,7 +48,7 @@
     name='personname' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="personname_item"  
     :itemValue="this.data.personname" 
     v-show="detailsModel.personname.visible" 
@@ -75,7 +75,7 @@
     name='username' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="username_item"  
     :itemValue="this.data.username" 
     v-show="detailsModel.username.visible" 
@@ -102,7 +102,7 @@
     name='orgname' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="orgname_item"  
     :itemValue="this.data.orgname" 
     v-show="detailsModel.orgname.visible" 
@@ -129,7 +129,7 @@
     name='mdeptname' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="mdeptname_item"  
     :itemValue="this.data.mdeptname" 
     v-show="detailsModel.mdeptname.visible" 
@@ -156,7 +156,7 @@
     name='bcode' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="bcode_item"  
     :itemValue="this.data.bcode" 
     v-show="detailsModel.bcode.visible" 
@@ -183,7 +183,7 @@
     name='nickname' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="nickname_item"  
     :itemValue="this.data.nickname" 
     v-show="detailsModel.nickname.visible" 
@@ -210,7 +210,7 @@
     name='sex' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="sex_item"  
     :itemValue="this.data.sex" 
     v-show="detailsModel.sex.visible" 
@@ -237,7 +237,7 @@
     name='phone' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="phone_item"  
     :itemValue="this.data.phone" 
     v-show="detailsModel.phone.visible" 
@@ -264,7 +264,7 @@
     name='avatar' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="avatar_item"  
     :itemValue="this.data.avatar" 
     v-show="detailsModel.avatar.visible" 
@@ -291,7 +291,7 @@
     name='email' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="email_item"  
     :itemValue="this.data.email" 
     v-show="detailsModel.email.visible" 

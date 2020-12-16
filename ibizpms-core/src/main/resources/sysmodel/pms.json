@@ -2012,6 +2012,12 @@
      "code_name":"ZTTestTask",
      "entity_name":"ZT_BUG",
      "ref_entity_name":"ZT_TESTTASK"
+    },
+    {"name":"DERINDEX_ZT_BUG_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Bug",
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"IBIZPRO_INDEX"
     }
     ]
  }
@@ -7923,6 +7929,80 @@
      "entity_name":"ZT_HISTORY",
      "ref_entity_name":"ZT_ACTION"
     }
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBIZPRO_INDEX",
+    "logic_name":"索引检索",
+    "code_name":"IBIZPRO_INDEX",
+    "table_name":"",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
+    "fields":[
+    {
+    "fieldname":"INDEX_TYPE" ,
+    "codename":"IndexType",
+    "field_logic_name":"类型",
+    "entity_name":"IBIZPRO_INDEX",
+    "field_type":"SSCODELIST",
+    "dict":"IndexType",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"null",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"INDEXID" ,
+    "codename":"Indexid",
+    "field_logic_name":"主键",
+    "entity_name":"IBIZPRO_INDEX",
+    "field_type":"BIGINT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"BIGINT",
+    "expression":"null",
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"INDEXNAME" ,
+    "codename":"Indexname",
+    "field_logic_name":"名称",
+    "entity_name":"IBIZPRO_INDEX",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"null",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    }
+    ],
+    "subEntitys":[
+    {"name":"DERINDEX_ZT_BUG_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Bug",
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"IBIZPRO_INDEX"
+    },
+    {"name":"DERINDEX_ZT_STORY_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Story",
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"IBIZPRO_INDEX"
+    }
+    ],
+    "parentEntitys":[
     ]
  }
     ,
@@ -32688,6 +32768,12 @@
      "code_name":"ZTParent",
      "entity_name":"ZT_STORY",
      "ref_entity_name":"ZT_STORY"
+    },
+    {"name":"DERINDEX_ZT_STORY_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Story",
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"IBIZPRO_INDEX"
     }
     ]
  }

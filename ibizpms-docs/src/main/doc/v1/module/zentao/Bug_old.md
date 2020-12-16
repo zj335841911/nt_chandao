@@ -23,6 +23,7 @@ repo *-- Bug
 任务 *-- Bug 
 任务 *-- Bug 
 测试版本 *-- Bug 
+索引检索 <|-- Bug 
 hide members
 {% endplantuml %}
 

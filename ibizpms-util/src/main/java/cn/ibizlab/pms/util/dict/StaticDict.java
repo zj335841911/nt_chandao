@@ -3383,6 +3383,32 @@ public class StaticDict {
 
 
     /**
+     * 代码表[全文检索类型]
+     */
+    @Getter
+    public enum IndexType {
+        BUG("bug","Bug"),
+        PRODUCT("product","产品"),
+        TASK("task","任务"),
+        CASE("case","功能测试"),
+        DOC("doc","文档"),
+        STORY("story","需求"),
+        PROJECT("project","项目");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        IndexType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[附件对象类型]
      */
     @Getter
