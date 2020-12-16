@@ -84,9 +84,9 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'projectname',

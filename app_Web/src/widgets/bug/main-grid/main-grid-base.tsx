@@ -762,9 +762,9 @@ export class MainGridBase extends GridControlBase {
             show: true,
         },
         {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.bug.main_grid.exportColumns.product',
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.bug.main_grid.exportColumns.productname',
             show: true,
         },
         {

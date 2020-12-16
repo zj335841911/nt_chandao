@@ -151,8 +151,8 @@ function getLocaleResourceBase(){
 					issubmit: commonLogic.appcommonhandle("是否提交",null),
 			},
 				uiactions: {
-					ibzweekly_submitzzz: commonLogic.appcommonhandle("提交",null),
 					ibzweekly_edit: commonLogic.appcommonhandle("修改",null),
+					ibzweekly_submitzzz: commonLogic.appcommonhandle("提交",null),
 				},
 			},
 			default_searchform: {

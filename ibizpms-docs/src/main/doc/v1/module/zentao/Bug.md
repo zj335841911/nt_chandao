@@ -7733,6 +7733,6 @@ DEFAULT
 | 10 | 修改日期 | [修改日期（LASTEDITEDDATE）](#属性-修改日期（LASTEDITEDDATE）) |  |
 | 11 | 激活日期 | [激活日期（ACTIVATEDDATE）](#属性-激活日期（ACTIVATEDDATE）) |  |
 | 12 | 是否收藏 | [是否收藏（ISFAVORITES）](#属性-是否收藏（ISFAVORITES）) |  |
-| 13 | 所属产品 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) |  |
+| 13 | 产品 | [产品（PRODUCTNAME）](#属性-产品（PRODUCTNAME）) |  |
 | 14 | 项目 | [项目（PROJECTNAME）](#属性-项目（PROJECTNAME）) |  |
 

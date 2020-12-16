@@ -87,9 +87,9 @@ export default class Main_DataExportModel {
           dataType: 'TEXT',
         },
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'projectname',
@@ -153,6 +153,11 @@ export default class Main_DataExportModel {
         {
           name: 'testtask',
           prop: 'testtask',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'product',
+          prop: 'product',
           dataType: 'PICKUP',
         },
         {

@@ -941,7 +941,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {
@@ -991,7 +991,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {
@@ -1031,7 +1031,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {
@@ -1135,7 +1135,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {
@@ -1167,7 +1167,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {
@@ -1205,7 +1205,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {
@@ -1233,7 +1233,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
@@ -1270,7 +1270,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {
@@ -1325,7 +1325,7 @@ function getLocaleResourceBase(){
 					lastediteddate: commonLogic.appcommonhandle("修改日期",null),
 					activateddate: commonLogic.appcommonhandle("激活日期",null),
 					isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-					product: commonLogic.appcommonhandle("所属产品",null),
+					productname: commonLogic.appcommonhandle("产品",null),
 					projectname: commonLogic.appcommonhandle("项目",null),
 			},
 				uiactions: {

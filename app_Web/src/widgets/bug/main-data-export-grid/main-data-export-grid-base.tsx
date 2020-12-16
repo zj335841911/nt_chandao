@@ -233,9 +233,9 @@ export class Main_DataExportGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.bug.main_dataexport_grid.columns.product',
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.bug.main_dataexport_grid.columns.productname',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -363,7 +363,7 @@ export class Main_DataExportGridBase extends GridControlBase {
         'lastediteddate':false,
         'activateddate':false,
         'isfavorites':false,
-        'product':false,
+        'productname':false,
         'projectname':false,
     };
 
@@ -500,7 +500,7 @@ export class Main_DataExportGridBase extends GridControlBase {
     * @memberof Main_DataExportBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','confirmed','title','status','openedby','openeddate','assignedto','resolution','lastediteddate','activateddate','isfavorites','product','projectname'];
+        let allColumns:Array<any> = ['id','pri','confirmed','title','status','openedby','openeddate','assignedto','resolution','lastediteddate','activateddate','isfavorites','productname','projectname'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -591,7 +591,7 @@ export class Main_DataExportGridBase extends GridControlBase {
                 lastediteddate:'',
                 activateddate:'',
                 isfavorites:'',
-                product:'',
+                productname:'',
                 projectname:'',
                 children: children
             }
@@ -629,7 +629,7 @@ export class Main_DataExportGridBase extends GridControlBase {
             lastediteddate:'',
             activateddate:'',
             isfavorites:'',
-            product:'',
+            productname:'',
             projectname:'',
             children: child
         }
@@ -703,7 +703,7 @@ export class Main_DataExportGridBase extends GridControlBase {
                 lastediteddate:'',
                 activateddate:'',
                 isfavorites:'',
-                product:'',
+                productname:'',
                 projectname:'',
                 children: children,
             }
