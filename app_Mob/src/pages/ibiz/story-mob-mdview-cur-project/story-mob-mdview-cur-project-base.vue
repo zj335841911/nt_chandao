@@ -725,7 +725,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this.$refs.mdctrl;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];

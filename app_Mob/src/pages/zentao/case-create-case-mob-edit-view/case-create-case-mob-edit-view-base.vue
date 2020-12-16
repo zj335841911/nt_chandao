@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'story-new-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'case-create-case-mob-edit-view': true }">
     
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
@@ -10,6 +10,12 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <ion-buttons slot="end">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
         </ion-toolbar>
 
     
@@ -18,7 +24,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="StoryNewMobEditView"  
+            viewName="CaseCreateCaseMobEditView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -42,20 +48,6 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer">
-                <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
-            <div  class="bottom_button" >
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
-                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                
-                </ion-button>
-                
-            </div>
-        
-            </div>
-        </div>
-    </ion-footer>
 </ion-page>
 </template>
 
@@ -63,48 +55,48 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import CaseService from '@/app-core/service/case/case-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import CaseUIService from '@/ui-service/case/case-ui-action';
 import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
     },
 })
-export default class StoryNewMobEditViewBase extends Vue {
+export default class CaseCreateCaseMobEditViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof StoryNewMobEditViewBase
+     * @type {CaseService}
+     * @memberof CaseCreateCaseMobEditViewBase
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: CaseService = new CaseService();
 
     /**
      * 实体UI服务对象
      *
-     * @type StoryUIService
-     * @memberof StoryNewMobEditViewBase
+     * @type CaseUIService
+     * @memberof CaseCreateCaseMobEditViewBase
      */
-    public appUIService: StoryUIService = new StoryUIService(this.$store);
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -115,7 +107,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Prop() protected _context!: string;
 
@@ -123,7 +115,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -131,7 +123,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -139,15 +131,15 @@ export default class StoryNewMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof StoryNewMobEditViewBase
+	 * @memberof CaseCreateCaseMobEditViewBase
 	 */
-	protected viewtag: string = '04397afc992f5947c2d1b4250af66e37';
+	protected viewtag: string = '81d5a05b5c2b0be229fa0cc9a6eadf06';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected context: any = {};
 
@@ -155,7 +147,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected viewparams: any = {};
 
@@ -163,7 +155,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -171,14 +163,14 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     public titleStatus :boolean = true;
 
@@ -187,31 +179,31 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
-    protected navContext: any = { 'project': '%project%' };
+    protected navContext: any = { 'version': '%version%', 'objecttype': 'case', 'srfparentkey': '%case%' };
 
     /**
      * 视图导航参数
      *
      * @protected
      * @type {*}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
-    protected navParam: any = { 'project': '%project%' };
+    protected navParam: any = { 'srfparentkey': '%case%', 'objecttype': 'case', 'version': '%version%' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected model: any = {
-        srfTitle: '需求移动端编辑视图（新建）',
-        srfCaption: 'story.views.newmobeditview.caption',
+        srfTitle: '测试用例移动端编辑视图',
+        srfCaption: 'case.views.createcasemobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.newmobeditview',
+        viewname:'case.createcasemobeditview',
         iconcls: '',
         icon: 'star-o'
     }
@@ -221,7 +213,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  StoryNewMobEditViewBase
+     * @memberof  CaseCreateCaseMobEditViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -250,7 +242,7 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -263,7 +255,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -274,7 +266,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -283,67 +275,20 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
    /**
-    * 工具栏 StoryNewMobEditView 模型
+    * 工具栏 CaseCreateCaseMobEditView 模型
     *
     * @type {*}
-    * @memberof StoryNewMobEditView
+    * @memberof CaseCreateCaseMobEditView
     */
     public righttoolbarModels: any = {
-            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
-
     };
-
-    /**
-     * 工具栏显示状态
-     *
-     * @type {boolean}
-     * @memberof StoryNewMobEditView 
-     */
-    public righttoolbarShowState: boolean = false;
-
-    /**
-     * 工具栏权限
-     *
-     * @type {boolean}
-     * @memberof StoryNewMobEditView 
-     */
-    get getToolBarLimit() {
-        let toolBarVisable:boolean = false;
-        if(this.righttoolbarModels){
-            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
-                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
-                    toolBarVisable = true;
-                    return;
-                }
-            })
-        }
-        return toolBarVisable;
-    }
-
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof StoryNewMobEditView 
-     */
-    public showGrop = false;
-
-    /**
-     * 工具栏分组是否显示的方法
-     *
-     * @type {boolean}
-     * @memberof StoryNewMobEditView 
-     */
-    public popUpGroup (falg:boolean = false) {
-        this.showGrop = falg;
-    }
 
     
 
@@ -351,14 +296,14 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -371,7 +316,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -385,20 +330,20 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'story',
+            keyPSDEField: 'case',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -407,7 +352,7 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected created() {
         this.afterCreated();
@@ -416,7 +361,7 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -436,7 +381,7 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -445,10 +390,9 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -457,23 +401,17 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected mounted() {
         this.afterMounted();
     }
 
-    /**
-     * 底部按钮样式
-     * 
-     * @memberof StoryNewMobEditViewBase
-     */
-    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -483,14 +421,12 @@ export default class StoryNewMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
-        // 拖动样式
-        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
      * 第三方容器初始化
      * 
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -502,7 +438,7 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -511,7 +447,7 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -529,7 +465,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -540,7 +476,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -551,7 +487,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -562,7 +498,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -573,60 +509,18 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
-    /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof StoryNewMobEditViewBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem1')) {
-            this.righttoolbar_tbitem1_click($event, '', $event2);
-        }
-    }
-
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof StoryNewMobEditViewBase
-     */
-    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
-    }
 
     /**
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -650,7 +544,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -680,7 +574,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -692,7 +586,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -714,7 +608,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -726,7 +620,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof StoryNewMobEditViewBase
+     * @memberof CaseCreateCaseMobEditViewBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -770,5 +664,5 @@ export default class StoryNewMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './story-new-mob-edit-view.less';
+@import './case-create-case-mob-edit-view.less';
 </style>

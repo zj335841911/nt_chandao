@@ -77,6 +77,9 @@ export default {
 		usr2mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("关联用例",null),
 		},
+		createcasemobeditview: {
+			caption: commonLogic.appcommonhandle("测试用例",null),
+		},
 		mobeditview: {
 			caption: commonLogic.appcommonhandle("测试用例",null),
 		},
@@ -126,7 +129,13 @@ export default {
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
+	createcasemobeditviewrighttoolbar_toolbar: {
+	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("移动端新建",null),
+			tip: '移动端新建',
+		},
 	},
 	mobmdview_testsuiterighttoolbar_toolbar: {
 	},

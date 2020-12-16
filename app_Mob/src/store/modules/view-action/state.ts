@@ -616,6 +616,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a5df58fce83822477d21fefa32f84741',
+                '81d5a05b5c2b0be229fa0cc9a6eadf06',
                 '0e2762177f3bf384b00d863798bd744c',
             ],
         },
@@ -1493,6 +1494,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '81d5a05b5c2b0be229fa0cc9a6eadf06',
+            viewmodule: 'zentao',
+            viewname: 'CaseCreateCaseMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '28612624399832452f33d925194af274',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {

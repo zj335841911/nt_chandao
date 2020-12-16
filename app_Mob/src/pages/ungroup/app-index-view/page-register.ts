@@ -34,6 +34,7 @@ export const PageComponents = {
         Vue.component('task-estimate-mob-edit-view9', () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'));
         Vue.component('product-plan-mob-mdview', () => import('@pages/ibiz/product-plan-mob-mdview/product-plan-mob-mdview.vue'));
         Vue.component('project-sup-mob-edit-view', () => import('@pages/ibiz/project-sup-mob-edit-view/project-sup-mob-edit-view.vue'));
+        Vue.component('case-create-case-mob-edit-view', () => import('@pages/zentao/case-create-case-mob-edit-view/case-create-case-mob-edit-view.vue'));
         Vue.component('story-mob-mdview-cur-project', () => import('@pages/ibiz/story-mob-mdview-cur-project/story-mob-mdview-cur-project.vue'));
         Vue.component('ibz-daily-my-re-mob-edit-view', () => import('@pages/report/ibz-daily-my-re-mob-edit-view/ibz-daily-my-re-mob-edit-view.vue'));
         Vue.component('project-mob-edit-view', () => import('@pages/ibiz/project-mob-edit-view/project-mob-edit-view.vue'));

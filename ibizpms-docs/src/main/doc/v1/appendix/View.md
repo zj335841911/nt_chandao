@@ -137,6 +137,7 @@
 |-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求实体移动端多数据选择视图(项目下关联需求)|DEMOBMPICKUPVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|测试用例移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
