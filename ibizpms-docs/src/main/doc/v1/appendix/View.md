@@ -67,6 +67,7 @@
 |-|系统更新日志移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|系统日志移动端多数据视图（更多）|DEMOBMDVIEW|&nbsp;|
 |-|月报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|项目团队多表单编辑视图|DEMOBMEDITVIEW9|&nbsp;|
 |-|系统日志移动端多数据视图（通用）|DEMOBMDVIEW9|&nbsp;|
 |-|Bug选项操作视图（激活Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（取消）|DEMOBOPTVIEW|&nbsp;|

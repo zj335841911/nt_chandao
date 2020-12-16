@@ -15,9 +15,9 @@ export default class IndexMob2Model {
   public getDataItems(): any[] {
     return [
       {
-        name: 'index_type',
+        name: 'indextype',
         codelist:{tag:'IndexType',codelistType:'STATIC'},
-        prop: 'index_type'
+        prop: 'indextype'
       },
       {
         name: 'indexid',

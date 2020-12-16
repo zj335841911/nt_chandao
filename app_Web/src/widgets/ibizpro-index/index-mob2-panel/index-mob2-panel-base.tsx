@@ -76,7 +76,7 @@ export class IndexMob2PanelBase extends PanelControlBase {
      * @memberof IndexMob2
      */
     public detailsModel: any = {
-        index_type: new PanelFieldModel({ caption: '类型', itemType: 'FIELD',visible: true, disabled: false, name: 'index_type', panel: this })
+        indextype: new PanelFieldModel({ caption: '类型', itemType: 'FIELD',visible: true, disabled: false, name: 'indextype', panel: this })
 ,
         indexid: new PanelFieldModel({ caption: '编号', itemType: 'FIELD',visible: true, disabled: false, name: 'indexid', panel: this })
 ,
