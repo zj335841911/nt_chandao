@@ -184,7 +184,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
      * @type {*}
      * @memberof SysEmployeeLoginMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'ibzemp': '%srfuserid%' };
 
     /**
      * 视图模型数据
