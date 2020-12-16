@@ -859,7 +859,7 @@ export default class MyPlansTomorrowTaskMobBase extends Vue implements ControlIn
     * @memberof MyPlansTomorrowTaskMob
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

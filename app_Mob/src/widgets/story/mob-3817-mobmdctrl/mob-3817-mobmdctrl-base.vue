@@ -859,7 +859,7 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
     * @memberof Mob_3817
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

@@ -851,7 +851,7 @@ export default class WeeklyMyReceviedBase extends Vue implements ControlInterfac
     * @memberof WeeklyMyRecevied
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

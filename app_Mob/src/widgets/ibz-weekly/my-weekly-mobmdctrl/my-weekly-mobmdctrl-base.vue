@@ -812,7 +812,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
     * @memberof MyWeekly
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

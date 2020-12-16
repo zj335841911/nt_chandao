@@ -1125,7 +1125,7 @@ export default class MOB_Build_CreateBugBase extends Vue implements ControlInter
     * @memberof MOB_Build_CreateBug
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**
