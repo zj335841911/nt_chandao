@@ -189,7 +189,7 @@ export default class SysEmployeeheadPortraitMobEditViewBase extends Vue {
      * @type {*}
      * @memberof SysEmployeeheadPortraitMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'sysemployee': '%srfuserid%' };
 
     /**
      * 视图导航参数
