@@ -489,6 +489,11 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
         return response;
     }
 
