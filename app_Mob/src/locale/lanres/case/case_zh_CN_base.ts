@@ -111,6 +111,32 @@ export default {
 		uiactions: {
 		},
 	},
+	createmob_form: {
+		details: {
+			druipart2: commonLogic.appcommonhandle("",null), 
+			druipart1: commonLogic.appcommonhandle("",null), 
+			grouppanel1: commonLogic.appcommonhandle("历史记录",null), 
+			group1: commonLogic.appcommonhandle("测试用例基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("修改日期",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("用例编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("用例标题",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			title: commonLogic.appcommonhandle("用例标题",null), 
+			type: commonLogic.appcommonhandle("用例类型",null), 
+			stage: commonLogic.appcommonhandle("适用阶段",null), 
+			precondition: commonLogic.appcommonhandle("前置条件",null), 
+			version: commonLogic.appcommonhandle("用例版本",null), 
+			keywords: commonLogic.appcommonhandle("关键词",null), 
+			id: commonLogic.appcommonhandle("用例编号",null), 
+		},
+		uiactions: {
+		},
+	},
 	mobdef_searchform: {
 		details: {
 			formpage1: commonLogic.appcommonhandle("常规条件",null), 

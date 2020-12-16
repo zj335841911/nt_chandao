@@ -42,30 +42,6 @@
 </app-form-item>
 
 
-
-<app-form-item 
-    name='multiple' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="multiple_item"  
-    :itemValue="this.data.multiple" 
-    v-show="detailsModel.multiple.visible" 
-    :itemRules="this.rules.multiple" 
-    :caption="$t('task.mobmainedit_form.details.multiple')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.multiple.disabled"
-    :error="detailsModel.multiple.error" 
-    :isEmptyCaption="false">
-        <app-mob-switch 
-    class="app-form-item-switch" 
-    :value="data.multiple"  
-    :disabled="detailsModel.multiple.disabled"
-    @change="($event)=>this.data.multiple = $event" />
-</app-form-item>
-
-
     
 </app-form-group>
 
@@ -316,6 +292,30 @@
 
 
 
+<app-form-item 
+    name='multiple' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="multiple_item"  
+    :itemValue="this.data.multiple" 
+    v-show="detailsModel.multiple.visible" 
+    :itemRules="this.rules.multiple" 
+    :caption="$t('task.mobmainedit_form.details.multiple')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.multiple.disabled"
+    :error="detailsModel.multiple.error" 
+    :isEmptyCaption="false">
+        <app-mob-switch 
+    class="app-form-item-switch" 
+    :value="data.multiple"  
+    :disabled="detailsModel.multiple.disabled"
+    @change="($event)=>this.data.multiple = $event" />
+</app-form-item>
+
+
+
 <app-form-group 
     class='' 
     layoutType='TABLE_24COL' 
@@ -334,9 +334,9 @@
 <app-form-druipart
     class='' 
     parameterName='task' 
-    refviewtype='DEMOBMDVIEW9'  
+    refviewtype='DEMOBMEDITVIEW9'  
     refreshitems='' 
-    viewname='task-team-mob-mdview9' 
+    viewname='task-team-mob-medit-view9' 
     v-show="detailsModel.druipart2.visible" 
     :caption="$t('task.mobmainedit_form.details.druipart2')"  
     paramItem='task' 
@@ -346,7 +346,7 @@
     :parameters="[
         { pathName: 'tasks', parameterName: 'task' },
     ]" 
-    tempMode='0'
+    tempMode='2'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -1412,7 +1412,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         id: null,
         name: null,
-        multiple: null,
         projectname: null,
         project: null,
         module: null,
@@ -1424,6 +1423,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         parent: null,
         assignedto: null,
         storyversion: null,
+        multiple: null,
         type: null,
         status: null,
         pri: null,
@@ -1634,7 +1634,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel8: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: false, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1676,8 +1676,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1699,6 +1697,8 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         storyversion: new FormItemModel({ caption: '需求版本', detailType: 'FORMITEM', name: 'storyversion', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1869,18 +1869,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 multiple 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainEdit
-     */
-    @Watch('data.multiple')
-    onMultipleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 projectname 值
      *
      * @param {*} newVal
@@ -2010,6 +1998,18 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     @Watch('data.storyversion')
     onStoryversionChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'storyversion', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -2325,6 +2325,14 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.druipart2.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
@@ -2354,15 +2362,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'parent')) {
-            let ret = false;
-            const _parent = this.data.parent;
-            if (this.$verify.testCond(_parent, 'EQ', '0') || this.$verify.testCond(_parent, 'ISNULL', '')) {
-                ret = true;
-            }
-            this.detailsModel.multiple.setVisible(ret);
-        }
-
 
 
 
@@ -2382,6 +2381,15 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 
 
 
+
+        if (Object.is(name, '') || Object.is(name, 'parent')) {
+            let ret = false;
+            const _parent = this.data.parent;
+            if (this.$verify.testCond(_parent, 'EQ', '0') || this.$verify.testCond(_parent, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.multiple.setVisible(ret);
+        }
 
 
 

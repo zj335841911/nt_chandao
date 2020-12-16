@@ -61,11 +61,6 @@ export class MobMainEditModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'multiple',
-                prop: 'multiple',
-                dataType: 'TEXT',
-            },
-            {
                 name: 'projectname',
                 prop: 'projectname',
                 dataType: 'PICKUPTEXT',
@@ -119,6 +114,11 @@ export class MobMainEditModel {
                 name: 'storyversion',
                 prop: 'storyversion',
                 dataType: 'PICKUPDATA',
+            },
+            {
+                name: 'multiple',
+                prop: 'multiple',
+                dataType: 'TEXT',
             },
             {
                 name: 'type',
