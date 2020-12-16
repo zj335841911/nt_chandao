@@ -277,7 +277,7 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealNameTaskTeam"
+    tag="UserRealNameProject"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
