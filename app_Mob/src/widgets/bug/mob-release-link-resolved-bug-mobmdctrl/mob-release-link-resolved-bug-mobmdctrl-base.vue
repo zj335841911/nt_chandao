@@ -915,7 +915,7 @@ export default class MOB_ReleaseLink_ResolvedBugBase extends Vue implements Cont
     * @memberof MOB_ReleaseLink_ResolvedBug
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

@@ -929,7 +929,7 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
     * @memberof FavoriteMOBDas
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

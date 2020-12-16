@@ -419,6 +419,16 @@
         "viewtag": "103bc77ad54de2476db1d4e9c788cd4e",
         "memo": ""
     },
+    "ibizpro_indexlistview": {
+        "title": "索引检索列表视图",
+        "caption": "索引检索",
+        "viewtype": "DELISTVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBIZPRO_INDEXListView",
+        "viewfilename": "ibizpro-indexlist-view",
+        "viewtag": "10aa6afcd73e77c44c698319a1b4edcd",
+        "memo": ""
+    },
     "todobaseeditview9": {
         "title": "待办事宜表编辑视图",
         "caption": "基本信息",
@@ -1147,6 +1157,16 @@
         "viewname": "TestTaskMyDGridView",
         "viewfilename": "test-task-my-dgrid-view",
         "viewtag": "30c07c840301a6ba07383d123bf9bba1",
+        "memo": ""
+    },
+    "ibizpro_indexindexpickupview": {
+        "title": "索引检索数据选择视图",
+        "caption": "索引检索",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBIZPRO_INDEXIndexPickupView",
+        "viewfilename": "ibizpro-indexindex-pickup-view",
+        "viewtag": "31dc3f821fafa9e92cc28d217373a67b",
         "memo": ""
     },
     "taskmaininfoview9": {
@@ -3449,6 +3469,16 @@
         "viewtag": "910a15d245455b5b6c4dc58fd36aa315",
         "memo": ""
     },
+    "ibizpro_indexindexpickupdataview": {
+        "title": "索引检索索引关系选择数据视图",
+        "caption": "索引检索",
+        "viewtype": "DEINDEXPICKUPDATAVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBIZPRO_INDEXIndexPickupDataView",
+        "viewfilename": "ibizpro-indexindex-pickup-data-view",
+        "viewtag": "92269965704a55f1342317470d86e5e3",
+        "memo": ""
+    },
     "todotodocreateview": {
         "title": "添加待办",
         "caption": "待办",
@@ -5069,6 +5099,16 @@
         "viewtag": "D1283E46-401A-4CFD-A7A1-BF5B90197463",
         "memo": ""
     },
+    "sysemployeetreeexpview": {
+        "title": "人员树导航视图",
+        "caption": "人员",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeTreeExpView",
+        "viewfilename": "sys-employee-tree-exp-view",
+        "viewtag": "d1c2669aa1d4bc3973882f4cbb3a9539",
+        "memo": ""
+    },
     "ibzcasedashboardview": {
         "title": "用例库用例数据看板视图",
         "caption": "测试用例",
@@ -5197,6 +5237,16 @@
         "viewname": "TaskreportPickupGridView",
         "viewfilename": "taskreport-pickup-grid-view",
         "viewtag": "d7b7fadc3c6a2da9c7a4319c40fd0e7c",
+        "memo": ""
+    },
+    "ibizpro_indexredirectview": {
+        "title": "索引检索数据重定向视图",
+        "caption": "索引检索",
+        "viewtype": "DEREDIRECTVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IBIZPRO_INDEXRedirectView",
+        "viewfilename": "ibizpro-indexredirect-view",
+        "viewtag": "d7dd357c2488e9f3440971b4407d52a1",
         "memo": ""
     },
     "companymainview9": {

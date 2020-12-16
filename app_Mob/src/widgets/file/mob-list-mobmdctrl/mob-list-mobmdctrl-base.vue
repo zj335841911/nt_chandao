@@ -781,7 +781,7 @@ export default class MobListBase extends Vue implements ControlInterface {
     * @memberof MobList
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

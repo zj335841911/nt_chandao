@@ -851,7 +851,7 @@ export default class ReportReceivedMobBase extends Vue implements ControlInterfa
     * @memberof ReportReceivedMob
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

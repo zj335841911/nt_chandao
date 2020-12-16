@@ -4,7 +4,7 @@
                 <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                      <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                      <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
@@ -20,11 +20,11 @@
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                         <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                          <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                         <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
+                          <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       </template>
                     </ion-item>
                   </ion-item-sliding>
@@ -1006,7 +1006,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

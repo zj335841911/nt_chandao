@@ -915,7 +915,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     * @memberof MOB_ReleaseLink_LeftBug
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

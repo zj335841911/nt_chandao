@@ -33,6 +33,25 @@ function getLocaleResourceBase(){
 			createman: commonLogic.appcommonhandle("建立人",null),
 			updatedate: commonLogic.appcommonhandle("更新时间",null),
 		},
+			views: {
+				treeexpview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员树导航视图",null),
+				},
+			},
+			emptree_treeview: {
+				nodata:commonLogic.appcommonhandle("",null),
+				nodes: {
+					project: commonLogic.appcommonhandle("项目团队",null),
+					team: commonLogic.appcommonhandle("团队",null),
+					orgemp: commonLogic.appcommonhandle("组织人员",null),
+					post: commonLogic.appcommonhandle("岗位",null),
+					concatlist: commonLogic.appcommonhandle("联系人",null),
+					root: commonLogic.appcommonhandle("默认根节点",null),
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

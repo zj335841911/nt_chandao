@@ -896,7 +896,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * @memberof Exp_TestTask
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

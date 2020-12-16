@@ -960,7 +960,7 @@ export default class MOB_Build_ResolvedBugBase extends Vue implements ControlInt
     * @memberof MOB_Build_ResolvedBug
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

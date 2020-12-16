@@ -61,6 +61,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('doccontent', () => import('@/authservice/doc-content/doc-content-auth-service'));
         this.allAuthService.set('ibzreport', () => import('@/authservice/ibz-report/ibz-report-auth-service'));
         this.allAuthService.set('storyspec', () => import('@/authservice/story-spec/story-spec-auth-service'));
+        this.allAuthService.set('syspost', () => import('@/authservice/sys-post/sys-post-auth-service'));
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
         this.allAuthService.set('taskstats', () => import('@/authservice/task-stats/task-stats-auth-service'));
         this.allAuthService.set('ibzfavorites', () => import('@/authservice/ibz-favorites/ibz-favorites-auth-service'));
@@ -70,12 +71,14 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibzprojectmember', () => import('@/authservice/ibz-project-member/ibz-project-member-auth-service'));
         this.allAuthService.set('action', () => import('@/authservice/action/action-auth-service'));
         this.allAuthService.set('bugstats', () => import('@/authservice/bug-stats/bug-stats-auth-service'));
+        this.allAuthService.set('ibizpro_index', () => import('@/authservice/ibizpro-index/ibizpro-index-auth-service'));
         this.allAuthService.set('group', () => import('@/authservice/group/group-auth-service'));
         this.allAuthService.set('ibzproproduct', () => import('@/authservice/ibzpro-product/ibzpro-product-auth-service'));
         this.allAuthService.set('casestep', () => import('@/authservice/case-step/case-step-auth-service'));
         this.allAuthService.set('dept', () => import('@/authservice/dept/dept-auth-service'));
         this.allAuthService.set('ibizprotag', () => import('@/authservice/ibizpro-tag/ibizpro-tag-auth-service'));
         this.allAuthService.set('company', () => import('@/authservice/company/company-auth-service'));
+        this.allAuthService.set('systeam', () => import('@/authservice/sys-team/sys-team-auth-service'));
         this.allAuthService.set('ibzcasestep', () => import('@/authservice/ibzcase-step/ibzcase-step-auth-service'));
         this.allAuthService.set('taskestimate', () => import('@/authservice/task-estimate/task-estimate-auth-service'));
         this.allAuthService.set('story', () => import('@/authservice/story/story-auth-service'));
@@ -84,6 +87,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibzlibmodule', () => import('@/authservice/ibz-lib-module/ibz-lib-module-auth-service'));
         this.allAuthService.set('subtask', () => import('@/authservice/sub-task/sub-task-auth-service'));
         this.allAuthService.set('useryearworkstats', () => import('@/authservice/user-year-work-stats/user-year-work-stats-auth-service'));
+        this.allAuthService.set('sysorganization', () => import('@/authservice/sys-organization/sys-organization-auth-service'));
         this.allAuthService.set('ibizproplugin', () => import('@/authservice/ibizpro-plugin/ibizpro-plugin-auth-service'));
         this.allAuthService.set('ibzlibcasesteptmp', () => import('@/authservice/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-auth-service'));
         this.allAuthService.set('project', () => import('@/authservice/project/project-auth-service'));
@@ -126,6 +130,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibzdoc', () => import('@/authservice/ibz-doc/ibz-doc-auth-service'));
         this.allAuthService.set('pssysapp', () => import('@/authservice/pssys-app/pssys-app-auth-service'));
         this.allAuthService.set('ibzcase', () => import('@/authservice/ibz-case/ibz-case-auth-service'));
+        this.allAuthService.set('systeammember', () => import('@/authservice/sys-team-member/sys-team-member-auth-service'));
         this.allAuthService.set('pssystemdbcfg', () => import('@/authservice/pssystem-dbcfg/pssystem-dbcfg-auth-service'));
         this.allAuthService.set('sysupdatefeatures', () => import('@/authservice/sys-update-features/sys-update-features-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));

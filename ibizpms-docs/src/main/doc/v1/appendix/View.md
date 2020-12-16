@@ -316,6 +316,7 @@
 |-|我的地盘|DETABEXPVIEW|&nbsp;|
 |-|发布选项操作视图|DEOPTVIEW|&nbsp;|
 |-|项目任务导航视图|DETREEEXPVIEW|&nbsp;|
+|-|索引检索列表视图|DELISTVIEW|&nbsp;|
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|
 |-|汇报编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug编辑|DEEDITVIEW|&nbsp;主信息编辑|
@@ -390,6 +391,7 @@
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试版本表格视图|DEGRIDVIEW9|&nbsp;|
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
+|-|索引检索数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
 |-|相关用例|DEGRIDVIEW9|&nbsp;|
@@ -621,6 +623,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品计划表格视图（项目）|DEGRIDVIEW9|&nbsp;|
 |-|指派|DEOPTVIEW|&nbsp;|
 |-|关键字表格视图|DEGRIDVIEW|&nbsp;|
+|-|索引检索索引关系选择数据视图|DEINDEXPICKUPDATAVIEW|&nbsp;|
 |-|添加待办|DEEDITVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|测试用例图表视图（模块）|DECHARTVIEW9|&nbsp;|
@@ -783,6 +786,7 @@ SRFNAVPARAM.project=%project%|
 |-|平台数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|测试运行编辑视图|DEEDITVIEW9|&nbsp;|
 |-|测试主页|APPPORTALVIEW|&nbsp;|
+|-|人员树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|用例库用例数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试|DETABEXPVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;|
@@ -796,6 +800,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目表格视图|DEGRIDVIEW|&nbsp;|
 |-|细分需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|任务选择表格视图（汇报）|DEPICKUPGRIDVIEW|&nbsp;|
+|-|索引检索数据重定向视图|DEREDIRECTVIEW|&nbsp;|
 |-|公司编辑视图|DEEDITVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库树视图（自定义文档库）|DETREEVIEW|&nbsp;|

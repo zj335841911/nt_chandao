@@ -952,7 +952,7 @@ export default class MyReBase extends Vue implements ControlInterface {
     * @memberof MyRe
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**
