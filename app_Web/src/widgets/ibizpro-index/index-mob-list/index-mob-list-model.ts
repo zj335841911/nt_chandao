@@ -24,8 +24,9 @@ export default class IndexMobModel {
 				name: 'indexid',
 			},
 			{
-				name: 'index_type',
-        codelist:{tag:'IndexType',codelistType:'STATIC'},
+				name: 'indextype',
+				prop: 'indextype',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'indexname',
@@ -42,6 +43,12 @@ export default class IndexMobModel {
 			},
 			{
 				name: 'srfdatatype',
+				prop: 'indextype',
+				dataType: 'SSCODELIST',
+        codelist:{tag:'IndexType',codelistType:'STATIC'},
+			},
+			{
+				name: 'index_type',
 				prop: 'indextype',
 				dataType: 'SSCODELIST',
         codelist:{tag:'IndexType',codelistType:'STATIC'},
