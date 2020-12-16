@@ -2301,6 +2301,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      * @memberof MobMainEdit
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'multiple')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
     }
 
     /**

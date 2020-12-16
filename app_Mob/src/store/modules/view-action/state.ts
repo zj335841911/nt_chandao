@@ -1504,7 +1504,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {

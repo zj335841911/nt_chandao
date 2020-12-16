@@ -143,17 +143,12 @@
     :disabled="detailsModel.version.disabled"
     :error="detailsModel.version.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="CurCaseVersion"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.version"
+    unit=""
     :disabled="detailsModel.version.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.version"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
     @change="($event)=>this.data.version = $event" />
 </app-form-item>
 
@@ -182,50 +177,6 @@
     :disabled="detailsModel.keywords.disabled" 
     @change="($event)=>this.data.keywords = $event" />
 </app-form-item>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('case.createmob_form.details.grouppanel1')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='case' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='action-mob-mdview9' 
-    v-show="detailsModel.druipart1.visible" 
-    :caption="$t('case.createmob_form.details.druipart1')"  
-    paramItem='case' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_CASE","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
 
 
     
@@ -710,10 +661,6 @@ export default class CreatemobBase extends Vue implements ControlInterface {
      * @memberof Createmob
      */
     protected detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'case.createmob_form', extractMode: 'ITEM', details: [] } })
-, 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'case.createmob_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -966,8 +913,6 @@ export default class CreatemobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
-
 
 
 
@@ -1499,7 +1444,7 @@ export default class CreatemobBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 1;
+            this.drcounter = 0;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
