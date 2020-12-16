@@ -15,7 +15,7 @@ public interface CaseInheritMapping {
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    IBIZPRO_INDEX toIbizproIndex(Case case);
+    IBIZPRO_INDEX toIbizproIndex(Case cases);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
@@ -24,7 +24,7 @@ public interface CaseInheritMapping {
     })
     Case toCase(IBIZPRO_INDEX ibizpro_index);
 
-    List<IBIZPRO_INDEX> toIbizproIndex(List<Case> case);
+    List<IBIZPRO_INDEX> toIbizproIndex(List<Case> cases);
 
     List<Case> toCase(List<IBIZPRO_INDEX> ibizpro_index);
 
