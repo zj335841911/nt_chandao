@@ -71,6 +71,8 @@ export default {
 		uiactions: {
 		},
 	},
+	mobmdviewrighttoolbar_toolbar: {
+	},
 	projectteammobeditviewrighttoolbar_toolbar: {
 	},
 	projectteamallmobeditviewrighttoolbar_toolbar: {
@@ -78,7 +80,5 @@ export default {
 			caption: commonLogic.appcommonhandle("保存",null),
 			tip: '保存',
 		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
 	},
 };
