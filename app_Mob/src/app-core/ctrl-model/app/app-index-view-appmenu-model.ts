@@ -175,7 +175,7 @@ export class AppIndexViewModel {
 	tooltip: '头像',
 	expanded: false,
 	separator: false,
-	hidden: false,
+	hidden: true,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',
