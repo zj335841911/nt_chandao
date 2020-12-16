@@ -23,7 +23,7 @@ export interface IBIZPRO_INDEX {
     indexid?: any;
 
     /**
-     * 名称
+     * 支持搜索[需求、Bug、任务、项目、产品、文档、用例]
      *
      * @returns {*}
      * @memberof IBIZPRO_INDEX

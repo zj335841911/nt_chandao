@@ -141,6 +141,7 @@
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
+|-|项目团队移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

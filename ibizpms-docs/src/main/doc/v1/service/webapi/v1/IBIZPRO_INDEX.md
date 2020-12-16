@@ -263,7 +263,7 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | indextype | String | 允许 | 类型 |
 | 2 | indexid | Long | 允许 | 主键 |
-| 3 | indexname | String | 允许 | 名称 |
+| 3 | indexname | String | 允许 | 支持搜索[需求、Bug、任务、项目、产品、文档、用例] |
 | 4 | deleted | String | 允许 | 逻辑标识 |
 | 5 | orgid | String | 允许 | 组织标识 |
 | 6 | mdeptid | String | 允许 | 部门标识 |
