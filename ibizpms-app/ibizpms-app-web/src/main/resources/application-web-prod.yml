@@ -131,6 +131,10 @@ zuul:
       path: /bugstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_index:
+      path: /ibizpro_indices/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_group:
       path: /groups/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

@@ -256,6 +256,28 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: '1CC661E6-9593-4C82-98B5-01496AE8D80C',
+                	name: 'menuitem26',
+                	text: '人员',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '人员',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc8',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'task-tree-exp-view',
+                	authtag:'Web-zentao-menuitem26',
+                	localetag: 'app.menus.zentao.menuitem26',
+                }
+                ,
+                		        {
                 	id: '50D22ECD-CF16-4313-856A-645B1E837DE7',
                 	name: 'menuitem24',
                 	text: '系统管理',
@@ -406,28 +428,6 @@ export default class ZentaoModel {
                         }
                         ,
                 	],
-                }
-                ,
-                		        {
-                	id: '1CC661E6-9593-4C82-98B5-01496AE8D80C',
-                	name: 'menuitem26',
-                	text: '人员',
-                	type: 'MENUITEM',
-                	counterid: '',
-                	tooltip: '人员',
-                	expanded: false,
-                	separator: false,
-                	hidden: false,
-                	hidesidebar: false,
-                	opendefault: false,
-                	iconcls: '',
-                	icon: '',
-                	textcls: '',
-                	appfunctag: 'AppFunc8',
-                	appfuncyype: 'APPVIEW',
-                	viewname: 'task-tree-exp-view',
-                	authtag:'Web-zentao-menuitem26',
-                	localetag: 'app.menus.zentao.menuitem26',
                 }
                 ,
         	],
@@ -841,18 +841,6 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: 'AppFunc8',
-            appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'tasktreeexpview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/tasks/:task?/treeexpview/:treeexpview?',
-            parameters: [
-                { pathName: 'tasks', parameterName: 'task' },
-                { pathName: 'treeexpview', parameterName: 'treeexpview' },
-            ],
-        },
-        {
             appfunctag: 'Auto23',
             appfuncyype: 'APPVIEW',
             openmode: '',
@@ -874,6 +862,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
                 { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc8',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'tasktreeexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/tasks/:task?/treeexpview/:treeexpview?',
+            parameters: [
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'treeexpview', parameterName: 'treeexpview' },
             ],
         },
         {
