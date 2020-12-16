@@ -851,7 +851,7 @@ export default class MOBLogBase extends Vue implements ControlInterface {
     * @memberof MOBLog
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

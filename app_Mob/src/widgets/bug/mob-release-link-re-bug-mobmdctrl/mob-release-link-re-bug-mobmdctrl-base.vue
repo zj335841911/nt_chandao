@@ -952,7 +952,7 @@ export default class MOB_ReleaseLink_reBugBase extends Vue implements ControlInt
     * @memberof MOB_ReleaseLink_reBug
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

@@ -851,7 +851,7 @@ export default class MOB_BuildLink_StoryBase extends Vue implements ControlInter
     * @memberof MOB_BuildLink_Story
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

@@ -851,7 +851,7 @@ export default class MOB_ProjectLinkStoryBase extends Vue implements ControlInte
     * @memberof MOB_ProjectLinkStory
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

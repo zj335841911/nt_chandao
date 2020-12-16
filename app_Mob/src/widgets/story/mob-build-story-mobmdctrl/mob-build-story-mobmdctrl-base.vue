@@ -896,7 +896,7 @@ export default class MOB_Build_StoryBase extends Vue implements ControlInterface
     * @memberof MOB_Build_Story
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

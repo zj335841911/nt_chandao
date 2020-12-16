@@ -851,7 +851,7 @@ export default class DailyReportSubmitMobBase extends Vue implements ControlInte
     * @memberof DailyReportSubmitMob
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

@@ -851,7 +851,7 @@ export default class Mob_Task_CaseBase extends Vue implements ControlInterface {
     * @memberof Mob_Task_Case
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

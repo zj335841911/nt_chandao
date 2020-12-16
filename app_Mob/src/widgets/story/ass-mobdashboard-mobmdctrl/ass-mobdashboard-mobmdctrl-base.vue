@@ -993,7 +993,7 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
     * @memberof AssMOBDASHBOARD
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

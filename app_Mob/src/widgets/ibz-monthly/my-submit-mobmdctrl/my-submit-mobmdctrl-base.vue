@@ -851,7 +851,7 @@ export default class MySubmitBase extends Vue implements ControlInterface {
     * @memberof MySubmit
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

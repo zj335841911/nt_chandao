@@ -915,7 +915,7 @@ export default class MOB_ProductPlanLink_BugBase extends Vue implements ControlI
     * @memberof MOB_ProductPlanLink_Bug
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

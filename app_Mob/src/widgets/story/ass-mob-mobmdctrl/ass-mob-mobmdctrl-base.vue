@@ -1061,7 +1061,7 @@ export default class AssMOBBase extends Vue implements ControlInterface {
     * @memberof AssMOB
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

@@ -781,7 +781,7 @@ export default class TrendsMobMoreBase extends Vue implements ControlInterface {
     * @memberof TrendsMobMore
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

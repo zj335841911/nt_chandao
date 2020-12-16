@@ -833,7 +833,7 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
     * @memberof MOBPorject
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

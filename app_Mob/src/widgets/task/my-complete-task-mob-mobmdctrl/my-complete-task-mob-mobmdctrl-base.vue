@@ -859,7 +859,7 @@ export default class MyCompleteTaskMobBase extends Vue implements ControlInterfa
     * @memberof MyCompleteTaskMob
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

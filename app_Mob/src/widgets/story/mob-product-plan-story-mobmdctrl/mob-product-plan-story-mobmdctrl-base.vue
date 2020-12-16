@@ -896,7 +896,7 @@ export default class Mob_ProductPlan_StoryBase extends Vue implements ControlInt
     * @memberof Mob_ProductPlan_Story
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

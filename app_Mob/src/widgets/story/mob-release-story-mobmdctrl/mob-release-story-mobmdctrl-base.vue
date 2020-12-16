@@ -851,7 +851,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * @memberof MOB_Release_Story
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

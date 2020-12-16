@@ -896,7 +896,7 @@ export default class Exp_TestSuiteBase extends Vue implements ControlInterface {
     * @memberof Exp_TestSuite
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

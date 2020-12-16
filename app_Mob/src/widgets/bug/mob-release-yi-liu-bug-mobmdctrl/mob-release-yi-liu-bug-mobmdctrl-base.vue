@@ -960,7 +960,7 @@ export default class MOB_Release_YiLiuBugBase extends Vue implements ControlInte
     * @memberof MOB_Release_YiLiuBug
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

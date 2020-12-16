@@ -851,7 +851,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * @memberof MyReceived
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**

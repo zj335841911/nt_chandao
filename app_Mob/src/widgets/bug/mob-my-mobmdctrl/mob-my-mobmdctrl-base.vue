@@ -1061,7 +1061,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
     * @memberof Mob_My
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.selectedArray;
     }
 
     /**
