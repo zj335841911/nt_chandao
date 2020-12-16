@@ -143,12 +143,17 @@
     :disabled="detailsModel.version.disabled"
     :error="detailsModel.version.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.version"
-    unit=""
+        <app-mob-select 
+    tag="CurCaseVersion"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
     :disabled="detailsModel.version.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.version"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
     @change="($event)=>this.data.version = $event" />
 </app-form-item>
 
