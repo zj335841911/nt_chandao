@@ -3,14 +3,15 @@
         <div class="app-story-list-item_top">
             <div class="multiple" v-if="item.parent == '-1'">父</div>
             <div class="multiple" v-else-if="item.isleaf == '1'">子</div>
-            <strong><div class="name" :style="{'color':item.color}"> {{item.srfmajortext}}<span class="estimate">(工时：{{item.estimate}}h)</span></div></strong>
+            <strong><div class="name" :style="{'color':item.color}"> {{item.srfmajortext}}<span class="estimate">(工时：{{item.estimate}} h)</span></div></strong>
             <div class="pri" :class="item.pri_className">{{item.pri_text}}</div>
         </div>
         <div class="app-story-list-item_bottom">
             <div class="status" :style="{'color':item.status_color}">{{item.status_text}}</div>
             <div class="stage" :style="{'color':item.stage_color}">{{item.stage_text}}</div>
             <div class="assignedto">
-                <div v-if="item.assignedto_text" class="assignedto_item">{{item.assignedto_text}}</div>
+                <div v-if="item.assignedto_img" class="assignedto_item_img"><img :src="item.assignedto_img" alt=""></div>
+                <div v-else-if="item.assignedto_text" class="assignedto_item">{{item.assignedto_text}}</div>
             </div>
         </div>
     </div>
@@ -33,6 +34,14 @@ export default class appStoryList extends Vue {
     on_item_change(){
         this.parseData();
     }
+
+    /**
+     * 图片地址
+     *
+     * @param {*} nodes
+     * @memberof EmpTreeBase
+     */
+    public imageUrl = 'ibizutil/download';
 
     /**
      * 需求优先级代码表
@@ -78,7 +87,22 @@ export default class appStoryList extends Vue {
         if (this.item.assignedto_text) {
             this.item.assignedto_text = this.item.assignedto_text.substring(0, 1);
         }
+        this.item.assignedto_img = this.getUserImg(this.item.assignedto);
         this.$forceUpdate();
+    }
+
+    /**
+     * 获取用户头像
+     */
+    public getUserImg(value:string) {
+        let icon = this.getCodeListText('UserRealName',value).icon;
+        if (icon) {
+            icon = JSON.parse(icon);
+        }
+        if(icon && icon[0] && icon[0].id){
+            return `${this.imageUrl}/${icon[0].id}`;
+        }
+        return '';
     }
 
     /**

@@ -1,7 +1,7 @@
 <template>
     <div class="app-projectteam-list-item">
         <div class="app-projectteam-list-item_top">
-            <div v-if="item.account_icon" class="account_part"><img class="tree_item_img" v-if="item.strIcon" :src="item.strIcon" /></div>
+            <div v-if="item.account_img" class="account_item_img"><img :src="item.account_img" alt=""></div>
             <div v-else class="account_part">{{item.account_part}}</div>
             <div>
                 <strong><div class="account_text">{{item.account_text}}</div></strong>
@@ -13,12 +13,6 @@
             <span class="left">{{item.join}}</span>
             <span class="title"><strong>可用工日</strong></span>
             <span class="right">{{item.days}}</span>
-        </div>
-        <div class="app-projectteam-list-item_center">
-            <span class="title"><strong>可用工时/天</strong></span>
-            <span class="left">{{item.hours}}</span>
-            <span class="title"><strong>总计</strong></span>
-            <span class="right">{{item.total}}</span>
         </div>
     </div>
 </template>
@@ -41,6 +35,14 @@ export default class appProjectTeamList extends Vue {
     }
 
     /**
+     * 图片地址
+     *
+     * @param {*} nodes
+     * @memberof EmpTreeBase
+     */
+    public imageUrl = 'ibizutil/download';
+
+    /**
      * 用户真实名称
      */
     public UserRealName: any;
@@ -61,9 +63,23 @@ export default class appProjectTeamList extends Vue {
         if (!this.item.account_text) {
             this.item.account_text = this.item.account;
         }
-        this.item.account_icon = this.getCodeListText('UserRealName', this.item.account).icon;
         this.item.account_part = this.item.account_text.substring(0, 1);
+        this.item.account_img = this.getUserImg(this.item.account);
         this.$forceUpdate();
+    }
+
+    /**
+     * 获取用户头像
+     */
+    public getUserImg(value:string) {
+        let icon = this.getCodeListText('UserRealName',value).icon;
+        if (icon) {
+            icon = JSON.parse(icon);
+        }
+        if(icon && icon[0] && icon[0].id){
+            return `${this.imageUrl}/${icon[0].id}`;
+        }
+        return '';
     }
 
     /**
