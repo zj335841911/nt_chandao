@@ -51,6 +51,11 @@ export class MobNewFormModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'project',
+                prop: 'project',
+                dataType: 'BIGINT',
+            },
+            {
                 name: 'product',
                 prop: 'product',
                 dataType: 'PICKUP',

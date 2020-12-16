@@ -185,6 +185,7 @@ export default {
 			srfuf: commonLogic.appcommonhandle("",null), 
 			srfdeid: commonLogic.appcommonhandle("",null), 
 			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			project: commonLogic.appcommonhandle("项目",null), 
 			product: commonLogic.appcommonhandle("所属产品",null), 
 			module: commonLogic.appcommonhandle("所属模块",null), 
 			prodoctname: commonLogic.appcommonhandle("所属产品",null), 
@@ -516,6 +517,10 @@ export default {
 		},
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
+		deuiaction3: {
+			caption: commonLogic.appcommonhandle("新建需求",null),
+			tip: '新建需求',
+		},
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
 			tip: '关联需求',
@@ -526,6 +531,10 @@ export default {
 		},
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
+		deuiaction3: {
+			caption: commonLogic.appcommonhandle("新建需求",null),
+			tip: '新建需求',
+		},
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
 			tip: '关联需求',

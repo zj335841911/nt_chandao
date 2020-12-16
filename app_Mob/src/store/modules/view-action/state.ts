@@ -455,6 +455,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+                '04397afc992f5947c2d1b4250af66e37',
                 '5de478b9876d5aa79de141207737d7fc',
                 '81aa541d8518eab302ea934bb0706c0e',
             ],
@@ -766,6 +767,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+                '04397afc992f5947c2d1b4250af66e37',
                 '5de478b9876d5aa79de141207737d7fc',
                 '81aa541d8518eab302ea934bb0706c0e',
             ],
@@ -1720,6 +1722,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '97630768e30593ab04f3d7dc263796cb',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeheadPortraitMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '97ddcfc796631c43a9e55b48ab3253c2',
             viewmodule: 'ibiz',
             viewname: 'SysUpdateFeaturesMobMDView9',
@@ -2098,6 +2109,15 @@ export const viewstate: any = {
             viewtag: 'b8b92f3bf481c3723dbc5b79ccfee2a5',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleMobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'b9d4a770b4877d79ee5b05d449d2a488',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeLoginMobEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

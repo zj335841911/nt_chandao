@@ -1,506 +1,315 @@
 <template>
-    <div ref='form' class="app-form story-form ">
+    <div ref='form' class="app-form sysemployee-form ">
                 
 
 <app-form-group 
     class='' 
-    layoutType='TABLE_12COL' 
+    layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('story.mobnewform_form.details.group1')" 
+    :caption="$t('sysemployee.mobinfo_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='prodoctname' 
+    name='usercode' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="prodoctname_item"  
-    :itemValue="this.data.prodoctname" 
-    v-show="detailsModel.prodoctname.visible" 
-    :itemRules="this.rules.prodoctname" 
-    :caption="$t('story.mobnewform_form.details.prodoctname')"  
+    ref="usercode_item"  
+    :itemValue="this.data.usercode" 
+    v-show="detailsModel.usercode.visible" 
+    :itemRules="this.rules.usercode" 
+    :caption="$t('sysemployee.mobinfo_form.details.usercode')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.prodoctname.disabled"
-    :error="detailsModel.prodoctname.error" 
+    :disabled="detailsModel.usercode.disabled"
+    :error="detailsModel.usercode.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='prodoctname' 
-    deMajorField='name'
-    deKeyField='id'
-    valueitem='product' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
+        <app-mob-span  
     :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.prodoctname.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
-    :value="data.prodoctname" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.prodoctname = $event">
-</app-mob-select-drop-down>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='branch' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="branch_item"  
-    :itemValue="this.data.branch" 
-    v-show="detailsModel.branch.visible" 
-    :itemRules="this.rules.branch" 
-    :caption="$t('story.mobnewform_form.details.branch')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.branch.disabled"
-    :error="detailsModel.branch.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="ProductBranch"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.branch.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.branch"  
-    :navigateContext ='{ "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%" } '
-    @change="($event)=>this.data.branch = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='modulename' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="modulename_item"  
-    :itemValue="this.data.modulename" 
-    v-show="detailsModel.modulename.visible" 
-    :itemRules="this.rules.modulename" 
-    :caption="$t('story.mobnewform_form.details.modulename')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.modulename.disabled"
-    :error="detailsModel.modulename.error" 
-    :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='modulename' 
-    deMajorField='name'
-    deKeyField='id'
-    valueitem='module' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :navigateContext ='{ "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%" } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.modulename.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'productmodule', interfaceName: 'FetchStoryModule'}"
-    :value="data.modulename" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.modulename = $event">
-</app-mob-select-drop-down>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='plan' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="plan_item"  
-    :itemValue="this.data.plan" 
-    v-show="detailsModel.plan.visible" 
-    :itemRules="this.rules.plan" 
-    :caption="$t('story.mobnewform_form.details.plan')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.plan.disabled"
-    :error="detailsModel.plan.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="CurProductPlan"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.plan.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.plan"  
-    :navigateContext ='{ "n_product_eq": "%product%" } '
-    :navigateParam ='{ "n_product_eq": "%product%" } '
-    @change="($event)=>this.data.plan = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='source' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="source_item"  
-    :itemValue="this.data.source" 
-    v-show="detailsModel.source.visible" 
-    :itemRules="this.rules.source" 
-    :caption="$t('story.mobnewform_form.details.source')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.source.disabled"
-    :error="detailsModel.source.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Story__source"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.source.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.source"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.source = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='sourcenote' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="sourcenote_item"  
-    :itemValue="this.data.sourcenote" 
-    v-show="detailsModel.sourcenote.visible" 
-    :itemRules="this.rules.sourcenote" 
-    :caption="$t('story.mobnewform_form.details.sourcenote')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.sourcenote.disabled"
-    :error="detailsModel.sourcenote.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.sourcenote"
-    unit=""
-    :disabled="detailsModel.sourcenote.disabled" 
-    @change="($event)=>this.data.sourcenote = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='assignedtopk' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="assignedtopk_item"  
-    :itemValue="this.data.assignedtopk" 
-    v-show="detailsModel.assignedtopk.visible" 
-    :itemRules="this.rules.assignedtopk" 
-    :caption="$t('story.mobnewform_form.details.assignedtopk')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.assignedtopk.disabled"
-    :error="detailsModel.assignedtopk.error" 
-    :isEmptyCaption="false">
-        <app-mob-picker
-    name='assignedtopk'
-    deMajorField='personname'
-    deKeyField='username'
-    valueitem='assignedto' 
-    style=""  
-    :formState="formState"
+    :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
+    :value="data.usercode" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='personname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="personname_item"  
+    :itemValue="this.data.personname" 
+    v-show="detailsModel.personname.visible" 
+    :itemRules="this.rules.personname" 
+    :caption="$t('sysemployee.mobinfo_form.details.personname')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.personname.disabled"
+    :error="detailsModel.personname.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
     :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :itemParam='{ }' 
-    :disabled="detailsModel.assignedtopk.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
-    :value="data.assignedtopk" 
-    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='neednotreview' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="neednotreview_item"  
-    :itemValue="this.data.neednotreview" 
-    v-show="detailsModel.neednotreview.visible" 
-    :itemRules="this.rules.neednotreview" 
-    :caption="$t('story.mobnewform_form.details.neednotreview')"  
-    :labelWidth="10"  
-    :isShowCaption="true"
-    :disabled="detailsModel.neednotreview.disabled"
-    :error="detailsModel.neednotreview.error" 
-    :isEmptyCaption="true">
-        <app-mob-select 
-    tag="NeedNotReviewNew"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.neednotreview.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.neednotreview"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.neednotreview = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='title' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="title_item"  
-    :itemValue="this.data.title" 
-    v-show="detailsModel.title.visible" 
-    :itemRules="this.rules.title" 
-    :caption="$t('story.mobnewform_form.details.title')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.title.disabled"
-    :error="detailsModel.title.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.title"
-    unit=""
-    :disabled="detailsModel.title.disabled" 
-    @change="($event)=>this.data.title = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='pri' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="pri_item"  
-    :itemValue="this.data.pri" 
-    v-show="detailsModel.pri.visible" 
-    :itemRules="this.rules.pri" 
-    :caption="$t('story.mobnewform_form.details.pri')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.pri.disabled"
-    :error="detailsModel.pri.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Story__pri"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.pri.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.pri"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.pri = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='storypoints' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="storypoints_item"  
-    :itemValue="this.data.storypoints" 
-    v-show="detailsModel.storypoints.visible" 
-    :itemRules="this.rules.storypoints" 
-    :caption="$t('story.mobnewform_form.details.storypoints')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.storypoints.disabled"
-    :error="detailsModel.storypoints.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="StoryPoints"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.storypoints.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.storypoints"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.storypoints = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='estimate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="estimate_item"  
-    :itemValue="this.data.estimate" 
-    v-show="detailsModel.estimate.visible" 
-    :itemRules="this.rules.estimate" 
-    :caption="$t('story.mobnewform_form.details.estimate')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.estimate.disabled"
-    :error="detailsModel.estimate.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        placeholder="工时"
-    type="text"  
-    :value="data.estimate"
-    unit=""
-    :disabled="detailsModel.estimate.disabled" 
-    @change="($event)=>this.data.estimate = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='spec' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="spec_item"  
-    :itemValue="this.data.spec" 
-    v-show="detailsModel.spec.visible" 
-    :itemRules="this.rules.spec" 
-    :caption="$t('story.mobnewform_form.details.spec')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.spec.disabled"
-    :error="detailsModel.spec.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='verify' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="verify_item"  
-    :itemValue="this.data.verify" 
-    v-show="detailsModel.verify.visible" 
-    :itemRules="this.rules.verify" 
-    :caption="$t('story.mobnewform_form.details.verify')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.verify.disabled"
-    :error="detailsModel.verify.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='mailtopk' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="mailtopk_item"  
-    :itemValue="this.data.mailtopk" 
-    v-show="detailsModel.mailtopk.visible" 
-    :itemRules="this.rules.mailtopk" 
-    :caption="$t('story.mobnewform_form.details.mailtopk')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.mailtopk.disabled"
-    :error="detailsModel.mailtopk.error" 
-    :isEmptyCaption="false">
-        <app-mob-mpicker 
+    :navigateParam ='{ } ' 
     :data="data"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :disabled="detailsModel.mailtopk.disabled"
-    :value="data.mailtopk"
-    name="mailtopk"
     :context="context"
     :viewparams="viewparams"
-    :service="service"
-    deMajorField='personname'
-    deKeyField='sysemployee'
-    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange" 
-    style=""/>
-
+    :value="data.personname" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
 
 <app-form-item 
-    name='keywords' 
+    name='username' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="keywords_item"  
-    :itemValue="this.data.keywords" 
-    v-show="detailsModel.keywords.visible" 
-    :itemRules="this.rules.keywords" 
-    :caption="$t('story.mobnewform_form.details.keywords')"  
+    ref="username_item"  
+    :itemValue="this.data.username" 
+    v-show="detailsModel.username.visible" 
+    :itemRules="this.rules.username" 
+    :caption="$t('sysemployee.mobinfo_form.details.username')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.keywords.disabled"
-    :error="detailsModel.keywords.error" 
+    :disabled="detailsModel.username.disabled"
+    :error="detailsModel.username.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.keywords"
-    unit=""
-    :disabled="detailsModel.keywords.disabled" 
-    @change="($event)=>this.data.keywords = $event" />
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.username" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='orgname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="orgname_item"  
+    :itemValue="this.data.orgname" 
+    v-show="detailsModel.orgname.visible" 
+    :itemRules="this.rules.orgname" 
+    :caption="$t('sysemployee.mobinfo_form.details.orgname')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.orgname.disabled"
+    :error="detailsModel.orgname.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.orgname" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='mdeptname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="mdeptname_item"  
+    :itemValue="this.data.mdeptname" 
+    v-show="detailsModel.mdeptname.visible" 
+    :itemRules="this.rules.mdeptname" 
+    :caption="$t('sysemployee.mobinfo_form.details.mdeptname')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.mdeptname.disabled"
+    :error="detailsModel.mdeptname.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.mdeptname" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='bcode' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="bcode_item"  
+    :itemValue="this.data.bcode" 
+    v-show="detailsModel.bcode.visible" 
+    :itemRules="this.rules.bcode" 
+    :caption="$t('sysemployee.mobinfo_form.details.bcode')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.bcode.disabled"
+    :error="detailsModel.bcode.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.bcode" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='nickname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="nickname_item"  
+    :itemValue="this.data.nickname" 
+    v-show="detailsModel.nickname.visible" 
+    :itemRules="this.rules.nickname" 
+    :caption="$t('sysemployee.mobinfo_form.details.nickname')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.nickname.disabled"
+    :error="detailsModel.nickname.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.nickname" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='sex' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="sex_item"  
+    :itemValue="this.data.sex" 
+    v-show="detailsModel.sex.visible" 
+    :itemRules="this.rules.sex" 
+    :caption="$t('sysemployee.mobinfo_form.details.sex')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.sex.disabled"
+    :error="detailsModel.sex.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.sex" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='phone' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="phone_item"  
+    :itemValue="this.data.phone" 
+    v-show="detailsModel.phone.visible" 
+    :itemRules="this.rules.phone" 
+    :caption="$t('sysemployee.mobinfo_form.details.phone')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.phone.disabled"
+    :error="detailsModel.phone.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.phone" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='avatar' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="avatar_item"  
+    :itemValue="this.data.avatar" 
+    v-show="detailsModel.avatar.visible" 
+    :itemRules="this.rules.avatar" 
+    :caption="$t('sysemployee.mobinfo_form.details.avatar')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.avatar.disabled"
+    :error="detailsModel.avatar.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.avatar" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='email' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="email_item"  
+    :itemValue="this.data.email" 
+    v-show="detailsModel.email.visible" 
+    :itemRules="this.rules.email" 
+    :caption="$t('sysemployee.mobinfo_form.details.email')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.email.disabled"
+    :error="detailsModel.email.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.email" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -518,11 +327,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
-import MobNewFormService from '@/app-core/ctrl-service/story/mob-new-form-form-service';
+import SysEmployeeService from '@/app-core/service/sys-employee/sys-employee-service';
+import MobInfoService from '@/app-core/ctrl-service/sys-employee/mob-info-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import SysEmployeeUIService from '@/ui-service/sys-employee/sys-employee-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -532,13 +341,13 @@ import {  Util } from '@/ibiz-core/utils';
 @Component({
     components: { }
 })
-export default class MobNewFormBase extends Vue implements ControlInterface {
+export default class MobInfoBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected name?: string;
 
@@ -546,7 +355,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected viewName!: string;
 
@@ -555,7 +364,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -563,7 +372,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -571,7 +380,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -580,7 +389,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -588,7 +397,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected getControlType(): string {
         return 'FORM'
@@ -598,7 +407,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -607,7 +416,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MobNewFormBase
+     * @memberof  MobInfoBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -619,33 +428,33 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MobNewFormService}
-     * @memberof MobNewForm
+     * @type {MobInfoService}
+     * @memberof MobInfo
      */
-    protected service: MobNewFormService = new MobNewFormService({$store:this.$store});
+    protected service: MobInfoService = new MobInfoService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof MobNewForm
+     * @type {SysEmployeeService}
+     * @memberof MobInfo
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: SysEmployeeService = new SysEmployeeService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {StoryUIService}
-     * @memberof MobNewFormBase
+     * @type {SysEmployeeUIService}
+     * @memberof MobInfoBase
      */  
-    public deUIService:StoryUIService = new StoryUIService(this.$store);
+    public deUIService:SysEmployeeUIService = new SysEmployeeUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -656,7 +465,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() srfwfmemo?: string;
 
@@ -664,7 +473,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     public getDatas(): any[] {
         return [this.data];
@@ -674,7 +483,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     public getData(): any {
         return this.data;
@@ -684,7 +493,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -692,7 +501,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -700,7 +509,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -708,7 +517,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected WFStartAction!: string;
     
@@ -716,7 +525,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected updateAction!: string;
     
@@ -724,7 +533,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected removeAction!: string;
 
@@ -740,7 +549,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -748,7 +557,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected loadAction!: string;
     
@@ -756,7 +565,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected createAction!: string;
 
@@ -764,7 +573,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected searchAction!: string;
 
@@ -772,7 +581,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Prop() protected viewtag!: string;
 
@@ -780,7 +589,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected formState: Subject<any> = new Subject();
 
@@ -790,7 +599,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MobNewFormBase
+     * @memberof MobInfoBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -798,7 +607,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -807,7 +616,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {Subject<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -816,7 +625,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -825,7 +634,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private oldData: any = {};
 
@@ -833,7 +642,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected data: any = {
         srfupdatedate: null,
@@ -844,37 +653,26 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        project: null,
-        product: null,
-        module: null,
-        prodoctname: null,
-        branch: null,
-        modulename: null,
-        plan: null,
-        source: null,
-        sourcenote: null,
-        reviewedby: null,
-        assignedtopk: null,
-        neednotreview: null,
-        title: null,
-        pri: null,
-        storypoints: null,
-        estimate: null,
-        spec: null,
-        verify: null,
-        mailto: null,
-        mailtopk: null,
-        keywords: null,
-        id: null,
-        assignedto: null,
-        story: null,
+        usercode: null,
+        personname: null,
+        username: null,
+        orgname: null,
+        mdeptname: null,
+        bcode: null,
+        nickname: null,
+        sex: null,
+        phone: null,
+        avatar: null,
+        email: null,
+        userid: null,
+        sysemployee: null,
     };
 
     /**
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof MobNewForm
+      * @memberof MobInfo
       */
     protected currentAction: string = "";
 
@@ -882,7 +680,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof MobNewForm
+      * @memberof MobInfo
       */
     protected drcounter: number = 0;
 
@@ -890,7 +688,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof MobNewForm
+      * @memberof MobInfo
       */
     protected saveState:any ;
 
@@ -898,7 +696,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
       * 异常信息缓存
       *
       * @type {any}
-      * @memberof MobNewForm
+      * @memberof MobInfo
       */
     public errorCache :any = {};
 
@@ -906,20 +704,16 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected rules: any = {
-        title: [
-            { required: true, type: 'string', message: 'required', trigger: 'change' },
-            { required: true, type: 'string', message: 'required', trigger: 'blur' },
-        ],
     }
 
     /**
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobNewFormBase
+     * @memberof MobInfoBase
      */
     public deRules:any = {
     };
@@ -999,20 +793,20 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '需求基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'story.mobnewform_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '人员基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'sysemployee.mobinfo_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfupdatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfkey: new FormItemModel({ caption: '用户标识', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfmajortext: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '姓名', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1022,51 +816,29 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        project: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        usercode: new FormItemModel({ caption: '工号', detailType: 'FORMITEM', name: 'usercode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 1 })
 , 
-        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        personname: new FormItemModel({ caption: '姓名', detailType: 'FORMITEM', name: 'personname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        username: new FormItemModel({ caption: '账号', detailType: 'FORMITEM', name: 'username', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        prodoctname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        orgname: new FormItemModel({ caption: '单位', detailType: 'FORMITEM', name: 'orgname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        mdeptname: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'mdeptname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        bcode: new FormItemModel({ caption: '业务编码', detailType: 'FORMITEM', name: 'bcode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        plan: new FormItemModel({ caption: '计划', detailType: 'FORMITEM', name: 'plan', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        nickname: new FormItemModel({ caption: '昵称别名', detailType: 'FORMITEM', name: 'nickname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        source: new FormItemModel({ caption: '需求来源', detailType: 'FORMITEM', name: 'source', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        sex: new FormItemModel({ caption: '性别', detailType: 'FORMITEM', name: 'sex', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        phone: new FormItemModel({ caption: '电话', detailType: 'FORMITEM', name: 'phone', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        avatar: new FormItemModel({ caption: '社交账号', detailType: 'FORMITEM', name: 'avatar', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedtopk: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        email: new FormItemModel({ caption: '邮件', detailType: 'FORMITEM', name: 'email', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        storypoints: new FormItemModel({ caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        estimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        userid: new FormItemModel({ caption: '用户标识', detailType: 'FORMITEM', name: 'userid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1075,7 +847,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srfupdatedate')
     onSrfupdatedateChange(newVal: any, oldVal: any) {
@@ -1087,7 +859,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -1099,7 +871,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -1111,7 +883,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -1123,7 +895,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -1135,7 +907,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -1147,7 +919,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -1159,7 +931,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -1167,279 +939,147 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 project 值
+     * 监控表单属性 usercode 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.project')
-    onProjectChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
+    @Watch('data.usercode')
+    onUsercodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'usercode', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 product 值
+     * 监控表单属性 personname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.product')
-    onProductChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    @Watch('data.personname')
+    onPersonnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'personname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 module 值
+     * 监控表单属性 username 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.module')
-    onModuleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'module', newVal: newVal, oldVal: oldVal });
+    @Watch('data.username')
+    onUsernameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'username', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 prodoctname 值
+     * 监控表单属性 orgname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.prodoctname')
-    onProdoctnameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'prodoctname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.orgname')
+    onOrgnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'orgname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 branch 值
+     * 监控表单属性 mdeptname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.branch')
-    onBranchChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    @Watch('data.mdeptname')
+    onMdeptnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mdeptname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 modulename 值
+     * 监控表单属性 bcode 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.modulename')
-    onModulenameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'modulename', newVal: newVal, oldVal: oldVal });
+    @Watch('data.bcode')
+    onBcodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'bcode', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 plan 值
+     * 监控表单属性 nickname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.plan')
-    onPlanChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'plan', newVal: newVal, oldVal: oldVal });
+    @Watch('data.nickname')
+    onNicknameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'nickname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 source 值
+     * 监控表单属性 sex 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.source')
-    onSourceChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'source', newVal: newVal, oldVal: oldVal });
+    @Watch('data.sex')
+    onSexChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'sex', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 sourcenote 值
+     * 监控表单属性 phone 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.sourcenote')
-    onSourcenoteChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'sourcenote', newVal: newVal, oldVal: oldVal });
+    @Watch('data.phone')
+    onPhoneChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'phone', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 reviewedby 值
+     * 监控表单属性 avatar 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.reviewedby')
-    onReviewedbyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'reviewedby', newVal: newVal, oldVal: oldVal });
+    @Watch('data.avatar')
+    onAvatarChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'avatar', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 assignedtopk 值
+     * 监控表单属性 email 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.assignedtopk')
-    onAssignedtopkChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
+    @Watch('data.email')
+    onEmailChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'email', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 neednotreview 值
+     * 监控表单属性 userid 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
-    @Watch('data.neednotreview')
-    onNeednotreviewChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'neednotreview', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 title 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.title')
-    onTitleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 pri 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.pri')
-    onPriChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 storypoints 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.storypoints')
-    onStorypointsChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'storypoints', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 estimate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.estimate')
-    onEstimateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'estimate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 spec 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.spec')
-    onSpecChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'spec', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 verify 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.verify')
-    onVerifyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'verify', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 mailto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.mailto')
-    onMailtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 mailtopk 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.mailtopk')
-    onMailtopkChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 keywords 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.keywords')
-    onKeywordsChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'keywords', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 id 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 assignedto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.userid')
+    onUseridChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'userid', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1448,23 +1088,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-        if (Object.is(name, 'prodoctname')) {
-            this.onFormItemValueChange({ name: 'branch', value: null });
-        }
-        if (Object.is(name, 'branch')) {
-            this.onFormItemValueChange({ name: 'modulename', value: null });
-            this.onFormItemValueChange({ name: 'module', value: null });
-        }
-        if (Object.is(name, 'prodoctname')) {
-            this.onFormItemValueChange({ name: 'plan', value: null });
-        }
-        if (Object.is(name, 'neednotreview')) {
-            this.onFormItemValueChange({ name: 'assignedtopk', value: null });
-            this.onFormItemValueChange({ name: 'assignedto', value: null });
-        }
     }
 
     /**
@@ -1488,7 +1114,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
@@ -1501,25 +1127,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
-            let ret = false;
-            const _neednotreview = this.data.neednotreview;
-            if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
-                ret = true;
-            }
-            this.detailsModel.assignedtopk.setDisabled(!ret);
-        }
 
 
 
@@ -1553,7 +1160,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 resolve(true);
             }).catch(({ errors, fields }) => {
                 const {field , message } = errors[0];
-                let _message :any = (this.$t(`story.mobnewform_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                let _message :any = (this.$t(`sysemployee.mobinfo_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
                 this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
@@ -1566,13 +1173,13 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @public
      * @param {{ filter: string}} { filter}
      * @returns {void}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     public async validAll(filter:string = "defult") {
         let validateState = true;
         let filterProperty = ""
         if(filter === 'new'){
-            filterProperty= 'id'
+            filterProperty= 'userid'
         }
         for (let item of Object.keys(this.rules)) {
             if(!await this.validItem(item,this.data[item]) && item != filterProperty){
@@ -1589,7 +1196,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1607,7 +1214,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -1623,7 +1230,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1648,7 +1255,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @protected
      * @param {*} data
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1664,7 +1271,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @private
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1676,7 +1283,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1692,7 +1299,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1710,7 +1317,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected getValues(): any {
         return this.data;
@@ -1721,7 +1328,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1739,7 +1346,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1757,7 +1364,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1769,7 +1376,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected created(): void {
         this.afterCreated();
@@ -1778,11 +1385,11 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MobNewForm
+     *  @memberof MobInfo
      */    
     protected afterCreated(){
         if(this.isautoload){
-            this.autoLoad({srfkey:this.context.story});
+            this.autoLoad({srfkey:this.context.sysemployee});
         }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
@@ -1831,10 +1438,10 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             });
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"Story")){
+                if(!Object.is(name,"SysEmployee")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.story){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.sysemployee){
                     this.refresh([data]);
                 }
             })
@@ -1844,7 +1451,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected destroyed() {
         this.afterDestroy();
@@ -1853,7 +1460,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1871,7 +1478,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof MobNewForm
+     * @memberof @memberof MobInfo
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -1881,7 +1488,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -1904,7 +1511,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1926,7 +1533,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -1954,7 +1561,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -1966,8 +1573,8 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.story){
-                Object.assign(this.context, { story: data.story });
+            if(data.sysemployee){
+                Object.assign(this.context, { sysemployee: data.sysemployee });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -1988,7 +1595,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -2032,7 +1639,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -2060,7 +1667,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
-        Object.assign(this.viewparams,{ title: arg.title});
+        Object.assign(this.viewparams,{ personname: arg.personname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -2074,7 +1681,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
+            AppCenterService.notifyMessage({name:"SysEmployee",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -2116,7 +1723,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysEmployee",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -2131,7 +1738,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -2139,7 +1746,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysEmployee",action:'appRefresh',data:data});
             return response
         } else if (response && response.status !== 401) {
         }
@@ -2154,7 +1761,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -2165,7 +1772,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysEmployee",action:'appRefresh',data:data});
             return response        
         } else if (response && response.status !== 401) {
             return response;
@@ -2181,7 +1788,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -2203,7 +1810,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysEmployee",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });
@@ -2222,7 +1829,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected onEnter($event: any): void {
     }
@@ -2233,7 +1840,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -2251,7 +1858,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -2270,7 +1877,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -2285,7 +1892,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof MobNewForm
+    * @memberof MobInfo
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -2308,17 +1915,14 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof MobNewForm
+     * @memberof MobInfo
      */
     public createDefault(){                    
-            if (this.data.hasOwnProperty('project')) {
-                    this.data['project'] = this.viewparams['project'];
-            }
     }
 
         /**
      * 更新默认值
-     * @memberof MobNewFormBase
+     * @memberof MobInfoBase
      */
     public updateDefault(){                    
     }
@@ -2347,5 +1951,5 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './mob-new-form-form.less';
+@import './mob-info-form.less';
 </style>

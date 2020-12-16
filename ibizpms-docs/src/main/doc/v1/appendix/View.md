@@ -157,6 +157,7 @@
 |-|测试版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|人员移动端编辑视图（头像）|DEMOBEDITVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图（功能增强）|DEMOBMDVIEW9|&nbsp;|
 |-|周报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|日报移动端多数据视图（主数据）|DEMOBMDVIEW|&nbsp;|
@@ -192,6 +193,7 @@
 |-|文档库移动端树视图|DEMOBTREEVIEW|&nbsp;|
 |-|文档库移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|人员移动端编辑视图（账号信息）|DEMOBEDITVIEW|&nbsp;|
 |-|月报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
