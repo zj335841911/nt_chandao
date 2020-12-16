@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import ProjectTeamProjectTeamMobEditViewBase from './project-team-project-team-mob-edit-view-base.vue';
 
-import view_form from '@widgets/project-team/project-team-form/project-team-form.vue';
+import view_form from '@widgets/project-team/project-team-mob-form/project-team-mob-form.vue';
 @Component({
     components: {
         view_form, 

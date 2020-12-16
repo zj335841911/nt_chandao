@@ -32,7 +32,7 @@ export default {
 			caption: commonLogic.appcommonhandle("项目团队",null),
 		},
 	},
-	projectteam_form: {
+	projectteammob_form: {
 		details: {
 			group1: commonLogic.appcommonhandle("项目团队基本信息",null), 
 			formpage1: commonLogic.appcommonhandle("基本信息",null), 
