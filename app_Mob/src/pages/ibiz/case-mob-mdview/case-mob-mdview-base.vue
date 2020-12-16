@@ -775,7 +775,7 @@ export default class CaseMobMDViewBase extends Vue {
 
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'createcasemobeditview', parameterName: 'createcasemobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
