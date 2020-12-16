@@ -175,7 +175,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
      * @type {*}
      * @memberof SysEmployeeLoginMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'sysemployee': '%srfuserid%' };
 
     /**
      * 视图导航参数
@@ -184,7 +184,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
      * @type {*}
      * @memberof SysEmployeeLoginMobEditViewBase
      */
-    protected navParam: any = { 'sysemployees': '%srfuserid%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
