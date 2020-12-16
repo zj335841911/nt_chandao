@@ -161,6 +161,51 @@
 
 
 
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('case.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="false" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='case' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='case-step-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
+    :caption="$t('case.mobmain_form.details.druipart1')"  
+    paramItem='case' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}' 
+    :parameters="[
+        { pathName: 'cases', parameterName: 'case' },
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ "n_version_eq": "%version%" } ' 
+    :navigateParam ='{ "n_version_eq": "%version%" } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
+
 <app-form-item 
     name='keywords' 
     class='' 
@@ -185,6 +230,50 @@
     :value="data.keywords" 
     :itemParam="{}"/>
 </app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('case.mobmain_form.details.grouppanel2')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='case' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
+    :caption="$t('case.mobmain_form.details.druipart2')"  
+    paramItem='case' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_CASE","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
     
@@ -665,6 +754,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '用例步骤', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -917,6 +1014,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
 
 
 
@@ -1448,7 +1549,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 2;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

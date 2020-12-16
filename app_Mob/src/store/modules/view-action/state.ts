@@ -1504,6 +1504,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '28612624399832452f33d925194af274',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
@@ -1925,6 +1927,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '28612624399832452f33d925194af274',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
