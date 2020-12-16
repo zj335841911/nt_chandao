@@ -96,6 +96,24 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
      * @memberof  IBIZPRO_INDEXUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('INDEXDEPICKUPVIEW:', {
+            viewname: 'indexpickupview',
+            srfappde: 'ibizpro_indices',
+            component: 'ibizpro-indexindex-pickup-view',
+            openmode: '',
+            title: '索引检索',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('REDIRECTVIEW:', {
+            viewname: 'redirectview',
+            srfappde: 'ibizpro_indices',
+            component: 'ibizpro-indexredirect-view',
+            openmode: '',
+            title: '索引检索',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
