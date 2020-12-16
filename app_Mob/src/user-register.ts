@@ -28,5 +28,9 @@ export const UserComponent = {
         v.component('app-projectteam-list',() => import('@/ibiz-core/components/app-projectteam-list/app-projectteam-list.vue'));
         // 测试用例列表组件
         v.component('app-case-list',() => import('@/ibiz-core/components/app-case-list/app-case-list.vue'));
+        // 用户头
+        v.component('app-user-header',() => import('@/ibiz-core/components/user-header/user-header.vue'));
+        // 自定义图片上传组件
+        v.component('app-mob-picture-pms',() => import('@/ibiz-core/components/app-mob-picture-pms/app-mob-picture-pms.vue'));
     }
 };
