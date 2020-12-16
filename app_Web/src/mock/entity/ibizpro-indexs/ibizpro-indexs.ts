@@ -271,9 +271,9 @@ mock.onPost(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).r
     return [status, data];
 });
     
-// FetchIndexDER
-mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchIndexDER");
+// FetchDefault
+mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchdefault$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizpro_index 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -286,9 +286,9 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder$/)).reply((config: any)
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchIndexDER
-mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchIndexDER");
+// FetchDefault
+mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizpro_index 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
@@ -315,9 +315,9 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder(\?[\w-./?%&=,]*)*$/)).r
     return [status, records ?  records : []];
 });
     
-// FetchDefault
+// FetchIndexDER
 mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchDefault");
+    console.groupCollapsed("实体:ibizpro_index 方法: FetchIndexDER");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -330,9 +330,9 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder$/)).reply((config: any)
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchDefault
+// FetchIndexDER
 mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchDefault");
+    console.groupCollapsed("实体:ibizpro_index 方法: FetchIndexDER");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
