@@ -28,7 +28,7 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("索引检索数据重定向视图",null),
 				},
 			},
-			list_list: {
+			indexmob_list: {
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
 				},

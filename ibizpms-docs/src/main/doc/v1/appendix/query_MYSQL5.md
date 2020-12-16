@@ -6827,7 +6827,7 @@ where t11.deleted = '0'
 ) t1
 WHERE t1.DELETED = '0' 
 t1.orgid = #{srf.sessioncontext.srforgid} 
-#{srf.webcontext.query} is not null 
+#{srf.webcontext.indexname} is not null 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IBIZPRO_INDEX_View"></div>

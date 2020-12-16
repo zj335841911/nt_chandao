@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IBIZPRO_INDEXListViewBase } from './ibizpro-indexlist-view-base';
-import view_list from '@widgets/ibizpro-index/list-list/list-list.vue';
+import view_list from '@widgets/ibizpro-index/index-mob-list/index-mob-list.vue';
 import view_searchform from '@widgets/ibizpro-index/default-searchform/default-searchform.vue';
 
 /**
