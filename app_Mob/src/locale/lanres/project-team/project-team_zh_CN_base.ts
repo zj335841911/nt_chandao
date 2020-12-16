@@ -71,10 +71,14 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
 	projectteammobeditviewrighttoolbar_toolbar: {
 	},
 	projectteamallmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("保存",null),
+			tip: '保存',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
 	},
 };

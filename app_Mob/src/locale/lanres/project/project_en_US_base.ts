@@ -278,6 +278,10 @@ export default {
 			caption: commonLogic.appcommonhandle("删除",null),
 			tip: 'deuiaction4',
 		},
+		deuiaction5: {
+			caption: commonLogic.appcommonhandle("添加团队成员",null),
+			tip: 'deuiaction5',
+		},
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
