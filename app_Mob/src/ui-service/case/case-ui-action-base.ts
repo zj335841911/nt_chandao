@@ -450,10 +450,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      */
     public async Case_createMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { case: '%case%' });
-        Object.assign(paramJO, { id: '%case%' });
-        Object.assign(paramJO, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);

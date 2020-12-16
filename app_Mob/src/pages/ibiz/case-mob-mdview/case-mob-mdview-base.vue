@@ -355,7 +355,7 @@ export default class CaseMobMDViewBase extends Vue {
     * @memberof CaseMobMDView
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'createMob', target: 'SINGLEKEY' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'createMob', target: 'NONE' } },
 
     };
 

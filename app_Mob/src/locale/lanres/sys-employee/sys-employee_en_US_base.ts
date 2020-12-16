@@ -51,23 +51,6 @@ export default {
 			caption: commonLogic.appcommonhandle("人员",null),
 		},
 	},
-	mobmain_form: {
-		details: {
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("用户标识",null), 
-			srfmajortext: commonLogic.appcommonhandle("姓名",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			usericon: commonLogic.appcommonhandle("头像",null), 
-			userid: commonLogic.appcommonhandle("用户标识",null), 
-		},
-		uiactions: {
-		},
-	},
 	mobinfo_form: {
 		details: {
 			group1: commonLogic.appcommonhandle("人员基本信息",null), 
@@ -91,6 +74,23 @@ export default {
 			phone: commonLogic.appcommonhandle("电话",null), 
 			avatar: commonLogic.appcommonhandle("社交账号",null), 
 			email: commonLogic.appcommonhandle("邮件",null), 
+			userid: commonLogic.appcommonhandle("用户标识",null), 
+		},
+		uiactions: {
+		},
+	},
+	mobmain_form: {
+		details: {
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("用户标识",null), 
+			srfmajortext: commonLogic.appcommonhandle("姓名",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			usericon: commonLogic.appcommonhandle("头像",null), 
 			userid: commonLogic.appcommonhandle("用户标识",null), 
 		},
 		uiactions: {

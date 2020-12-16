@@ -443,8 +443,8 @@ export default class ListMenuBase extends Vue implements ControlInterface {
         let param = { ..._param };
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'users', parameterName: 'user' },
-            { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
+            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+            { pathName: 'loginmobeditview', parameterName: 'loginmobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

@@ -2518,20 +2518,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-usr4-mob-mdview/story-usr4-mob-mdview.vue'),
                 },
                 {
-                    path: 'users/:user?/usercentermobeditview',
-                    name: 'user_usercentermobeditview',
-                    meta: {
-                        caption: 'user.views.usercentermobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'users', parameterName: 'user' },
-                            { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/user-user-center-mob-edit-view/user-user-center-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/cmoboptionview',
                     name: 'bug_cmoboptionview',
                     meta: {
@@ -3589,6 +3575,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-usr6-mob-mdview/bug-usr6-mob-mdview.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/loginmobeditview',
+                    name: 'sysemployee_loginmobeditview',
+                    meta: {
+                        caption: 'sysemployee.views.loginmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'loginmobeditview', parameterName: 'loginmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-login-mob-edit-view/sys-employee-login-mob-edit-view.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobdashboardview',
@@ -6620,6 +6620,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/test-task-mob-edit-view/test-task-mob-edit-view.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/headportraitmobeditview',
+                    name: 'sysemployee_headportraitmobeditview',
+                    meta: {
+                        caption: 'sysemployee.views.headportraitmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'headportraitmobeditview', parameterName: 'headportraitmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employeehead-portrait-mob-edit-view/sys-employeehead-portrait-mob-edit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/mobtabexpview',
