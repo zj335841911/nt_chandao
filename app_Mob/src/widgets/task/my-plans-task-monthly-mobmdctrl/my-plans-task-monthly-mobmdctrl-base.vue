@@ -859,7 +859,7 @@ export default class MyPlansTaskMonthlyBase extends Vue implements ControlInterf
     * @memberof MyPlansTaskMonthly
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

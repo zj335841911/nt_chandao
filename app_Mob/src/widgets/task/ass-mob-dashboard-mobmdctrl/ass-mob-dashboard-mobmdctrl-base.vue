@@ -1186,7 +1186,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @memberof AssMobDASHBOARD
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

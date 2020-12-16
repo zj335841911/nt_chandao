@@ -1006,7 +1006,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

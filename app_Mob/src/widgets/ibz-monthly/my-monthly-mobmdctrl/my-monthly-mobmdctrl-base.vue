@@ -781,7 +781,7 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
     * @memberof MyMonthly
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

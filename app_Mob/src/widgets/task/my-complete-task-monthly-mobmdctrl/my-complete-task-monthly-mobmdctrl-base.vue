@@ -859,7 +859,7 @@ export default class MyCompleteTaskMonthlyBase extends Vue implements ControlInt
     * @memberof MyCompleteTaskMonthly
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**
