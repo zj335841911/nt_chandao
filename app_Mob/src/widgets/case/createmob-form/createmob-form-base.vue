@@ -129,32 +129,6 @@
 
 
 <app-form-item 
-    name='version' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="version_item"  
-    :itemValue="this.data.version" 
-    v-show="detailsModel.version.visible" 
-    :itemRules="this.rules.version" 
-    :caption="$t('case.createmob_form.details.version')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.version.disabled"
-    :error="detailsModel.version.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.version"
-    unit=""
-    :disabled="detailsModel.version.disabled" 
-    @change="($event)=>this.data.version = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
     name='keywords' 
     class='' 
     uiStyle="DEFAULT"  
