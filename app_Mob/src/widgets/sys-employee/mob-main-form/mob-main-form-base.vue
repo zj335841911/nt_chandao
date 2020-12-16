@@ -17,13 +17,20 @@
     :disabled="detailsModel.usericon.disabled"
     :error="detailsModel.usericon.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.usericon"
-    unit=""
+        <app-mob-picture 
+    name='usericon' 
+    style="overflow: auto;" 
+    :multiple="false" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.usericon" 
     :disabled="detailsModel.usericon.disabled" 
-    @change="($event)=>this.data.usericon = $event" />
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}'
+    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 
