@@ -6719,12 +6719,14 @@ FROM `zt_history` t1
 ### 数据查询(DEFAULT)<div id="IBIZPRO_INDEX_Default"></div>
 ```sql
 SELECT
+t1.`DELETED`,
 t1.`INDEXID`,
 t1.`INDEXNAME`,
 t1.`INDEX_TYPE`
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
 FROM
 (SELECT
 t1.`ID`,
@@ -6733,26 +6735,73 @@ FROM `zt_bug` t1
 ) v1
 UNION ALL
 SELECT
-'story' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
+'case' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
 ,v2.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_case` t1 
+) v2
+UNION ALL
+SELECT
+'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
+,v3.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_product` t1 
+) v3
+UNION ALL
+SELECT
+'project' AS `INDEX_TYPE`,v4.`ID` AS `INDEXID`
+,v4.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_project` t1 
+) v4
+UNION ALL
+SELECT
+'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
+,v5.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
 FROM
 (SELECT
 t1.`ID`,
 t1.`TITLE`
 FROM `zt_story` t1 
-) v2
+) v5
+UNION ALL
+SELECT
+'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
+,v6.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_task` t1 
+) v6
 ) t1 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IBIZPRO_INDEX_View"></div>
 ```sql
 SELECT
+t1.`DELETED`,
 t1.`INDEXID`,
 t1.`INDEXNAME`,
 t1.`INDEX_TYPE`
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
 FROM
 (SELECT
 t1.`ID`,
@@ -6761,14 +6810,59 @@ FROM `zt_bug` t1
 ) v1
 UNION ALL
 SELECT
-'story' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
+'case' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
 ,v2.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_case` t1 
+) v2
+UNION ALL
+SELECT
+'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
+,v3.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_product` t1 
+) v3
+UNION ALL
+SELECT
+'project' AS `INDEX_TYPE`,v4.`ID` AS `INDEXID`
+,v4.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_project` t1 
+) v4
+UNION ALL
+SELECT
+'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
+,v5.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
 FROM
 (SELECT
 t1.`ID`,
 t1.`TITLE`
 FROM `zt_story` t1 
-) v2
+) v5
+UNION ALL
+SELECT
+'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
+,v6.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_task` t1 
+) v6
 ) t1 
 
 ```

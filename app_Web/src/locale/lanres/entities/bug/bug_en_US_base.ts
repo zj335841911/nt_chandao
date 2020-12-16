@@ -800,6 +800,8 @@ function getLocaleResourceBase(){
 					openedby: commonLogic.appcommonhandle("由谁创建",null), 
 					openeddate: commonLogic.appcommonhandle("于",null), 
 					openedbuild: commonLogic.appcommonhandle("影响版本",null), 
+					project: commonLogic.appcommonhandle("所属项目",null), 
+					product: commonLogic.appcommonhandle("所属产品",null), 
 					resolvedby: commonLogic.appcommonhandle("由谁解决",null), 
 					resolveddate: commonLogic.appcommonhandle("于",null), 
 					delayresolve: commonLogic.appcommonhandle("",null), 

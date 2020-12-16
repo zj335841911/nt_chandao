@@ -34450,6 +34450,7 @@ CREATE TABLE `zt_history`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| DELETED        | 逻辑标识  | VARCHAR      |   200   | &nbsp; |
 | INDEX_TYPE        | 类型  | VARCHAR      |   200   | &nbsp; |
 | INDEXID        | 主键  |       |   -1   | 主键&nbsp; |
 | INDEXNAME        | 名称  | VARCHAR      |   200   | &nbsp; |

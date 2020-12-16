@@ -65,6 +65,13 @@ public class IBIZPRO_INDEX extends EntityMP implements Serializable {
     @JSONField(name = "indexname")
     @JsonProperty("indexname")
     private String indexname;
+    /**
+     * 逻辑标识
+     */
+    @TableField(exist = false)
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
 
 
 
