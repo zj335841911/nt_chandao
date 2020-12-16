@@ -211,10 +211,10 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 		{
 	id: '1CC661E6-9593-4C82-98B5-01496AE8D80C',
 	name: 'menuitem26',
-	text: '人员',
+	text: '通讯录',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '人员',
+	tooltip: '通讯录',
 	expanded: false,
 	separator: false,
 	hidden: false,
