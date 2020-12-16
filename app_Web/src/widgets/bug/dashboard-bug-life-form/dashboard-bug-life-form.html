@@ -182,7 +182,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 >
     
 <app-span name='openedbuild' :value="data.openedbuild" dataType="SMCODELIST"     :precision="0"
-tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ BUGPTOJECT:"%project%", BUGPRODUCT:"%product%" }'  :localParam ='{ bugproject:"%project%", bugproduct:"%product%" }'    style=""
 >  
 </app-span>
 

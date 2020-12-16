@@ -15,6 +15,7 @@ Bug *-- 任务
 项目 *-- 任务 
 需求 *-- 任务 
 任务 *-- 任务 
+索引检索 <|-- 任务 
 hide members
 {% endplantuml %}
 

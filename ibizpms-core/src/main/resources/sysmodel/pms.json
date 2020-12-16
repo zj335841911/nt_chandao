@@ -8000,6 +8000,12 @@
      "code_name":"Story",
      "entity_name":"ZT_STORY",
      "ref_entity_name":"IBIZPRO_INDEX"
+    },
+    {"name":"DERINDEX_ZT_TASK_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Task",
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"IBIZPRO_INDEX"
     }
     ],
     "parentEntitys":[
@@ -36914,6 +36920,12 @@
      "code_name":"ZTParent",
      "entity_name":"ZT_TASK",
      "ref_entity_name":"ZT_TASK"
+    },
+    {"name":"DERINDEX_ZT_TASK_IBIZPRO_INDEX",
+     "relation_type":"DERINDEX",
+     "code_name":"Task",
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"IBIZPRO_INDEX"
     }
     ]
  }

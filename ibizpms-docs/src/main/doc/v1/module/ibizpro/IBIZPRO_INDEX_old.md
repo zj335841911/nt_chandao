@@ -6,6 +6,7 @@
 {% plantuml %}
 索引检索 <|-- Bug 
 索引检索 <|-- 需求 
+索引检索 <|-- 任务 
 hide members
 {% endplantuml %}
 
