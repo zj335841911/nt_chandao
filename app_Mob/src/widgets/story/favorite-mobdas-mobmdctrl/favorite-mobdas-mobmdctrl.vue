@@ -2,11 +2,9 @@
 import { Component } from 'vue-property-decorator';
 import FavoriteMOBDasBase from './favorite-mobdas-mobmdctrl-base.vue';
 
-import layout_mdctrl_itempanel from '@widgets/story/mob-panel/mob-panel.vue';
  
 @Component({
     components: {
-        layout_mdctrl_itempanel,
          
     }
 })
