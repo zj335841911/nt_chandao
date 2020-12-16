@@ -51,7 +51,7 @@
     name='projecttname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='project' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -91,14 +91,14 @@
     name='buildname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='buildname' 
+    valueitem='build' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "n_product_eq": "%product%", "n_project_eq": "%project%" } '
+    :navigateParam ='{ "n_product_eq": "%product%", "n_project_eq": "%project%" } '
     :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.buildname.disabled"
@@ -729,7 +729,9 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         projecttname: null,
+        project: null,
         product: null,
+        build: null,
         buildname: null,
         ownerpk: null,
         pri: null,
@@ -918,7 +920,11 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
 , 
         projecttname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projecttname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         buildname: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'buildname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1045,6 +1051,18 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 project 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 product 值
      *
      * @param {*} newVal
@@ -1054,6 +1072,18 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     @Watch('data.product')
     onProductChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 build 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.build')
+    onBuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'build', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1248,6 +1278,8 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 
