@@ -1494,6 +1494,10 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: 'required', trigger: 'blur' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
         ],
+        assignedto: [
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
+        ],
         type: [
             { required: true, type: 'string', message: 'required', trigger: 'change' },
             { required: true, type: 'string', message: 'required', trigger: 'blur' },
@@ -2380,6 +2384,27 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         }
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = true;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = false;
+            }
+            this.rules.assignedto.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setDisabled(!ret);
+        }
 
 
         if (Object.is(name, '') || Object.is(name, 'parent')) {
