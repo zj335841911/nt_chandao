@@ -163,6 +163,10 @@ zuul:
       path: /companies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_team:
+      path: /systeams/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
+      stripPrefix: false
     ibz_casestep:
       path: /ibzcasesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

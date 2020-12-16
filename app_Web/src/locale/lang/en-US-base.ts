@@ -39,6 +39,7 @@ import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
 import ibizprotag_en_US from '@locale/lanres/entities/ibizpro-tag/ibizpro-tag_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
+import systeam_en_US from '@locale/lanres/entities/sys-team/sys-team_en_US';
 import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step_en_US';
 import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
@@ -416,6 +417,7 @@ function getAppLocale(){
             dept: dept_en_US(),
             ibizprotag: ibizprotag_en_US(),
             company: company_en_US(),
+            systeam: systeam_en_US(),
             ibzcasestep: ibzcasestep_en_US(),
             taskestimate: taskestimate_en_US(),
             story: story_en_US(),

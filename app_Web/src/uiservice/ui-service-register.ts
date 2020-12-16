@@ -78,6 +78,7 @@ export class UIServiceRegister {
         this.allUIService.set('dept', () => import('@/uiservice/dept/dept-ui-service'));
         this.allUIService.set('ibizprotag', () => import('@/uiservice/ibizpro-tag/ibizpro-tag-ui-service'));
         this.allUIService.set('company', () => import('@/uiservice/company/company-ui-service'));
+        this.allUIService.set('systeam', () => import('@/uiservice/sys-team/sys-team-ui-service'));
         this.allUIService.set('ibzcasestep', () => import('@/uiservice/ibzcase-step/ibzcase-step-ui-service'));
         this.allUIService.set('taskestimate', () => import('@/uiservice/task-estimate/task-estimate-ui-service'));
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));

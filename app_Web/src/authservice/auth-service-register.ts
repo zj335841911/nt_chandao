@@ -78,6 +78,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('dept', () => import('@/authservice/dept/dept-auth-service'));
         this.allAuthService.set('ibizprotag', () => import('@/authservice/ibizpro-tag/ibizpro-tag-auth-service'));
         this.allAuthService.set('company', () => import('@/authservice/company/company-auth-service'));
+        this.allAuthService.set('systeam', () => import('@/authservice/sys-team/sys-team-auth-service'));
         this.allAuthService.set('ibzcasestep', () => import('@/authservice/ibzcase-step/ibzcase-step-auth-service'));
         this.allAuthService.set('taskestimate', () => import('@/authservice/task-estimate/task-estimate-auth-service'));
         this.allAuthService.set('story', () => import('@/authservice/story/story-auth-service'));

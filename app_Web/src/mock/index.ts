@@ -46,6 +46,7 @@ import './entity/case-steps/case-steps';
 import './entity/depts/depts';
 import './entity/ibizpro-tags/ibizpro-tags';
 import './entity/companys/companys';
+import './entity/sys-teams/sys-teams';
 import './entity/ibzcase-steps/ibzcase-steps';
 import './entity/task-estimates/task-estimates';
 import './entity/storys/storys';

@@ -39,6 +39,7 @@ import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
 import dept_zh_CN from '@locale/lanres/entities/dept/dept_zh_CN';
 import ibizprotag_zh_CN from '@locale/lanres/entities/ibizpro-tag/ibizpro-tag_zh_CN';
 import company_zh_CN from '@locale/lanres/entities/company/company_zh_CN';
+import systeam_zh_CN from '@locale/lanres/entities/sys-team/sys-team_zh_CN';
 import ibzcasestep_zh_CN from '@locale/lanres/entities/ibzcase-step/ibzcase-step_zh_CN';
 import taskestimate_zh_CN from '@locale/lanres/entities/task-estimate/task-estimate_zh_CN';
 import story_zh_CN from '@locale/lanres/entities/story/story_zh_CN';
@@ -415,6 +416,7 @@ function getAppLocale(){
             dept: dept_zh_CN(),
             ibizprotag: ibizprotag_zh_CN(),
             company: company_zh_CN(),
+            systeam: systeam_zh_CN(),
             ibzcasestep: ibzcasestep_zh_CN(),
             taskestimate: taskestimate_zh_CN(),
             story: story_zh_CN(),
