@@ -143,21 +143,19 @@ export class MdServiceBase extends ControlServiceBase {
             return data;
         }
         const dataItems: any[] = this.model.getDataItems();
-        for (let index = 0; index < data.length; index++) {
-            const data1 = data[index];
-            const requestData: any = {};
-            dataItems.forEach((item: any) => {
-                if (item && item.dataType && Object.is(item.dataType, 'FONTKEY')) {
-                    if (item && item.prop) {
-                        requestData[item.prop] = context[item.name];
-                    }
-                } else {
-                    if (item && item.prop) {
-                        requestData[item.prop] = data1[item.name];
-                    }
+        const tempData: any = data;
+        for (let index = 0; index < tempData.length; index++) {
+            const item = tempData[index];
+            let _item: any = {};
+            for (let index = 0; index < dataItems.length; index++) {
+                const dataitem = dataItems[index];
+                let val = item.hasOwnProperty(dataitem.prop) ? item[dataitem.prop] : null;
+                if (!val) {
+                    val = item.hasOwnProperty(dataitem.name) ? item[dataitem.name] : null;
                 }
-            });
-            data[index] = requestData;
+                _item[dataitem.name] = val;
+            }
+            tempData[index] = _item;
         }
         return data;
     }

@@ -19,10 +19,62 @@ export default {
     taskcnt: "任务数",
   },
 	views: {
+		projectteamallmobeditview: {
+			caption: commonLogic.appcommonhandle("项目团队",null),
+		},
+		projectteammobmeditview: {
+			caption: commonLogic.appcommonhandle("项目团队",null),
+		},
+		projectteammobeditview: {
+			caption: commonLogic.appcommonhandle("项目团队",null),
+		},
 		mobmdview: {
 			caption: commonLogic.appcommonhandle("项目团队",null),
 		},
 	},
+	projectteam_form: {
+		details: {
+			group1: commonLogic.appcommonhandle("项目团队基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("用户",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			account: commonLogic.appcommonhandle("用户",null), 
+			role: commonLogic.appcommonhandle("角色",null), 
+			join: commonLogic.appcommonhandle("加盟日",null), 
+			days: commonLogic.appcommonhandle("可用工日",null), 
+			hours: commonLogic.appcommonhandle("可用工时/天",null), 
+			total: commonLogic.appcommonhandle("总计可用",null), 
+			limited: commonLogic.appcommonhandle("受限用户",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
+	projectteamrelation_form: {
+		details: {
+			druipart1: commonLogic.appcommonhandle("",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("用户",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	projectteammobeditviewrighttoolbar_toolbar: {
+	},
+	projectteamallmobeditviewrighttoolbar_toolbar: {
 	},
 };
