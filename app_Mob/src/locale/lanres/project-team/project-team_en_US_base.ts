@@ -71,8 +71,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
 	projectteammobeditviewrighttoolbar_toolbar: {
 	},
 	projectteamallmobeditviewrighttoolbar_toolbar: {
@@ -80,5 +78,7 @@ export default {
 			caption: commonLogic.appcommonhandle("Save And Close",null),
 			tip: 'tbitem1',
 		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
 	},
 };
