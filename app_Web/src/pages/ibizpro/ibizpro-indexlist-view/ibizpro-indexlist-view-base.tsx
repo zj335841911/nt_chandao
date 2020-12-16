@@ -274,11 +274,11 @@ export class IBIZPRO_INDEXListViewBase extends ListViewBase {
             if(result && result.datas && result.datas.length >0 ){
                 let targetkey:string = result.datas[0].srfkey;
                 let newDataAppViews:any ={
+                bug:[{ pathName: 'bugs', parameterName: 'bug' },{ pathName: 'editview', parameterName: 'editview' }],
+                project:[{ pathName: 'projects', parameterName: 'project' },{ pathName: 'editview', parameterName: 'editview' }],
                 task:[{ pathName: 'tasks', parameterName: 'task' },{ pathName: 'editview', parameterName: 'editview' }],
                 story:[{ pathName: 'stories', parameterName: 'story' },{ pathName: 'editview', parameterName: 'editview' }],
                 product:[{ pathName: 'products', parameterName: 'product' },{ pathName: 'editview', parameterName: 'editview' }],
-                project:[{ pathName: 'projects', parameterName: 'project' },{ pathName: 'editview', parameterName: 'editview' }],
-                bug:[{ pathName: 'bugs', parameterName: 'bug' },{ pathName: 'editview', parameterName: 'editview' }],
                 case:[{ pathName: 'cases', parameterName: 'case' },{ pathName: 'editview', parameterName: 'editview' }]
                 };
                 const data: any = {};

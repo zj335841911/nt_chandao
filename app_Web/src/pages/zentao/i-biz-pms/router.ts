@@ -14124,6 +14124,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-assing-to-view/bug-assing-to-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/keditview9/:keditview9?',
+                    meta: {
+                        caption: 'entities.doc.views.keditview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'keditview9', parameterName: 'keditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-kedit-view9/doc-kedit-view9.vue'),
+                },
+                {
                     path: 'sysupdatelogs/:sysupdatelog?/sysupdatefeatures/:sysupdatefeatures?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.sysupdatefeatures.views.gridview.caption',
@@ -14151,20 +14165,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/sys-update-features-grid-view/sys-update-features-grid-view.vue'),
-                },
-                {
-                    path: 'docs/:doc?/keditview9/:keditview9?',
-                    meta: {
-                        caption: 'entities.doc.views.keditview9.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'docs', parameterName: 'doc' },
-                            { pathName: 'keditview9', parameterName: 'keditview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-kedit-view9/doc-kedit-view9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/mainmynewgridview/:mainmynewgridview?',
