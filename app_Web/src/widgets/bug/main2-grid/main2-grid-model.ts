@@ -101,13 +101,13 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'project',
-          prop: 'project',
+          name: 'story',
+          prop: 'story',
           dataType: 'PICKUP',
         },
         {
-          name: 'story',
-          prop: 'story',
+          name: 'project',
+          prop: 'project',
           dataType: 'PICKUP',
         },
         {
