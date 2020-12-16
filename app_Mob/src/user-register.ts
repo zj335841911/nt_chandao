@@ -32,5 +32,7 @@ export const UserComponent = {
         v.component('app-user-header',() => import('@/ibiz-core/components/user-header/user-header.vue'));
         // 自定义图片上传组件
         v.component('app-mob-picture-pms',() => import('@/ibiz-core/components/app-mob-picture-pms/app-mob-picture-pms.vue'));
+        // 任务团队列表组件
+        v.component('app-taskteam-list',() => import('@/ibiz-core/components/app-taskteam-list/app-taskteam-list.vue'));
     }
 };
