@@ -91,10 +91,6 @@ export class ProjectGridViewEMpBase extends GridViewBase {
      * @memberof ProjectGridViewEMpBase
      */
     protected containerModel: any = {
-        view_toolbar: {
-            name: 'toolbar',
-            type: 'TOOLBAR',
-        },
         view_grid: {
             name: 'grid',
             type: 'GRID',
@@ -104,24 +100,6 @@ export class ProjectGridViewEMpBase extends GridViewBase {
             type: 'SEARCHBAR',
         },
     };
-
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof ProjectGridViewEMp
-     */
-    public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: 'entities.project.gridviewemptoolbar_toolbar.deuiaction3_create.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.project.gridviewemptoolbar_toolbar.deuiaction3_create.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
-
-        deuiaction2: { name: 'deuiaction2', caption: 'entities.project.gridviewemptoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.project.gridviewemptoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
-
-        deuiaction1: { name: 'deuiaction1', caption: 'entities.project.gridviewemptoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.project.gridviewemptoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
-
-        deuiaction4: { name: 'deuiaction4', caption: 'entities.project.gridviewemptoolbar_toolbar.deuiaction4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.project.gridviewemptoolbar_toolbar.deuiaction4.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
-
-    };
-
 
 
 	/**
@@ -186,28 +164,6 @@ export class ProjectGridViewEMpBase extends GridViewBase {
     }
 
     /**
-     * toolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProjectGridViewEMpBase
-     */
-    public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_create')) {
-            this.toolbar_deuiaction3_create_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.toolbar_deuiaction2_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.toolbar_deuiaction1_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction4')) {
-            this.toolbar_deuiaction4_click(null, '', $event2);
-        }
-    }
-
-    /**
      * grid 部件 selectionchange 事件
      *
      * @param {*} [args={}]
@@ -260,119 +216,6 @@ export class ProjectGridViewEMpBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction3_create_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ProjectUIService  = new ProjectUIService();
-        curUIService.Project_Create(datas,contextJO, paramJO,  $event, xData,this,"Project");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"Project");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"Project");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Project");
     }
 
     /**
@@ -460,58 +303,4 @@ export class ProjectGridViewEMpBase extends GridViewBase {
     }
 
 
-    /**
-     * 刷新
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProjectGridViewEMpBase
-     */
-    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.refresh && xData.refresh instanceof Function) {
-            xData.refresh(args);
-        } else if (_this.refresh && _this.refresh instanceof Function) {
-            _this.refresh(args);
-        }
-    }
-    /**
-     * 导出
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProjectGridViewEMpBase
-     */
-    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
-            return ;
-        }
-        xData.exportExcel($event.exportparms);
-    }
-    /**
-     * 过滤
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProjectGridViewEMpBase
-     */
-    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (_this.hasOwnProperty('isExpandSearchForm')) {
-            _this.isExpandSearchForm = !_this.isExpandSearchForm;
-        }
-    }
 }
