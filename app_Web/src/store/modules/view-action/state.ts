@@ -4683,6 +4683,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'ebdc0496f66718b66a8ae0ea440d0356',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 '465f1d3489621f94a90490faa3e0ea0f',
             ],
@@ -5269,6 +5270,17 @@ export const viewstate: any = {
                 'aeee411b8bffcf0c30d65557a8deeeee',
                 '734c2c8a05995eaad9f9a0028e9b9def',
                 '43582fa5b922cb77d0b1e704a7b6e5c3',
+            ],
+        },
+        {
+            viewtag: 'ebdc0496f66718b66a8ae0ea440d0356',
+            viewmodule: 'zentao',
+            viewname: 'ProjectGridViewEMp',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
+                'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
         {

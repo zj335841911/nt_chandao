@@ -122,6 +122,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 deKeyField:'sysemployee'
 			};
         }
+        if (Object.is(expmode, 'PROJECT')) {
+            return {  
+                viewname: 'project-grid-view-emp', 
+                parentdata: {},
+                deKeyField:'project'
+			};
+        }
         return null;
     }
 

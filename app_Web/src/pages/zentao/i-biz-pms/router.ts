@@ -2629,6 +2629,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-sum-po-chart-view9/product-sum-po-chart-view9.vue'),
                 },
                 {
+                    path: 'projects/:project?/gridviewemp/:gridviewemp?',
+                    meta: {
+                        caption: 'entities.project.views.gridviewemp.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'gridviewemp', parameterName: 'gridviewemp' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-grid-view-emp/project-grid-view-emp.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
                         caption: 'entities.case.views.gridview9_storyaffect.caption',

@@ -857,6 +857,7 @@ SRFNAVPARAM.project=%project%|
 |-|我的地盘我的地盘实体树导航视图（项目汇总表）导航视图|DETREEEXPVIEW|&nbsp;|
 |-|文档编辑视图（关键字）|DEEDITVIEW9|&nbsp;|
 |-|待办编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
+|-|项目|DEGRIDVIEW|&nbsp;|
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例库|DETABEXPVIEW|&nbsp;|
 |-|文档库数据看板视图|DEPORTALVIEW|&nbsp;|

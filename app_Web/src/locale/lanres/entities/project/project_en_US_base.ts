@@ -179,6 +179,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("未完成项目",null),
 					title: commonLogic.appcommonhandle("项目表格视图",null),
 				},
+				gridviewemp: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目",null),
+				},
 				editview_suspend: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目",null),
@@ -670,6 +674,24 @@ function getLocaleResourceBase(){
 				deuiaction2: {
 					caption: commonLogic.appcommonhandle("取消置顶",null),
 					tip: commonLogic.appcommonhandle("取消置顶",null),
+				},
+			},
+			gridviewemptoolbar_toolbar: {
+				deuiaction3_create: {
+					caption: commonLogic.appcommonhandle("新建",null),
+					tip: commonLogic.appcommonhandle("新建",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("Filter",null),
+					tip: commonLogic.appcommonhandle("Filter",null),
 				},
 			},
 			moreundoneprogridviewtoolbar_toolbar: {

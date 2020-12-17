@@ -4631,6 +4631,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoCalendarEditView",
             "viewtag": "eb90b28adca9e482854d0d6bf05e1303"
         },
+        "projectgridviewemp": {
+            "title": "项目",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectGridViewEMp",
+            "viewtag": "ebdc0496f66718b66a8ae0ea440d0356"
+        },
         "tododashboardview": {
             "title": "待办事宜表数据看板视图",
             "caption": "待办",
