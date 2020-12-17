@@ -276,7 +276,7 @@
             :context="context"
             :viewparams="viewparams"
 				 :navigateContext="{}"
-            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :navigateParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
             :disabled="detailsModel.formitemex1.disabled" 
             valueType="string"
             tag='Product' 
@@ -309,7 +309,7 @@
             :context="context"
             :viewparams="viewparams"
 				 :navigateContext="{}"
-            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :navigateParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
             :disabled="detailsModel.formitemex1.disabled" 
             valueType="string"
             tag='ProductPlan' 
