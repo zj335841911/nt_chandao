@@ -49,6 +49,20 @@ export class SysTeamMemberGridExpViewBase extends GridExpViewBase {
      */
     public appUIService: SysTeamMemberUIService = new SysTeamMemberUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof SysTeamMemberGridExpViewBase
+	 */
+    protected customViewParams: any = {
+        'n_postid_eq': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *
