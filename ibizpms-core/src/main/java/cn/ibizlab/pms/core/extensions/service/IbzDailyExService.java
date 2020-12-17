@@ -82,7 +82,7 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
     @Transactional
     public IbzDaily getYesterdayDailyPlansTask(IbzDaily et) {
         //获取昨天的日报
-        List<IbzDaily> list = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 day),'%Y-%m-%d')"));
+        List<IbzDaily> list = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 day),'%Y-%m-%d')"));
         IbzDaily yesterdayIbzDaily = new IbzDaily();
         Set<String> taskIdsSet = new HashSet<>();
         if (list.size() > 0) {
