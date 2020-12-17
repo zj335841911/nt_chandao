@@ -75,6 +75,7 @@ export default {
     doclibcnt: "文档数量",
     orgid: "组织标识",
     mdeptid: "部门标识",
+    projectteams: "项目团队",
   },
 	views: {
 		mobchartview: {

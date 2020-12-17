@@ -237,6 +237,9 @@ export class MobTabExpViewtabviewpanel3Model {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 

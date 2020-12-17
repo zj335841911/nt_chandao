@@ -237,6 +237,9 @@ export class ProjectStatusBarMobModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 
