@@ -90,6 +90,7 @@ export default class IbzprojectteamnestUIActionBase extends EntityUIActionBase {
      * @memberof  IbzprojectteamnestUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'projectteammobmeditview',srfappde:'ibzprojectteamnests'});
     }
 
     /**

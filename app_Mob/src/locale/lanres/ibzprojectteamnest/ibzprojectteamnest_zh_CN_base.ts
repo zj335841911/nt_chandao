@@ -18,4 +18,9 @@ export default {
     username: "用户",
     taskcnt: "任务数",
   },
+	views: {
+		projectteammobmeditview: {
+			caption: commonLogic.appcommonhandle("项目团队",null),
+		},
+	},
 };
