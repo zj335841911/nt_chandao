@@ -267,31 +267,70 @@
 
 
 
-<app-form-item 
-    name='formitemex1' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="formitemex1_item"  
-    :itemValue="this.data.formitemex1" 
-    v-show="detailsModel.formitemex1.visible" 
-    :itemRules="this.rules.formitemex1" 
-    :caption="$t('project.mobnewform_form.details.formitemex1')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.formitemex1.disabled"
-    :error="detailsModel.formitemex1.error" 
-    :isEmptyCaption="false">
-        <app-range-editor 
-            name="formitemex1"  
-            editorType="MOBTEXT"  
-            format=""  
-            style="" 
-            v-model="data.formitemex1" 
-            :activeData="data"
-            :refFormItem="['products','srfarray','branchs','plans']" 
-            @formitemvaluechange="onFormItemValueChange"/>
-</app-form-item>
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'entities.project.fields.products', prop: 'products' },{ name: '关联产品平台集合',localetag: 'entities.project.fields.branchs', prop: 'branchs' },{ name: '关联计划',localetag: 'entities.project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
+   <template slot="products" slot-scope="{item}">
+      <div style="display: flex;">
+         <dropdown-list-dynamic 
+            v-model="item.products" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :disabled="detailsModel.formitemex1.disabled" 
+            valueType="string"
+            tag='Product' 
+            codelistType='DYNAMIC'
+            placeholder="" style="flex-grow: 1;">
+         </dropdown-list-dynamic>
+         <dropdown-list-dynamic 
+   v-model="item.branchs" 
+   :data="{...data, ...item}" 
+   :context="context"
+   :viewparams="viewparams"
+   :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+   :disabled="detailsModel.formitemex1.disabled" 
+   valueType="string"
+   tag='ProductBranch' 
+   codelistType='DYNAMIC'
+   placeholder="" style="width: 100px;flex-shrink: 0;margin-left: 5px;">
+</dropdown-list-dynamic>
+
+      </div>
+   </template>
+   <template slot="branchs" slot-scope="{item}">
+      <div style="display: flex;">
+         <dropdown-list-dynamic 
+            v-model="item.branchs" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :disabled="detailsModel.formitemex1.disabled" 
+            valueType="string"
+            tag='ProductBranch' 
+            codelistType='DYNAMIC'
+            placeholder="" style="flex-grow: 1;">
+         </dropdown-list-dynamic>
+      </div>
+   </template>
+   <template slot="plans" slot-scope="{item}">
+      <div style="display: flex;">
+         <dropdown-list-dynamic 
+            v-model="item.plans" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :disabled="detailsModel.formitemex1.disabled" 
+            valueType="string"
+            tag='ProductPlan' 
+            codelistType='DYNAMIC'
+            placeholder="" style="flex-grow: 1;">
+         </dropdown-list-dynamic>
+      </div>
+   </template>
+</comb-form-item>
+
 
 
     
