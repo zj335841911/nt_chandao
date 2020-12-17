@@ -318,25 +318,17 @@ export class SysPostUsr2GridViewBase extends GridViewBase {
      * @memberof SysPostUsr2GridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = {POSTID:"%postid%"};
-        const localViewParam: any ={postid:"%postid%"};
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
             Object.assign(tempContext,args[0]);
         }
-        if(localContext && Object.keys(localContext).length >0){
-            let _context:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localContext);
-            Object.assign(tempContext,_context);
-        }
-        if(localViewParam && Object.keys(localViewParam).length >0){
-            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
-            Object.assign(data,_param);
-        }
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'systeammembers', parameterName: 'systeammember' },
-            { pathName: 'usr2gridviewpostmembers', parameterName: 'usr2gridviewpostmembers' },
+            { pathName: 'sysposts', parameterName: 'syspost' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
