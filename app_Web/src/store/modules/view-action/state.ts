@@ -3372,15 +3372,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '984a70c0b86ca38a96f77ba1c851530f',
-            viewmodule: 'ou',
-            viewname: 'SysTeamEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '991e5ef3e406f063f981865759d0857f',
             viewmodule: 'report',
             viewname: 'IbzWeeklyUsr3GridView',
@@ -3492,16 +3483,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'ebf8f4c62f92ff24ff740558f12f7303',
-            ],
-        },
-        {
-            viewtag: 'a0e1f55e52d3167ad1815ac7076cdc45',
-            viewmodule: 'ou',
-            viewname: 'SysTeamMemberUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '647cee7cf9c101876645c1c5bcec3602',
             ],
         },
         {
@@ -4459,6 +4440,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c826223fec105532e5a0f8a2ad49ee4a',
+            viewmodule: 'ou',
+            viewname: 'SysTeamGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '771b6fe41dab6d75ea3127f8408461e8',
+            ],
+        },
+        {
             viewtag: 'c9410c9f72535adf1fff569d5243edd1',
             viewmodule: 'zentao',
             viewname: 'BugGridView',
@@ -4513,16 +4504,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: 'c9f2cd9496fa701c375279c93e1487fd',
-            viewmodule: 'ou',
-            viewname: 'SysTeamUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '984a70c0b86ca38a96f77ba1c851530f',
             ],
         },
         {
@@ -4777,13 +4758,12 @@ export const viewstate: any = {
             refviews: [
                 '4b2fac9ffaccd974c1ba4c24508197af',
                 'ebdc0496f66718b66a8ae0ea440d0356',
+                'c826223fec105532e5a0f8a2ad49ee4a',
                 '771b6fe41dab6d75ea3127f8408461e8',
                 '745687df2b5a067c15598debbcba1fe2',
                 'ba70cc2003a4d984ccab95ba36a4a632',
-                'a0e1f55e52d3167ad1815ac7076cdc45',
                 '42ce56d703f9d063d6c1524bb7a559de',
                 'ae72600793a079e5946b182321ddede9',
-                'c9f2cd9496fa701c375279c93e1487fd',
                 '465f1d3489621f94a90490faa3e0ea0f',
             ],
         },

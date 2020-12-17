@@ -117,7 +117,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'SYSTEAM')) {
             return {  
-                viewname: 'sys-team-member-usr2-grid-view', 
+                viewname: 'sys-team-member-grid-exp-view', 
                 parentdata: {"srfparentdefname":"teamid"},
                 deKeyField:'systeammember'
 			};
@@ -159,7 +159,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'TEAM')) {
             return {  
-                viewname: 'sys-team-usr2-grid-view', 
+                viewname: 'sys-team-grid-exp-view', 
                 parentdata: {},
                 deKeyField:'systeam'
 			};

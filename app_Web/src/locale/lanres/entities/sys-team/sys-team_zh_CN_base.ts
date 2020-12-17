@@ -52,6 +52,17 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			mainexp_grid: {
+				columns: {
+					teamid: commonLogic.appcommonhandle("组标识",null),
+					teamname: commonLogic.appcommonhandle("组名称",null),
+					domains: commonLogic.appcommonhandle("区属",null),
+					memo: commonLogic.appcommonhandle("备注",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			main_grid: {
 				columns: {
 					teamid: commonLogic.appcommonhandle("组标识",null),
@@ -63,21 +74,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			gridexpbar_grid_grid: {
-				columns: {
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			default_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
 				},
 				uiactions: {
 				},
-			},
-			usr2gridviewtoolbar_toolbar: {
 			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
@@ -96,6 +98,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("删除",null),
 					tip: commonLogic.appcommonhandle("删除",null),
 				},
+			},
+			usr2gridviewtoolbar_toolbar: {
 			},
 			gridviewtoolbar_toolbar: {
 				tbitem3: {
