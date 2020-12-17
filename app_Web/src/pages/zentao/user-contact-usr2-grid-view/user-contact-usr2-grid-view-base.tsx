@@ -340,29 +340,27 @@ export class UserContactUsr2GridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'usercontacts', parameterName: 'usercontact' },
+            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'user-contact-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.usercontact.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof UserContactUsr2GridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }
