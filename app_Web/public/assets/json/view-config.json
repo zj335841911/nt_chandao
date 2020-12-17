@@ -1539,6 +1539,16 @@
         "viewtag": "42aa867a5dbd04d53462fa69b0e43296",
         "memo": ""
     },
+    "sysemployeeusr3gridview": {
+        "title": "人员表格视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeUsr3GridView",
+        "viewfilename": "sys-employee-usr3-grid-view",
+        "viewtag": "42ce56d703f9d063d6c1524bb7a559de",
+        "memo": ""
+    },
     "todoassigntoview": {
         "title": "指派表单视图",
         "caption": "指派给",

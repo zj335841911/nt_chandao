@@ -108,6 +108,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'PROJECTTEAM')) {
+            return {  
+                viewname: 'sys-employee-usr3-grid-view', 
+                parentdata: {"srfparentdefname":"project"},
+                deKeyField:'sysemployee'
+			};
+        }
         if (Object.is(expmode, 'ORGEMP')) {
             return {  
                 viewname: 'sys-organization-usr2-grid-view', 

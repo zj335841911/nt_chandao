@@ -15375,6 +15375,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-lib-case-steps-info-grid-view9/ibz-lib-case-steps-info-grid-view9.vue'),
                 },
                 {
+                    path: 'sysemployees/:sysemployee?/usr3gridview/:usr3gridview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.usr3gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'usr3gridview', parameterName: 'usr3gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-usr3-grid-view/sys-employee-usr3-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.productplan.views.gridview.caption',

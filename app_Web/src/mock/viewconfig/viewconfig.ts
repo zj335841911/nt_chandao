@@ -1239,6 +1239,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestReportDashboardView",
             "viewtag": "42aa867a5dbd04d53462fa69b0e43296"
         },
+        "sysemployeeusr3gridview": {
+            "title": "人员表格视图",
+            "caption": "人员",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeUsr3GridView",
+            "viewtag": "42ce56d703f9d063d6c1524bb7a559de"
+        },
         "todoassigntoview": {
             "title": "指派表单视图",
             "caption": "指派给",

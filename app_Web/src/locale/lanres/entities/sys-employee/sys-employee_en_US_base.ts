@@ -34,6 +34,10 @@ function getLocaleResourceBase(){
 			updatedate: commonLogic.appcommonhandle("更新时间",null),
 		},
 			views: {
+				usr3gridview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员表格视图",null),
+				},
 				usr2gridview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员表格视图人员实体表格视图(组织下所有人员)",null),
@@ -84,7 +88,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			usr2gridviewtoolbar_toolbar: {
+			usr3gridviewtoolbar_toolbar: {
 			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
@@ -103,6 +107,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Remove And Close",null),
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
+			},
+			usr2gridviewtoolbar_toolbar: {
 			},
 			emptreemenuzs_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
