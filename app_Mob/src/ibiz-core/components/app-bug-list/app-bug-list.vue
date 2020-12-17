@@ -106,7 +106,7 @@
          * 获取用户头像
          */
         public getUserImg(value: string) {
-            if (this.getCodeListText('UserRealName', value)) {
+            if (this.getCodeListText('UserRealName', value).icon) {
                 let icon = JSON.parse(this.getCodeListText('UserRealName', value).icon);
                 if (icon && icon[0] && icon[0].id) {
                     return `${this.imageUrl}/${icon[0].id}`;
