@@ -33654,6 +33654,20 @@
     "major_field":0
     },
     {
+    "fieldname":"PASSWORD" ,
+    "codename":"Password",
+    "field_logic_name":"密码",
+    "entity_name":"SysEmployee",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":6,
+    "major_field":0
+    },
+    {
     "fieldname":"DOMAINS" ,
     "codename":"Domains",
     "field_logic_name":"区属",

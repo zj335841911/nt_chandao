@@ -60,6 +60,8 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			usr2gridviewtoolbar_toolbar: {
+			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("保存",null),
@@ -77,8 +79,6 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("删除",null),
 					tip: commonLogic.appcommonhandle("删除",null),
 				},
-			},
-			usr2gridviewtoolbar_toolbar: {
 			},
 		};
 		return data;

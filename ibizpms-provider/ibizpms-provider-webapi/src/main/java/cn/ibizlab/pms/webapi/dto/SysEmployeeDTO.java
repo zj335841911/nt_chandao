@@ -78,6 +78,16 @@ public class SysEmployeeDTO extends DTOBase implements Serializable {
     private String loginname;
 
     /**
+     * 属性 [PASSWORD]
+     *
+     */
+    @JSONField(name = "password")
+    @JsonProperty("password")
+    @NotBlank(message = "[密码]不允许为空!")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String password;
+
+    /**
      * 属性 [DOMAINS]
      *
      */
@@ -331,6 +341,14 @@ public class SysEmployeeDTO extends DTOBase implements Serializable {
     public void setLoginname(String  loginname){
         this.loginname = loginname ;
         this.modify("loginname",loginname);
+    }
+
+    /**
+     * 设置 [PASSWORD]
+     */
+    public void setPassword(String  password){
+        this.password = password ;
+        this.modify("password",password);
     }
 
     /**

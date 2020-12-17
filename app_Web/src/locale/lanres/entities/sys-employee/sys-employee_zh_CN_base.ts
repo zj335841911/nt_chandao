@@ -8,6 +8,7 @@ function getLocaleResourceBase(){
 			personname: commonLogic.appcommonhandle("姓名",null),
 			usercode: commonLogic.appcommonhandle("用户工号",null),
 			loginname: commonLogic.appcommonhandle("登录名",null),
+			password: commonLogic.appcommonhandle("密码",null),
 			domains: commonLogic.appcommonhandle("区属",null),
 			mdeptid: commonLogic.appcommonhandle("主部门",null),
 			mdeptcode: commonLogic.appcommonhandle("主部门代码",null),

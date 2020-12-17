@@ -137892,6 +137892,7 @@ CREATE TABLE `zt_suitecase`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | USERID        | 用户标识  | VARCHAR      |   100   | 主键&nbsp; |
 | LANG        | 语言  | VARCHAR      |   100   | &nbsp; |
+| PASSWORD        | 密码  | VARCHAR      |   100   | &nbsp; |
 | SEX        | 性别  | VARCHAR      |   20   | &nbsp; |
 | MEMO        | 备注  | VARCHAR      |   255   | &nbsp; |
 | IPADDR        | ip地址  | VARCHAR      |   100   | &nbsp; |

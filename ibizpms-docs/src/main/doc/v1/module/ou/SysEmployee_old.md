@@ -19,6 +19,7 @@ hide members
 |姓名|PERSONNAME|TEXT|&nbsp;|
 |用户工号|USERCODE|TEXT|&nbsp;|
 |登录名|LOGINNAME|TEXT|&nbsp;|
+|密码|PASSWORD|TEXT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
 |主部门|MDEPTID|PICKUP|&nbsp;|
 |主部门代码|MDEPTCODE|PICKUPDATA|&nbsp;|
@@ -53,6 +54,7 @@ hide members
 |姓名|默认规则|内容长度必须小于等于[100]|
 |用户工号|默认规则|内容长度必须小于等于[100]|
 |登录名|默认规则|内容长度必须小于等于[100]|
+|密码|默认规则|内容长度必须小于等于[100]|
 |区属|默认规则|内容长度必须小于等于[100]|
 |主部门|默认规则|内容长度必须小于等于[100]|
 |主部门代码|默认规则|内容长度必须小于等于[100]|

@@ -26,31 +26,32 @@
 | 3 | [姓名](#属性-姓名（PERSONNAME）) | PERSONNAME | 文本，可指定长度 | 否 | 否 | 否 |
 | 4 | [用户工号](#属性-用户工号（USERCODE）) | USERCODE | 文本，可指定长度 | 否 | 否 | 否 |
 | 5 | [登录名](#属性-登录名（LOGINNAME）) | LOGINNAME | 文本，可指定长度 | 否 | 否 | 否 |
-| 6 | [区属](#属性-区属（DOMAINS）) | DOMAINS | 文本，可指定长度 | 否 | 否 | 是 |
-| 7 | [主部门](#属性-主部门（MDEPTID）) | MDEPTID | 外键值 | 否 | 是 | 是 |
-| 8 | [主部门代码](#属性-主部门代码（MDEPTCODE）) | MDEPTCODE | 外键值附加数据 | 否 | 是 | 是 |
-| 9 | [主部门名称](#属性-主部门名称（MDEPTNAME）) | MDEPTNAME | 外键值文本 | 否 | 是 | 是 |
-| 10 | [业务编码](#属性-业务编码（BCODE）) | BCODE | 文本，可指定长度 | 否 | 是 | 是 |
-| 11 | [单位](#属性-单位（ORGID）) | ORGID | 外键值 | 否 | 是 | 是 |
-| 12 | [单位代码](#属性-单位代码（ORGCODE）) | ORGCODE | 外键值附加数据 | 否 | 是 | 是 |
-| 13 | [单位名称](#属性-单位名称（ORGNAME）) | ORGNAME | 外键值文本 | 否 | 是 | 是 |
-| 14 | [昵称别名](#属性-昵称别名（NICKNAME）) | NICKNAME | 文本，可指定长度 | 否 | 是 | 是 |
-| 15 | [性别](#属性-性别（SEX）) | SEX | 单项选择(文本值) | 否 | 是 | 是 |
-| 16 | [联系方式](#属性-联系方式（PHONE）) | PHONE | 文本，可指定长度 | 否 | 是 | 是 |
-| 17 | [邮件](#属性-邮件（EMAIL）) | EMAIL | 文本，可指定长度 | 否 | 是 | 是 |
-| 18 | [社交账号](#属性-社交账号（AVATAR）) | AVATAR | 文本，可指定长度 | 否 | 是 | 是 |
-| 19 | [地址](#属性-地址（ADDR）) | ADDR | 文本，可指定长度 | 否 | 是 | 是 |
-| 20 | [照片](#属性-照片（USERICON）) | USERICON | 文本，可指定长度 | 否 | 是 | 是 |
-| 21 | [ip地址](#属性-ip地址（IPADDR）) | IPADDR | 文本，可指定长度 | 否 | 是 | 是 |
-| 22 | [语言](#属性-语言（LANG）) | LANG | 文本，可指定长度 | 否 | 是 | 是 |
-| 23 | [备注](#属性-备注（MEMO）) | MEMO | 文本，可指定长度 | 否 | 是 | 是 |
-| 24 | [保留](#属性-保留（RESERVER）) | RESERVER | 文本，可指定长度 | 否 | 是 | 是 |
-| 25 | [排序](#属性-排序（SHOWORDER）) | SHOWORDER | 整型 | 否 | 是 | 是 |
-| 26 | [逻辑有效](#属性-逻辑有效（ENABLE）) | ENABLE | 是否逻辑 | 否 | 是 | 是 |
-| 27 | [创建时间](#属性-创建时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 是 | 是 |
-| 28 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
-| 29 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
-| 30 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 是 | 否 |
+| 6 | [密码](#属性-密码（PASSWORD）) | PASSWORD | 文本，可指定长度 | 否 | 否 | 否 |
+| 7 | [区属](#属性-区属（DOMAINS）) | DOMAINS | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [主部门](#属性-主部门（MDEPTID）) | MDEPTID | 外键值 | 否 | 是 | 是 |
+| 9 | [主部门代码](#属性-主部门代码（MDEPTCODE）) | MDEPTCODE | 外键值附加数据 | 否 | 是 | 是 |
+| 10 | [主部门名称](#属性-主部门名称（MDEPTNAME）) | MDEPTNAME | 外键值文本 | 否 | 是 | 是 |
+| 11 | [业务编码](#属性-业务编码（BCODE）) | BCODE | 文本，可指定长度 | 否 | 是 | 是 |
+| 12 | [单位](#属性-单位（ORGID）) | ORGID | 外键值 | 否 | 是 | 是 |
+| 13 | [单位代码](#属性-单位代码（ORGCODE）) | ORGCODE | 外键值附加数据 | 否 | 是 | 是 |
+| 14 | [单位名称](#属性-单位名称（ORGNAME）) | ORGNAME | 外键值文本 | 否 | 是 | 是 |
+| 15 | [昵称别名](#属性-昵称别名（NICKNAME）) | NICKNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 16 | [性别](#属性-性别（SEX）) | SEX | 单项选择(文本值) | 否 | 是 | 是 |
+| 17 | [联系方式](#属性-联系方式（PHONE）) | PHONE | 文本，可指定长度 | 否 | 是 | 是 |
+| 18 | [邮件](#属性-邮件（EMAIL）) | EMAIL | 文本，可指定长度 | 否 | 是 | 是 |
+| 19 | [社交账号](#属性-社交账号（AVATAR）) | AVATAR | 文本，可指定长度 | 否 | 是 | 是 |
+| 20 | [地址](#属性-地址（ADDR）) | ADDR | 文本，可指定长度 | 否 | 是 | 是 |
+| 21 | [照片](#属性-照片（USERICON）) | USERICON | 文本，可指定长度 | 否 | 是 | 是 |
+| 22 | [ip地址](#属性-ip地址（IPADDR）) | IPADDR | 文本，可指定长度 | 否 | 是 | 是 |
+| 23 | [语言](#属性-语言（LANG）) | LANG | 文本，可指定长度 | 否 | 是 | 是 |
+| 24 | [备注](#属性-备注（MEMO）) | MEMO | 文本，可指定长度 | 否 | 是 | 是 |
+| 25 | [保留](#属性-保留（RESERVER）) | RESERVER | 文本，可指定长度 | 否 | 是 | 是 |
+| 26 | [排序](#属性-排序（SHOWORDER）) | SHOWORDER | 整型 | 否 | 是 | 是 |
+| 27 | [逻辑有效](#属性-逻辑有效（ENABLE）) | ENABLE | 是否逻辑 | 否 | 是 | 是 |
+| 28 | [创建时间](#属性-创建时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 是 | 是 |
+| 29 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
+| 30 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
+| 31 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 是 | 否 |
 
 ### 属性-用户标识（USERID）
 #### 属性说明
@@ -226,6 +227,47 @@ String
 ### 属性-登录名（LOGINNAME）
 #### 属性说明
 登录名
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+否
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-密码（PASSWORD）
+#### 属性说明
+密码
 
 - 是否是主键
 否
@@ -1489,6 +1531,7 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1536,6 +1579,7 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1583,6 +1627,7 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1675,6 +1720,7 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1752,6 +1798,7 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,

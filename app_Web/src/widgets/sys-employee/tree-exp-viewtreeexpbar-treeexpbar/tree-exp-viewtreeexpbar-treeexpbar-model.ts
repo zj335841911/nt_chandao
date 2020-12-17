@@ -31,6 +31,9 @@ export default class TreeExpViewtreeexpbarModel {
         name: 'loginname',
       },
       {
+        name: 'password',
+      },
+      {
         name: 'domains',
       },
       {

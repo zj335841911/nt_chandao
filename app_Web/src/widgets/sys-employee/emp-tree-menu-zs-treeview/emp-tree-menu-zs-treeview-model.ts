@@ -31,6 +31,9 @@ export default class EmpTreeMenuZSModel {
         name: 'loginname',
       },
       {
+        name: 'password',
+      },
+      {
         name: 'domains',
       },
       {
