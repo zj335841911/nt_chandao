@@ -170,7 +170,7 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
      * @type {*}
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    protected navParam: any = { 'root': '%project%' };
+    protected navParam: any = { 'root': '1' };
 
     /**
      * 视图模型数据
