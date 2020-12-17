@@ -2,8 +2,9 @@
     <div class="app-bug-list-item">
         <div class="app-bug-list-item_top">
             <strong>
-                <div class="name" :style="{'color':item.color}"> {{item.srfmajortext}}
-                    <span :class="item.pri_className">{{item.pri_text}}</span>
+                <div class="name" :style="{'color':item.color}">
+                    <span>{{item.srfmajortext}}</span>
+                    <span style="margin-left: 5px" :class="item.pri_className">{{item.pri_text}}</span>
                     <span class="severity" :style="{'color':item.severity_color}">{{item.severity_text}}</span>
                 </div>
             </strong>
@@ -14,8 +15,8 @@
             <div class="deadline">{{item.deadline}}</div>
             <div class="delayresolve">{{item.delayresolve}}</div>
             <div class="assignedto">
-                <div class="assignedto_item" v-if="!item.assignedto_img">{{item.assignedto_text}}</div>
-                <div class="assignedto_item_img" v-else><img :src="item.assignedto_img" alt=""></div>
+                <div class="assignedto_item_img" v-if="item.assignedto_img"><img  :src="item.assignedto_img" alt=""></div>
+                <div class="assignedto_item" v-if="!item.assignedto_img && item.assignedto_text">{{item.assignedto_text}}</div>
             </div>
         </div>
     </div>
@@ -105,9 +106,11 @@
          * 获取用户头像
          */
         public getUserImg(value: string) {
-            let icon = JSON.parse(this.getCodeListText('UserRealName', value).icon);
-            if (icon && icon[0] && icon[0].id) {
-                return `${this.imageUrl}/${icon[0].id}`;
+            if (this.getCodeListText('UserRealName', value)) {
+                let icon = JSON.parse(this.getCodeListText('UserRealName', value).icon);
+                if (icon && icon[0] && icon[0].id) {
+                    return `${this.imageUrl}/${icon[0].id}`;
+                }
             }
             return '';
         }
