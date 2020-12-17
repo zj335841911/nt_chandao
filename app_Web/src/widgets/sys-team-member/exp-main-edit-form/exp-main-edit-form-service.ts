@@ -4,7 +4,6 @@ import ControlService from '@/widgets/control-service';
 import SysTeamMemberService from '@/service/sys-team-member/sys-team-member-service';
 import ExpMainEditModel from './exp-main-edit-form-model';
 import SysTeamService from '@/service/sys-team/sys-team-service';
-import SysEmployeeService from '@/service/sys-employee/sys-employee-service';
 
 
 /**
@@ -51,14 +50,6 @@ export default class ExpMainEditService extends ControlService {
      * @memberof ExpMainEditService
      */
     public systeamService: SysTeamService = new SysTeamService();
-
-    /**
-     * 人员服务对象
-     *
-     * @type {SysEmployeeService}
-     * @memberof ExpMainEditService
-     */
-    public sysemployeeService: SysEmployeeService = new SysEmployeeService();
 
     /**
      * 远端数据
@@ -111,9 +102,6 @@ export default class ExpMainEditService extends ControlService {
         data.size = data.size ? data.size : 1000;
         if (Object.is(serviceName, 'SysTeamService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.systeamService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'teamid', 'systeam');
-        }
-        if (Object.is(serviceName, 'SysEmployeeService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.sysemployeeService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'userid', 'sysemployee');
         }
 
         return Promise.reject([])
