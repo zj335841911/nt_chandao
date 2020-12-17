@@ -553,30 +553,31 @@ POST
 | 2 | username | String | 允许 | 用户全局名 |
 | 3 | personname | String | 不可 | 姓名 |
 | 4 | usercode | String | 不可 | 用户工号 |
-| 5 | domains | String | 允许 | 区属 |
-| 6 | mdeptid | String | 允许 | 主部门 |
-| 7 | mdeptcode | String | 允许 | 主部门代码 |
-| 8 | mdeptname | String | 允许 | 主部门名称 |
-| 9 | bcode | String | 允许 | 业务编码 |
-| 10 | orgid | String | 允许 | 单位 |
-| 11 | orgcode | String | 允许 | 单位代码 |
-| 12 | orgname | String | 允许 | 单位名称 |
-| 13 | nickname | String | 允许 | 昵称别名 |
-| 14 | sex | String | 允许 | 性别 |
-| 15 | phone | String | 允许 | 联系方式 |
-| 16 | email | String | 允许 | 邮件 |
-| 17 | avatar | String | 允许 | 社交账号 |
-| 18 | addr | String | 允许 | 地址 |
-| 19 | usericon | String | 允许 | 照片 |
-| 20 | ipaddr | String | 允许 | ip地址 |
-| 21 | lang | String | 允许 | 语言 |
-| 22 | memo | String | 允许 | 备注 |
-| 23 | reserver | String | 允许 | 保留 |
-| 24 | showorder | Integer | 允许 | 排序 |
-| 25 | enable | Integer | 允许 | 逻辑有效 |
-| 26 | createdate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 27 | updateman | String | 不可 | 更新人 |
-| 28 | createman | String | 不可 | 建立人 |
-| 29 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 30 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 5 | loginname | String | 不可 | 登录名 |
+| 6 | domains | String | 允许 | 区属 |
+| 7 | mdeptid | String | 允许 | 主部门 |
+| 8 | mdeptcode | String | 允许 | 主部门代码 |
+| 9 | mdeptname | String | 允许 | 主部门名称 |
+| 10 | bcode | String | 允许 | 业务编码 |
+| 11 | orgid | String | 允许 | 单位 |
+| 12 | orgcode | String | 允许 | 单位代码 |
+| 13 | orgname | String | 允许 | 单位名称 |
+| 14 | nickname | String | 允许 | 昵称别名 |
+| 15 | sex | String | 允许 | 性别 |
+| 16 | phone | String | 允许 | 联系方式 |
+| 17 | email | String | 允许 | 邮件 |
+| 18 | avatar | String | 允许 | 社交账号 |
+| 19 | addr | String | 允许 | 地址 |
+| 20 | usericon | String | 允许 | 照片 |
+| 21 | ipaddr | String | 允许 | ip地址 |
+| 22 | lang | String | 允许 | 语言 |
+| 23 | memo | String | 允许 | 备注 |
+| 24 | reserver | String | 允许 | 保留 |
+| 25 | showorder | Integer | 允许 | 排序 |
+| 26 | enable | Integer | 允许 | 逻辑有效 |
+| 27 | createdate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 28 | updateman | String | 不可 | 更新人 |
+| 29 | createman | String | 不可 | 建立人 |
+| 30 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 31 | <动态属性> | Object | 允许 | 支持动态属性 |
 

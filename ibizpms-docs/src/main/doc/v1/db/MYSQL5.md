@@ -137905,6 +137905,7 @@ CREATE TABLE `zt_suitecase`(
 | USERCODE        | 用户工号  | VARCHAR      |   100   | &nbsp; |
 | PERSONNAME        | 姓名  | VARCHAR      |   100   | &nbsp; |
 | NICKNAME        | 昵称别名  | VARCHAR      |   100   | &nbsp; |
+| LOGINNAME        | 登录名  | VARCHAR      |   100   | &nbsp; |
 | AVATAR        | 社交账号  | VARCHAR      |   100   | &nbsp; |
 | DOMAINS        | 区属  | VARCHAR      |   100   | &nbsp; |
 | ORGID        | 单位  | VARCHAR      |   100   | &nbsp; |

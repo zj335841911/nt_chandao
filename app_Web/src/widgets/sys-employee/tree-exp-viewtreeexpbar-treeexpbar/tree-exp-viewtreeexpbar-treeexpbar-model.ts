@@ -28,6 +28,9 @@ export default class TreeExpViewtreeexpbarModel {
         name: 'usercode',
       },
       {
+        name: 'loginname',
+      },
+      {
         name: 'domains',
       },
       {

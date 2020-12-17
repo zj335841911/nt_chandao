@@ -39,6 +39,14 @@ export interface SysEmployee {
     usercode?: any;
 
     /**
+     * 登录名
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    loginname?: any;
+
+    /**
      * 区属
      *
      * @returns {*}

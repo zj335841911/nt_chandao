@@ -63,6 +63,13 @@ public class SysEmployee extends EntityClient implements Serializable {
     private String usercode;
 
     /**
+     * 登录名
+     */
+    @JSONField(name = "loginname")
+    @JsonProperty("loginname")
+    private String loginname;
+
+    /**
      * 区属
      */
     @JSONField(name = "domains")
@@ -286,6 +293,14 @@ public class SysEmployee extends EntityClient implements Serializable {
     public void setUsercode(String usercode) {
         this.usercode = usercode ;
         this.modify("usercode", usercode);
+    }
+
+    /**
+     * 设置 [登录名]
+     */
+    public void setLoginname(String loginname) {
+        this.loginname = loginname ;
+        this.modify("loginname", loginname);
     }
 
     /**
