@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridExpBarControlBase } from '@/studio-core';
-import ProjectService from '@/service/project/project-service';
-import GridExpViewgridexpbarService from './grid-exp-viewgridexpbar-gridexpbar-service';
-import ProjectUIService from '@/uiservice/project/project-ui-service';
+import SysEmployeeService from '@/service/sys-employee/sys-employee-service';
+import GridExpViewProjectMembergridexpbarService from './grid-exp-view-project-membergridexpbar-gridexpbar-service';
+import SysEmployeeUIService from '@/uiservice/sys-employee/sys-employee-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 /**
@@ -12,66 +12,66 @@ import CodeListService from "@service/app/codelist-service";
  *
  * @export
  * @class GridExpBarControlBase
- * @extends {GridExpViewgridexpbarGridexpbarBase}
+ * @extends {GridExpViewProjectMembergridexpbarGridexpbarBase}
  */
-export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
+export class GridExpViewProjectMembergridexpbarGridexpbarBase extends GridExpBarControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof GridExpViewgridexpbarGridexpbarBase
+     * @memberof GridExpViewProjectMembergridexpbarGridexpbarBase
      */
     protected controlType: string = 'GRIDEXPBAR';
 
     /**
      * 建构部件服务对象
      *
-     * @type {GridExpViewgridexpbarService}
-     * @memberof GridExpViewgridexpbarGridexpbarBase
+     * @type {GridExpViewProjectMembergridexpbarService}
+     * @memberof GridExpViewProjectMembergridexpbarGridexpbarBase
      */
-    public service: GridExpViewgridexpbarService = new GridExpViewgridexpbarService({ $store: this.$store });
+    public service: GridExpViewProjectMembergridexpbarService = new GridExpViewProjectMembergridexpbarService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ProjectService}
-     * @memberof GridExpViewgridexpbarGridexpbarBase
+     * @type {SysEmployeeService}
+     * @memberof GridExpViewProjectMembergridexpbarGridexpbarBase
      */
-    public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
+    public appEntityService: SysEmployeeService = new SysEmployeeService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof GridExpViewgridexpbarGridexpbarBase
+     * @memberof GridExpViewProjectMembergridexpbarGridexpbarBase
      */
-    protected appDeName: string = 'project';
+    protected appDeName: string = 'sysemployee';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof GridExpViewgridexpbarGridexpbarBase
+     * @memberof GridExpViewProjectMembergridexpbarGridexpbarBase
      */
-    protected appDeLogicName: string = '项目';
+    protected appDeLogicName: string = '人员';
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProjectUIService}
-     * @memberof GridExpViewgridexpbarBase
+     * @type {SysEmployeeUIService}
+     * @memberof GridExpViewProjectMembergridexpbarBase
      */  
-    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: SysEmployeeUIService = new SysEmployeeUIService(this.$store);
 
     /**
      * gridexpbar_grid 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof GridExpViewgridexpbarGridexpbarBase
+     * @memberof GridExpViewProjectMembergridexpbarGridexpbarBase
      */
     public gridexpbar_grid_selectionchange($event: any, $event2?: any) {
         this.gridexpbar_selectionchange($event, 'gridexpbar_grid', $event2);
@@ -82,7 +82,7 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof GridExpViewgridexpbarGridexpbarBase
+     * @memberof GridExpViewProjectMembergridexpbarGridexpbarBase
      */
     public gridexpbar_grid_load($event: any, $event2?: any) {
         this.gridexpbar_load($event, 'gridexpbar_grid', $event2);
@@ -93,14 +93,14 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
      * 导航视图名称
      *
      * @type {string}
-     * @memberof GridExpViewgridexpbarBase
+     * @memberof GridExpViewProjectMembergridexpbarBase
      */
-    public navViewName: string = 'sys-employee-grid-exp-view-project-member';
+    public navViewName: string = 'sys-employee-edit-view';
 
     /**
     * 刷新
     *
-    * @memberof GridExpViewgridexpbarBase
+    * @memberof GridExpViewProjectMembergridexpbarBase
     */
     public refresh(args?: any): void {
         const refs: any = this.$refs;
@@ -113,7 +113,7 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
     /**
      * gridexpbar的选中数据事件
      * 
-     * @memberof GridExpViewgridexpbarBase
+     * @memberof GridExpViewProjectMembergridexpbarBase
      */
     public gridexpbar_selectionchange(args: any [], tag?: string, $event2?: any): void {
         let tempContext:any = {};
@@ -126,13 +126,13 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
         if(this.context){
             Object.assign(tempContext,JSON.parse(JSON.stringify(this.context)));
         }
-        Object.assign(tempContext,{'project':arg['project']});
-        Object.assign(tempContext,{srfparentdename:'Project',srfparentkey:arg['project']});
+        Object.assign(tempContext,{'sysemployee':arg['sysemployee']});
+        Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:arg['sysemployee']});
         if(this.navFilter && !Object.is(this.navFilter,"")){
-            Object.assign(tempViewParam,{[this.navFilter]:arg['project']});
+            Object.assign(tempViewParam,{[this.navFilter]:arg['sysemployee']});
         }
         if(this.navPSDer && !Object.is(this.navPSDer,"")){
-            Object.assign(tempViewParam,{[this.navPSDer]:arg['project']});
+            Object.assign(tempViewParam,{[this.navPSDer]:arg['sysemployee']});
         }
         if(this.navigateContext && Object.keys(this.navigateContext).length >0){
             let _context:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navigateContext);

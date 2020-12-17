@@ -2227,7 +2227,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '745687df2b5a067c15598debbcba1fe2',
+                'ca485afa013ed409b2274ed390ae7db0',
             ],
         },
         {
@@ -4517,6 +4517,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ca485afa013ed409b2274ed390ae7db0',
+            viewmodule: 'zentao',
+            viewname: 'SysEmployeeGridExpViewProjectMember',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '57a23ead04eda866c6326f0705f595e3',
+            ],
+        },
+        {
             viewtag: 'ca5490c6292062cfd7ada980ed935464',
             viewmodule: 'zentao',
             viewname: 'TestTaskCloseOptionView',
@@ -4769,6 +4779,7 @@ export const viewstate: any = {
                 '4b2fac9ffaccd974c1ba4c24508197af',
                 'c826223fec105532e5a0f8a2ad49ee4a',
                 '771b6fe41dab6d75ea3127f8408461e8',
+                'ca485afa013ed409b2274ed390ae7db0',
                 '745687df2b5a067c15598debbcba1fe2',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 '6ad2193a7e06957b40700d3f23ea6f6f',

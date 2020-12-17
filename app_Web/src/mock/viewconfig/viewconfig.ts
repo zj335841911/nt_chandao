@@ -4087,6 +4087,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "SysTeamUsr2GridView",
             "viewtag": "c9f2cd9496fa701c375279c93e1487fd"
         },
+        "sysemployeegridexpviewprojectmember": {
+            "title": "人员表格导航视图",
+            "caption": "人员",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "SysEmployeeGridExpViewProjectMember",
+            "viewtag": "ca485afa013ed409b2274ed390ae7db0"
+        },
         "testtaskcloseoptionview": {
             "title": "关闭",
             "caption": "关闭",

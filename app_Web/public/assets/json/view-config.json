@@ -5099,6 +5099,16 @@
         "viewtag": "c9f2cd9496fa701c375279c93e1487fd",
         "memo": ""
     },
+    "sysemployeegridexpviewprojectmember": {
+        "title": "人员表格导航视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeGridExpViewProjectMember",
+        "viewfilename": "sys-employee-grid-exp-view-project-member",
+        "viewtag": "ca485afa013ed409b2274ed390ae7db0",
+        "memo": ""
+    },
     "testtaskcloseoptionview": {
         "title": "关闭",
         "caption": "关闭",

@@ -789,6 +789,7 @@ SRFNAVPARAM.project=%project%|
 |-|完成任务|DEOPTVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|组表格视图|DEGRIDVIEW|&nbsp;|
+|-|人员表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|关闭|DEOPTVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|实体2编辑视图|DEEDITVIEW|&nbsp;|

@@ -6950,6 +6950,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-project-mpickup-view3/story-project-mpickup-view3.vue'),
                 },
                 {
+                    path: 'sysemployees/:sysemployee?/gridexpviewprojectmember/:gridexpviewprojectmember?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.gridexpviewprojectmember.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'gridexpviewprojectmember', parameterName: 'gridexpviewprojectmember' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/sys-employee-grid-exp-view-project-member/sys-employee-grid-exp-view-project-member.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
                         caption: 'entities.bug.views.plansubgridview.caption',
@@ -15114,39 +15128,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-build-sub-grid-view-new/bug-build-sub-grid-view-new.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/mainview9_storyspec/:mainview9_storyspec?',
-                    meta: {
-                        caption: 'entities.story.views.mainview9_storyspec.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mainview9_storyspec', parameterName: 'mainview9_storyspec' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'),
-                },
-                {
-                    path: 'stories/:story?/mainview9_storyspec/:mainview9_storyspec?',
-                    meta: {
-                        caption: 'entities.story.views.mainview9_storyspec.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mainview9_storyspec', parameterName: 'mainview9_storyspec' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/curprojectgridview/:curprojectgridview?',
                     meta: {
                         caption: 'entities.story.views.curprojectgridview.caption',
@@ -15178,6 +15159,39 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-cur-project-grid-view/story-cur-project-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/mainview9_storyspec/:mainview9_storyspec?',
+                    meta: {
+                        caption: 'entities.story.views.mainview9_storyspec.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mainview9_storyspec', parameterName: 'mainview9_storyspec' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'),
+                },
+                {
+                    path: 'stories/:story?/mainview9_storyspec/:mainview9_storyspec?',
+                    meta: {
+                        caption: 'entities.story.views.mainview9_storyspec.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mainview9_storyspec', parameterName: 'mainview9_storyspec' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'),
                 },
                 {
                     path: 'doclibs/:doclib?/customtreeexpview/:customtreeexpview?',
