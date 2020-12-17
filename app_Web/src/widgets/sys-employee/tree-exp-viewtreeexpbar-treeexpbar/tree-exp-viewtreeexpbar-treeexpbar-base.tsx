@@ -166,7 +166,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'PROJECT')) {
             return {  
-                viewname: 'project-grid-view-emp', 
+                viewname: 'project-grid-exp-view', 
                 parentdata: {},
                 deKeyField:'project'
 			};
@@ -176,6 +176,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 viewname: 'user-contact-grid-exp-view', 
                 parentdata: {},
                 deKeyField:'usercontact'
+			};
+        }
+        if (Object.is(expmode, 'DEPART')) {
+            return {  
+                viewname: 'sys-employee-grid-exp-view', 
+                parentdata: {},
+                deKeyField:'sysemployee'
 			};
         }
         return null;

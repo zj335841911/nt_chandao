@@ -2231,6 +2231,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6ad2193a7e06957b40700d3f23ea6f6f',
+            viewmodule: 'zentao',
+            viewname: 'ProjectGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '745687df2b5a067c15598debbcba1fe2',
+            ],
+        },
+        {
             viewtag: '6af549668ff8757cf378a5a50d8917e4',
             viewmodule: 'zentao',
             viewname: 'TaskZsGridView9Week',
@@ -4767,11 +4777,11 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4b2fac9ffaccd974c1ba4c24508197af',
-                'ebdc0496f66718b66a8ae0ea440d0356',
                 'c826223fec105532e5a0f8a2ad49ee4a',
                 '771b6fe41dab6d75ea3127f8408461e8',
                 '745687df2b5a067c15598debbcba1fe2',
                 'ba70cc2003a4d984ccab95ba36a4a632',
+                '6ad2193a7e06957b40700d3f23ea6f6f',
                 '42ce56d703f9d063d6c1524bb7a559de',
                 '137cbf2ebd888dcdd6eff40271481f04',
                 'ae72600793a079e5946b182321ddede9',
@@ -5359,17 +5369,6 @@ export const viewstate: any = {
                 'aeee411b8bffcf0c30d65557a8deeeee',
                 '734c2c8a05995eaad9f9a0028e9b9def',
                 '43582fa5b922cb77d0b1e704a7b6e5c3',
-            ],
-        },
-        {
-            viewtag: 'ebdc0496f66718b66a8ae0ea440d0356',
-            viewmodule: 'zentao',
-            viewname: 'ProjectGridViewEMp',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '42ce56d703f9d063d6c1524bb7a559de',
-                'f83dac873b9215483c4bb91673284b41',
             ],
         },
         {

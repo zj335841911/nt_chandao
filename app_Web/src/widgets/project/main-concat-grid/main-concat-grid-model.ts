@@ -10,7 +10,7 @@ export default class MainConcatModel {
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainConcatGridMode
+	 * @memberof MainConcatGridexpbar_gridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainConcatModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainConcatGridMode
+	 * @memberof MainConcatGridexpbar_gridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){

@@ -6,7 +6,7 @@ import { MainConcatGridBase } from './main-concat-grid-base';
  
 
 /**
- * grid部件
+ * gridexpbar_grid部件
  *
  * @export
  * @class MainConcatGrid

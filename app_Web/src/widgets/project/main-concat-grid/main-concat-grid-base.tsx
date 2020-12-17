@@ -8,7 +8,7 @@ import ProjectUIService from '@/uiservice/project/project-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 /**
- * grid部件基类
+ * gridexpbar_grid部件基类
  *
  * @export
  * @class GridControlBase
@@ -99,7 +99,7 @@ export class MainConcatGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainConcatBase
      */
-    protected localStorageTag: string = 'zt_project_mainconcat_grid';
+    protected localStorageTag: string = 'zt_project_mainconcat_gridexpbar_grid';
 
     /**
      * 是否支持分页
