@@ -1,8 +1,10 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.report.service.impl.IbzMonthlyServiceImpl;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.report.domain.IbzMonthly;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,8 @@ public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
     @Override
     @Transactional
     public IbzMonthly createGetInfo(IbzMonthly et) {
+        et.setDate(ZTDateUtil.now());
+        et.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
         return ibzMonthlyHelper.getThisMonthlyCompleteTasks(ibzMonthlyHelper.getLastMonthlyPlans(et));
     }
     /**
