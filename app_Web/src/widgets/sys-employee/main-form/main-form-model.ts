@@ -56,6 +56,41 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'orgname',
+        prop: 'orgname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'mdeptname',
+        prop: 'mdeptname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'personname',
+        prop: 'personname',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'nickname',
+        prop: 'nickname',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'sex',
+        prop: 'sex',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'phone',
+        prop: 'phone',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'orgid',
+        prop: 'orgid',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'userid',
         prop: 'userid',
         dataType: 'TEXT',

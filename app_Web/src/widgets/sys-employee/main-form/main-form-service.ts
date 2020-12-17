@@ -3,6 +3,7 @@ import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import SysEmployeeService from '@/service/sys-employee/sys-employee-service';
 import MainModel from './main-form-model';
+import SysOrganizationService from '@/service/sys-organization/sys-organization-service';
 
 
 /**
@@ -41,6 +42,14 @@ export default class MainService extends ControlService {
         super(opts);
         this.model = new MainModel();
     }
+
+    /**
+     * 单位服务对象
+     *
+     * @type {SysOrganizationService}
+     * @memberof MainService
+     */
+    public sysorganizationService: SysOrganizationService = new SysOrganizationService();
 
     /**
      * 远端数据
@@ -91,6 +100,9 @@ export default class MainService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'SysOrganizationService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.sysorganizationService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'orgid', 'sysorganization');
+        }
 
         return Promise.reject([])
     }

@@ -67,7 +67,6 @@ function getLocaleResourceBase(){
 			},
 			main_form: {
 				details: {
-					group1: commonLogic.appcommonhandle("人员基本信息",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
 					srforikey: commonLogic.appcommonhandle("",null), 
@@ -77,6 +76,13 @@ function getLocaleResourceBase(){
 					srfuf: commonLogic.appcommonhandle("",null), 
 					srfdeid: commonLogic.appcommonhandle("",null), 
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					orgname: commonLogic.appcommonhandle("单位",null), 
+					mdeptname: commonLogic.appcommonhandle("部门",null), 
+					personname: commonLogic.appcommonhandle("姓名",null), 
+					nickname: commonLogic.appcommonhandle("别名",null), 
+					sex: commonLogic.appcommonhandle("性别",null), 
+					phone: commonLogic.appcommonhandle("电话",null), 
+					orgid: commonLogic.appcommonhandle("单位",null), 
 					userid: commonLogic.appcommonhandle("用户标识",null), 
 				},
 				uiactions: {
@@ -117,27 +123,9 @@ function getLocaleResourceBase(){
 			},
 			usr3gridviewuserconcattoolbar_toolbar: {
 			},
-			editviewtoolbar_toolbar: {
-				tbitem3: {
-					caption: commonLogic.appcommonhandle("保存",null),
-					tip: commonLogic.appcommonhandle("保存",null),
-				},
-				tbitem4: {
-					caption: commonLogic.appcommonhandle("保存并新建",null),
-					tip: commonLogic.appcommonhandle("保存并新建",null),
-				},
-				tbitem5: {
-					caption: commonLogic.appcommonhandle("保存并关闭",null),
-					tip: commonLogic.appcommonhandle("保存并关闭",null),
-				},
-				tbitem7: {
-					caption: commonLogic.appcommonhandle("删除",null),
-					tip: commonLogic.appcommonhandle("删除",null),
-				},
+			usr2gridviewtoolbar_toolbar: {
 			},
 			usr3gridviewtoolbar_toolbar: {
-			},
-			usr2gridviewtoolbar_toolbar: {
 			},
 			gridviewtoolbar_toolbar: {
 				tbitem3: {
