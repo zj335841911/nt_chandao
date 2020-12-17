@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridExpBarControlBase } from '@/studio-core';
-import SysPostService from '@/service/sys-post/sys-post-service';
+import SysTeamMemberService from '@/service/sys-team-member/sys-team-member-service';
 import GridExpViewgridexpbarService from './grid-exp-viewgridexpbar-gridexpbar-service';
-import SysPostUIService from '@/uiservice/sys-post/sys-post-ui-service';
+import SysTeamMemberUIService from '@/uiservice/sys-team-member/sys-team-member-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 /**
@@ -35,10 +35,10 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
     /**
      * 实体服务对象
      *
-     * @type {SysPostService}
+     * @type {SysTeamMemberService}
      * @memberof GridExpViewgridexpbarGridexpbarBase
      */
-    public appEntityService: SysPostService = new SysPostService({ $store: this.$store });
+    public appEntityService: SysTeamMemberService = new SysTeamMemberService({ $store: this.$store });
 
     /**
      * 应用实体名称
@@ -47,7 +47,7 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
      * @type {string}
      * @memberof GridExpViewgridexpbarGridexpbarBase
      */
-    protected appDeName: string = 'syspost';
+    protected appDeName: string = 'systeammember';
 
     /**
      * 应用实体中文名称
@@ -56,15 +56,15 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
      * @type {string}
      * @memberof GridExpViewgridexpbarGridexpbarBase
      */
-    protected appDeLogicName: string = '岗位';
+    protected appDeLogicName: string = '组成员';
 
     /**
      * 界面UI服务对象
      *
-     * @type {SysPostUIService}
+     * @type {SysTeamMemberUIService}
      * @memberof GridExpViewgridexpbarBase
      */  
-    public appUIService: SysPostUIService = new SysPostUIService(this.$store);
+    public appUIService: SysTeamMemberUIService = new SysTeamMemberUIService(this.$store);
 
     /**
      * gridexpbar_grid 部件 selectionchange 事件
@@ -95,7 +95,7 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
      * @type {string}
      * @memberof GridExpViewgridexpbarBase
      */
-    public navViewName: string = 'sys-team-member-grid-exp-view';
+    public navViewName: string = 'sys-employee-edit-view';
 
     /**
     * 刷新
@@ -126,13 +126,13 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
         if(this.context){
             Object.assign(tempContext,JSON.parse(JSON.stringify(this.context)));
         }
-        Object.assign(tempContext,{'syspost':arg['syspost']});
-        Object.assign(tempContext,{srfparentdename:'SysPost',srfparentkey:arg['syspost']});
+        Object.assign(tempContext,{'systeammember':arg['systeammember']});
+        Object.assign(tempContext,{srfparentdename:'SysTeamMember',srfparentkey:arg['systeammember']});
         if(this.navFilter && !Object.is(this.navFilter,"")){
-            Object.assign(tempViewParam,{[this.navFilter]:arg['syspost']});
+            Object.assign(tempViewParam,{[this.navFilter]:arg['systeammember']});
         }
         if(this.navPSDer && !Object.is(this.navPSDer,"")){
-            Object.assign(tempViewParam,{[this.navPSDer]:arg['syspost']});
+            Object.assign(tempViewParam,{[this.navPSDer]:arg['systeammember']});
         }
         if(this.navigateContext && Object.keys(this.navigateContext).length >0){
             let _context:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navigateContext);

@@ -41,13 +41,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			gridexpbar_grid_grid: {
-				columns: {
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			mainconcat_grid: {
 				columns: {
 					postid: commonLogic.appcommonhandle("岗位标识",null),

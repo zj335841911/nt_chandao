@@ -1,16 +1,16 @@
-<template src="./main-concat-grid.html" />
+<template src="./main-exp-grid.html" />
 <script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainConcatGridBase } from './main-concat-grid-base';
+import { MainExpGridBase } from './main-exp-grid-base';
  
 
 /**
  * gridexpbar_grid部件
  *
  * @export
- * @class MainConcatGrid
- * @extends {MainConcatGridBase}
+ * @class MainExpGrid
+ * @extends {MainExpGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { MainConcatGridBase } from './main-concat-grid-base';
     },
 })
 @VueLifeCycleProcessing()
-export default class MainConcatGrid extends MainConcatGridBase {}
+export default class MainExpGrid extends MainExpGridBase {}
 </script>

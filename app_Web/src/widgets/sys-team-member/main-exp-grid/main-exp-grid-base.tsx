@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
-import SysPostService from '@/service/sys-post/sys-post-service';
-import MainConcatService from './main-concat-grid-service';
-import SysPostUIService from '@/uiservice/sys-post/sys-post-ui-service';
+import SysTeamMemberService from '@/service/sys-team-member/sys-team-member-service';
+import MainExpService from './main-exp-grid-service';
+import SysTeamMemberUIService from '@/uiservice/sys-team-member/sys-team-member-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 /**
@@ -12,66 +12,66 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {MainConcatGridBase}
+ * @extends {MainExpGridBase}
  */
-export class MainConcatGridBase extends GridControlBase {
+export class MainExpGridBase extends GridControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainConcatService}
-     * @memberof MainConcatGridBase
+     * @type {MainExpService}
+     * @memberof MainExpGridBase
      */
-    public service: MainConcatService = new MainConcatService({ $store: this.$store });
+    public service: MainExpService = new MainExpService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {SysPostService}
-     * @memberof MainConcatGridBase
+     * @type {SysTeamMemberService}
+     * @memberof MainExpGridBase
      */
-    public appEntityService: SysPostService = new SysPostService({ $store: this.$store });
+    public appEntityService: SysTeamMemberService = new SysTeamMemberService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
-    protected appDeName: string = 'syspost';
+    protected appDeName: string = 'systeammember';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
-    protected appDeLogicName: string = '岗位';
+    protected appDeLogicName: string = '组成员';
 
     /**
      * 界面UI服务对象
      *
-     * @type {SysPostUIService}
-     * @memberof MainConcatBase
+     * @type {SysTeamMemberUIService}
+     * @memberof MainExpBase
      */  
-    public appUIService: SysPostUIService = new SysPostUIService(this.$store);
+    public appUIService: SysTeamMemberUIService = new SysTeamMemberUIService(this.$store);
 
 
     /**
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */  
     public ActionModel: any = {
     };
@@ -80,56 +80,99 @@ export class MainConcatGridBase extends GridControlBase {
      * 主信息表格列
      *
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */  
-    public majorInfoColName:string = "postname";
+    public majorInfoColName:string = "";
 
     /**
      * 列主键属性名称
      *
      * @type {string}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
-    public columnKeyName: string = "postid";
+    public columnKeyName: string = "teammemberid";
 
     /**
      * 本地缓存标识
      *
      * @protected
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
-    protected localStorageTag: string = 'sys_post_mainconcat_gridexpbar_grid';
+    protected localStorageTag: string = 'sys_teammember_mainexp_gridexpbar_grid';
+
+    /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof MainExpGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MainExpGridBase
+     */
+    public limit: number = 500;
 
     /**
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
     public allColumns: any[] = [
         {
+            name: 'teammemberid',
+            label: '组成员标识',
+            langtag: 'entities.systeammember.mainexp_grid.columns.teammemberid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'personname',
+            label: '姓名',
+            langtag: 'entities.systeammember.mainexp_grid.columns.personname',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'userid',
+            label: '用户标识',
+            langtag: 'entities.systeammember.mainexp_grid.columns.userid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'teamname',
+            label: '组名称',
+            langtag: 'entities.systeammember.mainexp_grid.columns.teamname',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'teamid',
+            label: '组标识',
+            langtag: 'entities.systeammember.mainexp_grid.columns.teamid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'postid',
             label: '岗位标识',
-            langtag: 'entities.syspost.mainconcat_grid.columns.postid',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'postname',
-            label: '岗位名称',
-            langtag: 'entities.syspost.mainconcat_grid.columns.postname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'memo',
-            label: '备注',
-            langtag: 'entities.syspost.mainconcat_grid.columns.memo',
+            langtag: 'entities.systeammember.mainexp_grid.columns.postid',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -141,7 +184,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
     public getGridRowModel(){
         return {
@@ -153,7 +196,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public isEnableGroup:boolean = false;
 
@@ -161,7 +204,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public groupAppField:string ="";
 
@@ -169,7 +212,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -177,7 +220,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -185,7 +228,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public groupMode:string ="NONE";
 
@@ -193,7 +236,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public codelistTag: string = "";
 
@@ -201,7 +244,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public codelistType: string = "";
 
@@ -209,13 +252,13 @@ export class MainConcatGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
     public rules() {
         return {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '岗位标识 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '岗位标识 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '组成员标识 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '组成员标识 值不能为空', trigger: 'blur' },
         ],
     }
     }
@@ -224,7 +267,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public deRules:any = {
     };
@@ -233,12 +276,15 @@ export class MainConcatGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public hasRowEdit: any = {
+        'teammemberid':false,
+        'personname':false,
+        'userid':false,
+        'teamname':false,
+        'teamid':false,
         'postid':false,
-        'postname':false,
-        'memo':false,
     };
 
     /**
@@ -246,7 +292,7 @@ export class MainConcatGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -304,7 +350,7 @@ export class MainConcatGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof MainConcatGridBase
+     * @memberof MainExpGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -315,7 +361,7 @@ export class MainConcatGridBase extends GridControlBase {
     /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public updateDefault(row: any){                    
     }
@@ -323,10 +369,10 @@ export class MainConcatGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof MainConcatBase
+    * @memberof MainExpBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['postid','postname','memo'];
+        let allColumns:Array<any> = ['teammemberid','personname','userid','teamname','teamid','postid'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -339,7 +385,7 @@ export class MainConcatGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -354,7 +400,7 @@ export class MainConcatGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -371,7 +417,7 @@ export class MainConcatGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -405,9 +451,12 @@ export class MainConcatGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                teammemberid:'',
+                personname:'',
+                userid:'',
+                teamname:'',
+                teamid:'',
                 postid:'',
-                postname:'',
-                memo:'',
                 children: children
             }
             groupTree.push(tree);
@@ -432,9 +481,12 @@ export class MainConcatGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            teammemberid:'',
+            personname:'',
+            userid:'',
+            teamname:'',
+            teamid:'',
             postid:'',
-            postname:'',
-            memo:'',
             children: child
         }
         if(child && child.length > 0){
@@ -451,7 +503,7 @@ export class MainConcatGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public async drawGroup(){
         if(!this.isEnableGroup) return;
@@ -495,9 +547,12 @@ export class MainConcatGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                teammemberid:'',
+                personname:'',
+                userid:'',
+                teamname:'',
+                teamid:'',
                 postid:'',
-                postname:'',
-                memo:'',
                 children: children,
             }
             groupTree.push(tree);
@@ -515,14 +570,14 @@ export class MainConcatGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof MainConcatBase
+     * @memberof MainExpBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){
             const nativeData:any = this.service.getCopynativeData();
             if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
                 let targetData:any = nativeData.find((item:any) =>{
-                    return item.postid === data.srfkey;
+                    return item.teammemberid === data.srfkey;
                 })
                 if(targetData){
                     return targetData[param]?targetData[param]:null;

@@ -556,6 +556,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|用例库编辑视图|DEEDITVIEW|&nbsp;|
 |-|历史记录|DELISTVIEW|&nbsp;视图参数从上下文中获取对应的对象类型|
+|-|组成员表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|平台管理|DEGRIDVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|需求表格视图|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|

@@ -1,16 +1,16 @@
 /**
- * MainConcat 部件模型
+ * MainExp 部件模型
  *
  * @export
- * @class MainConcatModel
+ * @class MainExpModel
  */
-export default class MainConcatModel {
+export default class MainExpModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainConcatGridexpbar_gridMode
+	 * @memberof MainExpGridexpbar_gridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainConcatModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainConcatGridexpbar_gridMode
+	 * @memberof MainExpGridexpbar_gridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -27,39 +27,49 @@ export default class MainConcatModel {
     }else{
 		  return [
         {
+          name: 'teammemberid',
+          prop: 'teammemberid',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'personname',
+          prop: 'personname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'userid',
+          prop: 'userid',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'teamname',
+          prop: 'teamname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'teamid',
+          prop: 'teamid',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'postid',
           prop: 'postid',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'postname',
-          prop: 'postname',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'memo',
-          prop: 'memo',
-          dataType: 'LONGTEXT_1000',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'postname',
-          dataType: 'TEXT',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfdataaccaction',
-          prop: 'postid',
+          prop: 'teammemberid',
           dataType: 'TEXT',
         },
         {
           name: 'srfkey',
-          prop: 'postid',
+          prop: 'teammemberid',
           dataType: 'TEXT',
           isEditable:true
         },
         {
-          name: 'syspost',
-          prop: 'postid',
+          name: 'systeammember',
+          prop: 'teammemberid',
         },
         {
           name:'size',

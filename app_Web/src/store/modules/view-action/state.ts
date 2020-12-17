@@ -2506,6 +2506,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '771b6fe41dab6d75ea3127f8408461e8',
+            viewmodule: 'ou',
+            viewname: 'SysTeamMemberGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '57a23ead04eda866c6326f0705f595e3',
+            ],
+        },
+        {
             viewtag: '776ea44ea05316c9c6cb9d5948e993f9',
             viewmodule: 'zentao',
             viewname: 'BranchPMGridView',
@@ -3903,6 +3913,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '771b6fe41dab6d75ea3127f8408461e8',
             ],
         },
         {

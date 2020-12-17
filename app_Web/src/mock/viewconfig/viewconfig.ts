@@ -2223,6 +2223,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ActionHistoryListView",
             "viewtag": "770a170098d148e438a7666b248e6519"
         },
+        "systeammembergridexpview": {
+            "title": "组成员表格导航视图",
+            "caption": "组成员",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamMemberGridExpView",
+            "viewtag": "771b6fe41dab6d75ea3127f8408461e8"
+        },
         "branchpmgridview": {
             "title": "平台管理",
             "caption": "平台管理",

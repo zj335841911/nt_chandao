@@ -19,6 +19,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("组成员",null),
 					title: commonLogic.appcommonhandle("组成员编辑视图",null),
 				},
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("组成员",null),
+					title: commonLogic.appcommonhandle("组成员表格导航视图",null),
+				},
 				usr2gridview: {
 					caption: commonLogic.appcommonhandle("组成员",null),
 					title: commonLogic.appcommonhandle("组成员表格视图",null),
@@ -46,6 +50,19 @@ function getLocaleResourceBase(){
 				},
 			},
 			main_grid: {
+				columns: {
+					teammemberid: commonLogic.appcommonhandle("组成员标识",null),
+					personname: commonLogic.appcommonhandle("姓名",null),
+					userid: commonLogic.appcommonhandle("用户标识",null),
+					teamname: commonLogic.appcommonhandle("组名称",null),
+					teamid: commonLogic.appcommonhandle("组标识",null),
+					postid: commonLogic.appcommonhandle("岗位标识",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			mainexp_grid: {
 				columns: {
 					teammemberid: commonLogic.appcommonhandle("组成员标识",null),
 					personname: commonLogic.appcommonhandle("姓名",null),

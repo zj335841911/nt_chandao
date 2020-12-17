@@ -2769,6 +2769,16 @@
         "viewtag": "770a170098d148e438a7666b248e6519",
         "memo": "视图参数从上下文中获取对应的对象类型"
     },
+    "systeammembergridexpview": {
+        "title": "组成员表格导航视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberGridExpView",
+        "viewfilename": "sys-team-member-grid-exp-view",
+        "viewtag": "771b6fe41dab6d75ea3127f8408461e8",
+        "memo": ""
+    },
     "branchpmgridview": {
         "title": "平台管理",
         "caption": "平台管理",
