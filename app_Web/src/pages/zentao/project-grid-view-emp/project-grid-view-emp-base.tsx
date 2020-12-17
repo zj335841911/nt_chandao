@@ -448,8 +448,8 @@ export class ProjectGridViewEMpBase extends GridViewBase {
         }
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+            { pathName: 'usr3gridview', parameterName: 'usr3gridview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
