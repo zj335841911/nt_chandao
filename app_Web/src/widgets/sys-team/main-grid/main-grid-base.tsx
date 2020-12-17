@@ -82,8 +82,15 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainBase
      */  
-    public majorInfoColName:string = "";
+    public majorInfoColName:string = "teamname";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public columnKeyName: string = "teamid";
 
     /**
      * 本地缓存标识
@@ -101,6 +108,42 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainGridBase
      */
     public allColumns: any[] = [
+        {
+            name: 'teamid',
+            label: '组标识',
+            langtag: 'entities.systeam.main_grid.columns.teamid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'teamname',
+            label: '组名称',
+            langtag: 'entities.systeam.main_grid.columns.teamname',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'domains',
+            label: '区属',
+            langtag: 'entities.systeam.main_grid.columns.domains',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'memo',
+            label: '备注',
+            langtag: 'entities.systeam.main_grid.columns.memo',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
     ]
 
     /**
@@ -202,6 +245,10 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
+        'teamid':false,
+        'teamname':false,
+        'domains':false,
+        'memo':false,
     };
 
     /**
@@ -260,6 +307,20 @@ export class MainGridBase extends GridControlBase {
         }
     }
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+        ]);
+    }
+
 
     /**
      * 更新默认值
@@ -275,7 +336,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = [];
+        let allColumns:Array<any> = ['teamid','teamname','domains','memo'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -354,6 +415,10 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                teamid:'',
+                teamname:'',
+                domains:'',
+                memo:'',
                 children: children
             }
             groupTree.push(tree);
@@ -378,6 +443,10 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            teamid:'',
+            teamname:'',
+            domains:'',
+            memo:'',
             children: child
         }
         if(child && child.length > 0){
@@ -438,6 +507,10 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                teamid:'',
+                teamname:'',
+                domains:'',
+                memo:'',
                 children: children,
             }
             groupTree.push(tree);

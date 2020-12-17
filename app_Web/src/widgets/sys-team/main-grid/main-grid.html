@@ -25,6 +25,54 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
+            <template v-if="getColumnState('teamid')">
+                <el-table-column show-overflow-tooltip :prop="'teamid'" :label="$t('entities.systeam.main_grid.columns.teamid')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.systeam.main_grid.columns.teamid')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.teamid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('teamname')">
+                <el-table-column show-overflow-tooltip :prop="'teamname'" :label="$t('entities.systeam.main_grid.columns.teamname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.systeam.main_grid.columns.teamname')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.teamname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('domains')">
+                <el-table-column show-overflow-tooltip :prop="'domains'" :label="$t('entities.systeam.main_grid.columns.domains')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.systeam.main_grid.columns.domains')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.domains}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('memo')">
+                <el-table-column show-overflow-tooltip :prop="'memo'" :label="$t('entities.systeam.main_grid.columns.memo')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.systeam.main_grid.columns.memo')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.memo}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
