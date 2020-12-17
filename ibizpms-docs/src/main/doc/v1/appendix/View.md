@@ -514,6 +514,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
+|-|组成员编辑视图|DEEDITVIEW|&nbsp;|
 |-|版本选项操作视图|DEOPTVIEW|&nbsp;|
 |-|产品模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug编辑视图|DEEDITVIEW|&nbsp;|
@@ -661,6 +662,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务数据多项选择视图（汇报）|DEMPICKUPVIEW|&nbsp;|
 |-|项目团队列表视图|DELISTVIEW|&nbsp;|
 |-|用例库用例编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
+|-|组成员表格视图|DEGRIDVIEW|&nbsp;|
 |-|相关需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|任务图表视图|DECHARTVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|

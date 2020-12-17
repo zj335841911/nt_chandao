@@ -280,7 +280,7 @@
             valueType="string"
             tag='Product' 
             codelistType='DYNAMIC'
-            placeholder="" style="flex-grow: 1;">
+            placeholder="">
          </app-mob-select>
          <app-mob-select
    :value="item.branchs" 
@@ -292,7 +292,7 @@
    valueType="string"
    tag='ProductBranch' 
    codelistType='DYNAMIC'
-   placeholder="" style="width: 100px;flex-shrink: 0;margin-left: 5px;">
+   placeholder="">
 </app-mob-select>
 
       </div>
@@ -309,7 +309,7 @@
             valueType="string"
             tag='ProductBranch' 
             codelistType='DYNAMIC'
-            placeholder="" style="flex-grow: 1;">
+            placeholder="">
          </app-mob-select>
       </div>
    </template>
@@ -325,7 +325,7 @@
             valueType="string"
             tag='ProductPlan' 
             codelistType='DYNAMIC'
-            placeholder="" style="flex-grow: 1;">
+            placeholder="">
          </app-mob-select>
       </div>
    </template>

@@ -21,7 +21,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "root": "%id%" } ' 
+    :navigateParam ='{ "root": "%project%" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
