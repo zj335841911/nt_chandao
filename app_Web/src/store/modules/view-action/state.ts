@@ -1419,16 +1419,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '42ce56d703f9d063d6c1524bb7a559de',
-            viewmodule: 'ou',
-            viewname: 'SysEmployeeUsr3GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '57a23ead04eda866c6326f0705f595e3',
-            ],
-        },
-        {
             viewtag: '43582fa5b922cb77d0b1e704a7b6e5c3',
             viewmodule: 'zentao',
             viewname: 'TodoAssignToView',
@@ -2228,6 +2218,16 @@ export const viewstate: any = {
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
                 '1877f0428a710631da1becb3931873a0',
+            ],
+        },
+        {
+            viewtag: '6ad2193a7e06957b40700d3f23ea6f6f',
+            viewmodule: 'zentao',
+            viewname: 'ProjectGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ca485afa013ed409b2274ed390ae7db0',
             ],
         },
         {
@@ -4517,6 +4517,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ca485afa013ed409b2274ed390ae7db0',
+            viewmodule: 'zentao',
+            viewname: 'SysEmployeeGridExpViewProjectMember',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '57a23ead04eda866c6326f0705f595e3',
+            ],
+        },
+        {
             viewtag: 'ca5490c6292062cfd7ada980ed935464',
             viewmodule: 'zentao',
             viewname: 'TestTaskCloseOptionView',
@@ -4767,12 +4777,12 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4b2fac9ffaccd974c1ba4c24508197af',
-                'ebdc0496f66718b66a8ae0ea440d0356',
                 'c826223fec105532e5a0f8a2ad49ee4a',
                 '771b6fe41dab6d75ea3127f8408461e8',
+                'ca485afa013ed409b2274ed390ae7db0',
                 '745687df2b5a067c15598debbcba1fe2',
                 'ba70cc2003a4d984ccab95ba36a4a632',
-                '42ce56d703f9d063d6c1524bb7a559de',
+                '6ad2193a7e06957b40700d3f23ea6f6f',
                 '137cbf2ebd888dcdd6eff40271481f04',
                 'ae72600793a079e5946b182321ddede9',
                 '465f1d3489621f94a90490faa3e0ea0f',
@@ -5359,17 +5369,6 @@ export const viewstate: any = {
                 'aeee411b8bffcf0c30d65557a8deeeee',
                 '734c2c8a05995eaad9f9a0028e9b9def',
                 '43582fa5b922cb77d0b1e704a7b6e5c3',
-            ],
-        },
-        {
-            viewtag: 'ebdc0496f66718b66a8ae0ea440d0356',
-            viewmodule: 'zentao',
-            viewname: 'ProjectGridViewEMp',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '42ce56d703f9d063d6c1524bb7a559de',
-                'f83dac873b9215483c4bb91673284b41',
             ],
         },
         {

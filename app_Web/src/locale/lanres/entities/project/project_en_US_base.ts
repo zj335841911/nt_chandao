@@ -148,6 +148,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("需求",null),
 					title: commonLogic.appcommonhandle("项目编辑视图（需求相关）",null),
 				},
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目表格导航视图",null),
+				},
 				leftsidebarlistview: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("所有项目",null),

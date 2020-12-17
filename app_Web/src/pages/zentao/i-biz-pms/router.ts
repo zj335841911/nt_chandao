@@ -2629,20 +2629,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-sum-po-chart-view9/product-sum-po-chart-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/gridviewemp/:gridviewemp?',
-                    meta: {
-                        caption: 'entities.project.views.gridviewemp.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'gridviewemp', parameterName: 'gridviewemp' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-grid-view-emp/project-grid-view-emp.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/cases/:case?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
                         caption: 'entities.case.views.gridview9_storyaffect.caption',
@@ -6962,6 +6948,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-project-mpickup-view3/story-project-mpickup-view3.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/gridexpviewprojectmember/:gridexpviewprojectmember?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.gridexpviewprojectmember.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'gridexpviewprojectmember', parameterName: 'gridexpviewprojectmember' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/sys-employee-grid-exp-view-project-member/sys-employee-grid-exp-view-project-member.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/plansubgridview/:plansubgridview?',
@@ -14179,6 +14179,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/user-year-work-stats-dashboard-view/user-year-work-stats-dashboard-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/gridexpview/:gridexpview?',
+                    meta: {
+                        caption: 'entities.project.views.gridexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'gridexpview', parameterName: 'gridexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-grid-exp-view/project-grid-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assingtoview/:assingtoview?',
                     meta: {
                         caption: 'entities.bug.views.assingtoview.caption',
@@ -15485,20 +15499,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-lib-case-steps-info-grid-view9/ibz-lib-case-steps-info-grid-view9.vue'),
-                },
-                {
-                    path: 'sysemployees/:sysemployee?/usr3gridview/:usr3gridview?',
-                    meta: {
-                        caption: 'entities.sysemployee.views.usr3gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
-                            { pathName: 'usr3gridview', parameterName: 'usr3gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-employee-usr3-grid-view/sys-employee-usr3-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/gridview/:gridview?',

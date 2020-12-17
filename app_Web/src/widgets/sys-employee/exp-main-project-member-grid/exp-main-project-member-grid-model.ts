@@ -1,16 +1,16 @@
 /**
- * MainConcat 部件模型
+ * ExpMainProjectMember 部件模型
  *
  * @export
- * @class MainConcatModel
+ * @class ExpMainProjectMemberModel
  */
-export default class MainConcatModel {
+export default class ExpMainProjectMemberModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainConcatGridexpbar_gridMode
+	 * @memberof ExpMainProjectMemberGridexpbar_gridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainConcatModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainConcatGridexpbar_gridMode
+	 * @memberof ExpMainProjectMemberGridexpbar_gridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -27,57 +27,49 @@ export default class MainConcatModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'name',
-          prop: 'name',
+          name: 'userid',
+          prop: 'userid',
           dataType: 'TEXT',
         },
         {
-          name: 'code',
-          prop: 'code',
+          name: 'personname',
+          prop: 'personname',
           dataType: 'TEXT',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
+          name: 'nickname',
+          prop: 'nickname',
+          dataType: 'TEXT',
         },
         {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
+          name: 'orgid',
+          prop: 'orgid',
           dataType: 'PICKUP',
         },
         {
-          name: 'srfmstag',
+          name: 'mdeptid',
+          prop: 'mdeptid',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmajortext',
-          prop: 'name',
+          prop: 'personname',
           dataType: 'TEXT',
         },
         {
           name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
+          prop: 'userid',
+          dataType: 'TEXT',
         },
         {
           name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
+          prop: 'userid',
+          dataType: 'TEXT',
           isEditable:true
         },
         {
-          name: 'project',
-          prop: 'id',
+          name: 'sysemployee',
+          prop: 'userid',
         },
         {
           name:'size',
