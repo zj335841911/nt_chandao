@@ -12,11 +12,11 @@
                 @viewdatadirty="onViewDataDirty" 
                 @drdatasaved="onDRDataSaved" 
                 updateAction=""
-                removeAction=""
-                loaddraftAction="GetDraft"
+                removeAction="RemoveTemp"
+                loaddraftAction="GetDraftTemp"
                 loadAction=""
                 createAction=""
-                fetchAction=""
+                fetchAction="FetchTempDefault"
                 name="meditviewpanel"  
                 ref='meditviewpanel' 
                 @datachange="meditviewpanel_datachange($event)"  
@@ -161,7 +161,7 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
      * @type {*}
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    protected navContext: any = { 'root': '%project%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -170,7 +170,7 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
      * @type {*}
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    protected navParam: any = { 'root': '%project%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
