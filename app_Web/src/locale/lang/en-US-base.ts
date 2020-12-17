@@ -22,6 +22,7 @@ import employeeload_en_US from '@locale/lanres/entities/emp-loyeeload/emp-loyeel
 import doccontent_en_US from '@locale/lanres/entities/doc-content/doc-content_en_US';
 import ibzreport_en_US from '@locale/lanres/entities/ibz-report/ibz-report_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
+import syspost_en_US from '@locale/lanres/entities/sys-post/sys-post_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
 import taskstats_en_US from '@locale/lanres/entities/task-stats/task-stats_en_US';
 import ibzfavorites_en_US from '@locale/lanres/entities/ibz-favorites/ibz-favorites_en_US';
@@ -38,6 +39,7 @@ import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
 import ibizprotag_en_US from '@locale/lanres/entities/ibizpro-tag/ibizpro-tag_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
+import systeam_en_US from '@locale/lanres/entities/sys-team/sys-team_en_US';
 import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step_en_US';
 import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
@@ -46,6 +48,7 @@ import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
 import useryearworkstats_en_US from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_en_US';
+import sysorganization_en_US from '@locale/lanres/entities/sys-organization/sys-organization_en_US';
 import ibizproplugin_en_US from '@locale/lanres/entities/ibizpro-plugin/ibizpro-plugin_en_US';
 import ibzlibcasesteptmp_en_US from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
@@ -88,6 +91,7 @@ import projectmodule_en_US from '@locale/lanres/entities/project-module/project-
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
 import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
+import systeammember_en_US from '@locale/lanres/entities/sys-team-member/sys-team-member_en_US';
 import pssystemdbcfg_en_US from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_en_US';
 import sysupdatefeatures_en_US from '@locale/lanres/entities/sys-update-features/sys-update-features_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
@@ -253,7 +257,8 @@ function getAppLocale(){
                     menuitem22: commonLogic.appcommonhandle("统计",null),
                     menuitem25: commonLogic.appcommonhandle("年度统计",null),
                     menuitem7: commonLogic.appcommonhandle("iBiz软件生产管理",null),
-                    menuitem26: commonLogic.appcommonhandle("人员",null),
+                    menuitem26: commonLogic.appcommonhandle("通讯录",null),
+                    menuitem27: commonLogic.appcommonhandle("全文检索",null),
                     menuitem24: commonLogic.appcommonhandle("系统管理",null),
                     menuitem11: commonLogic.appcommonhandle("用户",null),
                     menuitem10: commonLogic.appcommonhandle("用例库",null),
@@ -395,6 +400,7 @@ function getAppLocale(){
             doccontent: doccontent_en_US(),
             ibzreport: ibzreport_en_US(),
             storyspec: storyspec_en_US(),
+            syspost: syspost_en_US(),
             usertpl: usertpl_en_US(),
             taskstats: taskstats_en_US(),
             ibzfavorites: ibzfavorites_en_US(),
@@ -411,6 +417,7 @@ function getAppLocale(){
             dept: dept_en_US(),
             ibizprotag: ibizprotag_en_US(),
             company: company_en_US(),
+            systeam: systeam_en_US(),
             ibzcasestep: ibzcasestep_en_US(),
             taskestimate: taskestimate_en_US(),
             story: story_en_US(),
@@ -419,6 +426,7 @@ function getAppLocale(){
             ibzlibmodule: ibzlibmodule_en_US(),
             subtask: subtask_en_US(),
             useryearworkstats: useryearworkstats_en_US(),
+            sysorganization: sysorganization_en_US(),
             ibizproplugin: ibizproplugin_en_US(),
             ibzlibcasesteptmp: ibzlibcasesteptmp_en_US(),
             project: project_en_US(),
@@ -461,6 +469,7 @@ function getAppLocale(){
             ibzdoc: ibzdoc_en_US(),
             pssysapp: pssysapp_en_US(),
             ibzcase: ibzcase_en_US(),
+            systeammember: systeammember_en_US(),
             pssystemdbcfg: pssystemdbcfg_en_US(),
             sysupdatefeatures: sysupdatefeatures_en_US(),
             release: release_en_US(),

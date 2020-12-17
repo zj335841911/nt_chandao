@@ -258,7 +258,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @type {*}
      * @memberof StoryMobMDViewCurProjectBase
      */
-    protected navContext: any = { 'srfparentkey': '%project%' };
+    protected navContext: any = { 'objecttype': 'story' };
 
     /**
      * 视图导航参数

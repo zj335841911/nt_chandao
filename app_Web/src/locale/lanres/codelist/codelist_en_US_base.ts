@@ -267,6 +267,16 @@ function getLocaleResourceBase(){
           "changed": commonLogic.appcommonhandle("已变更",null),
           "empty": commonLogic.appcommonhandle("",null)
       },
+      IndexType: {
+          "bug": commonLogic.appcommonhandle("Bug",null),
+          "product": commonLogic.appcommonhandle("产品",null),
+          "task": commonLogic.appcommonhandle("任务",null),
+          "case": commonLogic.appcommonhandle("功能测试",null),
+          "doc": commonLogic.appcommonhandle("文档",null),
+          "story": commonLogic.appcommonhandle("需求",null),
+          "project": commonLogic.appcommonhandle("项目",null),
+          "empty": commonLogic.appcommonhandle("",null)
+      },
       Action__read: {
           "0": commonLogic.appcommonhandle("0",null),
           "1": commonLogic.appcommonhandle("1",null),

@@ -681,6 +681,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '33d53911e52105c767147382ddf5e140',
+            viewmodule: 'zentao',
+            viewname: 'ProjectTeamProjectTeamAllMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3b0bbcbce04a67e3f6fbb0209518bc10',
+            ],
+        },
+        {
             viewtag: '35bd5c967f7ff8d253e10cf7b12dde28',
             viewmodule: 'report',
             viewname: 'IbzReportMobMDView',
@@ -721,6 +731,16 @@ export const viewstate: any = {
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
+            viewtag: '3b0bbcbce04a67e3f6fbb0209518bc10',
+            viewmodule: 'zentao',
+            viewname: 'ProjectTeamProjectTeamMobMEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '86e2021c8b8622f5936942427ca7f18b',
             ],
         },
         {
@@ -1538,6 +1558,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a7f7ac4849d3c395bc27d5c368a56b50',
+            ],
+        },
+        {
+            viewtag: '86e2021c8b8622f5936942427ca7f18b',
+            viewmodule: 'zentao',
+            viewname: 'ProjectTeamProjectTeamMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

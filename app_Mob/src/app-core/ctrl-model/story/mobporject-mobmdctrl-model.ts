@@ -15,6 +15,9 @@ export class MOBPorjectModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'id',
+			},
+			{
 				name: 'status',
 			},
 			{

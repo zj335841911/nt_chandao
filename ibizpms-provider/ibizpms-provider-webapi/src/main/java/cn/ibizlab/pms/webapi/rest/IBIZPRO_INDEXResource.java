@@ -135,6 +135,28 @@ public class IBIZPRO_INDEXResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZPRO_INDEX-searchDefault-all') and hasPermission(#context,'pms-IBIZPRO_INDEX-Get')")
+	@ApiOperation(value = "获取数据集", tags = {"索引检索" } ,notes = "获取数据集")
+    @RequestMapping(method= RequestMethod.GET , value="/ibizpro_indices/fetchdefault")
+	public ResponseEntity<List<IBIZPRO_INDEXDTO>> fetchDefault(IBIZPRO_INDEXSearchContext context) {
+        Page<IBIZPRO_INDEX> domains = ibizpro_indexService.searchDefault(context) ;
+        List<IBIZPRO_INDEXDTO> list = ibizpro_indexMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZPRO_INDEX-searchDefault-all') and hasPermission(#context,'pms-IBIZPRO_INDEX-Get')")
+	@ApiOperation(value = "查询数据集", tags = {"索引检索" } ,notes = "查询数据集")
+    @RequestMapping(method= RequestMethod.POST , value="/ibizpro_indices/searchdefault")
+	public ResponseEntity<Page<IBIZPRO_INDEXDTO>> searchDefault(@RequestBody IBIZPRO_INDEXSearchContext context) {
+        Page<IBIZPRO_INDEX> domains = ibizpro_indexService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibizpro_indexMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZPRO_INDEX-searchIndexDER-all') and hasPermission(#context,'pms-IBIZPRO_INDEX-Get')")
 	@ApiOperation(value = "获取数据集2", tags = {"索引检索" } ,notes = "获取数据集2")
     @RequestMapping(method= RequestMethod.GET , value="/ibizpro_indices/fetchindexder")

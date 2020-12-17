@@ -851,7 +851,7 @@ export default class MOB_DuoShuJuChoice_StoryBase extends Vue implements Control
     * @memberof MOB_DuoShuJuChoice_Story
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

@@ -7981,7 +7981,7 @@
     {
     "fieldname":"INDEXNAME" ,
     "codename":"Indexname",
-    "field_logic_name":"名称",
+    "field_logic_name":"支持搜索[需求、Bug、任务、项目、产品、文档、用例]",
     "entity_name":"IBIZPRO_INDEX",
     "field_type":"TEXT",
     "nullable":1,

@@ -5,7 +5,7 @@ function getLocaleResourceBase(){
 		fields: {
 			indextype: commonLogic.appcommonhandle("类型",null),
 			indexid: commonLogic.appcommonhandle("主键",null),
-			indexname: commonLogic.appcommonhandle("名称",null),
+			indexname: commonLogic.appcommonhandle("支持搜索[需求、Bug、任务、项目、产品、文档、用例]",null),
 			deleted: commonLogic.appcommonhandle("逻辑标识",null),
 			orgid: commonLogic.appcommonhandle("组织标识",null),
 			mdeptid: commonLogic.appcommonhandle("部门标识",null),
@@ -28,7 +28,7 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("索引检索数据重定向视图",null),
 				},
 			},
-			list_list: {
+			indexmob_list: {
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
 				},

@@ -726,19 +726,20 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             return;
         }
 
-        String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'", et.getId());
-        List<JSONObject> list = taskService.select(sql, null);
+//        String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'", et.getId());
+        List<Task> list = this.list(new QueryWrapper<Task>().eq("parent",et.getId()).ne("status","cancel").eq("deleted","0"));
+//        List<JSONObject> list = taskService.select(sql, null);
         if (list.size() == 0) {
             return;
         }
         double estimate = 0;
         double consumed = 0;
         double left = 0;
-        for (JSONObject task1 : list) {
-            estimate += task1.getDoubleValue(FIELD_ESTIMATE);
-            consumed += task1.getDoubleValue(StaticDict.ProjectTimeType.CONSUMED.getValue());
-            if (!StaticDict.Task__status.CLOSED.getValue().equals(task1.getString(FIELD_STATUS))) {
-                left += task1.getDoubleValue(StaticDict.ProjectTimeType.LEFT.getValue());
+        for (Task task1 : list) {
+            estimate += task1.getEstimate();
+            consumed += task1.getConsumed();
+            if (!StaticDict.Task__status.CLOSED.getValue().equals(task1.getStatus())) {
+                left += task1.getLeft();
             }
         }
         Task task = new Task();

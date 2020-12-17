@@ -781,7 +781,7 @@ export default class MOBYBase extends Vue implements ControlInterface {
     * @memberof MOBY
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**

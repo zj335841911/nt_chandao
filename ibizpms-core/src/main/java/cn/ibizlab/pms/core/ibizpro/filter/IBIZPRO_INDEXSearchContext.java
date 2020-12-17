@@ -34,7 +34,7 @@ public class IBIZPRO_INDEXSearchContext extends QueryWrapperContext<IBIZPRO_INDE
             this.getSearchCond().eq("`index_type`", n_index_type_eq);
         }
     }
-	private String n_indexname_like;//[名称]
+	private String n_indexname_like;//[支持搜索[需求、Bug、任务、项目、产品、文档、用例]]
 	public void setN_indexname_like(String n_indexname_like) {
         this.n_indexname_like = n_indexname_like;
         if(!ObjectUtils.isEmpty(this.n_indexname_like)){

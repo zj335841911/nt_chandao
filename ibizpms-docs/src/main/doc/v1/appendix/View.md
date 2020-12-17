@@ -63,10 +63,12 @@
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|任务选项操作视图(激活)|DEMOBOPTVIEW|&nbsp;|
 |-|周报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
+|-|项目团队移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|汇报移动端多数据视图（我提交的）|DEMOBMDVIEW|&nbsp;|
 |-|系统更新日志移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|系统日志移动端多数据视图（更多）|DEMOBMDVIEW|&nbsp;|
 |-|月报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|项目团队多表单编辑视图|DEMOBMEDITVIEW9|&nbsp;|
 |-|系统日志移动端多数据视图（通用）|DEMOBMDVIEW9|&nbsp;|
 |-|Bug选项操作视图（激活Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（取消）|DEMOBOPTVIEW|&nbsp;|
@@ -141,6 +143,7 @@
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
+|-|项目团队移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

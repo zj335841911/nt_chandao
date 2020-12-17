@@ -61,6 +61,7 @@ export class UIServiceRegister {
         this.allUIService.set('doccontent', () => import('@/uiservice/doc-content/doc-content-ui-service'));
         this.allUIService.set('ibzreport', () => import('@/uiservice/ibz-report/ibz-report-ui-service'));
         this.allUIService.set('storyspec', () => import('@/uiservice/story-spec/story-spec-ui-service'));
+        this.allUIService.set('syspost', () => import('@/uiservice/sys-post/sys-post-ui-service'));
         this.allUIService.set('usertpl', () => import('@/uiservice/user-tpl/user-tpl-ui-service'));
         this.allUIService.set('taskstats', () => import('@/uiservice/task-stats/task-stats-ui-service'));
         this.allUIService.set('ibzfavorites', () => import('@/uiservice/ibz-favorites/ibz-favorites-ui-service'));
@@ -77,6 +78,7 @@ export class UIServiceRegister {
         this.allUIService.set('dept', () => import('@/uiservice/dept/dept-ui-service'));
         this.allUIService.set('ibizprotag', () => import('@/uiservice/ibizpro-tag/ibizpro-tag-ui-service'));
         this.allUIService.set('company', () => import('@/uiservice/company/company-ui-service'));
+        this.allUIService.set('systeam', () => import('@/uiservice/sys-team/sys-team-ui-service'));
         this.allUIService.set('ibzcasestep', () => import('@/uiservice/ibzcase-step/ibzcase-step-ui-service'));
         this.allUIService.set('taskestimate', () => import('@/uiservice/task-estimate/task-estimate-ui-service'));
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));
@@ -85,6 +87,7 @@ export class UIServiceRegister {
         this.allUIService.set('ibzlibmodule', () => import('@/uiservice/ibz-lib-module/ibz-lib-module-ui-service'));
         this.allUIService.set('subtask', () => import('@/uiservice/sub-task/sub-task-ui-service'));
         this.allUIService.set('useryearworkstats', () => import('@/uiservice/user-year-work-stats/user-year-work-stats-ui-service'));
+        this.allUIService.set('sysorganization', () => import('@/uiservice/sys-organization/sys-organization-ui-service'));
         this.allUIService.set('ibizproplugin', () => import('@/uiservice/ibizpro-plugin/ibizpro-plugin-ui-service'));
         this.allUIService.set('ibzlibcasesteptmp', () => import('@/uiservice/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-ui-service'));
         this.allUIService.set('project', () => import('@/uiservice/project/project-ui-service'));
@@ -127,6 +130,7 @@ export class UIServiceRegister {
         this.allUIService.set('ibzdoc', () => import('@/uiservice/ibz-doc/ibz-doc-ui-service'));
         this.allUIService.set('pssysapp', () => import('@/uiservice/pssys-app/pssys-app-ui-service'));
         this.allUIService.set('ibzcase', () => import('@/uiservice/ibz-case/ibz-case-ui-service'));
+        this.allUIService.set('systeammember', () => import('@/uiservice/sys-team-member/sys-team-member-ui-service'));
         this.allUIService.set('pssystemdbcfg', () => import('@/uiservice/pssystem-dbcfg/pssystem-dbcfg-ui-service'));
         this.allUIService.set('sysupdatefeatures', () => import('@/uiservice/sys-update-features/sys-update-features-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));

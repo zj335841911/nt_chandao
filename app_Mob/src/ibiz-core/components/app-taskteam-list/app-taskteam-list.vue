@@ -1,16 +1,15 @@
 <template>
-    <div class="app-projectteam-list-item">
-        <div class="app-projectteam-list-item_top">
+    <div class="app-taskteam-list-item">
+        <div class="app-taskteam-list-item_top">
             <div v-if="item.account_img" class="account_img"><img :src="item.account_img" alt=""></div>
             <div v-else class="account_part">{{item.account_part}}</div>
-            <div>
-                <strong><div class="account_text">{{item.account_text}}</div></strong>
-                <div class="role">{{item.role}}</div>
+            <div class="account_text"><strong>{{item.account_text}}</strong></div>
+            <div class="right">
+                <span class="title">消耗：</span>
+                <div class="consumed">{{item.consumed}} h</div>
+                <span class="title">剩余：</span>
+                <div class="left">{{item.left}} h</div>
             </div>
-            <span class="title"><strong>消耗</strong></span>
-            <span class="left">{{item.consumed}}</span>
-            <span class="title"><strong>剩余</strong></span>
-            <span class="right">{{item.left}}</span>
         </div>
     </div>
 </template>
