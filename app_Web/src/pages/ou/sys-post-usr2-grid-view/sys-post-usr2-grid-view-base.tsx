@@ -358,5 +358,5 @@ export class SysPostUsr2GridViewBase extends GridViewBase {
      * @type {(0 | 1 | 2)}
      * @memberof SysPostUsr2GridViewBase
      */
-    protected gridRowActiveMode: 0 | 1 | 2 = 0;
+    protected gridRowActiveMode: 0 | 1 | 2 = 1;
 }
