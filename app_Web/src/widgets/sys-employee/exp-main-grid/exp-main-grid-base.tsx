@@ -118,29 +118,11 @@ export class ExpMainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'sex',
-            label: '性别',
-            langtag: 'entities.sysemployee.expmain_grid.columns.sex',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'mdeptname',
-            label: '主部门名称',
-            langtag: 'entities.sysemployee.expmain_grid.columns.mdeptname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'personname',
             label: '姓名',
             langtag: 'entities.sysemployee.expmain_grid.columns.personname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -148,15 +130,6 @@ export class ExpMainGridBase extends GridControlBase {
             name: 'nickname',
             label: '昵称别名',
             langtag: 'entities.sysemployee.expmain_grid.columns.nickname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'phone',
-            label: '联系方式',
-            langtag: 'entities.sysemployee.expmain_grid.columns.phone',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -264,11 +237,8 @@ export class ExpMainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'userid':false,
-        'sex':false,
-        'mdeptname':false,
         'personname':false,
         'nickname':false,
-        'phone':false,
     };
 
     /**
@@ -356,7 +326,7 @@ export class ExpMainGridBase extends GridControlBase {
     * @memberof ExpMainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['userid','sex','mdeptname','personname','nickname','phone'];
+        let allColumns:Array<any> = ['userid','personname','nickname'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -436,11 +406,8 @@ export class ExpMainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 userid:'',
-                sex:'',
-                mdeptname:'',
                 personname:'',
                 nickname:'',
-                phone:'',
                 children: children
             }
             groupTree.push(tree);
@@ -466,11 +433,8 @@ export class ExpMainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             userid:'',
-            sex:'',
-            mdeptname:'',
             personname:'',
             nickname:'',
-            phone:'',
             children: child
         }
         if(child && child.length > 0){
@@ -532,11 +496,8 @@ export class ExpMainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 userid:'',
-                sex:'',
-                mdeptname:'',
                 personname:'',
                 nickname:'',
-                phone:'',
                 children: children,
             }
             groupTree.push(tree);

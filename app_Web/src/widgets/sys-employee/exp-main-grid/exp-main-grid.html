@@ -37,32 +37,8 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('sex')">
-                <el-table-column show-overflow-tooltip :prop="'sex'" :label="$t('entities.sysemployee.expmain_grid.columns.sex')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.sysemployee.expmain_grid.columns.sex')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.sex}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('mdeptname')">
-                <el-table-column show-overflow-tooltip :prop="'mdeptname'" :label="$t('entities.sysemployee.expmain_grid.columns.mdeptname')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.sysemployee.expmain_grid.columns.mdeptname')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.mdeptname}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('personname')">
-                <el-table-column show-overflow-tooltip :prop="'personname'" :label="$t('entities.sysemployee.expmain_grid.columns.personname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'personname'" :label="$t('entities.sysemployee.expmain_grid.columns.personname')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.sysemployee.expmain_grid.columns.personname')}}
@@ -82,18 +58,6 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                             <span>{{row.nickname}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('phone')">
-                <el-table-column show-overflow-tooltip :prop="'phone'" :label="$t('entities.sysemployee.expmain_grid.columns.phone')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.sysemployee.expmain_grid.columns.phone')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.phone}}</span>
                     </template>
                 </el-table-column>
             </template>

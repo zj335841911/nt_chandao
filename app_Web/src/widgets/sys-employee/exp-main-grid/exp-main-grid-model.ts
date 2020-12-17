@@ -32,16 +32,6 @@ export default class ExpMainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'sex',
-          prop: 'sex',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'mdeptname',
-          prop: 'mdeptname',
-          dataType: 'PICKUPTEXT',
-        },
-        {
           name: 'personname',
           prop: 'personname',
           dataType: 'TEXT',
@@ -49,11 +39,6 @@ export default class ExpMainModel {
         {
           name: 'nickname',
           prop: 'nickname',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'phone',
-          prop: 'phone',
           dataType: 'TEXT',
         },
         {
