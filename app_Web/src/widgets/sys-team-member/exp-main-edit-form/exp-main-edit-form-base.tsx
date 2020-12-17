@@ -117,20 +117,6 @@ export class ExpMainEditEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
-            teamname: [
-                {
-                    required: this.detailsModel.teamname.required,
-                    type: 'string',
-                    message: `${this.$t('entities.systeammember.expmainedit_form.details.teamname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
-                    trigger: 'change',
-                },
-                {
-                    required: this.detailsModel.teamname.required,
-                    type: 'string',
-                    message: `${this.$t('entities.systeammember.expmainedit_form.details.teamname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
-                    trigger: 'blur',
-                },
-        ],
         }
     }
 
@@ -226,7 +212,7 @@ export class ExpMainEditEditFormBase extends EditFormControlBase {
 
         teamname: new FormItemModel({
     caption: '组名称', detailType: 'FORMITEM', name: 'teamname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:true,
+    required:false,
     disabled: false,
     enableCond: 3,
 }),
