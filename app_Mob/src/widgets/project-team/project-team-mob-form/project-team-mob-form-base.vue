@@ -32,12 +32,17 @@
     :disabled="detailsModel.account.disabled"
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.account"
-    unit=""
+        <app-mob-select 
+    tag="UserRealName"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
     :disabled="detailsModel.account.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.account"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
     @change="($event)=>this.data.account = $event" />
 </app-form-item>
 
@@ -85,12 +90,12 @@
     :error="detailsModel.days.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.days"
     unit=""
     :disabled="detailsModel.days.disabled" 
-    @change="($event)=>this.data.days = $event" />
+    @change="($event)=>this.data.days = $event"/>
 </app-form-item>
 
 
@@ -111,12 +116,12 @@
     :error="detailsModel.hours.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.hours"
     unit=""
     :disabled="detailsModel.hours.disabled" 
-    @change="($event)=>this.data.hours = $event" />
+    @change="($event)=>this.data.hours = $event"/>
 </app-form-item>
 
 
@@ -136,18 +141,14 @@
     :disabled="detailsModel.limited.disabled"
     :error="detailsModel.limited.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-radio-list 
+    style="width: 100%;" 
+    type="static" 
     tag="YesNo3"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.limited.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
     :value="data.limited"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.limited = $event" />
+    :disabled="detailsModel.limited.disabled" 
+    @change="($event)=>this.data.limited = $event"/>
+
 </app-form-item>
 
 
