@@ -98,7 +98,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			usr3gridviewtoolbar_toolbar: {
+			usr3gridviewuserconcattoolbar_toolbar: {
 			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
@@ -118,7 +118,7 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
 			},
-			usr3gridviewuserconcattoolbar_toolbar: {
+			usr3gridviewtoolbar_toolbar: {
 			},
 			usr2gridviewtoolbar_toolbar: {
 			},

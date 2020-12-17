@@ -62,18 +62,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			usr2gridviewtoolbar_toolbar: {
-			},
-			editviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("保存",null),
-					tip: commonLogic.appcommonhandle("保存",null),
-				},
-				deuiaction2: {
-					caption: commonLogic.appcommonhandle("删除",null),
-					tip: commonLogic.appcommonhandle("删除",null),
-				},
-			},
 			gridviewtoolbar_toolbar: {
 				deuiaction1: {
 					caption: commonLogic.appcommonhandle("新建",null),
@@ -107,6 +95,18 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("过滤",null),
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
+			},
+			editviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("保存",null),
+					tip: commonLogic.appcommonhandle("保存",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("删除",null),
+					tip: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			usr2gridviewtoolbar_toolbar: {
 			},
 			concatlist_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),

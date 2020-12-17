@@ -46,15 +46,15 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <app-column-link
-                            deKeyField="usercontact"
+                            deKeyField="sysemployee"
                             :context="JSON.parse(JSON.stringify(context))"
                             :viewparams="JSON.parse(JSON.stringify(viewparams))"
                             :data="row"
-                            :linkview="{viewname: 'user-contact-usr2-grid-view', height: 0,width: 0,title: $t('entities.usercontact.views.usr2gridview.title'),placement: '', isRedirectView: false,deResParameters: [
+                            :linkview="{viewname: 'sys-employee-usr3-grid-view-user-concat', height: 0,width: 0,title: $t('entities.sysemployee.views.usr3gridviewuserconcat.title'),placement: '', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
-            { pathName: 'usercontacts', parameterName: 'usercontact' },
-            { pathName: 'usr2gridview', parameterName: 'usr2gridview' }
+            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+            { pathName: 'usr3gridviewuserconcat', parameterName: 'usr3gridviewuserconcat' }
             ]}"
                             valueitem="srfkey"
                         >

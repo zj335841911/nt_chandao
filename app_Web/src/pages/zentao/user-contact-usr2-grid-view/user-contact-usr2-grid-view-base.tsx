@@ -339,8 +339,8 @@ export class UserContactUsr2GridViewBase extends GridViewBase {
         }
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'usercontacts', parameterName: 'usercontact' },
-            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+            { pathName: 'usr3gridviewuserconcat', parameterName: 'usr3gridviewuserconcat' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
