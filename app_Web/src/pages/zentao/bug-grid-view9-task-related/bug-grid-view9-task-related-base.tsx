@@ -332,8 +332,8 @@ export class BugGridView9_TaskRelatedBase extends GridView9Base {
             { pathName: 'bugs', parameterName: 'bug' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+        const openPopupModal = (view: any, data: any) => {
+            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -346,12 +346,11 @@ export class BugGridView9_TaskRelatedBase extends GridView9Base {
         }
         const view: any = {
             viewname: 'bug-main-dashboard-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.bug.views.maindashboardview.title'),
-            placement: 'DRAWER_TOP',
         };
-        openDrawer(view, data);
+        openPopupModal(view, data);
     }
 
 

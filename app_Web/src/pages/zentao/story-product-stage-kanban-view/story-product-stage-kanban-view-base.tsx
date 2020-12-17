@@ -358,8 +358,8 @@ export class StoryProductStageKanbanViewBase extends KanBanViewBase {
             { pathName: 'stories', parameterName: 'story' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+        const openPopupModal = (view: any, data: any) => {
+            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -372,12 +372,11 @@ export class StoryProductStageKanbanViewBase extends KanBanViewBase {
         }
         const view: any = {
             viewname: 'story-main-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.story.views.mainview.title'),
-            placement: 'DRAWER_TOP',
         };
-        openDrawer(view, data);
+        openPopupModal(view, data);
     }
 
 

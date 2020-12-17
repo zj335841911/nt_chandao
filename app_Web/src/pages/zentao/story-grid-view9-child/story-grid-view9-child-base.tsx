@@ -328,8 +328,8 @@ export class StoryGridView9_ChildBase extends GridView9Base {
         }
         const view: any = {
             viewname: 'story-main-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.story.views.mainview.title'),
             placement: 'DRAWER_TOP',
         };

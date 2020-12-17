@@ -124,72 +124,97 @@ export class IndexMobListBase extends ListControlBase {
             viewname: 'dashboardview',
             srfappde: 'doc',
             component: 'doc-dashboard-view',
-            openmode: 'DRAWER_TOP',
+            openmode: 'POPUPMODAL',
             viewmodule: 'zentao',
             title: '文档',
-            width: 0,
-            height: 0
+            width: 1400,
+            height: 850
         })
         this.allRedirectViewMap.set('EDITVIEW:PRODUCT', {
             viewname: 'maintabexpview',
             srfappde: 'product',
             component: 'product-main-tab-exp-view',
-            openmode: '',
+            openmode: 'POPUPMODAL',
             viewmodule: 'zentao',
             title: '产品',
-            width: 0,
-            height: 0
+            width: 1400,
+            height: 850
         })
         this.allRedirectViewMap.set('EDITVIEW:TASK', {
             viewname: 'maindashboardview',
             srfappde: 'task',
             component: 'task-main-dashboard-view',
-            openmode: 'DRAWER_TOP',
+            openmode: 'POPUPMODAL',
             viewmodule: 'zentao',
             title: '任务',
-            width: 1360,
-            height: 0
+            width: 1400,
+            height: 850
         })
         this.allRedirectViewMap.set('EDITVIEW:PROJECT', {
             viewname: 'maintabexpview',
             srfappde: 'project',
             component: 'project-main-tab-exp-view',
-            openmode: '',
+            openmode: 'POPUPMODAL',
             viewmodule: 'zentao',
             title: '项目',
-            width: 0,
-            height: 0
+            width: 1400,
+            height: 850
         })
         this.allRedirectViewMap.set('EDITVIEW:CASE', {
             viewname: 'maindashboardview',
             srfappde: 'case',
             component: 'case-main-dashboard-view',
-            openmode: 'DRAWER_TOP',
+            openmode: 'POPUPMODAL',
             viewmodule: 'zentao',
             title: '功能测试',
-            width: 0,
-            height: 0
+            width: 1400,
+            height: 850
         })
         this.allRedirectViewMap.set('EDITVIEW:BUG', {
             viewname: 'maindashboardview',
             srfappde: 'bug',
             component: 'bug-main-dashboard-view',
-            openmode: 'DRAWER_TOP',
+            openmode: 'POPUPMODAL',
             viewmodule: 'zentao',
             title: 'Bug',
-            width: 0,
-            height: 0
+            width: 1400,
+            height: 850
         })
         this.allRedirectViewMap.set('EDITVIEW:STORY', {
             viewname: 'mainview',
             srfappde: 'story',
             component: 'story-main-view',
-            openmode: 'DRAWER_TOP',
+            openmode: 'POPUPMODAL',
             viewmodule: 'zentao',
             title: '需求',
-            width: 0,
-            height: 0
+            width: 1400,
+            height: 850
         })
+    }
+
+    /**
+     * 双击事件
+     * 
+     * @param item 当前数据
+     * @memberof IndexMobListBase
+     */
+    public async handleDblClick(item: any){
+        const multiFormDEField = this.multiFormDEField;
+        if (multiFormDEField.field) {
+            let curData = this.$util.deepCopy(item);
+            if (multiFormDEField.codelist) {
+                let codelist: any = await this.codeListService.getDataItems(multiFormDEField.codelist);
+                if(codelist && codelist.length > 0){
+                    const arr:Array<any> = codelist.filter((field:any)=>{return field.label == curData[multiFormDEField.field]});
+                    if (arr && arr.length > 0) {
+                        curData[multiFormDEField.field] = arr[0].value.toUpperCase();
+                    }
+                }
+            }
+            this.openRedirectView(curData);
+        } else {
+            console.error("未配置多表单属性");
+        }
     }
 
     /**
@@ -205,7 +230,7 @@ export class IndexMobListBase extends ListControlBase {
                 this.$Notice.error({desc: '重定向服务不存在！'})
                 return;
             }
-            const srfkey: any = tempContext.ibizpro_index;
+            const srfkey: any = curData.ibizpro_index;
             service.getDESDDEViewPDTParam(curData,false,false).then((res:any) => {
                 if (res) {
 					const redirectView: any =  this.allRedirectViewMap.get(res);

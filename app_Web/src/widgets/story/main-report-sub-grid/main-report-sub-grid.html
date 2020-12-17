@@ -60,7 +60,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                                  <span><app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :localParam="{product: '%product%'}" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false}" valueitem="srfkey">
+                                  <span><app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :localParam="{product: '%product%'}" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 850,width: 1400,title: $t('entities.build.views.maintabexpview.title'),placement: 'POPUPMODAL', isRedirectView: false}" valueitem="srfkey">
             <span :style="{'color':row.color}">{{row.title}}</span>
             </app-column-link>
             </span>
