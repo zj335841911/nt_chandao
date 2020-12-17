@@ -114,6 +114,69 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
+        this.allViewMap.set(':', {
+            viewname: 'dashboardview',
+            srfappde: 'docs',
+            component: 'doc-dashboard-view',
+            openmode: 'DRAWER_TOP',
+            title: '文档',
+            width: 0,
+            height: 0
+        })
+        this.allViewMap.set(':', {
+            viewname: 'maintabexpview',
+            srfappde: 'products',
+            component: 'product-main-tab-exp-view',
+            openmode: '',
+            title: '产品',
+            width: 0,
+            height: 0
+        })
+        this.allViewMap.set(':', {
+            viewname: 'maindashboardview',
+            srfappde: 'tasks',
+            component: 'task-main-dashboard-view',
+            openmode: 'DRAWER_TOP',
+            title: '任务',
+            width: 1360,
+            height: 0
+        })
+        this.allViewMap.set(':', {
+            viewname: 'maintabexpview',
+            srfappde: 'projects',
+            component: 'project-main-tab-exp-view',
+            openmode: '',
+            title: '项目',
+            width: 0,
+            height: 0
+        })
+        this.allViewMap.set(':', {
+            viewname: 'maindashboardview',
+            srfappde: 'cases',
+            component: 'case-main-dashboard-view',
+            openmode: 'DRAWER_TOP',
+            title: '功能测试',
+            width: 0,
+            height: 0
+        })
+        this.allViewMap.set(':bug', {
+            viewname: 'maindashboardview',
+            srfappde: 'bugs',
+            component: 'bug-main-dashboard-view',
+            openmode: 'DRAWER_TOP',
+            title: 'Bug',
+            width: 0,
+            height: 0
+        })
+        this.allViewMap.set(':', {
+            viewname: 'mainview',
+            srfappde: 'stories',
+            component: 'story-main-view',
+            openmode: 'DRAWER_TOP',
+            title: '需求',
+            width: 0,
+            height: 0
+        })
     }
 
     /**
