@@ -2083,7 +2083,7 @@
         "title": "人员编辑视图",
         "caption": "人员",
         "viewtype": "DEEDITVIEW",
-        "viewmodule": "ou",
+        "viewmodule": "zentao",
         "viewname": "SysEmployeeEditView",
         "viewfilename": "sys-employee-edit-view",
         "viewtag": "57a23ead04eda866c6326f0705f595e3",
@@ -3858,6 +3858,16 @@
         "viewfilename": "story-grid-view9-related",
         "viewtag": "a0f93007d7102bd236dc8f50ac4042ea",
         "memo": "视图参数中指定了过滤条件"
+    },
+    "sysemployeegridview": {
+        "title": "人员表格视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeGridView",
+        "viewfilename": "sys-employee-grid-view",
+        "viewtag": "a179e654136386b3f2fe76b869dae394",
+        "memo": ""
     },
     "taskchartview9": {
         "title": "任务图表视图",
@@ -5707,6 +5717,16 @@
         "viewname": "TaskEstimateLookGridView9",
         "viewfilename": "task-estimate-look-grid-view9",
         "viewtag": "e6ab4e1e69f78d8a87d57c7d99420245",
+        "memo": ""
+    },
+    "usercontactusr2gridview": {
+        "title": "用户联系方式表格视图",
+        "caption": "用户联系方式",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserContactUsr2GridView",
+        "viewfilename": "user-contact-usr2-grid-view",
+        "viewtag": "e6f937afe3371083ae7dda1d58c85ed7",
         "memo": ""
     },
     "sysupdateloginfoeditview": {

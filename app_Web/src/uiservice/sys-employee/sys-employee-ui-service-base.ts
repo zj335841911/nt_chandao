@@ -105,6 +105,15 @@ export default class SysEmployeeUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'sysemployees',
+            component: 'sys-employee-grid-view',
+            openmode: '',
+            title: '人员',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

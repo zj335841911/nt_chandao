@@ -1887,7 +1887,7 @@ export const viewstate: any = {
         },
         {
             viewtag: '57a23ead04eda866c6326f0705f595e3',
-            viewmodule: 'ou',
+            viewmodule: 'zentao',
             viewname: 'SysEmployeeEditView',
             viewaction: '',
             viewdatachange: false,
@@ -4753,6 +4753,7 @@ export const viewstate: any = {
                 'ebdc0496f66718b66a8ae0ea440d0356',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 'a0e1f55e52d3167ad1815ac7076cdc45',
+                'e6f937afe3371083ae7dda1d58c85ed7',
                 '42ce56d703f9d063d6c1524bb7a559de',
                 'ba8bd2f4b2dcf0500c9dcd985c531d68',
                 'c9f2cd9496fa701c375279c93e1487fd',
@@ -5203,6 +5204,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'e6f937afe3371083ae7dda1d58c85ed7',
+            viewmodule: 'zentao',
+            viewname: 'UserContactUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1eeb1cc3801fe7d3961fca4b3d753b04',
             ],
         },
         {

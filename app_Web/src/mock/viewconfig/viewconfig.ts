@@ -1675,7 +1675,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "title": "人员编辑视图",
             "caption": "人员",
             "viewtype": "DEEDITVIEW",
-            "viewmodule": "ou",
+            "viewmodule": "zentao",
             "viewname": "SysEmployeeEditView",
             "viewtag": "57a23ead04eda866c6326f0705f595e3"
         },
@@ -3094,6 +3094,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryGridView9_Related",
             "viewtag": "a0f93007d7102bd236dc8f50ac4042ea"
+        },
+        "sysemployeegridview": {
+            "title": "人员表格视图",
+            "caption": "人员",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "SysEmployeeGridView",
+            "viewtag": "a179e654136386b3f2fe76b869dae394"
         },
         "taskchartview9": {
             "title": "任务图表视图",
@@ -4574,6 +4582,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskEstimateLookGridView9",
             "viewtag": "e6ab4e1e69f78d8a87d57c7d99420245"
+        },
+        "usercontactusr2gridview": {
+            "title": "用户联系方式表格视图",
+            "caption": "用户联系方式",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserContactUsr2GridView",
+            "viewtag": "e6f937afe3371083ae7dda1d58c85ed7"
         },
         "sysupdateloginfoeditview": {
             "title": "系统更新日志编辑视图",

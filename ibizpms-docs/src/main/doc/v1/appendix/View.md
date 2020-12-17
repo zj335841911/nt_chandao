@@ -665,6 +665,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例库用例编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|组成员表格视图|DEGRIDVIEW|&nbsp;|
 |-|相关需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
+|-|人员表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务图表视图|DECHARTVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
@@ -850,6 +851,7 @@ SRFNAVPARAM.project=%project%|
 |-|关闭Bug|DEOPTVIEW|&nbsp;|
 |-|用例库|DEGRIDVIEW|&nbsp;|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
+|-|用户联系方式表格视图|DEGRIDVIEW|&nbsp;|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品汇总表图表视图|DECHARTVIEW9|&nbsp;|
 |-|测试单编辑视图|DEEDITVIEW|&nbsp;|

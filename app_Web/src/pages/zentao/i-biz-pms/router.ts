@@ -2051,6 +2051,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-pause-task-view/task-pause-task-view.vue'),
                 },
                 {
+                    path: 'usercontacts/:usercontact?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.usercontact.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'usercontacts', parameterName: 'usercontact' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-contact-usr2-grid-view/user-contact-usr2-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
                         caption: 'entities.bug.views.mpickupview.caption',
@@ -5504,7 +5518,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ou/sys-employee-edit-view/sys-employee-edit-view.vue'),
+                    component: () => import('@pages/zentao/sys-employee-edit-view/sys-employee-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maindetailview9/:maindetailview9?',

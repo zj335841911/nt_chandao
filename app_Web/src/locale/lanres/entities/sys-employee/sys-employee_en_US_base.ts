@@ -48,6 +48,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员编辑视图",null),
 				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员表格视图",null),
+				},
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员树导航视图",null),
@@ -111,6 +115,64 @@ function getLocaleResourceBase(){
 				},
 			},
 			usr2gridviewtoolbar_toolbar: {
+			},
+			gridviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("New",null),
+					tip: commonLogic.appcommonhandle("New",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("Edit",null),
+					tip: commonLogic.appcommonhandle("Edit {0}",null),
+				},
+				tbitem6: {
+					caption: commonLogic.appcommonhandle("Copy",null),
+					tip: commonLogic.appcommonhandle("Copy {0}",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem8: {
+					caption: commonLogic.appcommonhandle("Remove",null),
+					tip: commonLogic.appcommonhandle("Remove {0}",null),
+				},
+				tbitem9: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem13: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+				tbitem10: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem16: {
+					caption: commonLogic.appcommonhandle("其它",null),
+					tip: commonLogic.appcommonhandle("其它",null),
+				},
+				tbitem21: {
+					caption: commonLogic.appcommonhandle("Export Data Model",null),
+					tip: commonLogic.appcommonhandle("导出数据模型",null),
+				},
+				tbitem23: {
+					caption: commonLogic.appcommonhandle("数据导入",null),
+					tip: commonLogic.appcommonhandle("数据导入",null),
+				},
+				tbitem17: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem19: {
+					caption: commonLogic.appcommonhandle("Filter",null),
+					tip: commonLogic.appcommonhandle("Filter",null),
+				},
+				tbitem18: {
+					caption: commonLogic.appcommonhandle("Help",null),
+					tip: commonLogic.appcommonhandle("Help",null),
+				},
 			},
 			emptreemenuzs_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),

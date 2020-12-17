@@ -17,6 +17,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("用户联系方式",null),
 					title: commonLogic.appcommonhandle("用户联系方式树导航视图",null),
 				},
+				usr2gridview: {
+					caption: commonLogic.appcommonhandle("用户联系方式",null),
+					title: commonLogic.appcommonhandle("用户联系方式表格视图",null),
+				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("用户联系方式",null),
 					title: commonLogic.appcommonhandle("usercontact表格视图",null),
@@ -101,6 +105,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("删除",null),
 					tip: commonLogic.appcommonhandle("删除",null),
 				},
+			},
+			usr2gridviewtoolbar_toolbar: {
 			},
 			concatlist_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
