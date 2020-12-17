@@ -237,6 +237,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 

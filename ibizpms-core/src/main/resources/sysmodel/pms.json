@@ -29011,6 +29011,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PROJECTTEAMS" ,
+    "codename":"Projectteams",
+    "field_logic_name":"项目团队",
+    "entity_name":"Project",
+    "field_type":"ONE2MANYDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

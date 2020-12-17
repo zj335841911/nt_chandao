@@ -237,6 +237,9 @@ export default class TestTabExpViewtabviewpanel3Model {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 

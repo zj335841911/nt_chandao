@@ -237,6 +237,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 

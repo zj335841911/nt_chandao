@@ -237,6 +237,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 

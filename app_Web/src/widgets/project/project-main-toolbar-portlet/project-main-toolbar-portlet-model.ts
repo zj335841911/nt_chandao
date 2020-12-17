@@ -237,6 +237,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 

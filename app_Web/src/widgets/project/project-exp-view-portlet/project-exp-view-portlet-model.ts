@@ -237,6 +237,9 @@ export default class ProjectExpViewModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 

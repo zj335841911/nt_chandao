@@ -237,6 +237,9 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
     ]
   }
 
