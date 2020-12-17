@@ -135,7 +135,6 @@ export default class AppReportList extends Vue {
      * @memberof AppReportList
      */
     public getUserReIconUrl(id: string): string {
-        debugger
         let index = this.userData.findIndex((item:any) => { return item.value == id });
         if(index === -1){
             return '';
