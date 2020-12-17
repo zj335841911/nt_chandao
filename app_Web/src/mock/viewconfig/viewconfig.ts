@@ -2631,6 +2631,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugUsr2GridView",
             "viewtag": "8af65044ab1633eb5b68d99478e9350f"
         },
+        "sysemployeeusr3gridviewuserconcat": {
+            "title": "人员表格视图",
+            "caption": "人员",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "SysEmployeeUsr3GridViewUserConcat",
+            "viewtag": "8b1be3cc2e5253c0ea5bcb16b1d02f6e"
+        },
         "taskestimategridview9": {
             "title": "任务预计表格视图",
             "caption": "工时",

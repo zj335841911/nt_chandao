@@ -48,6 +48,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员编辑视图",null),
 				},
+				usr3gridviewuserconcat: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员表格视图",null),
+				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员表格视图",null),
@@ -113,6 +117,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("删除",null),
 					tip: commonLogic.appcommonhandle("删除",null),
 				},
+			},
+			usr3gridviewuserconcattoolbar_toolbar: {
 			},
 			usr2gridviewtoolbar_toolbar: {
 			},

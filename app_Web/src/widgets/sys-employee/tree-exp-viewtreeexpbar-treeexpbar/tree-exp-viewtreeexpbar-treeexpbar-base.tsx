@@ -124,7 +124,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'USERCONTACT')) {
             return {  
-                viewname: 'sys-employee-usr3-grid-view', 
+                viewname: 'sys-employee-usr3-grid-view-user-concat', 
                 parentdata: {},
                 deKeyField:'sysemployee'
 			};

@@ -2958,6 +2958,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8b1be3cc2e5253c0ea5bcb16b1d02f6e',
+            viewmodule: 'zentao',
+            viewname: 'SysEmployeeUsr3GridViewUserConcat',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '57a23ead04eda866c6326f0705f595e3',
+            ],
+        },
+        {
             viewtag: '8b96b7671df722e66d78808ee0636349',
             viewmodule: 'zentao',
             viewname: 'TaskEstimateGridView9',
@@ -4750,6 +4760,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8b1be3cc2e5253c0ea5bcb16b1d02f6e',
                 'ebdc0496f66718b66a8ae0ea440d0356',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 'a0e1f55e52d3167ad1815ac7076cdc45',
