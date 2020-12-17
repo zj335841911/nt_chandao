@@ -30,6 +30,9 @@ export default class IndexMobModel {
         codelist:{tag:'IndexType',codelistType:'STATIC'},
 			},
 			{
+				name: 'indexdesc',
+			},
+			{
 				name: 'indexname',
 			},
 			{

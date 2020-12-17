@@ -66,6 +66,12 @@ function getLocaleResourceBase(){
 			},
 			main_grid: {
 				columns: {
+					userid: commonLogic.appcommonhandle("用户标识",null),
+					sex: commonLogic.appcommonhandle("性别",null),
+					mdeptname: commonLogic.appcommonhandle("主部门名称",null),
+					personname: commonLogic.appcommonhandle("姓名",null),
+					nickname: commonLogic.appcommonhandle("昵称别名",null),
+					phone: commonLogic.appcommonhandle("联系方式",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

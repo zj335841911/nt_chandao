@@ -291,7 +291,7 @@ null
 无
 
 - 是否支持快速搜索
-否
+是
 
 - 搜索条件
 无
@@ -407,6 +407,7 @@ Save
 | 序号 | 属性 |
 | ---- | ---- |
 | 1 | [支持搜索[需求、Bug、任务、项目、产品、文档、用例]（INDEXNAME）](#属性-支持搜索[需求、Bug、任务、项目、产品、文档、用例]（INDEXNAME）) |
+| 2 | [描述（INDEXDESC）](#属性-描述（INDEXDESC）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
@@ -439,20 +440,23 @@ t1.`INDEXID`,
 t1.`INDEXNAME`,
 t1.`INDEX_TYPE`,
 t1.`MDEPTID`,
-t1.`ORGID`
+t1.`ORGID`,
+t1.INDEXDESC
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
 ,v1.deleted AS `DELETED`
 ,v1.orgid AS `ORGID`
 ,v1.MDEPTID AS `MDEPTID`
+,v1.steps as INDEXDESC
 FROM
 (SELECT
 t1.`ID`,
 t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
-t1.deleted
+t1.deleted,
+t1.steps
 FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v1
@@ -462,14 +466,16 @@ SELECT
 ,v2.`TITLE` AS `INDEXNAME`
 ,v2.deleted AS `DELETED`
 ,v2.orgid AS `ORGID`
-,v2.MDEPTID AS `MDEPTID`
+,v2.MDEPTID AS `MDEPTID`,
+v2.precondition as INDEXDESC
 FROM
 (SELECT
 t1.`ID`,
 t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
-t1.deleted
+t1.deleted,
+t1.`PRECONDITION`
 FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v2
@@ -479,14 +485,16 @@ SELECT
 ,v3.`NAME` AS `INDEXNAME`
 ,v3.deleted AS `DELETED`
 ,v3.orgid AS `ORGID`
-,v3.MDEPTID AS `MDEPTID`
+,v3.MDEPTID AS `MDEPTID`,
+v3.`desc` as INDEXDESC
 FROM
 (SELECT
 t1.`ID`,
 t1.`NAME`,
 t1.orgid,
 t1.MDEPTID,
-t1.deleted
+t1.deleted,
+t1.`desc`
 FROM `zt_product` t1 
 ) v3
 UNION ALL
@@ -496,13 +504,15 @@ SELECT
 ,v4.deleted AS `DELETED`
 ,v4.orgid AS `ORGID`
 ,v4.MDEPTID AS `MDEPTID`
+,v4.`desc` as INDEXDESC
 FROM
 (SELECT
 t1.`ID`,
 t1.`NAME`,
 t1.orgid,
 t1.MDEPTID,
-t1.deleted
+t1.deleted,
+t1.`desc`
 FROM `zt_project` t1 
 ) v4
 UNION ALL
@@ -512,15 +522,18 @@ SELECT
 ,v5.deleted AS `DELETED`
 ,v5.orgid AS `ORGID`
 ,v5.MDEPTID AS `MDEPTID`
+,v5.spec as INDEXDESC
 FROM
 (SELECT
 t1.`ID`,
 t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
-t1.deleted
+t1.deleted,
+t21.spec
 FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
-where t11.deleted = '0'
+left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
+where t11.deleted = '0' 
 ) v5
 UNION ALL
 SELECT
@@ -528,14 +541,16 @@ SELECT
 ,v6.`NAME` AS `INDEXNAME`
 ,v6.deleted AS `DELETED`
 ,v6.orgid AS `ORGID`
-,v6.MDEPTID AS `MDEPTID`
+,v6.MDEPTID AS `MDEPTID`,
+v6.`desc` as INDEXDESC
 FROM
 (SELECT
 t1.`ID`,
 t1.`NAME`,
 t11.orgid,
 t11.MDEPTID,
-t1.deleted
+t1.deleted,
+t1.`desc`
 FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
 where t11.deleted = '0'
 ) v6

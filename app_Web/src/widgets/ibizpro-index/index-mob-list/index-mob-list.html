@@ -8,6 +8,7 @@
             @dblclick="handleDblClick(item)"
         >
             <div class="app_list_index_item" style="  padding-left: 20px;"> {{item.index_type}} # {{item.srfkey}} / {{item.srfmajortext}}</div>
+				<div v-html='item.indexdesc'></div>
         </div>
     </div>
     <div v-else>
