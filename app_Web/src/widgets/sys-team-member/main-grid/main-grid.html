@@ -18,30 +18,54 @@
             ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                {{$t('entities.systeam.main_grid.nodata')}} 
+                {{$t('entities.systeammember.main_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('teamid')">
-                <el-table-column show-overflow-tooltip :prop="'teamid'" :label="$t('entities.systeam.main_grid.columns.teamid')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('teammemberid')">
+                <el-table-column show-overflow-tooltip :prop="'teammemberid'" :label="$t('entities.systeammember.main_grid.columns.teammemberid')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.systeam.main_grid.columns.teamid')}}
+                        {{$t('entities.systeammember.main_grid.columns.teammemberid')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.teamid}}</span>
+                            <span>{{row.teammemberid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('personname')">
+                <el-table-column show-overflow-tooltip :prop="'personname'" :label="$t('entities.systeammember.main_grid.columns.personname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.systeammember.main_grid.columns.personname')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.personname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('userid')">
+                <el-table-column show-overflow-tooltip :prop="'userid'" :label="$t('entities.systeammember.main_grid.columns.userid')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.systeammember.main_grid.columns.userid')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.userid}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('teamname')">
-                <el-table-column show-overflow-tooltip :prop="'teamname'" :label="$t('entities.systeam.main_grid.columns.teamname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'teamname'" :label="$t('entities.systeammember.main_grid.columns.teamname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.systeam.main_grid.columns.teamname')}}
+                        {{$t('entities.systeammember.main_grid.columns.teamname')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -56,34 +80,22 @@
             { pathName: 'systeammembers', parameterName: 'systeammember' },
             { pathName: 'usr2gridview', parameterName: 'usr2gridview' }
             ]}"
-                            valueitem="srfkey"
+                            valueitem="teamid"
                         >
                             <span>{{row.teamname}}</span>
                         </app-column-link>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('domains')">
-                <el-table-column show-overflow-tooltip :prop="'domains'" :label="$t('entities.systeam.main_grid.columns.domains')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('teamid')">
+                <el-table-column show-overflow-tooltip :prop="'teamid'" :label="$t('entities.systeammember.main_grid.columns.teamid')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.systeam.main_grid.columns.domains')}}
+                        {{$t('entities.systeammember.main_grid.columns.teamid')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.domains}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('memo')">
-                <el-table-column show-overflow-tooltip :prop="'memo'" :label="$t('entities.systeam.main_grid.columns.memo')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.systeam.main_grid.columns.memo')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.memo}}</span>
+                            <span>{{row.teamid}}</span>
                     </template>
                 </el-table-column>
             </template>

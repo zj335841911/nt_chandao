@@ -2111,6 +2111,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '647cee7cf9c101876645c1c5bcec3602',
+            viewmodule: 'ou',
+            viewname: 'SysTeamMemberEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '65129e5f76f96cbb1d2d1c9e9bb2afed',
             viewmodule: 'ibiz',
             viewname: 'TestModuleGridViewBranch',
@@ -3458,6 +3467,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'ebf8f4c62f92ff24ff740558f12f7303',
+            ],
+        },
+        {
+            viewtag: 'a0e1f55e52d3167ad1815ac7076cdc45',
+            viewmodule: 'ou',
+            viewname: 'SysTeamMemberUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '647cee7cf9c101876645c1c5bcec3602',
             ],
         },
         {
