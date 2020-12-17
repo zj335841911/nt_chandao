@@ -1204,6 +1204,8 @@ export default class EmpTreeMenuZSService extends ControlService {
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {SRFPARENTKEY:"%sysdept%"} });
+                        Object.assign(treeNode, {navigateParams: {srfparentkey:"%sysdept%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysdepartment" });

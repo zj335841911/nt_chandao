@@ -5899,6 +5899,16 @@
         "viewtag": "e842d6d727d88c2c78b59c033fa27f34",
         "memo": ""
     },
+    "sysemployeegridexpviewdept": {
+        "title": "人员表格导航视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeGridExpViewDept",
+        "viewfilename": "sys-employee-grid-exp-view-dept",
+        "viewtag": "e843bd954ebbd93fa06a419e07c838e3",
+        "memo": ""
+    },
     "testtaskeditview_edit": {
         "title": "测试单编辑视图",
         "caption": "测试版本",

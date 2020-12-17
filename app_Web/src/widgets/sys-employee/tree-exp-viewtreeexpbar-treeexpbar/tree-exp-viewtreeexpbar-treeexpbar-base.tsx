@@ -180,7 +180,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'DEPART')) {
             return {  
-                viewname: 'sys-employee-grid-exp-view', 
+                viewname: 'sys-employee-grid-exp-view-dept', 
                 parentdata: {},
                 deKeyField:'sysemployee'
 			};

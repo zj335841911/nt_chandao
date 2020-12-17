@@ -4727,6 +4727,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumQaChartView9",
             "viewtag": "e842d6d727d88c2c78b59c033fa27f34"
         },
+        "sysemployeegridexpviewdept": {
+            "title": "人员表格导航视图",
+            "caption": "人员",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "SysEmployeeGridExpViewDept",
+            "viewtag": "e843bd954ebbd93fa06a419e07c838e3"
+        },
         "testtaskeditview_edit": {
             "title": "测试单编辑视图",
             "caption": "测试版本",
