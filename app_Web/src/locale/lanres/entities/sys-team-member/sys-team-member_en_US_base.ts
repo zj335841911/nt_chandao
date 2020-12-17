@@ -23,6 +23,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("组成员",null),
 					title: commonLogic.appcommonhandle("组成员表格视图",null),
 				},
+				usr2gridviewpostmembers: {
+					caption: commonLogic.appcommonhandle("组成员",null),
+					title: commonLogic.appcommonhandle("组成员表格视图",null),
+				},
 			},
 			main_form: {
 				details: {
@@ -80,6 +84,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Remove And Close",null),
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
+			},
+			usr2gridviewpostmemberstoolbar_toolbar: {
 			},
 		};
 		return data;

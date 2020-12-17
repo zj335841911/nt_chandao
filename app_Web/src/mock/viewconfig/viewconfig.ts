@@ -3135,6 +3135,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "UserYearWorkStatsDashboardView",
             "viewtag": "a300309f336ad917bb9fae375cd5620a"
         },
+        "systeammemberusr2gridviewpostmembers": {
+            "title": "组成员表格视图",
+            "caption": "组成员",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamMemberUsr2GridViewPostMembers",
+            "viewtag": "a34f1835a2bc3fef24cf0c7be698e4cf"
+        },
         "testsuitegridview": {
             "title": "测试套件表格视图",
             "caption": "测试套件",

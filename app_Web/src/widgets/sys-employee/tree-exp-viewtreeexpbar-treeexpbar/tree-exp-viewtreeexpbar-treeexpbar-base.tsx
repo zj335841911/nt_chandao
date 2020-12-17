@@ -138,7 +138,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'SYSPOST')) {
             return {  
-                viewname: 'sys-team-member-usr2-grid-view', 
+                viewname: 'sys-team-member-usr2-grid-view-post-members', 
                 parentdata: {"srfparentdefname":"postid"},
                 deKeyField:'systeammember'
 			};

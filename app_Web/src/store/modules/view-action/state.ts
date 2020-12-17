@@ -3537,6 +3537,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a34f1835a2bc3fef24cf0c7be698e4cf',
+            viewmodule: 'ou',
+            viewname: 'SysTeamMemberUsr2GridViewPostMembers',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '647cee7cf9c101876645c1c5bcec3602',
+            ],
+        },
+        {
             viewtag: 'a3bd82ec712d2e3ad12e716655e960fc',
             viewmodule: 'zentao',
             viewname: 'TestSuiteGridView',
@@ -4769,6 +4779,7 @@ export const viewstate: any = {
                 'ba8bd2f4b2dcf0500c9dcd985c531d68',
                 'c9f2cd9496fa701c375279c93e1487fd',
                 '465f1d3489621f94a90490faa3e0ea0f',
+                'a34f1835a2bc3fef24cf0c7be698e4cf',
             ],
         },
         {
