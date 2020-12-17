@@ -69,6 +69,20 @@ export class SysEmployeeUsr3GridViewBase extends GridViewBase {
      */
     public appUIService: SysEmployeeUIService = new SysEmployeeUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof SysEmployeeUsr3GridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_project_eq': {
+            isRawValue: false,
+            value: 'project',
+        }
+    };
+
     /**
      * 视图模型数据
      *

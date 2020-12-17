@@ -12,9 +12,16 @@ import lombok.extern.slf4j.Slf4j;
 @Component("synchronousPMSToOuSystemServiceJobHandler")
 public class synchronousPMSToOuSystemServiceJobHandler implements IJobsHandler {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IUserService userService;
 
     @Override
     public JobsResponse execute(String tenantId, String param) throws JobsException {
+        cn.ibizlab.pms.core.zentao.domain.User entity=new cn.ibizlab.pms.core.zentao.domain.User();
+        entity.set("tenantid",tenantId);
+        entity.set("param",param);
+        userService.syncAccount(entity);
         log.info("执行 DemoJobHandler tenantId=" + tenantId + ",param=" + param);
         return JobsResponse.ok();
     }
