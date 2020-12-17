@@ -1829,6 +1829,16 @@
         "viewtag": "4b8db6d139edb8adadbef2f0c0b3350a",
         "memo": ""
     },
+    "sysemployeepickupgridview": {
+        "title": "人员选择表格视图",
+        "caption": "人员",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeePickupGridView",
+        "viewfilename": "sys-employee-pickup-grid-view",
+        "viewtag": "4c55a1137e524e7e18d34f7619f4efb6",
+        "memo": ""
+    },
     "companydeptusertreeexpview": {
         "title": "组织部门人员树导航视图",
         "caption": "公司",
@@ -2299,6 +2309,16 @@
         "viewtag": "5f063c226812206f8262566387a0b6a5",
         "memo": ""
     },
+    "systeampickupview": {
+        "title": "组数据选择视图",
+        "caption": "组",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamPickupView",
+        "viewfilename": "sys-team-pickup-view",
+        "viewtag": "5f7840c73c7dd18acccfaa5bb67468aa",
+        "memo": ""
+    },
     "taskpickupview": {
         "title": "task数据选择视图",
         "caption": "任务",
@@ -2427,6 +2447,16 @@
         "viewname": "IBIZProTagEditView",
         "viewfilename": "ibizpro-tag-edit-view",
         "viewtag": "66ea594caa3b4caf0a9e6944eec6d80c",
+        "memo": ""
+    },
+    "sysemployeempickupview": {
+        "title": "人员数据多项选择视图",
+        "caption": "人员",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeMPickupView",
+        "viewfilename": "sys-employee-mpickup-view",
+        "viewtag": "684bbae57d8a66a95fc8808db8d08382",
         "memo": ""
     },
     "doclibproducttreeview": {
@@ -2917,6 +2947,16 @@
         "viewname": "TodoDescEditView9",
         "viewfilename": "todo-desc-edit-view9",
         "viewtag": "7c7a1fdf074c475a128c920a952762fa",
+        "memo": ""
+    },
+    "systeammembergridview": {
+        "title": "组成员表格视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberGridView",
+        "viewfilename": "sys-team-member-grid-view",
+        "viewtag": "7c8043b1ffa43efe3285268a70f0d97e",
         "memo": ""
     },
     "productgridview": {
@@ -5709,6 +5749,16 @@
         "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd",
         "memo": ""
     },
+    "systeampickupgridview": {
+        "title": "组选择表格视图",
+        "caption": "组",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamPickupGridView",
+        "viewfilename": "sys-team-pickup-grid-view",
+        "viewtag": "e5b14957778e46c8fe25aee22fe0fba8",
+        "memo": ""
+    },
     "ibizprotaggridview": {
         "title": "标签表格视图",
         "caption": "标签",
@@ -5827,6 +5877,16 @@
         "viewname": "BugAssingToView",
         "viewfilename": "bug-assing-to-view",
         "viewtag": "e897cf80a700c92025004c4696d9ae10",
+        "memo": ""
+    },
+    "sysemployeepickupview": {
+        "title": "人员数据选择视图",
+        "caption": "人员",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeePickupView",
+        "viewfilename": "sys-employee-pickup-view",
+        "viewtag": "e8988cc597d1c970f738b9a8719e02c7",
         "memo": ""
     },
     "projectstatsgridview9": {
@@ -6097,6 +6157,16 @@
         "viewname": "SysUpdateLogEditView",
         "viewfilename": "sys-update-log-edit-view",
         "viewtag": "f2dfdf637fb965a83519ac280de3e97c",
+        "memo": ""
+    },
+    "systeamgridview": {
+        "title": "组表格视图",
+        "caption": "组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamGridView",
+        "viewfilename": "sys-team-grid-view",
+        "viewtag": "f326bbe78ccb89a4fceca8db2f842a1e",
         "memo": ""
     },
     "testreporteditview": {

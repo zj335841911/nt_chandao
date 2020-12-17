@@ -1663,6 +1663,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4c55a1137e524e7e18d34f7619f4efb6',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeePickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '4d32793fc57ec1ae930a18608526d00e',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView_commitTest',
@@ -2059,6 +2068,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5f7840c73c7dd18acccfaa5bb67468aa',
+            viewmodule: 'ou',
+            viewname: 'SysTeamPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e5b14957778e46c8fe25aee22fe0fba8',
+            ],
+        },
+        {
             viewtag: '603f4478afd3bcccb330888c3ac880bd',
             viewmodule: 'zentao',
             viewname: 'DocDocStatusEditView',
@@ -2125,6 +2144,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '5f7840c73c7dd18acccfaa5bb67468aa',
+                'e8988cc597d1c970f738b9a8719e02c7',
             ],
         },
         {
@@ -2512,7 +2533,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '57a23ead04eda866c6326f0705f595e3',
+                '647cee7cf9c101876645c1c5bcec3602',
             ],
         },
         {
@@ -5163,6 +5184,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e5b14957778e46c8fe25aee22fe0fba8',
+            viewmodule: 'ou',
+            viewname: 'SysTeamPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'e5e537e1d8092dbfa419c892762f34fe',
             viewmodule: 'zentao',
             viewname: 'IBIZProTagGridView',
@@ -5256,6 +5286,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e8988cc597d1c970f738b9a8719e02c7',
+            viewmodule: 'zentao',
+            viewname: 'SysEmployeePickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4c55a1137e524e7e18d34f7619f4efb6',
             ],
         },
         {

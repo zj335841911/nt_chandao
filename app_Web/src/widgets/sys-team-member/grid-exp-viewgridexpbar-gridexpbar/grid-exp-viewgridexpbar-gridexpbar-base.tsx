@@ -95,7 +95,7 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
      * @type {string}
      * @memberof GridExpViewgridexpbarBase
      */
-    public navViewName: string = 'sys-employee-edit-view';
+    public navViewName: string = 'sys-team-member-edit-view';
 
     /**
     * 刷新

@@ -105,6 +105,15 @@ export default class SysTeamMemberUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'systeammembers',
+            component: 'sys-team-member-grid-view',
+            openmode: '',
+            title: '组成员',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

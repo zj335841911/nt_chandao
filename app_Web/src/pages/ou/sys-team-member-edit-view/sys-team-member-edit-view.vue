@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysTeamMemberEditViewBase } from './sys-team-member-edit-view-base';
-import view_form from '@widgets/sys-team-member/main-form/main-form.vue';
+import view_form from '@widgets/sys-team-member/exp-main-edit-form/exp-main-edit-form.vue';
 
 /**
  * 组成员编辑视图视图

@@ -1471,6 +1471,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectEditView_Activate",
             "viewtag": "4b8db6d139edb8adadbef2f0c0b3350a"
         },
+        "sysemployeepickupgridview": {
+            "title": "人员选择表格视图",
+            "caption": "人员",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeePickupGridView",
+            "viewtag": "4c55a1137e524e7e18d34f7619f4efb6"
+        },
         "companydeptusertreeexpview": {
             "title": "组织部门人员树导航视图",
             "caption": "公司",
@@ -1847,6 +1855,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskWorkHoursView",
             "viewtag": "5f063c226812206f8262566387a0b6a5"
         },
+        "systeampickupview": {
+            "title": "组数据选择视图",
+            "caption": "组",
+            "viewtype": "DEPICKUPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamPickupView",
+            "viewtag": "5f7840c73c7dd18acccfaa5bb67468aa"
+        },
         "taskpickupview": {
             "title": "task数据选择视图",
             "caption": "任务",
@@ -1950,6 +1966,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "IBIZProTagEditView",
             "viewtag": "66ea594caa3b4caf0a9e6944eec6d80c"
+        },
+        "sysemployeempickupview": {
+            "title": "人员数据多项选择视图",
+            "caption": "人员",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeMPickupView",
+            "viewtag": "684bbae57d8a66a95fc8808db8d08382"
         },
         "doclibproducttreeview": {
             "title": "文档库树视图（产品）",
@@ -2342,6 +2366,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoDescEditView9",
             "viewtag": "7c7a1fdf074c475a128c920a952762fa"
+        },
+        "systeammembergridview": {
+            "title": "组成员表格视图",
+            "caption": "组成员",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamMemberGridView",
+            "viewtag": "7c8043b1ffa43efe3285268a70f0d97e"
         },
         "productgridview": {
             "title": "所有产品",
@@ -4575,6 +4607,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryEditView_StoryChange",
             "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd"
         },
+        "systeampickupgridview": {
+            "title": "组选择表格视图",
+            "caption": "组",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamPickupGridView",
+            "viewtag": "e5b14957778e46c8fe25aee22fe0fba8"
+        },
         "ibizprotaggridview": {
             "title": "标签表格视图",
             "caption": "标签",
@@ -4670,6 +4710,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugAssingToView",
             "viewtag": "e897cf80a700c92025004c4696d9ae10"
+        },
+        "sysemployeepickupview": {
+            "title": "人员数据选择视图",
+            "caption": "人员",
+            "viewtype": "DEPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "SysEmployeePickupView",
+            "viewtag": "e8988cc597d1c970f738b9a8719e02c7"
         },
         "projectstatsgridview9": {
             "title": "项目统计表格视图",
@@ -4886,6 +4934,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "SysUpdateLogEditView",
             "viewtag": "f2dfdf637fb965a83519ac280de3e97c"
+        },
+        "systeamgridview": {
+            "title": "组表格视图",
+            "caption": "组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamGridView",
+            "viewtag": "f326bbe78ccb89a4fceca8db2f842a1e"
         },
         "testreporteditview": {
             "title": "测试报告编辑视图",

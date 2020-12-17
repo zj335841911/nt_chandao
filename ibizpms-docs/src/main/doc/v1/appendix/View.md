@@ -462,6 +462,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求表格视图|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
+|-|人员选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|组织部门人员树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|提交测试|DEEDITVIEW|&nbsp;|
 |-|文档表格视图|DEGRIDVIEW9|&nbsp;|
@@ -509,6 +510,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务甘特视图|DEGANTTVIEW|&nbsp;|
 |-|工时|DEOPTVIEW|&nbsp;|
+|-|组数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|task数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|文档编辑视图|DEEDITVIEW9|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW9|&nbsp;|
@@ -522,6 +524,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例|DEGRIDVIEW|&nbsp;|
 |-|标签编辑视图|DEEDITVIEW|&nbsp;|
+|-|人员数据多项选择视图|DEMPICKUPVIEW|&nbsp;|
 |-|文档库树视图（产品）|DETREEVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库分类编辑视图|DEEDITVIEW|&nbsp;|
@@ -571,6 +574,7 @@ SRFNAVPARAM.project=%project%|
 |-|确认Bug|DEOPTVIEW|&nbsp;|
 |-|所有项目|DELISTVIEW|&nbsp;|
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|
+|-|组成员表格视图|DEGRIDVIEW|&nbsp;|
 |-|所有产品|DEGRIDVIEW|&nbsp;|
 |-|测试版本数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
@@ -850,6 +854,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（关联用例）|DEGRIDVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW|&nbsp;|
+|-|组选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|标签表格视图|DEGRIDVIEW|&nbsp;|
 |-|单位编辑视图|DEEDITVIEW|&nbsp;|
 |-|部门选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
@@ -862,6 +867,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品汇总表图表视图|DECHARTVIEW9|&nbsp;|
 |-|测试单编辑视图|DEEDITVIEW|&nbsp;|
 |-|指派Bug|DEOPTVIEW|&nbsp;|
+|-|人员数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|项目统计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|测试模块数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
@@ -889,6 +895,7 @@ SRFNAVPARAM.project=%project%|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|转交任务|DEOPTVIEW|&nbsp;|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
+|-|组表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库分类表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|

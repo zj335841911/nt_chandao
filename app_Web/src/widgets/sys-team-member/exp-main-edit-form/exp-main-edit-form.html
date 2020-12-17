@@ -1,0 +1,173 @@
+<i-form
+    :model="this.data"
+    class="app-form"
+    ref="form"
+    id="systeammember_expmainedit"
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.group1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.group1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.systeammember.expmainedit_form.details.group1')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.group1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.teamname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="teamname"
+    :itemRules="this.rules().teamname"
+    class=""
+
+    :caption="$t('entities.systeammember.expmainedit_form.details.teamname')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.teamname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-picker 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.teamname.disabled"
+    name="teamname"
+    deMajorField="teamname"
+    deKeyField="systeam"
+    :service="service"
+    :acParams="{ serviceName: 'SysTeamService', interfaceName: 'FetchDefault'}"
+    valueitem="teamid" 
+    :value="data.teamname"
+    :pickupView="{ viewname: 'sys-team-pickup-view', title: $t('entities.systeam.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'systeams', parameterName: 'systeam' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+    style=""  
+    @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.personname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="personname"
+    :itemRules="this.rules().personname"
+    class=""
+
+    :caption="$t('entities.systeammember.expmainedit_form.details.personname')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.personname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-picker 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.personname.disabled"
+    name="personname"
+    deMajorField="personname"
+    deKeyField="sysemployee"
+    :service="service"
+    :acParams="{ serviceName: 'SysEmployeeService', interfaceName: 'FetchDefault'}"
+    valueitem="userid" 
+    :value="data.personname"
+    :pickupView="{ viewname: 'sys-employee-pickup-view', title: $t('entities.sysemployee.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+    style=""  
+    @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.username.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="username"
+    :itemRules="this.rules().username"
+    class=""
+
+    :caption="$t('entities.systeammember.expmainedit_form.details.username')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.username.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='username' :value="data.username" dataType="PICKUPDATA"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+    </row>
+</i-form>

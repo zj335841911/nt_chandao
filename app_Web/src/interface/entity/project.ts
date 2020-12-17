@@ -599,7 +599,7 @@ export interface Project {
     mdeptid?: any;
 
     /**
-     * 项目团队
+     * 项目团队成员
      *
      * @returns {*}
      * @memberof Project

@@ -44,9 +44,17 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员表格视图人员实体表格视图(组织下所有人员)",null),
 				},
+				pickupgridview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员选择表格视图",null),
+				},
 				editview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员编辑视图",null),
+				},
+				mpickupview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员数据多项选择视图",null),
 				},
 				gridexpview: {
 					caption: commonLogic.appcommonhandle("人员",null),
@@ -63,6 +71,10 @@ function getLocaleResourceBase(){
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员树导航视图",null),
+				},
+				pickupview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员数据选择视图",null),
 				},
 			},
 			main_form: {
