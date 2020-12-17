@@ -322,6 +322,8 @@ function getAppLocale(){
                 },
                 delete1: "确认要删除 ",
                 delete2: "删除操作将不可恢复？",
+                fold: "折叠",
+                unfold: "展开",
             },
             dashBoard: {
                 handleClick: {

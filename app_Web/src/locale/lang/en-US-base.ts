@@ -323,6 +323,8 @@ function getAppLocale(){
                 },
                 delete1: "Confirm to delete ",
                 delete2: "the delete operation will be unrecoverable!",
+                fold: "fold",
+                unfold: "upfold",
             },
             dashBoard: {
                 handleClick: {

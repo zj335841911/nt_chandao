@@ -65,7 +65,52 @@ export class IndexMobListBase extends ListControlBase {
      */  
     public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
 
-    
+        /**
+     * 页面变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof IndexMobListBase
+     */
+    public pageOnChange($event: any): void {
+        if (!$event || $event === this.curPage) {
+            return;
+        }
+        this.curPage = $event;
+        this.load({});
+    }
+
+    /**
+     * 分页条数变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof IndexMobListBase
+     */
+    public onPageSizeChange($event: any): void {
+        if (!$event || $event === this.limit) {
+            return;
+        }
+        this.limit = $event;
+        if (this.curPage === 1) {
+            this.load({});
+        }
+    }
+    /**
+     * 分页刷新
+     *
+     * @memberof IndexMobListBase
+     */
+    public pageRefresh(): void {
+        this.load({});
+    }
+	 /**
+     * 部件挂载完毕
+     *
+     * @protected
+     * @memberof IndexMobListBase
+     */
+    protected ctrlMounted(): void {}
 
     /**
      * 排序方向
