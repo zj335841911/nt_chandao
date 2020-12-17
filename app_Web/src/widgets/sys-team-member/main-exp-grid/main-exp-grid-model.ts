@@ -27,9 +27,9 @@ export default class MainExpModel {
     }else{
 		  return [
         {
-          name: 'teammemberid',
-          prop: 'teammemberid',
-          dataType: 'TEXT',
+          name: 'userid',
+          prop: 'userid',
+          dataType: 'PICKUP',
         },
         {
           name: 'personname',
@@ -37,14 +37,9 @@ export default class MainExpModel {
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'userid',
-          prop: 'userid',
+          name: 'postid',
+          prop: 'postid',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'teamname',
-          prop: 'teamname',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'teamid',
@@ -52,9 +47,9 @@ export default class MainExpModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'postid',
-          prop: 'postid',
-          dataType: 'PICKUP',
+          name: 'teamname',
+          prop: 'teamname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'srfdataaccaction',
@@ -66,6 +61,11 @@ export default class MainExpModel {
           prop: 'teammemberid',
           dataType: 'TEXT',
           isEditable:true
+        },
+        {
+          name: 'teammemberid',
+          prop: 'teammemberid',
+          dataType: 'TEXT',
         },
         {
           name: 'systeammember',

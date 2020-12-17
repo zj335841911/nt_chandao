@@ -64,12 +64,8 @@ function getLocaleResourceBase(){
 			},
 			mainexp_grid: {
 				columns: {
-					teammemberid: commonLogic.appcommonhandle("组成员标识",null),
-					personname: commonLogic.appcommonhandle("姓名",null),
 					userid: commonLogic.appcommonhandle("用户标识",null),
-					teamname: commonLogic.appcommonhandle("组名称",null),
-					teamid: commonLogic.appcommonhandle("组标识",null),
-					postid: commonLogic.appcommonhandle("岗位标识",null),
+					personname: commonLogic.appcommonhandle("姓名",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

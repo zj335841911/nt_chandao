@@ -84,13 +84,6 @@ export class MainExpGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "";
 
-    /**
-     * 列主键属性名称
-     *
-     * @type {string}
-     * @memberof MainExpGridBase
-     */
-    public columnKeyName: string = "teammemberid";
 
     /**
      * 本地缓存标识
@@ -125,24 +118,6 @@ export class MainExpGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'teammemberid',
-            label: '组成员标识',
-            langtag: 'entities.systeammember.mainexp_grid.columns.teammemberid',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'personname',
-            label: '姓名',
-            langtag: 'entities.systeammember.mainexp_grid.columns.personname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'userid',
             label: '用户标识',
             langtag: 'entities.systeammember.mainexp_grid.columns.userid',
@@ -152,27 +127,9 @@ export class MainExpGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'teamname',
-            label: '组名称',
-            langtag: 'entities.systeammember.mainexp_grid.columns.teamname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'teamid',
-            label: '组标识',
-            langtag: 'entities.systeammember.mainexp_grid.columns.teamid',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'postid',
-            label: '岗位标识',
-            langtag: 'entities.systeammember.mainexp_grid.columns.postid',
+            name: 'personname',
+            label: '姓名',
+            langtag: 'entities.systeammember.mainexp_grid.columns.personname',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -279,12 +236,8 @@ export class MainExpGridBase extends GridControlBase {
      * @memberof MainExpBase
      */
     public hasRowEdit: any = {
-        'teammemberid':false,
-        'personname':false,
         'userid':false,
-        'teamname':false,
-        'teamid':false,
-        'postid':false,
+        'personname':false,
     };
 
     /**
@@ -372,7 +325,7 @@ export class MainExpGridBase extends GridControlBase {
     * @memberof MainExpBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['teammemberid','personname','userid','teamname','teamid','postid'];
+        let allColumns:Array<any> = ['userid','personname'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -451,12 +404,8 @@ export class MainExpGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                teammemberid:'',
-                personname:'',
                 userid:'',
-                teamname:'',
-                teamid:'',
-                postid:'',
+                personname:'',
                 children: children
             }
             groupTree.push(tree);
@@ -481,12 +430,8 @@ export class MainExpGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            teammemberid:'',
-            personname:'',
             userid:'',
-            teamname:'',
-            teamid:'',
-            postid:'',
+            personname:'',
             children: child
         }
         if(child && child.length > 0){
@@ -547,12 +492,8 @@ export class MainExpGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                teammemberid:'',
-                personname:'',
                 userid:'',
-                teamname:'',
-                teamid:'',
-                postid:'',
+                personname:'',
                 children: children,
             }
             groupTree.push(tree);

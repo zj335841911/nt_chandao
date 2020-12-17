@@ -111,7 +111,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         if (Object.is(expmode, 'POST')) {
             return {  
                 viewname: 'sys-post-grid-exp-view', 
-                parentdata: {},
+                parentdata: {"srfparentdefname":"postid"},
                 deKeyField:'syspost'
 			};
         }

@@ -25,30 +25,6 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('teammemberid')">
-                <el-table-column show-overflow-tooltip :prop="'teammemberid'" :label="$t('entities.systeammember.mainexp_grid.columns.teammemberid')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.systeammember.mainexp_grid.columns.teammemberid')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.teammemberid}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('personname')">
-                <el-table-column show-overflow-tooltip :prop="'personname'" :label="$t('entities.systeammember.mainexp_grid.columns.personname')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.systeammember.mainexp_grid.columns.personname')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.personname}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('userid')">
                 <el-table-column show-overflow-tooltip :prop="'userid'" :label="$t('entities.systeammember.mainexp_grid.columns.userid')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -61,53 +37,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('teamname')">
-                <el-table-column show-overflow-tooltip :prop="'teamname'" :label="$t('entities.systeammember.mainexp_grid.columns.teamname')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('personname')">
+                <el-table-column show-overflow-tooltip :prop="'personname'" :label="$t('entities.systeammember.mainexp_grid.columns.personname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.systeammember.mainexp_grid.columns.teamname')}}
+                        {{$t('entities.systeammember.mainexp_grid.columns.personname')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="systeammember"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'sys-team-member-usr2-grid-view', height: 0,width: 0,title: $t('entities.systeammember.views.usr2gridview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'systeammembers', parameterName: 'systeammember' },
-            { pathName: 'usr2gridview', parameterName: 'usr2gridview' }
-            ]}"
-                            valueitem="teamid"
-                        >
-                            <span>{{row.teamname}}</span>
-                        </app-column-link>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('teamid')">
-                <el-table-column show-overflow-tooltip :prop="'teamid'" :label="$t('entities.systeammember.mainexp_grid.columns.teamid')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.systeammember.mainexp_grid.columns.teamid')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.teamid}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('postid')">
-                <el-table-column show-overflow-tooltip :prop="'postid'" :label="$t('entities.systeammember.mainexp_grid.columns.postid')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.systeammember.mainexp_grid.columns.postid')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.postid}}</span>
+                            <span>{{row.personname}}</span>
                     </template>
                 </el-table-column>
             </template>
