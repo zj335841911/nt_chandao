@@ -1887,6 +1887,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryProjectMPickupView3",
             "viewtag": "645efdb73a5b13723410903dff447667"
         },
+        "systeammembereditview": {
+            "title": "组成员编辑视图",
+            "caption": "组成员",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamMemberEditView",
+            "viewtag": "647cee7cf9c101876645c1c5bcec3602"
+        },
         "buildoptionview": {
             "title": "版本选项操作视图",
             "caption": "版本",
@@ -3062,6 +3070,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzCaseInfoEditView9",
             "viewtag": "a0a25524d16a413d7e020c0af2cc9c9b"
+        },
+        "systeammemberusr2gridview": {
+            "title": "组成员表格视图",
+            "caption": "组成员",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamMemberUsr2GridView",
+            "viewtag": "a0e1f55e52d3167ad1815ac7076cdc45"
         },
         "storygridview9_related": {
             "title": "相关需求",

@@ -3338,6 +3338,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '984a70c0b86ca38a96f77ba1c851530f',
+            viewmodule: 'ou',
+            viewname: 'SysTeamEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '991e5ef3e406f063f981865759d0857f',
             viewmodule: 'report',
             viewname: 'IbzWeeklyUsr3GridView',
@@ -4444,6 +4453,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c9f2cd9496fa701c375279c93e1487fd',
+            viewmodule: 'ou',
+            viewname: 'SysTeamUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '984a70c0b86ca38a96f77ba1c851530f',
+            ],
+        },
+        {
             viewtag: 'ca5490c6292062cfd7ada980ed935464',
             viewmodule: 'zentao',
             viewname: 'TestTaskCloseOptionView',
@@ -4696,6 +4715,7 @@ export const viewstate: any = {
                 'ebdc0496f66718b66a8ae0ea440d0356',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 '42ce56d703f9d063d6c1524bb7a559de',
+                'c9f2cd9496fa701c375279c93e1487fd',
                 '465f1d3489621f94a90490faa3e0ea0f',
             ],
         },

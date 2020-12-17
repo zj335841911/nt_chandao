@@ -4776,6 +4776,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-edit-view-4791/bug-edit-view-4791.vue'),
                 },
                 {
+                    path: 'systeams/:systeam?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.systeam.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'systeams', parameterName: 'systeam' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-team-usr2-grid-view/sys-team-usr2-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/editview_storychange/:editview_storychange?',
                     meta: {
                         caption: 'entities.story.views.editview_storychange.caption',
@@ -8864,6 +8878,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/action-project-trends-list-view9/action-project-trends-list-view9.vue'),
+                },
+                {
+                    path: 'systeams/:systeam?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.systeam.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'systeams', parameterName: 'systeam' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-team-edit-view/sys-team-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/productmodules/:productmodule?/gridviewbranch/:gridviewbranch?',

@@ -96,6 +96,15 @@ export default class SysTeamMemberUIServiceBase extends UIService {
      * @memberof  SysTeamMemberUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'systeammembers',
+            component: 'sys-team-member-edit-view',
+            openmode: '',
+            title: '组成员',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

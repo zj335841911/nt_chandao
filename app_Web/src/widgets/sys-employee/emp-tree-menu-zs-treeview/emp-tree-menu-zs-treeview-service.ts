@@ -1905,6 +1905,7 @@ export default class EmpTreeMenuZSService extends ControlService {
 
             Object.assign(treeNode, { expanded: filter.isAutoexpand });
             Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { navfilter: "teamid" });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             Object.assign(treeNode, { nodeType: "STATIC" });

@@ -2349,6 +2349,16 @@
         "viewtag": "645efdb73a5b13723410903dff447667",
         "memo": ""
     },
+    "systeammembereditview": {
+        "title": "组成员编辑视图",
+        "caption": "组成员",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberEditView",
+        "viewfilename": "sys-team-member-edit-view",
+        "viewtag": "647cee7cf9c101876645c1c5bcec3602",
+        "memo": ""
+    },
     "buildoptionview": {
         "title": "版本选项操作视图",
         "caption": "版本",
@@ -3817,6 +3827,16 @@
         "viewname": "IbzCaseInfoEditView9",
         "viewfilename": "ibz-case-info-edit-view9",
         "viewtag": "a0a25524d16a413d7e020c0af2cc9c9b",
+        "memo": ""
+    },
+    "systeammemberusr2gridview": {
+        "title": "组成员表格视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberUsr2GridView",
+        "viewfilename": "sys-team-member-usr2-grid-view",
+        "viewtag": "a0e1f55e52d3167ad1815ac7076cdc45",
         "memo": ""
     },
     "storygridview9_related": {

@@ -129,6 +129,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 deKeyField:'sysemployee'
 			};
         }
+        if (Object.is(expmode, 'TEAM')) {
+            return {  
+                viewname: 'sys-team-usr2-grid-view', 
+                parentdata: {"srfparentdefname":"teamid"},
+                deKeyField:'systeam'
+			};
+        }
         if (Object.is(expmode, 'PROJECT')) {
             return {  
                 viewname: 'project-grid-view-emp', 
