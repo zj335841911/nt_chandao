@@ -282,8 +282,8 @@ export class ProjectGridViewEMpBase extends GridViewBase {
      * @memberof ProjectGridViewEMp
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = {PROJECT:"%project%",SRFPARENTKEY:"%project%"};
-        const localViewParam: any ={project:"%project%",srfparentkey:"%project%"};
+        const localContext: any = {SRFPARENTKEY:"%project%"};
+        const localViewParam: any ={srfparentkey:"%project%"};
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
