@@ -77,6 +77,29 @@ export class IbzprojectteamnestServiceBase extends EntityService {
     }
 
     /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzprojectteamnestServiceBase
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteamnests'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteamnests') as any);
+            if(result){
+                return new HttpResponse(200,{});
+            }else{
+                return new HttpResponse(200,{});
+            } 
+        }else{
+            return new HttpResponse(200,{});
+        }
+    }
+
+    /**
      * FetchRowEditDefault接口方法
      *
      * @param {*} [context={}]
@@ -100,6 +123,29 @@ export class IbzprojectteamnestServiceBase extends EntityService {
     }
 
     /**
+     * FetchTempRowEditDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzprojectteamnestServiceBase
+     */
+    public async FetchTempRowEditDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempRowEditDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteamnests'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteamnests') as any);
+            if(result){
+                return new HttpResponse(200,{});
+            }else{
+                return new HttpResponse(200,{});
+            } 
+        }else{
+            return new HttpResponse(200,{});
+        }
+    }
+
+    /**
      * FetchTaskCntEstimateConsumedLeft接口方法
      *
      * @param {*} [context={}]
@@ -119,6 +165,29 @@ export class IbzprojectteamnestServiceBase extends EntityService {
             } 
         }else{
             return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchTempTaskCntEstimateConsumedLeft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzprojectteamnestServiceBase
+     */
+    public async FetchTempTaskCntEstimateConsumedLeft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempTaskCntEstimateConsumedLeft ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteamnests'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteamnests') as any);
+            if(result){
+                return new HttpResponse(200,{});
+            }else{
+                return new HttpResponse(200,{});
+            } 
+        }else{
+            return new HttpResponse(200,{});
         }
     }
 }
