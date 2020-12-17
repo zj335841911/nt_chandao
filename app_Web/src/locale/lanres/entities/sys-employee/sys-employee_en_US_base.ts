@@ -48,6 +48,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员编辑视图",null),
 				},
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员表格导航视图",null),
+				},
 				usr3gridviewuserconcat: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员表格视图",null),
@@ -79,6 +83,19 @@ function getLocaleResourceBase(){
 				},
 			},
 			main_grid: {
+				columns: {
+					userid: commonLogic.appcommonhandle("用户标识",null),
+					sex: commonLogic.appcommonhandle("性别",null),
+					mdeptname: commonLogic.appcommonhandle("主部门名称",null),
+					personname: commonLogic.appcommonhandle("姓名",null),
+					nickname: commonLogic.appcommonhandle("昵称别名",null),
+					phone: commonLogic.appcommonhandle("联系方式",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			expmain_grid: {
 				columns: {
 					userid: commonLogic.appcommonhandle("用户标识",null),
 					sex: commonLogic.appcommonhandle("性别",null),

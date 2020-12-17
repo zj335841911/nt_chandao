@@ -368,6 +368,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 'f83dac873b9215483c4bb91673284b41',
                 'd7dd357c2488e9f3440971b4407d52a1',
@@ -2427,6 +2428,16 @@ export const viewstate: any = {
             refviews: [
                 '5a8a29268a7563b62fc0160233958830',
                 '7df0f0deee91304e0350f00baa8a92d6',
+            ],
+        },
+        {
+            viewtag: '745687df2b5a067c15598debbcba1fe2',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '57a23ead04eda866c6326f0705f595e3',
             ],
         },
         {
@@ -4756,8 +4767,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '8b1be3cc2e5253c0ea5bcb16b1d02f6e',
                 'ebdc0496f66718b66a8ae0ea440d0356',
+                '745687df2b5a067c15598debbcba1fe2',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 'a0e1f55e52d3167ad1815ac7076cdc45',
                 'e6f937afe3371083ae7dda1d58c85ed7',
@@ -4881,8 +4892,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
-                '1540523a668e920d831510cfbec2c5e2',
                 '6f78b25e86923ab600a2141d50fe49fd',
+                '1540523a668e920d831510cfbec2c5e2',
                 '575fecad655143bbd28f17c581725a4e',
                 '23cc93d7fdddff5077a7952d26802a7b',
                 '3f2ca3e560d9082bb56fbf7667a57a66',

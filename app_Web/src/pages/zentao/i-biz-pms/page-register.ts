@@ -141,6 +141,7 @@ export const PageComponents = {
         Vue.component('ibz-report-my-tab-exp-view', () => import('@pages/report/ibz-report-my-tab-exp-view/ibz-report-my-tab-exp-view.vue'));
         Vue.component('sys-team-member-usr2-grid-view-post-members', () => import('@pages/ou/sys-team-member-usr2-grid-view-post-members/sys-team-member-usr2-grid-view-post-members.vue'));
         Vue.component('product-module-quick-cfg-view', () => import('@pages/ibiz/product-module-quick-cfg-view/product-module-quick-cfg-view.vue'));
+        Vue.component('sys-employee-grid-exp-view', () => import('@pages/ou/sys-employee-grid-exp-view/sys-employee-grid-exp-view.vue'));
         Vue.component('bug-grid-view9-assigned-to-me', () => import('@pages/zentao/bug-grid-view9-assigned-to-me/bug-grid-view9-assigned-to-me.vue'));
         Vue.component('doc-doc-module-grid-view', () => import('@pages/zentao/doc-doc-module-grid-view/doc-doc-module-grid-view.vue'));
         Vue.component('story-edit-view', () => import('@pages/zentao/story-edit-view/story-edit-view.vue'));

@@ -5389,6 +5389,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-module-quick-cfg-view/product-module-quick-cfg-view.vue'),
                 },
                 {
+                    path: 'sysemployees/:sysemployee?/gridexpview/:gridexpview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.gridexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'gridexpview', parameterName: 'gridexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-grid-exp-view/sys-employee-grid-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
                         caption: 'entities.bug.views.gridview9_assignedtome.caption',

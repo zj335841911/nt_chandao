@@ -2689,6 +2689,16 @@
         "viewtag": "73fbcf0e3685096f63587bcff234f958",
         "memo": ""
     },
+    "sysemployeegridexpview": {
+        "title": "人员表格导航视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeGridExpView",
+        "viewfilename": "sys-employee-grid-exp-view",
+        "viewtag": "745687df2b5a067c15598debbcba1fe2",
+        "memo": ""
+    },
     "ibzdailymymaineditview": {
         "title": "日报编辑视图（主数据）",
         "caption": "日报",
