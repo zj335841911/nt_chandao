@@ -1439,6 +1439,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskGridView",
             "viewtag": "4b01c8ae7e7e23b9c67dbca2ee90e41b"
         },
+        "usercontactgridexpview": {
+            "title": "用户联系方式表格导航视图",
+            "caption": "用户联系方式",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserContactGridExpView",
+            "viewtag": "4b2fac9ffaccd974c1ba4c24508197af"
+        },
         "storygridview9_assignedtome": {
             "title": "需求表格视图",
             "caption": "需求",

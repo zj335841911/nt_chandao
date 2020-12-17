@@ -173,7 +173,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'CONCATLIST')) {
             return {  
-                viewname: 'user-contact-usr2-grid-view', 
+                viewname: 'user-contact-grid-exp-view', 
                 parentdata: {},
                 deKeyField:'usercontact'
 			};
