@@ -190,7 +190,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
 			// 判断数据是否在流程中
         }
         //多表单，todo
-        const multiFormDEField:string|null =null;
+        const multiFormDEField:string|null ="indextype";
 
         if (multiFormDEField) {
 			const objFormValue:string = curData[multiFormDEField];
