@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import ProjectTeamProjectTeamMobMEditViewBase from './project-team-project-team-mob-medit-view-base.vue';
 
-import view_meditviewpanel from '@widgets/project-team/project-team-mob-multieditviewpanel/project-team-mob-multieditviewpanel.vue';
+import view_meditviewpanel from '@widgets/ibzprojectteamnest/project-team-mob-multieditviewpanel/project-team-mob-multieditviewpanel.vue';
 @Component({
     components: {
         view_meditviewpanel, 

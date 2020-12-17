@@ -19,9 +19,6 @@ export default {
     taskcnt: "任务数",
   },
 	views: {
-		projectteammobmeditview: {
-			caption: commonLogic.appcommonhandle("项目团队",null),
-		},
 		projectteammobeditview: {
 			caption: commonLogic.appcommonhandle("项目团队",null),
 		},

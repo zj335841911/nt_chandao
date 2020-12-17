@@ -31,6 +31,7 @@ import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
+import ibzprojectteamnest_zh_CN from '@locale/lanres/ibzprojectteamnest/ibzprojectteamnest_zh_CN';
 import doclibmodule_zh_CN from '@locale/lanres/doc-lib-module/doc-lib-module_zh_CN';
 import sysupdatefeatures_zh_CN from '@locale/lanres/sys-update-features/sys-update-features_zh_CN';
 import doccontent_zh_CN from '@locale/lanres/doc-content/doc-content_zh_CN';
@@ -303,6 +304,7 @@ export default {
     ibzmyterritory: ibzmyterritory_zh_CN,
     case: case_zh_CN,
     testmodule: testmodule_zh_CN,
+    ibzprojectteamnest: ibzprojectteamnest_zh_CN,
     doclibmodule: doclibmodule_zh_CN,
     sysupdatefeatures: sysupdatefeatures_zh_CN,
     doccontent: doccontent_zh_CN,

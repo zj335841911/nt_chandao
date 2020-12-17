@@ -12,11 +12,11 @@
                 @viewdatadirty="onViewDataDirty" 
                 @drdatasaved="onDRDataSaved" 
                 updateAction=""
-                removeAction="Remove"
+                removeAction=""
                 loaddraftAction="GetDraft"
                 loadAction=""
                 createAction=""
-                fetchAction="FetchRowEditDefault"
+                fetchAction=""
                 name="meditviewpanel"  
                 ref='meditviewpanel' 
                 @datachange="meditviewpanel_datachange($event)"  
@@ -35,10 +35,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProjectTeamService from '@/app-core/service/project-team/project-team-service';
+import IbzprojectteamnestService from '@/app-core/service/ibzprojectteamnest/ibzprojectteamnest-service';
 
 import MobMEditView9Engine from '@engine/view/mob-medit-view9-engine';
-import ProjectTeamUIService from '@/ui-service/project-team/project-team-ui-action';
+import IbzprojectteamnestUIService from '@/ui-service/ibzprojectteamnest/ibzprojectteamnest-ui-action';
 import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
@@ -58,18 +58,18 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {ProjectTeamService}
+     * @type {IbzprojectteamnestService}
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    protected appEntityService: ProjectTeamService = new ProjectTeamService();
+    protected appEntityService: IbzprojectteamnestService = new IbzprojectteamnestService();
 
     /**
      * 实体UI服务对象
      *
-     * @type ProjectTeamUIService
+     * @type IbzprojectteamnestUIService
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    public appUIService: ProjectTeamUIService = new ProjectTeamUIService(this.$store);
+    public appUIService: IbzprojectteamnestUIService = new IbzprojectteamnestUIService(this.$store);
 
     /**
      * 数据变化
@@ -180,10 +180,10 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '项目团队多表单编辑视图',
-        srfCaption: 'projectteam.views.projectteammobmeditview.caption',
+        srfCaption: 'ibzprojectteamnest.views.projectteammobmeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'projectteam.projectteammobmeditview',
+        viewname:'ibzprojectteamnest.projectteammobmeditview',
         iconcls: '',
         icon: 'users'
     }
@@ -309,7 +309,7 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
         this.engine.init({
             view: this,
             meditviewpanel: this.$refs.meditviewpanel,
-            keyPSDEField: 'projectteam',
+            keyPSDEField: 'ibzprojectteamnest',
             majorPSDEField: 'account',
             isLoadDefault: true,
         });
@@ -426,13 +426,6 @@ if(this.formDruipart){
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
     protected afterDestroyed(){
-        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
-            Object.keys(localStorage).forEach((item: string) => {
-                if (item.startsWith(this.context.srfsessionid)) {
-                    localStorage.removeItem(item);
-                }
-            });
-        }
 
     }
 

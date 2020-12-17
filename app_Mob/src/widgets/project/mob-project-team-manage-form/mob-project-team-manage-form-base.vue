@@ -17,7 +17,7 @@
     :parameters="[
         { pathName: 'projects', parameterName: 'project' },
     ]" 
-    tempMode='0'
+    tempMode='2'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 

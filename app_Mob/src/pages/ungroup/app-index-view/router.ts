@@ -3619,8 +3619,8 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-daily-daily-create-mob-edit-view/ibz-daily-daily-create-mob-edit-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/projectteams/:projectteam?/projectteammobmeditview',
-                    name: 'projectteam_projectteammobmeditview',
+                    path: 'projects/:project?/ibzprojectteamnests/:ibzprojectteamnest?/projectteammobmeditview',
+                    name: 'ibzprojectteamnest_projectteammobmeditview',
                     meta: {
                         caption: 'projectteam.views.projectteammobmeditview.caption',
                         imgPath: '',
@@ -3628,7 +3628,7 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'ibzprojectteamnests', parameterName: 'ibzprojectteamnest' },
                             { pathName: 'projectteammobmeditview', parameterName: 'projectteammobmeditview' },
                         ],
                         requireAuth: true,
@@ -3636,15 +3636,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-team-project-team-mob-medit-view/project-team-project-team-mob-medit-view.vue'),
                 },
                 {
-                    path: 'projectteams/:projectteam?/projectteammobmeditview',
-                    name: 'projectteam_projectteammobmeditview',
+                    path: 'ibzprojectteamnests/:ibzprojectteamnest?/projectteammobmeditview',
+                    name: 'ibzprojectteamnest_projectteammobmeditview',
                     meta: {
                         caption: 'projectteam.views.projectteammobmeditview.caption',
                         imgPath: '',
                         iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'ibzprojectteamnests', parameterName: 'ibzprojectteamnest' },
                             { pathName: 'projectteammobmeditview', parameterName: 'projectteammobmeditview' },
                         ],
                         requireAuth: true,

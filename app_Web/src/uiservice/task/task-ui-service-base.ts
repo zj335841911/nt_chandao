@@ -114,15 +114,6 @@ export default class TaskUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
-            srfappde: 'tasks',
-            component: 'task-edit-view',
-            openmode: 'DRAWER_RIGHT',
-            title: '任务',
-            width: 0,
-            height: 0
-        });
     }
 
     /**
