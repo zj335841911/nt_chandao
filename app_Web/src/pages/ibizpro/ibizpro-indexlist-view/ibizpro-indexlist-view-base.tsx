@@ -306,7 +306,32 @@ export class IBIZPRO_INDEXListViewBase extends ListViewBase {
      * @memberof IBIZPRO_INDEXListView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
+        const localContext: any = null;
+        const localViewParam: any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+            { pathName: 'redirectview', parameterName: 'redirectview' },
+        ];
+        this.appUIService.getService('ibizpro_index').then((service) => {
+            if(!service) {
+                this.$Notice.error({desc: '重定向服务不存在！'})
+                return;
+            }
+            const srfkey: any = tempContext.ibizpro_index;
+            service.getRDAppView(srfkey,false).then((res:any) =>{
+                if(res){
+                    this.$openViewService.openView(res, tempContext, { ...this.viewparams, srfkey });
+                }else{
+                    console.error("未查找到重定向视图")
+                }
+            })
+        })
     }
 
 
