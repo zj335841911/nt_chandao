@@ -48,6 +48,7 @@ function getLocaleResourceBase(){
 					userid: commonLogic.appcommonhandle("用户标识",null),
 					teamname: commonLogic.appcommonhandle("组名称",null),
 					teamid: commonLogic.appcommonhandle("组标识",null),
+					postid: commonLogic.appcommonhandle("岗位标识",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

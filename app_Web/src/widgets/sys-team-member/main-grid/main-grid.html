@@ -99,6 +99,18 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('postid')">
+                <el-table-column show-overflow-tooltip :prop="'postid'" :label="$t('entities.systeammember.main_grid.columns.postid')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.systeammember.main_grid.columns.postid')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.postid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

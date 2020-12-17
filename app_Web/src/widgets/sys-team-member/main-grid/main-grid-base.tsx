@@ -153,6 +153,15 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
+        {
+            name: 'postid',
+            label: '岗位标识',
+            langtag: 'entities.systeammember.main_grid.columns.postid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
     ]
 
     /**
@@ -259,6 +268,7 @@ export class MainGridBase extends GridControlBase {
         'userid':false,
         'teamname':false,
         'teamid':false,
+        'postid':false,
     };
 
     /**
@@ -346,7 +356,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['teammemberid','personname','userid','teamname','teamid'];
+        let allColumns:Array<any> = ['teammemberid','personname','userid','teamname','teamid','postid'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -430,6 +440,7 @@ export class MainGridBase extends GridControlBase {
                 userid:'',
                 teamname:'',
                 teamid:'',
+                postid:'',
                 children: children
             }
             groupTree.push(tree);
@@ -459,6 +470,7 @@ export class MainGridBase extends GridControlBase {
             userid:'',
             teamname:'',
             teamid:'',
+            postid:'',
             children: child
         }
         if(child && child.length > 0){
@@ -524,6 +536,7 @@ export class MainGridBase extends GridControlBase {
                 userid:'',
                 teamname:'',
                 teamid:'',
+                postid:'',
                 children: children,
             }
             groupTree.push(tree);
