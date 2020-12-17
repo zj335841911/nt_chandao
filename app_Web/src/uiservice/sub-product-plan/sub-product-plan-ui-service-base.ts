@@ -1,29 +1,4 @@
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_zh_CN" in line 153, column 50:
-Encountered "quoteView", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    ">"
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+!!!!模版产生代码错误:----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if singleView.getViewType()?? && sin...  [in template "TEMPLCODE_zh_CN" at line 151, column 9]
+----
