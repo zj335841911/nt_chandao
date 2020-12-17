@@ -246,6 +246,7 @@
 |-|项目团队移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|任务团队移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
+|-|项目移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|待办事宜表移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图（更新日志）|DEMOBEDITVIEW|&nbsp;|
