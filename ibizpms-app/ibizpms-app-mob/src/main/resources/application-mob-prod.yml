@@ -140,7 +140,7 @@ zuul:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_projectteamnest:
-      path: /ibzprojectteams/**
+      path: /ibzprojectteamnests/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_doclibmodule:
