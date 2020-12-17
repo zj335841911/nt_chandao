@@ -16,7 +16,7 @@
                 loaddraftAction="GetDraft"
                 loadAction=""
                 createAction=""
-                fetchAction="FetchDefault"
+                fetchAction="FetchRowEditDefault"
                 name="meditviewpanel"  
                 ref='meditviewpanel' 
                 @datachange="meditviewpanel_datachange($event)"  
