@@ -34,9 +34,68 @@ function getLocaleResourceBase(){
 			updatedate: commonLogic.appcommonhandle("更新时间",null),
 		},
 			views: {
+				usr2gridview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员表格视图人员实体表格视图(组织下所有人员)",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员编辑视图",null),
+				},
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员树导航视图",null),
+				},
+			},
+			main_form: {
+				details: {
+					group1: commonLogic.appcommonhandle("人员基本信息",null), 
+					formpage1: commonLogic.appcommonhandle("基本信息",null), 
+					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+					srforikey: commonLogic.appcommonhandle("",null), 
+					srfkey: commonLogic.appcommonhandle("用户标识",null), 
+					srfmajortext: commonLogic.appcommonhandle("姓名",null), 
+					srftempmode: commonLogic.appcommonhandle("",null), 
+					srfuf: commonLogic.appcommonhandle("",null), 
+					srfdeid: commonLogic.appcommonhandle("",null), 
+					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					userid: commonLogic.appcommonhandle("用户标识",null), 
+				},
+				uiactions: {
+				},
+			},
+			main_grid: {
+				columns: {
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			default_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+				},
+				uiactions: {
+				},
+			},
+			usr2gridviewtoolbar_toolbar: {
+			},
+			editviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("保存",null),
+					tip: commonLogic.appcommonhandle("保存",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("保存并新建",null),
+					tip: commonLogic.appcommonhandle("保存并新建",null),
+				},
+				tbitem5: {
+					caption: commonLogic.appcommonhandle("保存并关闭",null),
+					tip: commonLogic.appcommonhandle("保存并关闭",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("删除",null),
+					tip: commonLogic.appcommonhandle("删除",null),
 				},
 			},
 			emptreemenuzs_treeview: {

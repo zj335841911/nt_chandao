@@ -1335,6 +1335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugEditView",
             "viewtag": "46517a803b2470cd0bef27aeda0dbcaf"
         },
+        "sysemployeeusr2gridview": {
+            "title": "人员表格视图人员实体表格视图(组织下所有人员)",
+            "caption": "人员",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeUsr2GridView",
+            "viewtag": "465f1d3489621f94a90490faa3e0ea0f"
+        },
         "ibzproproductgridview": {
             "title": "平台产品表格视图",
             "caption": "平台产品",
@@ -1646,6 +1654,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainDashboardView",
             "viewtag": "575fecad655143bbd28f17c581725a4e"
+        },
+        "sysemployeeeditview": {
+            "title": "人员编辑视图",
+            "caption": "人员",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeEditView",
+            "viewtag": "57a23ead04eda866c6326f0705f595e3"
         },
         "userpickupview": {
             "title": "用户数据选择视图",

@@ -96,6 +96,15 @@ export default class SysEmployeeUIServiceBase extends UIService {
      * @memberof  SysEmployeeUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'sysemployees',
+            component: 'sys-employee-edit-view',
+            openmode: '',
+            title: '人员',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

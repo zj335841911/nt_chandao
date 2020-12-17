@@ -445,6 +445,7 @@ SRFNAVPARAM.project=%project%|
 |-|功能测试|DEPORTALVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
+|-|人员表格视图人员实体表格视图(组织下所有人员)|DEGRIDVIEW|&nbsp;|
 |-|平台产品表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例库编辑视图|DEEDITVIEW9|&nbsp;|
 |-|任务编辑视图（树导航显示）|DEEDITVIEW|&nbsp;|
@@ -484,6 +485,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务主数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|人员编辑视图|DEEDITVIEW|&nbsp;|
 |-|用户数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|功能测试|DEEDITVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
