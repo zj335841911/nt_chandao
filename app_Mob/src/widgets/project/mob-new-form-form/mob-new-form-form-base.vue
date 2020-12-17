@@ -267,11 +267,11 @@
 
 
 
-    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'entities.project.fields.products', prop: 'products' },{ name: '关联产品平台集合',localetag: 'entities.project.fields.branchs', prop: 'branchs' },{ name: '关联计划',localetag: 'entities.project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'project.fields.products', prop: 'products' },{ name: '关联产品平台集合',localetag: 'project.fields.branchs', prop: 'branchs' },{ name: '关联计划',localetag: 'project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
    <template slot="products" slot-scope="{item}">
-      <div style="display: flex;">
-         <dropdown-list-dynamic 
-            v-model="item.products" 
+      <div>
+         <app-mob-select
+            :value="item.products" 
             :data="{...data, ...item}" 
             :context="context"
             :viewparams="viewparams"
@@ -281,26 +281,26 @@
             tag='Product' 
             codelistType='DYNAMIC'
             placeholder="" style="flex-grow: 1;">
-         </dropdown-list-dynamic>
-         <dropdown-list-dynamic 
-   v-model="item.branchs" 
+         </app-mob-select>
+         <app-mob-select
+   :value="item.branchs" 
    :data="{...data, ...item}" 
    :context="context"
    :viewparams="viewparams"
-   :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+   :navigateParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
    :disabled="detailsModel.formitemex1.disabled" 
    valueType="string"
    tag='ProductBranch' 
    codelistType='DYNAMIC'
    placeholder="" style="width: 100px;flex-shrink: 0;margin-left: 5px;">
-</dropdown-list-dynamic>
+</app-mob-select>
 
       </div>
    </template>
    <template slot="branchs" slot-scope="{item}">
-      <div style="display: flex;">
-         <dropdown-list-dynamic 
-            v-model="item.branchs" 
+      <div>
+         <app-mob-select
+            :value="item.branchs" 
             :data="{...data, ...item}" 
             :context="context"
             :viewparams="viewparams"
@@ -310,13 +310,13 @@
             tag='ProductBranch' 
             codelistType='DYNAMIC'
             placeholder="" style="flex-grow: 1;">
-         </dropdown-list-dynamic>
+         </app-mob-select>
       </div>
    </template>
    <template slot="plans" slot-scope="{item}">
-      <div style="display: flex;">
-         <dropdown-list-dynamic 
-            v-model="item.plans" 
+      <div>
+         <app-mob-select
+            :value="item.plans" 
             :data="{...data, ...item}" 
             :context="context"
             :viewparams="viewparams"
@@ -326,7 +326,7 @@
             tag='ProductPlan' 
             codelistType='DYNAMIC'
             placeholder="" style="flex-grow: 1;">
-         </dropdown-list-dynamic>
+         </app-mob-select>
       </div>
    </template>
 </comb-form-item>

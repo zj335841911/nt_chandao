@@ -70,31 +70,6 @@
 
 
 <app-form-item 
-    name='join' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="join_item"  
-    :itemValue="this.data.join" 
-    v-show="detailsModel.join.visible" 
-    :itemRules="this.rules.join" 
-    :caption="$t('projectteam.projectteammob_form.details.join')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.join.disabled"
-    :error="detailsModel.join.error" 
-    :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.join" 
-    displayFormat="YYYY-MM-DD HH:mm:ss"
-    :disabled="detailsModel.join.disabled"
-    @change="($event)=>this.data.join = $event"/>
-</app-form-item>
-
-
-
-<app-form-item 
     name='days' 
     class='' 
     uiStyle="DEFAULT"  
@@ -142,33 +117,6 @@
     unit=""
     :disabled="detailsModel.hours.disabled" 
     @change="($event)=>this.data.hours = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='total' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="total_item"  
-    :itemValue="this.data.total" 
-    v-show="detailsModel.total.visible" 
-    :itemRules="this.rules.total" 
-    :caption="$t('projectteam.projectteammob_form.details.total')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.total.disabled"
-    :error="detailsModel.total.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.total" 
-    :itemParam="{}"/>
 </app-form-item>
 
 
