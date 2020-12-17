@@ -16337,6 +16337,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-build-sub-grid-view-new-9212/bug-build-sub-grid-view-new-9212.vue'),
                 },
                 {
+                    path: 'projects/:project?/leftsidebarlistview/:leftsidebarlistview?',
+                    meta: {
+                        caption: 'entities.project.views.leftsidebarlistview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-left-sidebar-list-view/project-left-sidebar-list-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/editview/:editview?',
                     meta: {
                         caption: 'entities.bug.views.editview.caption',
@@ -16420,20 +16434,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-edit-view/bug-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/leftsidebarlistview/:leftsidebarlistview?',
-                    meta: {
-                        caption: 'entities.project.views.leftsidebarlistview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-left-sidebar-list-view/project-left-sidebar-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/kanbanview/:kanbanview?',
