@@ -37,7 +37,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			main_grid: {
+			mainconcat_grid: {
 				columns: {
 					postid: commonLogic.appcommonhandle("岗位标识",null),
 					postname: commonLogic.appcommonhandle("岗位名称",null),

@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectGridViewEMpBase } from './project-grid-view-emp-base';
-import view_grid from '@widgets/project/main-grid/main-grid.vue';
+import view_grid from '@widgets/project/main-concat-grid/main-concat-grid.vue';
 import view_searchbar from '@widgets/project/custom-searchbar/custom-searchbar.vue';
 
 /**
