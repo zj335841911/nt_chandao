@@ -724,6 +724,7 @@ SRFNAVPARAM.project=%project%|
 |-|管理|DETABEXPVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试报告编辑视图（历史记录）|DEEDITVIEW|&nbsp;|
+|-|单位单位实体表格视图(通讯录所有组织)|DEGRIDVIEW|&nbsp;|
 |-|任务编辑视图（日历航显示）|DEEDITVIEW|&nbsp;|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
@@ -834,6 +835,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例表格视图（关联用例）|DEGRIDVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW|&nbsp;|
 |-|标签表格视图|DEGRIDVIEW|&nbsp;|
+|-|单位编辑视图|DEEDITVIEW|&nbsp;|
 |-|部门选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|需求激活|DEOPTVIEW|&nbsp;|
 |-|关闭Bug|DEOPTVIEW|&nbsp;|

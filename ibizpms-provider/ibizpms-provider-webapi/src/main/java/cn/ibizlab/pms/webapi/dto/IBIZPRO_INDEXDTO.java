@@ -83,6 +83,15 @@ public class IBIZPRO_INDEXDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String mdeptid;
 
+    /**
+     * 属性 [INDEXDESC]
+     *
+     */
+    @JSONField(name = "indexdesc")
+    @JsonProperty("indexdesc")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String indexdesc;
+
 
 
 }

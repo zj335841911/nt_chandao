@@ -33,6 +33,9 @@ export default class IndexPickupViewpickupviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'indexdesc',
+      },
     ]
   }
 

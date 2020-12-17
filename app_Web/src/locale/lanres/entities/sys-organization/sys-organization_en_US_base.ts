@@ -16,6 +16,67 @@ function getLocaleResourceBase(){
 			createdate: commonLogic.appcommonhandle("Print",null),
 			updatedate: commonLogic.appcommonhandle("Actor",null),
 		},
+			views: {
+				usr2gridview: {
+					caption: commonLogic.appcommonhandle("单位",null),
+					title: commonLogic.appcommonhandle("单位单位实体表格视图(通讯录所有组织)",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("单位",null),
+					title: commonLogic.appcommonhandle("单位编辑视图",null),
+				},
+			},
+			main_form: {
+				details: {
+					group1: commonLogic.appcommonhandle("单位基本信息",null), 
+					formpage1: commonLogic.appcommonhandle("基本信息",null), 
+					srfupdatedate: commonLogic.appcommonhandle("Actor",null), 
+					srforikey: commonLogic.appcommonhandle("",null), 
+					srfkey: commonLogic.appcommonhandle("The workflow start node was not found",null), 
+					srfmajortext: commonLogic.appcommonhandle("名称",null), 
+					srftempmode: commonLogic.appcommonhandle("",null), 
+					srfuf: commonLogic.appcommonhandle("",null), 
+					srfdeid: commonLogic.appcommonhandle("",null), 
+					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					orgid: commonLogic.appcommonhandle("The workflow start node was not found",null), 
+				},
+				uiactions: {
+				},
+			},
+			main_grid: {
+				columns: {
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			default_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+				},
+				uiactions: {
+				},
+			},
+			usr2gridviewtoolbar_toolbar: {
+			},
+			editviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("Save",null),
+					tip: commonLogic.appcommonhandle("Save",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("Save And New",null),
+					tip: commonLogic.appcommonhandle("Save And New",null),
+				},
+				tbitem5: {
+					caption: commonLogic.appcommonhandle("Save And Close",null),
+					tip: commonLogic.appcommonhandle("Save And Close Window",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("Remove And Close",null),
+					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
+				},
+			},
 		};
 		return data;
 }

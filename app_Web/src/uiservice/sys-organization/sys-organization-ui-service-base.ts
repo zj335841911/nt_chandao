@@ -96,6 +96,15 @@ export default class SysOrganizationUIServiceBase extends UIService {
      * @memberof  SysOrganizationUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'sysorganizations',
+            component: 'sys-organization-edit-view',
+            openmode: '',
+            title: '单位',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

@@ -360,20 +360,14 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '1540523a668e920d831510cfbec2c5e2',
-                '575fecad655143bbd28f17c581725a4e',
-                '23cc93d7fdddff5077a7952d26802a7b',
-                'f83dac873b9215483c4bb91673284b41',
-                'fd0b8748ff96edcde009d39903a9f211',
-                '02b7ecd8e994b90558a9d6c23705f600',
-                '6c7b582273d0726bcf77214807cfe40c',
-                '6f78b25e86923ab600a2141d50fe49fd',
                 '46517a803b2470cd0bef27aeda0dbcaf',
-                '3f2ca3e560d9082bb56fbf7667a57a66',
+                'f83dac873b9215483c4bb91673284b41',
+                'd7dd357c2488e9f3440971b4407d52a1',
                 '31dc3f821fafa9e92cc28d217373a67b',
                 '4863a523ac490ebce771717756f0c6a8',
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 'e042a1dee405b0a853f315b39a375783',
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
@@ -4045,6 +4039,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ba70cc2003a4d984ccab95ba36a4a632',
+            viewmodule: 'ou',
+            viewname: 'SysOrganizationUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e61e97fc70324fe8b112aa7759a3b7b0',
+            ],
+        },
+        {
             viewtag: 'bad9ebb60029d8c0854e22a02600cbc7',
             viewmodule: 'zentao',
             viewname: 'TaskCalendarEditView',
@@ -4660,6 +4664,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'ba70cc2003a4d984ccab95ba36a4a632',
             ],
         },
         {
@@ -4766,6 +4771,23 @@ export const viewstate: any = {
             refviews: [
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: 'd7dd357c2488e9f3440971b4407d52a1',
+            viewmodule: 'ibizpro',
+            viewname: 'IBIZPRO_INDEXRedirectView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                '1540523a668e920d831510cfbec2c5e2',
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '575fecad655143bbd28f17c581725a4e',
+                '23cc93d7fdddff5077a7952d26802a7b',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                'fd0b8748ff96edcde009d39903a9f211',
+                'ea141fddc78fd1af4d06e494baf12cc1',
             ],
         },
         {
@@ -5040,6 +5062,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '66ea594caa3b4caf0a9e6944eec6d80c',
+            ],
+        },
+        {
+            viewtag: 'e61e97fc70324fe8b112aa7759a3b7b0',
+            viewmodule: 'ou',
+            viewname: 'SysOrganizationEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

@@ -8039,6 +8039,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"INDEXDESC" ,
+    "codename":"Indexdesc",
+    "field_logic_name":"描述",
+    "entity_name":"IBIZPRO_INDEX",
+    "field_type":"LONGTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"null",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

@@ -53,4 +53,12 @@ export interface IBIZPRO_INDEX {
      * @memberof IBIZPRO_INDEX
      */
     mdeptid?: any;
+
+    /**
+     * 描述
+     *
+     * @returns {*}
+     * @memberof IBIZPRO_INDEX
+     */
+    indexdesc?: any;
 }

@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TreeExpViewtreeexpbarTreeExpBarBase } from './tree-exp-viewtreeexpbar-treeexpbar-base';
-import view_treeexpbar_tree from '@widgets/sys-employee/emp-tree-treeview/emp-tree-treeview.vue';
+import view_treeexpbar_tree from '@widgets/sys-employee/emp-tree-menu-zs-treeview/emp-tree-menu-zs-treeview.vue';
  
 
 /**

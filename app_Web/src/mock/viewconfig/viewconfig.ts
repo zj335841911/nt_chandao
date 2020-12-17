@@ -3567,6 +3567,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestReportActionEditView",
             "viewtag": "ba3ac5351ca273bb889ffcb52ec7217b"
         },
+        "sysorganizationusr2gridview": {
+            "title": "单位单位实体表格视图(通讯录所有组织)",
+            "caption": "单位",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysOrganizationUsr2GridView",
+            "viewtag": "ba70cc2003a4d984ccab95ba36a4a632"
+        },
         "taskcalendareditview": {
             "title": "任务编辑视图（日历航显示）",
             "caption": "日历航显示",
@@ -4446,6 +4454,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "IBIZProTagGridView",
             "viewtag": "e5e537e1d8092dbfa419c892762f34fe"
+        },
+        "sysorganizationeditview": {
+            "title": "单位编辑视图",
+            "caption": "单位",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysOrganizationEditView",
+            "viewtag": "e61e97fc70324fe8b112aa7759a3b7b0"
         },
         "deptpickupgridview": {
             "title": "部门选择表格视图",

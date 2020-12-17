@@ -267,7 +267,8 @@ POST
 | 4 | deleted | String | 允许 | 逻辑标识 |
 | 5 | orgid | String | 允许 | 组织标识 |
 | 6 | mdeptid | String | 允许 | 部门标识 |
-| 7 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 7 | indexdesc | String | 允许 | 描述 |
+| 8 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBIZPRO_INDEXSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

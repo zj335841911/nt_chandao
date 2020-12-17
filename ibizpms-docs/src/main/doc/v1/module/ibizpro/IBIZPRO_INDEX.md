@@ -22,6 +22,7 @@
 | 4 | [逻辑标识](#属性-逻辑标识（DELETED）) | DELETED | 是否逻辑 | 否 | 否 | 是 |
 | 5 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 否 | 是 |
 | 6 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 否 | 是 |
+| 7 | [描述](#属性-描述（INDEXDESC）) | INDEXDESC | 长文本，没有长度限制 | 否 | 否 | 是 |
 
 ### 属性-类型（INDEX_TYPE）
 #### 属性说明
@@ -232,6 +233,45 @@ null
 
 - 数据类型
 文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+null
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-描述（INDEXDESC）
+#### 属性说明
+描述
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+长文本，没有长度限制
 
 - Java类型
 String
@@ -516,6 +556,7 @@ where t11.deleted = '0'
 ```SQL
 SELECT
 t1.`DELETED`,
+t1.`INDEXDESC`,
 t1.`INDEXID`,
 t1.`INDEXNAME`,
 t1.`INDEX_TYPE`,
@@ -527,6 +568,7 @@ FROM (SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
 FROM
 (SELECT
 t1.`ID`,
@@ -540,6 +582,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
 FROM
 (SELECT
 t1.`ID`,
@@ -553,6 +596,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
 FROM
 (SELECT
 t1.`ID`,
@@ -566,6 +610,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
 FROM
 (SELECT
 t1.`ID`,
@@ -579,6 +624,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
 FROM
 (SELECT
 t1.`ID`,
@@ -592,6 +638,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
 FROM
 (SELECT
 t1.`ID`,

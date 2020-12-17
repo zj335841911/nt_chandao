@@ -23,6 +23,7 @@ hide members
 |逻辑标识|DELETED|YESNO|&nbsp;|
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
+|描述|INDEXDESC|LONGTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -33,6 +34,7 @@ hide members
 |逻辑标识|默认规则|内容长度必须小于等于[200]|
 |组织标识|默认规则|内容长度必须小于等于[200]|
 |部门标识|默认规则|内容长度必须小于等于[200]|
+|描述|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
