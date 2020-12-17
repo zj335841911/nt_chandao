@@ -2031,6 +2031,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibProductGridView",
             "viewtag": "6a667f9ae1a5096ceac93a16d1586978"
         },
+        "projectgridexpview": {
+            "title": "项目表格导航视图",
+            "caption": "项目",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectGridExpView",
+            "viewtag": "6ad2193a7e06957b40700d3f23ea6f6f"
+        },
         "taskzsgridview9week": {
             "title": "任务表格视图（展示）",
             "caption": "展示",

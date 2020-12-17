@@ -102,6 +102,14 @@ export class MainConcatGridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_project_mainconcat_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof MainConcatGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -116,6 +124,14 @@ export class MainConcatGridBase extends GridControlBase {
      * @memberof MainConcatGridBase
      */
     public minorSortPSDEF: string = 'id';
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MainConcatGridBase
+     */
+    public limit: number = 500;
 
     /**
      * 所有列成员
