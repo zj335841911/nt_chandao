@@ -38,7 +38,6 @@ function getLocaleResourceBase(){
 			},
 			expmainedit_form: {
 				details: {
-					group1: commonLogic.appcommonhandle("组成员基本信息",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srforikey: commonLogic.appcommonhandle("",null), 
 					srfkey: commonLogic.appcommonhandle("组成员标识",null), 
@@ -47,12 +46,12 @@ function getLocaleResourceBase(){
 					srfdeid: commonLogic.appcommonhandle("",null), 
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
 					postid: commonLogic.appcommonhandle("岗位标识",null), 
-					teammemberid: commonLogic.appcommonhandle("组成员标识",null), 
-					userid: commonLogic.appcommonhandle("用户标识",null), 
 					teamid: commonLogic.appcommonhandle("组标识",null), 
-					teamname: commonLogic.appcommonhandle("组名称",null), 
+					userid: commonLogic.appcommonhandle("用户标识",null), 
 					personname: commonLogic.appcommonhandle("姓名",null), 
 					username: commonLogic.appcommonhandle("账号",null), 
+					postname: commonLogic.appcommonhandle("岗位",null), 
+					teammemberid: commonLogic.appcommonhandle("组成员标识",null), 
 				},
 				uiactions: {
 				},
@@ -87,6 +86,8 @@ function getLocaleResourceBase(){
 				},
 			},
 			usr2gridviewtoolbar_toolbar: {
+			},
+			usr2gridviewpostmemberstoolbar_toolbar: {
 			},
 			gridviewtoolbar_toolbar: {
 				tbitem3: {
@@ -145,8 +146,6 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Help",null),
 					tip: commonLogic.appcommonhandle("Help",null),
 				},
-			},
-			usr2gridviewpostmemberstoolbar_toolbar: {
 			},
 		};
 		return data;

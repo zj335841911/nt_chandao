@@ -3999,6 +3999,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryStatsTabExpView",
             "viewtag": "c8171c13c1ba215f65c8587df1d98ba5"
         },
+        "systeamgridexpview": {
+            "title": "组表格导航视图",
+            "caption": "组",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamGridExpView",
+            "viewtag": "c826223fec105532e5a0f8a2ad49ee4a"
+        },
         "bugresolvechartview": {
             "title": "Bug图表视图（解决Bug）",
             "caption": "解决Bug",

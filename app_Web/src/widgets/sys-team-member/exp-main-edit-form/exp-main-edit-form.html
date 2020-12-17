@@ -10,82 +10,6 @@
     <row>
             <i-col
     class="form-layout-container"
-    v-show="detailsModel.group1.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-group
-    :model="detailsModel.group1"
-    layoutType="TABLE_24COL"
-    titleStyle=""
-    class=""
-    :uiActionGroup="detailsModel.group1.uiActionGroup"
-    @groupuiactionclick="groupUIActionClick($event)"
-    :caption="$t('entities.systeammember.expmainedit_form.details.group1')"
-    :isShowCaption="true"
-    uiStyle="DEFAULT"
-    :titleBarCloseMode="0"
-    :isInfoGroupMode="true"
-
->    
-    <app-form-group-data-panel
-        slot="dataInfoPanel"
-        :model="detailsModel.group1"
-        :data="data"
-        :context="context"
-        :viewparams="viewparams"
-    ></app-form-group-data-panel>
-    <row>
-        <i-col
-    class="form-layout-container"
-    v-show="detailsModel.teamname.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="teamname"
-    :itemRules="this.rules().teamname"
-    class=""
-
-    :caption="$t('entities.systeammember.expmainedit_form.details.teamname')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.teamname.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.teamname.disabled"
-  name='teamname'
-  deMajorField='teamname'
-  deKeyField='systeam'
-  valueitem='teamid' 
-  :value="data.teamname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'SysTeamMemberUsr2GridView', title: $t('entities.systeammember.views.usr2gridview.title'), deResParameters: [], parameters: [{ pathName: 'systeammembers', parameterName: 'systeammember' }, { pathName: 'usr2gridview', parameterName: 'usr2gridview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
     v-show="detailsModel.personname.visible"
     :style="{}"
     
@@ -100,7 +24,7 @@
 
     :caption="$t('entities.systeammember.expmainedit_form.details.personname')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="70"
     :isShowCaption="true"
     :error="detailsModel.personname.error"
     :isEmptyCaption="false"
@@ -131,7 +55,7 @@
 
     :caption="$t('entities.systeammember.expmainedit_form.details.username')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="70"
     :isShowCaption="true"
     :error="detailsModel.username.error"
     :isEmptyCaption="false"
@@ -146,9 +70,49 @@
 </app-form-item>
 
 </i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.postname.visible"
+    :style="{}"
     
-    </row>
-</app-form-group>
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="postname"
+    :itemRules="this.rules().postname"
+    class=""
+
+    :caption="$t('entities.systeammember.expmainedit_form.details.postname')"
+    uiStyle="DEFAULT"
+    :labelWidth="70"
+    :isShowCaption="true"
+    :error="detailsModel.postname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.postname.disabled"
+  name='postname'
+  deMajorField='postname'
+  deKeyField='syspost'
+  valueitem='postid' 
+  :value="data.postname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'SysTeamMemberUsr2GridViewPostMembers', title: $t('entities.systeammember.views.usr2gridviewpostmembers.title'), deResParameters: [], parameters: [{ pathName: 'systeammembers', parameterName: 'systeammember' }, { pathName: 'usr2gridviewpostmembers', parameterName: 'usr2gridviewpostmembers' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+
+</app-form-item>
 
 </i-col>
 

@@ -51,24 +51,14 @@ export default class ExpMainEditModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'teammemberid',
-        prop: 'teammemberid',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'userid',
-        prop: 'userid',
-        dataType: 'PICKUP',
-      },
-      {
         name: 'teamid',
         prop: 'teamid',
         dataType: 'PICKUP',
       },
       {
-        name: 'teamname',
-        prop: 'teamname',
-        dataType: 'PICKUPTEXT',
+        name: 'userid',
+        prop: 'userid',
+        dataType: 'PICKUP',
       },
       {
         name: 'personname',
@@ -79,6 +69,16 @@ export default class ExpMainEditModel {
         name: 'username',
         prop: 'username',
         dataType: 'PICKUPDATA',
+      },
+      {
+        name: 'postname',
+        prop: 'postname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'teammemberid',
+        prop: 'teammemberid',
+        dataType: 'TEXT',
       },
       {
         name: 'systeammember',

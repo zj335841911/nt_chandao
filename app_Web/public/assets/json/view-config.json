@@ -4989,6 +4989,16 @@
         "viewtag": "c8171c13c1ba215f65c8587df1d98ba5",
         "memo": ""
     },
+    "systeamgridexpview": {
+        "title": "组表格导航视图",
+        "caption": "组",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamGridExpView",
+        "viewfilename": "sys-team-grid-exp-view",
+        "viewtag": "c826223fec105532e5a0f8a2ad49ee4a",
+        "memo": ""
+    },
     "bugresolvechartview": {
         "title": "Bug图表视图（解决Bug）",
         "caption": "解决Bug",

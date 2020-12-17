@@ -92,12 +92,12 @@ export class ExpMainEditEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         postid: null,
-        teammemberid: null,
-        userid: null,
         teamid: null,
-        teamname: null,
+        userid: null,
         personname: null,
         username: null,
+        postname: null,
+        teammemberid: null,
         systeammember: null,
     };
 
@@ -136,8 +136,6 @@ export class ExpMainEditEditFormBase extends EditFormControlBase {
      * @memberof ExpMainEditEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '组成员基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.systeammember.expmainedit_form', extractMode: 'ITEM', details: [] } }),
-
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({
@@ -189,20 +187,6 @@ export class ExpMainEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        teammemberid: new FormItemModel({
-    caption: '组成员标识', detailType: 'FORMITEM', name: 'teammemberid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        userid: new FormItemModel({
-    caption: '用户标识', detailType: 'FORMITEM', name: 'userid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         teamid: new FormItemModel({
     caption: '组标识', detailType: 'FORMITEM', name: 'teamid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -210,8 +194,8 @@ export class ExpMainEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        teamname: new FormItemModel({
-    caption: '组名称', detailType: 'FORMITEM', name: 'teamname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        userid: new FormItemModel({
+    caption: '用户标识', detailType: 'FORMITEM', name: 'userid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -226,6 +210,20 @@ export class ExpMainEditEditFormBase extends EditFormControlBase {
 
         username: new FormItemModel({
     caption: '账号', detailType: 'FORMITEM', name: 'username', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        postname: new FormItemModel({
+    caption: '岗位', detailType: 'FORMITEM', name: 'postname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        teammemberid: new FormItemModel({
+    caption: '组成员标识', detailType: 'FORMITEM', name: 'teammemberid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

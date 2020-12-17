@@ -17,6 +17,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("组",null),
 					title: commonLogic.appcommonhandle("组编辑视图",null),
 				},
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("组",null),
+					title: commonLogic.appcommonhandle("组表格导航视图",null),
+				},
 				usr2gridview: {
 					caption: commonLogic.appcommonhandle("组",null),
 					title: commonLogic.appcommonhandle("组表格视图",null),
@@ -54,6 +58,13 @@ function getLocaleResourceBase(){
 					teamname: commonLogic.appcommonhandle("组名称",null),
 					domains: commonLogic.appcommonhandle("区属",null),
 					memo: commonLogic.appcommonhandle("备注",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			gridexpbar_grid_grid: {
+				columns: {
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

@@ -3,7 +3,7 @@ import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import SysTeamMemberService from '@/service/sys-team-member/sys-team-member-service';
 import ExpMainEditModel from './exp-main-edit-form-model';
-import SysTeamService from '@/service/sys-team/sys-team-service';
+import SysPostService from '@/service/sys-post/sys-post-service';
 
 
 /**
@@ -44,12 +44,12 @@ export default class ExpMainEditService extends ControlService {
     }
 
     /**
-     * 组服务对象
+     * 岗位服务对象
      *
-     * @type {SysTeamService}
+     * @type {SysPostService}
      * @memberof ExpMainEditService
      */
-    public systeamService: SysTeamService = new SysTeamService();
+    public syspostService: SysPostService = new SysPostService();
 
     /**
      * 远端数据
@@ -100,8 +100,8 @@ export default class ExpMainEditService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
-        if (Object.is(serviceName, 'SysTeamService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.systeamService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'teamid', 'systeam');
+        if (Object.is(serviceName, 'SysPostService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.syspostService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'postid', 'syspost');
         }
 
         return Promise.reject([])
