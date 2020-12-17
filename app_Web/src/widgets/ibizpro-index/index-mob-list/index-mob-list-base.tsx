@@ -5,6 +5,7 @@ import { Watch, ListControlBase } from '@/studio-core';
 import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
 import IndexMobService from './index-mob-list-service';
 import IBIZPRO_INDEXUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
+import CodeListService from '@service/app/codelist-service';
 
 /**
  * list部件基类
@@ -65,6 +66,13 @@ export class IndexMobListBase extends ListControlBase {
      */  
     public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
 
+    /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof IndexMobListBase
+     */
+    public codeListService: CodeListService = new CodeListService({ $store: this.$store });
 
     /**
      * 排序方向
@@ -74,6 +82,20 @@ export class IndexMobListBase extends ListControlBase {
      */
     public minorSortDir: string = '';
 
+
+    /**
+     * 多表单属性
+     * 
+     * @type {*}
+     * @memberof IndexMobListBase 
+     */
+    public multiFormDEField: any = {
+        field: 'indextype',
+        codelist: {
+            type: 'STATIC',
+            tag: 'IndexType'
+        }
+    };
 
 	/**
      * 部件挂载完毕
@@ -103,7 +125,7 @@ export class IndexMobListBase extends ListControlBase {
             srfappde: 'doc',
             component: 'doc-dashboard-view',
             openmode: 'DRAWER_TOP',
-            viewmodel: 'DRAWER_TOP',
+            viewmodule: 'zentao',
             title: '文档',
             width: 0,
             height: 0
@@ -113,7 +135,7 @@ export class IndexMobListBase extends ListControlBase {
             srfappde: 'product',
             component: 'product-main-tab-exp-view',
             openmode: '',
-            viewmodel: '',
+            viewmodule: 'zentao',
             title: '产品',
             width: 0,
             height: 0
@@ -123,7 +145,7 @@ export class IndexMobListBase extends ListControlBase {
             srfappde: 'task',
             component: 'task-main-dashboard-view',
             openmode: 'DRAWER_TOP',
-            viewmodel: 'DRAWER_TOP',
+            viewmodule: 'zentao',
             title: '任务',
             width: 1360,
             height: 0
@@ -133,7 +155,7 @@ export class IndexMobListBase extends ListControlBase {
             srfappde: 'project',
             component: 'project-main-tab-exp-view',
             openmode: '',
-            viewmodel: '',
+            viewmodule: 'zentao',
             title: '项目',
             width: 0,
             height: 0
@@ -143,7 +165,7 @@ export class IndexMobListBase extends ListControlBase {
             srfappde: 'case',
             component: 'case-main-dashboard-view',
             openmode: 'DRAWER_TOP',
-            viewmodel: 'DRAWER_TOP',
+            viewmodule: 'zentao',
             title: '功能测试',
             width: 0,
             height: 0
@@ -153,7 +175,7 @@ export class IndexMobListBase extends ListControlBase {
             srfappde: 'bug',
             component: 'bug-main-dashboard-view',
             openmode: 'DRAWER_TOP',
-            viewmodel: 'DRAWER_TOP',
+            viewmodule: 'zentao',
             title: 'Bug',
             width: 0,
             height: 0
@@ -163,7 +185,7 @@ export class IndexMobListBase extends ListControlBase {
             srfappde: 'story',
             component: 'story-main-view',
             openmode: 'DRAWER_TOP',
-            viewmodel: 'DRAWER_TOP',
+            viewmodule: 'zentao',
             title: '需求',
             width: 0,
             height: 0
@@ -173,27 +195,28 @@ export class IndexMobListBase extends ListControlBase {
     /**
      * 打开重定向视图
      *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
+     * @param {*} curData 当前数据
      * @memberof IndexMobListBase
      */
     public openRedirectView(curData: any) {
         let tempContext = JSON.parse(JSON.stringify(this.context));
-        Object.assign(tempContext,curData);
         this.appUIService.getService('ibizpro_index').then((service) => {
             if(!service) {
                 this.$Notice.error({desc: '重定向服务不存在！'})
                 return;
             }
             const srfkey: any = tempContext.ibizpro_index;
-            service.getDESDDEViewPDTParam(curData,false,false).then((res:any) =>{
-                if(res && this.allRedirectViewMap.get(res)){
-                    this.$openViewService.openView(this.allRedirectViewMap.get(res), tempContext, { ...this.viewparams, srfkey });
-                }else{
-                    console.error("未查找到重定向视图")
+            service.getDESDDEViewPDTParam(curData,false,false).then((res:any) => {
+                if (res) {
+					const redirectView: any =  this.allRedirectViewMap.get(res);
+					if (redirectView) {
+						Object.assign(tempContext,{ [redirectView.srfappde]: srfkey});
+						this.$openViewService.openView(redirectView, tempContext, { ...this.viewparams, srfkey });
+					} else {
+						console.error("未找到该重定向视图");
+					}
+                } else {
+                    console.error("未配置该重定向视图");
                 }
             })
         })
