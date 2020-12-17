@@ -96,6 +96,15 @@ export default class SysPostUIServiceBase extends UIService {
      * @memberof  SysPostUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'sysposts',
+            component: 'sys-post-edit-view',
+            openmode: '',
+            title: '岗位',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

@@ -108,6 +108,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'POST')) {
+            return {  
+                viewname: 'sys-post-usr2-grid-view', 
+                parentdata: {},
+                deKeyField:'syspost'
+			};
+        }
         if (Object.is(expmode, 'SYSTEAM')) {
             return {  
                 viewname: 'sys-team-member-usr2-grid-view', 
@@ -120,6 +127,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 viewname: 'sys-employee-usr3-grid-view', 
                 parentdata: {"srfparentdefname":"project"},
                 deKeyField:'sysemployee'
+			};
+        }
+        if (Object.is(expmode, 'SYSPOST')) {
+            return {  
+                viewname: 'sys-team-member-usr2-grid-view', 
+                parentdata: {"srfparentdefname":"postid"},
+                deKeyField:'systeammember'
 			};
         }
         if (Object.is(expmode, 'ORGEMP')) {

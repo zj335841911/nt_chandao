@@ -289,6 +289,7 @@
 |-|测试报告表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目产品列表视图|DELISTVIEW9|&nbsp;|
 |-|任务模块|DEOPTVIEW|&nbsp;|
+|-|岗位编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目多表单编辑视图（需求相关）|DEMEDITVIEW9|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
 |-|所有项目|DEGRIDVIEW|&nbsp;|
@@ -731,6 +732,7 @@ SRFNAVPARAM.project=%project%|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试报告编辑视图（历史记录）|DEEDITVIEW|&nbsp;|
 |-|单位单位实体表格视图(通讯录所有组织)|DEGRIDVIEW|&nbsp;|
+|-|岗位表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务编辑视图（日历航显示）|DEEDITVIEW|&nbsp;|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|

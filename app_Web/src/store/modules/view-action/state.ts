@@ -104,6 +104,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0600af11d605ca19d8b36466f9312338',
+            viewmodule: 'ou',
+            viewname: 'SysPostEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '0681bc3d1ffa8e147640ab0dd005d3b5',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView4',
@@ -4106,6 +4115,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ba8bd2f4b2dcf0500c9dcd985c531d68',
+            viewmodule: 'ou',
+            viewname: 'SysPostUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0600af11d605ca19d8b36466f9312338',
+            ],
+        },
+        {
             viewtag: 'bad9ebb60029d8c0854e22a02600cbc7',
             viewmodule: 'zentao',
             viewname: 'TaskCalendarEditView',
@@ -4735,6 +4754,7 @@ export const viewstate: any = {
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 'a0e1f55e52d3167ad1815ac7076cdc45',
                 '42ce56d703f9d063d6c1524bb7a559de',
+                'ba8bd2f4b2dcf0500c9dcd985c531d68',
                 'c9f2cd9496fa701c375279c93e1487fd',
                 '465f1d3489621f94a90490faa3e0ea0f',
             ],

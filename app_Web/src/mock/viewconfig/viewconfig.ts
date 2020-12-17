@@ -103,6 +103,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectModuleQuickCfgView",
             "viewtag": "0568d197dda832ceb89ad0442ab9f230"
         },
+        "sysposteditview": {
+            "title": "岗位编辑视图",
+            "caption": "岗位",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysPostEditView",
+            "viewtag": "0600af11d605ca19d8b36466f9312338"
+        },
         "projectstorymeditview9": {
             "title": "项目多表单编辑视图（需求相关）",
             "caption": "需求相关",
@@ -3622,6 +3630,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ou",
             "viewname": "SysOrganizationUsr2GridView",
             "viewtag": "ba70cc2003a4d984ccab95ba36a4a632"
+        },
+        "syspostusr2gridview": {
+            "title": "岗位表格视图",
+            "caption": "岗位",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysPostUsr2GridView",
+            "viewtag": "ba8bd2f4b2dcf0500c9dcd985c531d68"
         },
         "taskcalendareditview": {
             "title": "任务编辑视图（日历航显示）",

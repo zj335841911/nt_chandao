@@ -119,6 +119,16 @@
         "viewtag": "0568d197dda832ceb89ad0442ab9f230",
         "memo": ""
     },
+    "sysposteditview": {
+        "title": "岗位编辑视图",
+        "caption": "岗位",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysPostEditView",
+        "viewfilename": "sys-post-edit-view",
+        "viewtag": "0600af11d605ca19d8b36466f9312338",
+        "memo": ""
+    },
     "projectstorymeditview9": {
         "title": "项目多表单编辑视图（需求相关）",
         "caption": "需求相关",
@@ -4517,6 +4527,16 @@
         "viewname": "SysOrganizationUsr2GridView",
         "viewfilename": "sys-organization-usr2-grid-view",
         "viewtag": "ba70cc2003a4d984ccab95ba36a4a632",
+        "memo": ""
+    },
+    "syspostusr2gridview": {
+        "title": "岗位表格视图",
+        "caption": "岗位",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysPostUsr2GridView",
+        "viewfilename": "sys-post-usr2-grid-view",
+        "viewtag": "ba8bd2f4b2dcf0500c9dcd985c531d68",
         "memo": ""
     },
     "taskcalendareditview": {
