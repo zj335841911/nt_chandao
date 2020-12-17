@@ -43,11 +43,11 @@ function getLocaleResourceBase(){
 			},
 			main_grid: {
 				columns: {
-					teamid: commonLogic.appcommonhandle("组标识",null),
-					teamname: commonLogic.appcommonhandle("组名称",null),
+					teammemberid: commonLogic.appcommonhandle("组成员标识",null),
 					personname: commonLogic.appcommonhandle("姓名",null),
-					username: commonLogic.appcommonhandle("账号",null),
-					postname: commonLogic.appcommonhandle("岗位",null),
+					userid: commonLogic.appcommonhandle("用户标识",null),
+					teamname: commonLogic.appcommonhandle("组名称",null),
+					teamid: commonLogic.appcommonhandle("组标识",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
