@@ -22,15 +22,6 @@ export class ProjectTeamMobService extends FormServiceBase {
     protected model: ProjectTeamMobModel = new ProjectTeamMobModel();
 
     /**
-     * 是否为从数据临时模式
-     *
-     * @protected
-     * @type {boolean}
-     * @memberof ProjectTeamMobService
-     */
-    protected isTempMode: boolean = true;
-
-    /**
      * 应用实体名称
      *
      * @protected
