@@ -670,6 +670,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务图表视图|DECHARTVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|组成员表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试套件表格视图|DEGRIDVIEW|&nbsp;|
 |-|汇报表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|

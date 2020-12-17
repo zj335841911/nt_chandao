@@ -267,7 +267,7 @@
 
 
 
-    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'project.fields.products', prop: 'products' },{ name: '关联产品平台集合',localetag: 'project.fields.branchs', prop: 'branchs' },{ name: '关联计划',localetag: 'project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'project.fields.products', prop: 'products' },{ name: '关联计划',localetag: 'project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
    <template slot="products" slot-scope="{item}">
       <div>
          <app-mob-select
@@ -276,44 +276,14 @@
             :context="context"
             :viewparams="viewparams"
 				 :navigateContext="{}"
-            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :localParam="{products: '%products%',srfarray: '%srfarray%',plans: '%plans%',}"
             :disabled="detailsModel.formitemex1.disabled" 
             valueType="string"
             tag='Product' 
             codelistType='DYNAMIC'
             placeholder="">
          </app-mob-select>
-         <app-mob-select
-   :value="item.branchs" 
-   :data="{...data, ...item}" 
-   :context="context"
-   :viewparams="viewparams"
-	:navigateContext="{}"
-   :navigateParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
-   :disabled="detailsModel.formitemex1.disabled" 
-   valueType="string"
-   tag='ProductBranch' 
-   codelistType='DYNAMIC'
-   placeholder="">
-</app-mob-select>
-
-      </div>
-   </template>
-   <template slot="branchs" slot-scope="{item}">
-      <div>
-         <app-mob-select
-            :value="item.branchs" 
-            :data="{...data, ...item}" 
-            :context="context"
-            :viewparams="viewparams"
-				 :navigateContext="{}"
-            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
-            :disabled="detailsModel.formitemex1.disabled" 
-            valueType="string"
-            tag='ProductBranch' 
-            codelistType='DYNAMIC'
-            placeholder="">
-         </app-mob-select>
+         
       </div>
    </template>
    <template slot="plans" slot-scope="{item}">
@@ -324,7 +294,7 @@
             :context="context"
             :viewparams="viewparams"
 				 :navigateContext="{}"
-            :localParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :localParam="{products: '%products%',srfarray: '%srfarray%',plans: '%plans%',}"
             :disabled="detailsModel.formitemex1.disabled" 
             valueType="string"
             tag='ProductPlan' 
@@ -742,7 +712,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         type: null,
         products: null,
         srfarray: null,
-        branchs: null,
         plans: null,
         formitemex1: null,
         desc: null,
@@ -963,8 +932,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         srfarray: new FormItemModel({ caption: '关联数据数组', detailType: 'FORMITEM', name: 'srfarray', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branchs: new FormItemModel({ caption: '关联产品平台集合', detailType: 'FORMITEM', name: 'branchs', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         plans: new FormItemModel({ caption: '关联计划', detailType: 'FORMITEM', name: 'plans', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1182,18 +1149,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 branchs 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNewForm
-     */
-    @Watch('data.branchs')
-    onBranchsChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branchs', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 plans 值
      *
      * @param {*} newVal
@@ -1298,7 +1253,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 
