@@ -499,6 +499,16 @@
         "viewtag": "136cd30bd141450ecd9e7791215733e6",
         "memo": ""
     },
+    "systeammembergridexpviewteam": {
+        "title": "组成员表格导航视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberGridExpViewTeam",
+        "viewfilename": "sys-team-member-grid-exp-view-team",
+        "viewtag": "137cbf2ebd888dcdd6eff40271481f04",
+        "memo": ""
+    },
     "productstatsallgridview": {
         "title": "所有产品",
         "caption": "所有产品",

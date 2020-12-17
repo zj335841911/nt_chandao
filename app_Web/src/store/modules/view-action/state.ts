@@ -437,6 +437,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '137cbf2ebd888dcdd6eff40271481f04',
+            viewmodule: 'ou',
+            viewname: 'SysTeamMemberGridExpViewTeam',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '647cee7cf9c101876645c1c5bcec3602',
+            ],
+        },
+        {
             viewtag: '1381e29846ae321ca2d06d71bbe3082d',
             viewmodule: 'ibiz',
             viewname: 'ProductStatsALLGridView',
@@ -4763,6 +4773,7 @@ export const viewstate: any = {
                 '745687df2b5a067c15598debbcba1fe2',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 '42ce56d703f9d063d6c1524bb7a559de',
+                '137cbf2ebd888dcdd6eff40271481f04',
                 'ae72600793a079e5946b182321ddede9',
                 '465f1d3489621f94a90490faa3e0ea0f',
             ],

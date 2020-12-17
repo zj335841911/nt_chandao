@@ -407,6 +407,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestResultMEditView9",
             "viewtag": "136cd30bd141450ecd9e7791215733e6"
         },
+        "systeammembergridexpviewteam": {
+            "title": "组成员表格导航视图",
+            "caption": "组成员",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamMemberGridExpViewTeam",
+            "viewtag": "137cbf2ebd888dcdd6eff40271481f04"
+        },
         "productstatsallgridview": {
             "title": "所有产品",
             "caption": "所有产品",

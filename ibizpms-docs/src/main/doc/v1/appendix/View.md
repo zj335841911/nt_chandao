@@ -327,6 +327,7 @@
 |-|指派任务|DEOPTVIEW|&nbsp;|
 |-|需求看板视图|DEKANBANVIEW|&nbsp;|
 |-|测试结果多表单编辑视图|DEMEDITVIEW9|&nbsp;|
+|-|组成员表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|所有产品|DEGRIDVIEW|&nbsp;|
 |-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|文档表格视图|DEGRIDVIEW9|&nbsp;|

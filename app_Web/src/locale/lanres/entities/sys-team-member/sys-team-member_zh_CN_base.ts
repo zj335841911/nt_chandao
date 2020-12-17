@@ -15,6 +15,10 @@ function getLocaleResourceBase(){
 			usericon: commonLogic.appcommonhandle("头像",null),
 		},
 			views: {
+				gridexpviewteam: {
+					caption: commonLogic.appcommonhandle("组成员",null),
+					title: commonLogic.appcommonhandle("组成员表格导航视图",null),
+				},
 				editview: {
 					caption: commonLogic.appcommonhandle("组成员",null),
 					title: commonLogic.appcommonhandle("组成员编辑视图",null),
