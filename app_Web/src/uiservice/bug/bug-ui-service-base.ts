@@ -96,15 +96,6 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':bug', {
-            viewname: 'maindashboardview',
-            srfappde: 'bugs',
-            component: 'bug-main-dashboard-view',
-            openmode: 'DRAWER_TOP',
-            title: 'Bug',
-            width: 0,
-            height: 0
-        });
         this.allViewMap.set('MPICKUPVIEW:', {
             viewname: 'mpickupview',
             srfappde: 'bugs',
