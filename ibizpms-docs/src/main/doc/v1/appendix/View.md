@@ -63,7 +63,6 @@
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|任务选项操作视图(激活)|DEMOBOPTVIEW|&nbsp;|
 |-|周报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
-|-|项目团队移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|汇报移动端多数据视图（我提交的）|DEMOBMDVIEW|&nbsp;|
 |-|系统更新日志移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|系统日志移动端多数据视图（更多）|DEMOBMDVIEW|&nbsp;|

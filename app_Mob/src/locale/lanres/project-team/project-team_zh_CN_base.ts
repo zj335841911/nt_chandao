@@ -19,9 +19,6 @@ export default {
     taskcnt: "任务数",
   },
 	views: {
-		projectteamallmobeditview: {
-			caption: commonLogic.appcommonhandle("项目团队",null),
-		},
 		projectteammobmeditview: {
 			caption: commonLogic.appcommonhandle("项目团队",null),
 		},
@@ -55,30 +52,8 @@ export default {
 		uiactions: {
 		},
 	},
-	projectteamrelation_form: {
-		details: {
-			druipart1: commonLogic.appcommonhandle("",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("编号",null), 
-			srfmajortext: commonLogic.appcommonhandle("用户",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			id: commonLogic.appcommonhandle("编号",null), 
-		},
-		uiactions: {
-		},
-	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	projectteammobeditviewrighttoolbar_toolbar: {
-	},
-	projectteamallmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: commonLogic.appcommonhandle("保存",null),
-			tip: '保存',
-		},
 	},
 };

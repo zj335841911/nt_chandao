@@ -90,7 +90,6 @@ export default class ProjectTeamUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectTeamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'projectteamallmobeditview',srfappde:'projectteams'});
         this.allViewMap.set(':',{viewname:'projectteammobmeditview',srfappde:'projectteams'});
         this.allViewMap.set(':',{viewname:'projectteammobeditview',srfappde:'projectteams'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'projectteams'});

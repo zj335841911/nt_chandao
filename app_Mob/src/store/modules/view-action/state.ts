@@ -681,16 +681,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '33d53911e52105c767147382ddf5e140',
-            viewmodule: 'zentao',
-            viewname: 'ProjectTeamProjectTeamAllMobEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '3b0bbcbce04a67e3f6fbb0209518bc10',
-            ],
-        },
-        {
             viewtag: '35bd5c967f7ff8d253e10cf7b12dde28',
             viewmodule: 'report',
             viewname: 'IbzReportMobMDView',
@@ -2693,6 +2683,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'e7da074448e10578fc11e0e5e3e8e155',
+            viewmodule: 'zentao',
+            viewname: 'ProjectProjectTeamManageMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3b0bbcbce04a67e3f6fbb0209518bc10',
             ],
         },
         {

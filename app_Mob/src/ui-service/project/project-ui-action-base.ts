@@ -100,6 +100,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'closemobeditview',srfappde:'projects'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'projectteammanagemobeditview',srfappde:'projects'});
     }
 
     /**

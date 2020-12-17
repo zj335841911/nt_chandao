@@ -107,6 +107,9 @@ export default {
 		mobmdview: {
 			caption: commonLogic.appcommonhandle("项目",null),
 		},
+		projectteammanagemobeditview: {
+			caption: commonLogic.appcommonhandle("项目",null),
+		},
 	},
 	mobmain_form: {
 		details: {
@@ -218,6 +221,22 @@ export default {
 		uiactions: {
 		},
 	},
+	mobprojectteammanage_form: {
+		details: {
+			druipart1: commonLogic.appcommonhandle("",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("项目编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("项目名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			id: commonLogic.appcommonhandle("项目编号",null), 
+		},
+		uiactions: {
+		},
+	},
 	mobdef_searchform: {
 		details: {
 			formpage1: commonLogic.appcommonhandle("常规条件",null), 
@@ -295,5 +314,7 @@ export default {
 			caption: commonLogic.appcommonhandle("新建",null),
 			tip: 'deuiaction1',
 		},
+	},
+	projectteammanagemobeditviewrighttoolbar_toolbar: {
 	},
 };
