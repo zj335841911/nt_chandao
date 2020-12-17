@@ -2159,6 +2159,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibUsr2EditView",
             "viewtag": "73fbcf0e3685096f63587bcff234f958"
         },
+        "sysemployeegridexpview": {
+            "title": "人员表格导航视图",
+            "caption": "人员",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeGridExpView",
+            "viewtag": "745687df2b5a067c15598debbcba1fe2"
+        },
         "ibzdailymymaineditview": {
             "title": "日报编辑视图（主数据）",
             "caption": "日报",

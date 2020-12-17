@@ -64,6 +64,7 @@ export class ProjectTeamMobService extends FormServiceBase {
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
             Object.assign(response.data, { 'hours': '7' });
+            Object.assign(response.data, { 'limited': 'no' });
         }
     }
 

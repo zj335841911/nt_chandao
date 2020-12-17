@@ -269,9 +269,9 @@
 
     <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'project.fields.products', prop: 'products', unique: true },{ name: '关联产品平台集合',localetag: 'project.fields.branchs', prop: 'branchs', hidden: true },{ name: '关联计划',localetag: 'project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
    <template slot="products" slot-scope="{item}">
-      <div>
-         <app-mob-select
-            :value="item.products" 
+	<app-form-item  name='products' labelPos="LEFT" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="false" >
+         <app-mob-select-dynamic
+            v-model="item.products" 
             :data="{...data, ...item}" 
             :context="context"
             :viewparams="viewparams"
@@ -282,9 +282,11 @@
             tag='Product' 
             codelistType='DYNAMIC'
             placeholder="">
-         </app-mob-select>
-         <app-mob-select
-   :value="item.branchs" 
+         </app-mob-select-dynamic>
+		</app-form-item>
+         <app-form-item  labelPos="LEFT"   name='branchs' uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="false" >
+<app-mob-select-dynamic
+   v-model="item.branchs" 
    :data="{...data, ...item}" 
    :context="context"
    :viewparams="viewparams"
@@ -295,14 +297,14 @@
    tag='ProductBranch' 
    codelistType='DYNAMIC'
    placeholder="">
-</app-mob-select>
+</app-mob-select-dynamic>
+</app-form-item>
 
-      </div>
    </template>
    <template slot="plans" slot-scope="{item}">
-      <div>
-         <app-mob-select
-            :value="item.plans" 
+	<app-form-item  name='plans' labelPos="LEFT" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="false" >
+         <app-mob-select-dynamic
+            v-model="item.plans" 
             :data="{...data, ...item}" 
             :context="context"
             :viewparams="viewparams"
@@ -313,8 +315,8 @@
             tag='ProductPlan' 
             codelistType='DYNAMIC'
             placeholder="">
-         </app-mob-select>
-      </div>
+         </app-mob-select-dynamic>
+		</app-form-item>
    </template>
 </comb-form-item>
 

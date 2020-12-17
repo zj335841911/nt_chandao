@@ -318,8 +318,8 @@ export class SysPostUsr2GridViewBase extends GridViewBase {
      * @memberof SysPostUsr2GridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = {POSTID:"%postid%"};
-        const localViewParam: any ={postid:"%postid%"};
+        const localContext: any = {POSTID:"%syspost%"};
+        const localViewParam: any ={postid:"%syspost%"};
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
@@ -358,5 +358,5 @@ export class SysPostUsr2GridViewBase extends GridViewBase {
      * @type {(0 | 1 | 2)}
      * @memberof SysPostUsr2GridViewBase
      */
-    protected gridRowActiveMode: 0 | 1 | 2 = 0;
+    protected gridRowActiveMode: 0 | 1 | 2 = 1;
 }
