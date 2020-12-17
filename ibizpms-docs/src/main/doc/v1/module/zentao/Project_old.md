@@ -212,10 +212,20 @@ hide members
 | 行为    | 类型    |  说明  |
 | --------   |------------| ----- | 
 |Create|内置方法|&nbsp;|
+|CreateTemp|内置方法|&nbsp;|
+|CreateTempMajor|内置方法|&nbsp;|
 |Update|内置方法|&nbsp;|
+|UpdateTemp|内置方法|&nbsp;|
+|UpdateTempMajor|内置方法|&nbsp;|
 |Remove|内置方法|&nbsp;|
+|RemoveTemp|内置方法|&nbsp;|
+|RemoveTempMajor|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
+|GetTemp|内置方法|&nbsp;|
+|GetTempMajor|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
+|GetDraftTemp|内置方法|&nbsp;|
+|GetDraftTempMajor|内置方法|&nbsp;|
 |激活|用户自定义|&nbsp;|
 |批量解除关联需求|用户自定义|&nbsp;|
 |取消置顶|实体处理逻辑|&nbsp;项目置顶操作|
@@ -372,6 +382,72 @@ hide footbox
 |6|状态[已挂起_已置顶]拒绝[Update]操作 |
 |7|状态[未开始_已置顶]拒绝[Update]操作 |
 <center>行为[Update]主状态拒绝逻辑</center>
+* 行为[UpdateTemp]主状态拒绝逻辑 (UpdateTemp__MSDeny)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+项目 -> 项目: 准备临时参数
+项目 -> 项目: 获取数据
+项目 -> : 状态[已关闭_未置顶]拒绝[UpdateTemp]操作
+项目 -> : 状态[已关闭_已置顶]拒绝[UpdateTemp]操作
+项目 -> : 状态[进行中_未置顶]拒绝[UpdateTemp]操作
+项目 -> : 状态[进行中_已置顶]拒绝[UpdateTemp]操作
+项目 -> : 状态[已挂起_未置顶]拒绝[UpdateTemp]操作
+项目 -> : 状态[已挂起_已置顶]拒绝[UpdateTemp]操作
+项目 -> : 状态[未开始_未置顶]拒绝[UpdateTemp]操作
+项目 -> : 状态[未开始_已置顶]拒绝[UpdateTemp]操作
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|准备临时参数 |
+|2|获取数据 |
+|3|状态[已关闭_未置顶]拒绝[UpdateTemp]操作 |
+|4|状态[已关闭_已置顶]拒绝[UpdateTemp]操作 |
+|5|状态[进行中_未置顶]拒绝[UpdateTemp]操作 |
+|6|状态[进行中_已置顶]拒绝[UpdateTemp]操作 |
+|7|状态[已挂起_未置顶]拒绝[UpdateTemp]操作 |
+|8|状态[已挂起_已置顶]拒绝[UpdateTemp]操作 |
+|9|状态[未开始_未置顶]拒绝[UpdateTemp]操作 |
+|10|状态[未开始_已置顶]拒绝[UpdateTemp]操作 |
+<center>行为[UpdateTemp]主状态拒绝逻辑</center>
+* 行为[UpdateTempMajor]主状态拒绝逻辑 (UpdateTempMajor__MSDeny)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+项目 -> 项目: 准备临时参数
+项目 -> 项目: 获取数据
+项目 -> : 状态[已关闭_未置顶]拒绝[UpdateTempMajor]操作
+项目 -> : 状态[已关闭_已置顶]拒绝[UpdateTempMajor]操作
+项目 -> : 状态[进行中_未置顶]拒绝[UpdateTempMajor]操作
+项目 -> : 状态[进行中_已置顶]拒绝[UpdateTempMajor]操作
+项目 -> : 状态[已挂起_未置顶]拒绝[UpdateTempMajor]操作
+项目 -> : 状态[已挂起_已置顶]拒绝[UpdateTempMajor]操作
+项目 -> : 状态[未开始_未置顶]拒绝[UpdateTempMajor]操作
+项目 -> : 状态[未开始_已置顶]拒绝[UpdateTempMajor]操作
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|准备临时参数 |
+|2|获取数据 |
+|3|状态[已关闭_未置顶]拒绝[UpdateTempMajor]操作 |
+|4|状态[已关闭_已置顶]拒绝[UpdateTempMajor]操作 |
+|5|状态[进行中_未置顶]拒绝[UpdateTempMajor]操作 |
+|6|状态[进行中_已置顶]拒绝[UpdateTempMajor]操作 |
+|7|状态[已挂起_未置顶]拒绝[UpdateTempMajor]操作 |
+|8|状态[已挂起_已置顶]拒绝[UpdateTempMajor]操作 |
+|9|状态[未开始_未置顶]拒绝[UpdateTempMajor]操作 |
+|10|状态[未开始_已置顶]拒绝[UpdateTempMajor]操作 |
+<center>行为[UpdateTempMajor]主状态拒绝逻辑</center>
 * 行为[Remove]主状态拒绝逻辑 (Remove__MSDeny)
   
    
@@ -397,6 +473,72 @@ hide footbox
 |5|状态[已挂起_未置顶]拒绝[Remove]操作 |
 |6|状态[未开始_已置顶]拒绝[Remove]操作 |
 <center>行为[Remove]主状态拒绝逻辑</center>
+* 行为[RemoveTemp]主状态拒绝逻辑 (RemoveTemp__MSDeny)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+项目 -> 项目: 准备临时参数
+项目 -> 项目: 获取数据
+项目 -> : 状态[已关闭_未置顶]拒绝[RemoveTemp]操作
+项目 -> : 状态[已关闭_已置顶]拒绝[RemoveTemp]操作
+项目 -> : 状态[进行中_未置顶]拒绝[RemoveTemp]操作
+项目 -> : 状态[进行中_已置顶]拒绝[RemoveTemp]操作
+项目 -> : 状态[已挂起_未置顶]拒绝[RemoveTemp]操作
+项目 -> : 状态[已挂起_已置顶]拒绝[RemoveTemp]操作
+项目 -> : 状态[未开始_未置顶]拒绝[RemoveTemp]操作
+项目 -> : 状态[未开始_已置顶]拒绝[RemoveTemp]操作
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|准备临时参数 |
+|2|获取数据 |
+|3|状态[已关闭_未置顶]拒绝[RemoveTemp]操作 |
+|4|状态[已关闭_已置顶]拒绝[RemoveTemp]操作 |
+|5|状态[进行中_未置顶]拒绝[RemoveTemp]操作 |
+|6|状态[进行中_已置顶]拒绝[RemoveTemp]操作 |
+|7|状态[已挂起_未置顶]拒绝[RemoveTemp]操作 |
+|8|状态[已挂起_已置顶]拒绝[RemoveTemp]操作 |
+|9|状态[未开始_未置顶]拒绝[RemoveTemp]操作 |
+|10|状态[未开始_已置顶]拒绝[RemoveTemp]操作 |
+<center>行为[RemoveTemp]主状态拒绝逻辑</center>
+* 行为[RemoveTempMajor]主状态拒绝逻辑 (RemoveTempMajor__MSDeny)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+项目 -> 项目: 准备临时参数
+项目 -> 项目: 获取数据
+项目 -> : 状态[已关闭_未置顶]拒绝[RemoveTempMajor]操作
+项目 -> : 状态[已关闭_已置顶]拒绝[RemoveTempMajor]操作
+项目 -> : 状态[进行中_未置顶]拒绝[RemoveTempMajor]操作
+项目 -> : 状态[进行中_已置顶]拒绝[RemoveTempMajor]操作
+项目 -> : 状态[已挂起_未置顶]拒绝[RemoveTempMajor]操作
+项目 -> : 状态[已挂起_已置顶]拒绝[RemoveTempMajor]操作
+项目 -> : 状态[未开始_未置顶]拒绝[RemoveTempMajor]操作
+项目 -> : 状态[未开始_已置顶]拒绝[RemoveTempMajor]操作
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|准备临时参数 |
+|2|获取数据 |
+|3|状态[已关闭_未置顶]拒绝[RemoveTempMajor]操作 |
+|4|状态[已关闭_已置顶]拒绝[RemoveTempMajor]操作 |
+|5|状态[进行中_未置顶]拒绝[RemoveTempMajor]操作 |
+|6|状态[进行中_已置顶]拒绝[RemoveTempMajor]操作 |
+|7|状态[已挂起_未置顶]拒绝[RemoveTempMajor]操作 |
+|8|状态[已挂起_已置顶]拒绝[RemoveTempMajor]操作 |
+|9|状态[未开始_未置顶]拒绝[RemoveTempMajor]操作 |
+|10|状态[未开始_已置顶]拒绝[RemoveTempMajor]操作 |
+<center>行为[RemoveTempMajor]主状态拒绝逻辑</center>
 * 行为[UpdateCycle]主状态拒绝逻辑 (UpdateCycle__MSDeny)
   
    

@@ -33,6 +33,9 @@ import cn.ibizlab.pms.core.zentao.domain.Project;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
 import cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
+import cn.ibizlab.pms.core.ibiz.filter.ProjectTeamSearchContext;
+import cn.ibizlab.pms.core.ibiz.domain.ProjectTeam;
+import cn.ibizlab.pms.core.ibiz.service.IProjectTeamService;
 
 @Slf4j
 @Api(tags = {"项目" })
@@ -46,6 +49,9 @@ public class ProjectResource {
     @Autowired
     @Lazy
     public ProjectMapping projectMapping;
+
+    @Autowired
+    private IProjectTeamService projectteamService;
 
     @PreAuthorize("hasPermission(this.projectMapping.toDomain(#projectdto),'pms-Project-Create')")
     @ApiOperation(value = "新建项目", tags = {"项目" },  notes = "新建项目")

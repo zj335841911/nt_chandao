@@ -16,7 +16,7 @@ export class MultiEditViewPanelServiceBase extends ControlServiceBase {
      * @param {*} [data={}]
      * @param {boolean} [isCreate]
      * @returns {*}
-     * @memberof FormServiceBase
+     * @memberof MultiEditViewPanelServiceBase
      */
     public handleResponseData(action: string, data: any = {}, isCreate?: boolean): any {
         if (!this.model || !Util.isFunction(this.model.getDataItems)) {
@@ -41,4 +41,28 @@ export class MultiEditViewPanelServiceBase extends ControlServiceBase {
         return data;
     }
 
+    /**
+     * 查询数据
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isLoading]
+     * @returns {Promise<HttpResponse>}
+     * @memberof MultiEditViewPanelServiceBase
+     */
+    public async get(action: string, context: any = {}, data: any = {}, isLoading?: boolean): Promise<HttpResponse> {
+        await this.onBeforeAction(action, context, data, isLoading);
+        data = this.handleRequestData(action, context, data, true);
+        let response: HttpResponse;
+        if (Util.isFunction(this.service[action])) {
+            response = await this.service[action](context, data, isLoading);
+        } else {
+            response = await this.service.Get(context, data, isLoading);
+        }
+        if (!response.isError()) {
+            response = this.handleResponse(action, response);
+        }
+        return response;
+    }
 }

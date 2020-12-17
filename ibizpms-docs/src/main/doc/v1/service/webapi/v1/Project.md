@@ -908,7 +908,29 @@ POST
 | 72 | doclibcnt | Integer | 允许 | 文档数量 |
 | 73 | orgid | String | 允许 | 组织标识 |
 | 74 | mdeptid | String | 允许 | 部门标识 |
-| 75 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 75 | ibzprojectteams | List<[IBZPROJECTTEAMDTO}](#IBZPROJECTTEAMDTO})> | 允许 | 项目团队 |
+| 76 | <动态属性> | Object | 允许 | 支持动态属性 |
+
+#### IBZPROJECTTEAMDTO
+| 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | join | Timestamp | 允许 | 加盟日<br>时间格式：yyyy-MM-dd |
+| 2 | account | String | 允许 | 用户 |
+| 3 | hours | Double | 允许 | 可用工时/天 |
+| 4 | left | Double | 允许 | 预计剩余 |
+| 5 | days | Integer | 允许 | 可用工日 |
+| 6 | id | Long | 不可 | 编号 |
+| 7 | consumed | Double | 允许 | 总计消耗 |
+| 8 | order | Integer | 允许 | 排序 |
+| 9 | estimate | Double | 允许 | 最初预计 |
+| 10 | limited | String | 允许 | 受限用户 |
+| 11 | role | String | 允许 | 角色 |
+| 12 | type | String | 允许 | 团队类型 |
+| 13 | total | Integer | 允许 | 总计可用 |
+| 14 | root | Long | 允许 | 项目编号 |
+| 15 | username | String | 允许 | 用户 |
+| 16 | taskcnt | Integer | 允许 | 任务数 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

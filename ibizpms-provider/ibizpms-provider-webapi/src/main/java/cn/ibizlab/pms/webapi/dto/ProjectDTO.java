@@ -887,6 +887,13 @@ public class ProjectDTO extends DTOBase implements Serializable {
     }
 
 
+    /**
+     *  [IBZ_PROJECTTEAMNEST]
+     */
+    @JsonProperty("ibzprojectteams")
+    @JSONField(name = "ibzprojectteams")
+	private List<IBZPROJECTTEAMDTO> projectteam ;
+
 }
 
 
