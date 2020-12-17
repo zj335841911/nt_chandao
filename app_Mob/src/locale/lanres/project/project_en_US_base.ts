@@ -188,6 +188,22 @@ export default {
 		uiactions: {
 		},
 	},
+	mobprojectteammanage_form: {
+		details: {
+			druipart1: commonLogic.appcommonhandle("",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("项目编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("项目名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			id: commonLogic.appcommonhandle("项目编号",null), 
+		},
+		uiactions: {
+		},
+	},
 	mobnewform_form: {
 		details: {
 			grouppanel2: commonLogic.appcommonhandle("分组面板",null), 
@@ -216,22 +232,6 @@ export default {
 			formitemex1: commonLogic.appcommonhandle("",null), 
 			desc: commonLogic.appcommonhandle("项目描述",null), 
 			acl: commonLogic.appcommonhandle("访问控制",null), 
-			id: commonLogic.appcommonhandle("项目编号",null), 
-		},
-		uiactions: {
-		},
-	},
-	mobprojectteammanage_form: {
-		details: {
-			druipart1: commonLogic.appcommonhandle("",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("项目编号",null), 
-			srfmajortext: commonLogic.appcommonhandle("项目名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
 			id: commonLogic.appcommonhandle("项目编号",null), 
 		},
 		uiactions: {
@@ -281,6 +281,8 @@ export default {
 			tip: 'tbitem1',
 		},
 	},
+	projectteammanagemobeditviewrighttoolbar_toolbar: {
+	},
 	mobeditviewrighttoolbar_toolbar: {
 		items1: {
 			caption: commonLogic.appcommonhandle("更多",null),
@@ -302,6 +304,10 @@ export default {
 			caption: commonLogic.appcommonhandle("删除",null),
 			tip: 'deuiaction4',
 		},
+		deuiaction5: {
+			caption: commonLogic.appcommonhandle("团队成员管理",null),
+			tip: 'deuiaction5',
+		},
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
@@ -314,7 +320,5 @@ export default {
 			caption: commonLogic.appcommonhandle("新建",null),
 			tip: 'deuiaction1',
 		},
-	},
-	projectteammanagemobeditviewrighttoolbar_toolbar: {
 	},
 };

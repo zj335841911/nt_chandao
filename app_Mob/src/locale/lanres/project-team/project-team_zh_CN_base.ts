@@ -52,8 +52,8 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
 	projectteammobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdviewrighttoolbar_toolbar: {
 	},
 };
