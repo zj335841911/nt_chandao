@@ -645,6 +645,7 @@ SRFNAVPARAM.project=%project%|
 |-|团队|DEGRIDVIEW9|&nbsp;|
 |-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
+|-|组编辑视图|DEEDITVIEW|&nbsp;|
 |-|路线图|DELISTVIEW9|&nbsp;视图参数转换|
 |-|周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例|DETREEEXPVIEW|&nbsp;|
@@ -769,6 +770,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成任务|DEOPTVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
+|-|组表格视图|DEGRIDVIEW|&nbsp;|
 |-|关闭|DEOPTVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|实体2编辑视图|DEEDITVIEW|&nbsp;|

@@ -3659,6 +3659,16 @@
         "viewtag": "983aa1b77ca021f30978523ddef010a0",
         "memo": ""
     },
+    "systeameditview": {
+        "title": "组编辑视图",
+        "caption": "组",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamEditView",
+        "viewfilename": "sys-team-edit-view",
+        "viewtag": "984a70c0b86ca38a96f77ba1c851530f",
+        "memo": ""
+    },
     "productliferoadmaplistview9": {
         "title": "路线图",
         "caption": "产品生命周期",
@@ -4898,6 +4908,16 @@
         "viewfilename": "bug-task-to-bug-edit-view",
         "viewtag": "c9c2b18a9b5b1e628179f9ab99ffe23a",
         "memo": "临时充当主信息展示页面"
+    },
+    "systeamusr2gridview": {
+        "title": "组表格视图",
+        "caption": "组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamUsr2GridView",
+        "viewfilename": "sys-team-usr2-grid-view",
+        "viewtag": "c9f2cd9496fa701c375279c93e1487fd",
+        "memo": ""
     },
     "testtaskcloseoptionview": {
         "title": "关闭",

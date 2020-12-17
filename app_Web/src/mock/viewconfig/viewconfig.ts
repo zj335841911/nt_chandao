@@ -2935,6 +2935,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseMainInfoView",
             "viewtag": "983aa1b77ca021f30978523ddef010a0"
         },
+        "systeameditview": {
+            "title": "组编辑视图",
+            "caption": "组",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamEditView",
+            "viewtag": "984a70c0b86ca38a96f77ba1c851530f"
+        },
         "productliferoadmaplistview9": {
             "title": "路线图",
             "caption": "产品生命周期",
@@ -3926,6 +3934,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugTaskToBugEditView",
             "viewtag": "c9c2b18a9b5b1e628179f9ab99ffe23a"
+        },
+        "systeamusr2gridview": {
+            "title": "组表格视图",
+            "caption": "组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysTeamUsr2GridView",
+            "viewtag": "c9f2cd9496fa701c375279c93e1487fd"
         },
         "testtaskcloseoptionview": {
             "title": "关闭",
