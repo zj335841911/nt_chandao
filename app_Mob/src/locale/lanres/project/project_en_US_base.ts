@@ -227,6 +227,7 @@ export default {
 			type: commonLogic.appcommonhandle("项目类型",null), 
 			products: commonLogic.appcommonhandle("关联产品",null), 
 			srfarray: commonLogic.appcommonhandle("关联数据数组",null), 
+			branchs: commonLogic.appcommonhandle("关联产品平台集合",null), 
 			plans: commonLogic.appcommonhandle("关联计划",null), 
 			formitemex1: commonLogic.appcommonhandle("",null), 
 			desc: commonLogic.appcommonhandle("项目描述",null), 

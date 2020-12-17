@@ -96,6 +96,11 @@ export class MobNewFormModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'branchs',
+                prop: 'branchs',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'plans',
                 prop: 'plans',
                 dataType: 'TEXT',
