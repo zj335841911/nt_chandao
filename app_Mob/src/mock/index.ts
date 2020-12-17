@@ -38,7 +38,7 @@ import './entity/storys/storys';
 import './entity/ibz-my-territorys/ibz-my-territorys';
 import './entity/cases/cases';
 import './entity/test-modules/test-modules';
-import './entity/ibzprojectteamnests/ibzprojectteamnests';
+import './entity/ibzprojectteams/ibzprojectteams';
 import './entity/doc-lib-modules/doc-lib-modules';
 import './entity/sys-update-featuress/sys-update-featuress';
 import './entity/doc-contents/doc-contents';

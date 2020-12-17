@@ -35,10 +35,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzprojectteamnestService from '@/app-core/service/ibzprojectteamnest/ibzprojectteamnest-service';
+import IBZPROJECTTEAMService from '@/app-core/service/ibzprojectteam/ibzprojectteam-service';
 
 import MobMEditView9Engine from '@engine/view/mob-medit-view9-engine';
-import IbzprojectteamnestUIService from '@/ui-service/ibzprojectteamnest/ibzprojectteamnest-ui-action';
+import IBZPROJECTTEAMUIService from '@/ui-service/ibzprojectteam/ibzprojectteam-ui-action';
 import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
@@ -58,18 +58,18 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {IbzprojectteamnestService}
+     * @type {IBZPROJECTTEAMService}
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    protected appEntityService: IbzprojectteamnestService = new IbzprojectteamnestService();
+    protected appEntityService: IBZPROJECTTEAMService = new IBZPROJECTTEAMService();
 
     /**
      * 实体UI服务对象
      *
-     * @type IbzprojectteamnestUIService
+     * @type IBZPROJECTTEAMUIService
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    public appUIService: IbzprojectteamnestUIService = new IbzprojectteamnestUIService(this.$store);
+    public appUIService: IBZPROJECTTEAMUIService = new IBZPROJECTTEAMUIService(this.$store);
 
     /**
      * 数据变化
@@ -180,10 +180,10 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '项目团队多表单编辑视图',
-        srfCaption: 'ibzprojectteamnest.views.projectteammobmeditview.caption',
+        srfCaption: 'ibzprojectteam.views.projectteammobmeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzprojectteamnest.projectteammobmeditview',
+        viewname:'ibzprojectteam.projectteammobmeditview',
         iconcls: '',
         icon: 'users'
     }
@@ -309,7 +309,7 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
         this.engine.init({
             view: this,
             meditviewpanel: this.$refs.meditviewpanel,
-            keyPSDEField: 'ibzprojectteamnest',
+            keyPSDEField: 'ibzprojectteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
         });
