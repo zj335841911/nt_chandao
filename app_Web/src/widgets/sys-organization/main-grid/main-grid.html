@@ -25,6 +25,66 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
+            <template v-if="getColumnState('orgid')">
+                <el-table-column show-overflow-tooltip :prop="'orgid'" :label="$t('entities.sysorganization.main_grid.columns.orgid')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.sysorganization.main_grid.columns.orgid')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.orgid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('shortname')">
+                <el-table-column show-overflow-tooltip :prop="'shortname'" :label="$t('entities.sysorganization.main_grid.columns.shortname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.sysorganization.main_grid.columns.shortname')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.shortname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('domains')">
+                <el-table-column show-overflow-tooltip :prop="'domains'" :label="$t('entities.sysorganization.main_grid.columns.domains')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.sysorganization.main_grid.columns.domains')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.domains}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('orgname')">
+                <el-table-column show-overflow-tooltip :prop="'orgname'" :label="$t('entities.sysorganization.main_grid.columns.orgname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.sysorganization.main_grid.columns.orgname')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.orgname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('orglevel')">
+                <el-table-column show-overflow-tooltip :prop="'orglevel'" :label="$t('entities.sysorganization.main_grid.columns.orglevel')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.sysorganization.main_grid.columns.orglevel')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.orglevel}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

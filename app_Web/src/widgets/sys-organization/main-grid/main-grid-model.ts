@@ -27,6 +27,31 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'orgid',
+          prop: 'orgid',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'shortname',
+          prop: 'shortname',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'domains',
+          prop: 'domains',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'orgname',
+          prop: 'orgname',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'orglevel',
+          prop: 'orglevel',
+          dataType: 'INT',
+        },
+        {
           name: 'porgid',
           prop: 'parentorgid',
           dataType: 'PICKUP',
