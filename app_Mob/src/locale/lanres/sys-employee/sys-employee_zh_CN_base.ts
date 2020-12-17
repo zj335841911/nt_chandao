@@ -5,6 +5,8 @@ export default {
     username: "用户全局名",
     personname: "姓名",
     usercode: "用户工号",
+    loginname: "登录名",
+    password: "密码",
     domains: "区属",
     mdeptid: "主部门",
     mdeptcode: "主部门代码",

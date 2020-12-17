@@ -161,7 +161,7 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
      * @type {*}
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'root': '%root%' };
 
     /**
      * 视图导航参数
@@ -170,7 +170,7 @@ export default class ProjectTeamProjectTeamMobMEditViewBase extends Vue {
      * @type {*}
      * @memberof ProjectTeamProjectTeamMobMEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'root': '%root%' };
 
     /**
      * 视图模型数据
