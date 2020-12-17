@@ -564,6 +564,8 @@ export default class EmpTreeMenuZSService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "postid" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {SRFPARENTKEY:"%syspost%"} });
+                        Object.assign(treeNode, {navigateParams: {srfparentkey:"%syspost%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"syspost" });
@@ -1403,8 +1405,6 @@ export default class EmpTreeMenuZSService extends ControlService {
             Object.assign(treeNode, { expanded: filter.isAutoexpand });
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { navfilter: "postid" });
-            Object.assign(treeNode, {navigateContext: {POSTID:"%syspost%"} });
-            Object.assign(treeNode, {navigateParams: {postid:"%syspost%"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             Object.assign(treeNode, { nodeType: "STATIC" });
