@@ -63,11 +63,9 @@ function getLocaleResourceBase(){
 				columns: {
 					id: commonLogic.appcommonhandle("编号",null),
 					listname: commonLogic.appcommonhandle("标题",null),
-					uagridcolumn1: commonLogic.appcommonhandle("操作",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
-					remove: commonLogic.appcommonhandle("删除",null),
 				},
 			},
 			default_searchform: {

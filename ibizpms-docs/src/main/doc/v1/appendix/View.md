@@ -712,6 +712,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品汇总表编辑视图|DEEDITVIEW|&nbsp;|
 |-|日报编辑视图(日历显示)|DEEDITVIEW|&nbsp;|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
+|-|岗位表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|历史记录|DELISTVIEW|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|添加备注|DEOPTVIEW|&nbsp;|
 |-|暂停任务|DEOPTVIEW|&nbsp;|

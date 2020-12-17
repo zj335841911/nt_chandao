@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
-import UserContactService from '@/service/user-contact/user-contact-service';
-import MainExpService from './main-exp-grid-service';
-import UserContactUIService from '@/uiservice/user-contact/user-contact-ui-service';
+import SysPostService from '@/service/sys-post/sys-post-service';
+import Gridexpbar_gridService from './gridexpbar-grid-grid-service';
+import SysPostUIService from '@/uiservice/sys-post/sys-post-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 /**
@@ -12,66 +12,66 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {MainExpGridBase}
+ * @extends {Gridexpbar_gridGridBase}
  */
-export class MainExpGridBase extends GridControlBase {
+export class Gridexpbar_gridGridBase extends GridControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainExpGridBase
+     * @memberof Gridexpbar_gridGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainExpService}
-     * @memberof MainExpGridBase
+     * @type {Gridexpbar_gridService}
+     * @memberof Gridexpbar_gridGridBase
      */
-    public service: MainExpService = new MainExpService({ $store: this.$store });
+    public service: Gridexpbar_gridService = new Gridexpbar_gridService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {UserContactService}
-     * @memberof MainExpGridBase
+     * @type {SysPostService}
+     * @memberof Gridexpbar_gridGridBase
      */
-    public appEntityService: UserContactService = new UserContactService({ $store: this.$store });
+    public appEntityService: SysPostService = new SysPostService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof MainExpGridBase
+     * @memberof Gridexpbar_gridGridBase
      */
-    protected appDeName: string = 'usercontact';
+    protected appDeName: string = 'syspost';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof MainExpGridBase
+     * @memberof Gridexpbar_gridGridBase
      */
-    protected appDeLogicName: string = '用户联系方式';
+    protected appDeLogicName: string = '岗位';
 
     /**
      * 界面UI服务对象
      *
-     * @type {UserContactUIService}
-     * @memberof MainExpBase
+     * @type {SysPostUIService}
+     * @memberof Gridexpbar_gridBase
      */  
-    public appUIService: UserContactUIService = new UserContactUIService(this.$store);
+    public appUIService: SysPostUIService = new SysPostUIService(this.$store);
 
 
     /**
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */  
     public ActionModel: any = {
     };
@@ -80,75 +80,42 @@ export class MainExpGridBase extends GridControlBase {
      * 主信息表格列
      *
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */  
-    public majorInfoColName:string = "listname";
+    public majorInfoColName:string = "";
 
-    /**
-     * 列主键属性名称
-     *
-     * @type {string}
-     * @memberof MainExpGridBase
-     */
-    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
      *
      * @protected
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
-    protected localStorageTag: string = 'zt_usercontact_mainexp_gridexpbar_grid';
+    protected localStorageTag: string = 'sys_post_gridexpbar_grid_gridexpbar_grid';
 
     /**
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof MainExpGridBase
+     * @memberof Gridexpbar_gridGridBase
      */
     public isEnablePagingBar: boolean = false;
-
-    /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof MainExpGridBase
-     */
-    public limit: number = 500;
 
     /**
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof MainExpGridBase
+     * @memberof Gridexpbar_gridGridBase
      */
     public allColumns: any[] = [
-        {
-            name: 'id',
-            label: '编号',
-            langtag: 'entities.usercontact.mainexp_grid.columns.id',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'listname',
-            label: '标题',
-            langtag: 'entities.usercontact.mainexp_grid.columns.listname',
-            show: true,
-            unit: 'STAR',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
     ]
 
     /**
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof MainExpGridBase
+     * @memberof Gridexpbar_gridGridBase
      */
     public getGridRowModel(){
         return {
@@ -160,7 +127,7 @@ export class MainExpGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public isEnableGroup:boolean = false;
 
@@ -168,7 +135,7 @@ export class MainExpGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public groupAppField:string ="";
 
@@ -176,7 +143,7 @@ export class MainExpGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -184,7 +151,7 @@ export class MainExpGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -192,7 +159,7 @@ export class MainExpGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public groupMode:string ="NONE";
 
@@ -200,7 +167,7 @@ export class MainExpGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public codelistTag: string = "";
 
@@ -208,7 +175,7 @@ export class MainExpGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public codelistType: string = "";
 
@@ -216,13 +183,13 @@ export class MainExpGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainExpGridBase
+     * @memberof Gridexpbar_gridGridBase
      */
     public rules() {
         return {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '岗位标识 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '岗位标识 值不能为空', trigger: 'blur' },
         ],
     }
     }
@@ -231,7 +198,7 @@ export class MainExpGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public deRules:any = {
     };
@@ -240,11 +207,9 @@ export class MainExpGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public hasRowEdit: any = {
-        'id':false,
-        'listname':false,
     };
 
     /**
@@ -252,7 +217,7 @@ export class MainExpGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -303,25 +268,11 @@ export class MainExpGridBase extends GridControlBase {
         }
     }
 
-    /**
-     * 导出数据格式化
-     *
-     * @param {*} filterVal
-     * @param {*} jsonData
-     * @param {any[]} [codelistColumns=[]]
-     * @returns {Promise<any>}
-     * @memberof MainExpGridBase
-     */
-    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
-        return super.formatExcelData(filterVal, jsonData, [
-        ]);
-    }
-
 
     /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public updateDefault(row: any){                    
     }
@@ -329,10 +280,10 @@ export class MainExpGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof MainExpBase
+    * @memberof Gridexpbar_gridBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','listname'];
+        let allColumns:Array<any> = [];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -345,7 +296,7 @@ export class MainExpGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -360,7 +311,7 @@ export class MainExpGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -377,7 +328,7 @@ export class MainExpGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -411,8 +362,6 @@ export class MainExpGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                id:'',
-                listname:'',
                 children: children
             }
             groupTree.push(tree);
@@ -437,8 +386,6 @@ export class MainExpGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            id:'',
-            listname:'',
             children: child
         }
         if(child && child.length > 0){
@@ -455,7 +402,7 @@ export class MainExpGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public async drawGroup(){
         if(!this.isEnableGroup) return;
@@ -499,8 +446,6 @@ export class MainExpGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                id:'',
-                listname:'',
                 children: children,
             }
             groupTree.push(tree);
@@ -518,14 +463,14 @@ export class MainExpGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof MainExpBase
+     * @memberof Gridexpbar_gridBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){
             const nativeData:any = this.service.getCopynativeData();
             if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
                 let targetData:any = nativeData.find((item:any) =>{
-                    return item.id === data.srfkey;
+                    return item.postid === data.srfkey;
                 })
                 if(targetData){
                     return targetData[param]?targetData[param]:null;

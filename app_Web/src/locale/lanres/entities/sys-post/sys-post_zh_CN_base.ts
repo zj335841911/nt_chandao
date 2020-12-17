@@ -14,6 +14,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("岗位",null),
 					title: commonLogic.appcommonhandle("岗位编辑视图",null),
 				},
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("岗位",null),
+					title: commonLogic.appcommonhandle("岗位表格导航视图",null),
+				},
 				usr2gridview: {
 					caption: commonLogic.appcommonhandle("岗位",null),
 					title: commonLogic.appcommonhandle("岗位表格视图",null),
@@ -34,6 +38,13 @@ function getLocaleResourceBase(){
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
 					postid: commonLogic.appcommonhandle("岗位标识",null), 
 				},
+				uiactions: {
+				},
+			},
+			gridexpbar_grid_grid: {
+				columns: {
+				},
+				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
 				},
 			},

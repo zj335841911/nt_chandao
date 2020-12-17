@@ -4329,6 +4329,16 @@
         "viewtag": "ae715fb0beead59fd6157e0ef163a4bb",
         "memo": ""
     },
+    "syspostgridexpview": {
+        "title": "岗位表格导航视图",
+        "caption": "岗位",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysPostGridExpView",
+        "viewfilename": "sys-post-grid-exp-view",
+        "viewtag": "ae72600793a079e5946b182321ddede9",
+        "memo": ""
+    },
     "actionaddcommenthistorylistview": {
         "title": "历史记录",
         "caption": "系统日志",

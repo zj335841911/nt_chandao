@@ -3471,6 +3471,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugStatsProductBugStatusGridView",
             "viewtag": "ae715fb0beead59fd6157e0ef163a4bb"
         },
+        "syspostgridexpview": {
+            "title": "岗位表格导航视图",
+            "caption": "岗位",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysPostGridExpView",
+            "viewtag": "ae72600793a079e5946b182321ddede9"
+        },
         "actionaddcommenthistorylistview": {
             "title": "历史记录",
             "caption": "系统日志",

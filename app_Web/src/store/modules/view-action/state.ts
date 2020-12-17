@@ -103,15 +103,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '0600af11d605ca19d8b36466f9312338',
-            viewmodule: 'ou',
-            viewname: 'SysPostEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '0681bc3d1ffa8e147640ab0dd005d3b5',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView4',
@@ -3906,6 +3897,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ae72600793a079e5946b182321ddede9',
+            viewmodule: 'ou',
+            viewname: 'SysPostGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'aeee411b8bffcf0c30d65557a8deeeee',
             viewmodule: 'zentao',
             viewname: 'ActionAddCommentHistoryListView',
@@ -4136,17 +4136,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e61e97fc70324fe8b112aa7759a3b7b0',
-            ],
-        },
-        {
-            viewtag: 'ba8bd2f4b2dcf0500c9dcd985c531d68',
-            viewmodule: 'ou',
-            viewname: 'SysPostUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'a34f1835a2bc3fef24cf0c7be698e4cf',
-                '0600af11d605ca19d8b36466f9312338',
             ],
         },
         {
@@ -4780,7 +4769,7 @@ export const viewstate: any = {
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 'a0e1f55e52d3167ad1815ac7076cdc45',
                 '42ce56d703f9d063d6c1524bb7a559de',
-                'ba8bd2f4b2dcf0500c9dcd985c531d68',
+                'ae72600793a079e5946b182321ddede9',
                 'c9f2cd9496fa701c375279c93e1487fd',
                 '465f1d3489621f94a90490faa3e0ea0f',
                 'a34f1835a2bc3fef24cf0c7be698e4cf',
