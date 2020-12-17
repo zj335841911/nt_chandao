@@ -282,6 +282,10 @@ export default {
 		},
 	},
 	projectteammanagemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("保存",null),
+			tip: '保存',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		items1: {

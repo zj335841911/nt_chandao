@@ -282,6 +282,10 @@ export default {
 		},
 	},
 	projectteammanagemobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("Save And Close",null),
+			tip: 'tbitem1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		items1: {
