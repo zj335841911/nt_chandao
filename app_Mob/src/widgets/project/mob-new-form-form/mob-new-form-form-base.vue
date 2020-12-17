@@ -266,6 +266,34 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='formitemex1' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitemex1_item"  
+    :itemValue="this.data.formitemex1" 
+    v-show="detailsModel.formitemex1.visible" 
+    :itemRules="this.rules.formitemex1" 
+    :caption="$t('project.mobnewform_form.details.formitemex1')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitemex1.disabled"
+    :error="detailsModel.formitemex1.error" 
+    :isEmptyCaption="false">
+        <app-range-editor 
+            name="formitemex1"  
+            editorType="MOBTEXT"  
+            format=""  
+            style="" 
+            v-model="data.formitemex1" 
+            :activeData="data"
+            :refFormItem="['products','srfarray','branchs','plans']" 
+            @formitemvaluechange="onFormItemValueChange"/>
+</app-form-item>
+
+
     
 </app-form-group>
 
@@ -669,6 +697,11 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         days: null,
         team: null,
         type: null,
+        products: null,
+        srfarray: null,
+        branchs: null,
+        plans: null,
+        formitemex1: null,
         desc: null,
         acl: null,
         id: null,
@@ -883,6 +916,16 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         type: new FormItemModel({ caption: '项目类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        products: new FormItemModel({ caption: '关联产品', detailType: 'FORMITEM', name: 'products', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        srfarray: new FormItemModel({ caption: '关联数据数组', detailType: 'FORMITEM', name: 'srfarray', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        branchs: new FormItemModel({ caption: '关联产品平台集合', detailType: 'FORMITEM', name: 'branchs', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        plans: new FormItemModel({ caption: '关联计划', detailType: 'FORMITEM', name: 'plans', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         desc: new FormItemModel({ caption: '项目描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         acl: new FormItemModel({ caption: '访问控制', detailType: 'FORMITEM', name: 'acl', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1072,6 +1115,66 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 products 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.products')
+    onProductsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'products', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 srfarray 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.srfarray')
+    onSrfarrayChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'srfarray', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branchs 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.branchs')
+    onBranchsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branchs', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 plans 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.plans')
+    onPlansChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'plans', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.formitemex1')
+    onFormitemex1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 desc 值
      *
      * @param {*} newVal
@@ -1152,6 +1255,11 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
 
 
 

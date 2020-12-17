@@ -528,6 +528,9 @@ export default {
         'task': commonLogic.appcommonhandle("任务团队",null),
         empty: commonLogic.appcommonhandle("",null),
     },
+    Product: {
+        empty: commonLogic.appcommonhandle("",null),
+    },
     Zt__delta: {
         '7': commonLogic.appcommonhandle("一星期",null),
         '14': commonLogic.appcommonhandle("两星期",null),

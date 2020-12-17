@@ -12,6 +12,7 @@ import  BugModule  from '@/app-core/code-list/bug-module';
 import  Role  from '@/app-core/code-list/role';
 import  ProjectProductPlan  from '@/app-core/code-list/project-product-plan';
 import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
+import  Product  from '@/app-core/code-list/product';
 import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  ProductPlan  from '@/app-core/code-list/product-plan';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
@@ -82,6 +83,8 @@ export class CodeListService {
         ProjectProductPlan: new ProjectProductPlan(),
         // 用户真实名称（动态）（Bug）
         BugUserRealName: new BugUserRealName(),
+        // 产品（动态）
+        Product: new Product(),
         // 当前用例版本（动态）
         CurCaseVersion: new CurCaseVersion(),
         // 产品计划（动态）

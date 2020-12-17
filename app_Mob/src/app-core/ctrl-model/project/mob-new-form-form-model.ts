@@ -86,6 +86,29 @@ export class MobNewFormModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'products',
+                prop: 'products',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'srfarray',
+                prop: 'srfarray',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'branchs',
+                prop: 'branchs',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'plans',
+                prop: 'plans',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'formitemex1',
+            },
+            {
                 name: 'desc',
                 prop: 'desc',
                 dataType: 'LONGTEXT',

@@ -2888,6 +2888,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "Product",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Product",
+        "appdedataset":"FetchAllList",
+        "items": []
+    },
+    {
         srfkey: 'Zt__delta',
         emptytext: '按时间段',
         "codelisttype":"static",
