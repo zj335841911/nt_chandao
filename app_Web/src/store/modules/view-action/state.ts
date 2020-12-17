@@ -1521,6 +1521,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '465f1d3489621f94a90490faa3e0ea0f',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '57a23ead04eda866c6326f0705f595e3',
+            ],
+        },
+        {
             viewtag: '471a8a8d5b7ebf2a2e0fa7995c4e883c',
             viewmodule: 'ibiz',
             viewname: 'IbzLibEditView9',
@@ -1854,6 +1864,15 @@ export const viewstate: any = {
                 'aeee411b8bffcf0c30d65557a8deeeee',
                 '8ca35f54383cecb05da77cdb1a6588fd',
                 'ef6cfafd09bb61ddb6fec7840f78e97d',
+            ],
+        },
+        {
+            viewtag: '57a23ead04eda866c6326f0705f595e3',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -4665,6 +4684,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'ba70cc2003a4d984ccab95ba36a4a632',
+                '465f1d3489621f94a90490faa3e0ea0f',
             ],
         },
         {

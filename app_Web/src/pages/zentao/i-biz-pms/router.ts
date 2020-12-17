@@ -2911,6 +2911,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-option-view/task-estimate-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testmodules/:testmodule?/quickcfgview/:quickcfgview?',
+                    meta: {
+                        caption: 'entities.testmodule.views.quickcfgview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testmodules', parameterName: 'testmodule' },
+                            { pathName: 'quickcfgview', parameterName: 'quickcfgview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-module-quick-cfg-view/test-module-quick-cfg-view.vue'),
+                },
+                {
+                    path: 'testmodules/:testmodule?/quickcfgview/:quickcfgview?',
+                    meta: {
+                        caption: 'entities.testmodule.views.quickcfgview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testmodules', parameterName: 'testmodule' },
+                            { pathName: 'quickcfgview', parameterName: 'quickcfgview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-module-quick-cfg-view/test-module-quick-cfg-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/linkcasegridview/:linkcasegridview?',
                     meta: {
                         caption: 'entities.case.views.linkcasegridview.caption',
@@ -3010,35 +3039,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
-                },
-                {
-                    path: 'products/:product?/testmodules/:testmodule?/quickcfgview/:quickcfgview?',
-                    meta: {
-                        caption: 'entities.testmodule.views.quickcfgview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testmodules', parameterName: 'testmodule' },
-                            { pathName: 'quickcfgview', parameterName: 'quickcfgview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/test-module-quick-cfg-view/test-module-quick-cfg-view.vue'),
-                },
-                {
-                    path: 'testmodules/:testmodule?/quickcfgview/:quickcfgview?',
-                    meta: {
-                        caption: 'entities.testmodule.views.quickcfgview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testmodules', parameterName: 'testmodule' },
-                            { pathName: 'quickcfgview', parameterName: 'quickcfgview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/test-module-quick-cfg-view/test-module-quick-cfg-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testreports/:testreport?/projectmaininfoview/:projectmaininfoview?',
@@ -5449,6 +5449,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-edit-view/story-edit-view.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-edit-view/sys-employee-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maindetailview9/:maindetailview9?',
@@ -17350,6 +17364,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-report-sub-grid-view/story-report-sub-grid-view.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-usr2-grid-view/sys-employee-usr2-grid-view.vue'),
                 },
                 {
                     path: 'actions/:action?/producttrendslistview9/:producttrendslistview9?',
