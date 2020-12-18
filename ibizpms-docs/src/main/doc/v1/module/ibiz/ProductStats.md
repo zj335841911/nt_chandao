@@ -50,8 +50,7 @@
 | 32 | [已完成的需求数](#属性-已完成的需求数（FINISHEDSTORYCNT）) | FINISHEDSTORYCNT | 整型 | 否 | 否 | 是 |
 | 33 | [解决Bug数](#属性-解决Bug数（RESOLVEDBUGCNT）) | RESOLVEDBUGCNT | 整型 | 否 | 否 | 是 |
 | 34 | [重要的Bug数](#属性-重要的Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
-| 35 | [bug需求比](#属性-bug需求比（BUGSTORYPROPORTION）) | BUGSTORYPROPORTION | 文本，可指定长度 | 否 | 否 | 是 |
-| 36 | [需求所提bug数](#属性-需求所提bug数（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
+| 35 | [需求所提bug数](#属性-需求所提bug数（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
 
 ### 属性-产品编号（ID）
 #### 属性说明
@@ -1368,43 +1367,6 @@ Integer
 #### 关系属性
 无
 
-### 属性-bug需求比（BUGSTORYPROPORTION）
-#### 属性说明
-bug需求比
-
-- 是否是主键
-否
-
-- 属性类型
-应用界面字段[无存储]
-
-- 数据类型
-文本，可指定长度
-
-- Java类型
-String
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
 ### 属性-需求所提bug数（BUGSTORY）
 #### 属性说明
 需求所提bug数
@@ -1885,42 +1847,22 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.*,t1.bugcnt/(IFNULL(t1.storycnt,1)) as bugstoryproportion from (
-SELECT t2.`name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStorycnt,IFNULL(t1.bugcnt,0) as bugcnt,IFNULL(t1.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t1.importantbugcnt,0) as importantbugcnt from (
-SELECT IFNULL(t1.product,t2.product) as product,IFNULL(t1.`name`,t2.`name`) as `name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t2.bugcnt,0) as bugcnt,IFNULL(t2.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t2.importantbugcnt,0) as importantbugcnt from (
+SELECT t1.id,t1.`name`,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t2.finishedStory,0) as finishedStorycnt,IFNULL(t3.bugcnt,0) as bugcnt,IFNULL(t3.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t3.importantbugcnt,0) as importantbugcnt,IFNULL(t4.bugstory,0)  as bugstory from zt_product t1 LEFT JOIN (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,
-SUM(IF(t1.`status` = 'closed' and t1.closedReason in ('done'),t1.num,0)) as finishedStory
+SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
 from (
-select t1.`status`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product  ) t1 left JOIN (
+select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product  ) t2 on t1.id = t2.product LEFT JOIN (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as bugcnt,
 SUM(IF(t1.`STATUS` = 'closed' and t1.resolution in ('fixed'),t1.num,0)) as resolvedBugCnt,
 SUM(IF(t1.pri >= 1 and t1.pri <= 3,t1.num,0)) as importantbugcnt from 
  (
 SELECT t1.`STATUS`,t1.resolution,t1.pri,t1.id,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0'
-) t1 GROUP BY t1.product
-) t2 on t1.product = t2.product
-UNION
-
-SELECT IFNULL(t1.product,t2.product) as product,IFNULL(t1.`name`,t2.`name`) as `name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t2.bugcnt,0) as bugcnt,IFNULL(t2.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t2.importantbugcnt,0) as importantbugcnt from (
-SELECT t1.product,t1.`name`,
-IFNULL(COUNT(1),0) as storycnt ,
-SUM(IF(t1.`status` = 'closed' and t1.closedReason in ('done'),t1.num,0)) as finishedStory
-from (
-select t1.`status`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product  ) t1 right JOIN (
-SELECT t1.product,t1.`name`,
-IFNULL(COUNT(1),0) as bugcnt,
-SUM(IF(t1.`STATUS` = 'closed' and t1.resolution in ('fixed'),t1.num,0)) as resolvedBugCnt,
-SUM(IF(t1.pri >= 1 and t1.pri <= 3,t1.num,0)) as importantbugcnt from 
- (
-SELECT t1.`STATUS`,t1.resolution,t1.pri,t1.id,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0'
-) t1 GROUP BY t1.product
-) t2 on t1.product = t2.product 
-) t1 RIGHT JOIN zt_product t2 on t1.product = t2.id where t2.deleted = '0' ) t1
-
-
-
+) t1 GROUP BY t1.product) t3 on t1.id = t3.product  LEFT JOIN (
+SELECT t2.product,t2.`name`,COUNT(1) as bugstory from (
+SELECT t1.story,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t1.story <> 0 and t1.deleted = '0' and t2.deleted = '0' ) t2
+GROUP BY t2.product ) t4 on t1.id = t4.product where t1.deleted = '0'
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

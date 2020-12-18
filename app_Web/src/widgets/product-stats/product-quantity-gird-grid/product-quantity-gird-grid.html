@@ -97,15 +97,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('bugstoryproportion')">
-                <el-table-column show-overflow-tooltip :prop="'bugstoryproportion'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugstoryproportion')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('bugstory')">
+                <el-table-column show-overflow-tooltip :prop="'bugstory'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugstory')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.productstats.productquantitygird_grid.columns.bugstoryproportion')}}
+                        {{$t('entities.productstats.productquantitygird_grid.columns.bugstory')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.bugstoryproportion}}</span>
+                            <span>{{row.bugstory}}</span>
                     </template>
                 </el-table-column>
             </template>

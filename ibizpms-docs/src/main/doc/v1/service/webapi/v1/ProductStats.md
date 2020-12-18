@@ -350,9 +350,8 @@ POST
 | 32 | finishedstorycnt | Integer | 允许 | 已完成的需求数 |
 | 33 | resolvedbugcnt | Integer | 允许 | 解决Bug数 |
 | 34 | importantbugcnt | Integer | 允许 | 重要的Bug数 |
-| 35 | bugstoryproportion | String | 允许 | bug需求比 |
-| 36 | bugstory | Integer | 允许 | 需求所提bug数 |
-| 37 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 35 | bugstory | Integer | 允许 | 需求所提bug数 |
+| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

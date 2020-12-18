@@ -172,9 +172,9 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'bugstoryproportion',
-            label: 'bug需求比',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.bugstoryproportion',
+            name: 'bugstory',
+            label: '需求所提bug数',
+            langtag: 'entities.productstats.productquantitygird_grid.columns.bugstory',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -287,7 +287,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
         'bugcnt':false,
         'resolvedbugcnt':false,
         'importantbugcnt':false,
-        'bugstoryproportion':false,
+        'bugstory':false,
     };
 
     /**
@@ -375,7 +375,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
     * @memberof ProductQuantityGirdBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','storycnt','finishedstorycnt','bugcnt','resolvedbugcnt','importantbugcnt','bugstoryproportion'];
+        let allColumns:Array<any> = ['name','storycnt','finishedstorycnt','bugcnt','resolvedbugcnt','importantbugcnt','bugstory'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -460,7 +460,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
                 bugcnt:'',
                 resolvedbugcnt:'',
                 importantbugcnt:'',
-                bugstoryproportion:'',
+                bugstory:'',
                 children: children
             }
             groupTree.push(tree);
@@ -491,7 +491,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
             bugcnt:'',
             resolvedbugcnt:'',
             importantbugcnt:'',
-            bugstoryproportion:'',
+            bugstory:'',
             children: child
         }
         if(child && child.length > 0){
@@ -558,7 +558,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
                 bugcnt:'',
                 resolvedbugcnt:'',
                 importantbugcnt:'',
-                bugstoryproportion:'',
+                bugstory:'',
                 children: children,
             }
             groupTree.push(tree);

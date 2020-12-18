@@ -279,14 +279,6 @@ export interface ProductStats {
     importantbugcnt?: any;
 
     /**
-     * bug需求比
-     *
-     * @returns {*}
-     * @memberof ProductStats
-     */
-    bugstoryproportion?: any;
-
-    /**
      * 需求所提bug数
      *
      * @returns {*}

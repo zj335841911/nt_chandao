@@ -37,7 +37,6 @@ function getLocaleResourceBase(){
 			finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
 			resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
 			importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
-			bugstoryproportion: commonLogic.appcommonhandle("bug需求比",null),
 			bugstory: commonLogic.appcommonhandle("需求所提bug数",null),
 		},
 			views: {
@@ -230,7 +229,7 @@ function getLocaleResourceBase(){
 					bugcnt: commonLogic.appcommonhandle("所有Bug数",null),
 					resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
 					importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
-					bugstoryproportion: commonLogic.appcommonhandle("bug需求比",null),
+					bugstory: commonLogic.appcommonhandle("需求所提bug数",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

@@ -43,7 +43,6 @@
 |已完成的需求数|FINISHEDSTORYCNT|INT|&nbsp;|
 |解决Bug数|RESOLVEDBUGCNT|INT|&nbsp;|
 |重要的Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
-|bug需求比|BUGSTORYPROPORTION|TEXT|&nbsp;|
 |需求所提bug数|BUGSTORY|INT|&nbsp;|
 
 ## 值规则
@@ -83,7 +82,6 @@
 |已完成的需求数|默认规则|默认规则|
 |解决Bug数|默认规则|默认规则|
 |重要的Bug数|默认规则|默认规则|
-|bug需求比|默认规则|内容长度必须小于等于[100]|
 |需求所提bug数|默认规则|默认规则|
 
 ## 状态控制
