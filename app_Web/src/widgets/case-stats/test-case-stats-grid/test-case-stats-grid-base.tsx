@@ -114,7 +114,7 @@ export class TestCaseStatsGridBase extends GridControlBase {
             label: '模块名称',
             langtag: 'entities.casestats.testcasestats_grid.columns.modulename',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

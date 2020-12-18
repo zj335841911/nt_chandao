@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('modulename')">
-                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.casestats.testcasestats_grid.columns.modulename')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.casestats.testcasestats_grid.columns.modulename')" :min-width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.casestats.testcasestats_grid.columns.modulename')}}
@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalcase')">
-                <el-table-column show-overflow-tooltip :prop="'totalcase'" :label="$t('entities.casestats.testcasestats_grid.columns.totalcase')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'totalcase'" :label="$t('entities.casestats.testcasestats_grid.columns.totalcase')" :width="130"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.casestats.testcasestats_grid.columns.totalcase')}}
@@ -50,7 +50,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('passcase')">
-                <el-table-column show-overflow-tooltip :prop="'passcase'" :label="$t('entities.casestats.testcasestats_grid.columns.passcase')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'passcase'" :label="$t('entities.casestats.testcasestats_grid.columns.passcase')" :width="130"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.casestats.testcasestats_grid.columns.passcase')}}
@@ -62,7 +62,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('failcase')">
-                <el-table-column show-overflow-tooltip :prop="'failcase'" :label="$t('entities.casestats.testcasestats_grid.columns.failcase')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'failcase'" :label="$t('entities.casestats.testcasestats_grid.columns.failcase')" :width="130"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.casestats.testcasestats_grid.columns.failcase')}}
@@ -74,7 +74,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('blockedcase')">
-                <el-table-column show-overflow-tooltip :prop="'blockedcase'" :label="$t('entities.casestats.testcasestats_grid.columns.blockedcase')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'blockedcase'" :label="$t('entities.casestats.testcasestats_grid.columns.blockedcase')" :width="130"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.casestats.testcasestats_grid.columns.blockedcase')}}
@@ -86,7 +86,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalruncase')">
-                <el-table-column show-overflow-tooltip :prop="'totalruncase'" :label="$t('entities.casestats.testcasestats_grid.columns.totalruncase')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'totalruncase'" :label="$t('entities.casestats.testcasestats_grid.columns.totalruncase')" :width="130"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.casestats.testcasestats_grid.columns.totalruncase')}}
@@ -98,7 +98,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('passrate')">
-                <el-table-column show-overflow-tooltip :prop="'passrate'" :label="$t('entities.casestats.testcasestats_grid.columns.passrate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'passrate'" :label="$t('entities.casestats.testcasestats_grid.columns.passrate')" :width="130"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.casestats.testcasestats_grid.columns.passrate')}}
