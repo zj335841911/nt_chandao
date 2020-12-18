@@ -50,6 +50,7 @@ export default class IBizPMS extends IBizPMSBase {
             <template slot="header_right">
               <app-header-menus ref="headerMenus" ctrlName="zentao" menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
               {this.$topRenderService.rightItemsRenders.map((fun: any) => fun(h))}
+              <full-text-search path="/ibizpms/ibizpro_indices/listview"/>
               <user-info ref="userInfo" ctrlName="zentao" menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
             </template>
           </app-header>
