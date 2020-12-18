@@ -294,7 +294,7 @@ export default class ZentaoModel {
                 	textcls: '',
                 	appfunctag: 'AppFunc9',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'ibizpro-indexlist-view',
+                	viewname: 'ibizpro-index-list-view',
                 	authtag:'Web-zentao-menuitem27',
                 	localetag: 'app.menus.zentao.menuitem27',
                 }
@@ -838,7 +838,7 @@ export default class ZentaoModel {
             appfunctag: 'AppFunc9',
             appfuncyype: 'APPVIEW',
             openmode: '',
-            codename: 'ibizpro_indexlistview',
+            codename: 'ibizproindexlistview',
             deResParameters: [],
             routepath: '/ibizpms/:ibizpms?/ibizproindices/:ibizproindex?/listview/:listview?',
             parameters: [

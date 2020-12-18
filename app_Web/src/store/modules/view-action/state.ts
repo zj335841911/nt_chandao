@@ -365,7 +365,7 @@ export const viewstate: any = {
         {
             viewtag: '10aa6afcd73e77c44c698319a1b4edcd',
             viewmodule: 'ibizpro',
-            viewname: 'IBIZPRO_INDEXListView',
+            viewname: 'IbizproIndexListView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1108,7 +1108,7 @@ export const viewstate: any = {
         {
             viewtag: '31dc3f821fafa9e92cc28d217373a67b',
             viewmodule: 'ibizpro',
-            viewname: 'IBIZPRO_INDEXIndexPickupView',
+            viewname: 'IbizproIndexIndexPickupView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -3241,7 +3241,7 @@ export const viewstate: any = {
         {
             viewtag: '92269965704a55f1342317470d86e5e3',
             viewmodule: 'ibizpro',
-            viewname: 'IBIZPRO_INDEXIndexPickupDataView',
+            viewname: 'IbizproIndexIndexPickupDataView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -4907,7 +4907,7 @@ export const viewstate: any = {
         {
             viewtag: 'd7dd357c2488e9f3440971b4407d52a1',
             viewmodule: 'ibizpro',
-            viewname: 'IBIZPRO_INDEXRedirectView',
+            viewname: 'IbizproIndexRedirectView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

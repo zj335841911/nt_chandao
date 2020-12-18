@@ -103,7 +103,7 @@ export class IndexPickupViewpickupviewpanelPickupviewpanelBase extends MainContr
      * @memberof IndexPickupViewpickupviewpanel
      */
     public view: any = {
-        viewname: 'ibizpro-indexindex-pickup-data-view',
+        viewname: 'ibizpro-index-index-pickup-data-view',
         data: {},
     }
 

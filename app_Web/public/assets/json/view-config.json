@@ -439,13 +439,13 @@
         "viewtag": "103bc77ad54de2476db1d4e9c788cd4e",
         "memo": ""
     },
-    "ibizpro_indexlistview": {
+    "ibizproindexlistview": {
         "title": "索引检索列表视图",
         "caption": "索引检索",
         "viewtype": "DELISTVIEW",
         "viewmodule": "ibizpro",
-        "viewname": "IBIZPRO_INDEXListView",
-        "viewfilename": "ibizpro-indexlist-view",
+        "viewname": "IbizproIndexListView",
+        "viewfilename": "ibizpro-index-list-view",
         "viewtag": "10aa6afcd73e77c44c698319a1b4edcd",
         "memo": ""
     },
@@ -1199,13 +1199,13 @@
         "viewtag": "30c07c840301a6ba07383d123bf9bba1",
         "memo": ""
     },
-    "ibizpro_indexindexpickupview": {
+    "ibizproindexindexpickupview": {
         "title": "索引检索数据选择视图",
         "caption": "索引检索",
         "viewtype": "DEPICKUPVIEW",
         "viewmodule": "ibizpro",
-        "viewname": "IBIZPRO_INDEXIndexPickupView",
-        "viewfilename": "ibizpro-indexindex-pickup-view",
+        "viewname": "IbizproIndexIndexPickupView",
+        "viewfilename": "ibizpro-index-index-pickup-view",
         "viewtag": "31dc3f821fafa9e92cc28d217373a67b",
         "memo": ""
     },
@@ -3639,13 +3639,13 @@
         "viewtag": "910a15d245455b5b6c4dc58fd36aa315",
         "memo": ""
     },
-    "ibizpro_indexindexpickupdataview": {
+    "ibizproindexindexpickupdataview": {
         "title": "索引检索索引关系选择数据视图",
         "caption": "索引检索",
         "viewtype": "DEINDEXPICKUPDATAVIEW",
         "viewmodule": "ibizpro",
-        "viewname": "IBIZPRO_INDEXIndexPickupDataView",
-        "viewfilename": "ibizpro-indexindex-pickup-data-view",
+        "viewname": "IbizproIndexIndexPickupDataView",
+        "viewfilename": "ibizpro-index-index-pickup-data-view",
         "viewtag": "92269965704a55f1342317470d86e5e3",
         "memo": ""
     },
@@ -5549,13 +5549,13 @@
         "viewtag": "d7b7fadc3c6a2da9c7a4319c40fd0e7c",
         "memo": ""
     },
-    "ibizpro_indexredirectview": {
+    "ibizproindexredirectview": {
         "title": "索引检索数据重定向视图",
         "caption": "索引检索",
         "viewtype": "DEREDIRECTVIEW",
         "viewmodule": "ibizpro",
-        "viewname": "IBIZPRO_INDEXRedirectView",
-        "viewfilename": "ibizpro-indexredirect-view",
+        "viewname": "IbizproIndexRedirectView",
+        "viewfilename": "ibizpro-index-redirect-view",
         "viewtag": "d7dd357c2488e9f3440971b4407d52a1",
         "memo": ""
     },

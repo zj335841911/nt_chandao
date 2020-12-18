@@ -1067,7 +1067,7 @@
 
 
     <!--输出实体[IBIZPRO_INDEX]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_index-96-35">
+    <changeSet author="zentao" id="tab-ibizpro_index-98-35">
         <createTable tableName="">
         </createTable>
     </changeSet>
@@ -3015,7 +3015,7 @@
     </changeSet>
         <!--输出实体[IBZPRO_SYSTEM]外键关系 -->
         <!--输出实体[IBZ_CASESTATS]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_casestats-16-163">
+    <changeSet author="zentao" id="fk-ibz_casestats-29-163">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_case" constraintName="DER1N_IBZ_CASESTATS_ZT_MODULE_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_LOGIN]外键关系 -->

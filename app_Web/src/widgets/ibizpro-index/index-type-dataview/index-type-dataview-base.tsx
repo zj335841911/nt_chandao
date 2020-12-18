@@ -375,7 +375,7 @@ export class IndexTypeDataViewBase extends MainControlBase {
      */
     public load(opt: any = {}, isReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'IBIZPRO_INDEXIndexPickupDataView视图列表fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'IbizproIndexIndexPickupDataView视图列表fetchAction参数未配置' });
             return;
         }      
         const arg: any = {...opt};
@@ -441,7 +441,7 @@ export class IndexTypeDataViewBase extends MainControlBase {
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'IBIZPRO_INDEXIndexPickupDataView视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'IbizproIndexIndexPickupDataView视图表格removeAction参数未配置' });
             return;
         }
         let _datas:any[] = [];
@@ -549,7 +549,7 @@ export class IndexTypeDataViewBase extends MainControlBase {
             try {
                 if(Object.is(item.rowDataState, 'create')){
                     if(!this.createAction){
-                        this.$Notice.error({ title: '错误', desc: 'IBIZPRO_INDEXIndexPickupDataView视图列表createAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'IbizproIndexIndexPickupDataView视图列表createAction参数未配置' });
                     }else{
                       Object.assign(item,{viewparams:this.viewparams});
                       let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
@@ -557,7 +557,7 @@ export class IndexTypeDataViewBase extends MainControlBase {
                     }
                 }else if(Object.is(item.rowDataState, 'update')){
                     if(!this.updateAction){
-                        this.$Notice.error({ title: '错误', desc: 'IBIZPRO_INDEXIndexPickupDataView视图列表updateAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'IbizproIndexIndexPickupDataView视图列表updateAction参数未配置' });
                     }else{
                         Object.assign(item,{viewparams:this.viewparams});
                         if(item.ibizproindex){

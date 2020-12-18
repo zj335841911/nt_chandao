@@ -99,7 +99,7 @@ export default class IbizproIndexUIServiceBase extends UIService {
         this.allViewMap.set('INDEXDEPICKUPVIEW:', {
             viewname: 'indexpickupview',
             srfappde: 'ibizproindices',
-            component: 'ibizpro-indexindex-pickup-view',
+            component: 'ibizpro-index-index-pickup-view',
             openmode: '',
             title: '索引检索',
             width: 0,
@@ -108,7 +108,7 @@ export default class IbizproIndexUIServiceBase extends UIService {
         this.allViewMap.set('REDIRECTVIEW:', {
             viewname: 'redirectview',
             srfappde: 'ibizproindices',
-            component: 'ibizpro-indexredirect-view',
+            component: 'ibizpro-index-redirect-view',
             openmode: '',
             title: '索引检索',
             width: 0,

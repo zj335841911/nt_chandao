@@ -56,7 +56,7 @@
 |年度统计|[查看功能](func/UserYearWorkStatsEditView.md)|
 |iBiz软件生产管理|[查看功能](func/ProductHtmlView.md)|
 |通讯录|[查看功能](func/SysEmployeeTreeExpView.md)|
-|全文检索|[查看功能](func/IBIZPRO_INDEXListView.md)|
+|全文检索|[查看功能](func/IbizproIndexListView.md)|
 |系统管理|-|
 |用户|-|
 |用例库|[查看功能](func/IbzLibGridView.md)|

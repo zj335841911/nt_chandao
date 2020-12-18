@@ -359,12 +359,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectTaskTreeExpView",
             "viewtag": "103bc77ad54de2476db1d4e9c788cd4e"
         },
-        "ibizpro_indexlistview": {
+        "ibizproindexlistview": {
             "title": "索引检索列表视图",
             "caption": "索引检索",
             "viewtype": "DELISTVIEW",
             "viewmodule": "ibizpro",
-            "viewname": "IBIZPRO_INDEXListView",
+            "viewname": "IbizproIndexListView",
             "viewtag": "10aa6afcd73e77c44c698319a1b4edcd"
         },
         "todobaseeditview9": {
@@ -967,12 +967,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskMyDGridView",
             "viewtag": "30c07c840301a6ba07383d123bf9bba1"
         },
-        "ibizpro_indexindexpickupview": {
+        "ibizproindexindexpickupview": {
             "title": "索引检索数据选择视图",
             "caption": "索引检索",
             "viewtype": "DEPICKUPVIEW",
             "viewmodule": "ibizpro",
-            "viewname": "IBIZPRO_INDEXIndexPickupView",
+            "viewname": "IbizproIndexIndexPickupView",
             "viewtag": "31dc3f821fafa9e92cc28d217373a67b"
         },
         "taskmaininfoview9": {
@@ -2919,12 +2919,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IBIZProKeywordGridView",
             "viewtag": "910a15d245455b5b6c4dc58fd36aa315"
         },
-        "ibizpro_indexindexpickupdataview": {
+        "ibizproindexindexpickupdataview": {
             "title": "索引检索索引关系选择数据视图",
             "caption": "索引检索",
             "viewtype": "DEINDEXPICKUPDATAVIEW",
             "viewmodule": "ibizpro",
-            "viewname": "IBIZPRO_INDEXIndexPickupDataView",
+            "viewname": "IbizproIndexIndexPickupDataView",
             "viewtag": "92269965704a55f1342317470d86e5e3"
         },
         "todotodocreateview": {
@@ -4447,12 +4447,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskreportPickupGridView",
             "viewtag": "d7b7fadc3c6a2da9c7a4319c40fd0e7c"
         },
-        "ibizpro_indexredirectview": {
+        "ibizproindexredirectview": {
             "title": "索引检索数据重定向视图",
             "caption": "索引检索",
             "viewtype": "DEREDIRECTVIEW",
             "viewmodule": "ibizpro",
-            "viewname": "IBIZPRO_INDEXRedirectView",
+            "viewname": "IbizproIndexRedirectView",
             "viewtag": "d7dd357c2488e9f3440971b4407d52a1"
         },
         "companymainview9": {

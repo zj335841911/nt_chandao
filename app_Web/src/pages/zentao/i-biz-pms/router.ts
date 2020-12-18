@@ -10990,7 +10990,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibizpro/ibizpro-indexindex-pickup-view/ibizpro-indexindex-pickup-view.vue'),
+                    component: () => import('@pages/ibizpro/ibizpro-index-index-pickup-view/ibizpro-index-index-pickup-view.vue'),
                 },
                 {
                     path: 'todos/:todo?/assigntoview/:assigntoview?',
@@ -11103,7 +11103,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibizpro/ibizpro-indexindex-pickup-data-view/ibizpro-indexindex-pickup-data-view.vue'),
+                    component: () => import('@pages/ibizpro/ibizpro-index-index-pickup-data-view/ibizpro-index-index-pickup-data-view.vue'),
                 },
                 {
                     path: 'files/:file?/productgridview/:productgridview?',
@@ -11308,7 +11308,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibizpro/ibizpro-indexlist-view/ibizpro-indexlist-view.vue'),
+                    component: () => import('@pages/ibizpro/ibizpro-index-list-view/ibizpro-index-list-view.vue'),
                 },
                 {
                     path: 'sysposts/:syspost?/gridexpview/:gridexpview?',
