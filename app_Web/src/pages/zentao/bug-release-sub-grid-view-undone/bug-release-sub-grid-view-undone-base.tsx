@@ -395,25 +395,8 @@ export class BugReleaseSubGridView_UndoneBase extends GridViewBase {
             { pathName: 'bugs', parameterName: 'bug' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
-        }
-        const view: any = {
-            viewname: 'bug-main-dashboard-view', 
-            height: 850, 
-            width: 1400,  
-            title: this.$t('entities.bug.views.maindashboardview.title'),
-        };
-        openPopupModal(view, data);
+        const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+        window.open('./#'+routePath, '_blank');
     }
 
 
