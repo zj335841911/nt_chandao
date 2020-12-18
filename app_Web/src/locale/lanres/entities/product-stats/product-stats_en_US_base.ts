@@ -34,8 +34,16 @@ function getLocaleResourceBase(){
 			type: commonLogic.appcommonhandle("产品类型",null),
 			order1: commonLogic.appcommonhandle("产品排序",null),
 			istop: commonLogic.appcommonhandle("是否置顶",null),
+			finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
+			resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
+			importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
+			bugstoryproportion: commonLogic.appcommonhandle("bug需求比",null),
 		},
 			views: {
+				editview: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
+				},
 				allgridview: {
 					caption: commonLogic.appcommonhandle("所有产品",null),
 					title: commonLogic.appcommonhandle("所有产品",null),
@@ -51,6 +59,28 @@ function getLocaleResourceBase(){
 				gridview9: {
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计表格视图",null),
+				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计表格视图",null),
+				},
+			},
+			main_form: {
+				details: {
+					group1: commonLogic.appcommonhandle("实体基本信息",null), 
+					formpage1: commonLogic.appcommonhandle("基本信息",null), 
+					group2: commonLogic.appcommonhandle("操作信息",null), 
+					formpage2: commonLogic.appcommonhandle("其它",null), 
+					srforikey: commonLogic.appcommonhandle("",null), 
+					srfkey: commonLogic.appcommonhandle("产品编号",null), 
+					srfmajortext: commonLogic.appcommonhandle("产品名称",null), 
+					srftempmode: commonLogic.appcommonhandle("",null), 
+					srfuf: commonLogic.appcommonhandle("",null), 
+					srfdeid: commonLogic.appcommonhandle("",null), 
+					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					id: commonLogic.appcommonhandle("产品编号",null), 
+				},
+				uiactions: {
 				},
 			},
 			main2_form: {
@@ -191,6 +221,45 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			productquantitygird_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("产品名称",null),
+					storycnt: commonLogic.appcommonhandle("需求总数",null),
+					finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
+					bugcnt: commonLogic.appcommonhandle("所有Bug数",null),
+					resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
+					importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
+					bugstoryproportion: commonLogic.appcommonhandle("bug需求比",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			default_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+				},
+				uiactions: {
+				},
+			},
+			editviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("Save",null),
+					tip: commonLogic.appcommonhandle("Save",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("Save And New",null),
+					tip: commonLogic.appcommonhandle("Save And New",null),
+				},
+				tbitem5: {
+					caption: commonLogic.appcommonhandle("Save And Close",null),
+					tip: commonLogic.appcommonhandle("Save And Close Window",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("Remove And Close",null),
+					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
+				},
+			},
 			allgridviewtoolbar_toolbar: {
 				deuiaction3_addproduct: {
 					caption: commonLogic.appcommonhandle("添加产品",null),
@@ -208,6 +277,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Filter",null),
 					tip: commonLogic.appcommonhandle("Filter",null),
 				},
+			},
+			gridviewtoolbar_toolbar: {
 			},
 		};
 		return data;

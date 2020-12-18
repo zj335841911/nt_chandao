@@ -29,6 +29,16 @@
         "viewtag": "00ac056d598228619b6c0dbfcd603e4c",
         "memo": ""
     },
+    "productstatseditview": {
+        "title": "产品统计编辑视图",
+        "caption": "产品统计",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsEditView",
+        "viewfilename": "product-stats-edit-view",
+        "viewtag": "00ad158575544b05271d9502c47918a8",
+        "memo": ""
+    },
     "productmodulegridviewbranch": {
         "title": "产品模块表格视图",
         "caption": "需求模块",
@@ -4977,6 +4987,16 @@
         "viewname": "ProductTestListExpView",
         "viewfilename": "product-test-list-exp-view",
         "viewtag": "c539f1585371e9943b90177eaef08b6b",
+        "memo": ""
+    },
+    "productstatsgridview": {
+        "title": "产品统计表格视图",
+        "caption": "产品统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsGridView",
+        "viewfilename": "product-stats-grid-view",
+        "viewtag": "c53ef5993dc196b00f0cfdc21d6dd3a8",
         "memo": ""
     },
     "ibzlibmoduleeditview": {

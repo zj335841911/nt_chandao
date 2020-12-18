@@ -285,6 +285,39 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("istop")
     private Integer istop;
 
+    /**
+     * 属性 [FINISHEDSTORYCNT]
+     *
+     */
+    @JSONField(name = "finishedstorycnt")
+    @JsonProperty("finishedstorycnt")
+    private Integer finishedstorycnt;
+
+    /**
+     * 属性 [RESOLVEDBUGCNT]
+     *
+     */
+    @JSONField(name = "resolvedbugcnt")
+    @JsonProperty("resolvedbugcnt")
+    private Integer resolvedbugcnt;
+
+    /**
+     * 属性 [IMPORTANTBUGCNT]
+     *
+     */
+    @JSONField(name = "importantbugcnt")
+    @JsonProperty("importantbugcnt")
+    private Integer importantbugcnt;
+
+    /**
+     * 属性 [BUGSTORYPROPORTION]
+     *
+     */
+    @JSONField(name = "bugstoryproportion")
+    @JsonProperty("bugstoryproportion")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String bugstoryproportion;
+
 
     /**
      * 设置 [NAME]

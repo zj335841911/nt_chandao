@@ -31,6 +31,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductExpEditView",
             "viewtag": "00ac056d598228619b6c0dbfcd603e4c"
         },
+        "productstatseditview": {
+            "title": "产品统计编辑视图",
+            "caption": "产品统计",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductStatsEditView",
+            "viewtag": "00ad158575544b05271d9502c47918a8"
+        },
         "productmodulegridviewbranch": {
             "title": "产品模块表格视图",
             "caption": "需求模块",
@@ -3990,6 +3998,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductTestListExpView",
             "viewtag": "c539f1585371e9943b90177eaef08b6b"
+        },
+        "productstatsgridview": {
+            "title": "产品统计表格视图",
+            "caption": "产品统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductStatsGridView",
+            "viewtag": "c53ef5993dc196b00f0cfdc21d6dd3a8"
         },
         "ibzlibmoduleeditview": {
             "title": "用例库模块编辑视图",

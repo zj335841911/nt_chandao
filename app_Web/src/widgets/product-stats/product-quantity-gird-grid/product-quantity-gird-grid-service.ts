@@ -2,22 +2,22 @@ import { Http } from '@/utils';
 import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
-import DefaultModel from './default-searchform-model';
+import ProductQuantityGirdModel from './product-quantity-gird-grid-model';
 
 
 /**
- * Default 部件服务对象
+ * ProductQuantityGird 部件服务对象
  *
  * @export
- * @class DefaultService
+ * @class ProductQuantityGirdService
  */
-export default class DefaultService extends ControlService {
+export default class ProductQuantityGirdService extends ControlService {
 
     /**
      * 产品统计服务对象
      *
      * @type {ProductStatsService}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     public appEntityService: ProductStatsService = new ProductStatsService({ $store: this.getStore() });
 
@@ -25,40 +25,49 @@ export default class DefaultService extends ControlService {
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of DefaultService.
+     * Creates an instance of ProductQuantityGirdService.
      * 
      * @param {*} [opts={}]
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new DefaultModel();
+        this.model = new ProductQuantityGirdModel();
     }
+
+    /**
+     * 备份原生数据
+     *
+     * @type {*}
+     * @memberof ProductQuantityGirdService
+     */
+    private copynativeData:any;
 
     /**
      * 远端数据
      *
      * @type {*}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     private remoteCopyData:any = {};
+
 
     /**
      * 处理数据
      *
-     * @private
+     * @public
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
-    private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
+    public doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
             promise.then((response: any) => {
                 if (response && response.status === 200) {
@@ -85,7 +94,7 @@ export default class DefaultService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  DefaultService
+     * @memberof  ProductQuantityGirdService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
@@ -96,70 +105,6 @@ export default class DefaultService extends ControlService {
     }
 
     /**
-     * 启动工作流
-     *
-     * @param {string} action
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @param {*} [localdata]
-     * @returns {Promise<any>}
-     * @memberof DefaultService
-     */
-    @Errorlog
-    public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
-        data = this.handleWFData(data);
-        context = this.handleRequestData(action,context,data).context;
-        return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.appEntityService;
-            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](context,data, isloading,localdata);
-            } else {
-                result = this.appEntityService.WFStart(context,data, isloading,localdata);
-            }
-            result.then((response) => {
-                this.handleResponse(action, response);
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
-        });
-    }
-
-    /**
-     * 提交工作流
-     *
-     * @param {string} action
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @param {*} [localdata]
-     * @returns {Promise<any>}
-     * @memberof DefaultService
-     */
-    @Errorlog
-    public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
-        data = this.handleWFData(data,true);
-        context = this.handleRequestData(action,context,data,true).context;
-        return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.appEntityService;
-            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](context,data, isloading,localdata);
-            } else {
-                result = this.appEntityService.WFSubmit(context,data, isloading,localdata);
-            }
-            result.then((response) => {
-                this.handleResponse(action, response);
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
-        });
-    }
-
-    /**
      * 添加数据
      *
      * @param {string} action
@@ -167,25 +112,25 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.Create(Context,Data, isloading);
+            }else{
+                result =_appEntityService.Create(Context,Data, isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });
+            });      
         });
     }
 
@@ -197,24 +142,24 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.Remove(Context,Data, isloading);
+            }else{
+                result =_appEntityService.Remove(Context,Data, isloading);
             }
             result.then((response) => {
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });
+            });      
         });
     }
 
@@ -226,21 +171,54 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
+        return new Promise((resolve: any, reject: any) => {
+            const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data,isloading);
+            }else{
+                result =_appEntityService.Update(Context,Data,isloading);
+            }
+            result.then((response) => {
+                this.handleResponse(action, response);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });      
+        });
+    }
+
+    /**
+     * 获取数据
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductQuantityGirdService
+     */
+    @Errorlog
+    public get(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
             } else {
-                result = this.appEntityService.Update(Context,Data, isloading);
+                result = this.appEntityService.Get(Context,Data, isloading);
             }
             result.then((response) => {
-                this.handleResponse(action, response);
+                //处理返回数据，补充判断标识
+                if(response.data){
+                    Object.assign(response.data,{srfuf:0});
+                }
                 resolve(response);
             }).catch(response => {
                 reject(response);
@@ -256,28 +234,29 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     @Errorlog
-    public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+    public search(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.Get(Context,Data, isloading);
+            }else{
+                result =_appEntityService.FetchDefault(Context,Data, isloading);
             }
             result.then((response) => {
-                this.setRemoteCopyData(response);
+                this.setCopynativeData(response.data);
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });
+            });      
         });
     }
+
 
     /**
      * 加载草稿
@@ -287,28 +266,48 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     @Errorlog
-    public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+    public loadDraft(action: string, context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
-            resolve({ status: 200, data: {} });
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data, isloading);
+            } else {
+                result = this.appEntityService.GetDraft(Context,Data, isloading);
+            }
+            result.then((response) => {
+                //处理返回数据，补充判断标识
+                if(response.data){
+                    Object.assign(response.data,{srfuf:'0'});
+                    //仿真主键数据
+                    response.data.id = Util.createUUID();
+                }
+                this.setRemoteCopyData(response);
+                this.handleResponse(action, response, true);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });
         });
     }
 
-     /**
+
+    /**
      * 前台逻辑
      * @param {string} action
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     @Errorlog
-    public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+    public frontLogic(action:string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any)=>{
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -318,7 +317,7 @@ export default class DefaultService extends ControlService {
                 return Promise.reject({ status: 500, data: { title: '失败', message: '系统异常' } });
             }
             result.then((response) => {
-                this.handleResponse(action, response,true);
+                this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
@@ -327,29 +326,29 @@ export default class DefaultService extends ControlService {
     }
 
     /**
-     * 处理请求数据
+     * 处理请求数据(修改或增加数据)
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
-    public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
-        let mode: any = this.getMode();
-        if (!mode && mode.getDataItems instanceof Function) {
+    public handleRequestDataWithUpdate(action: string,context:any ={},data: any = {},isMerge:boolean = false){
+        let model: any = this.getMode();
+        if (!model && model.getDataItems instanceof Function) {
             return data;
         }
-        let formItemItems: any[] = mode.getDataItems();
+        let dataItems: any[] = model.getDataItems();
         let requestData:any = {};
         if(isMerge && (data && data.viewparams)){
             Object.assign(requestData,data.viewparams);
         }
-        formItemItems.forEach((item:any) =>{
+        dataItems.forEach((item:any) =>{
             if(item && item.dataType && Object.is(item.dataType,'FONTKEY')){
-                if(item && item.prop){
+                if(item && item.prop && item.name ){
                     requestData[item.prop] = context[item.name];
                 }
             }else{
-                if(item && item.prop){
+                if(item && item.isEditable && item.prop && item.name && data.hasOwnProperty(item.name)){
                     requestData[item.prop] = data[item.name];
                 }
             }
@@ -361,33 +360,11 @@ export default class DefaultService extends ControlService {
         }
         return {context:tempContext,data:requestData};
     }
-
-    /**
-     * 通过属性名称获取表单项名称
-     * 
-     * @param name 实体属性名称 
-     * @memberof DefaultService
-     */
-    public getItemNameByDeName(name:string) :string{
-        let itemName = name;
-        let mode: any = this.getMode();
-        if (!mode && mode.getDataItems instanceof Function) {
-            return name;
-        }
-        let formItemItems: any[] = mode.getDataItems();
-        formItemItems.forEach((item:any)=>{
-            if(item.prop === name){
-                itemName = item.name;
-            }
-        });
-        return itemName.trim();
-    }
-
     /**
      * 设置远端数据
      * 
      * @param result 远端请求结果 
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     public setRemoteCopyData(result:any){
         if (result && result.status === 200) {
@@ -398,10 +375,28 @@ export default class DefaultService extends ControlService {
     /**
      * 获取远端数据
      * 
-     * @memberof DefaultService
+     * @memberof ProductQuantityGirdService
      */
     public getRemoteCopyData(){
         return this.remoteCopyData;
     }
 
+    /**
+     * 设置备份原生数据
+     * 
+     * @param data 远端请求结果 
+     * @memberof ProductQuantityGirdService
+     */
+    public setCopynativeData(data:any){
+        this.copynativeData = Util.deepCopy(data);
+    }
+
+    /**
+     * 获取备份原生数据
+     * 
+     * @memberof ProductQuantityGirdService
+     */
+    public getCopynativeData(){
+        return this.copynativeData;
+    }    
 }

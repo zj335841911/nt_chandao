@@ -27674,6 +27674,59 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"FINISHEDSTORYCNT" ,
+    "codename":"FinishedStoryCNT",
+    "field_logic_name":"已完成的需求数",
+    "entity_name":"ProductStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"RESOLVEDBUGCNT" ,
+    "codename":"RESOLVEDBUGCNT",
+    "field_logic_name":"解决Bug数",
+    "entity_name":"ProductStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"IMPORTANTBUGCNT" ,
+    "codename":"IMPORtantBUGCNT",
+    "field_logic_name":"重要的Bug数",
+    "entity_name":"ProductStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGSTORYPROPORTION" ,
+    "codename":"BugStoryProportion",
+    "field_logic_name":"bug需求比",
+    "entity_name":"ProductStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

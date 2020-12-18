@@ -40,6 +40,10 @@
 |产品类型|TYPE|SSCODELIST|&nbsp;|
 |产品排序|ORDER1|INT|&nbsp;|
 |是否置顶|ISTOP|INT|&nbsp;|
+|已完成的需求数|FINISHEDSTORYCNT|INT|&nbsp;|
+|解决Bug数|RESOLVEDBUGCNT|INT|&nbsp;|
+|重要的Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
+|bug需求比|BUGSTORYPROPORTION|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -75,6 +79,10 @@
 |产品类型|默认规则|内容长度必须小于等于[60]|
 |产品排序|默认规则|默认规则|
 |是否置顶|默认规则|默认规则|
+|已完成的需求数|默认规则|默认规则|
+|解决Bug数|默认规则|默认规则|
+|重要的Bug数|默认规则|默认规则|
+|bug需求比|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

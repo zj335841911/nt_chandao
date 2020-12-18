@@ -47,6 +47,10 @@
 | 29 | [产品类型](#属性-产品类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
 | 30 | [产品排序](#属性-产品排序（ORDER1）) | ORDER1 | 整型 | 否 | 否 | 是 |
 | 31 | [是否置顶](#属性-是否置顶（ISTOP）) | ISTOP | 整型 | 否 | 否 | 是 |
+| 32 | [已完成的需求数](#属性-已完成的需求数（FINISHEDSTORYCNT）) | FINISHEDSTORYCNT | 整型 | 否 | 否 | 是 |
+| 33 | [解决Bug数](#属性-解决Bug数（RESOLVEDBUGCNT）) | RESOLVEDBUGCNT | 整型 | 否 | 否 | 是 |
+| 34 | [重要的Bug数](#属性-重要的Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
+| 35 | [bug需求比](#属性-bug需求比（BUGSTORYPROPORTION）) | BUGSTORYPROPORTION | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-产品编号（ID）
 #### 属性说明
@@ -1252,6 +1256,154 @@ Integer
 #### 关系属性
 无
 
+### 属性-已完成的需求数（FINISHEDSTORYCNT）
+#### 属性说明
+已完成的需求数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-解决Bug数（RESOLVEDBUGCNT）
+#### 属性说明
+解决Bug数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-重要的Bug数（IMPORTANTBUGCNT）
+#### 属性说明
+重要的Bug数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-bug需求比（BUGSTORYPROPORTION）
+#### 属性说明
+bug需求比
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -1695,9 +1847,8 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-
-SELECT t1.*,t1.bugcnt/(IFNULL(t1.storycnt,1)) as zhanbi from (
-SELECT t2.`name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t1.bugcnt,0) as bugcnt,IFNULL(t1.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t1.importantbugcnt,0) as importantbugcnt from (
+SELECT t1.*,t1.bugcnt/(IFNULL(t1.storycnt,1)) as bugstoryproportion from (
+SELECT t2.`name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStorycnt,IFNULL(t1.bugcnt,0) as bugcnt,IFNULL(t1.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t1.importantbugcnt,0) as importantbugcnt from (
 SELECT IFNULL(t1.product,t2.product) as product,IFNULL(t1.`name`,t2.`name`) as `name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t2.bugcnt,0) as bugcnt,IFNULL(t2.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t2.importantbugcnt,0) as importantbugcnt from (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,

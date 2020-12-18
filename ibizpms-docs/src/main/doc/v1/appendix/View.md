@@ -280,6 +280,7 @@
 |-|测试|DETABEXPVIEW|&nbsp;|
 |-|file表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|
+|-|产品统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务表格视图（类型分组）|DEGRIDVIEW|&nbsp;|
@@ -777,6 +778,7 @@ SRFNAVPARAM.project=%project%|
 |-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试统计|DELISTEXPVIEW|&nbsp;|
+|-|产品统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例库模块编辑视图|DEEDITVIEW|&nbsp;|
 |-|月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|

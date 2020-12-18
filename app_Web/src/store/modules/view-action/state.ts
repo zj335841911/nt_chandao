@@ -29,6 +29,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '00ad158575544b05271d9502c47918a8',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '01384caaa1bc452610f056415c86aaf4',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleGridViewBranch',
@@ -463,6 +472,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '00ad158575544b05271d9502c47918a8',
                 'bc36be2ee4a78e69c13665a8ad03ab6a',
                 'e042a1dee405b0a853f315b39a375783',
             ],
@@ -3018,6 +3028,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '00ad158575544b05271d9502c47918a8',
                 'bc36be2ee4a78e69c13665a8ad03ab6a',
             ],
         },
@@ -4408,6 +4419,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c53ef5993dc196b00f0cfdc21d6dd3a8',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '00ad158575544b05271d9502c47918a8',
+            ],
+        },
+        {
             viewtag: 'c5630df2f9e4729be1d7ba4048064774',
             viewmodule: 'ibiz',
             viewname: 'IbzLibModuleEditView',
@@ -5111,6 +5132,7 @@ export const viewstate: any = {
                 '240ec4bdf10888613e1601f420ad730f',
                 '3989c98a31e037a67b27cdf7acb1f7cd',
                 '15e5bef05cc545e3f705eeed95ac8dc1',
+                'c53ef5993dc196b00f0cfdc21d6dd3a8',
             ],
         },
         {

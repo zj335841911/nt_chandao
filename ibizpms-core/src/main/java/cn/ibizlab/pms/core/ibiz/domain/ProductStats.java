@@ -263,6 +263,34 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "istop")
     @JsonProperty("istop")
     private Integer istop;
+    /**
+     * 已完成的需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishedstorycnt")
+    @JsonProperty("finishedstorycnt")
+    private Integer finishedstorycnt;
+    /**
+     * 解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "resolvedbugcnt")
+    @JsonProperty("resolvedbugcnt")
+    private Integer resolvedbugcnt;
+    /**
+     * 重要的Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "importantbugcnt")
+    @JsonProperty("importantbugcnt")
+    private Integer importantbugcnt;
+    /**
+     * bug需求比
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugstoryproportion")
+    @JsonProperty("bugstoryproportion")
+    private String bugstoryproportion;
 
 
 

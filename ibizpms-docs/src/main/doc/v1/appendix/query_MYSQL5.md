@@ -12302,9 +12302,8 @@ WHERE
 ```
 ### 产品质量表(ProdctQuantiGird)<div id="ProductStats_ProdctQuantiGird"></div>
 ```sql
-
-SELECT t1.*,t1.bugcnt/(IFNULL(t1.storycnt,1)) as zhanbi from (
-SELECT t2.`name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t1.bugcnt,0) as bugcnt,IFNULL(t1.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t1.importantbugcnt,0) as importantbugcnt from (
+SELECT t1.*,t1.bugcnt/(IFNULL(t1.storycnt,1)) as bugstoryproportion from (
+SELECT t2.`name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStorycnt,IFNULL(t1.bugcnt,0) as bugcnt,IFNULL(t1.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t1.importantbugcnt,0) as importantbugcnt from (
 SELECT IFNULL(t1.product,t2.product) as product,IFNULL(t1.`name`,t2.`name`) as `name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t2.bugcnt,0) as bugcnt,IFNULL(t2.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t2.importantbugcnt,0) as importantbugcnt from (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,

@@ -2,22 +2,22 @@ import { Http } from '@/utils';
 import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
-import DefaultModel from './default-searchform-model';
+import MainModel from './main-form-model';
 
 
 /**
- * Default 部件服务对象
+ * Main 部件服务对象
  *
  * @export
- * @class DefaultService
+ * @class MainService
  */
-export default class DefaultService extends ControlService {
+export default class MainService extends ControlService {
 
     /**
      * 产品统计服务对象
      *
      * @type {ProductStatsService}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     public appEntityService: ProductStatsService = new ProductStatsService({ $store: this.getStore() });
 
@@ -25,28 +25,28 @@ export default class DefaultService extends ControlService {
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of DefaultService.
+     * Creates an instance of MainService.
      * 
      * @param {*} [opts={}]
-     * @memberof DefaultService
+     * @memberof MainService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new DefaultModel();
+        this.model = new MainModel();
     }
 
     /**
      * 远端数据
      *
      * @type {*}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     private remoteCopyData:any = {};
 
@@ -56,7 +56,7 @@ export default class DefaultService extends ControlService {
      * @private
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -85,7 +85,7 @@ export default class DefaultService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  DefaultService
+     * @memberof  MainService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
@@ -104,7 +104,7 @@ export default class DefaultService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -136,7 +136,7 @@ export default class DefaultService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -167,7 +167,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -197,7 +197,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -226,7 +226,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -256,7 +256,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -287,13 +287,31 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        //仿真主键数据
+        const PrimaryKey = Util.createUUID();
+        Data.id = PrimaryKey;
+        Data.productstats = PrimaryKey;
         return new Promise((resolve: any, reject: any) => {
-            resolve({ status: 200, data: {} });
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data, isloading);
+            } else {
+                result = this.appEntityService.GetDraft(Context,Data, isloading);
+            }
+            result.then((response) => {
+                this.setRemoteCopyData(response);
+                response.data.id = PrimaryKey;
+                this.handleResponse(action, response, true);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });
         });
     }
 
@@ -304,7 +322,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof MainService
      */
     @Errorlog
     public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -331,7 +349,7 @@ export default class DefaultService extends ControlService {
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof DefaultService
+     * @memberof MainService
      */
     public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
         let mode: any = this.getMode();
@@ -366,7 +384,7 @@ export default class DefaultService extends ControlService {
      * 通过属性名称获取表单项名称
      * 
      * @param name 实体属性名称 
-     * @memberof DefaultService
+     * @memberof MainService
      */
     public getItemNameByDeName(name:string) :string{
         let itemName = name;
@@ -387,7 +405,7 @@ export default class DefaultService extends ControlService {
      * 设置远端数据
      * 
      * @param result 远端请求结果 
-     * @memberof DefaultService
+     * @memberof MainService
      */
     public setRemoteCopyData(result:any){
         if (result && result.status === 200) {
@@ -398,7 +416,7 @@ export default class DefaultService extends ControlService {
     /**
      * 获取远端数据
      * 
-     * @memberof DefaultService
+     * @memberof MainService
      */
     public getRemoteCopyData(){
         return this.remoteCopyData;

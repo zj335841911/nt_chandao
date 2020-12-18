@@ -253,4 +253,36 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     istop?: any;
+
+    /**
+     * 已完成的需求数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    finishedstorycnt?: any;
+
+    /**
+     * 解决Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    resolvedbugcnt?: any;
+
+    /**
+     * 重要的Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    importantbugcnt?: any;
+
+    /**
+     * bug需求比
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    bugstoryproportion?: any;
 }

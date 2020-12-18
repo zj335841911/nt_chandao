@@ -136,6 +136,13 @@ export class ProductSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCon
                 deKeyField:'productsum'
 			};
         }
+        if (Object.is(expmode, 'PRODUCTQUANTITY')) {
+            return {  
+                viewname: 'product-stats-grid-view', 
+                parentdata: {},
+                deKeyField:'productstats'
+			};
+        }
         return null;
     }
 

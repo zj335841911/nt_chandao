@@ -1,10 +1,10 @@
 
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
-import { GridView9Base } from '@/studio-core';
+import { GridViewBase } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
 import ProductStatsAuthService from '@/authservice/product-stats/product-stats-auth-service';
-import GridView9Engine from '@engine/view/grid-view9-engine';
+import GridViewEngine from '@engine/view/grid-view-engine';
 import ProductStatsUIService from '@/uiservice/product-stats/product-stats-ui-service';
 import CodeListService from '@service/app/codelist-service';
 
@@ -13,16 +13,16 @@ import CodeListService from '@service/app/codelist-service';
  * 产品统计表格视图视图基类
  *
  * @export
- * @class ProductStatsGridView9Base
- * @extends {GridView9Base}
+ * @class ProductStatsGridViewBase
+ * @extends {GridViewBase}
  */
-export class ProductStatsGridView9Base extends GridView9Base {
+export class ProductStatsGridViewBase extends GridViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     protected appDeName: string = 'productstats';
 
@@ -31,7 +31,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -40,7 +40,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     protected appDeMajor: string = 'name';
 
@@ -49,7 +49,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */ 
     protected dataControl: string = 'grid';
 
@@ -57,7 +57,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      * 实体服务对象
      *
      * @type {ProductStatsService}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     protected appEntityService: ProductStatsService = new ProductStatsService;
 
@@ -65,7 +65,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      * 实体权限服务对象
      *
      * @type ProductStatsUIService
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
@@ -74,12 +74,12 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {*}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.productstats.views.gridview9.caption',
-        srfTitle: 'entities.productstats.views.gridview9.title',
-        srfSubTitle: 'entities.productstats.views.gridview9.subtitle',
+        srfCaption: 'entities.productstats.views.gridview.caption',
+        srfTitle: 'entities.productstats.views.gridview.title',
+        srfSubTitle: 'entities.productstats.views.gridview.subtitle',
         dataInfo: '',
     };
 
@@ -88,14 +88,32 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {*}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     protected containerModel: any = {
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
         view_grid: {
             name: 'grid',
             type: 'GRID',
         },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProductStatsGridView
+     */
+    public toolBarModels: any = {
+    };
+
 
 
 	/**
@@ -103,18 +121,18 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
-	protected viewtag: string = '8c3d000c53ed0d5490a133f568d98097';
+	protected viewtag: string = 'c53ef5993dc196b00f0cfdc21d6dd3a8';
 
     /**
      * 视图名称
      *
      * @protected
      * @type {string}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */ 
-    protected viewName: string = 'ProductStatsGridView9';
+    protected viewName: string = 'ProductStatsGridView';
 
 
     /**
@@ -122,16 +140,16 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @public
      * @type {Engine}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
-    public engine: GridView9Engine = new GridView9Engine();
+    public engine: GridViewEngine = new GridViewEngine();
 
 
     /**
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */    
     public counterServiceArray: Array<any> = [
         
@@ -141,7 +159,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      * 引擎初始化
      *
      * @public
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -153,6 +171,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
                 this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
+            searchform: this.$refs.searchform,
             keyPSDEField: 'productstats',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -164,7 +183,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -175,7 +194,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -186,7 +205,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -197,7 +216,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -208,10 +227,43 @@ export class ProductStatsGridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductStatsGridView9Base
+     * @memberof ProductStatsGridViewBase
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
+    }
+
+    /**
+     * searchform 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductStatsGridViewBase
+     */
+    public searchform_save($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'save', $event);
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductStatsGridViewBase
+     */
+    public searchform_search($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductStatsGridViewBase
+     */
+    public searchform_load($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -222,7 +274,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ProductStatsGridView9
+     * @memberof ProductStatsGridView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -263,7 +315,7 @@ export class ProductStatsGridView9Base extends GridView9Base {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ProductStatsGridView9
+     * @memberof ProductStatsGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
@@ -275,8 +327,8 @@ export class ProductStatsGridView9Base extends GridView9Base {
         }
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            { pathName: 'productstats', parameterName: 'productstats' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
@@ -287,13 +339,4 @@ export class ProductStatsGridView9Base extends GridView9Base {
     }
 
 
-
-    /**
-     * 是否单选
-     *
-     * @protected
-     * @type {boolean}
-     * @memberof ProductStatsGridView9Base
-     */
-    protected isGridSingleSelect: boolean = true;
 }
