@@ -206,6 +206,15 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
         return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 产品Bug类型统计
+     */
+    @Override
+    public Page<ProductSum> searchProductSumBugType(ProductSumSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductSumBugType(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

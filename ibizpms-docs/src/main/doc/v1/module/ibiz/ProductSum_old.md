@@ -144,6 +144,7 @@
 |ProductStoryHoursSum|产品需求工时汇总|ProductStoryHoursSum|否|&nbsp;|
 |ProductStorySum|产品需求汇总查询|ProductStorySum|否|&nbsp;|
 |ProductStorycntAndPlancnt|产品计划数和需求数|ProductPlancntAndStorycnt_PO|否|&nbsp;|
+|ProductSumBugType|产品Bug类型统计|ProductSumBugType|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

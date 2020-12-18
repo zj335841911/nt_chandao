@@ -52,6 +52,7 @@ public interface IProductSumService extends IService<ProductSum> {
     Page<ProductSum> searchProductStoryHoursSum(ProductSumSearchContext context);
     Page<ProductSum> searchProductStorySum(ProductSumSearchContext context);
     Page<ProductSum> searchProductStorycntAndPlancnt(ProductSumSearchContext context);
+    Page<ProductSum> searchProductSumBugType(ProductSumSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

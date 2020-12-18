@@ -2149,6 +2149,7 @@ FROM `zt_product` t1
 | 4 | [产品需求工时汇总](#数据集合-产品需求工时汇总（ProductStoryHoursSum）) | ProductStoryHoursSum | 否 |
 | 5 | [产品需求汇总查询](#数据集合-产品需求汇总查询（ProductStorySum）) | ProductStorySum | 否 |
 | 6 | [产品计划数和需求数](#数据集合-产品计划数和需求数（ProductStorycntAndPlancnt）) | ProductStorycntAndPlancnt | 否 |
+| 7 | [产品Bug类型统计](#数据集合-产品Bug类型统计（ProductSumBugType）) | ProductSumBugType | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -2234,6 +2235,20 @@ FROM `zt_product` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品计划数和需求数_产品经理（ProductPlancntAndStorycnt_PO）](#数据查询-产品计划数和需求数_产品经理（ProductPlancntAndStorycnt_PO）) |
+### 数据集合-产品Bug类型统计（ProductSumBugType）
+#### 说明
+产品Bug类型统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品Bug类型统计（ProductSumBugType）](#数据查询-产品Bug类型统计（ProductSumBugType）) |
 
 ## 数据导入
 无

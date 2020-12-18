@@ -1243,7 +1243,7 @@
     "dename":"ProductSum",
     "delogicname":"产品汇总表",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"ProductBugcnt_QA" , "name":"产品创建bug数及占比"},{"id":"ProductCreateStory" , "name":"产品创建需求占比"},{"id":"ProductStoryHoursSum" , "name":"产品需求工时汇总"},{"id":"ProductStorySum" , "name":"产品需求汇总查询"},{"id":"ProductStorycntAndPlancnt" , "name":"产品计划数和需求数"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"ProductBugcnt_QA" , "name":"产品创建bug数及占比"},{"id":"ProductCreateStory" , "name":"产品创建需求占比"},{"id":"ProductStoryHoursSum" , "name":"产品需求工时汇总"},{"id":"ProductStorySum" , "name":"产品需求汇总查询"},{"id":"ProductStorycntAndPlancnt" , "name":"产品计划数和需求数"},{"id":"ProductSumBugType" , "name":"产品Bug类型统计"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
     }
