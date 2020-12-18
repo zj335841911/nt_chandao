@@ -37,6 +37,7 @@ function getLocaleResourceBase(){
 			doingtaskcnt: commonLogic.appcommonhandle("进行中任务数",null),
 			donetaskcnt: commonLogic.appcommonhandle("已完成任务数",null),
 			designtakcnt: commonLogic.appcommonhandle("设计类型任务",null),
+			discusstakcnt: commonLogic.appcommonhandle("讨论类型任务",null),
 		},
 			views: {
 				allgridview: {

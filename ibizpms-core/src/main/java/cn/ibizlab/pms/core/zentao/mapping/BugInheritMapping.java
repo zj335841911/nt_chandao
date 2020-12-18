@@ -15,18 +15,18 @@ public interface BugInheritMapping {
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    IbizproIndex toIbizproindex(Bug bug);
+    IbizproIndex toIbizproindex(Bug minorEntity);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "title"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    Bug toBug(IbizproIndex ibizproindex);
+    Bug toBug(IbizproIndex majorEntity);
 
-    List<IbizproIndex> toIbizproindex(List<Bug> bug);
+    List<IbizproIndex> toIbizproindex(List<Bug> minorEntities);
 
-    List<Bug> toBug(List<IbizproIndex> ibizproindex);
+    List<Bug> toBug(List<IbizproIndex> majorEntities);
 
 }
 

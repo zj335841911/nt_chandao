@@ -15,18 +15,18 @@ public interface ProductInheritMapping {
         @Mapping(source ="name",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    IbizproIndex toIbizproindex(Product product);
+    IbizproIndex toIbizproindex(Product minorEntity);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "name"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    Product toProduct(IbizproIndex ibizproindex);
+    Product toProduct(IbizproIndex majorEntity);
 
-    List<IbizproIndex> toIbizproindex(List<Product> product);
+    List<IbizproIndex> toIbizproindex(List<Product> minorEntities);
 
-    List<Product> toProduct(List<IbizproIndex> ibizproindex);
+    List<Product> toProduct(List<IbizproIndex> majorEntities);
 
 }
 

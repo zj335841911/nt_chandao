@@ -15,18 +15,18 @@ public interface ProjectInheritMapping {
         @Mapping(source ="name",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    IbizproIndex toIbizproindex(Project project);
+    IbizproIndex toIbizproindex(Project minorEntity);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "name"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    Project toProject(IbizproIndex ibizproindex);
+    Project toProject(IbizproIndex majorEntity);
 
-    List<IbizproIndex> toIbizproindex(List<Project> project);
+    List<IbizproIndex> toIbizproindex(List<Project> minorEntities);
 
-    List<Project> toProject(List<IbizproIndex> ibizproindex);
+    List<Project> toProject(List<IbizproIndex> majorEntities);
 
 }
 

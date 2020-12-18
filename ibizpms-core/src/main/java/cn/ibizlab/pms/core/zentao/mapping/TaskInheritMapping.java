@@ -15,18 +15,18 @@ public interface TaskInheritMapping {
         @Mapping(source ="name",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    IbizproIndex toIbizproindex(Task task);
+    IbizproIndex toIbizproindex(Task minorEntity);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "name"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    Task toTask(IbizproIndex ibizproindex);
+    Task toTask(IbizproIndex majorEntity);
 
-    List<IbizproIndex> toIbizproindex(List<Task> task);
+    List<IbizproIndex> toIbizproindex(List<Task> minorEntities);
 
-    List<Task> toTask(List<IbizproIndex> ibizproindex);
+    List<Task> toTask(List<IbizproIndex> majorEntities);
 
 }
 

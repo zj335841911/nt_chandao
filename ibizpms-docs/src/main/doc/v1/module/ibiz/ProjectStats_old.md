@@ -42,6 +42,8 @@
 |未开始任务数|WAITTASKCNT|INT|&nbsp;|
 |进行中任务数|DOINGTASKCNT|INT|&nbsp;|
 |已完成任务数|DONETASKCNT|INT|&nbsp;|
+|设计类型任务|DESIGNTAKCNT|INT|&nbsp;|
+|讨论类型任务|DISCUSSTAKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -79,6 +81,8 @@
 |未开始任务数|默认规则|默认规则|
 |进行中任务数|默认规则|默认规则|
 |已完成任务数|默认规则|默认规则|
+|设计类型任务|默认规则|默认规则|
+|讨论类型任务|默认规则|默认规则|
 
 ## 状态控制
 

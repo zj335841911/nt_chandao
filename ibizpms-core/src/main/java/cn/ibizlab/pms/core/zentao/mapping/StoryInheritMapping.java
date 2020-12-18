@@ -15,18 +15,18 @@ public interface StoryInheritMapping {
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    IbizproIndex toIbizproindex(Story story);
+    IbizproIndex toIbizproindex(Story minorEntity);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "title"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    Story toStory(IbizproIndex ibizproindex);
+    Story toStory(IbizproIndex majorEntity);
 
-    List<IbizproIndex> toIbizproindex(List<Story> story);
+    List<IbizproIndex> toIbizproindex(List<Story> minorEntities);
 
-    List<Story> toStory(List<IbizproIndex> ibizproindex);
+    List<Story> toStory(List<IbizproIndex> majorEntities);
 
 }
 

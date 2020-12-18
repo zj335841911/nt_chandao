@@ -277,4 +277,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     designtakcnt?: any;
+
+    /**
+     * 讨论类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    discusstakcnt?: any;
 }
