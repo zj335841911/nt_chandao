@@ -535,7 +535,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     @Transactional(rollbackFor = Exception.class)
     public Story review(Story et) {
         String comment = et.getComment() == null ? "" : et.getComment();
-        String result = et.getResult();
+        String result = et.getResult() == null ? et.getAssessresult() : et.getResult();
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
