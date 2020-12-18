@@ -3455,6 +3455,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskGridView",
             "viewtag": "aae1ade339fe6a2ebe367489f6393db1"
         },
+        "sysorganizationgridexpview": {
+            "title": "单位表格导航视图",
+            "caption": "单位",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysOrganizationGridExpView",
+            "viewtag": "ab41bca19c2aa7340fc8ba21788ab56d"
+        },
         "ibzcaseeditview": {
             "title": "用例库用例编辑视图",
             "caption": "测试用例",

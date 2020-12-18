@@ -17,6 +17,10 @@ function getLocaleResourceBase(){
 			updatedate: commonLogic.appcommonhandle("Actor",null),
 		},
 			views: {
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("单位",null),
+					title: commonLogic.appcommonhandle("单位表格导航视图",null),
+				},
 				usr2gridview: {
 					caption: commonLogic.appcommonhandle("单位",null),
 					title: commonLogic.appcommonhandle("单位单位实体表格视图(通讯录所有组织)",null),
@@ -50,6 +54,13 @@ function getLocaleResourceBase(){
 					domains: commonLogic.appcommonhandle("区属",null),
 					orgname: commonLogic.appcommonhandle("名称",null),
 					orglevel: commonLogic.appcommonhandle("单位级别",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			gridexpbar_grid_grid: {
+				columns: {
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
