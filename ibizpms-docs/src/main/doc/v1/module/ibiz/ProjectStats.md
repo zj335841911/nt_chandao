@@ -2470,12 +2470,13 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [项目投入统计](#数据查询-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
-| 4 | [项目质量表查询](#数据查询-项目质量表查询（ProjectQuality）) | ProjectQuality | 否 |
-| 5 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 6 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 7 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
-| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [项目bug类型](#数据查询-项目bug类型（ProjectBugType）) | ProjectBugType | 否 |
+| 4 | [项目投入统计](#数据查询-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
+| 5 | [项目质量表查询](#数据查询-项目质量表查询（ProjectQuality）) | ProjectQuality | 否 |
+| 6 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 7 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 8 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -2869,6 +2870,58 @@ FROM
 	`zt_project` t1
 	left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-项目bug类型（ProjectBugType）
+#### 说明
+项目bug类型
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.*,
+	SUM(
+	IFNULL( t1.codeerror, 0 ) + IFNULL( t1.config, 0 ) + IFNULL( t1.designdefect, 0 ) + IFNULL( t1.standard, 0 ) + IFNULL( t1.performance, 0 ) + IFNULL( t1.others, 0 ) + IFNULL( t1.INSTALL, 0 ) + IFNULL( t1.automation, 0 ) + IFNULL( t1.SECURITY, 0 ) 
+	) AS bugsum 
+FROM
+(
+SELECT
+	t1.id,
+	t1.po,
+	t1.`status`,
+	t1.NAME,
+	sum( IF ( t1.type = 'codeerror' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'codeerror',
+	sum( IF ( t1.type = 'config' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'config',
+	sum( IF ( t1.type = 'designdefect' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'designdefect',
+	sum( IF ( t1.type = 'standard' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'standard',
+	sum( IF ( t1.type = 'performance' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'performance',
+	sum( IF ( t1.type = 'others' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'others',
+	sum( IF ( t1.type = 'install' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'install',
+	sum( IF ( t1.type = 'automation' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'automation',
+	sum( IF ( t1.type = 'security' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'security' 
+	from 
+	(SELECT
+	t1.`id`,
+	t1.`name`,
+	t1.`po`,
+	t1.`status`,
+	t2.`type`,
+	t2.`title`,
+	t2.`deleted`,
+	1 AS `rowcnt` 
+FROM
+	zt_project t1
+	LEFT JOIN zt_bug t2 ON t1.`id` = t2.`project` 
+WHERE
+	t1.`deleted` = '0'
+)t1 
+ GROUP BY t1.id )t1 GROUP BY t1.id
+```
 ### 数据查询-项目投入统计（ProjectInputStats）
 #### 说明
 项目投入统计
@@ -3133,10 +3186,11 @@ FROM `zt_project` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
-| 4 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 5 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 6 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 3 | [项目bug类型统计](#数据集合-项目bug类型统计（ProjectBugType）) | ProjectBugType | 否 |
+| 4 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
+| 5 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 6 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 7 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -3166,6 +3220,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [未关闭产品（NoOpenProduct）](#数据查询-未关闭产品（NoOpenProduct）) |
+### 数据集合-项目bug类型统计（ProjectBugType）
+#### 说明
+项目bug类型统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目bug类型（ProjectBugType）](#数据查询-项目bug类型（ProjectBugType）) |
 ### 数据集合-项目质量（ProjectQuality）
 #### 说明
 项目质量

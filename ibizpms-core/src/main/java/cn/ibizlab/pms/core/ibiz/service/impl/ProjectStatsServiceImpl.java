@@ -171,6 +171,15 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     }
 
     /**
+     * 查询集合 项目bug类型统计
+     */
+    @Override
+    public Page<ProjectStats> searchProjectBugType(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectBugType(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 项目质量
      */
     @Override

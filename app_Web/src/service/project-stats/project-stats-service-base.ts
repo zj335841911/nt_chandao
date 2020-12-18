@@ -230,6 +230,35 @@ export default class ProjectStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectBugType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async FetchProjectBugType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectstats/fetchprojectbugtype`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectBugType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async searchProjectBugType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projectstats/searchprojectbugtype`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectQuality接口方法
      *
      * @param {*} [context={}]
