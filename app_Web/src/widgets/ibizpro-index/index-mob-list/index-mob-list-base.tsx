@@ -213,7 +213,7 @@ export class IndexMobListBase extends ListControlBase {
             }
             this.openRedirectView(curData);
         } else {
-            console.error("未配置多表单属性");
+            console.error(this.$t('app.fullTextSearch.multiFormDEField'));
         }
     }
 
@@ -227,7 +227,7 @@ export class IndexMobListBase extends ListControlBase {
         let tempContext = JSON.parse(JSON.stringify(this.context));
         this.appUIService.getService('ibizproindex').then((service) => {
             if(!service) {
-                this.$Notice.error({desc: '重定向服务不存在！'})
+                this.$Notice.error({desc: ''+this.$t('app.fullTextSearch.redirectService')})
                 return;
             }
             const srfkey: any = curData.ibizproindex;
@@ -238,10 +238,10 @@ export class IndexMobListBase extends ListControlBase {
 						Object.assign(tempContext,{ [redirectView.srfappde]: srfkey});
 						this.$openViewService.openView(redirectView, tempContext, { ...this.viewparams, srfkey });
 					} else {
-						console.error("未找到该重定向视图");
+						console.error(this.$t('app.fullTextSearch.findRedirectView'));
 					}
                 } else {
-                    console.error("未配置该重定向视图");
+                    console.error(this.$t('app.fullTextSearch.redirectConfiguration'));
                 }
             })
         })

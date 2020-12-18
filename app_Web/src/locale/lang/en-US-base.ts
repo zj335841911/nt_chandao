@@ -111,6 +111,16 @@ function getAppLocale(){
                 placeholder: "Filename",
                 noData: "No Data"
             },
+            fullTextSearch:{
+                placeholder: "The full text retrieval",
+                pathError: "Configure the full-text retrieval route",
+                noticeTitle: "The full text retrieval",
+                noticeDesc: "The keyword cannot be less than 1",
+                multiFormDEField: "Multiple form properties are not configured",
+                redirectService: "The redirect service does not exist!",
+                findRedirectView: "The redirect view was not found",
+                redirectConfiguration: "The redirect view is not configured",
+            },
             commonWords:{
                 error: "Error",
                 success: "Success",

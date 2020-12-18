@@ -111,6 +111,16 @@ function getAppLocale(){
                 placeholder: "文件名",
                 noData: "暂无数据"
             },
+            fullTextSearch:{
+                placeholder: "全文检索",
+                pathError: "请配置全文检索路由",
+                noticeTitle: "全文检索",
+                noticeDesc: "关键字不能少于1个",
+                multiFormDEField: "未配置多表单属性",
+                redirectService: "重定向服务不存在！",
+                findRedirectView: "未找到该重定向视图",
+                redirectConfiguration: "未配置该重定向视图",
+            },
             commonWords:{
                 error: "失败",
                 success: "成功",
