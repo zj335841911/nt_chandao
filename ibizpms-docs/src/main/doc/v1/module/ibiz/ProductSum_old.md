@@ -131,6 +131,7 @@
 |ProductPlancntAndStorycnt_PO|产品计划数和需求数_产品经理([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductPlancntAndStorycnt_PO))|否|&nbsp;|
 |ProductStoryHoursSum|产品需求工时汇总([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductStoryHoursSum))|否|&nbsp;|
 |ProductStorySum|产品需求汇总查询([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductStorySum))|否|&nbsp;|
+|ProductSumBugType|产品Bug类型统计([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductSumBugType))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_View))|否|&nbsp;|
 
 * **数据集合**

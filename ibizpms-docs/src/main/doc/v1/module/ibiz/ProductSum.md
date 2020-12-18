@@ -1836,7 +1836,8 @@ Save
 | 4 | [产品计划数和需求数_产品经理](#数据查询-产品计划数和需求数_产品经理（ProductPlancntAndStorycnt_PO）) | ProductPlancntAndStorycnt_PO | 否 |
 | 5 | [产品需求工时汇总](#数据查询-产品需求工时汇总（ProductStoryHoursSum）) | ProductStoryHoursSum | 否 |
 | 6 | [产品需求汇总查询](#数据查询-产品需求汇总查询（ProductStorySum）) | ProductStorySum | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 7 | [产品Bug类型统计](#数据查询-产品Bug类型统计（ProductSumBugType）) | ProductSumBugType | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -2030,6 +2031,65 @@ sum( IF ( t1.`deleted` = '0' and t1.`parent` <> -1, t1.`rowcnt`, 0 ) ) AS `STORY
 from (select t1.`id`, t1.`name`, t1.`po`, t1.`status`, t2.`parent`, t2.`stage`, t2.`deleted`, 1 as `rowcnt` from zt_product t1 left join zt_story t2 on t1.`id` = t2.`product` where t1.`deleted` = '0') t1 
 where t1.`status` = 'normal' or (t1.`status` = 'closed' and #{srf.datacontext.closed} = '1')
 group by t1.`id`
+```
+### 数据查询-产品Bug类型统计（ProductSumBugType）
+#### 说明
+产品Bug类型统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.*,
+	SUM(
+	t1.codeerror + t1.config + t1.designdefect + t1.standard + t1.performance + t1.others + t1.INSTALL + t1.automation + t1.SECURITY 
+	) AS bugcnt 
+FROM
+	(
+SELECT
+	t1.id,
+	t1.NAME,
+	t1.po,
+	sum( IF ( t1.type = 'codeerror' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'codeerror',
+	sum( IF ( t1.type = 'config' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'config',
+	sum( IF ( t1.type = 'designdefect' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'designdefect',
+	sum( IF ( t1.type = 'standard' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'standard',
+	sum( IF ( t1.type = 'performance' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'performance',
+	sum( IF ( t1.type = 'others' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'others',
+	sum( IF ( t1.type = 'install' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'install',
+	sum( IF ( t1.type = 'automation' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'automation',
+	sum( IF ( t1.type = 'security' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'security' 
+FROM
+	(
+SELECT
+	t1.`id`,
+	t1.`name`,
+	t1.`po`,
+	t1.`status`,
+	t2.`type`,
+	t2.`title`,
+	t2.`deleted`,
+	1 AS `rowcnt` 
+FROM
+	zt_product t1
+	LEFT JOIN zt_bug t2 ON t1.`id` = t2.`product` 
+WHERE
+	t1.`deleted` = '0' 
+	) t1 
+WHERE
+	t1.`status` = 'normal' 
+	OR ( t1.`status` = 'closed' AND #{srf.datacontext.closed} = '1' ) 
+GROUP BY
+	t1.id 
+	) t1 
+GROUP BY
+	t1.id
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
