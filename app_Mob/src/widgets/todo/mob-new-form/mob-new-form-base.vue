@@ -228,10 +228,10 @@
   name="status"
   :value='data.status'
   valueitem=""
-  url=""
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
   
   :multiple="false"
-  filter="srfpdept"
+  filter="srforgid"
   :fillmap="{'id':'','label':'status'}"
   :disabled="detailsModel.status.disabled"
   :data="data"
