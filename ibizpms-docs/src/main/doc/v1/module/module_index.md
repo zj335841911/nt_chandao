@@ -23,6 +23,9 @@ class Bug统计 {
 class 测试用例统计 {
 }
 
+class 公司动态汇总 {
+}
+
 class 文档库分类 {
 }
 

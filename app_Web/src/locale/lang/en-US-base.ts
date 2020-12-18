@@ -56,6 +56,7 @@ import ibzreportly_en_US from '@locale/lanres/entities/ibz-reportly/ibz-reportly
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
 import user_en_US from '@locale/lanres/entities/user/user_en_US';
 import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
+import companystats_en_US from '@locale/lanres/entities/company-stats/company-stats_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
@@ -447,6 +448,7 @@ function getAppLocale(){
             history: history_en_US(),
             user: user_en_US(),
             doclib: doclib_en_US(),
+            companystats: companystats_en_US(),
             productmodule: productmodule_en_US(),
             module: module_en_US(),
             testmodule: testmodule_en_US(),

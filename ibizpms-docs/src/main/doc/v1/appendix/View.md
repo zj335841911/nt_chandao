@@ -500,6 +500,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图（指派分组）|DEGRIDVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
+|-|公司动态汇总表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|项目数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|

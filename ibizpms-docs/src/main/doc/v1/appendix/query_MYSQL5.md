@@ -4990,6 +4990,60 @@ WHERE t1.DELETED = '0'
 
 ```
 
+# **公司动态汇总**(IBZ_COMPANYSTATS)
+
+### 公司动态统计(CompanyDynamicStats)<div id="CompanyStats_CompanyDynamicStats"></div>
+```sql
+select 
+DATE_FORMAT(t1.date, '%Y-%m-%d') as `ZTDATE`, 
+sum(case when t1.objecttype = 'user' and t1.action = 'login' then 1 else 0 end) as `LoginCNT`,
+IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where t2.date = DATE_FORMAT(t1.date, '%Y-%m-%d')), 0) as `LogHours`, 
+sum(case when t1.objecttype = 'story' and t1.action = 'opened' then 1 else 0 end) as `OpenedStoryCNT`, 
+sum(case when t1.objecttype = 'story' and t1.action = 'closed' then 1 else 0 end) as `ClosedStoryCNT`, 
+sum(case when t1.objecttype = 'task' and t1.action = 'opened' then 1 else 0 end) as `OpenedTaskCNT`, 
+sum(case when t1.objecttype = 'task' and t1.action = 'finished' then 1 else 0 end) as `FinishedTaskCNT`, 
+sum(case when t1.objecttype = 'bug' and t1.action = 'opened' then 1 else 0 end) as `OpenedBugCNT`, 
+sum(case when t1.objecttype = 'bug' and t1.action = 'resolved' then 1 else 0 end) as `ResolvedBugCNT`, 
+count(1) as `DynamicCNT` 
+from zt_action t1 
+group by DATE_FORMAT(t1.date, '%Y-%m-%d')
+```
+### 数据查询(DEFAULT)<div id="CompanyStats_Default"></div>
+```sql
+SELECT
+0 AS `CLOSEDSTORYCNT`,
+t1.`DATE`,
+0 AS `DYNAMICCNT`,
+0 AS `FINISHEDTASKCNT`,
+t1.`ID`,
+0 AS `LOGHOURS`,
+0 AS `LOGINCNT`,
+0 AS `OPENEDBUGCNT`,
+0 AS `OPENEDSTORYCNT`,
+0 AS `OPENEDTASKCNT`,
+0 AS `RESOLVEDBUGCNT`
+FROM `zt_action` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="CompanyStats_View"></div>
+```sql
+SELECT
+0 AS `CLOSEDSTORYCNT`,
+t1.`COMMENT`,
+t1.`DATE`,
+0 AS `DYNAMICCNT`,
+0 AS `FINISHEDTASKCNT`,
+t1.`ID`,
+0 AS `LOGHOURS`,
+0 AS `LOGINCNT`,
+0 AS `OPENEDBUGCNT`,
+0 AS `OPENEDSTORYCNT`,
+0 AS `OPENEDTASKCNT`,
+0 AS `RESOLVEDBUGCNT`
+FROM `zt_action` t1 
+
+```
+
 # **compile**(ZT_COMPILE)
 
 ### DEFAULT(DEFAULT)<div id="Compile_Default"></div>

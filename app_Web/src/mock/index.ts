@@ -63,6 +63,7 @@ import './entity/ibz-reportlys/ibz-reportlys';
 import './entity/historys/historys';
 import './entity/users/users';
 import './entity/doc-libs/doc-libs';
+import './entity/company-statss/company-statss';
 import './entity/product-modules/product-modules';
 import './entity/modules/modules';
 import './entity/test-modules/test-modules';

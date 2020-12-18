@@ -10,6 +10,8 @@
 
     * [测试用例统计](module/ibiz/CaseStats.md) 
 
+    * [公司动态汇总](module/ibiz/CompanyStats.md) 
+
     * [文档库分类](module/ibiz/DocLibModule.md) 
 
     * [动态数据看板](module/ibiz/DynaDashboard.md) 

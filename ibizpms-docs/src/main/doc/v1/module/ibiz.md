@@ -13,6 +13,9 @@ class Bug统计 {
 class 测试用例统计 {
 }
 
+class 公司动态汇总 {
+}
+
 class 文档库分类 {
 }
 
@@ -148,6 +151,7 @@ hide members
 | --------   |------------| -----   |  -------- | 
 |IBZ_BUGSTATS|[Bug统计](ibiz/BugStats.md)|主实体|&nbsp;|
 |IBZ_CASESTATS|[测试用例统计](ibiz/CaseStats.md)|主实体|&nbsp;|
+|IBZ_COMPANYSTATS|[公司动态汇总](ibiz/CompanyStats.md)|主实体|&nbsp;|
 |IBZ_DOCLIBMODULE|[文档库分类](ibiz/DocLibModule.md)|主实体|&nbsp;|
 |DYNADASHBOARD|[动态数据看板](ibiz/DynaDashboard.md)|主实体|&nbsp;|
 |IBZ_EMPLOYEELOAD|[员工负载表](ibiz/EmpLoyeeload.md)|主实体|&nbsp;|

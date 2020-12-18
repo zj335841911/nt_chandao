@@ -1775,6 +1775,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibGridView",
             "viewtag": "599bad7e939d0de2523f0fcf4444f8c7"
         },
+        "companystatscompanydynamicstatsgridview": {
+            "title": "公司动态汇总表格视图",
+            "caption": "公司动态统计表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "CompanyStatsCompanyDynamicStatsGridView",
+            "viewtag": "59c85c1053657b4fea02d5bd53e305d8"
+        },
         "bugstorytobugeditview": {
             "title": "Bug",
             "caption": "Bug",

@@ -174,7 +174,7 @@ export class IndexMobListBase extends ListControlBase {
             viewname: 'maindashboardview',
             srfappde: 'bug',
             component: 'bug-main-dashboard-view',
-            openmode: 'DRAWER_RIGHT',
+            openmode: 'INDEXVIEWTAB',
             viewmodule: 'zentao',
             title: 'Bug',
             width: 1400,
