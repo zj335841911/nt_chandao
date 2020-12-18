@@ -1886,7 +1886,7 @@ String
 
 - 取值范围/公式
 ```SQL
-#
+null
 ```
 
 - 数据格式
@@ -2882,7 +2882,15 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-
+select
+t1.id, 
+t1.`name`, 
+CONCAT(t1.`begin`, ' ~ ', t1.`end`) as `timescale`, 
+(select count(1) from zt_task t2 where t1.id = t2.project) as `taskcnt`,
+(select count(1) from zt_projectstory t2 where t1.id = t2.project) as `storycnt`,
+(select count(1) from zt_team t2 where t2.type = 'project' and t1.id = t2.root) as `membercnt`, 
+IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where t2.task in (select t3.id from zt_task t3 where t3.project = t1.id)), 0) as `projecttotalconsumed`
+from zt_project t1
 ```
 ### 数据查询-项目质量表查询（ProjectQuality）
 #### 说明
@@ -3102,7 +3110,7 @@ t1.`NAME`,
 t1.`order` AS `ORDER1`,
 0 AS `PROJECTTOTALCONSUMED`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0') AS `RELEASEDSTORYCNT`,
-# AS `SERIOUSBUGPROPORTION`,
+null AS `SERIOUSBUGPROPORTION`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,

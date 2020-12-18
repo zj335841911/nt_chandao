@@ -40,15 +40,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			companydynamicstatic_searchform: {
-				details: {
-					formpage1: commonLogic.appcommonhandle("表单分页",null), 
-					n_date_gtandeq: commonLogic.appcommonhandle("日志日期(大于等于(>=))",null), 
-					n_date_ltandeq: commonLogic.appcommonhandle("日志日期(小于等于(<=))",null), 
-				},
-				uiactions: {
-				},
-			},
 		};
 		return data;
 }
