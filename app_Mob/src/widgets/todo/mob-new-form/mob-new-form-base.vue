@@ -208,6 +208,26 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='status' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="status_item"  
+    :itemValue="this.data.status" 
+    v-show="detailsModel.status.visible" 
+    :itemRules="this.rules.status" 
+    :caption="$t('todo.mobnew_form.details.status')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.status.disabled"
+    :error="detailsModel.status.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
     
 </app-form-group>
 
@@ -561,6 +581,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
         story: null,
         private: null,
         desc: null,
+        status: null,
         id: null,
         todo: null,
     };
@@ -738,6 +759,8 @@ export default class MobNewBase extends Vue implements ControlInterface {
         private: new FormItemModel({ caption: '私人事务', detailType: 'FORMITEM', name: 'private', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -996,6 +1019,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1060,6 +1095,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
             }
             this.detailsModel.name.setDisabled(!ret);
         }
+
 
 
 

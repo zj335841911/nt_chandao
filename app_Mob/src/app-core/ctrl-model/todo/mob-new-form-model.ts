@@ -116,6 +116,11 @@ export class MobNewModel {
                 dataType: 'LONGTEXT',
             },
             {
+                name: 'status',
+                prop: 'status',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
