@@ -34,5 +34,9 @@ export default {
     waittaskcnt: "未开始任务数",
     doingtaskcnt: "进行中任务数",
     donetaskcnt: "已完成任务数",
+    designtakcnt: "设计类型任务",
+    discusstakcnt: "讨论类型任务",
+    studytakcnt: "研究类型任务",
+    uitakcnt: "界面类型任务",
   },
 };

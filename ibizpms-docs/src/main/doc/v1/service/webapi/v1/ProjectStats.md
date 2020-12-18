@@ -368,7 +368,9 @@ POST
 | 33 | donetaskcnt | Integer | 允许 | 已完成任务数 |
 | 34 | designtakcnt | Integer | 允许 | 设计类型任务 |
 | 35 | discusstakcnt | Integer | 允许 | 讨论类型任务 |
-| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 36 | studytakcnt | Integer | 允许 | 研究类型任务 |
+| 37 | uitakcnt | Integer | 允许 | 界面类型任务 |
+| 38 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
