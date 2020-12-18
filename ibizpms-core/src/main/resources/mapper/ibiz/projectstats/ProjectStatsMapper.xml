@@ -89,7 +89,7 @@
     </sql>
     <!--数据查询[ProjectTaskCountByType]-->
     <sql id="ProjectTaskCountByType" databaseId="mysql">
-		<![CDATA[ SELECT t1.project,t1.`name`, SUM(IF(t1.type = 'design',t1.num,0)) as designtaskcnt, SUM(IF(t1.type = 'discuss',t1.num,0)) as discusstaskcnt, SUM(IF(t1.type = 'study',t1.num,0)) as studytaskcnt, SUM(IF(t1.type = 'ui',t1.num,0)) as uitaskcnt, SUM(IF(t1.type = 'test',t1.num,0)) as testtaskcnt, SUM(IF(t1.type = 'serve',t1.num,0)) as servetaskcnt, SUM(IF(t1.type = 'devel',t1.num,0)) as develtaskcnt, SUM(IF(t1.type = 'misc',t1.num,0)) as misctaskcnt, SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt from( select t1.type,t1.project,t2.`name`,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0') t1 GROUP BY t1.project
+		<![CDATA[ SELECT t1.project,t1.`name`, SUM(IF(t1.type = 'design',t1.num,0)) as designtaskcnt, SUM(IF(t1.type = 'discuss',t1.num,0)) as discusstaskcnt, SUM(IF(t1.type = 'study',t1.num,0)) as studytaskcnt, SUM(IF(t1.type = 'ui',t1.num,0)) as uitaskcnt, SUM(IF(t1.type = 'test',t1.num,0)) as testtaskcnt, SUM(IF(t1.type = 'serve',t1.num,0)) as servetaskcnt, SUM(IF(t1.type = 'devel',t1.num,0)) as develtaskcnt, SUM(IF(t1.type = 'misc',t1.num,0)) as misctaskcnt, SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt, COUNT(1) as taskcnt from( select t1.type,t1.project,t2.`name`,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0') t1 GROUP BY t1.project
 			]]>
     </sql>
     <!--数据查询[TaskTime]-->

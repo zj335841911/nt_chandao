@@ -42,9 +42,6 @@
 |未开始任务数|WAITTASKCNT|INT|&nbsp;|
 |进行中任务数|DOINGTASKCNT|INT|&nbsp;|
 |已完成任务数|DONETASKCNT|INT|&nbsp;|
-|设计类型任务|DESIGNTAKCNT|INT|&nbsp;|
-|讨论类型任务|DISCUSSTAKCNT|INT|&nbsp;|
-|研究类型任务|STUDYTAKCNT|INT|&nbsp;|
 |设计类型任务|DESIGNTASKCNT|INT|&nbsp;|
 |讨论类型任务|DISCUSSTASKCNT|INT|&nbsp;|
 |研究类型任务|STUDYTASKCNT|INT|&nbsp;|
@@ -91,9 +88,6 @@
 |未开始任务数|默认规则|默认规则|
 |进行中任务数|默认规则|默认规则|
 |已完成任务数|默认规则|默认规则|
-|设计类型任务|默认规则|默认规则|
-|讨论类型任务|默认规则|默认规则|
-|研究类型任务|默认规则|默认规则|
 |设计类型任务|默认规则|默认规则|
 |讨论类型任务|默认规则|默认规则|
 |研究类型任务|默认规则|默认规则|

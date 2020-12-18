@@ -402,19 +402,16 @@ POST
 | 31 | waittaskcnt | Integer | 允许 | 未开始任务数 |
 | 32 | doingtaskcnt | Integer | 允许 | 进行中任务数 |
 | 33 | donetaskcnt | Integer | 允许 | 已完成任务数 |
-| 34 | designtakcnt | Integer | 允许 | 设计类型任务 |
-| 35 | discusstakcnt | Integer | 允许 | 讨论类型任务 |
-| 36 | studytakcnt | Integer | 允许 | 研究类型任务 |
-| 37 | designtaskcnt | Integer | 允许 | 设计类型任务 |
-| 38 | discusstaskcnt | Integer | 允许 | 讨论类型任务 |
-| 39 | studytaskcnt | Integer | 允许 | 研究类型任务 |
-| 40 | uitaskcnt | Integer | 允许 | 界面类型任务 |
-| 41 | testtaskcnt | Integer | 允许 | 测试类型任务 |
-| 42 | servetaskcnt | Integer | 允许 | 服务类型任务 |
-| 43 | develtaskcnt | Integer | 允许 | 开发类型任务 |
-| 44 | misctaskcnt | Integer | 允许 | 其他类型任务 |
-| 45 | affairtaskcnt | Integer | 允许 | 事务类型任务 |
-| 46 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 34 | designtaskcnt | Integer | 允许 | 设计类型任务 |
+| 35 | discusstaskcnt | Integer | 允许 | 讨论类型任务 |
+| 36 | studytaskcnt | Integer | 允许 | 研究类型任务 |
+| 37 | uitaskcnt | Integer | 允许 | 界面类型任务 |
+| 38 | testtaskcnt | Integer | 允许 | 测试类型任务 |
+| 39 | servetaskcnt | Integer | 允许 | 服务类型任务 |
+| 40 | develtaskcnt | Integer | 允许 | 开发类型任务 |
+| 41 | misctaskcnt | Integer | 允许 | 其他类型任务 |
+| 42 | affairtaskcnt | Integer | 允许 | 事务类型任务 |
+| 43 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

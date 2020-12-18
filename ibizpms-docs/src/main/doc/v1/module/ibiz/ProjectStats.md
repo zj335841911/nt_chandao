@@ -49,18 +49,15 @@
 | 31 | [未开始任务数](#属性-未开始任务数（WAITTASKCNT）) | WAITTASKCNT | 整型 | 否 | 否 | 是 |
 | 32 | [进行中任务数](#属性-进行中任务数（DOINGTASKCNT）) | DOINGTASKCNT | 整型 | 否 | 否 | 是 |
 | 33 | [已完成任务数](#属性-已完成任务数（DONETASKCNT）) | DONETASKCNT | 整型 | 否 | 否 | 是 |
-| 34 | [设计类型任务](#属性-设计类型任务（DESIGNTAKCNT）) | DESIGNTAKCNT | 整型 | 否 | 否 | 是 |
-| 35 | [讨论类型任务](#属性-讨论类型任务（DISCUSSTAKCNT）) | DISCUSSTAKCNT | 整型 | 否 | 否 | 是 |
-| 36 | [研究类型任务](#属性-研究类型任务（STUDYTAKCNT）) | STUDYTAKCNT | 整型 | 否 | 否 | 是 |
-| 37 | [设计类型任务](#属性-设计类型任务（DESIGNTASKCNT）) | DESIGNTASKCNT | 整型 | 否 | 否 | 是 |
-| 38 | [讨论类型任务](#属性-讨论类型任务（DISCUSSTASKCNT）) | DISCUSSTASKCNT | 整型 | 否 | 否 | 是 |
-| 39 | [研究类型任务](#属性-研究类型任务（STUDYTASKCNT）) | STUDYTASKCNT | 整型 | 否 | 否 | 是 |
-| 40 | [界面类型任务](#属性-界面类型任务（UITASKCNT）) | UITASKCNT | 整型 | 否 | 否 | 是 |
-| 41 | [测试类型任务](#属性-测试类型任务（TESTTASKCNT）) | TESTTASKCNT | 整型 | 否 | 否 | 是 |
-| 42 | [服务类型任务](#属性-服务类型任务（SERVETASKCNT）) | SERVETASKCNT | 整型 | 否 | 否 | 是 |
-| 43 | [开发类型任务](#属性-开发类型任务（DEVELTASKCNT）) | DEVELTASKCNT | 整型 | 否 | 否 | 是 |
-| 44 | [其他类型任务](#属性-其他类型任务（MISCTASKCNT）) | MISCTASKCNT | 整型 | 否 | 否 | 是 |
-| 45 | [事务类型任务](#属性-事务类型任务（AFFAIRTASKCNT）) | AFFAIRTASKCNT | 整型 | 否 | 否 | 是 |
+| 34 | [设计类型任务](#属性-设计类型任务（DESIGNTASKCNT）) | DESIGNTASKCNT | 整型 | 否 | 否 | 是 |
+| 35 | [讨论类型任务](#属性-讨论类型任务（DISCUSSTASKCNT）) | DISCUSSTASKCNT | 整型 | 否 | 否 | 是 |
+| 36 | [研究类型任务](#属性-研究类型任务（STUDYTASKCNT）) | STUDYTASKCNT | 整型 | 否 | 否 | 是 |
+| 37 | [界面类型任务](#属性-界面类型任务（UITASKCNT）) | UITASKCNT | 整型 | 否 | 否 | 是 |
+| 38 | [测试类型任务](#属性-测试类型任务（TESTTASKCNT）) | TESTTASKCNT | 整型 | 否 | 否 | 是 |
+| 39 | [服务类型任务](#属性-服务类型任务（SERVETASKCNT）) | SERVETASKCNT | 整型 | 否 | 否 | 是 |
+| 40 | [开发类型任务](#属性-开发类型任务（DEVELTASKCNT）) | DEVELTASKCNT | 整型 | 否 | 否 | 是 |
+| 41 | [其他类型任务](#属性-其他类型任务（MISCTASKCNT）) | MISCTASKCNT | 整型 | 否 | 否 | 是 |
+| 42 | [事务类型任务](#属性-事务类型任务（AFFAIRTASKCNT）) | AFFAIRTASKCNT | 整型 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -1329,117 +1326,6 @@ Integer
 #### 关系属性
 无
 
-### 属性-设计类型任务（DESIGNTAKCNT）
-#### 属性说明
-设计类型任务
-
-- 是否是主键
-否
-
-- 属性类型
-应用界面字段[无存储]
-
-- 数据类型
-整型
-
-- Java类型
-Integer
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
-### 属性-讨论类型任务（DISCUSSTAKCNT）
-#### 属性说明
-讨论类型任务
-
-- 是否是主键
-否
-
-- 属性类型
-应用界面字段[无存储]
-
-- 数据类型
-整型
-
-- Java类型
-Integer
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
-### 属性-研究类型任务（STUDYTAKCNT）
-#### 属性说明
-研究类型任务
-
-- 是否是主键
-否
-
-- 属性类型
-应用界面字段[无存储]
-
-- 数据类型
-整型
-
-- Java类型
-Integer
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
 ### 属性-设计类型任务（DESIGNTASKCNT）
 #### 属性说明
 设计类型任务
@@ -2338,7 +2224,8 @@ SUM(IF(t1.type = 'test',t1.num,0)) as testtaskcnt,
 SUM(IF(t1.type = 'serve',t1.num,0)) as servetaskcnt,
 SUM(IF(t1.type = 'devel',t1.num,0)) as develtaskcnt,
 SUM(IF(t1.type = 'misc',t1.num,0)) as misctaskcnt,
-SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt
+SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt,
+COUNT(1) as taskcnt
 from(
 select t1.type,t1.project,t2.`name`,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0') t1
 GROUP BY t1.project
