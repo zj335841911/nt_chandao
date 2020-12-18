@@ -15,11 +15,11 @@
             <!-- <div class="openeddate">{{item.openeddate}}</div> -->
             <div class="assignedto" >
                 <div v-if="item.multiple != '1' && !item.assignedto_img" class="assignedto_item">{{item.assignedto_text}}</div>
-                <div v-if="item.assignedto_img" class="assignedto_item_img"><img :src="item.assignedto_img" alt=""></div>
+                <div v-show="item.assignedto_img" class="assignedto_item_img"><img v-lazy="item.assignedto_img" alt=""></div>
                 <template v-for="(_item,index) in assignedtoArr" >
                     <template v-if="item.multiple == '1' && index < 2 " >
                         <div v-if="!_item.img" :key="index" class="assignedto_item">{{_item.name}}</div>
-                        <div v-if="_item.img" :key="index" class="assignedto_item_img"><img :src="_item.img" alt=""></div>
+                        <div v-show="_item.img" :key="index+'img'" class="assignedto_item_img"><img v-lazy="_item.img" alt=""></div>
                     </template>
                 </template>
                 <div class="ion" v-if="assignedtoArr.length >= 3"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></div>
@@ -101,7 +101,8 @@ export default class appTaskList extends Vue {
         // 设置指派名称
         // 多人
         if(Object.is(this.item.multiple,'1')){
-            const assignedto: any = this.item.assignedto.split(',')
+            const assignedto: any = this.item.assignedto.split(',');
+            this.assignedtoArr = [];
             for (let index = 0; index < assignedto.length; index++) {
                 const element = assignedto[index];
                 let name = this.getCodeListText('UserRealName',element).label;
