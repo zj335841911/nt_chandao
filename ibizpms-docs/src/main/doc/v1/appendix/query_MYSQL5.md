@@ -14013,7 +14013,7 @@ WHERE t1.DELETED = '0'
 ```
 ### 项目质量表查询(ProjectQuality)<div id="ProjectStats_ProjectQuality"></div>
 ```sql
-SELECT t1.bugcnt,t1.completetaskcnt,t1.completestorycnt,t1.name,t1.storycnt,t1.taskcnt,t1.bugstory,t1.bugtask,IFNULL(t4.IMPORTANTBUGCNT,0) as IMPORTANTBUGCNT ,IFNULL((IMPORTANTBUGCNT/t1.bugcnt),0)as SERIOUSBUGPROPORTION from (
+SELECT t1.bugcnt,t1.completetaskcnt,t1.completestorycnt,t1.name,t1.storycnt,t1.FINISHBUGCNT,t1.taskcnt,t1.bugstory,t1.bugtask,IFNULL(t4.IMPORTANTBUGCNT,0) as IMPORTANTBUGCNT ,CONCAT(round(IFNULL((IMPORTANTBUGCNT/t1.bugcnt),0),2)*100,'%')  as SERIOUSBUGPROPORTION from (
 SELECT
 	t1.*,
 	IFNULL( t3.bugtask, 0 ) AS bugtask 
