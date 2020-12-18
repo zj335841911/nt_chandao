@@ -6145,6 +6145,44 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Story__review_result_draft",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "pass",
+                label: "确认通过",
+                text: "确认通过",
+                "data":"",
+                "codename":"Pass",
+                value: "pass",
+                
+                disabled: false,
+            },
+            {
+                id: "clarify",
+                label: "有待明确",
+                text: "有待明确",
+                "data":"",
+                "codename":"Clarify",
+                "color": "rgba(49, 27, 146, 1)",
+                value: "clarify",
+                
+                disabled: false,
+            },
+            {
+                id: "reject",
+                label: "拒绝",
+                text: "拒绝",
+                "data":"",
+                "codename":"Reject",
+                value: "reject",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "AllTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
