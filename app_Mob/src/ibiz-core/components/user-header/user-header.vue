@@ -2,8 +2,7 @@
     <div class="user-header" @click="header_click">
         <div class="content" >
             <div class="user-header_content_left">
-                <img v-if="userImg" @click.stop="header_img_click" :src="userImg" alt="">
-                <van-icon @click.stop="header_img_click" v-else name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
+                <img  @click.stop="header_img_click" v-lazy="userImg" alt="">
             </div>
             <div class="user-header_content_right">
                 <div class="username"><strong><span>{{username}}</span></strong></div>
@@ -38,7 +37,7 @@ export default class UserHeader extends Vue {
 
     public userLoginName = '';
 
-    public userImg = '';
+    public userImg = 'https://b.yzcdn.cn/vant/icon-demo-1126.png';
 
     public username = '';
 
