@@ -3187,10 +3187,11 @@ FROM `zt_project` t1
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
 | 3 | [项目bug类型统计](#数据集合-项目bug类型统计（ProjectBugType）) | ProjectBugType | 否 |
-| 4 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
-| 5 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 6 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 7 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 4 | [项目投入统计](#数据集合-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
+| 5 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
+| 6 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 7 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 8 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -3234,6 +3235,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目bug类型（ProjectBugType）](#数据查询-项目bug类型（ProjectBugType）) |
+### 数据集合-项目投入统计（ProjectInputStats）
+#### 说明
+项目投入统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目投入统计（ProjectInputStats）](#数据查询-项目投入统计（ProjectInputStats）) |
 ### 数据集合-项目质量（ProjectQuality）
 #### 说明
 项目质量

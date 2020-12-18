@@ -81,6 +81,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("项目统计",null),
 					title: commonLogic.appcommonhandle("项目bug类型统计表格视图",null),
 				},
+				projectinputstatsgridview: {
+					caption: commonLogic.appcommonhandle("项目投入统计",null),
+					title: commonLogic.appcommonhandle("项目统计表格视图",null),
+				},
 				usr2gridviewtasktypecount: {
 					caption: commonLogic.appcommonhandle("任务类型统计",null),
 					title: commonLogic.appcommonhandle("项目统计表格视图（任务状态统计）",null),
@@ -247,6 +251,19 @@ function getLocaleResourceBase(){
 					automation: commonLogic.appcommonhandle("测试脚本",null),
 					others: commonLogic.appcommonhandle("其他",null),
 					bugcnt: commonLogic.appcommonhandle("Bug总数",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			projectinputstats_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					timescale: commonLogic.appcommonhandle("工期",null),
+					taskcnt: commonLogic.appcommonhandle("任务数",null),
+					storycnt: commonLogic.appcommonhandle("需求数",null),
+					membercnt: commonLogic.appcommonhandle("人数",null),
+					projecttotalconsumed: commonLogic.appcommonhandle("总消耗",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

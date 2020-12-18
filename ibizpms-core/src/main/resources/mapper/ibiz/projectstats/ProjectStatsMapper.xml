@@ -49,6 +49,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProjectInputStats]-->
+	 <select id="searchProjectInputStats"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
+         select t1.* from (
+                <include refid="ProjectInputStats" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ProjectQuality]-->
 	 <select id="searchProjectQuality"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
          select t1.* from (

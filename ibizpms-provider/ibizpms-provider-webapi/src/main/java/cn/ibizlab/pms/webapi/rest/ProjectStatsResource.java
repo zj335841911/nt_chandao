@@ -201,6 +201,28 @@ public class ProjectStatsResource {
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectInputStats-all')")
+	@ApiOperation(value = "获取项目投入统计", tags = {"项目统计" } ,notes = "获取项目投入统计")
+    @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchprojectinputstats")
+	public ResponseEntity<List<ProjectStatsDTO>> fetchProjectInputStats(ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectInputStats(context) ;
+        List<ProjectStatsDTO> list = projectstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectInputStats-all')")
+	@ApiOperation(value = "查询项目投入统计", tags = {"项目统计" } ,notes = "查询项目投入统计")
+    @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchprojectinputstats")
+	public ResponseEntity<Page<ProjectStatsDTO>> searchProjectInputStats(@RequestBody ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectInputStats(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectQuality-all')")
 	@ApiOperation(value = "获取项目质量", tags = {"项目统计" } ,notes = "获取项目质量")
     @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchprojectquality")

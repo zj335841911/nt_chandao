@@ -176,6 +176,7 @@
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |NOOpenProduct|未关闭产品|NOOpenProduct|否|&nbsp;|
 |ProjectBugType|项目bug类型统计|ProjectBugType|否|&nbsp;|
+|ProjectInputStats|项目投入统计|ProjectInputStats|否|&nbsp;|
 |ProjectQuality|项目质量|ProjectQuality|否|&nbsp;|
 |ProjectTaskCountByTaskStatus|项目任务统计(任务状态)|ProjectTaskCountByTaskStatus|否|&nbsp;|
 |ProjectTaskCountByType|项目任务类型统计|ProjectTaskCountByType|否|&nbsp;|

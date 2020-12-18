@@ -2679,6 +2679,16 @@
         "viewtag": "6d466e003e0479fb8b1a16e49b889dc1",
         "memo": ""
     },
+    "projectstatsprojectinputstatsgridview": {
+        "title": "项目统计表格视图",
+        "caption": "项目投入统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectInputStatsGridView",
+        "viewfilename": "project-stats-project-input-stats-grid-view",
+        "viewtag": "6dee43bf4f06e90abee66563c398806a",
+        "memo": ""
+    },
     "ibzmyterritoryreporttabexpview": {
         "title": "我的地盘分页导航视图",
         "caption": "汇报",

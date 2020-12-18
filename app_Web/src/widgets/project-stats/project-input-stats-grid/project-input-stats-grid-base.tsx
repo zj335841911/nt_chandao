@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
-import CompanyStatsService from '@/service/company-stats/company-stats-service';
-import CompanyDynamicStatsService from './company-dynamic-stats-grid-service';
-import CompanyStatsUIService from '@/uiservice/company-stats/company-stats-ui-service';
+import ProjectStatsService from '@/service/project-stats/project-stats-service';
+import ProjectInputStatsService from './project-input-stats-grid-service';
+import ProjectStatsUIService from '@/uiservice/project-stats/project-stats-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 /**
@@ -12,66 +12,66 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {CompanyDynamicStatsGridBase}
+ * @extends {ProjectInputStatsGridBase}
  */
-export class CompanyDynamicStatsGridBase extends GridControlBase {
+export class ProjectInputStatsGridBase extends GridControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {CompanyDynamicStatsService}
-     * @memberof CompanyDynamicStatsGridBase
+     * @type {ProjectInputStatsService}
+     * @memberof ProjectInputStatsGridBase
      */
-    public service: CompanyDynamicStatsService = new CompanyDynamicStatsService({ $store: this.$store });
+    public service: ProjectInputStatsService = new ProjectInputStatsService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {CompanyStatsService}
-     * @memberof CompanyDynamicStatsGridBase
+     * @type {ProjectStatsService}
+     * @memberof ProjectInputStatsGridBase
      */
-    public appEntityService: CompanyStatsService = new CompanyStatsService({ $store: this.$store });
+    public appEntityService: ProjectStatsService = new ProjectStatsService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
-    protected appDeName: string = 'companystats';
+    protected appDeName: string = 'projectstats';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
-    protected appDeLogicName: string = '公司动态汇总';
+    protected appDeLogicName: string = '项目统计';
 
     /**
      * 界面UI服务对象
      *
-     * @type {CompanyStatsUIService}
-     * @memberof CompanyDynamicStatsBase
+     * @type {ProjectStatsUIService}
+     * @memberof ProjectInputStatsBase
      */  
-    public appUIService: CompanyStatsUIService = new CompanyStatsUIService(this.$store);
+    public appUIService: ProjectStatsUIService = new ProjectStatsUIService(this.$store);
 
 
     /**
      * 界面行为模型
      *
      * @type {*}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */  
     public ActionModel: any = {
     };
@@ -80,9 +80,9 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 主信息表格列
      *
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */  
-    public majorInfoColName:string = "";
+    public majorInfoColName:string = "name";
 
 
     /**
@@ -90,15 +90,15 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
-    protected localStorageTag: string = 'ibz_companystats_companydynamicstats_grid';
+    protected localStorageTag: string = 'ibz_projectstats_projectinputstats_grid';
 
     /**
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
     public isEnablePagingBar: boolean = false;
 
@@ -106,7 +106,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 分页条数
      *
      * @type {number}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
     public limit: number = 1000;
 
@@ -114,94 +114,58 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
     public allColumns: any[] = [
         {
-            name: 'ztdate',
-            label: '日期',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.ztdate',
-            show: true,
-            unit: 'STAR',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'logincnt',
-            label: '登录次数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.logincnt',
+            name: 'name',
+            label: '项目名称',
+            langtag: 'entities.projectstats.projectinputstats_grid.columns.name',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'loghours',
-            label: '日志工时',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.loghours',
+            name: 'timescale',
+            label: '工期',
+            langtag: 'entities.projectstats.projectinputstats_grid.columns.timescale',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'openedstorycnt',
-            label: '新增需求数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.openedstorycnt',
+            name: 'taskcnt',
+            label: '任务数',
+            langtag: 'entities.projectstats.projectinputstats_grid.columns.taskcnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'closedstorycnt',
-            label: '关闭需求数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.closedstorycnt',
+            name: 'storycnt',
+            label: '需求数',
+            langtag: 'entities.projectstats.projectinputstats_grid.columns.storycnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'openedtaskcnt',
-            label: '新增任务数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.openedtaskcnt',
+            name: 'membercnt',
+            label: '人数',
+            langtag: 'entities.projectstats.projectinputstats_grid.columns.membercnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'finishedtaskcnt',
-            label: '完成任务数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.finishedtaskcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'openedbugcnt',
-            label: '新增Bug数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.openedbugcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'resolvedbugcnt',
-            label: '解决Bug数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.resolvedbugcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'dynamiccnt',
-            label: '动态数',
-            langtag: 'entities.companystats.companydynamicstats_grid.columns.dynamiccnt',
+            name: 'projecttotalconsumed',
+            label: '总消耗',
+            langtag: 'entities.projectstats.projectinputstats_grid.columns.projecttotalconsumed',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -213,7 +177,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
     public getGridRowModel(){
         return {
@@ -225,7 +189,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public isEnableGroup:boolean = false;
 
@@ -233,7 +197,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public groupAppField:string ="";
 
@@ -241,7 +205,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -249,7 +213,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -257,7 +221,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public groupMode:string ="NONE";
 
@@ -265,7 +229,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public codelistTag: string = "";
 
@@ -273,7 +237,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public codelistType: string = "";
 
@@ -281,13 +245,13 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
     public rules() {
         return {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '标识 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '标识 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '项目编号 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '项目编号 值不能为空', trigger: 'blur' },
         ],
     }
     }
@@ -296,7 +260,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public deRules:any = {
     };
@@ -305,19 +269,15 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public hasRowEdit: any = {
-        'ztdate':false,
-        'logincnt':false,
-        'loghours':false,
-        'openedstorycnt':false,
-        'closedstorycnt':false,
-        'openedtaskcnt':false,
-        'finishedtaskcnt':false,
-        'openedbugcnt':false,
-        'resolvedbugcnt':false,
-        'dynamiccnt':false,
+        'name':false,
+        'timescale':false,
+        'taskcnt':false,
+        'storycnt':false,
+        'membercnt':false,
+        'projecttotalconsumed':false,
     };
 
     /**
@@ -325,7 +285,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -383,7 +343,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof CompanyDynamicStatsGridBase
+     * @memberof ProjectInputStatsGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -394,7 +354,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
     /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public updateDefault(row: any){                    
     }
@@ -402,10 +362,10 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof CompanyDynamicStatsBase
+    * @memberof ProjectInputStatsBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ztdate','logincnt','loghours','openedstorycnt','closedstorycnt','openedtaskcnt','finishedtaskcnt','openedbugcnt','resolvedbugcnt','dynamiccnt'];
+        let allColumns:Array<any> = ['name','timescale','taskcnt','storycnt','membercnt','projecttotalconsumed'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -418,7 +378,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -433,7 +393,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -450,7 +410,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -484,16 +444,12 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                ztdate:'',
-                logincnt:'',
-                loghours:'',
-                openedstorycnt:'',
-                closedstorycnt:'',
-                openedtaskcnt:'',
-                finishedtaskcnt:'',
-                openedbugcnt:'',
-                resolvedbugcnt:'',
-                dynamiccnt:'',
+                name:'',
+                timescale:'',
+                taskcnt:'',
+                storycnt:'',
+                membercnt:'',
+                projecttotalconsumed:'',
                 children: children
             }
             groupTree.push(tree);
@@ -518,16 +474,12 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            ztdate:'',
-            logincnt:'',
-            loghours:'',
-            openedstorycnt:'',
-            closedstorycnt:'',
-            openedtaskcnt:'',
-            finishedtaskcnt:'',
-            openedbugcnt:'',
-            resolvedbugcnt:'',
-            dynamiccnt:'',
+            name:'',
+            timescale:'',
+            taskcnt:'',
+            storycnt:'',
+            membercnt:'',
+            projecttotalconsumed:'',
             children: child
         }
         if(child && child.length > 0){
@@ -544,7 +496,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public async drawGroup(){
         if(!this.isEnableGroup) return;
@@ -588,16 +540,12 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                ztdate:'',
-                logincnt:'',
-                loghours:'',
-                openedstorycnt:'',
-                closedstorycnt:'',
-                openedtaskcnt:'',
-                finishedtaskcnt:'',
-                openedbugcnt:'',
-                resolvedbugcnt:'',
-                dynamiccnt:'',
+                name:'',
+                timescale:'',
+                taskcnt:'',
+                storycnt:'',
+                membercnt:'',
+                projecttotalconsumed:'',
                 children: children,
             }
             groupTree.push(tree);
@@ -615,7 +563,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof CompanyDynamicStatsBase
+     * @memberof ProjectInputStatsBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){

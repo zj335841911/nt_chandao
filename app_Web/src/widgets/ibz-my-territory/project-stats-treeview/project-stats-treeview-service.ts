@@ -109,6 +109,15 @@ export default class ProjectStatsService extends ControlService {
 	public TREENODE_BUGSTATUSCOUNT: string = 'BugStatusCount';
 
     /**
+     * 项目投入统计表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_PROJECTINPUTSTATS: string = 'ProjectInputStats';
+
+    /**
      * 默认根节点节点分隔符号
      *
      * @public
@@ -218,6 +227,10 @@ export default class ProjectStatsService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_BUGSTATUSCOUNT)) {
             await this.fillBugstatuscountNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_PROJECTINPUTSTATS)) {
+            await this.fillProjectinputstatsNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
@@ -527,6 +540,65 @@ export default class ProjectStatsService extends ControlService {
 	}
 
     /**
+     * 填充 树视图节点[项目投入统计表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillProjectinputstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.projectinputstats') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProjectInputStats';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[项目投入统计表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillProjectinputstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
      * 填充 树视图节点[默认根节点]
      *
      * @public
@@ -610,6 +682,11 @@ export default class ProjectStatsService extends ControlService {
             let BugtypeRsNavParams:any = {};
             let BugtypeRsParams:any = {};
 			await this.fillBugtypeNodes(context, filter, list ,BugtypeRsNavContext,BugtypeRsNavParams,BugtypeRsParams);
+			// 填充项目投入统计表
+            let ProjectinputstatsRsNavContext:any = {};
+            let ProjectinputstatsRsNavParams:any = {};
+            let ProjectinputstatsRsParams:any = {};
+			await this.fillProjectinputstatsNodes(context, filter, list ,ProjectinputstatsRsNavContext,ProjectinputstatsRsNavParams,ProjectinputstatsRsParams);
 		} else {
 			// 填充bug状态统计
             let BugstatuscountRsNavContext:any = {};
@@ -641,6 +718,11 @@ export default class ProjectStatsService extends ControlService {
             let BugtypeRsNavParams:any = {};
             let BugtypeRsParams:any = {};
 			await this.fillBugtypeNodes(context, filter, list ,BugtypeRsNavContext,BugtypeRsNavParams,BugtypeRsParams);
+			// 填充项目投入统计表
+            let ProjectinputstatsRsNavContext:any = {};
+            let ProjectinputstatsRsNavParams:any = {};
+            let ProjectinputstatsRsParams:any = {};
+			await this.fillProjectinputstatsNodes(context, filter, list ,ProjectinputstatsRsNavContext,ProjectinputstatsRsNavParams,ProjectinputstatsRsParams);
 		}
 	}
 

@@ -2373,6 +2373,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6dee43bf4f06e90abee66563c398806a',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsProjectInputStatsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: '6e1a903e2d94b6568debc087b75e5d53',
             viewmodule: 'report',
             viewname: 'IbzMyTerritoryReportTabExpView',
@@ -5429,6 +5439,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'ab5df14b40f3a74e59053c76e1f48744',
+                '6dee43bf4f06e90abee66563c398806a',
                 'a638e2a7d3b05b2f279ad28d14f5a85f',
                 '09ec3280dedaeac7260c00f3f923d20e',
                 '24148503ec2063b36eab0deebf4bcfd1',

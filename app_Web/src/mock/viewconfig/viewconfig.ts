@@ -2151,6 +2151,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ActionMyAllTrendsListView",
             "viewtag": "6d466e003e0479fb8b1a16e49b889dc1"
         },
+        "projectstatsprojectinputstatsgridview": {
+            "title": "项目统计表格视图",
+            "caption": "项目投入统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectInputStatsGridView",
+            "viewtag": "6dee43bf4f06e90abee66563c398806a"
+        },
         "ibzmyterritoryreporttabexpview": {
             "title": "我的地盘分页导航视图",
             "caption": "汇报",

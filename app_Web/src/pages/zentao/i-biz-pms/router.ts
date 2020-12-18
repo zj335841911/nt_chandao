@@ -13765,6 +13765,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/projectinputstatsgridview/:projectinputstatsgridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectinputstatsgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectinputstatsgridview', parameterName: 'projectinputstatsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-input-stats-grid-view/project-stats-project-input-stats-grid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testreports/:testreport?/actioneditview/:actioneditview?',
                     meta: {
                         caption: 'entities.testreport.views.actioneditview.caption',

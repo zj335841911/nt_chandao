@@ -548,6 +548,7 @@ SRFNAVPARAM.project=%project%|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|需求细分|DEGRIDVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
+|-|项目统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|Bug看板视图|DEKANBANVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|

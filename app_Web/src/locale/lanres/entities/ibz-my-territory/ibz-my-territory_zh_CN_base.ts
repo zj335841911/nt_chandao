@@ -199,6 +199,7 @@ function getLocaleResourceBase(){
 					bugresolutioncount: commonLogic.appcommonhandle("bug解决方案统计",null),
 					bugtype: commonLogic.appcommonhandle("bug类型统计",null),
 					bugstatuscount: commonLogic.appcommonhandle("bug状态统计",null),
+					projectinputstats: commonLogic.appcommonhandle("项目投入统计表",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
 					taskstatuscount: commonLogic.appcommonhandle("项目任务状态统计",null),
 				},
