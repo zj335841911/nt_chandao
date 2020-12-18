@@ -91,6 +91,15 @@ export default class ProjectStatsService extends ControlService {
 	public TREENODE_BUGRESOLUTIONCOUNT: string = 'BugResolutionCount';
 
     /**
+     * bug类型统计节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_BUGTYPE: string = 'BugType';
+
+    /**
      * bug状态统计节点分隔符号
      *
      * @public
@@ -201,6 +210,10 @@ export default class ProjectStatsService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_BUGRESOLUTIONCOUNT)) {
             await this.fillBugresolutioncountNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_BUGTYPE)) {
+            await this.fillBugtypeNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_BUGSTATUSCOUNT)) {
@@ -396,6 +409,65 @@ export default class ProjectStatsService extends ControlService {
 	}
 
     /**
+     * 填充 树视图节点[bug类型统计]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillBugtypeNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.bugtype') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugType';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[bug类型统计]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillBugtypeNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
      * 填充 树视图节点[bug状态统计]
      *
      * @public
@@ -533,6 +605,11 @@ export default class ProjectStatsService extends ControlService {
             let ProjectqualityRsNavParams:any = {};
             let ProjectqualityRsParams:any = {};
 			await this.fillProjectqualityNodes(context, filter, list ,ProjectqualityRsNavContext,ProjectqualityRsNavParams,ProjectqualityRsParams);
+			// 填充bug类型统计
+            let BugtypeRsNavContext:any = {};
+            let BugtypeRsNavParams:any = {};
+            let BugtypeRsParams:any = {};
+			await this.fillBugtypeNodes(context, filter, list ,BugtypeRsNavContext,BugtypeRsNavParams,BugtypeRsParams);
 		} else {
 			// 填充bug状态统计
             let BugstatuscountRsNavContext:any = {};
@@ -559,6 +636,11 @@ export default class ProjectStatsService extends ControlService {
             let ProjectqualityRsNavParams:any = {};
             let ProjectqualityRsParams:any = {};
 			await this.fillProjectqualityNodes(context, filter, list ,ProjectqualityRsNavContext,ProjectqualityRsNavParams,ProjectqualityRsParams);
+			// 填充bug类型统计
+            let BugtypeRsNavContext:any = {};
+            let BugtypeRsNavParams:any = {};
+            let BugtypeRsParams:any = {};
+			await this.fillBugtypeNodes(context, filter, list ,BugtypeRsNavContext,BugtypeRsNavParams,BugtypeRsParams);
 		}
 	}
 

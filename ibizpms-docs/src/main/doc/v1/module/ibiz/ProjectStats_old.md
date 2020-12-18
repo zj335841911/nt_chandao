@@ -57,6 +57,18 @@
 |Bug/完成任务|BUGTASK|INT|&nbsp;|
 |重要Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
 |严重Bug比率|SERIOUSBUGPROPORTION|TEXT|&nbsp;|
+|代码错误|CODEERROR|INT|&nbsp;|
+|配置相关|CONFIG|INT|&nbsp;|
+|安装部署|INSTALL|INT|&nbsp;|
+|安全相关|SECURITY|INT|&nbsp;|
+|性能问题|PERFORMANCE|INT|&nbsp;|
+|标准规范|STANDARD|INT|&nbsp;|
+|测试脚本|AUTOMATION|INT|&nbsp;|
+|人数|MEMBERCNT|INT|&nbsp;|
+|设计缺陷|DESIGNDEFECT|INT|&nbsp;|
+|其他|OTHERS|INT|&nbsp;|
+|项目消耗总工时|PROJECTTOTALCONSUMED|FLOAT|&nbsp;|
+|工期|TIMESCALE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -109,6 +121,18 @@
 |Bug/完成任务|默认规则|默认规则|
 |重要Bug数|默认规则|默认规则|
 |严重Bug比率|默认规则|内容长度必须小于等于[200]|
+|代码错误|默认规则|默认规则|
+|配置相关|默认规则|默认规则|
+|安装部署|默认规则|默认规则|
+|安全相关|默认规则|默认规则|
+|性能问题|默认规则|默认规则|
+|标准规范|默认规则|默认规则|
+|测试脚本|默认规则|默认规则|
+|人数|默认规则|默认规则|
+|设计缺陷|默认规则|默认规则|
+|其他|默认规则|默认规则|
+|项目消耗总工时|默认规则|默认规则|
+|工期|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

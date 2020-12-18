@@ -453,7 +453,19 @@ POST
 | 46 | bugtask | Integer | 允许 | Bug/完成任务 |
 | 47 | importantbugcnt | Integer | 允许 | 重要Bug数 |
 | 48 | seriousbugproportion | String | 允许 | 严重Bug比率 |
-| 49 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 49 | codeerror | Integer | 允许 | 代码错误 |
+| 50 | config | Integer | 允许 | 配置相关 |
+| 51 | install | Integer | 允许 | 安装部署 |
+| 52 | security | Integer | 允许 | 安全相关 |
+| 53 | performance | Integer | 允许 | 性能问题 |
+| 54 | standard | Integer | 允许 | 标准规范 |
+| 55 | automation | Integer | 允许 | 测试脚本 |
+| 56 | membercnt | Integer | 允许 | 人数 |
+| 57 | designdefect | Integer | 允许 | 设计缺陷 |
+| 58 | others | Integer | 允许 | 其他 |
+| 59 | projecttotalconsumed | Double | 允许 | 项目消耗总工时 |
+| 60 | timescale | String | 允许 | 工期 |
+| 61 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

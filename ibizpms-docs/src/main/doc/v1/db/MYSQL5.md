@@ -123094,6 +123094,7 @@ CREATE TABLE `zt_module`(
 | UNCLOSEDBUGCNT        | 未关闭Bug总数  | INTEGER      |   -1   | &nbsp; |
 | UNDONETASKCNT        | 未完成任务总数  | INTEGER      |   -1   | &nbsp; |
 | UNCONFIRMEDBUGCNT        | 未确认Bug总数  | INTEGER      |   -1   | &nbsp; |
+| MEMBERCNT        | 人数  | INTEGER      |   -1   | &nbsp; |
 | STATUS        | 状态  | VARCHAR      |   100   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | SERIOUSBUGPROPORTION        | 严重Bug比率  | VARCHAR      |   200   | &nbsp; |
@@ -123106,6 +123107,7 @@ CREATE TABLE `zt_module`(
 | ACTIVEBUGCNT        | 未解决Bug总数  | INTEGER      |   -1   | &nbsp; |
 | FINISHBUGCNT        | 已解决Bug总数  | INTEGER      |   -1   | &nbsp; |
 | TOTALLEFT        | 任务预计剩余总工时  | DOUBLE      |   -1   | &nbsp; |
+| PROJECTTOTALCONSUMED        | 项目消耗总工时  | DOUBLE      |   -1   | &nbsp; |
 | TOTALCONSUMED        | 任务消耗总工时  | DOUBLE      |   -1   | &nbsp; |
 
 

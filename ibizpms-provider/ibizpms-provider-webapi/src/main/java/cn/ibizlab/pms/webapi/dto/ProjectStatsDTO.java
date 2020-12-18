@@ -421,6 +421,103 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String seriousbugproportion;
 
+    /**
+     * 属性 [CODEERROR]
+     *
+     */
+    @JSONField(name = "codeerror")
+    @JsonProperty("codeerror")
+    private Integer codeerror;
+
+    /**
+     * 属性 [CONFIG]
+     *
+     */
+    @JSONField(name = "config")
+    @JsonProperty("config")
+    private Integer config;
+
+    /**
+     * 属性 [INSTALL]
+     *
+     */
+    @JSONField(name = "install")
+    @JsonProperty("install")
+    private Integer install;
+
+    /**
+     * 属性 [SECURITY]
+     *
+     */
+    @JSONField(name = "security")
+    @JsonProperty("security")
+    private Integer security;
+
+    /**
+     * 属性 [PERFORMANCE]
+     *
+     */
+    @JSONField(name = "performance")
+    @JsonProperty("performance")
+    private Integer performance;
+
+    /**
+     * 属性 [STANDARD]
+     *
+     */
+    @JSONField(name = "standard")
+    @JsonProperty("standard")
+    private Integer standard;
+
+    /**
+     * 属性 [AUTOMATION]
+     *
+     */
+    @JSONField(name = "automation")
+    @JsonProperty("automation")
+    private Integer automation;
+
+    /**
+     * 属性 [MEMBERCNT]
+     *
+     */
+    @JSONField(name = "membercnt")
+    @JsonProperty("membercnt")
+    private Integer membercnt;
+
+    /**
+     * 属性 [DESIGNDEFECT]
+     *
+     */
+    @JSONField(name = "designdefect")
+    @JsonProperty("designdefect")
+    private Integer designdefect;
+
+    /**
+     * 属性 [OTHERS]
+     *
+     */
+    @JSONField(name = "others")
+    @JsonProperty("others")
+    private Integer others;
+
+    /**
+     * 属性 [PROJECTTOTALCONSUMED]
+     *
+     */
+    @JSONField(name = "projecttotalconsumed")
+    @JsonProperty("projecttotalconsumed")
+    private Double projecttotalconsumed;
+
+    /**
+     * 属性 [TIMESCALE]
+     *
+     */
+    @JSONField(name = "timescale")
+    @JsonProperty("timescale")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String timescale;
+
 
     /**
      * 设置 [NAME]

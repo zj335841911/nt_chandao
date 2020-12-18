@@ -791,6 +791,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumStorySumGridView",
             "viewtag": "240ec4bdf10888613e1601f420ad730f"
         },
+        "projectstatsprojectbugtypesumusr2gridview": {
+            "title": "项目bug类型统计表格视图",
+            "caption": "项目统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectBugTypeSumUsr2GridView",
+            "viewtag": "24148503ec2063b36eab0deebf4bcfd1"
+        },
         "storympickupview3": {
             "title": "关联需求",
             "caption": "关联需求",

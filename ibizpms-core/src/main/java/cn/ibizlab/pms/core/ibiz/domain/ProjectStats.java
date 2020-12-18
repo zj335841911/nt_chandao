@@ -383,6 +383,90 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "seriousbugproportion")
     @JsonProperty("seriousbugproportion")
     private String seriousbugproportion;
+    /**
+     * 代码错误
+     */
+    @TableField(exist = false)
+    @JSONField(name = "codeerror")
+    @JsonProperty("codeerror")
+    private Integer codeerror;
+    /**
+     * 配置相关
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config")
+    @JsonProperty("config")
+    private Integer config;
+    /**
+     * 安装部署
+     */
+    @TableField(exist = false)
+    @JSONField(name = "install")
+    @JsonProperty("install")
+    private Integer install;
+    /**
+     * 安全相关
+     */
+    @TableField(exist = false)
+    @JSONField(name = "security")
+    @JsonProperty("security")
+    private Integer security;
+    /**
+     * 性能问题
+     */
+    @TableField(exist = false)
+    @JSONField(name = "performance")
+    @JsonProperty("performance")
+    private Integer performance;
+    /**
+     * 标准规范
+     */
+    @TableField(exist = false)
+    @JSONField(name = "standard")
+    @JsonProperty("standard")
+    private Integer standard;
+    /**
+     * 测试脚本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "automation")
+    @JsonProperty("automation")
+    private Integer automation;
+    /**
+     * 人数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "membercnt")
+    @JsonProperty("membercnt")
+    private Integer membercnt;
+    /**
+     * 设计缺陷
+     */
+    @TableField(exist = false)
+    @JSONField(name = "designdefect")
+    @JsonProperty("designdefect")
+    private Integer designdefect;
+    /**
+     * 其他
+     */
+    @TableField(exist = false)
+    @JSONField(name = "others")
+    @JsonProperty("others")
+    private Integer others;
+    /**
+     * 项目消耗总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projecttotalconsumed")
+    @JsonProperty("projecttotalconsumed")
+    private Double projecttotalconsumed;
+    /**
+     * 工期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "timescale")
+    @JsonProperty("timescale")
+    private String timescale;
 
 
 

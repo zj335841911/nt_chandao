@@ -51,6 +51,18 @@ function getLocaleResourceBase(){
 			bugtask: commonLogic.appcommonhandle("Bug/完成任务",null),
 			importantbugcnt: commonLogic.appcommonhandle("重要Bug数",null),
 			seriousbugproportion: commonLogic.appcommonhandle("严重Bug比率",null),
+			codeerror: commonLogic.appcommonhandle("代码错误",null),
+			config: commonLogic.appcommonhandle("配置相关",null),
+			install: commonLogic.appcommonhandle("安装部署",null),
+			security: commonLogic.appcommonhandle("安全相关",null),
+			performance: commonLogic.appcommonhandle("性能问题",null),
+			standard: commonLogic.appcommonhandle("标准规范",null),
+			automation: commonLogic.appcommonhandle("测试脚本",null),
+			membercnt: commonLogic.appcommonhandle("人数",null),
+			designdefect: commonLogic.appcommonhandle("设计缺陷",null),
+			others: commonLogic.appcommonhandle("其他",null),
+			projecttotalconsumed: commonLogic.appcommonhandle("项目消耗总工时",null),
+			timescale: commonLogic.appcommonhandle("工期",null),
 		},
 			views: {
 				allgridview: {
@@ -64,6 +76,10 @@ function getLocaleResourceBase(){
 				editview: {
 					caption: commonLogic.appcommonhandle("项目统计",null),
 					title: commonLogic.appcommonhandle("项目统计编辑视图",null),
+				},
+				projectbugtypesumusr2gridview: {
+					caption: commonLogic.appcommonhandle("项目统计",null),
+					title: commonLogic.appcommonhandle("项目bug类型统计表格视图",null),
 				},
 				usr2gridviewtasktypecount: {
 					caption: commonLogic.appcommonhandle("任务类型统计",null),
@@ -218,6 +234,24 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projectbugtypesum_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					codeerror: commonLogic.appcommonhandle("代码错误",null),
+					config: commonLogic.appcommonhandle("配置相关",null),
+					designdefect: commonLogic.appcommonhandle("设计缺陷",null),
+					install: commonLogic.appcommonhandle("安装部署",null),
+					performance: commonLogic.appcommonhandle("性能问题",null),
+					security: commonLogic.appcommonhandle("安全相关",null),
+					standard: commonLogic.appcommonhandle("标准规范",null),
+					automation: commonLogic.appcommonhandle("测试脚本",null),
+					others: commonLogic.appcommonhandle("其他",null),
+					bugcnt: commonLogic.appcommonhandle("Bug总数",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			default_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
@@ -260,6 +294,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("删除",null),
 					tip: commonLogic.appcommonhandle("删除",null),
 				},
+			},
+			projectbugtypesumusr2gridviewtoolbar_toolbar: {
 			},
 		};
 		return data;

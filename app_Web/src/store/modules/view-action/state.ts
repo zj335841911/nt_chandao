@@ -859,6 +859,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '24148503ec2063b36eab0deebf4bcfd1',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsProjectBugTypeSumUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: '2419b3758d42fb7e5a590153d28bd945',
             viewmodule: 'zentao',
             viewname: 'StoryMPickupView3',
@@ -5410,6 +5420,7 @@ export const viewstate: any = {
                 'ab5df14b40f3a74e59053c76e1f48744',
                 'a638e2a7d3b05b2f279ad28d14f5a85f',
                 '09ec3280dedaeac7260c00f3f923d20e',
+                '24148503ec2063b36eab0deebf4bcfd1',
                 'abaea74da4d7efea713dabf193a4bdaf',
                 '8e4b19edd3239846958a86bd33eef611',
             ],
