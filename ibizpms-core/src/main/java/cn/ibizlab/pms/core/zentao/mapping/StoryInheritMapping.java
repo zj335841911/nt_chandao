@@ -4,7 +4,7 @@ package cn.ibizlab.pms.core.zentao.mapping;
 
 import org.mapstruct.*;
 import cn.ibizlab.pms.core.zentao.domain.Story;
-import cn.ibizlab.pms.core.ibizpro.domain.IBIZPRO_INDEX;
+import cn.ibizlab.pms.core.ibizpro.domain.IbizproIndex;
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {})
@@ -15,18 +15,18 @@ public interface StoryInheritMapping {
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    IBIZPRO_INDEX toIbizproIndex(Story story);
+    IbizproIndex toIbizproindex(Story story);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "title"),
         @Mapping(target ="focusNull",ignore = true),
     })
-    Story toStory(IBIZPRO_INDEX ibizpro_index);
+    Story toStory(IbizproIndex ibizproindex);
 
-    List<IBIZPRO_INDEX> toIbizproIndex(List<Story> story);
+    List<IbizproIndex> toIbizproindex(List<Story> story);
 
-    List<Story> toStory(List<IBIZPRO_INDEX> ibizpro_index);
+    List<Story> toStory(List<IbizproIndex> ibizproindex);
 
 }
 

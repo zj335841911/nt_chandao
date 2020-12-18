@@ -453,7 +453,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '647cee7cf9c101876645c1c5bcec3602',
+                '57a23ead04eda866c6326f0705f595e3',
             ],
         },
         {
@@ -2129,16 +2129,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '647cee7cf9c101876645c1c5bcec3602',
-            viewmodule: 'ou',
-            viewname: 'SysTeamMemberEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'a34f1835a2bc3fef24cf0c7be698e4cf',
-            ],
-        },
-        {
             viewtag: '65129e5f76f96cbb1d2d1c9e9bb2afed',
             viewmodule: 'ibiz',
             viewname: 'TestModuleGridViewBranch',
@@ -2533,7 +2523,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '647cee7cf9c101876645c1c5bcec3602',
+                '57a23ead04eda866c6326f0705f595e3',
             ],
         },
         {
@@ -3541,16 +3531,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: 'a34f1835a2bc3fef24cf0c7be698e4cf',
-            viewmodule: 'ou',
-            viewname: 'SysTeamMemberUsr2GridViewPostMembers',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '647cee7cf9c101876645c1c5bcec3602',
             ],
         },
         {

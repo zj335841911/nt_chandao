@@ -6714,233 +6714,6 @@ FROM `zt_history` t1
 
 ```
 
-# **索引检索**(IBIZPRO_INDEX)
-
-### 数据查询(DEFAULT)<div id="IBIZPRO_INDEX_Default"></div>
-```sql
-SELECT
-t1.`DELETED`,
-t1.`INDEXID`,
-t1.`INDEXNAME`,
-t1.`INDEX_TYPE`,
-t1.`MDEPTID`,
-t1.`ORGID`,
-t1.INDEXDESC
-FROM (SELECT
-'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
-,v1.`TITLE` AS `INDEXNAME`
-,v1.deleted AS `DELETED`
-,v1.orgid AS `ORGID`
-,v1.MDEPTID AS `MDEPTID`
-,v1.steps as INDEXDESC
-FROM
-(SELECT
-t1.`ID`,
-t1.`TITLE`,
-t11.orgid,
-t11.MDEPTID,
-t1.deleted,
-t1.steps
-FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
-where t11.deleted = '0'
-) v1
-UNION ALL
-SELECT
-'case' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
-,v2.`TITLE` AS `INDEXNAME`
-,v2.deleted AS `DELETED`
-,v2.orgid AS `ORGID`
-,v2.MDEPTID AS `MDEPTID`,
-v2.precondition as INDEXDESC
-FROM
-(SELECT
-t1.`ID`,
-t1.`TITLE`,
-t11.orgid,
-t11.MDEPTID,
-t1.deleted,
-t1.`PRECONDITION`
-FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
-where t11.deleted = '0'
-) v2
-UNION ALL
-SELECT
-'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
-,v3.`NAME` AS `INDEXNAME`
-,v3.deleted AS `DELETED`
-,v3.orgid AS `ORGID`
-,v3.MDEPTID AS `MDEPTID`,
-v3.`desc` as INDEXDESC
-FROM
-(SELECT
-t1.`ID`,
-t1.`NAME`,
-t1.orgid,
-t1.MDEPTID,
-t1.deleted,
-t1.`desc`
-FROM `zt_product` t1 
-) v3
-UNION ALL
-SELECT
-'project' AS `INDEX_TYPE`,v4.`ID` AS `INDEXID`
-,v4.`NAME` AS `INDEXNAME`
-,v4.deleted AS `DELETED`
-,v4.orgid AS `ORGID`
-,v4.MDEPTID AS `MDEPTID`
-,v4.`desc` as INDEXDESC
-FROM
-(SELECT
-t1.`ID`,
-t1.`NAME`,
-t1.orgid,
-t1.MDEPTID,
-t1.deleted,
-t1.`desc`
-FROM `zt_project` t1 
-) v4
-UNION ALL
-SELECT
-'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
-,v5.`TITLE` AS `INDEXNAME`
-,v5.deleted AS `DELETED`
-,v5.orgid AS `ORGID`
-,v5.MDEPTID AS `MDEPTID`
-,v5.spec as INDEXDESC
-FROM
-(SELECT
-t1.`ID`,
-t1.`TITLE`,
-t11.orgid,
-t11.MDEPTID,
-t1.deleted,
-t21.spec
-FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
-left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
-where t11.deleted = '0' 
-) v5
-UNION ALL
-SELECT
-'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
-,v6.`NAME` AS `INDEXNAME`
-,v6.deleted AS `DELETED`
-,v6.orgid AS `ORGID`
-,v6.MDEPTID AS `MDEPTID`,
-v6.`desc` as INDEXDESC
-FROM
-(SELECT
-t1.`ID`,
-t1.`NAME`,
-t11.orgid,
-t11.MDEPTID,
-t1.deleted,
-t1.`desc`
-FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
-where t11.deleted = '0'
-) v6
-) t1
-WHERE t1.DELETED = '0' 
-t1.orgid = #{srf.sessioncontext.srforgid} 
-#{srf.webcontext.indexname} is not null 
-
-```
-### 默认（全部数据）(VIEW)<div id="IBIZPRO_INDEX_View"></div>
-```sql
-SELECT
-t1.`DELETED`,
-t1.`INDEXDESC`,
-t1.`INDEXID`,
-t1.`INDEXNAME`,
-t1.`INDEX_TYPE`,
-t1.`MDEPTID`,
-t1.`ORGID`
-FROM (SELECT
-'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
-,v1.`TITLE` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
-FROM
-(SELECT
-t1.`ID`,
-t1.`TITLE`
-FROM `zt_bug` t1 
-) v1
-UNION ALL
-SELECT
-'case' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
-,v2.`TITLE` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
-FROM
-(SELECT
-t1.`ID`,
-t1.`TITLE`
-FROM `zt_case` t1 
-) v2
-UNION ALL
-SELECT
-'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
-,v3.`NAME` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
-FROM
-(SELECT
-t1.`ID`,
-t1.`NAME`
-FROM `zt_product` t1 
-) v3
-UNION ALL
-SELECT
-'project' AS `INDEX_TYPE`,v4.`ID` AS `INDEXID`
-,v4.`NAME` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
-FROM
-(SELECT
-t1.`ID`,
-t1.`NAME`
-FROM `zt_project` t1 
-) v4
-UNION ALL
-SELECT
-'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
-,v5.`TITLE` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
-FROM
-(SELECT
-t1.`ID`,
-t1.`TITLE`
-FROM `zt_story` t1 
-) v5
-UNION ALL
-SELECT
-'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
-,v6.`NAME` AS `INDEXNAME`
-,NULL AS `DELETED`
-,NULL AS `ORGID`
-,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
-FROM
-(SELECT
-t1.`ID`,
-t1.`NAME`
-FROM `zt_task` t1 
-) v6
-) t1 
-
-```
-
 # **关键字**(IBIZPRO_KEYWORD)
 
 ### 数据查询(DEFAULT)<div id="IBIZProKeyword_Default"></div>
@@ -7375,6 +7148,233 @@ t1.`COMMITER`,
 t1.`ID`,
 t1.`REALNAME`
 FROM `zt_user` t1 
+
+```
+
+# **索引检索**(IBIZPRO_INDEX)
+
+### 数据查询(DEFAULT)<div id="IbizproIndex_Default"></div>
+```sql
+SELECT
+t1.`DELETED`,
+t1.`INDEXID`,
+t1.`INDEXNAME`,
+t1.`INDEX_TYPE`,
+t1.`MDEPTID`,
+t1.`ORGID`,
+t1.INDEXDESC
+FROM (SELECT
+'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
+,v1.`TITLE` AS `INDEXNAME`
+,v1.deleted AS `DELETED`
+,v1.orgid AS `ORGID`
+,v1.MDEPTID AS `MDEPTID`
+,v1.steps as INDEXDESC
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted,
+t1.steps
+FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
+where t11.deleted = '0'
+) v1
+UNION ALL
+SELECT
+'case' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
+,v2.`TITLE` AS `INDEXNAME`
+,v2.deleted AS `DELETED`
+,v2.orgid AS `ORGID`
+,v2.MDEPTID AS `MDEPTID`,
+v2.precondition as INDEXDESC
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted,
+t1.`PRECONDITION`
+FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
+where t11.deleted = '0'
+) v2
+UNION ALL
+SELECT
+'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
+,v3.`NAME` AS `INDEXNAME`
+,v3.deleted AS `DELETED`
+,v3.orgid AS `ORGID`
+,v3.MDEPTID AS `MDEPTID`,
+v3.`desc` as INDEXDESC
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`,
+t1.orgid,
+t1.MDEPTID,
+t1.deleted,
+t1.`desc`
+FROM `zt_product` t1 
+) v3
+UNION ALL
+SELECT
+'project' AS `INDEX_TYPE`,v4.`ID` AS `INDEXID`
+,v4.`NAME` AS `INDEXNAME`
+,v4.deleted AS `DELETED`
+,v4.orgid AS `ORGID`
+,v4.MDEPTID AS `MDEPTID`
+,v4.`desc` as INDEXDESC
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`,
+t1.orgid,
+t1.MDEPTID,
+t1.deleted,
+t1.`desc`
+FROM `zt_project` t1 
+) v4
+UNION ALL
+SELECT
+'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
+,v5.`TITLE` AS `INDEXNAME`
+,v5.deleted AS `DELETED`
+,v5.orgid AS `ORGID`
+,v5.MDEPTID AS `MDEPTID`
+,v5.spec as INDEXDESC
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted,
+t21.spec
+FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
+left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
+where t11.deleted = '0' 
+) v5
+UNION ALL
+SELECT
+'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
+,v6.`NAME` AS `INDEXNAME`
+,v6.deleted AS `DELETED`
+,v6.orgid AS `ORGID`
+,v6.MDEPTID AS `MDEPTID`,
+v6.`desc` as INDEXDESC
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`,
+t11.orgid,
+t11.MDEPTID,
+t1.deleted,
+t1.`desc`
+FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
+where t11.deleted = '0'
+) v6
+) t1
+WHERE t1.DELETED = '0' 
+t1.orgid = #{srf.sessioncontext.srforgid} 
+#{srf.webcontext.indexname} is not null 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbizproIndex_View"></div>
+```sql
+SELECT
+t1.`DELETED`,
+t1.`INDEXDESC`,
+t1.`INDEXID`,
+t1.`INDEXNAME`,
+t1.`INDEX_TYPE`,
+t1.`MDEPTID`,
+t1.`ORGID`
+FROM (SELECT
+'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
+,v1.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
+,NULL AS `ORGID`
+,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_bug` t1 
+) v1
+UNION ALL
+SELECT
+'case' AS `INDEX_TYPE`,v2.`ID` AS `INDEXID`
+,v2.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
+,NULL AS `ORGID`
+,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_case` t1 
+) v2
+UNION ALL
+SELECT
+'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
+,v3.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+,NULL AS `ORGID`
+,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_product` t1 
+) v3
+UNION ALL
+SELECT
+'project' AS `INDEX_TYPE`,v4.`ID` AS `INDEXID`
+,v4.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+,NULL AS `ORGID`
+,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_project` t1 
+) v4
+UNION ALL
+SELECT
+'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
+,v5.`TITLE` AS `INDEXNAME`
+,NULL AS `DELETED`
+,NULL AS `ORGID`
+,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
+FROM
+(SELECT
+t1.`ID`,
+t1.`TITLE`
+FROM `zt_story` t1 
+) v5
+UNION ALL
+SELECT
+'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
+,v6.`NAME` AS `INDEXNAME`
+,NULL AS `DELETED`
+,NULL AS `ORGID`
+,NULL AS `MDEPTID`
+,NULL AS `INDEXDESC`
+FROM
+(SELECT
+t1.`ID`,
+t1.`NAME`
+FROM `zt_task` t1 
+) v6
+) t1 
 
 ```
 

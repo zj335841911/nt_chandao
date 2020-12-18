@@ -26,7 +26,7 @@ export default class IndexTypeModel {
 			},
 
 			{
-				name: 'ibizpro_index',
+				name: 'ibizproindex',
 				prop: 'indexid',
 				dataType: 'FONTKEY',
 			},

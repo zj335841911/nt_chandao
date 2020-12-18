@@ -840,9 +840,9 @@ export default class ZentaoModel {
             openmode: '',
             codename: 'ibizpro_indexlistview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibizpro_indices/:ibizpro_index?/listview/:listview?',
+            routepath: '/ibizpms/:ibizpms?/ibizproindices/:ibizproindex?/listview/:listview?',
             parameters: [
-                { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+                { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
                 { pathName: 'listview', parameterName: 'listview' },
             ],
         },

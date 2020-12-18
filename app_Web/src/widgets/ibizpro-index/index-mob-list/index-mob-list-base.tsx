@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
 import IndexMobService from './index-mob-list-service';
-import IBIZPRO_INDEXUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
+import IbizproIndexUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
 import CodeListService from '@service/app/codelist-service';
 
 /**
@@ -35,10 +35,10 @@ export class IndexMobListBase extends ListControlBase {
     /**
      * 实体服务对象
      *
-     * @type {IBIZPRO_INDEXService}
+     * @type {IbizproIndexService}
      * @memberof IndexMobListBase
      */
-    public appEntityService: IBIZPRO_INDEXService = new IBIZPRO_INDEXService({ $store: this.$store });
+    public appEntityService: IbizproIndexService = new IbizproIndexService({ $store: this.$store });
 
     /**
      * 应用实体名称
@@ -47,7 +47,7 @@ export class IndexMobListBase extends ListControlBase {
      * @type {string}
      * @memberof IndexMobListBase
      */
-    protected appDeName: string = 'ibizpro_index';
+    protected appDeName: string = 'ibizproindex';
 
     /**
      * 应用实体中文名称
@@ -61,10 +61,10 @@ export class IndexMobListBase extends ListControlBase {
     /**
      * 界面UI服务对象
      *
-     * @type {IBIZPRO_INDEXUIService}
+     * @type {IbizproIndexUIService}
      * @memberof IndexMobBase
      */  
-    public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
+    public appUIService: IbizproIndexUIService = new IbizproIndexUIService(this.$store);
 
     /**
      * 代码表服务对象
@@ -225,12 +225,12 @@ export class IndexMobListBase extends ListControlBase {
      */
     public openRedirectView(curData: any) {
         let tempContext = JSON.parse(JSON.stringify(this.context));
-        this.appUIService.getService('ibizpro_index').then((service) => {
+        this.appUIService.getService('ibizproindex').then((service) => {
             if(!service) {
                 this.$Notice.error({desc: '重定向服务不存在！'})
                 return;
             }
-            const srfkey: any = curData.ibizpro_index;
+            const srfkey: any = curData.ibizproindex;
             service.getDESDDEViewPDTParam(curData,false,false).then((res:any) => {
                 if (res) {
 					const redirectView: any =  this.allRedirectViewMap.get(res);

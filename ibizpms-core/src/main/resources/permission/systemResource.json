@@ -936,14 +936,6 @@
     "datascope":[{"id":"all","name":"全部数据"}]
     }
     ,    {
-    "dename":"IBIZPRO_INDEX",
-    "delogicname":"索引检索",
-    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"IndexDER" , "name":"数据集2"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
-    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} ]
-    }
-    ,    {
     "dename":"IBIZProKeyword",
     "delogicname":"关键字",
     "sysmoudle":{"id":"IBIZPLUGIN","name":"iBiz插件模块"},
@@ -1014,6 +1006,14 @@
     "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
     "deaction":[{"id":"GetUser" , "name":"获取ZT账户登录信息" , "type":"USERCUSTOM" },{"id":"Ztlogin" , "name":"ZT登录" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
+    }
+    ,    {
+    "dename":"IbizproIndex",
+    "delogicname":"索引检索",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"IndexDER" , "name":"数据集2"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} ]
     }
     ,    {
     "dename":"IbzCase",

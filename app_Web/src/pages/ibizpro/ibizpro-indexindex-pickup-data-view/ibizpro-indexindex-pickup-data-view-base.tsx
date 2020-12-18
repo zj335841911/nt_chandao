@@ -1,9 +1,9 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { IndexPickupDataViewBase } from '@/studio-core';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
-import IBIZPRO_INDEXAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
-import IBIZPRO_INDEXUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
+import IbizproIndexUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
 
 /**
  * 索引检索索引关系选择数据视图视图基类
@@ -20,7 +20,7 @@ export class IBIZPRO_INDEXIndexPickupDataViewBase extends IndexPickupDataViewBas
      * @type {string}
      * @memberof IBIZPRO_INDEXIndexPickupDataViewBase
      */
-    protected appDeName: string = 'ibizpro_index';
+    protected appDeName: string = 'ibizproindex';
 
     /**
      * 应用实体主键
@@ -52,18 +52,18 @@ export class IBIZPRO_INDEXIndexPickupDataViewBase extends IndexPickupDataViewBas
     /**
      * 实体服务对象
      *
-     * @type {IBIZPRO_INDEXService}
+     * @type {IbizproIndexService}
      * @memberof IBIZPRO_INDEXIndexPickupDataViewBase
      */
-    protected appEntityService: IBIZPRO_INDEXService = new IBIZPRO_INDEXService;
+    protected appEntityService: IbizproIndexService = new IbizproIndexService;
 
     /**
      * 实体权限服务对象
      *
-     * @type IBIZPRO_INDEXUIService
+     * @type IbizproIndexUIService
      * @memberof IBIZPRO_INDEXIndexPickupDataViewBase
      */
-    public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
+    public appUIService: IbizproIndexUIService = new IbizproIndexUIService(this.$store);
 
     /**
      * 视图模型数据
@@ -73,9 +73,9 @@ export class IBIZPRO_INDEXIndexPickupDataViewBase extends IndexPickupDataViewBas
      * @memberof IBIZPRO_INDEXIndexPickupDataViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.ibizpro_index.views.indexpickupdataview.caption',
-        srfTitle: 'entities.ibizpro_index.views.indexpickupdataview.title',
-        srfSubTitle: 'entities.ibizpro_index.views.indexpickupdataview.subtitle',
+        srfCaption: 'entities.ibizproindex.views.indexpickupdataview.caption',
+        srfTitle: 'entities.ibizproindex.views.indexpickupdataview.title',
+        srfSubTitle: 'entities.ibizproindex.views.indexpickupdataview.subtitle',
         dataInfo: '',
     };
 

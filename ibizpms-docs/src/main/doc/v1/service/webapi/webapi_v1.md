@@ -61,7 +61,7 @@ pms-webapi
 | 47 | [测试结果](1/TestResult) | testresult |  |
 | 48 | [系统配置表](1/IbzproConfig) | ibzproconfig |  |
 | 49 | [系统用户](1/SysUser) | sysuser |  |
-| 50 | [索引检索](1/IBIZPRO_INDEX) | ibizpro_index |  |
+| 50 | [索引检索](1/IbizproIndex) | ibizproindex |  |
 | 51 | [系统日志](1/Action) | action |  |
 | 52 | [系统插件](1/IBIZProPlugin) | ibizproplugin |  |
 | 53 | [系统应用](1/PSSysApp) | pssysapp |  |

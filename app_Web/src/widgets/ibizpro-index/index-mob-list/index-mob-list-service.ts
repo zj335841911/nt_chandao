@@ -1,7 +1,7 @@
 import { Http } from '@/utils';
 import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
 import IndexMobModel from './index-mob-list-model';
 
 
@@ -16,10 +16,10 @@ export default class IndexMobService extends ControlService {
     /**
      * 索引检索服务对象
      *
-     * @type {IBIZPRO_INDEXService}
+     * @type {IbizproIndexService}
      * @memberof IndexMobService
      */
-    public appEntityService: IBIZPRO_INDEXService = new IBIZPRO_INDEXService({ $store: this.getStore() });
+    public appEntityService: IbizproIndexService = new IbizproIndexService({ $store: this.getStore() });
 
     /**
      * 设置从数据模式
