@@ -11914,6 +11914,20 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-weekly-usr2-grid-view/ibz-weekly-usr2-grid-view.vue'),
                 },
                 {
+                    path: 'companystats/:companystats?/companydynamicstatsgridview/:companydynamicstatsgridview?',
+                    meta: {
+                        caption: 'entities.companystats.views.companydynamicstatsgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'companystats', parameterName: 'companystats' },
+                            { pathName: 'companydynamicstatsgridview', parameterName: 'companydynamicstatsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/company-stats-company-dynamic-stats-grid-view/company-stats-company-dynamic-stats-grid-view.vue'),
+                },
+                {
                     path: 'doclibs/:doclib?/customdoclibchildtreeview/:customdoclibchildtreeview?',
                     meta: {
                         caption: 'entities.doclib.views.customdoclibchildtreeview.caption',

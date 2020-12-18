@@ -324,6 +324,7 @@ export const PageComponents = {
         Vue.component('doc-doc-sum-edit-view9', () => import('@pages/zentao/doc-doc-sum-edit-view9/doc-doc-sum-edit-view9.vue'));
         Vue.component('task-zs-grid-view9-week', () => import('@pages/zentao/task-zs-grid-view9-week/task-zs-grid-view9-week.vue'));
         Vue.component('ibz-weekly-usr2-grid-view', () => import('@pages/report/ibz-weekly-usr2-grid-view/ibz-weekly-usr2-grid-view.vue'));
+        Vue.component('company-stats-company-dynamic-stats-grid-view', () => import('@pages/ibiz/company-stats-company-dynamic-stats-grid-view/company-stats-company-dynamic-stats-grid-view.vue'));
         Vue.component('doc-lib-custom-doc-lib-child-tree-view', () => import('@pages/zentao/doc-lib-custom-doc-lib-child-tree-view/doc-lib-custom-doc-lib-child-tree-view.vue'));
         Vue.component('ibizpro-tag-grid-view', () => import('@pages/zentao/ibizpro-tag-grid-view/ibizpro-tag-grid-view.vue'));
         Vue.component('action-my-trends-list-view', () => import('@pages/zentao/action-my-trends-list-view/action-my-trends-list-view.vue'));

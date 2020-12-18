@@ -1974,6 +1974,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '59c85c1053657b4fea02d5bd53e305d8',
+            viewmodule: 'ibiz',
+            viewname: 'CompanyStatsCompanyDynamicStatsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '5a62e423ec79ab9e8e3f26802cc5e68c',
             viewmodule: 'zentao',
             viewname: 'BugStoryTOBugEditView',
@@ -4750,6 +4759,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '59c85c1053657b4fea02d5bd53e305d8',
                 'e008123fe4c3014fac07b33dd79f6b13',
             ],
         },

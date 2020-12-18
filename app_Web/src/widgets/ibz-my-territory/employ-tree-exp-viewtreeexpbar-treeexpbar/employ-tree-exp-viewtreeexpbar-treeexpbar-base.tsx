@@ -108,6 +108,13 @@ export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'COMPANYDYNAMICSTATS')) {
+            return {  
+                viewname: 'company-stats-company-dynamic-stats-grid-view', 
+                parentdata: {},
+                deKeyField:'companystats'
+			};
+        }
         if (Object.is(expmode, 'EMPLOYEELOAD')) {
             return {  
                 viewname: 'employeeloadgrid-view', 

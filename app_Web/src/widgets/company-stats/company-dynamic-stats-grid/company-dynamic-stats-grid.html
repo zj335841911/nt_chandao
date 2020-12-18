@@ -1,0 +1,153 @@
+<div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
+    <i-form>
+        <el-table v-if="isDisplay === true"
+            :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
+            @sort-change="onSortChange($event)"  
+            :border="isDragendCol"
+            :highlight-current-row ="isSingleSelect"
+            :row-class-name="getRowClassName.bind(_self)"
+            :cell-class-name="getCellClassName.bind(_self)"
+            size="mini"
+            stripe
+            :height="tableHeight"
+            @row-click="rowClick($event)"  
+            @select-all="selectAll($event)"  
+            @select="select.apply(_self, arguments)"  
+            @row-class-name="onRowClassName($event)"  
+            @row-dblclick="rowDBLClick($event)"  
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
+        >
+            <template slot="empty">
+                {{$t('entities.companystats.companydynamicstats_grid.nodata')}} 
+                <span class="quick-toolbar">
+                </span>
+            </template>
+            <template v-if="!isSingleSelect">
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
+            </template>
+            <template v-if="getColumnState('ztdate')">
+                <el-table-column show-overflow-tooltip :prop="'ztdate'" :label="$t('entities.companystats.companydynamicstats_grid.columns.ztdate')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.ztdate')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.ztdate"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('logincnt')">
+                <el-table-column show-overflow-tooltip :prop="'logincnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.logincnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.logincnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.logincnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('loghours')">
+                <el-table-column show-overflow-tooltip :prop="'loghours'" :label="$t('entities.companystats.companydynamicstats_grid.columns.loghours')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.loghours')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.loghours}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('openedstorycnt')">
+                <el-table-column show-overflow-tooltip :prop="'openedstorycnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedstorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.openedstorycnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.openedstorycnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('closedstorycnt')">
+                <el-table-column show-overflow-tooltip :prop="'closedstorycnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.closedstorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.closedstorycnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.closedstorycnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('openedtaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'openedtaskcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.openedtaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.openedtaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('finishedtaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'finishedtaskcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.finishedtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.finishedtaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.finishedtaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('openedbugcnt')">
+                <el-table-column show-overflow-tooltip :prop="'openedbugcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedbugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.openedbugcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.openedbugcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('resolvedbugcnt')">
+                <el-table-column show-overflow-tooltip :prop="'resolvedbugcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.resolvedbugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.resolvedbugcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.resolvedbugcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('dynamiccnt')">
+                <el-table-column show-overflow-tooltip :prop="'dynamiccnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.dynamiccnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.companystats.companydynamicstats_grid.columns.dynamiccnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.dynamiccnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="adaptiveState">
+                <el-table-column></el-table-column>
+            </template>
+        </el-table>
+    </i-form>
+</div>

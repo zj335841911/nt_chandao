@@ -38,6 +38,7 @@ function getLocaleResourceBase(){
 			resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
 			importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
 			bugstoryproportion: commonLogic.appcommonhandle("bug需求比",null),
+			bugstory: commonLogic.appcommonhandle("需求所提bug数",null),
 		},
 			views: {
 				editview: {
