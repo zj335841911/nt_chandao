@@ -51,6 +51,8 @@
 |开发类型任务|DEVELTASKCNT|INT|&nbsp;|
 |其他类型任务|MISCTASKCNT|INT|&nbsp;|
 |事务类型任务|AFFAIRTASKCNT|INT|&nbsp;|
+|完成需求数|COMPLETESTORYCNT|INT|&nbsp;|
+|完成任务数|COMPLETETASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -97,6 +99,8 @@
 |开发类型任务|默认规则|默认规则|
 |其他类型任务|默认规则|默认规则|
 |事务类型任务|默认规则|默认规则|
+|完成需求数|默认规则|默认规则|
+|完成任务数|默认规则|默认规则|
 
 ## 状态控制
 

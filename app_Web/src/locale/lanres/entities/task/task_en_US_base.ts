@@ -276,6 +276,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("任务",null),
 					title: commonLogic.appcommonhandle("任务编辑视图",null),
 				},
+				storyneweditview: {
+					caption: commonLogic.appcommonhandle("任务",null),
+					title: commonLogic.appcommonhandle("任务编辑视图",null),
+				},
 				maindetailview9: {
 					caption: commonLogic.appcommonhandle("任务",null),
 					title: commonLogic.appcommonhandle("任务编辑视图",null),
@@ -1495,6 +1499,12 @@ function getLocaleResourceBase(){
 				deuiaction2: {
 					caption: commonLogic.appcommonhandle("刷新",null),
 					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+			},
+			storyneweditviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Save And Close",null),
+					tip: commonLogic.appcommonhandle("Save And Close Window",null),
 				},
 			},
 			assignedtotaskgroupgridviewtoolbar_toolbar: {

@@ -895,6 +895,7 @@ SRFNAVPARAM.project=%project%|
 |-|文档库数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|主信息|DEEDITVIEW9|&nbsp;|
 |-|系统配置表编辑视图|DEEDITVIEW|&nbsp;|
+|-|任务编辑视图|DEEDITVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|汇报编辑视图|DEEDITVIEW|&nbsp;|

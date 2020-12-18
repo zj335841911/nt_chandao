@@ -5332,6 +5332,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-edit-view9/story-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/storyneweditview/:storyneweditview?',
+                    meta: {
+                        caption: 'entities.task.views.storyneweditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storyneweditview', parameterName: 'storyneweditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-new-edit-view/task-story-new-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/storyneweditview/:storyneweditview?',
+                    meta: {
+                        caption: 'entities.task.views.storyneweditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storyneweditview', parameterName: 'storyneweditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-new-edit-view/task-story-new-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/storyneweditview/:storyneweditview?',
+                    meta: {
+                        caption: 'entities.task.views.storyneweditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storyneweditview', parameterName: 'storyneweditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-new-edit-view/task-story-new-edit-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/storyneweditview/:storyneweditview?',
+                    meta: {
+                        caption: 'entities.task.views.storyneweditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storyneweditview', parameterName: 'storyneweditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-new-edit-view/task-story-new-edit-view.vue'),
+                },
+                {
                     path: 'ibzreports/:ibzreport?/mytabexpview/:mytabexpview?',
                     meta: {
                         caption: 'entities.ibzreport.views.mytabexpview.caption',

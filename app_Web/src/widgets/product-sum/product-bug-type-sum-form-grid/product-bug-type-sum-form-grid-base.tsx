@@ -114,7 +114,7 @@ export class ProductBugTypeSumFormGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.productsum.productbugtypesumform_grid.columns.name',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

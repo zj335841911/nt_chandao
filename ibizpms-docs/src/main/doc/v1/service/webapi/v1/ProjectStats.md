@@ -411,7 +411,9 @@ POST
 | 40 | develtaskcnt | Integer | 允许 | 开发类型任务 |
 | 41 | misctaskcnt | Integer | 允许 | 其他类型任务 |
 | 42 | affairtaskcnt | Integer | 允许 | 事务类型任务 |
-| 43 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 43 | completestorycnt | Integer | 允许 | 完成需求数 |
+| 44 | completetaskcnt | Integer | 允许 | 完成任务数 |
+| 45 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

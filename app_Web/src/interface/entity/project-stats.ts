@@ -341,4 +341,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     affairtaskcnt?: any;
+
+    /**
+     * 完成需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    completestorycnt?: any;
+
+    /**
+     * 完成任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    completetaskcnt?: any;
 }

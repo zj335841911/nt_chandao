@@ -1426,7 +1426,7 @@ export const viewstate: any = {
                 'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
-                'ea141fddc78fd1af4d06e494baf12cc1',
+                'ecbf5b4a77da69166a45c1ad211d047a',
             ],
         },
         {
@@ -2599,7 +2599,7 @@ export const viewstate: any = {
                 'cad4ce05432f03f140d6ee3ad5dfe8c5',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
-                'ea141fddc78fd1af4d06e494baf12cc1',
+                'ecbf5b4a77da69166a45c1ad211d047a',
             ],
         },
         {
@@ -5464,6 +5464,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'ecbf5b4a77da69166a45c1ad211d047a',
+            viewmodule: 'zentao',
+            viewname: 'TaskStoryNewEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4970832ed515bc37ec3c7c61b55d444b',
             ],
         },
         {

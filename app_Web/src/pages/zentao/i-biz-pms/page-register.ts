@@ -138,6 +138,7 @@ export const PageComponents = {
         Vue.component('release-grid-view', () => import('@pages/zentao/release-grid-view/release-grid-view.vue'));
         Vue.component('sys-team-member-grid-exp-view-team', () => import('@pages/ou/sys-team-member-grid-exp-view-team/sys-team-member-grid-exp-view-team.vue'));
         Vue.component('story-edit-view9', () => import('@pages/zentao/story-edit-view9/story-edit-view9.vue'));
+        Vue.component('task-story-new-edit-view', () => import('@pages/zentao/task-story-new-edit-view/task-story-new-edit-view.vue'));
         Vue.component('ibz-report-my-tab-exp-view', () => import('@pages/report/ibz-report-my-tab-exp-view/ibz-report-my-tab-exp-view.vue'));
         Vue.component('product-module-quick-cfg-view', () => import('@pages/ibiz/product-module-quick-cfg-view/product-module-quick-cfg-view.vue'));
         Vue.component('sys-employee-grid-exp-view', () => import('@pages/ou/sys-employee-grid-exp-view/sys-employee-grid-exp-view.vue'));

@@ -45,6 +45,8 @@ function getLocaleResourceBase(){
 			develtaskcnt: commonLogic.appcommonhandle("开发类型任务",null),
 			misctaskcnt: commonLogic.appcommonhandle("其他类型任务",null),
 			affairtaskcnt: commonLogic.appcommonhandle("事务类型任务",null),
+			completestorycnt: commonLogic.appcommonhandle("完成需求数",null),
+			completetaskcnt: commonLogic.appcommonhandle("完成任务数",null),
 		},
 			views: {
 				allgridview: {

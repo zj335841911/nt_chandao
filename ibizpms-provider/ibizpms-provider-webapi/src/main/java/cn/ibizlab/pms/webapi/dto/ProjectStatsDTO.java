@@ -372,6 +372,22 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("affairtaskcnt")
     private Integer affairtaskcnt;
 
+    /**
+     * 属性 [COMPLETESTORYCNT]
+     *
+     */
+    @JSONField(name = "completestorycnt")
+    @JsonProperty("completestorycnt")
+    private Integer completestorycnt;
+
+    /**
+     * 属性 [COMPLETETASKCNT]
+     *
+     */
+    @JSONField(name = "completetaskcnt")
+    @JsonProperty("completetaskcnt")
+    private Integer completetaskcnt;
+
 
     /**
      * 设置 [NAME]

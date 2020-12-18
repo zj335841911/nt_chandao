@@ -2252,10 +2252,10 @@ export default class StoryUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'task-edit-view', 
+                viewname: 'task-story-new-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.task.views.editview.title'),
+                title: actionContext.$t('entities.task.views.storyneweditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

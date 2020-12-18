@@ -6159,6 +6159,16 @@
         "viewtag": "ecbb62865a85af39d70c88ebecc95d99",
         "memo": ""
     },
+    "taskstoryneweditview": {
+        "title": "任务编辑视图",
+        "caption": "任务",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskStoryNewEditView",
+        "viewfilename": "task-story-new-edit-view",
+        "viewtag": "ecbf5b4a77da69166a45c1ad211d047a",
+        "memo": ""
+    },
     "releasequickcreateview": {
         "title": "发布编辑视图",
         "caption": "发布",

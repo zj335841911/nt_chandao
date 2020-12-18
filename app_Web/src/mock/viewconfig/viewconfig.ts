@@ -4935,6 +4935,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzproConfigEditView",
             "viewtag": "ecbb62865a85af39d70c88ebecc95d99"
         },
+        "taskstoryneweditview": {
+            "title": "任务编辑视图",
+            "caption": "任务",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskStoryNewEditView",
+            "viewtag": "ecbf5b4a77da69166a45c1ad211d047a"
+        },
         "releasequickcreateview": {
             "title": "发布编辑视图",
             "caption": "发布",
