@@ -495,6 +495,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibUnDoneProjectTreeExpView",
             "viewtag": "15ba586aa7dcfe6e62e768dd06f77415"
         },
+        "productsumproductbugtypesumusr4gridview": {
+            "title": "产品Bug类型统计表格视图",
+            "caption": "产品汇总表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumProductBugTypeSumUsr4GridView",
+            "viewtag": "15e5bef05cc545e3f705eeed95ac8dc1"
+        },
         "deptpickupview": {
             "title": "部门数据选择视图",
             "caption": "部门",
@@ -3359,6 +3367,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzproConfigGridView",
             "viewtag": "a5b6a193363e3516bf0ce46577a7721c"
         },
+        "projectstatsusr2gridviewtasktypecount": {
+            "title": "项目统计表格视图（任务状态统计）",
+            "caption": "任务类型统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectStatsUsr2GridViewTaskTypeCount",
+            "viewtag": "a638e2a7d3b05b2f279ad28d14f5a85f"
+        },
         "casestepcarryouteditmode": {
             "title": "用例步骤",
             "caption": "用例步骤",
@@ -3798,6 +3814,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProjectModuleTreeExpView",
             "viewtag": "bb8860972029d9947daa3652a4b5d291"
+        },
+        "ibz_casestatstestcasestatsgridview": {
+            "title": "测试用例统计表格视图",
+            "caption": "用例统计表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IBZ_CASESTATSTestCaseStatsGridView",
+            "viewtag": "bc06c199f827cebb36cfd2a5128e1bca"
         },
         "productmaindashboardview": {
             "title": "产品数据看板视图",

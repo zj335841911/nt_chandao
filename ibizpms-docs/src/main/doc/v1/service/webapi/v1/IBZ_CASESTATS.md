@@ -220,6 +220,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IBZ_CASESTATSDTO](#IBZ_CASESTATSDTO)>：测试用例统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取测试用例统计
+#### 访问路径
+/ibz_casestats/fetchtestcasestats
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IBZ_CASESTATSSearchContext](#IBZ_CASESTATSSearchContext) | 测试用例统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IBZ_CASESTATSDTO](#IBZ_CASESTATSDTO)>：测试用例统计实体传输对象列表 |
+
+### 查询测试用例统计
+#### 访问路径
+/ibz_casestats/searchtestcasestats
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IBZ_CASESTATSSearchContext](#IBZ_CASESTATSSearchContext) | 测试用例统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IBZ_CASESTATSDTO](#IBZ_CASESTATSDTO)>：测试用例统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### IBZ_CASESTATSDTO
@@ -234,7 +270,8 @@ POST
 | 7 | failcase | Integer | 允许 | 失败用例数 |
 | 8 | blockedcase | Integer | 允许 | 阻塞用例数 |
 | 9 | totalruncase | Integer | 允许 | 总执行数 |
-| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 10 | passrate | String | 允许 | 用例通过率 |
+| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZ_CASESTATSSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

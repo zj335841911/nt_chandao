@@ -306,6 +306,41 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "uitakcnt")
     @JsonProperty("uitakcnt")
     private Integer uitakcnt;
+    /**
+     * 测试类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testtakcnt")
+    @JsonProperty("testtakcnt")
+    private Integer testtakcnt;
+    /**
+     * 服务类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "servetakcnt")
+    @JsonProperty("servetakcnt")
+    private Integer servetakcnt;
+    /**
+     * 开发类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "develtakcnt")
+    @JsonProperty("develtakcnt")
+    private Integer develtakcnt;
+    /**
+     * 其他类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "misctakcnt")
+    @JsonProperty("misctakcnt")
+    private Integer misctakcnt;
+    /**
+     * 事务类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "affairtakcnt")
+    @JsonProperty("affairtakcnt")
+    private Integer affairtakcnt;
 
 
 

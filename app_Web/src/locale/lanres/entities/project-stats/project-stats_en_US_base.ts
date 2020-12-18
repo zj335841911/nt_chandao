@@ -38,6 +38,13 @@ function getLocaleResourceBase(){
 			donetaskcnt: commonLogic.appcommonhandle("已完成任务数",null),
 			designtakcnt: commonLogic.appcommonhandle("设计类型任务",null),
 			discusstakcnt: commonLogic.appcommonhandle("讨论类型任务",null),
+			studytakcnt: commonLogic.appcommonhandle("研究类型任务",null),
+			uitakcnt: commonLogic.appcommonhandle("界面类型任务",null),
+			testtakcnt: commonLogic.appcommonhandle("测试类型任务",null),
+			servetakcnt: commonLogic.appcommonhandle("服务类型任务",null),
+			develtakcnt: commonLogic.appcommonhandle("开发类型任务",null),
+			misctakcnt: commonLogic.appcommonhandle("其他类型任务",null),
+			affairtakcnt: commonLogic.appcommonhandle("事务类型任务",null),
 		},
 			views: {
 				allgridview: {
@@ -51,6 +58,10 @@ function getLocaleResourceBase(){
 				editview: {
 					caption: commonLogic.appcommonhandle("项目统计",null),
 					title: commonLogic.appcommonhandle("项目统计编辑视图",null),
+				},
+				usr2gridviewtasktypecount: {
+					caption: commonLogic.appcommonhandle("任务类型统计",null),
+					title: commonLogic.appcommonhandle("项目统计表格视图（任务状态统计）",null),
 				},
 				editview9: {
 					caption: commonLogic.appcommonhandle("项目统计",null),
@@ -156,6 +167,23 @@ function getLocaleResourceBase(){
 					totalleft: commonLogic.appcommonhandle("剩余",null),
 					totalwh: commonLogic.appcommonhandle("总工时",null),
 					progress: commonLogic.appcommonhandle("进度",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			projecttasktypecount_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					designtakcnt: commonLogic.appcommonhandle("设计",null),
+					develtakcnt: commonLogic.appcommonhandle("开发",null),
+					testtakcnt: commonLogic.appcommonhandle("测试",null),
+					studytakcnt: commonLogic.appcommonhandle("研究",null),
+					discusstakcnt: commonLogic.appcommonhandle("讨论",null),
+					uitakcnt: commonLogic.appcommonhandle("界面",null),
+					affairtakcnt: commonLogic.appcommonhandle("事务",null),
+					servetakcnt: commonLogic.appcommonhandle("服务",null),
+					misctakcnt: commonLogic.appcommonhandle("其他",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

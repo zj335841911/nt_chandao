@@ -27,6 +27,7 @@
 | 7 | [失败用例数](#属性-失败用例数（FAILCASE）) | FAILCASE | 整型 | 否 | 是 | 是 |
 | 8 | [阻塞用例数](#属性-阻塞用例数（BLOCKEDCASE）) | BLOCKEDCASE | 整型 | 否 | 是 | 是 |
 | 9 | [总执行数](#属性-总执行数（TOTALRUNCASE）) | TOTALRUNCASE | 整型 | 否 | 是 | 是 |
+| 10 | [用例通过率](#属性-用例通过率（PASSRATE）) | PASSRATE | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-用例编号（ID）
 #### 属性说明
@@ -414,6 +415,47 @@ Integer
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-用例通过率（PASSRATE）
+#### 属性说明
+用例通过率
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -535,7 +577,8 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [测试用例统计](#数据查询-测试用例统计（TestCaseStats）) | TestCaseStats | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -561,6 +604,35 @@ t1.`TITLE`,
 0 AS `TOTALRUNCASE`
 FROM `zt_case` t1 
 
+```
+### 数据查询-测试用例统计（TestCaseStats）
+#### 说明
+测试用例统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.id, 
+t1.`name`, 
+count(distinct t2.id) as TotalCase, 
+sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
+sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
+sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
+sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRun,
+case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
+FROM
+zt_module t1
+LEFT JOIN zt_case t2 ON t1.id = t2.module
+LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
+where t1.root = #{srf.datacontext.product}
+group by t1.id, t1.`name`
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -592,6 +664,7 @@ FROM `zt_case` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 2 | [测试用例统计](#数据集合-测试用例统计（TestCaseStats）) | TestCaseStats | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -607,6 +680,20 @@ FROM `zt_case` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-测试用例统计（TestCaseStats）
+#### 说明
+测试用例统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [测试用例统计（TestCaseStats）](#数据查询-测试用例统计（TestCaseStats）) |
 
 ## 数据导入
 无

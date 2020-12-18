@@ -46,6 +46,11 @@
 |讨论类型任务|DISCUSSTAKCNT|INT|&nbsp;|
 |研究类型任务|STUDYTAKCNT|INT|&nbsp;|
 |界面类型任务|UITAKCNT|INT|&nbsp;|
+|测试类型任务|TESTTAKCNT|INT|&nbsp;|
+|服务类型任务|SERVETAKCNT|INT|&nbsp;|
+|开发类型任务|DEVELTAKCNT|INT|&nbsp;|
+|其他类型任务|MISCTAKCNT|INT|&nbsp;|
+|事务类型任务|AFFAIRTAKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -87,6 +92,11 @@
 |讨论类型任务|默认规则|默认规则|
 |研究类型任务|默认规则|默认规则|
 |界面类型任务|默认规则|默认规则|
+|测试类型任务|默认规则|默认规则|
+|服务类型任务|默认规则|默认规则|
+|开发类型任务|默认规则|默认规则|
+|其他类型任务|默认规则|默认规则|
+|事务类型任务|默认规则|默认规则|
 
 ## 状态控制
 
@@ -116,6 +126,7 @@
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_Default))|否|&nbsp;|
 |NOOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_NoOpenProduct))|否|&nbsp;|
 |ProjectTaskCountByTaskStatus|项目任务统计(任务状态)([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectTaskCountByTaskStatus))|否|&nbsp;|
+|ProjectTaskCountByType|项目任务类型统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectTaskCountByType))|否|&nbsp;|
 |TASKTIME|任务工时消耗剩余查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_TaskTime))|否|&nbsp;该查询主要供统计图表使用|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_View))|否|&nbsp;|
 
@@ -126,6 +137,7 @@
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |NOOpenProduct|未关闭产品|NOOpenProduct|否|&nbsp;|
 |ProjectTaskCountByTaskStatus|项目任务统计(任务状态)|ProjectTaskCountByTaskStatus|否|&nbsp;|
+|ProjectTaskCountByType|项目任务类型统计|ProjectTaskCountByType|否|&nbsp;|
 |TASKTIME|任务工时消耗剩余查询|TASKTIME|否|&nbsp;|
 
 ## 查询模式

@@ -77,4 +77,12 @@ export interface IBZ_CASESTATS {
      * @memberof IBZ_CASESTATS
      */
     totalruncase?: any;
+
+    /**
+     * 用例通过率
+     *
+     * @returns {*}
+     * @memberof IBZ_CASESTATS
+     */
+    passrate?: any;
 }

@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface IBZ_CASESTATSMapper extends BaseMapper<IBZ_CASESTATS> {
 
     Page<IBZ_CASESTATS> searchDefault(IPage page, @Param("srf") IBZ_CASESTATSSearchContext context, @Param("ew") Wrapper<IBZ_CASESTATS> wrapper);
+    Page<IBZ_CASESTATS> searchTestCaseStats(IPage page, @Param("srf") IBZ_CASESTATSSearchContext context, @Param("ew") Wrapper<IBZ_CASESTATS> wrapper);
     @Override
     IBZ_CASESTATS selectById(Serializable id);
     @Override

@@ -199,4 +199,33 @@ export default class IBZ_CASESTATSServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibz_casestats/searchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchTestCaseStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZ_CASESTATSServiceBase
+     */
+    public async FetchTestCaseStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibz_casestats/fetchtestcasestats`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchTestCaseStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZ_CASESTATSServiceBase
+     */
+    public async searchTestCaseStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibz_casestats/searchtestcasestats`,tempData,isloading);
+    }
 }

@@ -108,6 +108,13 @@ export class ProductSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCon
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'PRODUCTBUGTYPESUM')) {
+            return {  
+                viewname: 'product-sum-product-bug-type-sum-usr4-grid-view', 
+                parentdata: {},
+                deKeyField:'productsum'
+			};
+        }
         if (Object.is(expmode, 'PRODUCTSTORYSUM')) {
             return {  
                 viewname: 'product-sum-story-sum-grid-view', 

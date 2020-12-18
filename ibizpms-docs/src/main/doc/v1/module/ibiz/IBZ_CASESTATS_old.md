@@ -21,6 +21,7 @@ hide members
 |失败用例数|FAILCASE|INT|&nbsp;|
 |阻塞用例数|BLOCKEDCASE|INT|&nbsp;|
 |总执行数|TOTALRUNCASE|INT|&nbsp;|
+|用例通过率|PASSRATE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -34,6 +35,7 @@ hide members
 |失败用例数|默认规则|默认规则|
 |阻塞用例数|默认规则|默认规则|
 |总执行数|默认规则|默认规则|
+|用例通过率|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -61,6 +63,7 @@ hide members
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBZ_CASESTATS_Default))|否|&nbsp;|
+|TestCaseStats|测试用例统计([MYSQL5](../../appendix/query_MYSQL5.md#IBZ_CASESTATS_TestCaseStats))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IBZ_CASESTATS_View))|否|&nbsp;|
 
 * **数据集合**
@@ -68,6 +71,7 @@ hide members
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|TestCaseStats|测试用例统计|TestCaseStats|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

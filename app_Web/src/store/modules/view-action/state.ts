@@ -559,6 +559,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '15e5bef05cc545e3f705eeed95ac8dc1',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumProductBugTypeSumUsr4GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
+            ],
+        },
+        {
             viewtag: '170c1d558f26cf37236390b28f8aca82',
             viewmodule: 'zentao',
             viewname: 'ProductPlanSubPlanCreateView',
@@ -3687,6 +3697,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a638e2a7d3b05b2f279ad28d14f5a85f',
+            viewmodule: 'zentao',
+            viewname: 'ProjectStatsUsr2GridViewTaskTypeCount',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: 'a694d988e3134a33bb5a99e6e07246f6',
             viewmodule: 'zentao',
             viewname: 'CaseStepCarryOutEditMode',
@@ -5070,6 +5090,7 @@ export const viewstate: any = {
                 '7ee436604d479bd0ba014e136c1b8f6f',
                 '240ec4bdf10888613e1601f420ad730f',
                 '3989c98a31e037a67b27cdf7acb1f7cd',
+                '15e5bef05cc545e3f705eeed95ac8dc1',
             ],
         },
         {
@@ -5334,6 +5355,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a638e2a7d3b05b2f279ad28d14f5a85f',
                 '09ec3280dedaeac7260c00f3f923d20e',
                 'abaea74da4d7efea713dabf193a4bdaf',
                 '8e4b19edd3239846958a86bd33eef611',

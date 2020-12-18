@@ -157,6 +157,28 @@ public class IBZ_CASESTATSResource {
                 .body(new PageImpl(ibz_casestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_CASESTATS-searchTestCaseStats-all')")
+	@ApiOperation(value = "获取测试用例统计", tags = {"测试用例统计" } ,notes = "获取测试用例统计")
+    @RequestMapping(method= RequestMethod.GET , value="/ibz_casestats/fetchtestcasestats")
+	public ResponseEntity<List<IBZ_CASESTATSDTO>> fetchTestCaseStats(IBZ_CASESTATSSearchContext context) {
+        Page<IBZ_CASESTATS> domains = ibz_casestatsService.searchTestCaseStats(context) ;
+        List<IBZ_CASESTATSDTO> list = ibz_casestatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_CASESTATS-searchTestCaseStats-all')")
+	@ApiOperation(value = "查询测试用例统计", tags = {"测试用例统计" } ,notes = "查询测试用例统计")
+    @RequestMapping(method= RequestMethod.POST , value="/ibz_casestats/searchtestcasestats")
+	public ResponseEntity<Page<IBZ_CASESTATSDTO>> searchTestCaseStats(@RequestBody IBZ_CASESTATSSearchContext context) {
+        Page<IBZ_CASESTATS> domains = ibz_casestatsService.searchTestCaseStats(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibz_casestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

@@ -47,6 +47,7 @@ public interface IIBZ_CASESTATSService extends IService<IBZ_CASESTATS> {
     boolean save(IBZ_CASESTATS et);
     void saveBatch(List<IBZ_CASESTATS> list);
     Page<IBZ_CASESTATS> searchDefault(IBZ_CASESTATSSearchContext context);
+    Page<IBZ_CASESTATS> searchTestCaseStats(IBZ_CASESTATSSearchContext context);
     List<IBZ_CASESTATS> selectByModule(Long id);
     void removeByModule(Long id);
     /**

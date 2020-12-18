@@ -49,6 +49,7 @@ public interface IProjectStatsService extends IService<ProjectStats> {
     Page<ProjectStats> searchDefault(ProjectStatsSearchContext context);
     Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectTaskCountByTaskStatus(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectTaskCountByType(ProjectStatsSearchContext context);
     Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context);
     /**
      * 自定义查询SQL

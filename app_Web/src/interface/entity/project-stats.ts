@@ -285,4 +285,60 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     discusstakcnt?: any;
+
+    /**
+     * 研究类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    studytakcnt?: any;
+
+    /**
+     * 界面类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    uitakcnt?: any;
+
+    /**
+     * 测试类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    testtakcnt?: any;
+
+    /**
+     * 服务类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    servetakcnt?: any;
+
+    /**
+     * 开发类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    develtakcnt?: any;
+
+    /**
+     * 其他类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    misctakcnt?: any;
+
+    /**
+     * 事务类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    affairtakcnt?: any;
 }

@@ -64,6 +64,15 @@ export default class ProductSumService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
+     * 产品Bug类型统计表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProductSumService
+     */
+	public TREENODE_PRODUCTBUGTYPESUM: string = 'ProductBugTypeSum';
+
+    /**
      * 需求工时汇总表节点分隔符号
      *
      * @public
@@ -173,6 +182,10 @@ export default class ProductSumService extends ControlService {
             }
         }
 
+        if (Object.is(strNodeType, this.TREENODE_PRODUCTBUGTYPESUM)) {
+            await this.fillProductbugtypesumNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_STORYHOURSSUM)) {
             await this.fillStoryhourssumNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -191,6 +204,65 @@ export default class ProductSumService extends ControlService {
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
+
+    /**
+     * 填充 树视图节点[产品Bug类型统计表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProductSumService
+     */
+    @Errorlog
+    public fillProductbugtypesumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.productsum_treeview.nodes.productbugtypesum') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProductBugTypeSum';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[产品Bug类型统计表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProductSumService
+     */
+    @Errorlog
+    public async fillProductbugtypesumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
 
     /**
      * 填充 树视图节点[需求工时汇总表]
@@ -320,6 +392,11 @@ export default class ProductSumService extends ControlService {
             let StoryhourssumRsNavParams:any = {};
             let StoryhourssumRsParams:any = {};
 			await this.fillStoryhourssumNodes(context, filter, list ,StoryhourssumRsNavContext,StoryhourssumRsNavParams,StoryhourssumRsParams);
+			// 填充产品Bug类型统计表
+            let ProductbugtypesumRsNavContext:any = {};
+            let ProductbugtypesumRsNavParams:any = {};
+            let ProductbugtypesumRsParams:any = {};
+			await this.fillProductbugtypesumNodes(context, filter, list ,ProductbugtypesumRsNavContext,ProductbugtypesumRsNavParams,ProductbugtypesumRsParams);
 		} else {
 			// 填充产品汇总表
             let ProductsumRsNavContext:any = {};
@@ -336,6 +413,11 @@ export default class ProductSumService extends ControlService {
             let StoryhourssumRsNavParams:any = {};
             let StoryhourssumRsParams:any = {};
 			await this.fillStoryhourssumNodes(context, filter, list ,StoryhourssumRsNavContext,StoryhourssumRsNavParams,StoryhourssumRsParams);
+			// 填充产品Bug类型统计表
+            let ProductbugtypesumRsNavContext:any = {};
+            let ProductbugtypesumRsNavParams:any = {};
+            let ProductbugtypesumRsParams:any = {};
+			await this.fillProductbugtypesumNodes(context, filter, list ,ProductbugtypesumRsNavContext,ProductbugtypesumRsNavParams,ProductbugtypesumRsParams);
 		}
 	}
 

@@ -12,7 +12,41 @@ function getLocaleResourceBase(){
 			failcase: commonLogic.appcommonhandle("失败用例数",null),
 			blockedcase: commonLogic.appcommonhandle("阻塞用例数",null),
 			totalruncase: commonLogic.appcommonhandle("总执行数",null),
+			passrate: commonLogic.appcommonhandle("用例通过率",null),
 		},
+			views: {
+				testcasestatsgridview: {
+					caption: commonLogic.appcommonhandle("用例统计表",null),
+					title: commonLogic.appcommonhandle("测试用例统计表格视图",null),
+				},
+			},
+			testcasestats_grid: {
+				columns: {
+					modulename: commonLogic.appcommonhandle("模块名称",null),
+					totalcase: commonLogic.appcommonhandle("总用例数",null),
+					passcase: commonLogic.appcommonhandle("通过",null),
+					failcase: commonLogic.appcommonhandle("失败",null),
+					blockedcase: commonLogic.appcommonhandle("阻塞",null),
+					totalruncase: commonLogic.appcommonhandle("总执行数",null),
+					passrate: commonLogic.appcommonhandle("用例通过率",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			default_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+				},
+				uiactions: {
+				},
+			},
+			testcasestatsgridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+			},
 		};
 		return data;
 }

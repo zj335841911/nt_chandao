@@ -180,6 +180,15 @@ public class IBZ_CASESTATSServiceImpl extends ServiceImpl<IBZ_CASESTATSMapper, I
         return new PageImpl<IBZ_CASESTATS>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 测试用例统计
+     */
+    @Override
+    public Page<IBZ_CASESTATS> searchTestCaseStats(IBZ_CASESTATSSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IBZ_CASESTATS> pages=baseMapper.searchTestCaseStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IBZ_CASESTATS>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

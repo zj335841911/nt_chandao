@@ -438,7 +438,17 @@ POST
 | 31 | projectedstagestoryhours | Integer | 允许 | 已立项阶段需求工时 |
 | 32 | planedstagestoryhours | Integer | 允许 | 已计划阶段需求工时 |
 | 33 | totalhours | Integer | 允许 | 总工时 |
-| 34 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 34 | codeerror | Integer | 允许 | 代码错误 |
+| 35 | config | Integer | 允许 | 配置相关 |
+| 36 | install | Integer | 允许 | 安装部署 |
+| 37 | security | Integer | 允许 | 安全相关 |
+| 38 | performance | Integer | 允许 | 性能问题 |
+| 39 | standard | Integer | 允许 | 标准规范 |
+| 40 | automation | Integer | 允许 | 测试脚本 |
+| 41 | designdefect | Integer | 允许 | 设计缺陷 |
+| 42 | others | Integer | 允许 | 其他 |
+| 43 | bugsum | Integer | 允许 | bug总计 |
+| 44 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSumSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

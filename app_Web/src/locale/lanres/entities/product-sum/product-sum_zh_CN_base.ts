@@ -36,8 +36,22 @@ function getLocaleResourceBase(){
 			projectedstagestoryhours: commonLogic.appcommonhandle("已立项阶段需求工时",null),
 			planedstagestoryhours: commonLogic.appcommonhandle("已计划阶段需求工时",null),
 			totalhours: commonLogic.appcommonhandle("总工时",null),
+			codeerror: commonLogic.appcommonhandle("代码错误",null),
+			config: commonLogic.appcommonhandle("配置相关",null),
+			install: commonLogic.appcommonhandle("安装部署",null),
+			security: commonLogic.appcommonhandle("安全相关",null),
+			performance: commonLogic.appcommonhandle("性能问题",null),
+			standard: commonLogic.appcommonhandle("标准规范",null),
+			automation: commonLogic.appcommonhandle("测试脚本",null),
+			designdefect: commonLogic.appcommonhandle("设计缺陷",null),
+			others: commonLogic.appcommonhandle("其他",null),
+			bugsum: commonLogic.appcommonhandle("bug总计",null),
 		},
 			views: {
+				productbugtypesumusr4gridview: {
+					caption: commonLogic.appcommonhandle("产品汇总表",null),
+					title: commonLogic.appcommonhandle("产品Bug类型统计表格视图",null),
+				},
 				storysumgridview: {
 					caption: commonLogic.appcommonhandle("需求汇总",null),
 					title: commonLogic.appcommonhandle("产品汇总表表格视图",null),
@@ -86,6 +100,24 @@ function getLocaleResourceBase(){
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
 					id: commonLogic.appcommonhandle("主键标识",null), 
 				},
+				uiactions: {
+				},
+			},
+			productbugtypesumform_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("产品名称",null),
+					codeerror: commonLogic.appcommonhandle("代码错误",null),
+					config: commonLogic.appcommonhandle("配置相关",null),
+					install: commonLogic.appcommonhandle("安装部署",null),
+					security: commonLogic.appcommonhandle("安全相关",null),
+					performance: commonLogic.appcommonhandle("性能问题",null),
+					standard: commonLogic.appcommonhandle("标准规范",null),
+					automation: commonLogic.appcommonhandle("测试脚本",null),
+					designdefect: commonLogic.appcommonhandle("设计缺陷",null),
+					others: commonLogic.appcommonhandle("其他",null),
+					bugsum: commonLogic.appcommonhandle("bug总计",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
 				},
 			},
@@ -171,16 +203,6 @@ function getLocaleResourceBase(){
 			productbugcnt_qa_chart: {
 				nodata:commonLogic.appcommonhandle("",null),
 			},
-			productstorysum_searchform: {
-				details: {
-					rawitem1: commonLogic.appcommonhandle("",null), 
-					formpage1: commonLogic.appcommonhandle("常规条件",null), 
-					closed: commonLogic.appcommonhandle("关闭产品",null), 
-					n_id_eq: commonLogic.appcommonhandle("产品",null), 
-				},
-				uiactions: {
-				},
-			},
 			default_searchform: {
 				details: {
 					rawitem1: commonLogic.appcommonhandle("",null), 
@@ -191,6 +213,22 @@ function getLocaleResourceBase(){
 					n_plan_eq: commonLogic.appcommonhandle("计划",null), 
 				},
 				uiactions: {
+				},
+			},
+			productstorysum_searchform: {
+				details: {
+					rawitem1: commonLogic.appcommonhandle("",null), 
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+					closed: commonLogic.appcommonhandle("关闭产品",null), 
+					n_id_eq: commonLogic.appcommonhandle("产品",null), 
+				},
+				uiactions: {
+				},
+			},
+			productbugtypesumusr4gridviewtoolbar_toolbar: {
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
 				},
 			},
 			editviewtoolbar_toolbar: {

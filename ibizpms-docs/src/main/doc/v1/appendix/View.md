@@ -338,6 +338,7 @@
 |-|Bug数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|项目编辑视图（团队管理）|DEEDITVIEW|&nbsp;|
 |-|文档库树导航视图|DETREEEXPVIEW|&nbsp;|
+|-|产品Bug类型统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|部门数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|
@@ -698,6 +699,7 @@ SRFNAVPARAM.project=%project%|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
 |-|task选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|系统配置表表格视图|DEGRIDVIEW|&nbsp;|
+|-|项目统计表格视图（任务状态统计）|DEGRIDVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|bug表格视图（项目）|DEGRIDVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
@@ -753,6 +755,7 @@ SRFNAVPARAM.project=%project%|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|任务模块树导航视图|DETREEEXPVIEW|&nbsp;|
+|-|测试用例统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|文档树视图|DETREEVIEW|&nbsp;|
 |-|用户选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|

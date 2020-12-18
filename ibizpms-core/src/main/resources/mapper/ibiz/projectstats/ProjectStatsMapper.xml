@@ -49,6 +49,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProjectTaskCountByType]-->
+	 <select id="searchProjectTaskCountByType"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
+         select t1.* from (
+                <include refid="ProjectTaskCountByType" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[TaskTime]-->
 	 <select id="searchTaskTime"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
          select t1.* from (
@@ -76,6 +85,12 @@
     <!--数据查询[ProjectTaskCountByTaskStatus]-->
     <sql id="ProjectTaskCountByTaskStatus" databaseId="mysql">
 		<![CDATA[ SELECT t1.project,t1.projectname  as name, SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closedtaskcnt, SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt, SUM(IF(t1.`status` = 'done',t1.ss,0)) as doneTaskcnt, SUM(IF(t1.`status` = 'pause',t1.ss,0)) as pauseTaskcnt, SUM(IF(t1.`status` = 'wait',t1.ss,0)) as waitTaskcnt, SUM(IF(t1.`status` = 'doing',t1.ss,0)) as doingTaskcnt, COUNT(1) as taskcnt, t1.deleted from ( select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
+			]]>
+    </sql>
+    <!--数据查询[ProjectTaskCountByType]-->
+    <sql id="ProjectTaskCountByType" databaseId="mysql">
+		<![CDATA[ SELECT t1.project,t1.`name`, SUM(IF(t1.type = 'design',t1.num,0)) as designtaskcnt, SUM(IF(t1.type = 'discuss',t1.num,0)) as discusstaskcnt, SUM(IF(t1.type = 'study',t1.num,0)) as studytaskcnt, SUM(IF(t1.type = 'ui',t1.num,0)) as uitaskcnt, SUM(IF(t1.type = 'test',t1.num,0)) as testtaskcnt, SUM(IF(t1.type = 'serve',t1.num,0)) as servetaskcnt, SUM(IF(t1.type = 'devel',t1.num,0)) as develtaskcnt, SUM(IF(t1.type = 'misc',t1.num,0)) as misctaskcnt, SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt from( select t1.type,t1.project,t2.`name`,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0') t1 GROUP BY t1.project
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
     <!--数据查询[TaskTime]-->

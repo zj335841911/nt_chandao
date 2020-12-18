@@ -64,6 +64,15 @@ export default class ProjectStatsService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
+     * 任务类型统计节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_TASKTYPECOUNT: string = 'TaskTypeCount';
+
+    /**
      * bug解决方案统计节点分隔符号
      *
      * @public
@@ -173,6 +182,10 @@ export default class ProjectStatsService extends ControlService {
             }
         }
 
+        if (Object.is(strNodeType, this.TREENODE_TASKTYPECOUNT)) {
+            await this.fillTasktypecountNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_BUGRESOLUTIONCOUNT)) {
             await this.fillBugresolutioncountNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -191,6 +204,65 @@ export default class ProjectStatsService extends ControlService {
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
+
+    /**
+     * 填充 树视图节点[任务类型统计]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillTasktypecountNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.tasktypecount') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'TaskTypeCount';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[任务类型统计]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillTasktypecountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
 
     /**
      * 填充 树视图节点[bug解决方案统计]
@@ -379,6 +451,11 @@ export default class ProjectStatsService extends ControlService {
             let TaskstatuscountRsNavParams:any = {};
             let TaskstatuscountRsParams:any = {};
 			await this.fillTaskstatuscountNodes(context, filter, list ,TaskstatuscountRsNavContext,TaskstatuscountRsNavParams,TaskstatuscountRsParams);
+			// 填充任务类型统计
+            let TasktypecountRsNavContext:any = {};
+            let TasktypecountRsNavParams:any = {};
+            let TasktypecountRsParams:any = {};
+			await this.fillTasktypecountNodes(context, filter, list ,TasktypecountRsNavContext,TasktypecountRsNavParams,TasktypecountRsParams);
 		} else {
 			// 填充bug状态统计
             let BugstatuscountRsNavContext:any = {};
@@ -395,6 +472,11 @@ export default class ProjectStatsService extends ControlService {
             let TaskstatuscountRsNavParams:any = {};
             let TaskstatuscountRsParams:any = {};
 			await this.fillTaskstatuscountNodes(context, filter, list ,TaskstatuscountRsNavContext,TaskstatuscountRsNavParams,TaskstatuscountRsParams);
+			// 填充任务类型统计
+            let TasktypecountRsNavContext:any = {};
+            let TasktypecountRsNavParams:any = {};
+            let TasktypecountRsParams:any = {};
+			await this.fillTasktypecountNodes(context, filter, list ,TasktypecountRsNavContext,TasktypecountRsNavParams,TasktypecountRsParams);
 		}
 	}
 

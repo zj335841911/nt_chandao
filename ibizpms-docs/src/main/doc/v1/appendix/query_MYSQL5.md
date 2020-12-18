@@ -7079,6 +7079,24 @@ t1.`TITLE`,
 FROM `zt_case` t1 
 
 ```
+### 测试用例统计(TestCaseStats)<div id="IBZ_CASESTATS_TestCaseStats"></div>
+```sql
+SELECT
+t1.id, 
+t1.`name`, 
+count(distinct t2.id) as TotalCase, 
+sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
+sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
+sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
+sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRun,
+case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
+FROM
+zt_module t1
+LEFT JOIN zt_case t2 ON t1.id = t2.module
+LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
+where t1.root = #{srf.datacontext.product}
+group by t1.id, t1.`name`
+```
 ### 默认（全部数据）(VIEW)<div id="IBZ_CASESTATS_View"></div>
 ```sql
 SELECT
@@ -13884,6 +13902,24 @@ COUNT(1) as taskcnt,
 t1.deleted
 from (
 select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
+```
+### 项目任务类型统计(ProjectTaskCountByType)<div id="ProjectStats_ProjectTaskCountByType"></div>
+```sql
+SELECT t1.project,t1.`name`,
+SUM(IF(t1.type = 'design',t1.num,0)) as designtaskcnt,
+SUM(IF(t1.type = 'discuss',t1.num,0)) as discusstaskcnt,
+SUM(IF(t1.type = 'study',t1.num,0)) as studytaskcnt,
+SUM(IF(t1.type = 'ui',t1.num,0)) as uitaskcnt,
+SUM(IF(t1.type = 'test',t1.num,0)) as testtaskcnt,
+SUM(IF(t1.type = 'serve',t1.num,0)) as servetaskcnt,
+SUM(IF(t1.type = 'devel',t1.num,0)) as develtaskcnt,
+SUM(IF(t1.type = 'misc',t1.num,0)) as misctaskcnt,
+SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt
+from(
+select t1.type,t1.project,t2.`name`,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0') t1
+GROUP BY t1.project
+WHERE t1.DELETED = '0' 
+
 ```
 ### 任务工时消耗剩余查询(TASKTIME)<div id="ProjectStats_TaskTime"></div>
 ```sql
