@@ -185,6 +185,7 @@ function getLocaleResourceBase(){
 					bugopenendby: commonLogic.appcommonhandle("Bug创建表",null),
 					bugresolvedby: commonLogic.appcommonhandle("Bug完成表",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
+					testcasestats: commonLogic.appcommonhandle("用例统计表",null),
 				},
 				uiactions: {
 				},

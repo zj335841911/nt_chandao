@@ -108,6 +108,13 @@ export class TestTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'TESTCASESTATS')) {
+            return {  
+                viewname: 'ibz-casestatstest-case-stats-grid-view', 
+                parentdata: {},
+                deKeyField:'ibz_casestats'
+			};
+        }
         if (Object.is(expmode, 'BUGASSIGNEDTO')) {
             return {  
                 viewname: 'bug-stats-assignto-grid-view', 

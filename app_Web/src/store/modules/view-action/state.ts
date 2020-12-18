@@ -4194,6 +4194,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bc06c199f827cebb36cfd2a5128e1bca',
+            viewmodule: 'ibiz',
+            viewname: 'IBZ_CASESTATSTestCaseStatsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'bc36be2ee4a78e69c13665a8ad03ab6a',
             viewmodule: 'zentao',
             viewname: 'ProductMainDashboardView',
@@ -4280,6 +4289,7 @@ export const viewstate: any = {
                 'ae715fb0beead59fd6157e0ef163a4bb',
                 'b7427fe34d292009905e126defc9fa22',
                 'a7aa4a1d093b609e270df2fec5ea627b',
+                'bc06c199f827cebb36cfd2a5128e1bca',
             ],
         },
         {

@@ -3367,6 +3367,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-main-my-grid-view/project-main-my-grid-view.vue'),
                 },
                 {
+                    path: 'ibz_casestats/:ibz_casestats?/testcasestatsgridview/:testcasestatsgridview?',
+                    meta: {
+                        caption: 'entities.ibz_casestats.views.testcasestatsgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibz_casestats', parameterName: 'ibz_casestats' },
+                            { pathName: 'testcasestatsgridview', parameterName: 'testcasestatsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-casestatstest-case-stats-grid-view/ibz-casestatstest-case-stats-grid-view.vue'),
+                },
+                {
                     path: 'productlives/:productlife?/roadmaplistview/:roadmaplistview?',
                     meta: {
                         caption: 'entities.productlife.views.roadmaplistview.caption',
