@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('ztdate')">
-                <el-table-column show-overflow-tooltip :prop="'ztdate'" :label="$t('entities.companystats.companydynamicstats_grid.columns.ztdate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'ztdate'" :label="$t('entities.companystats.companydynamicstats_grid.columns.ztdate')" :min-width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.ztdate')}}
@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('logincnt')">
-                <el-table-column show-overflow-tooltip :prop="'logincnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.logincnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'logincnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.logincnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.logincnt')}}
@@ -50,7 +50,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('loghours')">
-                <el-table-column show-overflow-tooltip :prop="'loghours'" :label="$t('entities.companystats.companydynamicstats_grid.columns.loghours')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'loghours'" :label="$t('entities.companystats.companydynamicstats_grid.columns.loghours')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.loghours')}}
@@ -62,7 +62,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openedstorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'openedstorycnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedstorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'openedstorycnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedstorycnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.openedstorycnt')}}
@@ -74,7 +74,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('closedstorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'closedstorycnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.closedstorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'closedstorycnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.closedstorycnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.closedstorycnt')}}
@@ -86,7 +86,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openedtaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'openedtaskcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'openedtaskcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedtaskcnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.openedtaskcnt')}}
@@ -98,7 +98,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('finishedtaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'finishedtaskcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.finishedtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'finishedtaskcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.finishedtaskcnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.finishedtaskcnt')}}
@@ -110,7 +110,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openedbugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'openedbugcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedbugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'openedbugcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.openedbugcnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.openedbugcnt')}}
@@ -122,7 +122,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('resolvedbugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'resolvedbugcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.resolvedbugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'resolvedbugcnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.resolvedbugcnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.resolvedbugcnt')}}
@@ -134,7 +134,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('dynamiccnt')">
-                <el-table-column show-overflow-tooltip :prop="'dynamiccnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.dynamiccnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'dynamiccnt'" :label="$t('entities.companystats.companydynamicstats_grid.columns.dynamiccnt')" :width="120"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.companystats.companydynamicstats_grid.columns.dynamiccnt')}}

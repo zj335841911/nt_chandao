@@ -114,7 +114,7 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
             label: '日期',
             langtag: 'entities.companystats.companydynamicstats_grid.columns.ztdate',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

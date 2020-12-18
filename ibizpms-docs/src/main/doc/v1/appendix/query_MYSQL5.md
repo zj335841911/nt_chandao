@@ -14017,7 +14017,7 @@ SELECT
 	t1.*,
 	SUM(
 	IFNULL( t1.codeerror, 0 ) + IFNULL( t1.config, 0 ) + IFNULL( t1.designdefect, 0 ) + IFNULL( t1.standard, 0 ) + IFNULL( t1.performance, 0 ) + IFNULL( t1.others, 0 ) + IFNULL( t1.INSTALL, 0 ) + IFNULL( t1.automation, 0 ) + IFNULL( t1.SECURITY, 0 ) 
-	) AS bugsum 
+	) AS bugcnt 
 FROM
 (
 SELECT
