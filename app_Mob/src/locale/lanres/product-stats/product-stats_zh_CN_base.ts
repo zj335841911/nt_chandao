@@ -32,6 +32,10 @@ export default {
     type: "产品类型",
     order1: "产品排序",
     istop: "是否置顶",
+    finishedstorycnt: "已完成的需求数",
+    resolvedbugcnt: "解决Bug数",
+    importantbugcnt: "重要的Bug数",
+    bugstory: "需求所提bug数",
   },
 	views: {
 		mobmdview: {

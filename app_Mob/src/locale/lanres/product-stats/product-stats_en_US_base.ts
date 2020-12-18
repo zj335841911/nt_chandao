@@ -32,6 +32,10 @@ export default {
     type:  commonLogic.appcommonhandle("产品类型",null),
     order1:  commonLogic.appcommonhandle("产品排序",null),
     istop:  commonLogic.appcommonhandle("是否置顶",null),
+    finishedStoryCNT:  commonLogic.appcommonhandle("已完成的需求数",null),
+    rESOLVEDBUGCNT:  commonLogic.appcommonhandle("解决Bug数",null),
+    iMPORtantBUGCNT:  commonLogic.appcommonhandle("重要的Bug数",null),
+    bugStory:  commonLogic.appcommonhandle("需求所提bug数",null),
   },
 	views: {
 		mobmdview: {

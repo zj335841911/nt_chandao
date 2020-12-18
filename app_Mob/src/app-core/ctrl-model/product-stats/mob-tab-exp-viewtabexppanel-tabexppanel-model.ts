@@ -108,6 +108,18 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'istop',
       },
+      {
+        name: 'finishedstorycnt',
+      },
+      {
+        name: 'resolvedbugcnt',
+      },
+      {
+        name: 'importantbugcnt',
+      },
+      {
+        name: 'bugstory',
+      },
     ]
   }
 

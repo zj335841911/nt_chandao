@@ -43,5 +43,11 @@ export default {
     dEVELTASKCNT:  commonLogic.appcommonhandle("开发类型任务",null),
     mISCTASKCNT:  commonLogic.appcommonhandle("其他类型任务",null),
     aFFAIRTASKCNT:  commonLogic.appcommonhandle("事务类型任务",null),
+    completestorycnt:  commonLogic.appcommonhandle("完成需求数",null),
+    completetaskcnt:  commonLogic.appcommonhandle("完成任务数",null),
+    bugstory:  commonLogic.appcommonhandle("Bug/完成需求",null),
+    bugtask:  commonLogic.appcommonhandle("Bug/完成任务",null),
+    importantbugcnt:  commonLogic.appcommonhandle("重要Bug数",null),
+    seriousbugproportion:  commonLogic.appcommonhandle("严重Bug比率",null),
   },
 };

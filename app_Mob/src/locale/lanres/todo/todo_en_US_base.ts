@@ -80,8 +80,11 @@ export default {
 			desc: commonLogic.appcommonhandle("描述",null), 
 			status: commonLogic.appcommonhandle("人员",null), 
 			assignedtopk: commonLogic.appcommonhandle("部门",null), 
+			account: commonLogic.appcommonhandle("【单选】指定单位内人员",null), 
+			assignedby: commonLogic.appcommonhandle("【多选】指定单位内人员",null), 
+			assigneddate: commonLogic.appcommonhandle("【单选】指定单位及下级人员",null), 
+			assignedto: commonLogic.appcommonhandle("【多选】指定单位及下级人员",null), 
 			id: commonLogic.appcommonhandle("编号",null), 
-			assignedto: commonLogic.appcommonhandle("指派给",null), 
 		},
 		uiactions: {
 		},

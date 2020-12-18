@@ -43,5 +43,11 @@ export default {
     develtaskcnt: "开发类型任务",
     misctaskcnt: "其他类型任务",
     affairtaskcnt: "事务类型任务",
+    completestorycnt: "完成需求数",
+    completetaskcnt: "完成任务数",
+    bugstory: "Bug/完成需求",
+    bugtask: "Bug/完成任务",
+    importantbugcnt: "重要Bug数",
+    seriousbugproportion: "严重Bug比率",
   },
 };

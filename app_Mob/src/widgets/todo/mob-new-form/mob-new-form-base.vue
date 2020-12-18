@@ -263,6 +263,86 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='account' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="account_item"  
+    :itemValue="this.data.account" 
+    v-show="detailsModel.account.visible" 
+    :itemRules="this.rules.account" 
+    :caption="$t('todo.mobnew_form.details.account')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.account.disabled"
+    :error="detailsModel.account.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
+
+<app-form-item 
+    name='assignedby' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedby_item"  
+    :itemValue="this.data.assignedby" 
+    v-show="detailsModel.assignedby.visible" 
+    :itemRules="this.rules.assignedby" 
+    :caption="$t('todo.mobnew_form.details.assignedby')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedby.disabled"
+    :error="detailsModel.assignedby.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
+
+<app-form-item 
+    name='assigneddate' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assigneddate_item"  
+    :itemValue="this.data.assigneddate" 
+    v-show="detailsModel.assigneddate.visible" 
+    :itemRules="this.rules.assigneddate" 
+    :caption="$t('todo.mobnew_form.details.assigneddate')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assigneddate.disabled"
+    :error="detailsModel.assigneddate.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
+
+<app-form-item 
+    name='assignedto' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedto_item"  
+    :itemValue="this.data.assignedto" 
+    v-show="detailsModel.assignedto.visible" 
+    :itemRules="this.rules.assignedto" 
+    :caption="$t('todo.mobnew_form.details.assignedto')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedto.disabled"
+    :error="detailsModel.assignedto.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
     
 </app-form-group>
 
@@ -618,8 +698,11 @@ export default class MobNewBase extends Vue implements ControlInterface {
         desc: null,
         status: null,
         assignedtopk: null,
-        id: null,
+        account: null,
+        assignedby: null,
+        assigneddate: null,
         assignedto: null,
+        id: null,
         todo: null,
     };
 
@@ -801,9 +884,15 @@ export default class MobNewBase extends Vue implements ControlInterface {
 , 
         assignedtopk: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        account: new FormItemModel({ caption: '【单选】指定单位内人员', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        assignedby: new FormItemModel({ caption: '【多选】指定单位内人员', detailType: 'FORMITEM', name: 'assignedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assigneddate: new FormItemModel({ caption: '【单选】指定单位及下级人员', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedto: new FormItemModel({ caption: '【多选】指定单位及下级人员', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -1084,15 +1173,39 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 id 值
+     * 监控表单属性 account 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobNew
      */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    @Watch('data.account')
+    onAccountChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.assignedby')
+    onAssignedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assigneddate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.assigneddate')
+    onAssigneddateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assigneddate', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1105,6 +1218,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     @Watch('data.assignedto')
     onAssignedtoChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 id 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.id')
+    onIdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1160,6 +1285,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
             }
             this.detailsModel.name.setDisabled(!ret);
         }
+
+
+
 
 
 

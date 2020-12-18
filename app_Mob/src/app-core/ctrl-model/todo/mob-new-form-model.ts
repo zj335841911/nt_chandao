@@ -126,14 +126,29 @@ export class MobNewModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'id',
-                prop: 'id',
-                dataType: 'ACID',
+                name: 'account',
+                prop: 'account',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'assignedby',
+                prop: 'assignedby',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'assigneddate',
+                prop: 'assigneddate',
+                dataType: 'DATE',
             },
             {
                 name: 'assignedto',
                 prop: 'assignedto',
                 dataType: 'TEXT',
+            },
+            {
+                name: 'id',
+                prop: 'id',
+                dataType: 'ACID',
             },
             {
                 name: 'todo',
