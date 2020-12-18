@@ -5,11 +5,11 @@ function getLocaleResourceBase(){
 		fields: {
 			indextype: commonLogic.appcommonhandle("类型",null),
 			indexid: commonLogic.appcommonhandle("主键",null),
-			indexname: commonLogic.appcommonhandle("支持搜索[需求、Bug、任务、项目、产品、文档、用例]",null),
+			indexname: commonLogic.appcommonhandle("标题[需求、任务等]",null),
 			deleted: commonLogic.appcommonhandle("逻辑标识",null),
 			orgid: commonLogic.appcommonhandle("组织标识",null),
 			mdeptid: commonLogic.appcommonhandle("部门标识",null),
-			indexdesc: commonLogic.appcommonhandle("描述",null),
+			indexdesc: commonLogic.appcommonhandle("内容[需求、任务等]",null),
 		},
 			views: {
 				listview: {

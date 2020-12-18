@@ -51681,8 +51681,8 @@ CREATE TABLE `zt_user`(
 | INDEX_TYPE        | 类型  | VARCHAR      |   200   | &nbsp; |
 | INDEXID        | 主键  |       |   -1   | 主键&nbsp; |
 | MDEPTID        | 部门标识  | VARCHAR      |   200   | &nbsp; |
-| INDEXNAME        | 支持搜索[需求、Bug、任务、项目、产品、文档、用例]  | VARCHAR      |   200   | &nbsp; |
-| INDEXDESC        | 描述  | VARCHAR      |   200   | &nbsp; |
+| INDEXNAME        | 标题[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
+| INDEXDESC        | 内容[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
 | ORGID        | 组织标识  | VARCHAR      |   200   | &nbsp; |
 
 

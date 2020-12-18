@@ -23,7 +23,7 @@ export interface IbizproIndex {
     indexid?: any;
 
     /**
-     * 支持搜索[需求、Bug、任务、项目、产品、文档、用例]
+     * 标题[需求、任务等]
      *
      * @returns {*}
      * @memberof IbizproIndex
@@ -55,7 +55,7 @@ export interface IbizproIndex {
     mdeptid?: any;
 
     /**
-     * 描述
+     * 内容[需求、任务等]
      *
      * @returns {*}
      * @memberof IbizproIndex

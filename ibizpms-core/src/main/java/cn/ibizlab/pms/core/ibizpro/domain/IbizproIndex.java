@@ -59,7 +59,7 @@ public class IbizproIndex extends EntityMP implements Serializable {
     @JsonProperty("indexid")
     private Long indexid;
     /**
-     * 支持搜索[需求、Bug、任务、项目、产品、文档、用例]
+     * 标题[需求、任务等]
      */
     @TableField(exist = false)
     @JSONField(name = "indexname")
@@ -87,7 +87,7 @@ public class IbizproIndex extends EntityMP implements Serializable {
     @JsonProperty("mdeptid")
     private String mdeptid;
     /**
-     * 描述
+     * 内容[需求、任务等]
      */
     @TableField(exist = false)
     @JSONField(name = "indexdesc")

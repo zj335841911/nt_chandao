@@ -10544,7 +10544,7 @@
     {
     "fieldname":"INDEXNAME" ,
     "codename":"Indexname",
-    "field_logic_name":"支持搜索[需求、Bug、任务、项目、产品、文档、用例]",
+    "field_logic_name":"标题[需求、任务等]",
     "entity_name":"IbizproIndex",
     "field_type":"TEXT",
     "nullable":1,
@@ -10606,7 +10606,7 @@
     {
     "fieldname":"INDEXDESC" ,
     "codename":"Indexdesc",
-    "field_logic_name":"描述",
+    "field_logic_name":"内容[需求、任务等]",
     "entity_name":"IbizproIndex",
     "field_type":"LONGTEXT",
     "nullable":1,

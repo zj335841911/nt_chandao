@@ -263,11 +263,11 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | indextype | String | 允许 | 类型 |
 | 2 | indexid | Long | 允许 | 主键 |
-| 3 | indexname | String | 允许 | 支持搜索[需求、Bug、任务、项目、产品、文档、用例] |
+| 3 | indexname | String | 允许 | 标题[需求、任务等] |
 | 4 | deleted | String | 允许 | 逻辑标识 |
 | 5 | orgid | String | 允许 | 组织标识 |
 | 6 | mdeptid | String | 允许 | 部门标识 |
-| 7 | indexdesc | String | 允许 | 描述 |
+| 7 | indexdesc | String | 允许 | 内容[需求、任务等] |
 | 8 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproIndexSearchContext
