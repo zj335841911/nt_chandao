@@ -103,7 +103,7 @@ export class GridExpViewTeamgridexpbarGridexpbarBase extends GridExpBarControlBa
      * @type {*}
      * @memberof GridExpViewTeamgridexpbarBase
      */
-    public navigateContext: any = {USERID:"%userid%"};
+    public navigateContext: any = {SYSEMPLOYEES:"%userid%"};
 
     /**
      * 导航视图参数
@@ -111,7 +111,7 @@ export class GridExpViewTeamgridexpbarGridexpbarBase extends GridExpBarControlBa
      * @type {*}
      * @memberof GridExpViewTeamgridexpbarBase
      */
-    public navigateParams: any = {userid:"%userid%"};
+    public navigateParams: any = {sysemployees:"%userid%"};
 
     /**
     * 刷新
