@@ -605,6 +605,11 @@ export default class TestService extends ControlService {
             let ProductbugresolutionstatsRsNavParams:any = {};
             let ProductbugresolutionstatsRsParams:any = {};
 			await this.fillProductbugresolutionstatsNodes(context, filter, list ,ProductbugresolutionstatsRsNavContext,ProductbugresolutionstatsRsNavParams,ProductbugresolutionstatsRsParams);
+			// 填充用例统计表
+            let TestcasestatsRsNavContext:any = {};
+            let TestcasestatsRsNavParams:any = {};
+            let TestcasestatsRsParams:any = {};
+			await this.fillTestcasestatsNodes(context, filter, list ,TestcasestatsRsNavContext,TestcasestatsRsNavParams,TestcasestatsRsParams);
 		} else {
 			// 填充Bug创建表
             let BugopenendbyRsNavContext:any = {};
@@ -631,6 +636,11 @@ export default class TestService extends ControlService {
             let ProductbugresolutionstatsRsNavParams:any = {};
             let ProductbugresolutionstatsRsParams:any = {};
 			await this.fillProductbugresolutionstatsNodes(context, filter, list ,ProductbugresolutionstatsRsNavContext,ProductbugresolutionstatsRsNavParams,ProductbugresolutionstatsRsParams);
+			// 填充用例统计表
+            let TestcasestatsRsNavContext:any = {};
+            let TestcasestatsRsNavParams:any = {};
+            let TestcasestatsRsParams:any = {};
+			await this.fillTestcasestatsNodes(context, filter, list ,TestcasestatsRsNavContext,TestcasestatsRsNavParams,TestcasestatsRsParams);
 		}
 	}
 
