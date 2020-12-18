@@ -2,10 +2,10 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { ListViewBase } from '@/studio-core';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
-import IBIZPRO_INDEXAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
-import IBIZPRO_INDEXUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
+import IbizproIndexUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
 import CodeListService from '@service/app/codelist-service';
 
 
@@ -24,7 +24,7 @@ export class IBIZPRO_INDEXListViewBase extends ListViewBase {
      * @type {string}
      * @memberof IBIZPRO_INDEXListViewBase
      */
-    protected appDeName: string = 'ibizpro_index';
+    protected appDeName: string = 'ibizproindex';
 
     /**
      * 应用实体主键
@@ -56,18 +56,18 @@ export class IBIZPRO_INDEXListViewBase extends ListViewBase {
     /**
      * 实体服务对象
      *
-     * @type {IBIZPRO_INDEXService}
+     * @type {IbizproIndexService}
      * @memberof IBIZPRO_INDEXListViewBase
      */
-    protected appEntityService: IBIZPRO_INDEXService = new IBIZPRO_INDEXService;
+    protected appEntityService: IbizproIndexService = new IbizproIndexService;
 
     /**
      * 实体权限服务对象
      *
-     * @type IBIZPRO_INDEXUIService
+     * @type IbizproIndexUIService
      * @memberof IBIZPRO_INDEXListViewBase
      */
-    public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
+    public appUIService: IbizproIndexUIService = new IbizproIndexUIService(this.$store);
 
     /**
      * 视图模型数据
@@ -77,9 +77,9 @@ export class IBIZPRO_INDEXListViewBase extends ListViewBase {
      * @memberof IBIZPRO_INDEXListViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.ibizpro_index.views.listview.caption',
-        srfTitle: 'entities.ibizpro_index.views.listview.title',
-        srfSubTitle: 'entities.ibizpro_index.views.listview.subtitle',
+        srfCaption: 'entities.ibizproindex.views.listview.caption',
+        srfTitle: 'entities.ibizproindex.views.listview.title',
+        srfSubTitle: 'entities.ibizproindex.views.listview.subtitle',
         dataInfo: '',
     };
 
@@ -158,7 +158,7 @@ export class IBIZPRO_INDEXListViewBase extends ListViewBase {
                 this.newdata(args, fullargs, params, $event, xData);
             },
             searchform: this.$refs.searchform,
-            keyPSDEField: 'ibizpro_index',
+            keyPSDEField: 'ibizproindex',
             majorPSDEField: 'indexname',
             isLoadDefault: true,
         });
@@ -315,15 +315,15 @@ export class IBIZPRO_INDEXListViewBase extends ListViewBase {
         }
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+            { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
             { pathName: 'redirectview', parameterName: 'redirectview' },
         ];
-        this.appUIService.getService('ibizpro_index').then((service) => {
+        this.appUIService.getService('ibizproindex').then((service) => {
             if(!service) {
                 this.$Notice.error({desc: '重定向服务不存在！'})
                 return;
             }
-            const srfkey: any = tempContext.ibizpro_index;
+            const srfkey: any = tempContext.ibizproindex;
             service.getRDAppView(srfkey,false).then((res:any) =>{
                 if(res){
                     this.$openViewService.openView(res, tempContext, { ...this.viewparams, srfkey });

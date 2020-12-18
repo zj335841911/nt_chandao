@@ -1,18 +1,18 @@
-import IBIZPRO_INDEXUIServiceBase from './ibizpro-index-ui-service-base';
+import IbizproIndexUIServiceBase from './ibizpro-index-ui-service-base';
 
 /**
  * 索引检索UI服务对象
  *
  * @export
- * @class IBIZPRO_INDEXUIService
+ * @class IbizproIndexUIService
  */
-export default class IBIZPRO_INDEXUIService extends IBIZPRO_INDEXUIServiceBase {
+export default class IbizproIndexUIService extends IbizproIndexUIServiceBase {
 
     /**
-     * Creates an instance of  IBIZPRO_INDEXUIService.
+     * Creates an instance of  IbizproIndexUIService.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBIZPRO_INDEXUIService
+     * @memberof  IbizproIndexUIService
      */
     constructor(opts: any = {}) {
         super(opts);

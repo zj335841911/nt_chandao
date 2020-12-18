@@ -629,9 +629,6 @@ hide members
 
 package iBizPro模块 {
 
-class 索引检索 {
-}
-
 class 平台产品 {
 }
 
@@ -645,6 +642,9 @@ class 系统模板 {
 }
 
 class 运行生产系统 {
+}
+
+class 索引检索 {
 }
 
 class 计划模板 {

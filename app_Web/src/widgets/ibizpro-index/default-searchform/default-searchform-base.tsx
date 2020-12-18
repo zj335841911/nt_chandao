@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
 import DefaultService from './default-searchform-service';
-import IBIZPRO_INDEXUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
+import IbizproIndexUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -36,10 +36,10 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     /**
      * 实体服务对象
      *
-     * @type {IBIZPRO_INDEXService}
+     * @type {IbizproIndexService}
      * @memberof DefaultSearchFormBase
      */
-    public appEntityService: IBIZPRO_INDEXService = new IBIZPRO_INDEXService({ $store: this.$store });
+    public appEntityService: IbizproIndexService = new IbizproIndexService({ $store: this.$store });
 
     /**
      * 应用实体名称
@@ -48,7 +48,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @type {string}
      * @memberof DefaultSearchFormBase
      */
-    protected appDeName: string = 'ibizpro_index';
+    protected appDeName: string = 'ibizproindex';
 
     /**
      * 应用实体中文名称
@@ -62,10 +62,10 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     /**
      * 界面UI服务对象
      *
-     * @type {IBIZPRO_INDEXUIService}
+     * @type {IbizproIndexUIService}
      * @memberof DefaultBase
      */  
-    public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
+    public appUIService: IbizproIndexUIService = new IbizproIndexUIService(this.$store);
 
 
     /**

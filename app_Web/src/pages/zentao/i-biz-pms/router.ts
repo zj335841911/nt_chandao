@@ -10965,13 +10965,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-edit-view/test-task-edit-view.vue'),
                 },
                 {
-                    path: 'ibizpro_indices/:ibizpro_index?/indexpickupview/:indexpickupview?',
+                    path: 'ibizproindices/:ibizproindex?/indexpickupview/:indexpickupview?',
                     meta: {
-                        caption: 'entities.ibizpro_index.views.indexpickupview.caption',
+                        caption: 'entities.ibizproindex.views.indexpickupview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+                            { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
                             { pathName: 'indexpickupview', parameterName: 'indexpickupview' },
                         ],
                         requireAuth: true,
@@ -11078,13 +11078,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view9-story-form-bug/bug-grid-view9-story-form-bug.vue'),
                 },
                 {
-                    path: 'ibizpro_indices/:ibizpro_index?/indexpickupdataview/:indexpickupdataview?',
+                    path: 'ibizproindices/:ibizproindex?/indexpickupdataview/:indexpickupdataview?',
                     meta: {
-                        caption: 'entities.ibizpro_index.views.indexpickupdataview.caption',
+                        caption: 'entities.ibizproindex.views.indexpickupdataview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+                            { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
                             { pathName: 'indexpickupdataview', parameterName: 'indexpickupdataview' },
                         ],
                         requireAuth: true,
@@ -11283,13 +11283,13 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-monthly-my-received-grid-view/ibz-monthly-my-received-grid-view.vue'),
                 },
                 {
-                    path: 'ibizpro_indices/:ibizpro_index?/listview/:listview?',
+                    path: 'ibizproindices/:ibizproindex?/listview/:listview?',
                     meta: {
-                        caption: 'entities.ibizpro_index.views.listview.caption',
+                        caption: 'entities.ibizproindex.views.listview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+                            { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
                             { pathName: 'listview', parameterName: 'listview' },
                         ],
                         requireAuth: true,

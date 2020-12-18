@@ -18,7 +18,7 @@ export default class IndexPickupViewpickupviewpanelModel {
         name: 'indextype',
       },
       {
-        name: 'ibizpro_index',
+        name: 'ibizproindex',
         prop: 'indexid',
       },
       {

@@ -1,10 +1,10 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { PickupViewBase } from '@/studio-core';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
-import IBIZPRO_INDEXAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
 import PickupViewEngine from '@engine/view/pickup-view-engine';
-import IBIZPRO_INDEXUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
+import IbizproIndexUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
 
 /**
  * 索引检索数据选择视图视图基类
@@ -21,7 +21,7 @@ export class IBIZPRO_INDEXIndexPickupViewBase extends PickupViewBase {
      * @type {string}
      * @memberof IBIZPRO_INDEXIndexPickupViewBase
      */
-    protected appDeName: string = 'ibizpro_index';
+    protected appDeName: string = 'ibizproindex';
 
     /**
      * 应用实体主键
@@ -44,18 +44,18 @@ export class IBIZPRO_INDEXIndexPickupViewBase extends PickupViewBase {
     /**
      * 实体服务对象
      *
-     * @type {IBIZPRO_INDEXService}
+     * @type {IbizproIndexService}
      * @memberof IBIZPRO_INDEXIndexPickupViewBase
      */
-    protected appEntityService: IBIZPRO_INDEXService = new IBIZPRO_INDEXService;
+    protected appEntityService: IbizproIndexService = new IbizproIndexService;
 
     /**
      * 实体权限服务对象
      *
-     * @type IBIZPRO_INDEXUIService
+     * @type IbizproIndexUIService
      * @memberof IBIZPRO_INDEXIndexPickupViewBase
      */
-    public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
+    public appUIService: IbizproIndexUIService = new IbizproIndexUIService(this.$store);
 
     /**
      * 视图模型数据
@@ -65,9 +65,9 @@ export class IBIZPRO_INDEXIndexPickupViewBase extends PickupViewBase {
      * @memberof IBIZPRO_INDEXIndexPickupViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.ibizpro_index.views.indexpickupview.caption',
-        srfTitle: 'entities.ibizpro_index.views.indexpickupview.title',
-        srfSubTitle: 'entities.ibizpro_index.views.indexpickupview.subtitle',
+        srfCaption: 'entities.ibizproindex.views.indexpickupview.caption',
+        srfTitle: 'entities.ibizproindex.views.indexpickupview.title',
+        srfSubTitle: 'entities.ibizproindex.views.indexpickupview.subtitle',
         dataInfo: '',
     };
 
@@ -170,7 +170,7 @@ export class IBIZPRO_INDEXIndexPickupViewBase extends PickupViewBase {
         this.engine.init({
             view: this,
             pickupviewpanel: this.$refs.pickupviewpanel,
-            keyPSDEField: 'ibizpro_index',
+            keyPSDEField: 'ibizproindex',
             majorPSDEField: 'indexname',
             isLoadDefault: true,
         });

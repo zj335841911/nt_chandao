@@ -8,16 +8,16 @@ import EntityService from '../entity-service';
  * 索引检索服务对象基类
  *
  * @export
- * @class IBIZPRO_INDEXServiceBase
+ * @class IbizproIndexServiceBase
  * @extends {EntityServie}
  */
-export default class IBIZPRO_INDEXServiceBase extends EntityService {
+export default class IbizproIndexServiceBase extends EntityService {
 
     /**
-     * Creates an instance of  IBIZPRO_INDEXServiceBase.
+     * Creates an instance of  IbizproIndexServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBIZPRO_INDEXServiceBase
+     * @memberof  IbizproIndexServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -26,12 +26,12 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
     /**
      * 初始化基础数据
      *
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public initBasicData(){
-        this.APPLYDEKEY ='ibizpro_index';
+        this.APPLYDEKEY ='ibizproindex';
         this.APPDEKEY = 'indexid';
-        this.APPDENAME = 'ibizpro_indices';
+        this.APPDENAME = 'ibizproindices';
         this.APPDETEXT = 'indexname';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
@@ -46,10 +46,10 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizpro_indices/${context.ibizpro_index}/select`,isloading);
+            let res:any = Http.getInstance().get(`/ibizproindices/${context.ibizproindex}/select`,isloading);
             
             return res;
     }
@@ -61,7 +61,7 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
@@ -73,7 +73,7 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
             delete data.srffrontuf;
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/ibizpro_indices`,data,isloading);
+        let res:any = await Http.getInstance().post(`/ibizproindices`,data,isloading);
         
         return res;
     }
@@ -85,12 +85,12 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
         Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/ibizpro_indices/${context.ibizpro_index}`,data,isloading);
+            let res:any = await  Http.getInstance().put(`/ibizproindices/${context.ibizproindex}`,data,isloading);
             
             return res;
     }
@@ -102,10 +102,10 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizpro_indices/${context.ibizpro_index}`,isloading);
+            let res:any = Http.getInstance().delete(`/ibizproindices/${context.ibizproindex}`,isloading);
             return res;
     }
 
@@ -116,10 +116,10 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/ibizpro_indices/${context.ibizpro_index}`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizproindices/${context.ibizproindex}`,isloading);
             
             return res;
     }
@@ -131,11 +131,11 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizpro_indices/getdraft`,isloading);
-        res.data.ibizpro_index = data.ibizpro_index;
+        let res:any = await  Http.getInstance().get(`/ibizproindices/getdraft`,isloading);
+        res.data.ibizproindex = data.ibizproindex;
         
         return res;
     }
@@ -147,10 +147,10 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizpro_indices/${context.ibizpro_index}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/ibizproindices/${context.ibizproindex}/checkkey`,data,isloading);
             return res;
     }
 
@@ -161,12 +161,12 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
         Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/ibizpro_indices/${context.ibizpro_index}/save`,data,isloading);
+            let res:any = await  Http.getInstance().post(`/ibizproindices/${context.ibizproindex}/save`,data,isloading);
             
             return res;
     }
@@ -178,11 +178,11 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizpro_indices/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/ibizproindices/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -193,11 +193,11 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/ibizpro_indices/searchdefault`,tempData,isloading);
+        return await Http.getInstance().post(`/ibizproindices/searchdefault`,tempData,isloading);
     }
 
     /**
@@ -207,11 +207,11 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async FetchIndexDER(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizpro_indices/fetchindexder`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/ibizproindices/fetchindexder`,tempData,isloading);
         return res;
     }
 
@@ -222,10 +222,10 @@ export default class IBIZPRO_INDEXServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof IBIZPRO_INDEXServiceBase
+     * @memberof IbizproIndexServiceBase
      */
     public async searchIndexDER(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/ibizpro_indices/searchindexder`,tempData,isloading);
+        return await Http.getInstance().post(`/ibizproindices/searchindexder`,tempData,isloading);
     }
 }

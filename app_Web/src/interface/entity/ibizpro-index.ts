@@ -2,15 +2,15 @@
  * 索引检索
  *
  * @export
- * @interface IBIZPRO_INDEX
+ * @interface IbizproIndex
  */
-export interface IBIZPRO_INDEX {
+export interface IbizproIndex {
 
     /**
      * 类型
      *
      * @returns {*}
-     * @memberof IBIZPRO_INDEX
+     * @memberof IbizproIndex
      */
     indextype?: any;
 
@@ -18,7 +18,7 @@ export interface IBIZPRO_INDEX {
      * 主键
      *
      * @returns {*}
-     * @memberof IBIZPRO_INDEX
+     * @memberof IbizproIndex
      */
     indexid?: any;
 
@@ -26,7 +26,7 @@ export interface IBIZPRO_INDEX {
      * 支持搜索[需求、Bug、任务、项目、产品、文档、用例]
      *
      * @returns {*}
-     * @memberof IBIZPRO_INDEX
+     * @memberof IbizproIndex
      */
     indexname?: any;
 
@@ -34,7 +34,7 @@ export interface IBIZPRO_INDEX {
      * 逻辑标识
      *
      * @returns {*}
-     * @memberof IBIZPRO_INDEX
+     * @memberof IbizproIndex
      */
     deleted?: any;
 
@@ -42,7 +42,7 @@ export interface IBIZPRO_INDEX {
      * 组织标识
      *
      * @returns {*}
-     * @memberof IBIZPRO_INDEX
+     * @memberof IbizproIndex
      */
     orgid?: any;
 
@@ -50,7 +50,7 @@ export interface IBIZPRO_INDEX {
      * 部门标识
      *
      * @returns {*}
-     * @memberof IBIZPRO_INDEX
+     * @memberof IbizproIndex
      */
     mdeptid?: any;
 
@@ -58,7 +58,7 @@ export interface IBIZPRO_INDEX {
      * 描述
      *
      * @returns {*}
-     * @memberof IBIZPRO_INDEX
+     * @memberof IbizproIndex
      */
     indexdesc?: any;
 }

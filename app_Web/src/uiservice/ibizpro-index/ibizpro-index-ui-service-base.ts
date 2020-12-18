@@ -2,89 +2,89 @@ import { Environment } from '@/environments/environment';
 import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
-import IBIZPRO_INDEXAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
 
 /**
  * 索引检索UI服务对象基类
  *
  * @export
- * @class IBIZPRO_INDEXUIServiceBase
+ * @class IbizproIndexUIServiceBase
  */
-export default class IBIZPRO_INDEXUIServiceBase extends UIService {
+export default class IbizproIndexUIServiceBase extends UIService {
 
     /**
      * 是否支持工作流
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
 
     /**
      * 是否支持实体主状态
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */
     public isEnableDEMainState:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */
-    public dataService:IBIZPRO_INDEXService = new IBIZPRO_INDEXService();
+    public dataService:IbizproIndexService = new IbizproIndexService();
 
     /**
      * 所有关联视图
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */ 
     public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */ 
     public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */ 
     public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */  
     public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */  
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
      * 主状态操作标识Map
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */ 
     public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
 
     /**
-     * Creates an instance of  IBIZPRO_INDEXUIServiceBase.
+     * Creates an instance of  IbizproIndexUIServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.authService = new IBIZPRO_INDEXAuthService(opts);
+        this.authService = new IbizproIndexAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
         this.initDeMainStateOPPrivsMap();
@@ -93,12 +93,12 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
     /**
      * 初始化视图Map
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */  
     public initViewMap(){
         this.allViewMap.set('INDEXDEPICKUPVIEW:', {
             viewname: 'indexpickupview',
-            srfappde: 'ibizpro_indices',
+            srfappde: 'ibizproindices',
             component: 'ibizpro-indexindex-pickup-view',
             openmode: '',
             title: '索引检索',
@@ -107,7 +107,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
         });
         this.allViewMap.set('REDIRECTVIEW:', {
             viewname: 'redirectview',
-            srfappde: 'ibizpro_indices',
+            srfappde: 'ibizproindices',
             component: 'ibizpro-indexredirect-view',
             openmode: '',
             title: '索引检索',
@@ -119,7 +119,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
     /**
      * 初始化主状态集合
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */  
     public initDeMainStateMap(){
     }
@@ -127,7 +127,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
     /**
      * 初始化主状态操作标识
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
     }
@@ -138,12 +138,12 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
      * 
      * @param srfkey 数据主键
      * @param isEnableWorkflow  重定向视图是否需要处理流程中的数据
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */
     public async getRDAppView(srfkey:string,isEnableWorkflow:boolean){
         this.isEnableWorkflow = isEnableWorkflow;
         // 进行数据查询
-        let result:any = await this.dataService.Get({ibizpro_index:srfkey});
+        let result:any = await this.dataService.Get({ibizproindex:srfkey});
         const curData:any = result.data;
         //判断当前数据模式,默认为true，todo
         const iRealDEModel:boolean = true;
@@ -170,7 +170,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
     /**
 	 * 获取实际的数据类型
      * 
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
 	 */
 	public getRealDEType(entity:any){
 
@@ -182,7 +182,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
      * @param curData 当前数据
      * @param bDataInWF 是否有数据在工作流中
      * @param bWFMode   是否工作流模式
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */
     public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
@@ -216,7 +216,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
      * 获取数据对象的主状态标识
      * 
      * @param curData 当前数据
-     * @memberof  IBIZPRO_INDEXUIServiceBase
+     * @memberof  IbizproIndexUIServiceBase
      */  
     public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
@@ -252,7 +252,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
     * 获取数据对象当前操作标识
     * 
     * @param data 当前数据
-    * @memberof  IBIZPRO_INDEXUIServiceBase
+    * @memberof  IbizproIndexUIServiceBase
     */  
     public getDEMainStateOPPrivs(data:any){
         const stateTag = this.getDEMainStateTag(data);
@@ -267,7 +267,7 @@ export default class IBIZPRO_INDEXUIServiceBase extends UIService {
     * 获取数据对象所有的操作标识
     * 
     * @param data 当前数据
-    * @memberof  IBIZPRO_INDEXUIServiceBase
+    * @memberof  IbizproIndexUIServiceBase
     */ 
    public getAllOPPrivs(data:any){
        return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
