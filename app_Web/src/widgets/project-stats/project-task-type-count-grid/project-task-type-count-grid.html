@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttasktypecount_grid.columns.name')}}
@@ -48,114 +48,6 @@
                         >
                             <span>{{row.name}}</span>
                         </app-column-link>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('designtakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'designtakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.designtakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.designtakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.designtakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('develtakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'develtakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.develtakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.develtakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.develtakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('testtakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'testtakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.testtakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.testtakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.testtakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('studytakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'studytakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.studytakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.studytakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.studytakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('discusstakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'discusstakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.discusstakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.discusstakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.discusstakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('uitakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'uitakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.uitakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.uitakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.uitakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('affairtakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'affairtakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.affairtakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.affairtakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.affairtakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('servetakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'servetakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.servetakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.servetakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.servetakcnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('misctakcnt')">
-                <el-table-column show-overflow-tooltip :prop="'misctakcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.misctakcnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.misctakcnt')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.misctakcnt}}</span>
                     </template>
                 </el-table-column>
             </template>

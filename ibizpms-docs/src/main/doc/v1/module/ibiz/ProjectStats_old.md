@@ -45,12 +45,15 @@
 |设计类型任务|DESIGNTAKCNT|INT|&nbsp;|
 |讨论类型任务|DISCUSSTAKCNT|INT|&nbsp;|
 |研究类型任务|STUDYTAKCNT|INT|&nbsp;|
-|界面类型任务|UITAKCNT|INT|&nbsp;|
-|测试类型任务|TESTTAKCNT|INT|&nbsp;|
-|服务类型任务|SERVETAKCNT|INT|&nbsp;|
-|开发类型任务|DEVELTAKCNT|INT|&nbsp;|
-|其他类型任务|MISCTAKCNT|INT|&nbsp;|
-|事务类型任务|AFFAIRTAKCNT|INT|&nbsp;|
+|设计类型任务|DESIGNTASKCNT|INT|&nbsp;|
+|讨论类型任务|DISCUSSTASKCNT|INT|&nbsp;|
+|研究类型任务|STUDYTASKCNT|INT|&nbsp;|
+|界面类型任务|UITASKCNT|INT|&nbsp;|
+|测试类型任务|TESTTASKCNT|INT|&nbsp;|
+|服务类型任务|SERVETASKCNT|INT|&nbsp;|
+|开发类型任务|DEVELTASKCNT|INT|&nbsp;|
+|其他类型任务|MISCTASKCNT|INT|&nbsp;|
+|事务类型任务|AFFAIRTASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -88,6 +91,9 @@
 |未开始任务数|默认规则|默认规则|
 |进行中任务数|默认规则|默认规则|
 |已完成任务数|默认规则|默认规则|
+|设计类型任务|默认规则|默认规则|
+|讨论类型任务|默认规则|默认规则|
+|研究类型任务|默认规则|默认规则|
 |设计类型任务|默认规则|默认规则|
 |讨论类型任务|默认规则|默认规则|
 |研究类型任务|默认规则|默认规则|

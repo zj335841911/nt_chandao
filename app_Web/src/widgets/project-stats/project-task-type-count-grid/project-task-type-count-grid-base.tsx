@@ -114,88 +114,7 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.projectstats.projecttasktypecount_grid.columns.name',
             show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'designtakcnt',
-            label: '设计',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.designtakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'develtakcnt',
-            label: '开发',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.develtakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'testtakcnt',
-            label: '测试',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.testtakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'studytakcnt',
-            label: '研究',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.studytakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'discusstakcnt',
-            label: '讨论',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.discusstakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'uitakcnt',
-            label: '界面',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.uitakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'affairtakcnt',
-            label: '事务',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.affairtakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'servetakcnt',
-            label: '服务',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.servetakcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'misctakcnt',
-            label: '其他',
-            langtag: 'entities.projectstats.projecttasktypecount_grid.columns.misctakcnt',
-            show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -301,15 +220,6 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'name':false,
-        'designtakcnt':false,
-        'develtakcnt':false,
-        'testtakcnt':false,
-        'studytakcnt':false,
-        'discusstakcnt':false,
-        'uitakcnt':false,
-        'affairtakcnt':false,
-        'servetakcnt':false,
-        'misctakcnt':false,
     };
 
     /**
@@ -397,7 +307,7 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
     * @memberof ProjectTaskTypeCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','designtakcnt','develtakcnt','testtakcnt','studytakcnt','discusstakcnt','uitakcnt','affairtakcnt','servetakcnt','misctakcnt'];
+        let allColumns:Array<any> = ['name'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -477,15 +387,6 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 name:'',
-                designtakcnt:'',
-                develtakcnt:'',
-                testtakcnt:'',
-                studytakcnt:'',
-                discusstakcnt:'',
-                uitakcnt:'',
-                affairtakcnt:'',
-                servetakcnt:'',
-                misctakcnt:'',
                 children: children
             }
             groupTree.push(tree);
@@ -511,15 +412,6 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             name:'',
-            designtakcnt:'',
-            develtakcnt:'',
-            testtakcnt:'',
-            studytakcnt:'',
-            discusstakcnt:'',
-            uitakcnt:'',
-            affairtakcnt:'',
-            servetakcnt:'',
-            misctakcnt:'',
             children: child
         }
         if(child && child.length > 0){
@@ -581,15 +473,6 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 name:'',
-                designtakcnt:'',
-                develtakcnt:'',
-                testtakcnt:'',
-                studytakcnt:'',
-                discusstakcnt:'',
-                uitakcnt:'',
-                affairtakcnt:'',
-                servetakcnt:'',
-                misctakcnt:'',
                 children: children,
             }
             groupTree.push(tree);

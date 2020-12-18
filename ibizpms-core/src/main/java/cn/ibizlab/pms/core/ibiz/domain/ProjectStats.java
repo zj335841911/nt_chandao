@@ -300,47 +300,68 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("studytakcnt")
     private Integer studytakcnt;
     /**
+     * 设计类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "designtaskcnt")
+    @JsonProperty("designtaskcnt")
+    private Integer designtaskcnt;
+    /**
+     * 讨论类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "discusstaskcnt")
+    @JsonProperty("discusstaskcnt")
+    private Integer discusstaskcnt;
+    /**
+     * 研究类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "studytaskcnt")
+    @JsonProperty("studytaskcnt")
+    private Integer studytaskcnt;
+    /**
      * 界面类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "uitakcnt")
-    @JsonProperty("uitakcnt")
-    private Integer uitakcnt;
+    @JSONField(name = "uitaskcnt")
+    @JsonProperty("uitaskcnt")
+    private Integer uitaskcnt;
     /**
      * 测试类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "testtakcnt")
-    @JsonProperty("testtakcnt")
-    private Integer testtakcnt;
+    @JSONField(name = "testtaskcnt")
+    @JsonProperty("testtaskcnt")
+    private Integer testtaskcnt;
     /**
      * 服务类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "servetakcnt")
-    @JsonProperty("servetakcnt")
-    private Integer servetakcnt;
+    @JSONField(name = "servetaskcnt")
+    @JsonProperty("servetaskcnt")
+    private Integer servetaskcnt;
     /**
      * 开发类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "develtakcnt")
-    @JsonProperty("develtakcnt")
-    private Integer develtakcnt;
+    @JSONField(name = "develtaskcnt")
+    @JsonProperty("develtaskcnt")
+    private Integer develtaskcnt;
     /**
      * 其他类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "misctakcnt")
-    @JsonProperty("misctakcnt")
-    private Integer misctakcnt;
+    @JSONField(name = "misctaskcnt")
+    @JsonProperty("misctaskcnt")
+    private Integer misctaskcnt;
     /**
      * 事务类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "affairtakcnt")
-    @JsonProperty("affairtakcnt")
-    private Integer affairtakcnt;
+    @JSONField(name = "affairtaskcnt")
+    @JsonProperty("affairtaskcnt")
+    private Integer affairtaskcnt;
 
 
 

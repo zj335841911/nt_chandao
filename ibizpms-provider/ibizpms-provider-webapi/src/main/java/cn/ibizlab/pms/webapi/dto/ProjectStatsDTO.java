@@ -325,52 +325,76 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     private Integer studytakcnt;
 
     /**
-     * 属性 [UITAKCNT]
+     * 属性 [DESIGNTASKCNT]
      *
      */
-    @JSONField(name = "uitakcnt")
-    @JsonProperty("uitakcnt")
-    private Integer uitakcnt;
+    @JSONField(name = "designtaskcnt")
+    @JsonProperty("designtaskcnt")
+    private Integer designtaskcnt;
 
     /**
-     * 属性 [TESTTAKCNT]
+     * 属性 [DISCUSSTASKCNT]
      *
      */
-    @JSONField(name = "testtakcnt")
-    @JsonProperty("testtakcnt")
-    private Integer testtakcnt;
+    @JSONField(name = "discusstaskcnt")
+    @JsonProperty("discusstaskcnt")
+    private Integer discusstaskcnt;
 
     /**
-     * 属性 [SERVETAKCNT]
+     * 属性 [STUDYTASKCNT]
      *
      */
-    @JSONField(name = "servetakcnt")
-    @JsonProperty("servetakcnt")
-    private Integer servetakcnt;
+    @JSONField(name = "studytaskcnt")
+    @JsonProperty("studytaskcnt")
+    private Integer studytaskcnt;
 
     /**
-     * 属性 [DEVELTAKCNT]
+     * 属性 [UITASKCNT]
      *
      */
-    @JSONField(name = "develtakcnt")
-    @JsonProperty("develtakcnt")
-    private Integer develtakcnt;
+    @JSONField(name = "uitaskcnt")
+    @JsonProperty("uitaskcnt")
+    private Integer uitaskcnt;
 
     /**
-     * 属性 [MISCTAKCNT]
+     * 属性 [TESTTASKCNT]
      *
      */
-    @JSONField(name = "misctakcnt")
-    @JsonProperty("misctakcnt")
-    private Integer misctakcnt;
+    @JSONField(name = "testtaskcnt")
+    @JsonProperty("testtaskcnt")
+    private Integer testtaskcnt;
 
     /**
-     * 属性 [AFFAIRTAKCNT]
+     * 属性 [SERVETASKCNT]
      *
      */
-    @JSONField(name = "affairtakcnt")
-    @JsonProperty("affairtakcnt")
-    private Integer affairtakcnt;
+    @JSONField(name = "servetaskcnt")
+    @JsonProperty("servetaskcnt")
+    private Integer servetaskcnt;
+
+    /**
+     * 属性 [DEVELTASKCNT]
+     *
+     */
+    @JSONField(name = "develtaskcnt")
+    @JsonProperty("develtaskcnt")
+    private Integer develtaskcnt;
+
+    /**
+     * 属性 [MISCTASKCNT]
+     *
+     */
+    @JSONField(name = "misctaskcnt")
+    @JsonProperty("misctaskcnt")
+    private Integer misctaskcnt;
+
+    /**
+     * 属性 [AFFAIRTASKCNT]
+     *
+     */
+    @JSONField(name = "affairtaskcnt")
+    @JsonProperty("affairtaskcnt")
+    private Integer affairtaskcnt;
 
 
     /**

@@ -30431,8 +30431,47 @@
     "major_field":0
     },
     {
-    "fieldname":"UITAKCNT" ,
-    "codename":"UiTAKCNT",
+    "fieldname":"DESIGNTASKCNT" ,
+    "codename":"DesignTASKCNT",
+    "field_logic_name":"设计类型任务",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DISCUSSTASKCNT" ,
+    "codename":"DiscussTASKCNT",
+    "field_logic_name":"讨论类型任务",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"STUDYTASKCNT" ,
+    "codename":"StudyTASKCNT",
+    "field_logic_name":"研究类型任务",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UITASKCNT" ,
+    "codename":"UiTASKCNT",
     "field_logic_name":"界面类型任务",
     "entity_name":"ProjectStats",
     "field_type":"INT",
@@ -30444,8 +30483,8 @@
     "major_field":0
     },
     {
-    "fieldname":"TESTTAKCNT" ,
-    "codename":"TESTTAKCNT",
+    "fieldname":"TESTTASKCNT" ,
+    "codename":"TESTTASKCNT",
     "field_logic_name":"测试类型任务",
     "entity_name":"ProjectStats",
     "field_type":"INT",
@@ -30457,8 +30496,8 @@
     "major_field":0
     },
     {
-    "fieldname":"SERVETAKCNT" ,
-    "codename":"SERVETAKCNT",
+    "fieldname":"SERVETASKCNT" ,
+    "codename":"SERVETASKCNT",
     "field_logic_name":"服务类型任务",
     "entity_name":"ProjectStats",
     "field_type":"INT",
@@ -30470,8 +30509,8 @@
     "major_field":0
     },
     {
-    "fieldname":"DEVELTAKCNT" ,
-    "codename":"DEVELTAKCNT",
+    "fieldname":"DEVELTASKCNT" ,
+    "codename":"DEVELTASKCNT",
     "field_logic_name":"开发类型任务",
     "entity_name":"ProjectStats",
     "field_type":"INT",
@@ -30483,8 +30522,8 @@
     "major_field":0
     },
     {
-    "fieldname":"MISCTAKCNT" ,
-    "codename":"MISCTAKCNT",
+    "fieldname":"MISCTASKCNT" ,
+    "codename":"MISCTASKCNT",
     "field_logic_name":"其他类型任务",
     "entity_name":"ProjectStats",
     "field_type":"INT",
@@ -30496,8 +30535,8 @@
     "major_field":0
     },
     {
-    "fieldname":"AFFAIRTAKCNT" ,
-    "codename":"AFFAIRTAKCNT",
+    "fieldname":"AFFAIRTASKCNT" ,
+    "codename":"AFFAIRTASKCNT",
     "field_logic_name":"事务类型任务",
     "entity_name":"ProjectStats",
     "field_type":"INT",

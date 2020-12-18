@@ -276,7 +276,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    designtakcnt?: any;
+    designtaskcnt?: any;
 
     /**
      * 讨论类型任务
@@ -284,7 +284,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    discusstakcnt?: any;
+    discusstaskcnt?: any;
 
     /**
      * 研究类型任务
@@ -292,7 +292,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    studytakcnt?: any;
+    studytaskcnt?: any;
 
     /**
      * 界面类型任务
@@ -300,7 +300,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    uitakcnt?: any;
+    uitaskcnt?: any;
 
     /**
      * 测试类型任务
@@ -308,7 +308,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    testtakcnt?: any;
+    testtaskcnt?: any;
 
     /**
      * 服务类型任务
@@ -316,7 +316,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    servetakcnt?: any;
+    servetaskcnt?: any;
 
     /**
      * 开发类型任务
@@ -324,7 +324,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    develtakcnt?: any;
+    develtaskcnt?: any;
 
     /**
      * 其他类型任务
@@ -332,7 +332,7 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    misctakcnt?: any;
+    misctaskcnt?: any;
 
     /**
      * 事务类型任务
@@ -340,5 +340,5 @@ export interface ProjectStats {
      * @returns {*}
      * @memberof ProjectStats
      */
-    affairtakcnt?: any;
+    affairtaskcnt?: any;
 }
