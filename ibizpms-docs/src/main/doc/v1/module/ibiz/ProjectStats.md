@@ -2010,10 +2010,11 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 4 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 5 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
-| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [项目质量表查询](#数据查询-项目质量表查询（ProjectQuality）) | ProjectQuality | 否 |
+| 4 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 5 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 6 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -2407,6 +2408,116 @@ FROM
 	`zt_project` t1
 	left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-项目质量表查询（ProjectQuality）
+#### 说明
+项目质量表查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.bugcnt,t1.completetaskcnt,t1.completestorycnt,t1.name,t1.storycnt,t1.taskcnt,t1.bugstory,t1.bugtask,IFNULL(t4.IMPORTANTBUGCNT,0) as IMPORTANTBUGCNT ,IFNULL((IMPORTANTBUGCNT/t1.bugcnt),0)as SERIOUSBUGPROPORTION from (
+SELECT
+	t1.*,
+	IFNULL( t3.bugtask, 0 ) AS bugtask 
+FROM
+	(
+SELECT
+	t1.*,
+	IFNULL( t22.bugstory, 0 ) AS bugstory 
+FROM
+	(
+SELECT
+	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0' ) AS `BUGCNT`,
+	t1.`DELETED`,
+	t1.`END`,
+	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0' ) AS `FINISHBUGCNT`,
+	(SELECT count(1) from zt_task where PROJECT = t1.`ID` AND `STATUS`='done' AND DELETED = '0')as completetaskcnt,
+	(SELECT count(1) from zt_story where  `STAGE` in ('verified','released','closed') AND DELETED = '0')as completestorycnt,
+	t1.`ID`,
+	t1.`NAME`,
+	t1.`STATUS`,
+	(
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_STORY
+	LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	) AS `STORYCNT`,
+	( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ) AS `TASKCNT` 
+FROM
+	`zt_project` t1
+	LEFT JOIN t_ibz_top t2 ON t1.id = t2.OBJECTID 
+	AND t2.type = 'project' 
+	AND t2.ACCOUNT = 'csd123_123' 
+WHERE
+	t1.DELETED = '0' 
+	AND (
+	(
+	t1.acl = 'private' 
+	AND t1.id IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = 'csd123_123' AND t3.type = 'project' ) 
+	) 
+	OR t1.acl = 'open' 
+	) 
+	) t1
+	LEFT JOIN (
+SELECT
+	t1.project,
+	count( 1 ) AS bugstory 
+FROM
+	(
+SELECT
+	t1.project,
+	t1.story,
+	t2.title 
+FROM
+	zt_bug t1
+	LEFT JOIN zt_story t2 ON t1.story = t2.id
+	LEFT JOIN zt_project t22 ON t1.project = t22.id 
+WHERE
+	t1.deleted = '0' 
+	AND t1.project <> '0' 
+	AND t1.story <> '0' 
+	AND t22.deleted = '0' 
+	) t1 
+GROUP BY
+	t1.project 
+	) t22 ON t1.id = t22.project 
+	) t1
+	LEFT JOIN (
+SELECT
+	t1.project,
+	count( 1 ) AS bugtask 
+FROM
+	(
+SELECT
+	t1.project,
+	t1.task,
+	t1.title,
+	t2.NAME 
+FROM
+	zt_bug t1
+	LEFT JOIN zt_task t2 ON t1.task = t2.id
+	LEFT JOIN zt_project t22 ON t1.project = t22.id 
+WHERE
+	t1.deleted = '0' 
+	AND t1.project <> '0' 
+	AND t1.task <> '0' 
+	AND t22.deleted = '0' 
+	) t1 
+GROUP BY
+	t1.project 
+	) t3 ON t1.id = t3.project
+	)t1 Left join (SELECT t1.project, count(1) as IMPORTANTBUGCNT from zt_bug t1 where t1.severity <=3 and t1.deleted='0' and t1.project <> '0' GROUP BY t1.project)t4 on t1.id=t4.project
+```
 ### 数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
 #### 说明
 项目任务统计(任务状态)
@@ -2536,9 +2647,10 @@ FROM `zt_project` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 4 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 5 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 3 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
+| 4 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 5 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 6 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -2568,6 +2680,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [未关闭产品（NoOpenProduct）](#数据查询-未关闭产品（NoOpenProduct）) |
+### 数据集合-项目质量（ProjectQuality）
+#### 说明
+项目质量
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目质量表查询（ProjectQuality）](#数据查询-项目质量表查询（ProjectQuality）) |
 ### 数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
 #### 说明
 项目任务统计(任务状态)

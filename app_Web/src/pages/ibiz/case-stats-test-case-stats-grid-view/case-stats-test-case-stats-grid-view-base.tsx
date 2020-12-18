@@ -361,6 +361,15 @@ export class CaseStatsTestCaseStatsGridViewBase extends GridViewBase {
     }
 
     /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof CaseStatsTestCaseStatsGridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
+
+    /**
      * 是否展开搜索表单
      *
      * @protected

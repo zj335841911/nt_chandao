@@ -284,4 +284,22 @@ export class CompanyStatsCompanyDynamicStatsGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof CompanyStatsCompanyDynamicStatsGridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof CompanyStatsCompanyDynamicStatsGridViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
 }

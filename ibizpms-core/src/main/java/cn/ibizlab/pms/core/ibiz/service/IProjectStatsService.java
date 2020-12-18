@@ -48,6 +48,7 @@ public interface IProjectStatsService extends IService<ProjectStats> {
     void saveBatch(List<ProjectStats> list);
     Page<ProjectStats> searchDefault(ProjectStatsSearchContext context);
     Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectQuality(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectTaskCountByTaskStatus(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectTaskCountByType(ProjectStatsSearchContext context);
     Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context);
