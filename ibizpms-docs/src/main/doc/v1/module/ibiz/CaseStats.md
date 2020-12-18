@@ -678,7 +678,6 @@ FROM
 zt_module t1
 LEFT JOIN zt_case t2 ON t1.id = t2.module
 LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
-where t1.root = #{srf.datacontext.product}
 group by t1.id, t1.`name`
 ```
 ### 数据查询-默认（全部数据）（View）
