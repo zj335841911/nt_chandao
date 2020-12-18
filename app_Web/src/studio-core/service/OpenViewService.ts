@@ -101,14 +101,14 @@ export class OpenViewService {
             if (data.openmode === 'POPUPAPP') {
                 return this.openPopupApp(data.url);
             }
-            if (data.openmode === 'INDEXVIEWTAB' || data.openmode === '') {
-                const viewpath = `${data.viewmodule}_${data.viewname}`.toLowerCase();
+            if (data.openmode === 'INDEXVIEWTAB' || data.openmode === '' || data.openmode === 'POPUP') {
+                // const viewpath = `${data.viewmodule}_${data.viewname}`.toLowerCase();
                 // 所有数据保持在同一级
-                if (params.srfparentdata) {
-                    Object.assign(params, params.srfparentdata);
-                    delete params.srfparentdata;
-                }
-                return this.openRouteView(viewpath, context, params);
+                // if (params.srfparentdata) {
+                //     Object.assign(params, params.srfparentdata);
+                //     delete params.srfparentdata;
+                // }
+                return this.openRouteView(data, context, params);
             }
             const view: any = {
                 viewname: data.component || this.v.$util.srfFilePath2(data.viewname),
@@ -118,11 +118,15 @@ export class OpenViewService {
                 placement: data.openmode,
             };
             switch (data.openmode) {
-                case 'POPUPAPP':
-                    return this.openPopupApp(data.url);
                 case 'POPUPMODAL':
                     return this.openPopupModal(view, context, params);
-                case 'DRAWER':
+                case 'DRAWER_TOP':
+                    return this.openDrawer(view, context, params);
+                case 'DRAWER_BOTTOM':
+                    return this.openDrawer(view, context, params);
+                case 'DRAWER_LEFT':
+                    return this.openDrawer(view, context, params);
+                case 'DRAWER_RIGHT':
                     return this.openDrawer(view, context, params);
                 case 'POPOVER':
                     return this.openPopOver(e, view, context, params);
@@ -138,14 +142,16 @@ export class OpenViewService {
      * @param {*} data
      * @memberof OpenViewService
      */
-    openRouteView(viewPath: string, context: any, data: any): void {
-        const _params = this.v.$util.prepareRouteParams({
-            route: this.v.$route,
-            sourceNode: this.v.$route.name,
-            targetNode: viewPath,
-            data: data,
-        });
-        this.v.$router.push({ name: viewPath, params: _params });
+    openRouteView(viewPath: any, context: any, params: any): void {
+        // const _params = this.v.$util.prepareRouteParams({
+        //     route: this.v.$route,
+        //     sourceNode: this.v.$route.name,
+        //     targetNode: viewPath,
+        //     data: data,
+        // });
+        // this.v.$router.push({ name: viewPath, params: _params });
+        const path: string = this.v.$viewTool.buildUpRoutePath(this.v.$route, context, [], viewPath.parameters, [], params);
+        this.v.$router.push(path);
     }
 
     /**

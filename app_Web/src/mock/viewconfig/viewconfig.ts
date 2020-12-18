@@ -687,6 +687,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_Related",
             "viewtag": "1f87f07919b8496e5bf832f95686fada"
         },
+        "taskstorysubtasknewview": {
+            "title": "子任务",
+            "caption": "子任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskStorySubTaskNewView",
+            "viewtag": "1fb2e83b5cac45eddd44adf32ad9da14"
+        },
         "testtaskmyygridview": {
             "title": "测试单表格视图",
             "caption": "测试版本",

@@ -849,6 +849,16 @@
         "viewtag": "1f87f07919b8496e5bf832f95686fada",
         "memo": ""
     },
+    "taskstorysubtasknewview": {
+        "title": "子任务",
+        "caption": "子任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskStorySubTaskNewView",
+        "viewfilename": "task-story-sub-task-new-view",
+        "viewtag": "1fb2e83b5cac45eddd44adf32ad9da14",
+        "memo": "SRFNAVCTX.project=%project% SRFNAVPARAM.project=%project%"
+    },
     "testtaskmyygridview": {
         "title": "测试单表格视图",
         "caption": "测试版本",
