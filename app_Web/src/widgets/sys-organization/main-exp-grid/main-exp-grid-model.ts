@@ -27,8 +27,8 @@ export default class MainExpModel {
     }else{
 		  return [
         {
-          name: 'orgid',
-          prop: 'orgid',
+          name: 'orgname',
+          prop: 'orgname',
           dataType: 'TEXT',
         },
         {
@@ -37,24 +37,19 @@ export default class MainExpModel {
           dataType: 'TEXT',
         },
         {
-          name: 'domains',
-          prop: 'domains',
+          name: 'orgid',
+          prop: 'orgid',
           dataType: 'TEXT',
-        },
-        {
-          name: 'orgname',
-          prop: 'orgname',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'orglevel',
-          prop: 'orglevel',
-          dataType: 'INT',
         },
         {
           name: 'porgid',
           prop: 'parentorgid',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'orglevel',
+          prop: 'orglevel',
+          dataType: 'INT',
         },
         {
           name: 'srfmajortext',

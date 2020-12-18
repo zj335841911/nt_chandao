@@ -53,11 +53,8 @@ function getLocaleResourceBase(){
 			},
 			mainexp_grid: {
 				columns: {
-					orgid: commonLogic.appcommonhandle("The workflow start node was not found",null),
-					shortname: commonLogic.appcommonhandle("Cancel",null),
-					domains: commonLogic.appcommonhandle("区属",null),
 					orgname: commonLogic.appcommonhandle("名称",null),
-					orglevel: commonLogic.appcommonhandle("单位级别",null),
+					shortname: commonLogic.appcommonhandle("Cancel",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
