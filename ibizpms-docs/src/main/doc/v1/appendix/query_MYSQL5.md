@@ -12473,7 +12473,7 @@ SELECT
 	t1.*,
 	SUM(
 	t1.codeerror + t1.config + t1.designdefect + t1.standard + t1.performance + t1.others + t1.INSTALL + t1.automation + t1.SECURITY 
-	) AS bugcnt 
+	) AS bugsum 
 FROM
 	(
 SELECT
