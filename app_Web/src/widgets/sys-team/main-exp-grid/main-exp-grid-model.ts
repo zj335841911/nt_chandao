@@ -37,16 +37,6 @@ export default class MainExpModel {
           dataType: 'TEXT',
         },
         {
-          name: 'domains',
-          prop: 'domains',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'memo',
-          prop: 'memo',
-          dataType: 'LONGTEXT_1000',
-        },
-        {
           name: 'srfmajortext',
           prop: 'teamname',
           dataType: 'TEXT',

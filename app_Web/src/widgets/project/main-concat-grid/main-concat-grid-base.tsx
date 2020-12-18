@@ -159,27 +159,9 @@ export class MainConcatGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'code',
-            label: '项目代号',
-            langtag: 'entities.project.mainconcat_grid.columns.code',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'status',
             label: '项目状态',
             langtag: 'entities.project.mainconcat_grid.columns.status',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'end',
-            label: '结束日期',
-            langtag: 'entities.project.mainconcat_grid.columns.end',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -288,9 +270,7 @@ export class MainConcatGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'name':false,
-        'code':false,
         'status':false,
-        'end':false,
     };
 
     /**
@@ -386,7 +366,7 @@ export class MainConcatGridBase extends GridControlBase {
     * @memberof MainConcatBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','name','code','status','end'];
+        let allColumns:Array<any> = ['id','name','status'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -467,9 +447,7 @@ export class MainConcatGridBase extends GridControlBase {
                 group: group.label,
                 id:'',
                 name:'',
-                code:'',
                 status:'',
-                end:'',
                 children: children
             }
             groupTree.push(tree);
@@ -496,9 +474,7 @@ export class MainConcatGridBase extends GridControlBase {
             group: '其他',
             id:'',
             name:'',
-            code:'',
             status:'',
-            end:'',
             children: child
         }
         if(child && child.length > 0){
@@ -561,9 +537,7 @@ export class MainConcatGridBase extends GridControlBase {
                 group: group,
                 id:'',
                 name:'',
-                code:'',
                 status:'',
-                end:'',
                 children: children,
             }
             groupTree.push(tree);

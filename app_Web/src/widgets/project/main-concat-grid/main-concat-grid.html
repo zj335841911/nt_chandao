@@ -49,18 +49,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('code')">
-                <el-table-column show-overflow-tooltip :prop="'code'" :label="$t('entities.project.mainconcat_grid.columns.code')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.project.mainconcat_grid.columns.code')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.code}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.project.mainconcat_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -72,18 +60,6 @@
                         <template >
             <codelist :value="row.status" tag="Project__status" codelistType="STATIC" ></codelist>
                         </template>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('end')">
-                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.project.mainconcat_grid.columns.end')" :width="120"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.project.mainconcat_grid.columns.end')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

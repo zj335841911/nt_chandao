@@ -1599,6 +1599,28 @@ public class StaticDict {
 
 
     /**
+     * 代码表[需求评审结果（草稿）]
+     */
+    @Getter
+    public enum Story__review_result_draft {
+        PASS("pass","确认通过"),
+        CLARIFY("clarify","有待明确"),
+        REJECT("reject","拒绝");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Story__review_result_draft(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[用户对象类型]
      */
     @Getter

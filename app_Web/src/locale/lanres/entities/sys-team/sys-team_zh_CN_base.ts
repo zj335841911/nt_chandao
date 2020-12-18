@@ -56,8 +56,6 @@ function getLocaleResourceBase(){
 				columns: {
 					teamid: commonLogic.appcommonhandle("组标识",null),
 					teamname: commonLogic.appcommonhandle("组名称",null),
-					domains: commonLogic.appcommonhandle("区属",null),
-					memo: commonLogic.appcommonhandle("备注",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

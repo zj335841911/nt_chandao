@@ -501,9 +501,7 @@ function getLocaleResourceBase(){
 				columns: {
 					id: commonLogic.appcommonhandle("ID",null),
 					name: commonLogic.appcommonhandle("项目名称",null),
-					code: commonLogic.appcommonhandle("项目代号",null),
 					status: commonLogic.appcommonhandle("项目状态",null),
-					end: commonLogic.appcommonhandle("结束日期",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

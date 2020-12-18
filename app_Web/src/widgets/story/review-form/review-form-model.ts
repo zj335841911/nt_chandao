@@ -71,6 +71,11 @@ export default class ReviewModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'assessresult',
+        prop: 'assessresult',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',
@@ -99,6 +104,11 @@ export default class ReviewModel {
         name: 'assignedto',
         prop: 'assignedto',
         dataType: 'TEXT',
+      },
+      {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'version',
