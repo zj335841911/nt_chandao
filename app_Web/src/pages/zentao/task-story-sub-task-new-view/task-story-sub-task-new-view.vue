@@ -6,7 +6,7 @@ import { TaskStorySubTaskNewViewBase } from './task-story-sub-task-new-view-base
 import view_grid from '@widgets/task/story-sub-task-new-grid/story-sub-task-new-grid.vue';
 
 /**
- * 子任务视图
+ * 需求批量分解视图
  *
  * @export
  * @class TaskStorySubTaskNewView

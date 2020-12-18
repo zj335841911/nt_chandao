@@ -661,7 +661,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
   valueitem='case' 
   :value="data.casename"  
   editortype="linkonly" 
-  :linkview="{ viewname: 'CaseMainDashboardView', title: $t('entities.case.views.maindashboardview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'cases', parameterName: 'case' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 1400, height: 850, placement: 'POPUPMODAL', isRedirectView: false }" 
+  :linkview="{ viewname: 'CaseMainDashboardView', title: $t('entities.case.views.maindashboardview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'cases', parameterName: 'case' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 1400, height: 850, placement: 'DRAWER_TOP', isRedirectView: false }" 
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>

@@ -363,7 +363,7 @@
 |-|usercontact编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW9|&nbsp;|
-|-|子任务|DEGRIDVIEW|&nbsp;SRFNAVCTX.project=%project%
+|-|需求批量分解|DEGRIDVIEW|&nbsp;SRFNAVCTX.project=%project%
 SRFNAVPARAM.project=%project%|
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户联系方式树导航视图|DETREEEXPVIEW|&nbsp;|

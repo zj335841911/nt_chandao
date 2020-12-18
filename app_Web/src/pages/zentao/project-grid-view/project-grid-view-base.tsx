@@ -449,27 +449,14 @@ export class ProjectGridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'project-main-tab-exp-view', 
-            height: 850, 
-            width: 1400,  
-            title: this.$t('entities.project.views.maintabexpview.title'),
-        };
-        openPopupModal(view, data);
+        openIndexViewTab(data);
     }
 
 

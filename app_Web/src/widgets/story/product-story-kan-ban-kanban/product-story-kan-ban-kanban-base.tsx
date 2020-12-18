@@ -733,7 +733,7 @@ export class ProductStoryKanBanKanbanBase extends MainControlBase {
                     title: this.$t('entities.story.views.mainview.title'),
                     width: 1400,
                     height: 850,
-                    placement:'POPUPMODAL'
+                    placement:'DRAWER_TOP'
                 };
             default:
                 return null;

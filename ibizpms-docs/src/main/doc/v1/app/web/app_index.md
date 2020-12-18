@@ -136,7 +136,7 @@
 |-|usercontact编辑视图|实体编辑视图||
 |-|测试报告编辑视图|实体编辑视图||
 |-|需求编辑视图|实体编辑视图（部件视图）||
-|-|子任务|实体表格视图|SRFNAVCTX.project=%project%
+|-|需求批量分解|实体表格视图|SRFNAVCTX.project=%project%
 SRFNAVPARAM.project=%project%|
 |-|测试单表格视图|实体表格视图||
 |-|用户联系方式树导航视图|实体树导航视图||

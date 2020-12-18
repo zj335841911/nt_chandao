@@ -10,7 +10,7 @@ import CodeListService from '@service/app/codelist-service';
 
 
 /**
- * 子任务视图基类
+ * 需求批量分解视图基类
  *
  * @export
  * @class TaskStorySubTaskNewViewBase

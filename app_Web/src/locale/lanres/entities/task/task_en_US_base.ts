@@ -89,8 +89,8 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("任务树导航视图",null),
 				},
 				storysubtasknewview: {
-					caption: commonLogic.appcommonhandle("子任务",null),
-					title: commonLogic.appcommonhandle("子任务",null),
+					caption: commonLogic.appcommonhandle("需求批量分解",null),
+					title: commonLogic.appcommonhandle("需求批量分解",null),
 				},
 				maineditview: {
 					caption: commonLogic.appcommonhandle("任务",null),

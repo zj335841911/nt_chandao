@@ -93,8 +93,8 @@ export class TypeGanttGanttBase extends MainControlBase {
             { pathName: 'tasks', parameterName: 'task' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -110,8 +110,9 @@ export class TypeGanttGanttBase extends MainControlBase {
             height: 850, 
             width: 1400,  
             title: this.$t('entities.task.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
         };
-        openPopupModal(view, data);
+        openDrawer(view, data);
     }
 
 
@@ -143,8 +144,8 @@ export class TypeGanttGanttBase extends MainControlBase {
             { pathName: 'tasks', parameterName: 'task' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, tempContext, data);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -160,8 +161,9 @@ export class TypeGanttGanttBase extends MainControlBase {
             height: 850, 
             width: 1400,  
             title: this.$t('entities.task.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
         };
-        openPopupModal(view, data);
+        openDrawer(view, data);
     }
 
 
