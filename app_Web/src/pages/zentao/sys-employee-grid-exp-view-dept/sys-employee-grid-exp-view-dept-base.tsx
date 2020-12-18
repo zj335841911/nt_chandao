@@ -65,7 +65,7 @@ export class SysEmployeeGridExpViewDeptBase extends GridExpViewBase {
 	 * @memberof SysEmployeeGridExpViewDeptBase
 	 */
     protected customViewParams: any = {
-        'n_mdept_eq': {
+        'n_mdeptid_eq': {
             isRawValue: false,
             value: 'srfparentkey',
         }
