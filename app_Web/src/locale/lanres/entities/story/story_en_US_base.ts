@@ -70,6 +70,7 @@ function getLocaleResourceBase(){
 			ibiz_sourceid: commonLogic.appcommonhandle("来源对象标识",null),
 			ibiz_sourcename: commonLogic.appcommonhandle("来源对象名称",null),
 			storypoints: commonLogic.appcommonhandle("故事点",null),
+			assessresult: commonLogic.appcommonhandle("评审结果",null),
 		},
 			views: {
 				pickupgridview4: {
@@ -375,12 +376,14 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("需求名称",null), 
 					revieweddate: commonLogic.appcommonhandle("评审时间",null), 
 					result: commonLogic.appcommonhandle("评审结果",null), 
+					assessresult: commonLogic.appcommonhandle("评审结果",null), 
 					pri: commonLogic.appcommonhandle("优先级",null), 
 					storypoints: commonLogic.appcommonhandle("故事点",null), 
 					estimate: commonLogic.appcommonhandle("预计工时",null), 
 					preversion: commonLogic.appcommonhandle("之前版本",null), 
 					closedreason: commonLogic.appcommonhandle("拒绝原因",null), 
 					assignedto: commonLogic.appcommonhandle("指派给",null), 
+					status: commonLogic.appcommonhandle("当前状态",null), 
 					version: commonLogic.appcommonhandle("版本号",null), 
 					reviewedby: commonLogic.appcommonhandle("由谁评审",null), 
 					comment: commonLogic.appcommonhandle("备注",null), 

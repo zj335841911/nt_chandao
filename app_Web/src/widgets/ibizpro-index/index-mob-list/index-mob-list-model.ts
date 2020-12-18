@@ -58,7 +58,7 @@ export default class IndexMobModel {
         codelist:{tag:'IndexType',codelistType:'STATIC'},
 			},
 			{
-				name: 'ibizpro_index',
+				name: 'ibizproindex',
 				prop: 'indexid',
 				dataType: 'FONTKEY',
 			},

@@ -45,45 +45,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="systeammember"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'sys-team-member-usr2-grid-view', height: 0,width: 0,title: $t('entities.systeammember.views.usr2gridview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'systeammembers', parameterName: 'systeammember' },
-            { pathName: 'usr2gridview', parameterName: 'usr2gridview' }
-            ]}"
-                            valueitem="srfkey"
-                        >
                             <span>{{row.teamname}}</span>
-                        </app-column-link>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('domains')">
-                <el-table-column show-overflow-tooltip :prop="'domains'" :label="$t('entities.systeam.mainexp_grid.columns.domains')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.systeam.mainexp_grid.columns.domains')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.domains}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('memo')">
-                <el-table-column show-overflow-tooltip :prop="'memo'" :label="$t('entities.systeam.mainexp_grid.columns.memo')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.systeam.mainexp_grid.columns.memo')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.memo}}</span>
                     </template>
                 </el-table-column>
             </template>

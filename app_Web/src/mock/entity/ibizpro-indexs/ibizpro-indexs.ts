@@ -8,8 +8,8 @@ const mockDatas: Array<any> = [
 
 
 //getwflink
-mock.onGet(new RegExp(/^\/wfcore\/pms-app-web\/ibizpro_indices\/[a-zA-Z0-9\-\;]+\/usertasks\/[a-zA-Z0-9\-\;]+\/ways$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: getwflink");
+mock.onGet(new RegExp(/^\/wfcore\/pms-app-web\/ibizproindices\/[a-zA-Z0-9\-\;]+\/usertasks\/[a-zA-Z0-9\-\;]+\/ways$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: getwflink");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -27,8 +27,8 @@ mock.onGet(new RegExp(/^\/wfcore\/pms-app-web\/ibizpro_indices\/[a-zA-Z0-9\-\;]+
 });
 
 // getwfstep
-mock.onGet(new RegExp(/^\/wfcore\/pms-app-web\/ibizpro_indices\/process-definitions-nodes$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: getwfstep");
+mock.onGet(new RegExp(/^\/wfcore\/pms-app-web\/ibizproindices\/process-definitions-nodes$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: getwfstep");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -51,8 +51,8 @@ mock.onGet(new RegExp(/^\/wfcore\/pms-app-web\/ibizpro_indices\/process-definiti
 });
 
 // createBatch
-mock.onPost(new RegExp(/^\/ibizpro_indices\/batch$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: createBatch");
+mock.onPost(new RegExp(/^\/ibizproindices\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: createBatch");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -63,8 +63,8 @@ mock.onPost(new RegExp(/^\/ibizpro_indices\/batch$/)).reply((config: any) => {
 });
 
 // updateBatch
-mock.onPut(new RegExp(/^\/ibizpro_indices\/batch$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: updateBatch");
+mock.onPut(new RegExp(/^\/ibizproindices\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: updateBatch");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -75,8 +75,8 @@ mock.onPut(new RegExp(/^\/ibizpro_indices\/batch$/)).reply((config: any) => {
 });
 
 // removeBatch
-mock.onDelete(new RegExp(/^\/ibizpro_indices\/batch$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: removeBatch");
+mock.onDelete(new RegExp(/^\/ibizproindices\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: removeBatch");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -88,15 +88,15 @@ mock.onDelete(new RegExp(/^\/ibizpro_indices\/batch$/)).reply((config: any) => {
 
 
 // Select
-mock.onGet(new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: Select");
+mock.onGet(new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: Select");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['indexid'];
-    const matchArray:any = new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -116,15 +116,15 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).r
 });
         
 // Create
-mock.onPost(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: Create");
+mock.onPost(new RegExp(/^\/ibizproindices\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: Create");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['indexid'];
-    const matchArray:any = new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -142,15 +142,15 @@ mock.onPost(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((
 });
         
 // Update
-mock.onPut(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: Update");
+mock.onPut(new RegExp(/^\/ibizproindices\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: Update");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['indexid'];
-    const matchArray:any = new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -180,8 +180,8 @@ mock.onPut(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((c
 });
 
 // GetDraft
-mock.onGet(new RegExp(/^\/ibizpro_indices\/getdraft$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: GetDraft");
+mock.onGet(new RegExp(/^\/ibizproindices\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft
     let status = MockAdapter.mockStatus(config);
@@ -196,15 +196,15 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/getdraft$/)).reply((config: any) => {
 });
         
 // CheckKey
-mock.onPost(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: CheckKey");
+mock.onPost(new RegExp(/^\/ibizproindices\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: CheckKey");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['indexid'];
-    const matchArray:any = new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -234,15 +234,15 @@ mock.onPost(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/
 });
         
 // Save
-mock.onPost(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: Save");
+mock.onPost(new RegExp(/^\/ibizproindices\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: Save");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['indexid'];
-    const matchArray:any = new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -272,8 +272,8 @@ mock.onPost(new RegExp(/^\/ibizpro_indices\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).r
 });
     
 // FetchDefault
-mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchdefault$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchDefault");
+mock.onGet(new RegExp(/^\/ibizproindices\/fetchdefault$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -287,8 +287,8 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchdefault$/)).reply((config: any) 
 });
 
 // FetchDefault
-mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchDefault");
+mock.onGet(new RegExp(/^\/ibizproindices\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
@@ -316,8 +316,8 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchdefault(\?[\w-./?%&=,]*)*$/)).re
 });
     
 // FetchIndexDER
-mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchIndexDER");
+mock.onGet(new RegExp(/^\/ibizproindices\/fetchindexder$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: FetchIndexDER");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -331,8 +331,8 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder$/)).reply((config: any)
 });
 
 // FetchIndexDER
-mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: FetchIndexDER");
+mock.onGet(new RegExp(/^\/ibizproindices\/fetchindexder(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: FetchIndexDER");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
@@ -368,15 +368,15 @@ mock.onGet(new RegExp(/^\/ibizpro_indices\/fetchindexder(\?[\w-./?%&=,]*)*$/)).r
 
 
 // Remove
-mock.onDelete(new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: Remove");
+mock.onDelete(new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: Remove");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['indexid'];
-    const matchArray:any = new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -396,15 +396,15 @@ mock.onDelete(new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})$/)).reply(
 });
 
 // Get
-mock.onGet(new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibizpro_index 方法: Get");
+mock.onGet(new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibizproindex 方法: Get");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['indexid'];
-    const matchArray:any = new RegExp(/^\/ibizpro_indices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibizproindices\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

@@ -5680,7 +5680,8 @@ POST
 | 65 | ibiz_sourceid | String | 允许 | 来源对象标识 |
 | 66 | ibiz_sourcename | String | 允许 | 来源对象名称 |
 | 67 | storypoints | String | 允许 | 故事点 |
-| 68 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 68 | assessresult | String | 允许 | 评审结果 |
+| 69 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### StorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -5727,10 +5728,11 @@ POST
 | 40 | n_branchname_like | String | 允许 | 条件字段：branchname<br>条件组合方式：`%like%` |
 | 41 | n_preversion_eq | Integer | 允许 | 条件字段：preversion<br>条件组合方式：`=` |
 | 42 | n_storypoints_eq | String | 允许 | 条件字段：storypoints<br>条件组合方式：`=` |
-| 43 | customcond | String | 允许 | 自定义查询条件 |
-| 44 | customparams | String | 允许 | 自定义查询参数 |
-| 45 | query | String | 允许 | 快速搜索 |
-| 46 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 47 | page | int | 允许 | 当前页数<br>默认值0 |
-| 48 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 49 | sort | String | 允许 | 排序 |
+| 43 | n_assessresult_eq | String | 允许 | 条件字段：assessresult<br>条件组合方式：`=` |
+| 44 | customcond | String | 允许 | 自定义查询条件 |
+| 45 | customparams | String | 允许 | 自定义查询参数 |
+| 46 | query | String | 允许 | 快速搜索 |
+| 47 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 48 | page | int | 允许 | 当前页数<br>默认值0 |
+| 49 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 50 | sort | String | 允许 | 排序 |

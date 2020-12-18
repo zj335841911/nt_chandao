@@ -541,4 +541,12 @@ export interface Story {
      * @memberof Story
      */
     storypoints?: any;
+
+    /**
+     * 评审结果
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    assessresult?: any;
 }

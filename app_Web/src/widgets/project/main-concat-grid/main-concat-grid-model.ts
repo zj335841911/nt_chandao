@@ -37,19 +37,9 @@ export default class MainConcatModel {
           dataType: 'TEXT',
         },
         {
-          name: 'code',
-          prop: 'code',
-          dataType: 'TEXT',
-        },
-        {
           name: 'status',
           prop: 'status',
           dataType: 'SSCODELIST',
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
         },
         {
           name: 'parent',

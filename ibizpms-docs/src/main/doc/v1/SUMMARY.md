@@ -208,8 +208,6 @@
 
   * [iBizPro模块](module/ibizpro.md) 
 
-    * [索引检索](module/ibizpro/IBIZPRO_INDEX.md) 
-
     * [平台产品](module/ibizpro/IBZProProduct.md) 
 
     * [需求](module/ibizpro/IBZProStory.md) 
@@ -219,6 +217,8 @@
     * [系统模板](module/ibizpro/IBZProSysTpl.md) 
 
     * [运行生产系统](module/ibizpro/IBZProSystem.md) 
+
+    * [索引检索](module/ibizpro/IbizproIndex.md) 
 
     * [计划模板](module/ibizpro/IbzPlanTemplet.md) 
 

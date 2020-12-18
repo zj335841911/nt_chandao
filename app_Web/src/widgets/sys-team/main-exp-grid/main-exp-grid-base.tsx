@@ -142,24 +142,6 @@ export class MainExpGridBase extends GridControlBase {
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
-        {
-            name: 'domains',
-            label: '区属',
-            langtag: 'entities.systeam.mainexp_grid.columns.domains',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'memo',
-            label: '备注',
-            langtag: 'entities.systeam.mainexp_grid.columns.memo',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
     ]
 
     /**
@@ -263,8 +245,6 @@ export class MainExpGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'teamid':false,
         'teamname':false,
-        'domains':false,
-        'memo':false,
     };
 
     /**
@@ -352,7 +332,7 @@ export class MainExpGridBase extends GridControlBase {
     * @memberof MainExpBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['teamid','teamname','domains','memo'];
+        let allColumns:Array<any> = ['teamid','teamname'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -433,8 +413,6 @@ export class MainExpGridBase extends GridControlBase {
                 group: group.label,
                 teamid:'',
                 teamname:'',
-                domains:'',
-                memo:'',
                 children: children
             }
             groupTree.push(tree);
@@ -461,8 +439,6 @@ export class MainExpGridBase extends GridControlBase {
             group: '其他',
             teamid:'',
             teamname:'',
-            domains:'',
-            memo:'',
             children: child
         }
         if(child && child.length > 0){
@@ -525,8 +501,6 @@ export class MainExpGridBase extends GridControlBase {
                 group: group,
                 teamid:'',
                 teamname:'',
-                domains:'',
-                memo:'',
                 children: children,
             }
             groupTree.push(tree);

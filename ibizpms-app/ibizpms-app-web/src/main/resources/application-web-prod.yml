@@ -136,7 +136,7 @@ zuul:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibizpro_index:
-      path: /ibizpro_indices/**
+      path: /ibizproindices/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_group:

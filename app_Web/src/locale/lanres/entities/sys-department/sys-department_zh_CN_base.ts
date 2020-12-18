@@ -23,6 +23,21 @@ function getLocaleResourceBase(){
 			updateman: commonLogic.appcommonhandle("更新人",null),
 			updatedate: commonLogic.appcommonhandle("更新时间",null),
 		},
+			views: {
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("部门",null),
+					title: commonLogic.appcommonhandle("部门表格导航视图",null),
+				},
+			},
+			mainexp_grid: {
+				columns: {
+					deptid: commonLogic.appcommonhandle("部门标识",null),
+					deptname: commonLogic.appcommonhandle("部门名称",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

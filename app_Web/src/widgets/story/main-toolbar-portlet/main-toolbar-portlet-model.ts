@@ -216,6 +216,9 @@ export default class MainToolbarModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

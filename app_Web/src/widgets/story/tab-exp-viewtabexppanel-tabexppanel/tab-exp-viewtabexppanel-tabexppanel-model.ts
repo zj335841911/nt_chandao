@@ -216,6 +216,9 @@ export default class TabExpViewtabexppanelModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

@@ -216,6 +216,9 @@ export default class MainPanelModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

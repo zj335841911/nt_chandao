@@ -342,6 +342,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0fe6eb98e96dec0acb915184960ffbeb',
+            viewmodule: 'ou',
+            viewname: 'SysDepartmentGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e843bd954ebbd93fa06a419e07c838e3',
+            ],
+        },
+        {
             viewtag: '103bc77ad54de2476db1d4e9c788cd4e',
             viewmodule: 'zentao',
             viewname: 'ProjectTaskTreeExpView',
@@ -443,7 +453,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '647cee7cf9c101876645c1c5bcec3602',
+                '57a23ead04eda866c6326f0705f595e3',
             ],
         },
         {
@@ -2119,16 +2129,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '647cee7cf9c101876645c1c5bcec3602',
-            viewmodule: 'ou',
-            viewname: 'SysTeamMemberEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'a34f1835a2bc3fef24cf0c7be698e4cf',
-            ],
-        },
-        {
             viewtag: '65129e5f76f96cbb1d2d1c9e9bb2afed',
             viewmodule: 'ibiz',
             viewname: 'TestModuleGridViewBranch',
@@ -2523,7 +2523,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '647cee7cf9c101876645c1c5bcec3602',
+                '57a23ead04eda866c6326f0705f595e3',
             ],
         },
         {
@@ -3534,16 +3534,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'a34f1835a2bc3fef24cf0c7be698e4cf',
-            viewmodule: 'ou',
-            viewname: 'SysTeamMemberUsr2GridViewPostMembers',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '647cee7cf9c101876645c1c5bcec3602',
-            ],
-        },
-        {
             viewtag: 'a3bd82ec712d2e3ad12e716655e960fc',
             viewmodule: 'zentao',
             viewname: 'TestSuiteGridView',
@@ -3814,6 +3804,16 @@ export const viewstate: any = {
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
+            ],
+        },
+        {
+            viewtag: 'ab41bca19c2aa7340fc8ba21788ab56d',
+            viewmodule: 'ou',
+            viewname: 'SysOrganizationGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0fe6eb98e96dec0acb915184960ffbeb',
             ],
         },
         {
@@ -4129,16 +4129,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'aeee411b8bffcf0c30d65557a8deeeee',
-            ],
-        },
-        {
-            viewtag: 'ba70cc2003a4d984ccab95ba36a4a632',
-            viewmodule: 'ou',
-            viewname: 'SysOrganizationUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'e61e97fc70324fe8b112aa7759a3b7b0',
             ],
         },
         {
@@ -4777,16 +4767,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4b2fac9ffaccd974c1ba4c24508197af',
+                'ab41bca19c2aa7340fc8ba21788ab56d',
                 'c826223fec105532e5a0f8a2ad49ee4a',
                 '771b6fe41dab6d75ea3127f8408461e8',
                 'ca485afa013ed409b2274ed390ae7db0',
                 '745687df2b5a067c15598debbcba1fe2',
-                'ba70cc2003a4d984ccab95ba36a4a632',
+                '0fe6eb98e96dec0acb915184960ffbeb',
                 'e843bd954ebbd93fa06a419e07c838e3',
                 '6ad2193a7e06957b40700d3f23ea6f6f',
                 '137cbf2ebd888dcdd6eff40271481f04',
                 'ae72600793a079e5946b182321ddede9',
-                '465f1d3489621f94a90490faa3e0ea0f',
             ],
         },
         {
@@ -5183,15 +5173,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '66ea594caa3b4caf0a9e6944eec6d80c',
-            ],
-        },
-        {
-            viewtag: 'e61e97fc70324fe8b112aa7759a3b7b0',
-            viewmodule: 'ou',
-            viewname: 'SysOrganizationEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {

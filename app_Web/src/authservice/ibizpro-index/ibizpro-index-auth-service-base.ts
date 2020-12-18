@@ -4,16 +4,16 @@ import AuthService from '../auth-service';
  * 索引检索权限服务对象基类
  *
  * @export
- * @class IBIZPRO_INDEXAuthServiceBase
+ * @class IbizproIndexAuthServiceBase
  * @extends {AuthService}
  */
-export default class IBIZPRO_INDEXAuthServiceBase extends AuthService {
+export default class IbizproIndexAuthServiceBase extends AuthService {
 
     /**
-     * Creates an instance of  IBIZPRO_INDEXAuthServiceBase.
+     * Creates an instance of  IbizproIndexAuthServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBIZPRO_INDEXAuthServiceBase
+     * @memberof  IbizproIndexAuthServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -24,7 +24,7 @@ export default class IBIZPRO_INDEXAuthServiceBase extends AuthService {
      *
      * @param {*} mainSateOPPrivs 传入数据操作标识
      * @returns {any}
-     * @memberof IBIZPRO_INDEXAuthServiceBase
+     * @memberof IbizproIndexAuthServiceBase
      */
     public getOPPrivs(mainSateOPPrivs:any):any{
         let curDefaultOPPrivs:any = this.getSysOPPrivs();

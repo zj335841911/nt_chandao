@@ -1,20 +1,20 @@
-import IBIZPRO_INDEXAuthServiceBase from './ibizpro-index-auth-service-base';
+import IbizproIndexAuthServiceBase from './ibizpro-index-auth-service-base';
 
 
 /**
  * 索引检索权限服务对象
  *
  * @export
- * @class IBIZPRO_INDEXAuthService
- * @extends {IBIZPRO_INDEXAuthServiceBase}
+ * @class IbizproIndexAuthService
+ * @extends {IbizproIndexAuthServiceBase}
  */
-export default class IBIZPRO_INDEXAuthService extends IBIZPRO_INDEXAuthServiceBase {
+export default class IbizproIndexAuthService extends IbizproIndexAuthServiceBase {
 
     /**
-     * Creates an instance of  IBIZPRO_INDEXAuthService.
+     * Creates an instance of  IbizproIndexAuthService.
      * 
      * @param {*} [opts={}]
-     * @memberof  IBIZPRO_INDEXAuthService
+     * @memberof  IbizproIndexAuthService
      */
     constructor(opts: any = {}) {
         super(opts);

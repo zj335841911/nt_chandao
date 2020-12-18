@@ -216,6 +216,9 @@ export default class BaseInfoModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

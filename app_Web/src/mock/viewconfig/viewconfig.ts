@@ -343,6 +343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseOptionView",
             "viewtag": "0f44800c5178aa53932ef08d0fc88590"
         },
+        "sysdepartmentgridexpview": {
+            "title": "部门表格导航视图",
+            "caption": "部门",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysDepartmentGridExpView",
+            "viewtag": "0fe6eb98e96dec0acb915184960ffbeb"
+        },
         "projecttasktreeexpview": {
             "title": "项目任务导航视图",
             "caption": "项目",
@@ -3127,6 +3135,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseEditView",
             "viewtag": "9ddace1c12afee8da3f0254a05ba141a"
         },
+        "sysorganizationgridview": {
+            "title": "单位表格视图",
+            "caption": "单位",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysOrganizationGridView",
+            "viewtag": "9e0b0ea115e5d917abdf0fa7513a84cf"
+        },
         "filelistview9": {
             "title": "附件",
             "caption": "附件",
@@ -3446,6 +3462,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskGridView",
             "viewtag": "aae1ade339fe6a2ebe367489f6393db1"
+        },
+        "sysorganizationgridexpview": {
+            "title": "单位表格导航视图",
+            "caption": "单位",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysOrganizationGridExpView",
+            "viewtag": "ab41bca19c2aa7340fc8ba21788ab56d"
         },
         "ibzcaseeditview": {
             "title": "用例库用例编辑视图",

@@ -319,6 +319,7 @@
 |-|case我得收藏|DEGRIDVIEW|&nbsp;|
 |-|我的地盘|DETABEXPVIEW|&nbsp;|
 |-|发布选项操作视图|DEOPTVIEW|&nbsp;|
+|-|部门表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|项目任务导航视图|DETREEEXPVIEW|&nbsp;|
 |-|索引检索列表视图|DELISTVIEW|&nbsp;|
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|
@@ -669,6 +670,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务分页导航视图（更多）|DETABEXPVIEW|&nbsp;|
 |-|产品模块编辑视图|DEEDITVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
+|-|单位表格视图|DEGRIDVIEW|&nbsp;|
 |-|附件|DELISTVIEW9|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|任务数据多项选择视图（汇报）|DEMPICKUPVIEW|&nbsp;|
 |-|项目团队列表视图|DELISTVIEW|&nbsp;|
@@ -709,6 +711,7 @@ SRFNAVPARAM.project=%project%|
 |-|团队|DEGRIDVIEW9|&nbsp;|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
+|-|单位表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|用例库用例编辑视图|DEEDITVIEW|&nbsp;|
 |-|周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|每个解决方案的Bug数统计表格视图|DEGRIDVIEW|&nbsp;|

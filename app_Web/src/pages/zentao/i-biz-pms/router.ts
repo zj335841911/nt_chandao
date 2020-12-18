@@ -5318,20 +5318,6 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-report-my-tab-exp-view/ibz-report-my-tab-exp-view.vue'),
                 },
                 {
-                    path: 'systeammembers/:systeammember?/usr2gridviewpostmembers/:usr2gridviewpostmembers?',
-                    meta: {
-                        caption: 'entities.systeammember.views.usr2gridviewpostmembers.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'systeammembers', parameterName: 'systeammember' },
-                            { pathName: 'usr2gridviewpostmembers', parameterName: 'usr2gridviewpostmembers' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-team-member-usr2-grid-view-post-members/sys-team-member-usr2-grid-view-post-members.vue'),
-                },
-                {
                     path: 'products/:product?/productmodules/:productmodule?/quickcfgview/:quickcfgview?',
                     meta: {
                         caption: 'entities.productmodule.views.quickcfgview.caption',
@@ -9529,6 +9515,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-grid-view9-assigned-to-me/story-grid-view9-assigned-to-me.vue'),
                 },
                 {
+                    path: 'sysorganizations/:sysorganization?/gridexpview/:gridexpview?',
+                    meta: {
+                        caption: 'entities.sysorganization.views.gridexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysorganizations', parameterName: 'sysorganization' },
+                            { pathName: 'gridexpview', parameterName: 'gridexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-organization-grid-exp-view/sys-organization-grid-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/editview_close/:editview_close?',
                     meta: {
                         caption: 'entities.product.views.editview_close.caption',
@@ -10348,6 +10348,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-story-tree-exp-view/product-story-tree-exp-view.vue'),
                 },
                 {
+                    path: 'sysdepartments/:sysdepartment?/gridexpview/:gridexpview?',
+                    meta: {
+                        caption: 'entities.sysdepartment.views.gridexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysdepartments', parameterName: 'sysdepartment' },
+                            { pathName: 'gridexpview', parameterName: 'gridexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-department-grid-exp-view/sys-department-grid-exp-view.vue'),
+                },
+                {
                     path: 'doclibs/:doclib?/pickupview/:pickupview?',
                     meta: {
                         caption: 'entities.doclib.views.pickupview.caption',
@@ -10435,56 +10449,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-sub-plan-grid-view/product-plan-sub-plan-grid-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/testtasks/:testtask?/projectgridview/:projectgridview?',
-                    meta: {
-                        caption: 'entities.testtask.views.projectgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-clipboard',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'testtasks', parameterName: 'testtask' },
-                            { pathName: 'projectgridview', parameterName: 'projectgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-task-project-grid-view/test-task-project-grid-view.vue'),
-                },
-                {
-                    path: 'products/:product?/testtasks/:testtask?/projectgridview/:projectgridview?',
-                    meta: {
-                        caption: 'entities.testtask.views.projectgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-clipboard',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testtasks', parameterName: 'testtask' },
-                            { pathName: 'projectgridview', parameterName: 'projectgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-task-project-grid-view/test-task-project-grid-view.vue'),
-                },
-                {
-                    path: 'testtasks/:testtask?/projectgridview/:projectgridview?',
-                    meta: {
-                        caption: 'entities.testtask.views.projectgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-clipboard',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testtasks', parameterName: 'testtask' },
-                            { pathName: 'projectgridview', parameterName: 'projectgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-task-project-grid-view/test-task-project-grid-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/grouptreeexpview/:grouptreeexpview?',
                     meta: {
                         caption: 'entities.task.views.grouptreeexpview.caption',
@@ -10551,6 +10515,56 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-group-tree-exp-view/task-group-tree-exp-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/testtasks/:testtask?/projectgridview/:projectgridview?',
+                    meta: {
+                        caption: 'entities.testtask.views.projectgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'projectgridview', parameterName: 'projectgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-project-grid-view/test-task-project-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/testtasks/:testtask?/projectgridview/:projectgridview?',
+                    meta: {
+                        caption: 'entities.testtask.views.projectgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'projectgridview', parameterName: 'projectgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-project-grid-view/test-task-project-grid-view.vue'),
+                },
+                {
+                    path: 'testtasks/:testtask?/projectgridview/:projectgridview?',
+                    meta: {
+                        caption: 'entities.testtask.views.projectgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'projectgridview', parameterName: 'projectgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-project-grid-view/test-task-project-grid-view.vue'),
                 },
                 {
                     path: 'docs/:doc?/moremyfavouritestreeview/:moremyfavouritestreeview?',
@@ -10951,13 +10965,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-edit-view/test-task-edit-view.vue'),
                 },
                 {
-                    path: 'ibizpro_indices/:ibizpro_index?/indexpickupview/:indexpickupview?',
+                    path: 'ibizproindices/:ibizproindex?/indexpickupview/:indexpickupview?',
                     meta: {
-                        caption: 'entities.ibizpro_index.views.indexpickupview.caption',
+                        caption: 'entities.ibizproindex.views.indexpickupview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+                            { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
                             { pathName: 'indexpickupview', parameterName: 'indexpickupview' },
                         ],
                         requireAuth: true,
@@ -11064,32 +11078,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view9-story-form-bug/bug-grid-view9-story-form-bug.vue'),
                 },
                 {
-                    path: 'ibizpro_indices/:ibizpro_index?/indexpickupdataview/:indexpickupdataview?',
+                    path: 'ibizproindices/:ibizproindex?/indexpickupdataview/:indexpickupdataview?',
                     meta: {
-                        caption: 'entities.ibizpro_index.views.indexpickupdataview.caption',
+                        caption: 'entities.ibizproindex.views.indexpickupdataview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+                            { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
                             { pathName: 'indexpickupdataview', parameterName: 'indexpickupdataview' },
                         ],
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibizpro/ibizpro-indexindex-pickup-data-view/ibizpro-indexindex-pickup-data-view.vue'),
-                },
-                {
-                    path: 'sysorganizations/:sysorganization?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.sysorganization.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysorganizations', parameterName: 'sysorganization' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-organization-edit-view/sys-organization-edit-view.vue'),
                 },
                 {
                     path: 'files/:file?/productgridview/:productgridview?',
@@ -11283,13 +11283,13 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-monthly-my-received-grid-view/ibz-monthly-my-received-grid-view.vue'),
                 },
                 {
-                    path: 'ibizpro_indices/:ibizpro_index?/listview/:listview?',
+                    path: 'ibizproindices/:ibizproindex?/listview/:listview?',
                     meta: {
-                        caption: 'entities.ibizpro_index.views.listview.caption',
+                        caption: 'entities.ibizproindex.views.listview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizpro_indices', parameterName: 'ibizpro_index' },
+                            { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
                             { pathName: 'listview', parameterName: 'listview' },
                         ],
                         requireAuth: true,
@@ -14292,20 +14292,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-assing-to-view/bug-assing-to-view.vue'),
                 },
                 {
-                    path: 'systeammembers/:systeammember?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.systeammember.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'systeammembers', parameterName: 'systeammember' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-team-member-edit-view/sys-team-member-edit-view.vue'),
-                },
-                {
                     path: 'docs/:doc?/keditview9/:keditview9?',
                     meta: {
                         caption: 'entities.doc.views.keditview9.caption',
@@ -15142,39 +15128,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-build-sub-grid-view-new/bug-build-sub-grid-view-new.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/curprojectgridview/:curprojectgridview?',
-                    meta: {
-                        caption: 'entities.story.views.curprojectgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'curprojectgridview', parameterName: 'curprojectgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-cur-project-grid-view/story-cur-project-grid-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/curprojectgridview/:curprojectgridview?',
-                    meta: {
-                        caption: 'entities.story.views.curprojectgridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'curprojectgridview', parameterName: 'curprojectgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-cur-project-grid-view/story-cur-project-grid-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/mainview9_storyspec/:mainview9_storyspec?',
                     meta: {
                         caption: 'entities.story.views.mainview9_storyspec.caption',
@@ -15206,6 +15159,39 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/curprojectgridview/:curprojectgridview?',
+                    meta: {
+                        caption: 'entities.story.views.curprojectgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'curprojectgridview', parameterName: 'curprojectgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-cur-project-grid-view/story-cur-project-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/curprojectgridview/:curprojectgridview?',
+                    meta: {
+                        caption: 'entities.story.views.curprojectgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'curprojectgridview', parameterName: 'curprojectgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-cur-project-grid-view/story-cur-project-grid-view.vue'),
                 },
                 {
                     path: 'doclibs/:doclib?/customtreeexpview/:customtreeexpview?',
@@ -17431,20 +17417,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-dashboard-info-view/project-dashboard-info-view.vue'),
                 },
                 {
-                    path: 'sysorganizations/:sysorganization?/usr2gridview/:usr2gridview?',
-                    meta: {
-                        caption: 'entities.sysorganization.views.usr2gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysorganizations', parameterName: 'sysorganization' },
-                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-organization-usr2-grid-view/sys-organization-usr2-grid-view.vue'),
-                },
-                {
                     path: 'employeeloads/:employeeload?/editview/:editview?',
                     meta: {
                         caption: 'entities.employeeload.views.editview.caption',
@@ -17520,20 +17492,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-report-sub-grid-view/story-report-sub-grid-view.vue'),
                 },
                 {
-                    path: 'sysemployees/:sysemployee?/usr2gridview/:usr2gridview?',
-                    meta: {
-                        caption: 'entities.sysemployee.views.usr2gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
-                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-employee-usr2-grid-view/sys-employee-usr2-grid-view.vue'),
-                },
-                {
                     path: 'actions/:action?/producttrendslistview9/:producttrendslistview9?',
                     meta: {
                         caption: 'entities.action.views.producttrendslistview9.caption',
@@ -17546,6 +17504,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/action-product-trends-list-view9/action-product-trends-list-view9.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-usr2-grid-view/sys-employee-usr2-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',

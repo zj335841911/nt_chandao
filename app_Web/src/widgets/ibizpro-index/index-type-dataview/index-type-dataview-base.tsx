@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
-import IBIZPRO_INDEXService from '@/service/ibizpro-index/ibizpro-index-service';
+import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
 import IndexTypeService from './index-type-dataview-service';
-import IBIZPRO_INDEXUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
+import IbizproIndexUIService from '@/uiservice/ibizpro-index/ibizpro-index-ui-service';
 
 /**
  * dataview部件基类
@@ -34,10 +34,10 @@ export class IndexTypeDataViewBase extends MainControlBase {
     /**
      * 实体服务对象
      *
-     * @type {IBIZPRO_INDEXService}
+     * @type {IbizproIndexService}
      * @memberof IndexTypeDataViewBase
      */
-    public appEntityService: IBIZPRO_INDEXService = new IBIZPRO_INDEXService({ $store: this.$store });
+    public appEntityService: IbizproIndexService = new IbizproIndexService({ $store: this.$store });
 
     /**
      * 应用实体名称
@@ -46,7 +46,7 @@ export class IndexTypeDataViewBase extends MainControlBase {
      * @type {string}
      * @memberof IndexTypeDataViewBase
      */
-    protected appDeName: string = 'ibizpro_index';
+    protected appDeName: string = 'ibizproindex';
 
     /**
      * 应用实体中文名称
@@ -60,10 +60,10 @@ export class IndexTypeDataViewBase extends MainControlBase {
     /**
      * 界面UI服务对象
      *
-     * @type {IBIZPRO_INDEXUIService}
+     * @type {IbizproIndexUIService}
      * @memberof IndexTypeBase
      */  
-    public appUIService: IBIZPRO_INDEXUIService = new IBIZPRO_INDEXUIService(this.$store);
+    public appUIService: IbizproIndexUIService = new IbizproIndexUIService(this.$store);
 
     /**
      * 获取多项数据
@@ -486,7 +486,7 @@ export class IndexTypeDataViewBase extends MainControlBase {
             });
             let _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction ;
             const context:any = JSON.parse(JSON.stringify(this.context));
-            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ ibizpro_index: keys.join(';') }),Object.assign({ ibizpro_index: keys.join(';') },{viewparams:this.viewparams}), this.showBusyIndicator);
+            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ ibizproindex: keys.join(';') }),Object.assign({ ibizproindex: keys.join(';') },{viewparams:this.viewparams}), this.showBusyIndicator);
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
@@ -560,8 +560,8 @@ export class IndexTypeDataViewBase extends MainControlBase {
                         this.$Notice.error({ title: '错误', desc: 'IBIZPRO_INDEXIndexPickupDataView视图列表updateAction参数未配置' });
                     }else{
                         Object.assign(item,{viewparams:this.viewparams});
-                        if(item.ibizpro_index){
-                            Object.assign(this.context,{ibizpro_index:item.ibizpro_index});
+                        if(item.ibizproindex){
+                            Object.assign(this.context,{ibizproindex:item.ibizproindex});
                         }
                         let response = await this.service.add(this.updateAction,JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
                         successItems.push(JSON.parse(JSON.stringify(response.data)));
