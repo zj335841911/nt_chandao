@@ -175,6 +175,16 @@ function getLocaleResourceBase(){
 			projecttasktypecount_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("项目名称",null),
+					designtaskcnt: commonLogic.appcommonhandle("设计",null),
+					develtaskcnt: commonLogic.appcommonhandle("开发",null),
+					testtaskcnt: commonLogic.appcommonhandle("测试",null),
+					studytaskcnt: commonLogic.appcommonhandle("研究",null),
+					discusstaskcnt: commonLogic.appcommonhandle("讨论",null),
+					uitaskcnt: commonLogic.appcommonhandle("界面",null),
+					affairtaskcnt: commonLogic.appcommonhandle("事务",null),
+					servetaskcnt: commonLogic.appcommonhandle("服务",null),
+					misctaskcnt: commonLogic.appcommonhandle("其他",null),
+					taskcnt: commonLogic.appcommonhandle("总计",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

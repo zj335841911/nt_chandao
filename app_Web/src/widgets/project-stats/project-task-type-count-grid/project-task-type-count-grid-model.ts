@@ -32,6 +32,56 @@ export default class ProjectTaskTypeCountModel {
           dataType: 'TEXT',
         },
         {
+          name: 'designtaskcnt',
+          prop: 'designtaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'develtaskcnt',
+          prop: 'develtaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'testtaskcnt',
+          prop: 'testtaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'studytaskcnt',
+          prop: 'studytaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'discusstaskcnt',
+          prop: 'discusstaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'uitaskcnt',
+          prop: 'uitaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'affairtaskcnt',
+          prop: 'affairtaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'servetaskcnt',
+          prop: 'servetaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'misctaskcnt',
+          prop: 'misctaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'taskcnt',
+          prop: 'taskcnt',
+          dataType: 'INT',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

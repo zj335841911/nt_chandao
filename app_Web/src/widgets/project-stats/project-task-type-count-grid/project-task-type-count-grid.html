@@ -33,21 +33,127 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="project"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'project-main-tab-exp-view', height: 850,width: 1400,title: $t('entities.project.views.maintabexpview.title'),placement: 'POPUPMODAL', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}"
-                            valueitem="srfkey"
-                        >
                             <span>{{row.name}}</span>
-                        </app-column-link>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('designtaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'designtaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.designtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.designtaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.designtaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('develtaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'develtaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.develtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.develtaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.develtaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('testtaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'testtaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.testtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.testtaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.testtaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('studytaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'studytaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.studytaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.studytaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.studytaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('discusstaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'discusstaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.discusstaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.discusstaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.discusstaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uitaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'uitaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.uitaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.uitaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.uitaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('affairtaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'affairtaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.affairtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.affairtaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.affairtaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('servetaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'servetaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.servetaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.servetaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.servetaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('misctaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'misctaskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.misctaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.misctaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.misctaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.projectstats.projecttasktypecount_grid.columns.taskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttasktypecount_grid.columns.taskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskcnt}}</span>
                     </template>
                 </el-table-column>
             </template>
