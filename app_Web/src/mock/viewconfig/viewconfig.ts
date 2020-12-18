@@ -3815,12 +3815,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectModuleTreeExpView",
             "viewtag": "bb8860972029d9947daa3652a4b5d291"
         },
-        "ibz_casestatstestcasestatsgridview": {
+        "casestatstestcasestatsgridview": {
             "title": "测试用例统计表格视图",
             "caption": "用例统计表",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
-            "viewname": "IBZ_CASESTATSTestCaseStatsGridView",
+            "viewname": "CaseStatsTestCaseStatsGridView",
             "viewtag": "bc06c199f827cebb36cfd2a5128e1bca"
         },
         "productmaindashboardview": {

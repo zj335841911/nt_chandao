@@ -4196,7 +4196,7 @@ export const viewstate: any = {
         {
             viewtag: 'bc06c199f827cebb36cfd2a5128e1bca',
             viewmodule: 'ibiz',
-            viewname: 'IBZ_CASESTATSTestCaseStatsGridView',
+            viewname: 'CaseStatsTestCaseStatsGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

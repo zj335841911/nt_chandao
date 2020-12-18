@@ -3378,7 +3378,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/ibz-casestatstest-case-stats-grid-view/ibz-casestatstest-case-stats-grid-view.vue'),
+                    component: () => import('@pages/ibiz/case-stats-test-case-stats-grid-view/case-stats-test-case-stats-grid-view.vue'),
                 },
                 {
                     path: 'productlives/:productlife?/roadmaplistview/:roadmaplistview?',

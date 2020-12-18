@@ -35,9 +35,10 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			default_searchform: {
+			testcasestats_searchform: {
 				details: {
-					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					n_product_eq: commonLogic.appcommonhandle("产品",null), 
 				},
 				uiactions: {
 				},

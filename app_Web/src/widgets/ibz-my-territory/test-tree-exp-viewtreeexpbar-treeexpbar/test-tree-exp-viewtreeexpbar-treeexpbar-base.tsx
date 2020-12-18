@@ -110,7 +110,7 @@ export class TestTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
         }
         if (Object.is(expmode, 'TESTCASESTATS')) {
             return {  
-                viewname: 'ibz-casestatstest-case-stats-grid-view', 
+                viewname: 'case-stats-test-case-stats-grid-view', 
                 parentdata: {},
                 deKeyField:'casestats'
 			};

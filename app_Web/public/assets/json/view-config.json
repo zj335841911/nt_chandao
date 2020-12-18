@@ -4759,13 +4759,13 @@
         "viewtag": "bb8860972029d9947daa3652a4b5d291",
         "memo": ""
     },
-    "ibz_casestatstestcasestatsgridview": {
+    "casestatstestcasestatsgridview": {
         "title": "测试用例统计表格视图",
         "caption": "用例统计表",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",
-        "viewname": "IBZ_CASESTATSTestCaseStatsGridView",
-        "viewfilename": "ibz-casestatstest-case-stats-grid-view",
+        "viewname": "CaseStatsTestCaseStatsGridView",
+        "viewfilename": "case-stats-test-case-stats-grid-view",
         "viewtag": "bc06c199f827cebb36cfd2a5128e1bca",
         "memo": ""
     },
