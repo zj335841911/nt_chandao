@@ -68,6 +68,7 @@ export default {
     ibiz_sourceid: "来源对象标识",
     ibiz_sourcename: "来源对象名称",
     storypoints: "故事点",
+    assessresult: "评审结果",
   },
 	views: {
 		newmobeditview: {

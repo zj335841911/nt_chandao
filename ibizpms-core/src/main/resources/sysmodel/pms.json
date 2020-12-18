@@ -9790,6 +9790,120 @@
  }
     ,
     {
+    "entity_name":"IBZ_CASESTATS",
+    "logic_name":"测试用例统计",
+    "code_name":"IBZ_CASESTATS",
+    "table_name":"zt_case",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"用例编号",
+    "entity_name":"IBZ_CASESTATS",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TITLE" ,
+    "codename":"Title",
+    "field_logic_name":"用例标题",
+    "entity_name":"IBZ_CASESTATS",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"MODULE" ,
+    "codename":"Module",
+    "field_logic_name":"模块",
+    "entity_name":"IBZ_CASESTATS",
+    "ref_de":"ZT_MODULE",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_CASESTATS_ZT_MODULE_MODULE",
+    "relation_codename":"ZTModule",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MODULENAME" ,
+    "codename":"Modulename",
+    "field_logic_name":"模块名称",
+    "entity_name":"IBZ_CASESTATS",
+    "ref_de":"ZT_MODULE",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZ_CASESTATS_ZT_MODULE_MODULE",
+    "relation_codename":"ZTModule",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOTALCASE" ,
+    "codename":"Totalcase",
+    "field_logic_name":"总用例数",
+    "entity_name":"IBZ_CASESTATS",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PASSCASE" ,
+    "codename":"Passcase",
+    "field_logic_name":"通过用例数",
+    "entity_name":"IBZ_CASESTATS",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    {"name":"DER1N_IBZ_CASESTATS_ZT_MODULE_MODULE",
+     "relation_type":"DER1N",
+     "code_name":"ZTModule",
+     "entity_name":"IBZ_CASESTATS",
+     "ref_entity_name":"ZT_MODULE"
+    }
+    ]
+ }
+    ,
+    {
     "entity_name":"IBZ_DOC",
     "logic_name":"文档",
     "code_name":"IBzDoc",
@@ -17118,6 +17232,12 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_CASESTATS_ZT_MODULE_MODULE",
+     "relation_type":"DER1N",
+     "code_name":"ZTModule",
+     "entity_name":"IBZ_CASESTATS",
+     "ref_entity_name":"ZT_MODULE"
+    },
     {"name":"DER1N_ZT_BUG_ZT_MODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"ZTModule",

@@ -14,6 +14,8 @@
 
     * [员工负载表](module/ibiz/EmpLoyeeload.md) 
 
+    * [测试用例统计](module/ibiz/IBZ_CASESTATS.md) 
+
     * [文档](module/ibiz/IBzDoc.md) 
 
     * [实体](module/ibiz/IbiLogin.md) 

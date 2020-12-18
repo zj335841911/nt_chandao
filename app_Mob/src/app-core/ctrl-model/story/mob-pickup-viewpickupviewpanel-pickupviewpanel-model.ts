@@ -216,6 +216,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

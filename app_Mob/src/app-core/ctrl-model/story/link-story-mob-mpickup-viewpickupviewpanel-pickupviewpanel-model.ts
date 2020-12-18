@@ -216,6 +216,9 @@ export class LinkStoryMobMPickupViewpickupviewpanelModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

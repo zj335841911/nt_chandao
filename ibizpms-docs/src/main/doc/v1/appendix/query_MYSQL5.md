@@ -7063,6 +7063,31 @@ FROM `T_IBZPRO_SYSTEM` t1
 
 ```
 
+# **测试用例统计**(IBZ_CASESTATS)
+
+### 数据查询(DEFAULT)<div id="IBZ_CASESTATS_Default"></div>
+```sql
+SELECT
+t1.`ID`,
+t1.`MODULE`,
+0 AS `PASSCASE`,
+t1.`TITLE`,
+0 AS `TOTALCASE`
+FROM `zt_case` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IBZ_CASESTATS_View"></div>
+```sql
+SELECT
+t1.`ID`,
+t1.`MODULE`,
+0 AS `PASSCASE`,
+t1.`TITLE`,
+0 AS `TOTALCASE`
+FROM `zt_case` t1 
+
+```
+
 # **文档**(IBZ_DOC)
 
 ### 产品下所有文档（用户）(AllDoc)<div id="IBzDoc_AllDoc"></div>

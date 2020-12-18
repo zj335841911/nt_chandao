@@ -10,11 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
-| 2 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
-| 3 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
-| 4 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
-| 5 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
+| 1 | [测试用例统计（IBZ_CASESTATS）](../ibiz/IBZ_CASESTATS) | （默认） |
+| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 4 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
+| 5 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 6 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |

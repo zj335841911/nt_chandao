@@ -216,6 +216,9 @@ export class MyStoryModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 
