@@ -466,11 +466,10 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'result') || Object.is(name, 'version')) {
+        if (Object.is(name, '') || Object.is(name, 'result')) {
             let ret = true;
             const _result = this.data.result;
-            const _version = this.data.version;
-            if (this.$verify.testCond(_result, 'NOTEQ', 'revert') || this.$verify.testCond(_version, 'EQ', '1')) {
+            if (this.$verify.testCond(_result, 'NOTEQ', 'revert')) {
                 ret = false;
             }
             this.detailsModel.preversion.required = ret;

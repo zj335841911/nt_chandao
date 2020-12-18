@@ -343,6 +343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseOptionView",
             "viewtag": "0f44800c5178aa53932ef08d0fc88590"
         },
+        "sysdepartmentgridexpview": {
+            "title": "部门表格导航视图",
+            "caption": "部门",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysDepartmentGridExpView",
+            "viewtag": "0fe6eb98e96dec0acb915184960ffbeb"
+        },
         "projecttasktreeexpview": {
             "title": "项目任务导航视图",
             "caption": "项目",

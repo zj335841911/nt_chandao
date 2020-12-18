@@ -319,6 +319,7 @@
 |-|case我得收藏|DEGRIDVIEW|&nbsp;|
 |-|我的地盘|DETABEXPVIEW|&nbsp;|
 |-|发布选项操作视图|DEOPTVIEW|&nbsp;|
+|-|部门表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|项目任务导航视图|DETREEEXPVIEW|&nbsp;|
 |-|索引检索列表视图|DELISTVIEW|&nbsp;|
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|

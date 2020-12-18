@@ -10348,6 +10348,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-story-tree-exp-view/product-story-tree-exp-view.vue'),
                 },
                 {
+                    path: 'sysdepartments/:sysdepartment?/gridexpview/:gridexpview?',
+                    meta: {
+                        caption: 'entities.sysdepartment.views.gridexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysdepartments', parameterName: 'sysdepartment' },
+                            { pathName: 'gridexpview', parameterName: 'gridexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-department-grid-exp-view/sys-department-grid-exp-view.vue'),
+                },
+                {
                     path: 'doclibs/:doclib?/pickupview/:pickupview?',
                     meta: {
                         caption: 'entities.doclib.views.pickupview.caption',
@@ -17520,20 +17534,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-report-sub-grid-view/story-report-sub-grid-view.vue'),
                 },
                 {
-                    path: 'sysemployees/:sysemployee?/usr2gridview/:usr2gridview?',
-                    meta: {
-                        caption: 'entities.sysemployee.views.usr2gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
-                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-employee-usr2-grid-view/sys-employee-usr2-grid-view.vue'),
-                },
-                {
                     path: 'actions/:action?/producttrendslistview9/:producttrendslistview9?',
                     meta: {
                         caption: 'entities.action.views.producttrendslistview9.caption',
@@ -17546,6 +17546,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/action-product-trends-list-view9/action-product-trends-list-view9.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-usr2-grid-view/sys-employee-usr2-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',

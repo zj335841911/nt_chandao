@@ -419,6 +419,16 @@
         "viewtag": "0f44800c5178aa53932ef08d0fc88590",
         "memo": ""
     },
+    "sysdepartmentgridexpview": {
+        "title": "部门表格导航视图",
+        "caption": "部门",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysDepartmentGridExpView",
+        "viewfilename": "sys-department-grid-exp-view",
+        "viewtag": "0fe6eb98e96dec0acb915184960ffbeb",
+        "memo": ""
+    },
     "projecttasktreeexpview": {
         "title": "项目任务导航视图",
         "caption": "项目",

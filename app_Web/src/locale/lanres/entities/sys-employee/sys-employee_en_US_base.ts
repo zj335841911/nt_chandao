@@ -121,6 +121,16 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			expmaindept_grid: {
+				columns: {
+					userid: commonLogic.appcommonhandle("用户标识",null),
+					personname: commonLogic.appcommonhandle("姓名",null),
+					nickname: commonLogic.appcommonhandle("昵称别名",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			expmainprojectmember_grid: {
 				columns: {
 					userid: commonLogic.appcommonhandle("用户标识",null),
@@ -132,16 +142,6 @@ function getLocaleResourceBase(){
 				},
 			},
 			expmain_grid: {
-				columns: {
-					userid: commonLogic.appcommonhandle("用户标识",null),
-					personname: commonLogic.appcommonhandle("姓名",null),
-					nickname: commonLogic.appcommonhandle("昵称别名",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
-			expmaindept_grid: {
 				columns: {
 					userid: commonLogic.appcommonhandle("用户标识",null),
 					personname: commonLogic.appcommonhandle("姓名",null),

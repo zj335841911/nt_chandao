@@ -342,6 +342,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0fe6eb98e96dec0acb915184960ffbeb',
+            viewmodule: 'ou',
+            viewname: 'SysDepartmentGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e843bd954ebbd93fa06a419e07c838e3',
+            ],
+        },
+        {
             viewtag: '103bc77ad54de2476db1d4e9c788cd4e',
             viewmodule: 'zentao',
             viewname: 'ProjectTaskTreeExpView',
@@ -4781,12 +4791,12 @@ export const viewstate: any = {
                 '771b6fe41dab6d75ea3127f8408461e8',
                 'ca485afa013ed409b2274ed390ae7db0',
                 '745687df2b5a067c15598debbcba1fe2',
+                '0fe6eb98e96dec0acb915184960ffbeb',
                 'ba70cc2003a4d984ccab95ba36a4a632',
                 'e843bd954ebbd93fa06a419e07c838e3',
                 '6ad2193a7e06957b40700d3f23ea6f6f',
                 '137cbf2ebd888dcdd6eff40271481f04',
                 'ae72600793a079e5946b182321ddede9',
-                '465f1d3489621f94a90490faa3e0ea0f',
             ],
         },
         {
