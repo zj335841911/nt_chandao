@@ -10,6 +10,9 @@ package iBiz增强模块 {
 class Bug统计 {
 }
 
+class 测试用例统计 {
+}
+
 class 文档库分类 {
 }
 
@@ -17,9 +20,6 @@ class 动态数据看板 {
 }
 
 class 员工负载表 {
-}
-
-class 测试用例统计 {
 }
 
 class 文档 {
@@ -147,10 +147,10 @@ hide members
 | 实体编号    |    实体名称    |  实体类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |IBZ_BUGSTATS|[Bug统计](ibiz/BugStats.md)|主实体|&nbsp;|
+|IBZ_CASESTATS|[测试用例统计](ibiz/CaseStats.md)|主实体|&nbsp;|
 |IBZ_DOCLIBMODULE|[文档库分类](ibiz/DocLibModule.md)|主实体|&nbsp;|
 |DYNADASHBOARD|[动态数据看板](ibiz/DynaDashboard.md)|主实体|&nbsp;|
 |IBZ_EMPLOYEELOAD|[员工负载表](ibiz/EmpLoyeeload.md)|主实体|&nbsp;|
-|IBZ_CASESTATS|[测试用例统计](ibiz/IBZ_CASESTATS.md)|主实体|&nbsp;|
 |IBZ_DOC|[文档](ibiz/IBzDoc.md)|主实体|&nbsp;|
 |IBZ_LOGIN|[实体](ibiz/IbiLogin.md)|主实体|&nbsp;|
 |IBZ_CASE|[测试用例](ibiz/IbzCase.md)|主实体|&nbsp;|

@@ -41,7 +41,7 @@ pms-webapi
 | 27 | [人员](1/SysEmployee) | sysemployee |  |
 | 28 | [测试套件](1/TestSuite) | testsuite |  |
 | 29 | [用户年度工作内容统计](1/UserYearWorkStats) | useryearworkstats |  |
-| 30 | [测试用例统计](1/IBZ_CASESTATS) | ibz_casestats |  |
+| 30 | [测试用例统计](1/CaseStats) | casestats |  |
 | 31 | [项目](1/Project) | project |  |
 | 32 | [附件](1/File) | file |  |
 | 33 | [测试报告](1/TestReport) | testreport |  |

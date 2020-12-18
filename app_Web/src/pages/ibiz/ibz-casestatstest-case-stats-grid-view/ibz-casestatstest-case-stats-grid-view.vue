@@ -3,8 +3,8 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IBZ_CASESTATSTestCaseStatsGridViewBase } from './ibz-casestatstest-case-stats-grid-view-base';
-import view_grid from '@widgets/ibz-casestats/test-case-stats-grid/test-case-stats-grid.vue';
-import view_searchform from '@widgets/ibz-casestats/default-searchform/default-searchform.vue';
+import view_grid from '@widgets/case-stats/test-case-stats-grid/test-case-stats-grid.vue';
+import view_searchform from '@widgets/case-stats/default-searchform/default-searchform.vue';
 
 /**
  * 测试用例统计表格视图视图

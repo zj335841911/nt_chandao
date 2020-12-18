@@ -50,7 +50,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IIBZ_CASESTATSService ibzCasestatsService;
+    protected cn.ibizlab.pms.core.ibiz.service.ICaseStatsService casestatsService;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;

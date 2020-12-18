@@ -112,7 +112,7 @@ export class TestTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
             return {  
                 viewname: 'ibz-casestatstest-case-stats-grid-view', 
                 parentdata: {},
-                deKeyField:'ibz_casestats'
+                deKeyField:'casestats'
 			};
         }
         if (Object.is(expmode, 'BUGASSIGNEDTO')) {

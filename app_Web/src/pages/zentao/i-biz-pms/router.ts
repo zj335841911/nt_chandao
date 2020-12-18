@@ -3367,13 +3367,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-main-my-grid-view/project-main-my-grid-view.vue'),
                 },
                 {
-                    path: 'ibz_casestats/:ibz_casestats?/testcasestatsgridview/:testcasestatsgridview?',
+                    path: 'casestats/:casestats?/testcasestatsgridview/:testcasestatsgridview?',
                     meta: {
-                        caption: 'entities.ibz_casestats.views.testcasestatsgridview.caption',
+                        caption: 'entities.casestats.views.testcasestatsgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibz_casestats', parameterName: 'ibz_casestats' },
+                            { pathName: 'casestats', parameterName: 'casestats' },
                             { pathName: 'testcasestatsgridview', parameterName: 'testcasestatsgridview' },
                         ],
                         requireAuth: true,

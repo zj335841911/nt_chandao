@@ -20,6 +20,9 @@ package iBiz增强模块 {
 class Bug统计 {
 }
 
+class 测试用例统计 {
+}
+
 class 文档库分类 {
 }
 
@@ -27,9 +30,6 @@ class 动态数据看板 {
 }
 
 class 员工负载表 {
-}
-
-class 测试用例统计 {
 }
 
 class 文档 {

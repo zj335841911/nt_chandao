@@ -2,10 +2,10 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
-import IBZ_CASESTATSService from '@/service/ibz-casestats/ibz-casestats-service';
-import IBZ_CASESTATSAuthService from '@/authservice/ibz-casestats/ibz-casestats-auth-service';
+import CaseStatsService from '@/service/case-stats/case-stats-service';
+import CaseStatsAuthService from '@/authservice/case-stats/case-stats-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
-import IBZ_CASESTATSUIService from '@/uiservice/ibz-casestats/ibz-casestats-ui-service';
+import CaseStatsUIService from '@/uiservice/case-stats/case-stats-ui-service';
 import CodeListService from '@service/app/codelist-service';
 
 
@@ -24,7 +24,7 @@ export class IBZ_CASESTATSTestCaseStatsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IBZ_CASESTATSTestCaseStatsGridViewBase
      */
-    protected appDeName: string = 'ibz_casestats';
+    protected appDeName: string = 'casestats';
 
     /**
      * 应用实体主键
@@ -56,18 +56,18 @@ export class IBZ_CASESTATSTestCaseStatsGridViewBase extends GridViewBase {
     /**
      * 实体服务对象
      *
-     * @type {IBZ_CASESTATSService}
+     * @type {CaseStatsService}
      * @memberof IBZ_CASESTATSTestCaseStatsGridViewBase
      */
-    protected appEntityService: IBZ_CASESTATSService = new IBZ_CASESTATSService;
+    protected appEntityService: CaseStatsService = new CaseStatsService;
 
     /**
      * 实体权限服务对象
      *
-     * @type IBZ_CASESTATSUIService
+     * @type CaseStatsUIService
      * @memberof IBZ_CASESTATSTestCaseStatsGridViewBase
      */
-    public appUIService: IBZ_CASESTATSUIService = new IBZ_CASESTATSUIService(this.$store);
+    public appUIService: CaseStatsUIService = new CaseStatsUIService(this.$store);
 
     /**
      * 视图模型数据
@@ -77,9 +77,9 @@ export class IBZ_CASESTATSTestCaseStatsGridViewBase extends GridViewBase {
      * @memberof IBZ_CASESTATSTestCaseStatsGridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.ibz_casestats.views.testcasestatsgridview.caption',
-        srfTitle: 'entities.ibz_casestats.views.testcasestatsgridview.title',
-        srfSubTitle: 'entities.ibz_casestats.views.testcasestatsgridview.subtitle',
+        srfCaption: 'entities.casestats.views.testcasestatsgridview.caption',
+        srfTitle: 'entities.casestats.views.testcasestatsgridview.title',
+        srfSubTitle: 'entities.casestats.views.testcasestatsgridview.subtitle',
         dataInfo: '',
     };
 
@@ -112,7 +112,7 @@ export class IBZ_CASESTATSTestCaseStatsGridViewBase extends GridViewBase {
      * @memberof IBZ_CASESTATSTestCaseStatsGridView
      */
     public toolBarModels: any = {
-        deuiaction7: { name: 'deuiaction7', caption: 'entities.ibz_casestats.testcasestatsgridviewtoolbar_toolbar.deuiaction7.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibz_casestats.testcasestatsgridviewtoolbar_toolbar.deuiaction7.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction7: { name: 'deuiaction7', caption: 'entities.casestats.testcasestatsgridviewtoolbar_toolbar.deuiaction7.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.casestats.testcasestatsgridviewtoolbar_toolbar.deuiaction7.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -174,7 +174,7 @@ export class IBZ_CASESTATSTestCaseStatsGridViewBase extends GridViewBase {
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,
-            keyPSDEField: 'ibz_casestats',
+            keyPSDEField: 'casestats',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -306,7 +306,7 @@ export class IBZ_CASESTATSTestCaseStatsGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"IBZ_CASESTATS");
+        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"CaseStats");
     }
 
     /**

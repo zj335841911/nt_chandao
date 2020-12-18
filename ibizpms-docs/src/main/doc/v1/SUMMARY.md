@@ -8,13 +8,13 @@
 
     * [Bug统计](module/ibiz/BugStats.md) 
 
+    * [测试用例统计](module/ibiz/CaseStats.md) 
+
     * [文档库分类](module/ibiz/DocLibModule.md) 
 
     * [动态数据看板](module/ibiz/DynaDashboard.md) 
 
     * [员工负载表](module/ibiz/EmpLoyeeload.md) 
-
-    * [测试用例统计](module/ibiz/IBZ_CASESTATS.md) 
 
     * [文档](module/ibiz/IBzDoc.md) 
 

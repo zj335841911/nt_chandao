@@ -4789,6 +4789,55 @@ WHERE t1.DELETED = '0'
 
 ```
 
+# **测试用例统计**(IBZ_CASESTATS)
+
+### 数据查询(DEFAULT)<div id="CaseStats_Default"></div>
+```sql
+SELECT
+0 AS `BLOCKEDCASE`,
+0 AS `FAILCASE`,
+t1.`ID`,
+t1.`MODULE`,
+0 AS `PASSCASE`,
+t1.`TITLE`,
+0 AS `TOTALCASE`,
+0 AS `TOTALRUNCASE`
+FROM `zt_case` t1 
+
+```
+### 测试用例统计(TestCaseStats)<div id="CaseStats_TestCaseStats"></div>
+```sql
+SELECT
+t1.id, 
+t1.`name`, 
+count(distinct t2.id) as TotalCase, 
+sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
+sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
+sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
+sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRun,
+case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
+FROM
+zt_module t1
+LEFT JOIN zt_case t2 ON t1.id = t2.module
+LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
+where t1.root = #{srf.datacontext.product}
+group by t1.id, t1.`name`
+```
+### 默认（全部数据）(VIEW)<div id="CaseStats_View"></div>
+```sql
+SELECT
+0 AS `BLOCKEDCASE`,
+0 AS `FAILCASE`,
+t1.`ID`,
+t1.`MODULE`,
+0 AS `PASSCASE`,
+t1.`TITLE`,
+0 AS `TOTALCASE`,
+0 AS `TOTALRUNCASE`
+FROM `zt_case` t1 
+
+```
+
 # **用例步骤**(ZT_CASESTEP)
 
 ### 当前测试步骤(CurTest)<div id="CaseStep_CurTest"></div>
@@ -7060,55 +7109,6 @@ t1.`IBZPRO_SYSTEMNAME`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZPRO_SYSTEM` t1 
-
-```
-
-# **测试用例统计**(IBZ_CASESTATS)
-
-### 数据查询(DEFAULT)<div id="IBZ_CASESTATS_Default"></div>
-```sql
-SELECT
-0 AS `BLOCKEDCASE`,
-0 AS `FAILCASE`,
-t1.`ID`,
-t1.`MODULE`,
-0 AS `PASSCASE`,
-t1.`TITLE`,
-0 AS `TOTALCASE`,
-0 AS `TOTALRUNCASE`
-FROM `zt_case` t1 
-
-```
-### 测试用例统计(TestCaseStats)<div id="IBZ_CASESTATS_TestCaseStats"></div>
-```sql
-SELECT
-t1.id, 
-t1.`name`, 
-count(distinct t2.id) as TotalCase, 
-sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
-sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
-sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
-sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRun,
-case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
-FROM
-zt_module t1
-LEFT JOIN zt_case t2 ON t1.id = t2.module
-LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
-where t1.root = #{srf.datacontext.product}
-group by t1.id, t1.`name`
-```
-### 默认（全部数据）(VIEW)<div id="IBZ_CASESTATS_View"></div>
-```sql
-SELECT
-0 AS `BLOCKEDCASE`,
-0 AS `FAILCASE`,
-t1.`ID`,
-t1.`MODULE`,
-0 AS `PASSCASE`,
-t1.`TITLE`,
-0 AS `TOTALCASE`,
-0 AS `TOTALRUNCASE`
-FROM `zt_case` t1 
 
 ```
 

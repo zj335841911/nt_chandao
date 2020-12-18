@@ -134,7 +134,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('pssystemdbcfg', () => import('@/authservice/pssystem-dbcfg/pssystem-dbcfg-auth-service'));
         this.allAuthService.set('sysupdatefeatures', () => import('@/authservice/sys-update-features/sys-update-features-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
-        this.allAuthService.set('ibz_casestats', () => import('@/authservice/ibz-casestats/ibz-casestats-auth-service'));
+        this.allAuthService.set('casestats', () => import('@/authservice/case-stats/case-stats-auth-service'));
         this.allAuthService.set('dynadashboard', () => import('@/authservice/dyna-dashboard/dyna-dashboard-auth-service'));
         this.allAuthService.set('sysemployee', () => import('@/authservice/sys-employee/sys-employee-auth-service'));
     }
