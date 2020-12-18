@@ -103,6 +103,14 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof ProjectTaskTypeCountGridBase
+     */
+    public limit: number = 500;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
