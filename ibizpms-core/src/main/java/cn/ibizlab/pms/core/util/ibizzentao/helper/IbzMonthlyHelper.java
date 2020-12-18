@@ -231,7 +231,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
 
     // 获取上个月计划本月完成的任务
     public IbzMonthly getLastMonthlyPlans(IbzMonthly et) {
-        List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH),'%Y-%m')"));
+        List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(DATE_SUB('" + et.getDate() + "', INTERVAL 1 MONTH),'%Y-%m')"));
         if (list.size() > 0) {
             IbzMonthly last = list.get(0);
             et.setThismonthtask(last.getNextmonthplanstask());
