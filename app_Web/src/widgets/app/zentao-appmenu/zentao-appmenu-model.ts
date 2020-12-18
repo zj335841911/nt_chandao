@@ -286,7 +286,7 @@ export default class ZentaoModel {
                 	tooltip: '全文检索',
                 	expanded: false,
                 	separator: false,
-                	hidden: false,
+                	hidden: true,
                 	hidesidebar: false,
                 	opendefault: false,
                 	iconcls: '',

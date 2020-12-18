@@ -161,6 +161,7 @@
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_Default))|否|&nbsp;|
 |NOOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_NoOpenProduct))|否|&nbsp;|
+|ProjectInputStats|项目投入统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectInputStats))|否|&nbsp;|
 |ProjectQuality|项目质量表查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectQuality))|否|&nbsp;|
 |ProjectTaskCountByTaskStatus|项目任务统计(任务状态)([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectTaskCountByTaskStatus))|否|&nbsp;|
 |ProjectTaskCountByType|项目任务类型统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectTaskCountByType))|否|&nbsp;|
