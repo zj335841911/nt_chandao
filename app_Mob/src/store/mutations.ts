@@ -302,3 +302,14 @@ export const setPopupStatus = (state: any, val: any) => {
 export const setSearchformStatus = (state: any, val: any) => {
   state.searchformStatus = val;
 }
+
+/**
+ * 添加部门成员
+ * 
+ * @param state 
+ * @param codelists 
+ */
+export const addDepartmentPersonnel = (state: any, departmentPersonnel: Array<any>) => {
+  state.departmentPersonnel = [];
+  state.departmentPersonnel = [...departmentPersonnel];
+}

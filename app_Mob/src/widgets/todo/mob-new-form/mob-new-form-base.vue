@@ -228,7 +228,7 @@
   name="status"
   :value='data.status'
   valueitem=""
-  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  url="/sysorganizations/{deptId}/sysemployees/picker"
   
   :multiple="false"
   filter="srforgid"

@@ -148,5 +148,7 @@ export const AppComponents = {
         v.component('app-select-tree-list',() => import('@/components/app-select-tree-list/app-select-tree-list.vue'));
         // 上下文菜单
         v.component('app-mob-context-menu',() => import('@/components/app-mob-context-menu/app-mob-context-menu.vue'));
+        // 人员部门选择器
+        v.component('app-mob-department-personnel',() => import('@/components/app-mob-department-personnel/app-mob-department-personnel.vue'));
     },
 };

@@ -86,3 +86,12 @@ export const getZIndex = (state: any) => () => {
 export const getSearchformStatus = (state: any) => {
     return state.searchformStatus;
   }
+
+/**
+ * 获取部门成员
+ * 
+ * @param state 
+ */
+export const getDepartmentPersonnel = (state: any) => () => {
+  return state.departmentPersonnel;
+}
