@@ -120764,6 +120764,7 @@ CREATE TABLE `zt_module`(
 | UNCONFIRMEDBUGCNT        | 未确认Bug总数  | INTEGER      |   -1   | &nbsp; |
 | STATUS        | 状态  | VARCHAR      |   100   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
+| SERIOUSBUGPROPORTION        | 严重Bug比率  | VARCHAR      |   200   | &nbsp; |
 | UNCLOSEDSTORYCNT        | 未关闭需求总数  | INTEGER      |   -1   | &nbsp; |
 | END        | 截止日期  | DATETIME      |   -1   | &nbsp; |
 | STORYCNT        | 需求总数  | INTEGER      |   -1   | &nbsp; |

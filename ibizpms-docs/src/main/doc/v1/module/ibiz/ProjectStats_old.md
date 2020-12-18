@@ -53,6 +53,10 @@
 |事务类型任务|AFFAIRTASKCNT|INT|&nbsp;|
 |完成需求数|COMPLETESTORYCNT|INT|&nbsp;|
 |完成任务数|COMPLETETASKCNT|INT|&nbsp;|
+|Bug/完成需求|BUGSTORY|INT|&nbsp;|
+|Bug/完成任务|BUGTASK|INT|&nbsp;|
+|重要Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
+|严重Bug比率|SERIOUSBUGPROPORTION|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -101,6 +105,10 @@
 |事务类型任务|默认规则|默认规则|
 |完成需求数|默认规则|默认规则|
 |完成任务数|默认规则|默认规则|
+|Bug/完成需求|默认规则|默认规则|
+|Bug/完成任务|默认规则|默认规则|
+|重要Bug数|默认规则|默认规则|
+|严重Bug比率|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

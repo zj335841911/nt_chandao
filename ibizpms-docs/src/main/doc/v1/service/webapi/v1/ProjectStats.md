@@ -413,7 +413,11 @@ POST
 | 42 | affairtaskcnt | Integer | 允许 | 事务类型任务 |
 | 43 | completestorycnt | Integer | 允许 | 完成需求数 |
 | 44 | completetaskcnt | Integer | 允许 | 完成任务数 |
-| 45 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 45 | bugstory | Integer | 允许 | Bug/完成需求 |
+| 46 | bugtask | Integer | 允许 | Bug/完成任务 |
+| 47 | importantbugcnt | Integer | 允许 | 重要Bug数 |
+| 48 | seriousbugproportion | String | 允许 | 严重Bug比率 |
+| 49 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

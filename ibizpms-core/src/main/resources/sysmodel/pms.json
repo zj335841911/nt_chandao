@@ -30563,6 +30563,60 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"BUGSTORY" ,
+    "codename":"Bugstory",
+    "field_logic_name":"Bug/完成需求",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGTASK" ,
+    "codename":"Bugtask",
+    "field_logic_name":"Bug/完成任务",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"IMPORTANTBUGCNT" ,
+    "codename":"Importantbugcnt",
+    "field_logic_name":"重要Bug数",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"SERIOUSBUGPROPORTION" ,
+    "codename":"Seriousbugproportion",
+    "field_logic_name":"严重Bug比率",
+    "entity_name":"ProjectStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"#",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

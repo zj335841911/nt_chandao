@@ -388,6 +388,39 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("completetaskcnt")
     private Integer completetaskcnt;
 
+    /**
+     * 属性 [BUGSTORY]
+     *
+     */
+    @JSONField(name = "bugstory")
+    @JsonProperty("bugstory")
+    private Integer bugstory;
+
+    /**
+     * 属性 [BUGTASK]
+     *
+     */
+    @JSONField(name = "bugtask")
+    @JsonProperty("bugtask")
+    private Integer bugtask;
+
+    /**
+     * 属性 [IMPORTANTBUGCNT]
+     *
+     */
+    @JSONField(name = "importantbugcnt")
+    @JsonProperty("importantbugcnt")
+    private Integer importantbugcnt;
+
+    /**
+     * 属性 [SERIOUSBUGPROPORTION]
+     *
+     */
+    @JSONField(name = "seriousbugproportion")
+    @JsonProperty("seriousbugproportion")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String seriousbugproportion;
+
 
     /**
      * 设置 [NAME]

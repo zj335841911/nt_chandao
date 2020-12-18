@@ -357,4 +357,36 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     completetaskcnt?: any;
+
+    /**
+     * Bug/完成需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    bugstory?: any;
+
+    /**
+     * Bug/完成任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    bugtask?: any;
+
+    /**
+     * 重要Bug数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    importantbugcnt?: any;
+
+    /**
+     * 严重Bug比率
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    seriousbugproportion?: any;
 }

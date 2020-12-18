@@ -60,6 +60,10 @@
 | 42 | [事务类型任务](#属性-事务类型任务（AFFAIRTASKCNT）) | AFFAIRTASKCNT | 整型 | 否 | 否 | 是 |
 | 43 | [完成需求数](#属性-完成需求数（COMPLETESTORYCNT）) | COMPLETESTORYCNT | 整型 | 否 | 否 | 是 |
 | 44 | [完成任务数](#属性-完成任务数（COMPLETETASKCNT）) | COMPLETETASKCNT | 整型 | 否 | 否 | 是 |
+| 45 | [Bug/完成需求](#属性-Bug/完成需求（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
+| 46 | [Bug/完成任务](#属性-Bug/完成任务（BUGTASK）) | BUGTASK | 整型 | 否 | 否 | 是 |
+| 47 | [重要Bug数](#属性-重要Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
+| 48 | [严重Bug比率](#属性-严重Bug比率（SERIOUSBUGPROPORTION）) | SERIOUSBUGPROPORTION | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -1735,6 +1739,156 @@ Integer
 #### 关系属性
 无
 
+### 属性-Bug/完成需求（BUGSTORY）
+#### 属性说明
+Bug/完成需求
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-Bug/完成任务（BUGTASK）
+#### 属性说明
+Bug/完成任务
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-重要Bug数（IMPORTANTBUGCNT）
+#### 属性说明
+重要Bug数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-严重Bug比率（SERIOUSBUGPROPORTION）
+#### 属性说明
+严重Bug比率
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+#
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -2357,6 +2511,7 @@ t1.`ID`,
 t1.`NAME`,
 t1.`order` AS `ORDER1`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0') AS `RELEASEDSTORYCNT`,
+# AS `SERIOUSBUGPROPORTION`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
