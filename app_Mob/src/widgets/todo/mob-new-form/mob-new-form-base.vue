@@ -279,7 +279,22 @@
     :disabled="detailsModel.account.disabled"
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-group-select
+  name="account"
+  :value='data.account'
+  valueitem=""
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  
+  :multiple="false"
+  filter="srforgid"
+  :fillmap="{'id':'','label':'account'}"
+  :disabled="detailsModel.account.disabled"
+  :data="data"
+  :context="context"
+    tag='UserRealName' codelistType='DYNAMIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+
 </app-form-item>
 
 
@@ -299,7 +314,22 @@
     :disabled="detailsModel.assignedby.disabled"
     :error="detailsModel.assignedby.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-group-select
+  name="assignedby"
+  :value='data.assignedby'
+  valueitem=""
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  
+  :multiple="true"
+  filter="srforgid"
+  :fillmap="{'id':'','label':'assignedby'}"
+  :disabled="detailsModel.assignedby.disabled"
+  :data="data"
+  :context="context"
+    tag='UserRealName' codelistType='DYNAMIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+
 </app-form-item>
 
 
@@ -319,7 +349,21 @@
     :disabled="detailsModel.assigneddate.disabled"
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-group-select
+  name="assigneddate"
+  :value='data.assigneddate'
+  valueitem=""
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  treeurl="/sysorganizations/${orgid}/suborg/picker"
+  :multiple="false"
+  filter="srforgid"
+  :fillmap="{'id':'','label':'assigneddate'}"
+  :disabled="detailsModel.assigneddate.disabled"
+  :data="data"
+  :context="context"
+  
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
 </app-form-item>
 
 
@@ -339,7 +383,22 @@
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-group-select
+  name="assignedto"
+  :value='data.assignedto'
+  valueitem=""
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  treeurl="/sysorganizations/${orgid}/suborg/picker"
+  :multiple="true"
+  filter="srforgid"
+  :fillmap="{'id':'','label':'assignedto'}"
+  :disabled="detailsModel.assignedto.disabled"
+  :data="data"
+  :context="context"
+    tag='UserRealName' codelistType='DYNAMIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+
 </app-form-item>
 
 
