@@ -33,21 +33,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="project"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'project-main-tab-exp-view', height: 850,width: 1400,title: $t('entities.project.views.maintabexpview.title'),placement: 'POPUPMODAL', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}"
-                            valueitem="srfkey"
-                        >
                             <span>{{row.name}}</span>
-                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>

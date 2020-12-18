@@ -264,4 +264,16 @@ export class CompanyStatsCompanyDynamicStatsGridViewBase extends GridViewBase {
      * @memberof CompanyStatsCompanyDynamicStatsGridViewBase
      */
     protected isExpandSearchForm: boolean = true;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof CompanyStatsCompanyDynamicStatsGridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }
