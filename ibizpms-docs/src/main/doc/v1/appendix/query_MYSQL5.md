@@ -4809,13 +4809,13 @@ FROM `zt_case` t1
 ### 测试用例统计(TestCaseStats)<div id="CaseStats_TestCaseStats"></div>
 ```sql
 SELECT
-t1.id, 
-t1.`name`, 
+t1.id as Module, 
+t1.`name` as ModuleName, 
 count(distinct t2.id) as TotalCase, 
 sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
 sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
 sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
-sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRun,
+sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase,
 case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
 FROM
 zt_module t1
