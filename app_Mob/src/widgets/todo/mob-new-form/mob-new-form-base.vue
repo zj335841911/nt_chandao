@@ -224,7 +224,42 @@
     :disabled="detailsModel.status.disabled"
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-department-personnel
+  name="status"
+  :value='data.status'
+  valueitem=""
+  url=""
+  
+  :multiple="false"
+  filter="srfpdept"
+  :fillmap="{'id':'','label':'status'}"
+  :disabled="detailsModel.status.disabled"
+  :data="data"
+  :context="context"
+    tag='Todo__status' codelistType='STATIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-department-personnel>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='assignedtopk' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedtopk_item"  
+    :itemValue="this.data.assignedtopk" 
+    v-show="detailsModel.assignedtopk.visible" 
+    :itemRules="this.rules.assignedtopk" 
+    :caption="$t('todo.mobnew_form.details.assignedtopk')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedtopk.disabled"
+    :error="detailsModel.assignedtopk.error" 
+    :isEmptyCaption="false">
+        <app-department-select :data="data" :disabled="detailsModel.assignedtopk.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'assignedto','label':'assignedtopk'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-department-select>
 </app-form-item>
 
 
@@ -582,7 +617,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
         private: null,
         desc: null,
         status: null,
+        assignedtopk: null,
         id: null,
+        assignedto: null,
         todo: null,
     };
 
@@ -760,9 +797,13 @@ export default class MobNewBase extends Vue implements ControlInterface {
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        status: new FormItemModel({ caption: '人员', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedtopk: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1031,6 +1072,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 assignedtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.assignedtopk')
+    onAssignedtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1040,6 +1093,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1095,6 +1160,8 @@ export default class MobNewBase extends Vue implements ControlInterface {
             }
             this.detailsModel.name.setDisabled(!ret);
         }
+
+
 
 
 

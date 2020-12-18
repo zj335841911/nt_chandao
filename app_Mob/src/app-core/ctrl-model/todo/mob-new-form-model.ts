@@ -121,9 +121,19 @@ export class MobNewModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'assignedto',
+                prop: 'assignedto',
+                dataType: 'TEXT',
             },
             {
                 name: 'todo',

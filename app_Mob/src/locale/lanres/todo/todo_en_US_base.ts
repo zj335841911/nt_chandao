@@ -78,8 +78,10 @@ export default {
 			story: commonLogic.appcommonhandle("待办名称",null), 
 			private: commonLogic.appcommonhandle("私人事务",null), 
 			desc: commonLogic.appcommonhandle("描述",null), 
-			status: commonLogic.appcommonhandle("状态",null), 
+			status: commonLogic.appcommonhandle("人员",null), 
+			assignedtopk: commonLogic.appcommonhandle("部门",null), 
 			id: commonLogic.appcommonhandle("编号",null), 
+			assignedto: commonLogic.appcommonhandle("指派给",null), 
 		},
 		uiactions: {
 		},
