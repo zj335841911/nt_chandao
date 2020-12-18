@@ -287,4 +287,22 @@ export class ProjectStatsProjectInputStatsGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProjectStatsProjectInputStatsGridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProjectStatsProjectInputStatsGridViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
 }

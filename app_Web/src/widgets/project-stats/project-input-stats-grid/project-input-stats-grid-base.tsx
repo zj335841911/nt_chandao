@@ -122,7 +122,7 @@ export class ProjectInputStatsGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.projectstats.projectinputstats_grid.columns.name',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

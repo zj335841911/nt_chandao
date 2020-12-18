@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectinputstats_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectinputstats_grid.columns.name')" :min-width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectinputstats_grid.columns.name')}}
@@ -52,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('timescale')">
-                <el-table-column show-overflow-tooltip :prop="'timescale'" :label="$t('entities.projectstats.projectinputstats_grid.columns.timescale')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'timescale'" :label="$t('entities.projectstats.projectinputstats_grid.columns.timescale')" :width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectinputstats_grid.columns.timescale')}}
@@ -64,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.projectstats.projectinputstats_grid.columns.taskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.projectstats.projectinputstats_grid.columns.taskcnt')" :width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectinputstats_grid.columns.taskcnt')}}
@@ -76,7 +76,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
-                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.projectstats.projectinputstats_grid.columns.storycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.projectstats.projectinputstats_grid.columns.storycnt')" :width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectinputstats_grid.columns.storycnt')}}
@@ -88,7 +88,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('membercnt')">
-                <el-table-column show-overflow-tooltip :prop="'membercnt'" :label="$t('entities.projectstats.projectinputstats_grid.columns.membercnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'membercnt'" :label="$t('entities.projectstats.projectinputstats_grid.columns.membercnt')" :width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectinputstats_grid.columns.membercnt')}}
@@ -100,7 +100,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projecttotalconsumed')">
-                <el-table-column show-overflow-tooltip :prop="'projecttotalconsumed'" :label="$t('entities.projectstats.projectinputstats_grid.columns.projecttotalconsumed')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'projecttotalconsumed'" :label="$t('entities.projectstats.projectinputstats_grid.columns.projecttotalconsumed')" :width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectinputstats_grid.columns.projecttotalconsumed')}}
