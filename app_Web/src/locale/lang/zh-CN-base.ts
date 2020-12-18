@@ -95,6 +95,7 @@ import systeammember_zh_CN from '@locale/lanres/entities/sys-team-member/sys-tea
 import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
 import sysupdatefeatures_zh_CN from '@locale/lanres/entities/sys-update-features/sys-update-features_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
+import ibz_casestats_zh_CN from '@locale/lanres/entities/ibz-casestats/ibz-casestats_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
 import sysemployee_zh_CN from '@locale/lanres/entities/sys-employee/sys-employee_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
@@ -474,6 +475,7 @@ function getAppLocale(){
             pssystemdbcfg: pssystemdbcfg_zh_CN(),
             sysupdatefeatures: sysupdatefeatures_zh_CN(),
             release: release_zh_CN(),
+            ibz_casestats: ibz_casestats_zh_CN(),
             dynadashboard: dynadashboard_zh_CN(),
             sysemployee: sysemployee_zh_CN(),
         },

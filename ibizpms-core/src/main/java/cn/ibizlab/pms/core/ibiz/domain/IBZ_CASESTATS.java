@@ -86,6 +86,27 @@ public class IBZ_CASESTATS extends EntityMP implements Serializable {
     @JSONField(name = "passcase")
     @JsonProperty("passcase")
     private Integer passcase;
+    /**
+     * 失败用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "failcase")
+    @JsonProperty("failcase")
+    private Integer failcase;
+    /**
+     * 阻塞用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "blockedcase")
+    @JsonProperty("blockedcase")
+    private Integer blockedcase;
+    /**
+     * 总执行数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalruncase")
+    @JsonProperty("totalruncase")
+    private Integer totalruncase;
 
     /**
      * 模块

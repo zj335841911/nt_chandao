@@ -18,6 +18,9 @@ hide members
 |模块名称|MODULENAME|PICKUPTEXT|&nbsp;|
 |总用例数|TOTALCASE|INT|&nbsp;|
 |通过用例数|PASSCASE|INT|&nbsp;|
+|失败用例数|FAILCASE|INT|&nbsp;|
+|阻塞用例数|BLOCKEDCASE|INT|&nbsp;|
+|总执行数|TOTALRUNCASE|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -28,6 +31,9 @@ hide members
 |模块名称|默认规则|内容长度必须小于等于[60]|
 |总用例数|默认规则|默认规则|
 |通过用例数|默认规则|默认规则|
+|失败用例数|默认规则|默认规则|
+|阻塞用例数|默认规则|默认规则|
+|总执行数|默认规则|默认规则|
 
 ## 状态控制
 

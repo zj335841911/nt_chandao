@@ -46075,10 +46075,13 @@ CREATE TABLE `T_IBZPRO_SYSTEM`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| BLOCKEDCASE        | 阻塞用例数  | INTEGER      |   -1   | &nbsp; |
+| TOTALRUNCASE        | 总执行数  | INTEGER      |   -1   | &nbsp; |
 | TOTALCASE        | 总用例数  | INTEGER      |   -1   | &nbsp; |
 | TITLE        | 用例标题  | VARCHAR      |   100   | &nbsp; |
 | MODULE        | 模块  |       |   -1   | &nbsp; |
 | PASSCASE        | 通过用例数  | INTEGER      |   -1   | &nbsp; |
+| FAILCASE        | 失败用例数  | INTEGER      |   -1   | &nbsp; |
 | ID        | 用例编号  |       |   20   | 主键&nbsp; |
 
 

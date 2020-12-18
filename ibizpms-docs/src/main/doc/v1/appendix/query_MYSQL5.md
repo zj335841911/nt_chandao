@@ -7068,22 +7068,28 @@ FROM `T_IBZPRO_SYSTEM` t1
 ### 数据查询(DEFAULT)<div id="IBZ_CASESTATS_Default"></div>
 ```sql
 SELECT
+0 AS `BLOCKEDCASE`,
+0 AS `FAILCASE`,
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
 t1.`TITLE`,
-0 AS `TOTALCASE`
+0 AS `TOTALCASE`,
+0 AS `TOTALRUNCASE`
 FROM `zt_case` t1 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IBZ_CASESTATS_View"></div>
 ```sql
 SELECT
+0 AS `BLOCKEDCASE`,
+0 AS `FAILCASE`,
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
 t1.`TITLE`,
-0 AS `TOTALCASE`
+0 AS `TOTALCASE`,
+0 AS `TOTALRUNCASE`
 FROM `zt_case` t1 
 
 ```
@@ -7303,7 +7309,6 @@ where t11.deleted = '0'
 ) t1
 WHERE t1.DELETED = '0' 
 t1.orgid = #{srf.sessioncontext.srforgid} 
-#{srf.webcontext.indexname} is not null 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbizproIndex_View"></div>

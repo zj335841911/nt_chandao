@@ -269,4 +269,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     donetaskcnt?: any;
+
+    /**
+     * 设计类型任务
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    designtakcnt?: any;
 }

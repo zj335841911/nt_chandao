@@ -134,6 +134,7 @@ export class UIServiceRegister {
         this.allUIService.set('pssystemdbcfg', () => import('@/uiservice/pssystem-dbcfg/pssystem-dbcfg-ui-service'));
         this.allUIService.set('sysupdatefeatures', () => import('@/uiservice/sys-update-features/sys-update-features-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));
+        this.allUIService.set('ibz_casestats', () => import('@/uiservice/ibz-casestats/ibz-casestats-ui-service'));
         this.allUIService.set('dynadashboard', () => import('@/uiservice/dyna-dashboard/dyna-dashboard-ui-service'));
         this.allUIService.set('sysemployee', () => import('@/uiservice/sys-employee/sys-employee-ui-service'));
     }

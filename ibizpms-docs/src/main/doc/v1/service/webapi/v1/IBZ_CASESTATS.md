@@ -231,7 +231,10 @@ POST
 | 4 | modulename | String | 允许 | 模块名称 |
 | 5 | totalcase | Integer | 允许 | 总用例数 |
 | 6 | passcase | Integer | 允许 | 通过用例数 |
-| 7 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 7 | failcase | Integer | 允许 | 失败用例数 |
+| 8 | blockedcase | Integer | 允许 | 阻塞用例数 |
+| 9 | totalruncase | Integer | 允许 | 总执行数 |
+| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZ_CASESTATSSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -24,6 +24,9 @@
 | 4 | [模块名称](#属性-模块名称（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
 | 5 | [总用例数](#属性-总用例数（TOTALCASE）) | TOTALCASE | 整型 | 否 | 是 | 是 |
 | 6 | [通过用例数](#属性-通过用例数（PASSCASE）) | PASSCASE | 整型 | 否 | 是 | 是 |
+| 7 | [失败用例数](#属性-失败用例数（FAILCASE）) | FAILCASE | 整型 | 否 | 是 | 是 |
+| 8 | [阻塞用例数](#属性-阻塞用例数（BLOCKEDCASE）) | BLOCKEDCASE | 整型 | 否 | 是 | 是 |
+| 9 | [总执行数](#属性-总执行数（TOTALRUNCASE）) | TOTALRUNCASE | 整型 | 否 | 是 | 是 |
 
 ### 属性-用例编号（ID）
 #### 属性说明
@@ -282,6 +285,135 @@ Integer
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-失败用例数（FAILCASE）
+#### 属性说明
+失败用例数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-阻塞用例数（BLOCKEDCASE）
+#### 属性说明
+阻塞用例数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-总执行数（TOTALRUNCASE）
+#### 属性说明
+总执行数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -419,11 +551,14 @@ Save
 - MYSQL5
 ```SQL
 SELECT
+0 AS `BLOCKEDCASE`,
+0 AS `FAILCASE`,
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
 t1.`TITLE`,
-0 AS `TOTALCASE`
+0 AS `TOTALCASE`,
+0 AS `TOTALRUNCASE`
 FROM `zt_case` t1 
 
 ```
@@ -441,11 +576,14 @@ FROM `zt_case` t1
 - MYSQL5
 ```SQL
 SELECT
+0 AS `BLOCKEDCASE`,
+0 AS `FAILCASE`,
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
 t1.`TITLE`,
-0 AS `TOTALCASE`
+0 AS `TOTALCASE`,
+0 AS `TOTALRUNCASE`
 FROM `zt_case` t1 
 
 ```

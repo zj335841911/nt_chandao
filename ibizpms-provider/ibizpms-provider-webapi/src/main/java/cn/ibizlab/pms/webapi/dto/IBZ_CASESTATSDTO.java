@@ -81,6 +81,30 @@ public class IBZ_CASESTATSDTO extends DTOBase implements Serializable {
     @JsonProperty("passcase")
     private Integer passcase;
 
+    /**
+     * 属性 [FAILCASE]
+     *
+     */
+    @JSONField(name = "failcase")
+    @JsonProperty("failcase")
+    private Integer failcase;
+
+    /**
+     * 属性 [BLOCKEDCASE]
+     *
+     */
+    @JSONField(name = "blockedcase")
+    @JsonProperty("blockedcase")
+    private Integer blockedcase;
+
+    /**
+     * 属性 [TOTALRUNCASE]
+     *
+     */
+    @JSONField(name = "totalruncase")
+    @JsonProperty("totalruncase")
+    private Integer totalruncase;
+
 
     /**
      * 设置 [TITLE]

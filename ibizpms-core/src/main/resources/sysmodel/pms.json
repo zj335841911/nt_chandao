@@ -9889,6 +9889,48 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"FAILCASE" ,
+    "codename":"Failcase",
+    "field_logic_name":"失败用例数",
+    "entity_name":"IBZ_CASESTATS",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"BLOCKEDCASE" ,
+    "codename":"Blockedcase",
+    "field_logic_name":"阻塞用例数",
+    "entity_name":"IBZ_CASESTATS",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOTALRUNCASE" ,
+    "codename":"Totalruncase",
+    "field_logic_name":"总执行数",
+    "entity_name":"IBZ_CASESTATS",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

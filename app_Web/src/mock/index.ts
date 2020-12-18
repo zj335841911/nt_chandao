@@ -102,5 +102,6 @@ import './entity/sys-team-members/sys-team-members';
 import './entity/pssystem-dbcfgs/pssystem-dbcfgs';
 import './entity/sys-update-featuress/sys-update-featuress';
 import './entity/releases/releases';
+import './entity/ibz-casestatss/ibz-casestatss';
 import './entity/dyna-dashboards/dyna-dashboards';
 import './entity/sys-employees/sys-employees';

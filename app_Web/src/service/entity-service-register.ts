@@ -134,6 +134,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('pssystemdbcfg', () => import('@/service/pssystem-dbcfg/pssystem-dbcfg-service'));
         this.allEntityService.set('sysupdatefeatures', () => import('@/service/sys-update-features/sys-update-features-service'));
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
+        this.allEntityService.set('ibz_casestats', () => import('@/service/ibz-casestats/ibz-casestats-service'));
         this.allEntityService.set('dynadashboard', () => import('@/service/dyna-dashboard/dyna-dashboard-service'));
         this.allEntityService.set('sysemployee', () => import('@/service/sys-employee/sys-employee-service'));
     }
