@@ -65,7 +65,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean create(Project et) {
-        String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code})";
+        String sql = "select * from zt_project where  deleted = '0' and  (`name` = #{et.name} or `code` = #{et.code})";
         Map<String,Object> param = new HashMap<>();
         param.put(FIELD_NAME, et.getName());
         param.put(FIELD_CODE, et.getCode());

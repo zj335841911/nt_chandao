@@ -49,7 +49,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
     public boolean create(Product et) {
 
         // 校验产品名称和产品代号
-        String sql = "select * from zt_product where `name` = #{et.name} or `code` = #{et.code}";
+        String sql = "select * from zt_product where deleted = '0' and (`name` = #{et.name} or `code` = #{et.code})";
         Map<String,Object> param = new HashMap<>();
         param.put(FIELD_NAME, et.getName());
         param.put(FIELD_CODE, et.getCode());
