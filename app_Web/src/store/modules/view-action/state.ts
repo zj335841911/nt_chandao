@@ -3837,6 +3837,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ab5df14b40f3a74e59053c76e1f48744',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsProjectQualityUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: 'ab7bb92108f4ae63c52d94b39affb30a',
             viewmodule: 'report',
             viewname: 'IbzWeeklyUsr2GridView',
@@ -5365,6 +5375,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'ab5df14b40f3a74e59053c76e1f48744',
                 'a638e2a7d3b05b2f279ad28d14f5a85f',
                 '09ec3280dedaeac7260c00f3f923d20e',
                 'abaea74da4d7efea713dabf193a4bdaf',

@@ -3495,6 +3495,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzCaseEditView",
             "viewtag": "ab45ff5d2250ad8a5d88f39cc26b7646"
         },
+        "projectstatsprojectqualityusr2gridview": {
+            "title": "项目质量表",
+            "caption": "项目质量表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectQualityUsr2GridView",
+            "viewtag": "ab5df14b40f3a74e59053c76e1f48744"
+        },
         "ibzweeklyusr2gridview": {
             "title": "周报表格视图",
             "caption": "周报",

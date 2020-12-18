@@ -69,6 +69,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("任务类型统计",null),
 					title: commonLogic.appcommonhandle("项目统计表格视图（任务状态统计）",null),
 				},
+				projectqualityusr2gridview: {
+					caption: commonLogic.appcommonhandle("项目质量表",null),
+					title: commonLogic.appcommonhandle("项目质量表",null),
+				},
 				editview9: {
 					caption: commonLogic.appcommonhandle("项目统计",null),
 					title: commonLogic.appcommonhandle("项目统计编辑视图",null),
@@ -191,6 +195,24 @@ function getLocaleResourceBase(){
 					servetaskcnt: commonLogic.appcommonhandle("服务",null),
 					misctaskcnt: commonLogic.appcommonhandle("其他",null),
 					taskcnt: commonLogic.appcommonhandle("总计",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			projectquality_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					storycnt: commonLogic.appcommonhandle("需求总数",null),
+					completestorycnt: commonLogic.appcommonhandle("完成需求数",null),
+					taskcnt: commonLogic.appcommonhandle("任务总数",null),
+					completetaskcnt: commonLogic.appcommonhandle("完成任务数",null),
+					bugcnt: commonLogic.appcommonhandle("Bug数",null),
+					finishbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
+					bugstory: commonLogic.appcommonhandle("Bug/完成需求",null),
+					bugtask: commonLogic.appcommonhandle("Bug/完成任务",null),
+					importantbugcnt: commonLogic.appcommonhandle("重要Bug数",null),
+					seriousbugproportion: commonLogic.appcommonhandle("严重Bug比率",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

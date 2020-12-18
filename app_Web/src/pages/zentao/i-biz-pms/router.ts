@@ -18143,6 +18143,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/projectqualityusr2gridview/:projectqualityusr2gridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectqualityusr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectqualityusr2gridview', parameterName: 'projectqualityusr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-quality-usr2-grid-view/project-stats-project-quality-usr2-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/reportlinkgridview/:reportlinkgridview?',
                     meta: {
                         caption: 'entities.case.views.reportlinkgridview.caption',

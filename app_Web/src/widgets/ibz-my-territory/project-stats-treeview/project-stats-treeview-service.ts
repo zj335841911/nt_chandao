@@ -73,6 +73,15 @@ export default class ProjectStatsService extends ControlService {
 	public TREENODE_TASKTYPECOUNT: string = 'TaskTypeCount';
 
     /**
+     * 项目质量表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_PROJECTQUALITY: string = 'ProjectQuality';
+
+    /**
      * bug解决方案统计节点分隔符号
      *
      * @public
@@ -186,6 +195,10 @@ export default class ProjectStatsService extends ControlService {
             await this.fillTasktypecountNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_PROJECTQUALITY)) {
+            await this.fillProjectqualityNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_BUGRESOLUTIONCOUNT)) {
             await this.fillBugresolutioncountNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -259,6 +272,65 @@ export default class ProjectStatsService extends ControlService {
      */
     @Errorlog
     public async fillTasktypecountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[项目质量表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillProjectqualityNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.projectquality') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProjectQuality';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[项目质量表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillProjectqualityNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -456,6 +528,11 @@ export default class ProjectStatsService extends ControlService {
             let TasktypecountRsNavParams:any = {};
             let TasktypecountRsParams:any = {};
 			await this.fillTasktypecountNodes(context, filter, list ,TasktypecountRsNavContext,TasktypecountRsNavParams,TasktypecountRsParams);
+			// 填充项目质量表
+            let ProjectqualityRsNavContext:any = {};
+            let ProjectqualityRsNavParams:any = {};
+            let ProjectqualityRsParams:any = {};
+			await this.fillProjectqualityNodes(context, filter, list ,ProjectqualityRsNavContext,ProjectqualityRsNavParams,ProjectqualityRsParams);
 		} else {
 			// 填充bug状态统计
             let BugstatuscountRsNavContext:any = {};
@@ -477,6 +554,11 @@ export default class ProjectStatsService extends ControlService {
             let TasktypecountRsNavParams:any = {};
             let TasktypecountRsParams:any = {};
 			await this.fillTasktypecountNodes(context, filter, list ,TasktypecountRsNavContext,TasktypecountRsNavParams,TasktypecountRsParams);
+			// 填充项目质量表
+            let ProjectqualityRsNavContext:any = {};
+            let ProjectqualityRsNavParams:any = {};
+            let ProjectqualityRsParams:any = {};
+			await this.fillProjectqualityNodes(context, filter, list ,ProjectqualityRsNavContext,ProjectqualityRsNavParams,ProjectqualityRsParams);
 		}
 	}
 

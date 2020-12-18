@@ -4359,6 +4359,16 @@
         "viewtag": "ab45ff5d2250ad8a5d88f39cc26b7646",
         "memo": ""
     },
+    "projectstatsprojectqualityusr2gridview": {
+        "title": "项目质量表",
+        "caption": "项目质量表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectQualityUsr2GridView",
+        "viewfilename": "project-stats-project-quality-usr2-grid-view",
+        "viewtag": "ab5df14b40f3a74e59053c76e1f48744",
+        "memo": ""
+    },
     "ibzweeklyusr2gridview": {
         "title": "周报表格视图",
         "caption": "周报",

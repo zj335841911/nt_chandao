@@ -194,6 +194,7 @@ function getLocaleResourceBase(){
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
 					tasktypecount: commonLogic.appcommonhandle("项目类型统计",null),
+					projectquality: commonLogic.appcommonhandle("项目质量表",null),
 					bugresolutioncount: commonLogic.appcommonhandle("bug解决方案统计",null),
 					bugstatuscount: commonLogic.appcommonhandle("bug状态统计",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),

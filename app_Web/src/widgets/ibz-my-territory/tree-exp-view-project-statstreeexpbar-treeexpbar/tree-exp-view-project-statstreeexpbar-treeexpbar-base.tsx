@@ -122,6 +122,13 @@ export class TreeExpViewProjectStatstreeexpbarTreeExpBarBase extends TreeExpBarC
                 deKeyField:'projectstats'
 			};
         }
+        if (Object.is(expmode, 'PROJECTQUALITY')) {
+            return {  
+                viewname: 'project-stats-project-quality-usr2-grid-view', 
+                parentdata: {},
+                deKeyField:'projectstats'
+			};
+        }
         if (Object.is(expmode, 'BUGRESOLUTIONCOUNT')) {
             return {  
                 viewname: 'bug-stats-bugresolvetion', 
