@@ -4093,6 +4093,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/storysubtasknewview/:storysubtasknewview?',
+                    meta: {
+                        caption: 'entities.task.views.storysubtasknewview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storysubtasknewview', parameterName: 'storysubtasknewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-sub-task-new-view/task-story-sub-task-new-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/storysubtasknewview/:storysubtasknewview?',
+                    meta: {
+                        caption: 'entities.task.views.storysubtasknewview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storysubtasknewview', parameterName: 'storysubtasknewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-sub-task-new-view/task-story-sub-task-new-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/storysubtasknewview/:storysubtasknewview?',
+                    meta: {
+                        caption: 'entities.task.views.storysubtasknewview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storysubtasknewview', parameterName: 'storysubtasknewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-sub-task-new-view/task-story-sub-task-new-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/storysubtasknewview/:storysubtasknewview?',
+                    meta: {
+                        caption: 'entities.task.views.storysubtasknewview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'storysubtasknewview', parameterName: 'storysubtasknewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-story-sub-task-new-view/task-story-sub-task-new-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/planeditview/:planeditview?',
                     meta: {
                         caption: 'entities.story.views.planeditview.caption',

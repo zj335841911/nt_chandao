@@ -967,6 +967,7 @@ function getLocaleResourceBase(){
 			},
 				uiactions: {
 				story_breakdowntasks: commonLogic.appcommonhandle("分解任务",null),
+				story_batchbreakdowntasks: commonLogic.appcommonhandle("批量分解",null),
 				story_projectunlinkstory: commonLogic.appcommonhandle("移除",null),
 				},
 			},

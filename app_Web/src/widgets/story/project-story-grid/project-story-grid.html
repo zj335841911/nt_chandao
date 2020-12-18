@@ -178,6 +178,11 @@
                                 <i class="fa fa-plus"></i>
                                 
                             </a>
+                            <divider v-show="scope.row.BatchBreakdowntasks.visible" type="vertical"></divider>
+                            <a v-show="scope.row.BatchBreakdowntasks.visible" :disabled="scope.row.BatchBreakdowntasks.disabled" @click="uiAction(scope.row, 'BatchBreakdowntasks', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_batchbreakdowntasks')">
+                                <i class="fa fa-plus-square-o"></i>
+                                
+                            </a>
                             <divider v-show="scope.row.ProjectUnlinkStory.visible" type="vertical"></divider>
                             <a v-show="scope.row.ProjectUnlinkStory.visible" :disabled="scope.row.ProjectUnlinkStory.disabled" @click="uiAction(scope.row, 'ProjectUnlinkStory', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_projectunlinkstory')">
                                 <i class="fa fa-unlink"></i>

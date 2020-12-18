@@ -767,6 +767,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1fb2e83b5cac45eddd44adf32ad9da14',
+            viewmodule: 'zentao',
+            viewname: 'TaskStorySubTaskNewView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '1fdd9d52c2aa726e0d0372fb9e3ad916',
             viewmodule: 'zentao',
             viewname: 'TestTaskMyYGridView',
@@ -1441,6 +1450,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1fb2e83b5cac45eddd44adf32ad9da14',
                 '645efdb73a5b13723410903dff447667',
                 'bd6f41c3367241b8eddd61eb6e80f029',
                 'cad4ce05432f03f140d6ee3ad5dfe8c5',
@@ -2623,6 +2633,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1fb2e83b5cac45eddd44adf32ad9da14',
                 '645efdb73a5b13723410903dff447667',
                 'bd6f41c3367241b8eddd61eb6e80f029',
                 'cad4ce05432f03f140d6ee3ad5dfe8c5',

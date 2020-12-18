@@ -1006,6 +1006,22 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			storysubtasknew_grid: {
+				columns: {
+					modulename: commonLogic.appcommonhandle("所属模块",null),
+					storyname: commonLogic.appcommonhandle("相关需求",null),
+					name: commonLogic.appcommonhandle("任务名称",null),
+					type: commonLogic.appcommonhandle("任务类型",null),
+					assignedto: commonLogic.appcommonhandle("指派给",null),
+					eststarted: commonLogic.appcommonhandle("预计开始",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+					desc: commonLogic.appcommonhandle("任务描述",null),
+					pri: commonLogic.appcommonhandle("优先级",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			assignedtogroup_grid: {
 				columns: {
 					id: commonLogic.appcommonhandle("ID",null),
@@ -1332,22 +1348,6 @@ function getLocaleResourceBase(){
 					task_assigntask: commonLogic.appcommonhandle("指派",null),
 				},
 			},
-			storysubtasknew_grid: {
-				columns: {
-					modulename: commonLogic.appcommonhandle("所属模块",null),
-					storyname: commonLogic.appcommonhandle("相关需求",null),
-					name: commonLogic.appcommonhandle("任务名称",null),
-					type: commonLogic.appcommonhandle("任务类型",null),
-					assignedto: commonLogic.appcommonhandle("指派给",null),
-					eststarted: commonLogic.appcommonhandle("预计开始",null),
-					deadline: commonLogic.appcommonhandle("截止日期",null),
-					desc: commonLogic.appcommonhandle("任务描述",null),
-					pri: commonLogic.appcommonhandle("优先级",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			projectrelated_grid: {
 				columns: {
 					id: commonLogic.appcommonhandle("编号",null),
@@ -1527,6 +1527,16 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("保存并关闭",null),
 				},
 			},
+			storysubtasknewviewtoolbar_toolbar: {
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("新建行",null),
+					tip: commonLogic.appcommonhandle("新建行",null),
+				},
+				deuiaction3: {
+					caption: commonLogic.appcommonhandle("保存行",null),
+					tip: commonLogic.appcommonhandle("保存行",null),
+				},
+			},
 			assignedtotaskgroupgridviewtoolbar_toolbar: {
 				deuiaction1: {
 					caption: commonLogic.appcommonhandle("新建",null),
@@ -1657,16 +1667,6 @@ function getLocaleResourceBase(){
 				deuiaction1: {
 					caption: commonLogic.appcommonhandle("过滤",null),
 					tip: commonLogic.appcommonhandle("过滤",null),
-				},
-			},
-			storysubtasknewviewtoolbar_toolbar: {
-				deuiaction2: {
-					caption: commonLogic.appcommonhandle("新建行",null),
-					tip: commonLogic.appcommonhandle("新建行",null),
-				},
-				deuiaction3: {
-					caption: commonLogic.appcommonhandle("保存行",null),
-					tip: commonLogic.appcommonhandle("保存行",null),
 				},
 			},
 			gridviewgrid_quicktoolbar_toolbar: {
