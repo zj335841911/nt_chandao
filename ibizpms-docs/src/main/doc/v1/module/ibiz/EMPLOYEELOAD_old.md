@@ -73,9 +73,9 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#EMPLOYEELOAD_Default))|否|&nbsp;|
-|GETWOERKLOAD|获取员工负载表([MYSQL5](../../appendix/query_MYSQL5.md#EMPLOYEELOAD_GETWOERKLOAD))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#EMPLOYEELOAD_View))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#EmpLoyeeload_Default))|否|&nbsp;|
+|GETWOERKLOAD|获取员工负载表([MYSQL5](../../appendix/query_MYSQL5.md#EmpLoyeeload_GETWOERKLOAD))|否|&nbsp;|
+|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#EmpLoyeeload_View))|否|&nbsp;|
 
 * **数据集合**
 
