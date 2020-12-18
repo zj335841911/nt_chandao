@@ -541,4 +541,12 @@ export interface SubStory {
      * @memberof SubStory
      */
     storypoints?: any;
+
+    /**
+     * 评审结果
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    assessresult?: any;
 }

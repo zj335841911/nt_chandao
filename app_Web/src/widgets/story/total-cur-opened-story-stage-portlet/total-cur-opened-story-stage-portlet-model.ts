@@ -216,6 +216,9 @@ export default class TotalCurOpenedStoryStageModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

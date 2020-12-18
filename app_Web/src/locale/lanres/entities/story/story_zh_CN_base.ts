@@ -70,6 +70,7 @@ function getLocaleResourceBase(){
 			ibiz_sourceid: commonLogic.appcommonhandle("来源对象标识",null),
 			ibiz_sourcename: commonLogic.appcommonhandle("来源对象名称",null),
 			storypoints: commonLogic.appcommonhandle("故事点",null),
+			assessresult: commonLogic.appcommonhandle("评审结果",null),
 		},
 			views: {
 				pickupgridview4: {
