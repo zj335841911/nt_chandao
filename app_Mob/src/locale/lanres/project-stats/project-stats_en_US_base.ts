@@ -38,5 +38,10 @@ export default {
     discusstakcnt:  commonLogic.appcommonhandle("讨论类型任务",null),
     studyTAKCNT:  commonLogic.appcommonhandle("研究类型任务",null),
     uiTAKCNT:  commonLogic.appcommonhandle("界面类型任务",null),
+    tESTTAKCNT:  commonLogic.appcommonhandle("测试类型任务",null),
+    sERVETAKCNT:  commonLogic.appcommonhandle("服务类型任务",null),
+    dEVELTAKCNT:  commonLogic.appcommonhandle("开发类型任务",null),
+    mISCTAKCNT:  commonLogic.appcommonhandle("其他类型任务",null),
+    aFFAIRTAKCNT:  commonLogic.appcommonhandle("事务类型任务",null),
   },
 };

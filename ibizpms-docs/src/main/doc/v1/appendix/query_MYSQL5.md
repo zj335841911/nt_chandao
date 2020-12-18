@@ -13918,8 +13918,6 @@ SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt
 from(
 select t1.type,t1.project,t2.`name`,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0') t1
 GROUP BY t1.project
-WHERE t1.DELETED = '0' 
-
 ```
 ### 任务工时消耗剩余查询(TASKTIME)<div id="ProjectStats_TaskTime"></div>
 ```sql

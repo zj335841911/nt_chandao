@@ -38,5 +38,10 @@ export default {
     discusstakcnt: "讨论类型任务",
     studytakcnt: "研究类型任务",
     uitakcnt: "界面类型任务",
+    testtakcnt: "测试类型任务",
+    servetakcnt: "服务类型任务",
+    develtakcnt: "开发类型任务",
+    misctakcnt: "其他类型任务",
+    affairtakcnt: "事务类型任务",
   },
 };
