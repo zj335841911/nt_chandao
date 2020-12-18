@@ -3827,6 +3827,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ab41bca19c2aa7340fc8ba21788ab56d',
+            viewmodule: 'ou',
+            viewname: 'SysOrganizationGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'ab7bb92108f4ae63c52d94b39affb30a',
             viewmodule: 'report',
             viewname: 'IbzWeeklyUsr2GridView',
@@ -4139,16 +4148,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'aeee411b8bffcf0c30d65557a8deeeee',
-            ],
-        },
-        {
-            viewtag: 'ba70cc2003a4d984ccab95ba36a4a632',
-            viewmodule: 'ou',
-            viewname: 'SysOrganizationUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'e61e97fc70324fe8b112aa7759a3b7b0',
             ],
         },
         {
@@ -4787,12 +4786,12 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4b2fac9ffaccd974c1ba4c24508197af',
+                'ab41bca19c2aa7340fc8ba21788ab56d',
                 'c826223fec105532e5a0f8a2ad49ee4a',
                 '771b6fe41dab6d75ea3127f8408461e8',
                 'ca485afa013ed409b2274ed390ae7db0',
                 '745687df2b5a067c15598debbcba1fe2',
                 '0fe6eb98e96dec0acb915184960ffbeb',
-                'ba70cc2003a4d984ccab95ba36a4a632',
                 'e843bd954ebbd93fa06a419e07c838e3',
                 '6ad2193a7e06957b40700d3f23ea6f6f',
                 '137cbf2ebd888dcdd6eff40271481f04',
@@ -5193,15 +5192,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '66ea594caa3b4caf0a9e6944eec6d80c',
-            ],
-        },
-        {
-            viewtag: 'e61e97fc70324fe8b112aa7759a3b7b0',
-            viewmodule: 'ou',
-            viewname: 'SysOrganizationEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {

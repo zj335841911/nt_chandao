@@ -3909,6 +3909,16 @@
         "viewtag": "9ddace1c12afee8da3f0254a05ba141a",
         "memo": ""
     },
+    "sysorganizationgridview": {
+        "title": "单位表格视图",
+        "caption": "单位",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysOrganizationGridView",
+        "viewfilename": "sys-organization-grid-view",
+        "viewtag": "9e0b0ea115e5d917abdf0fa7513a84cf",
+        "memo": ""
+    },
     "filelistview9": {
         "title": "附件",
         "caption": "附件",

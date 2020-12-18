@@ -9529,6 +9529,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-grid-view9-assigned-to-me/story-grid-view9-assigned-to-me.vue'),
                 },
                 {
+                    path: 'sysorganizations/:sysorganization?/gridexpview/:gridexpview?',
+                    meta: {
+                        caption: 'entities.sysorganization.views.gridexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysorganizations', parameterName: 'sysorganization' },
+                            { pathName: 'gridexpview', parameterName: 'gridexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-organization-grid-exp-view/sys-organization-grid-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/editview_close/:editview_close?',
                     meta: {
                         caption: 'entities.product.views.editview_close.caption',
@@ -11090,20 +11104,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibizpro/ibizpro-indexindex-pickup-data-view/ibizpro-indexindex-pickup-data-view.vue'),
-                },
-                {
-                    path: 'sysorganizations/:sysorganization?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.sysorganization.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysorganizations', parameterName: 'sysorganization' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-organization-edit-view/sys-organization-edit-view.vue'),
                 },
                 {
                     path: 'files/:file?/productgridview/:productgridview?',
@@ -17443,20 +17443,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-dashboard-info-view/project-dashboard-info-view.vue'),
-                },
-                {
-                    path: 'sysorganizations/:sysorganization?/usr2gridview/:usr2gridview?',
-                    meta: {
-                        caption: 'entities.sysorganization.views.usr2gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysorganizations', parameterName: 'sysorganization' },
-                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ou/sys-organization-usr2-grid-view/sys-organization-usr2-grid-view.vue'),
                 },
                 {
                     path: 'employeeloads/:employeeload?/editview/:editview?',

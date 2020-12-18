@@ -3135,6 +3135,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseEditView",
             "viewtag": "9ddace1c12afee8da3f0254a05ba141a"
         },
+        "sysorganizationgridview": {
+            "title": "单位表格视图",
+            "caption": "单位",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysOrganizationGridView",
+            "viewtag": "9e0b0ea115e5d917abdf0fa7513a84cf"
+        },
         "filelistview9": {
             "title": "附件",
             "caption": "附件",

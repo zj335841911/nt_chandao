@@ -670,6 +670,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务分页导航视图（更多）|DETABEXPVIEW|&nbsp;|
 |-|产品模块编辑视图|DEEDITVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
+|-|单位表格视图|DEGRIDVIEW|&nbsp;|
 |-|附件|DELISTVIEW9|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|任务数据多项选择视图（汇报）|DEMPICKUPVIEW|&nbsp;|
 |-|项目团队列表视图|DELISTVIEW|&nbsp;|

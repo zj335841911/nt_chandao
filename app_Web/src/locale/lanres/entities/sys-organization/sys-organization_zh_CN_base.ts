@@ -17,6 +17,10 @@ function getLocaleResourceBase(){
 			updatedate: commonLogic.appcommonhandle("最后修改时间",null),
 		},
 			views: {
+				gridview: {
+					caption: commonLogic.appcommonhandle("单位",null),
+					title: commonLogic.appcommonhandle("单位表格视图",null),
+				},
 				gridexpview: {
 					caption: commonLogic.appcommonhandle("单位",null),
 					title: commonLogic.appcommonhandle("单位表格导航视图",null),
@@ -47,6 +51,13 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			gridexpbar_grid_grid: {
+				columns: {
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			main_grid: {
 				columns: {
 					orgid: commonLogic.appcommonhandle("单位标识",null),
@@ -59,13 +70,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			gridexpbar_grid_grid: {
-				columns: {
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			default_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
@@ -73,7 +77,63 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			usr2gridviewtoolbar_toolbar: {
+			gridviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("新建",null),
+					tip: commonLogic.appcommonhandle("新建",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("编辑",null),
+					tip: commonLogic.appcommonhandle("编辑",null),
+				},
+				tbitem6: {
+					caption: commonLogic.appcommonhandle("拷贝",null),
+					tip: commonLogic.appcommonhandle("拷贝",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem8: {
+					caption: commonLogic.appcommonhandle("删除",null),
+					tip: commonLogic.appcommonhandle("删除",null),
+				},
+				tbitem9: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem13: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+				tbitem10: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem16: {
+					caption: commonLogic.appcommonhandle("其它",null),
+					tip: commonLogic.appcommonhandle("其它",null),
+				},
+				tbitem21: {
+					caption: commonLogic.appcommonhandle("导出数据模型",null),
+					tip: commonLogic.appcommonhandle("导出数据模型",null),
+				},
+				tbitem23: {
+					caption: commonLogic.appcommonhandle("数据导入",null),
+					tip: commonLogic.appcommonhandle("数据导入",null),
+				},
+				tbitem17: {
+					caption: commonLogic.appcommonhandle("-",null),
+					tip: commonLogic.appcommonhandle("",null),
+				},
+				tbitem19: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
+				},
+				tbitem18: {
+					caption: commonLogic.appcommonhandle("帮助",null),
+					tip: commonLogic.appcommonhandle("帮助",null),
+				},
 			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
@@ -92,6 +152,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("删除",null),
 					tip: commonLogic.appcommonhandle("删除",null),
 				},
+			},
+			usr2gridviewtoolbar_toolbar: {
 			},
 		};
 		return data;
