@@ -55,6 +55,13 @@ public class CaseStatsSearchContext extends QueryWrapperContext<CaseStats> {
             this.getSearchCond().like("`modulename`", n_modulename_like);
         }
     }
+	private Long n_product_eq;//[产品]
+	public void setN_product_eq(Long n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("`product`", n_product_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

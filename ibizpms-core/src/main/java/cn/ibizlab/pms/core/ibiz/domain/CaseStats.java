@@ -114,6 +114,13 @@ public class CaseStats extends EntityMP implements Serializable {
     @JSONField(name = "passrate")
     @JsonProperty("passrate")
     private String passrate;
+    /**
+     * 产品
+     */
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
 
     /**
      * 模块
@@ -122,6 +129,14 @@ public class CaseStats extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Module ztmodule;
+
+    /**
+     * 产品
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Product ztproduct;
 
 
 
@@ -139,6 +154,14 @@ public class CaseStats extends EntityMP implements Serializable {
     public void setModule(Long module) {
         this.module = module;
         this.modify("module", module);
+    }
+
+    /**
+     * 设置 [产品]
+     */
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
 

@@ -50,6 +50,8 @@ public interface ICaseStatsService extends IService<CaseStats> {
     Page<CaseStats> searchTestCaseStats(CaseStatsSearchContext context);
     List<CaseStats> selectByModule(Long id);
     void removeByModule(Long id);
+    List<CaseStats> selectByProduct(Long id);
+    void removeByProduct(Long id);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -51,6 +51,9 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
     protected int batchSize = 500;
 
@@ -168,6 +171,15 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Override
     public void removeByModule(Long id) {
         this.remove(new QueryWrapper<CaseStats>().eq("module", id));
+    }
+
+    @Override
+    public List<CaseStats> selectByProduct(Long id) {
+        return baseMapper.selectByProduct(id);
+    }
+    @Override
+    public void removeByProduct(Long id) {
+        this.remove(new QueryWrapper<CaseStats>().eq("product", id));
     }
 
 

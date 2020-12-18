@@ -5,6 +5,7 @@
 ## 关系
 {% plantuml %}
 模块 *-- 测试用例统计 
+产品 *-- 测试用例统计 
 hide members
 {% endplantuml %}
 
@@ -22,6 +23,7 @@ hide members
 |阻塞用例数|BLOCKEDCASE|INT|&nbsp;|
 |总执行数|TOTALRUNCASE|INT|&nbsp;|
 |用例通过率|PASSRATE|TEXT|&nbsp;|
+|产品|PRODUCT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -36,6 +38,7 @@ hide members
 |阻塞用例数|默认规则|默认规则|
 |总执行数|默认规则|默认规则|
 |用例通过率|默认规则|内容长度必须小于等于[100]|
+|产品|默认规则|默认规则|
 
 ## 状态控制
 
@@ -80,6 +83,7 @@ hide members
 |模块(MODULE)|EQ|
 |模块名称(MODULENAME)|EQ|
 |模块名称(MODULENAME)|LIKE|
+|产品(PRODUCT)|EQ|
 
 ## 导入模式
 无

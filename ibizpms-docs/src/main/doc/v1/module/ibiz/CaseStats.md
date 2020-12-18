@@ -13,6 +13,7 @@
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
 | 1 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
+| 2 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
 
 
 ## 实体属性
@@ -28,6 +29,7 @@
 | 8 | [阻塞用例数](#属性-阻塞用例数（BLOCKEDCASE）) | BLOCKEDCASE | 整型 | 否 | 是 | 是 |
 | 9 | [总执行数](#属性-总执行数（TOTALRUNCASE）) | TOTALRUNCASE | 整型 | 否 | 是 | 是 |
 | 10 | [用例通过率](#属性-用例通过率（PASSRATE）) | PASSRATE | 文本，可指定长度 | 否 | 是 | 是 |
+| 11 | [产品](#属性-产品（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
 
 ### 属性-用例编号（ID）
 #### 属性说明
@@ -66,8 +68,8 @@ Long
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-用例标题（TITLE）
@@ -109,8 +111,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-模块（MODULE）
@@ -456,6 +458,49 @@ String
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-产品（PRODUCT）
+#### 属性说明
+产品
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+外键值
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -572,6 +617,7 @@ Save
 | 2 | [模块（MODULE）](#属性-模块（MODULE）) | `=` |
 | 3 | [模块名称（MODULENAME）](#属性-模块名称（MODULENAME）) | `=` |
 | 4 | [模块名称（MODULENAME）](#属性-模块名称（MODULENAME）) | `%like%` |
+| 5 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -599,6 +645,7 @@ SELECT
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
+t1.`PRODUCT`,
 t1.`TITLE`,
 0 AS `TOTALCASE`,
 0 AS `TOTALRUNCASE`
@@ -653,6 +700,7 @@ SELECT
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
+t1.`PRODUCT`,
 t1.`TITLE`,
 0 AS `TOTALCASE`,
 0 AS `TOTALRUNCASE`

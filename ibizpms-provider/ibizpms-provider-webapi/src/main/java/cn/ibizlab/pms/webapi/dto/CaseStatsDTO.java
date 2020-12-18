@@ -114,6 +114,15 @@ public class CaseStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String passrate;
 
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long product;
+
 
     /**
      * 设置 [TITLE]
@@ -129,6 +138,14 @@ public class CaseStatsDTO extends DTOBase implements Serializable {
     public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
+    }
+
+    /**
+     * 设置 [PRODUCT]
+     */
+    public void setProduct(Long  product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
 

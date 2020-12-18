@@ -4799,6 +4799,7 @@ SELECT
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
+t1.`PRODUCT`,
 t1.`TITLE`,
 0 AS `TOTALCASE`,
 0 AS `TOTALRUNCASE`
@@ -4831,6 +4832,7 @@ SELECT
 t1.`ID`,
 t1.`MODULE`,
 0 AS `PASSCASE`,
+t1.`PRODUCT`,
 t1.`TITLE`,
 0 AS `TOTALCASE`,
 0 AS `TOTALRUNCASE`
@@ -12472,7 +12474,7 @@ group by t1.`id`
 SELECT
 	t1.*,
 	SUM(
-	t1.codeerror + t1.config + t1.designdefect + t1.standard + t1.performance + t1.others + t1.INSTALL + t1.automation + t1.SECURITY 
+	IFNULL(t1.codeerror,0)  + IFNULL(t1.config,0) + IFNULL(t1.designdefect,0) +IFNULL(t1.standard,0)  + IFNULL(t1.performance,0) + IFNULL(t1.others,0) +IFNULL(t1.INSTALL,0)  + IFNULL(t1.automation,0) +IFNULL(t1.SECURITY ,0)
 	) AS bugsum 
 FROM
 	(
@@ -15586,7 +15588,8 @@ t1.`TITLE`,
 t1.`TOBUG`,
 t1.`TYPE`,
 t1.`VERSION`,
-t1.`VERSION` AS `VERSIONC`
+t1.`VERSION` AS `VERSIONC`,
+${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTSTORY"}')} as project
 FROM `zt_story` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 

@@ -4133,6 +4133,24 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PRODUCT" ,
+    "codename":"Product",
+    "field_logic_name":"产品",
+    "entity_name":"CaseStats",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_CASESTATS_ZT_PRODUCT_PRODUCT",
+    "relation_codename":"ZTPRODUCT",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -4143,6 +4161,12 @@
      "code_name":"ZTModule",
      "entity_name":"IBZ_CASESTATS",
      "ref_entity_name":"ZT_MODULE"
+    },
+    {"name":"DER1N_IBZ_CASESTATS_ZT_PRODUCT_PRODUCT",
+     "relation_type":"DER1N",
+     "code_name":"ZTPRODUCT",
+     "entity_name":"IBZ_CASESTATS",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ]
  }
@@ -26073,6 +26097,12 @@
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
      "entity_name":"IBZ_BUGSTATS",
+     "ref_entity_name":"ZT_PRODUCT"
+    },
+    {"name":"DER1N_IBZ_CASESTATS_ZT_PRODUCT_PRODUCT",
+     "relation_type":"DER1N",
+     "code_name":"ZTPRODUCT",
+     "entity_name":"IBZ_CASESTATS",
      "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_IBZ_PRODUCTMODULE_ZT_PRODUCT_ROOT",

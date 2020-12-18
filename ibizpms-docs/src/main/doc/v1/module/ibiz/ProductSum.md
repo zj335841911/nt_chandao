@@ -2048,7 +2048,7 @@ group by t1.`id`
 SELECT
 	t1.*,
 	SUM(
-	t1.codeerror + t1.config + t1.designdefect + t1.standard + t1.performance + t1.others + t1.INSTALL + t1.automation + t1.SECURITY 
+	IFNULL(t1.codeerror,0)  + IFNULL(t1.config,0) + IFNULL(t1.designdefect,0) +IFNULL(t1.standard,0)  + IFNULL(t1.performance,0) + IFNULL(t1.others,0) +IFNULL(t1.INSTALL,0)  + IFNULL(t1.automation,0) +IFNULL(t1.SECURITY ,0)
 	) AS bugsum 
 FROM
 	(

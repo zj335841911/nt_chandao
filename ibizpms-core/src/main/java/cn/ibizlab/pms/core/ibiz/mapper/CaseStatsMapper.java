@@ -65,4 +65,6 @@ public interface CaseStatsMapper extends BaseMapper<CaseStats> {
 
     List<CaseStats> selectByModule(@Param("id") Serializable id);
 
+    List<CaseStats> selectByProduct(@Param("id") Serializable id);
+
 }

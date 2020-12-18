@@ -85,4 +85,12 @@ export interface CaseStats {
      * @memberof CaseStats
      */
     passrate?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof CaseStats
+     */
+    product?: any;
 }

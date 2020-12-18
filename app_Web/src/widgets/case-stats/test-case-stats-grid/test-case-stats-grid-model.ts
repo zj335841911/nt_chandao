@@ -62,6 +62,11 @@ export default class TestCaseStatsModel {
           dataType: 'TEXT',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',

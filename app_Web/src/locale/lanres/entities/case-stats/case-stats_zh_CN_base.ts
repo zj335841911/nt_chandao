@@ -13,6 +13,7 @@ function getLocaleResourceBase(){
 			blockedcase: commonLogic.appcommonhandle("阻塞用例数",null),
 			totalruncase: commonLogic.appcommonhandle("总执行数",null),
 			passrate: commonLogic.appcommonhandle("用例通过率",null),
+			product: commonLogic.appcommonhandle("产品",null),
 		},
 			views: {
 				testcasestatsgridview: {
