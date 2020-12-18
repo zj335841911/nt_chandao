@@ -20,5 +20,19 @@ import view_searchform from '@widgets/ibizpro-index/default-searchform/default-s
     }
 })
 @VueLifeCycleProcessing()
-export default class IBIZPRO_INDEXListView extends IBIZPRO_INDEXListViewBase {}
+export default class IBIZPRO_INDEXListView extends IBIZPRO_INDEXListViewBase {
+    /**
+     * 快速搜索
+     *
+     * @protected
+     * @memberof ListViewBase
+     */
+    protected onSearch(): void {
+        const list: any = this.$refs.list;
+        if (list) {
+            list.curPage = 1;
+            list.load(this.context, true);
+        }
+    }
+}
 </script>
