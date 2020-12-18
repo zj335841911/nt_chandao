@@ -90,6 +90,14 @@ export class GridExpViewgridexpbarGridexpbarBase extends GridExpBarControlBase {
 
 
     /**
+     * 导航视图名称
+     *
+     * @type {string}
+     * @memberof GridExpViewgridexpbarBase
+     */
+    public navViewName: string = 'sys-department-grid-exp-view';
+
+    /**
     * 刷新
     *
     * @memberof GridExpViewgridexpbarBase

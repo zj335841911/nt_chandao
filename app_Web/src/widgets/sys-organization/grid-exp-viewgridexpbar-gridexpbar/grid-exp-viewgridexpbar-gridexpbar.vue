@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { GridExpViewgridexpbarGridexpbarBase } from './grid-exp-viewgridexpbar-gridexpbar-base';
-import view_gridexpbar_grid from '@widgets/sys-organization/gridexpbar-grid-grid/gridexpbar-grid-grid.vue';
+import view_gridexpbar_grid from '@widgets/sys-organization/main-exp-grid/main-exp-grid.vue';
  
 
 /**
