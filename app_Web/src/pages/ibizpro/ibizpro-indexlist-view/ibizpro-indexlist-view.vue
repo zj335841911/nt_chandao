@@ -20,33 +20,5 @@ import view_searchform from '@widgets/ibizpro-index/default-searchform/default-s
     }
 })
 @VueLifeCycleProcessing()
-export default class IBIZPRO_INDEXListView extends IBIZPRO_INDEXListViewBase {
-
-    /**
-     * 视图挂载完毕
-     *
-     * @protected
-     * @memberof MDViewBase
-     */
-    protected viewMounted(): void {
-        this.loadQuickGroupModel();
-        if (this.$route.query.query) {
-            this.query = this.$route.query.query as string;
-        }
-    }
-
-    /**
-     * 快速搜索
-     *
-     * @protected
-     * @memberof ListViewBase
-     */
-    protected onSearch(): void {
-        const list: any = this.$refs.list;
-        if (list) {
-            list.curPage = 1;
-            list.load(this.context, true);
-        }
-    }
-}
+export default class IBIZPRO_INDEXListView extends IBIZPRO_INDEXListViewBase {}
 </script>

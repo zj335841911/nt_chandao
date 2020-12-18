@@ -1,6 +1,6 @@
 <template>
     <div class="full-text-search" >
-        <i-input v-if="falg" clearable search @on-search="onSearch" size="small" :placeholder="$t('app.fullTextSearch.placeholder')"></i-input>
+        <i-input v-if="falg" clearable search @on-search="onSearch" size="small" :placeholder="$t('entities.ibizproindex.fields.indexname')+','+$t('entities.ibizproindex.fields.indexdesc')"></i-input>
     </div>
 </template>
 
@@ -58,6 +58,22 @@ export default class FullTextSearch extends Vue{
                 this.falg = true;
             }
         } 
+    }
+
+    /**
+     * 生命周期
+     * 
+     * @memberof FullTextSearch
+     */
+    public created(){
+        if (this.history) {
+            const index = this.history.findIndex((item: any) => Object.is(item.to.path,this.path));
+            if(index != -1){
+                this.falg = false;
+            } else {
+                this.falg = true;
+            }
+        }
     }
 
     /**
