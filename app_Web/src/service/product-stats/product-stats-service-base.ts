@@ -243,4 +243,33 @@ export default class ProductStatsServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productstats/searchnoopenproduct`,tempData,isloading);
     }
+
+    /**
+     * FetchProdctQuantiGird接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductStatsServiceBase
+     */
+    public async FetchProdctQuantiGird(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productstats/fetchprodctquantigird`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProdctQuantiGird接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductStatsServiceBase
+     */
+    public async searchProdctQuantiGird(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productstats/searchprodctquantigird`,tempData,isloading);
+    }
 }

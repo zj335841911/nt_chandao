@@ -184,6 +184,15 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
         return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 产品质量表
+     */
+    @Override
+    public Page<ProductStats> searchProdctQuantiGird(ProductStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchProdctQuantiGird(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

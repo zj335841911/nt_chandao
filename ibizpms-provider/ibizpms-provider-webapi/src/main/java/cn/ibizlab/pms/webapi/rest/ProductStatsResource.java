@@ -190,6 +190,28 @@ public class ProductStatsResource {
                 .body(new PageImpl(productstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-searchProdctQuantiGird-all')")
+	@ApiOperation(value = "获取产品质量表", tags = {"产品统计" } ,notes = "获取产品质量表")
+    @RequestMapping(method= RequestMethod.GET , value="/productstats/fetchprodctquantigird")
+	public ResponseEntity<List<ProductStatsDTO>> fetchProdctQuantiGird(ProductStatsSearchContext context) {
+        Page<ProductStats> domains = productstatsService.searchProdctQuantiGird(context) ;
+        List<ProductStatsDTO> list = productstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-searchProdctQuantiGird-all')")
+	@ApiOperation(value = "查询产品质量表", tags = {"产品统计" } ,notes = "查询产品质量表")
+    @RequestMapping(method= RequestMethod.POST , value="/productstats/searchprodctquantigird")
+	public ResponseEntity<Page<ProductStatsDTO>> searchProdctQuantiGird(@RequestBody ProductStatsSearchContext context) {
+        Page<ProductStats> domains = productstatsService.searchProdctQuantiGird(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

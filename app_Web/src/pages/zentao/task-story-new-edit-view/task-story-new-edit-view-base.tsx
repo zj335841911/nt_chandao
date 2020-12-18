@@ -66,34 +66,6 @@ export class TaskStoryNewEditViewBase extends EditViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskStoryNewEditViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'STORY': {
-            isRawValue: false,
-            value: 'story',
-        }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskStoryNewEditViewBase
-	 */
-    protected customViewParams: any = {
-        'story': {
-            isRawValue: false,
-            value: 'story',
-        }
-    };
-
     /**
      * 是否显示信息栏
      *

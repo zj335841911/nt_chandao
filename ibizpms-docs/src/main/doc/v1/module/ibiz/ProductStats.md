@@ -1403,7 +1403,8 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [产品质量表](#数据查询-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1681,6 +1682,57 @@ FROM
 	`zt_product` t1
 	left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'product' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-产品质量表（ProdctQuantiGird）
+#### 说明
+产品质量表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
+SELECT t1.*,t1.bugcnt/(IFNULL(t1.storycnt,1)) as zhanbi from (
+SELECT t2.`name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t1.bugcnt,0) as bugcnt,IFNULL(t1.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t1.importantbugcnt,0) as importantbugcnt from (
+SELECT IFNULL(t1.product,t2.product) as product,IFNULL(t1.`name`,t2.`name`) as `name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t2.bugcnt,0) as bugcnt,IFNULL(t2.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t2.importantbugcnt,0) as importantbugcnt from (
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as storycnt ,
+SUM(IF(t1.`status` = 'closed' and t1.closedReason in ('done'),t1.num,0)) as finishedStory
+from (
+select t1.`status`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product  ) t1 left JOIN (
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as bugcnt,
+SUM(IF(t1.`STATUS` = 'closed' and t1.resolution in ('fixed'),t1.num,0)) as resolvedBugCnt,
+SUM(IF(t1.pri >= 1 and t1.pri <= 3,t1.num,0)) as importantbugcnt from 
+ (
+SELECT t1.`STATUS`,t1.resolution,t1.pri,t1.id,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0'
+) t1 GROUP BY t1.product
+) t2 on t1.product = t2.product
+UNION
+
+SELECT IFNULL(t1.product,t2.product) as product,IFNULL(t1.`name`,t2.`name`) as `name`,IFNULL(t1.storycnt,0) as storycnt,IFNULL(t1.finishedStory,0) as finishedStory,IFNULL(t2.bugcnt,0) as bugcnt,IFNULL(t2.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t2.importantbugcnt,0) as importantbugcnt from (
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as storycnt ,
+SUM(IF(t1.`status` = 'closed' and t1.closedReason in ('done'),t1.num,0)) as finishedStory
+from (
+select t1.`status`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product  ) t1 right JOIN (
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as bugcnt,
+SUM(IF(t1.`STATUS` = 'closed' and t1.resolution in ('fixed'),t1.num,0)) as resolvedBugCnt,
+SUM(IF(t1.pri >= 1 and t1.pri <= 3,t1.num,0)) as importantbugcnt from 
+ (
+SELECT t1.`STATUS`,t1.resolution,t1.pri,t1.id,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0'
+) t1 GROUP BY t1.product
+) t2 on t1.product = t2.product 
+) t1 RIGHT JOIN zt_product t2 on t1.product = t2.id where t2.deleted = '0' ) t1
+
+
+
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1734,6 +1786,7 @@ FROM `zt_product` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
+| 3 | [产品质量表](#数据集合-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1763,6 +1816,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [未关闭产品（NoOpenProduct）](#数据查询-未关闭产品（NoOpenProduct）) |
+### 数据集合-产品质量表（ProdctQuantiGird）
+#### 说明
+产品质量表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品质量表（ProdctQuantiGird）](#数据查询-产品质量表（ProdctQuantiGird）) |
 
 ## 数据导入
 无
