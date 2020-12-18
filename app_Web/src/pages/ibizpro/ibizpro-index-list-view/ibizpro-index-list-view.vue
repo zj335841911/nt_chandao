@@ -45,6 +45,10 @@ export default class IbizproIndexListView extends IbizproIndexListViewBase {
         const list: any = this.$refs.list;
         if (list) {
             list.curPage = 1;
+            let url: string =window.location.href;
+            const index = url.indexOf('?');
+            let newurl =  url.substring(0,index+1)+'query='+this.query;
+            history.pushState("", "", newurl);          
             list.load(this.context, true);
         }
     }
