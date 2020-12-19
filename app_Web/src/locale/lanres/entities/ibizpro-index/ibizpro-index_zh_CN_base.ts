@@ -10,6 +10,7 @@ function getLocaleResourceBase(){
 			orgid: commonLogic.appcommonhandle("组织标识",null),
 			mdeptid: commonLogic.appcommonhandle("部门标识",null),
 			indexdesc: commonLogic.appcommonhandle("内容[需求、任务等]",null),
+			color: commonLogic.appcommonhandle("颜色",null),
 		},
 			views: {
 				listview: {

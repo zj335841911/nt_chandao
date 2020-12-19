@@ -21,6 +21,9 @@ export default class IndexMobModel {
 				name: 'orgid',
 			},
 			{
+				name: 'color',
+			},
+			{
 				name: 'indexid',
 			},
 			{

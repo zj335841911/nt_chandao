@@ -61,4 +61,12 @@ export interface IbizproIndex {
      * @memberof IbizproIndex
      */
     indexdesc?: any;
+
+    /**
+     * 颜色
+     *
+     * @returns {*}
+     * @memberof IbizproIndex
+     */
+    color?: any;
 }
