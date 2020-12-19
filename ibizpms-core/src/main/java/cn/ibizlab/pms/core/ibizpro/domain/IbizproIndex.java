@@ -93,6 +93,13 @@ public class IbizproIndex extends EntityMP implements Serializable {
     @JSONField(name = "indexdesc")
     @JsonProperty("indexdesc")
     private String indexdesc;
+    /**
+     * 颜色
+     */
+    @TableField(exist = false)
+    @JSONField(name = "color")
+    @JsonProperty("color")
+    private String color;
 
 
 

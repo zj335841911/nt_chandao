@@ -7266,7 +7266,8 @@ t1.`INDEXNAME`,
 t1.`INDEX_TYPE`,
 t1.`MDEPTID`,
 t1.`ORGID`,
-t1.INDEXDESC
+t1.INDEXDESC,
+t1.color
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
@@ -7274,6 +7275,7 @@ FROM (SELECT
 ,v1.orgid AS `ORGID`
 ,v1.MDEPTID AS `MDEPTID`
 ,v1.steps as INDEXDESC
+,v1.color
 FROM
 (SELECT
 t1.`ID`,
@@ -7281,7 +7283,8 @@ t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t1.steps
+t1.steps,
+t1.color
 FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v1
@@ -7293,6 +7296,7 @@ SELECT
 ,v2.orgid AS `ORGID`
 ,v2.MDEPTID AS `MDEPTID`,
 v2.precondition as INDEXDESC
+,v2.color
 FROM
 (SELECT
 t1.`ID`,
@@ -7300,7 +7304,8 @@ t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t1.`PRECONDITION`
+t1.`PRECONDITION`,
+t1.color
 FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v2
@@ -7312,6 +7317,7 @@ SELECT
 ,v3.orgid AS `ORGID`
 ,v3.MDEPTID AS `MDEPTID`,
 v3.`desc` as INDEXDESC
+, null as color
 FROM
 (SELECT
 t1.`ID`,
@@ -7330,6 +7336,7 @@ SELECT
 ,v4.orgid AS `ORGID`
 ,v4.MDEPTID AS `MDEPTID`
 ,v4.`desc` as INDEXDESC
+,null as color
 FROM
 (SELECT
 t1.`ID`,
@@ -7348,6 +7355,7 @@ SELECT
 ,v5.orgid AS `ORGID`
 ,v5.MDEPTID AS `MDEPTID`
 ,v5.spec as INDEXDESC
+,v5.color
 FROM
 (SELECT
 t1.`ID`,
@@ -7355,7 +7363,8 @@ t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t21.spec
+t21.spec,
+t1.color
 FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
 left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
 where t11.deleted = '0' 
@@ -7368,6 +7377,7 @@ SELECT
 ,v6.orgid AS `ORGID`
 ,v6.MDEPTID AS `MDEPTID`,
 v6.`desc` as INDEXDESC
+,v6.color
 FROM
 (SELECT
 t1.`ID`,
@@ -7375,7 +7385,8 @@ t1.`NAME`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t1.`desc`
+t1.`desc`,
+t1.color
 FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
 where t11.deleted = '0'
 ) v6
@@ -7387,6 +7398,7 @@ t1.orgid = #{srf.sessioncontext.srforgid}
 ### 默认（全部数据）(VIEW)<div id="IbizproIndex_View"></div>
 ```sql
 SELECT
+t1.`COLOR`,
 t1.`DELETED`,
 t1.`INDEXDESC`,
 t1.`INDEXID`,
@@ -7401,6 +7413,7 @@ FROM (SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -7415,6 +7428,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -7429,6 +7443,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -7443,6 +7458,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -7457,6 +7473,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -7471,6 +7488,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
