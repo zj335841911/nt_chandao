@@ -23,6 +23,7 @@
 | 5 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 否 | 是 |
 | 6 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 否 | 是 |
 | 7 | [内容[需求、任务等]](#属性-内容[需求、任务等]（INDEXDESC）) | INDEXDESC | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 8 | [颜色](#属性-颜色（COLOR）) | COLOR | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-类型（INDEX_TYPE）
 #### 属性说明
@@ -299,6 +300,45 @@ null
 #### 关系属性
 无
 
+### 属性-颜色（COLOR）
+#### 属性说明
+颜色
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+null
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -441,7 +481,8 @@ t1.`INDEXNAME`,
 t1.`INDEX_TYPE`,
 t1.`MDEPTID`,
 t1.`ORGID`,
-t1.INDEXDESC
+t1.INDEXDESC,
+t1.color
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
@@ -449,6 +490,7 @@ FROM (SELECT
 ,v1.orgid AS `ORGID`
 ,v1.MDEPTID AS `MDEPTID`
 ,v1.steps as INDEXDESC
+,v1.color
 FROM
 (SELECT
 t1.`ID`,
@@ -456,7 +498,8 @@ t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t1.steps
+t1.steps,
+t1.color
 FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v1
@@ -468,6 +511,7 @@ SELECT
 ,v2.orgid AS `ORGID`
 ,v2.MDEPTID AS `MDEPTID`,
 v2.precondition as INDEXDESC
+,v2.color
 FROM
 (SELECT
 t1.`ID`,
@@ -475,7 +519,8 @@ t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t1.`PRECONDITION`
+t1.`PRECONDITION`,
+t1.color
 FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v2
@@ -487,6 +532,7 @@ SELECT
 ,v3.orgid AS `ORGID`
 ,v3.MDEPTID AS `MDEPTID`,
 v3.`desc` as INDEXDESC
+, null as color
 FROM
 (SELECT
 t1.`ID`,
@@ -505,6 +551,7 @@ SELECT
 ,v4.orgid AS `ORGID`
 ,v4.MDEPTID AS `MDEPTID`
 ,v4.`desc` as INDEXDESC
+,null as color
 FROM
 (SELECT
 t1.`ID`,
@@ -523,6 +570,7 @@ SELECT
 ,v5.orgid AS `ORGID`
 ,v5.MDEPTID AS `MDEPTID`
 ,v5.spec as INDEXDESC
+,v5.color
 FROM
 (SELECT
 t1.`ID`,
@@ -530,7 +578,8 @@ t1.`TITLE`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t21.spec
+t21.spec,
+t1.color
 FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
 left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
 where t11.deleted = '0' 
@@ -543,6 +592,7 @@ SELECT
 ,v6.orgid AS `ORGID`
 ,v6.MDEPTID AS `MDEPTID`,
 v6.`desc` as INDEXDESC
+,v6.color
 FROM
 (SELECT
 t1.`ID`,
@@ -550,7 +600,8 @@ t1.`NAME`,
 t11.orgid,
 t11.MDEPTID,
 t1.deleted,
-t1.`desc`
+t1.`desc`,
+t1.color
 FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
 where t11.deleted = '0'
 ) v6
@@ -570,6 +621,7 @@ where t11.deleted = '0'
 - MYSQL5
 ```SQL
 SELECT
+t1.`COLOR`,
 t1.`DELETED`,
 t1.`INDEXDESC`,
 t1.`INDEXID`,
@@ -584,6 +636,7 @@ FROM (SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -598,6 +651,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -612,6 +666,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -626,6 +681,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -640,6 +696,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,
@@ -654,6 +711,7 @@ SELECT
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,NULL AS `INDEXDESC`
+,NULL AS `COLOR`
 FROM
 (SELECT
 t1.`ID`,

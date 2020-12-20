@@ -268,7 +268,8 @@ POST
 | 5 | orgid | String | 允许 | 组织标识 |
 | 6 | mdeptid | String | 允许 | 部门标识 |
 | 7 | indexdesc | String | 允许 | 内容[需求、任务等] |
-| 8 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 8 | color | String | 允许 | 颜色 |
+| 9 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproIndexSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
