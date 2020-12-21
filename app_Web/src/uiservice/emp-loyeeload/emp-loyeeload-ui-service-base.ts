@@ -108,7 +108,7 @@ export default class EmpLoyeeloadUIServiceBase extends UIService {
         this.allViewMap.set('MDATAVIEW:', {
             viewname: 'gridview',
             srfappde: 'employeeloads',
-            component: 'employeeloadgrid-view',
+            component: 'emp-loyeeload-grid-view',
             openmode: '',
             title: '员工负载表',
             width: 0,

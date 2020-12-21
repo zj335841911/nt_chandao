@@ -4668,7 +4668,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "caption": "员工负载表",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
-            "viewname": "EMPLOYEELOADGridView",
+            "viewname": "EmpLoyeeloadGridView",
             "viewtag": "e008123fe4c3014fac07b33dd79f6b13"
         },
         "producteditview": {

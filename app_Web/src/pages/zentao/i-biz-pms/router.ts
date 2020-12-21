@@ -15092,7 +15092,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/employeeloadgrid-view/employeeloadgrid-view.vue'),
+                    component: () => import('@pages/ibiz/emp-loyeeload-grid-view/emp-loyeeload-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/testgridview/:testgridview?',

@@ -131,7 +131,7 @@ export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
         }
         if (Object.is(expmode, 'EMPLOYEELOAD')) {
             return {  
-                viewname: 'employeeloadgrid-view', 
+                viewname: 'emp-loyeeload-grid-view', 
                 parentdata: {},
                 deKeyField:'employeeload'
 			};

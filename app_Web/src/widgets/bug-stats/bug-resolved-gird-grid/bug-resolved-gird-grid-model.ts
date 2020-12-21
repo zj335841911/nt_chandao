@@ -107,13 +107,8 @@ export default class BugResolvedGirdModel {
           prop: 'id',
         },
       {
-        name: 'n_product_eq',
-        prop: 'n_product_eq',
-        dataType: 'PICKUP',
-      },
-      {
-        name: 'n_resolvedby_eq',
-        prop: 'n_resolvedby_eq',
+        name: 'n_dept_eq',
+        prop: 'n_dept_eq',
         dataType: 'SSCODELIST',
       },
 

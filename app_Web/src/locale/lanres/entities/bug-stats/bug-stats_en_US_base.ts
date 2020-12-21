@@ -260,6 +260,14 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			bugresolvedgird_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					n_dept_eq: commonLogic.appcommonhandle("部门",null), 
+				},
+				uiactions: {
+				},
+			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("Save",null),

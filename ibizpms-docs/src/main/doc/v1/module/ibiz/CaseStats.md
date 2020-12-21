@@ -677,7 +677,7 @@ sum(case when t2.caseResult is not null then 1 else 0 end) as TotalRunCase,
 case when sum(case when t2.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t2.caseResult = 'pass' then 1 else 0 end) / sum(case when t2.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
 from zt_case t1 
 left join zt_testresult t2 on t1.id = t2.`case`
-where t1.deleted = '0' and t1.module = 0 and t1.product = #{srf.datacontext.product}
+where t1.deleted = '0' and t1.module = 0 and t1.product = #{srf.datacontext.n_product_eq}
 union
 select
 t1.id as Module, 
@@ -693,7 +693,7 @@ from
 zt_module t1
 left join zt_case t2 on t1.id = t2.module and t2.deleted = '0' 
 left join zt_testresult t3 on t2.id = t3.`case`
-where t1.deleted = '0' and t1.root = #{srf.datacontext.product}
+where t1.deleted = '0' and t1.root = #{srf.datacontext.n_product_eq}
 group by t1.id
 ```
 ### 数据查询-默认（全部数据）（View）
