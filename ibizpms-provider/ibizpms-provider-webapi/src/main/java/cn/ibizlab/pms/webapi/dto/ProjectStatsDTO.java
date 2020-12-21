@@ -663,6 +663,15 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String progress;
 
+    /**
+     * 属性 [BEGIN]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
+
 
     /**
      * 设置 [NAME]
@@ -686,6 +695,14 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     public void setStatus(String  status){
         this.status = status ;
         this.modify("status",status);
+    }
+
+    /**
+     * 设置 [BEGIN]
+     */
+    public void setBegin(Timestamp  begin){
+        this.begin = begin ;
+        this.modify("begin",begin);
     }
 
 

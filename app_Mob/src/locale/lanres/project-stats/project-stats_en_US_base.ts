@@ -79,5 +79,6 @@ export default {
     releasedstagestorycnt:  commonLogic.appcommonhandle("已发布阶段需求数",null),
     closedstagestorycnt:  commonLogic.appcommonhandle("已关闭阶段需求数",null),
     progress:  commonLogic.appcommonhandle("进度",null),
+    begin:  commonLogic.appcommonhandle("开始时间",null),
   },
 };

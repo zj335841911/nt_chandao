@@ -79,5 +79,6 @@ export default {
     releasedstagestorycnt: "已发布阶段需求数",
     closedstagestorycnt: "已关闭阶段需求数",
     progress: "进度",
+    begin: "开始时间",
   },
 };

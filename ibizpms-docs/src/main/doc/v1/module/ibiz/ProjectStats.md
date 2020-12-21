@@ -94,6 +94,7 @@
 | 76 | [已发布阶段需求数](#属性-已发布阶段需求数（RELEASEDSTAGESTORYCNT）) | RELEASEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 77 | [已关闭阶段需求数](#属性-已关闭阶段需求数（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 78 | [进度](#属性-进度（PROGRESS）) | PROGRESS | 文本，可指定长度 | 否 | 否 | 是 |
+| 79 | [开始时间](#属性-开始时间（BEGIN）) | BEGIN | 日期型 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -1019,7 +1020,9 @@ yyyy-MM-dd
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `<=` |
 
 #### 关系属性
 无
@@ -3065,6 +3068,45 @@ String
 #### 关系属性
 无
 
+### 属性-开始时间（BEGIN）
+#### 属性说明
+开始时间
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `>=` |
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -3206,8 +3248,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [项目名称（NAME）](#属性-项目名称（NAME）) | `%like%` |
-| 2 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
-| 3 | [状态（STATUS）](#属性-状态（STATUS）) | `!=`或者`<>` |
+| 2 | [截止日期（END）](#属性-截止日期（END）) | `<=` |
+| 3 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
+| 4 | [状态（STATUS）](#属性-状态（STATUS）) | `!=`或者`<>` |
+| 5 | [开始时间（BEGIN）](#属性-开始时间（BEGIN）) | `>=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -4074,6 +4118,7 @@ FROM `zt_project` t2 WHERE t2.`ID` = ${srfdatacontext('srfparentkey','{"defname"
 SELECT
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0') AS `ACTIVEBUGCNT`,
 0 AS `ACTIVESTORY`,
+t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
 0 AS `CHANGEDSTORY`,
 0 AS `CLOSEDSTAGESTORYCNT`,

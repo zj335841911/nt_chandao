@@ -14413,6 +14413,7 @@ FROM `zt_project` t2 WHERE t2.`ID` = ${srfdatacontext('srfparentkey','{"defname"
 SELECT
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0') AS `ACTIVEBUGCNT`,
 0 AS `ACTIVESTORY`,
+t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
 0 AS `CHANGEDSTORY`,
 0 AS `CLOSEDSTAGESTORYCNT`,
@@ -19331,6 +19332,9 @@ where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishe
 ) t3 on t1.finishedBy = t3.finishedBy
 
 RIGHT JOIN zt_user t4 on t1.finishedBy = t4.account
+where (t4.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null) 
+and (DATE_FORMAT(t1.finishedDate,'%Y-%m-%d') >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
+and (DATE_FORMAT(t1.finishedDate,'%Y-%m-%d') >= #{srf.datacontext.end} or #{srf.datacontext.end} is null)
 ORDER BY t4.account,t1.project
 
 ```
