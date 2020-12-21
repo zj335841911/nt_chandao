@@ -305,6 +305,10 @@ function getLocaleResourceBase(){
 			productbugresolutiongridviewtoolbar_toolbar: {
 			},
 			bugresolvedbygridviewzuzhitoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
 			},
 		};
 		return data;

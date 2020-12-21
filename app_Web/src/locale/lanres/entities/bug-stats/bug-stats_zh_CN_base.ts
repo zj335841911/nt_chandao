@@ -305,6 +305,10 @@ function getLocaleResourceBase(){
 			productbugresolutiongridviewtoolbar_toolbar: {
 			},
 			bugresolvedbygridviewzuzhitoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
 			},
 		};
 		return data;
