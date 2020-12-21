@@ -537,7 +537,8 @@ POST
 | 58 | others | Integer | 允许 | 其他 |
 | 59 | projecttotalconsumed | Double | 允许 | 项目消耗总工时 |
 | 60 | timescale | String | 允许 | 工期 |
-| 61 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 61 | leftstorycnt | Integer | 允许 | 剩余需求数 |
+| 62 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

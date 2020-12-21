@@ -518,6 +518,14 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String timescale;
 
+    /**
+     * 属性 [LEFTSTORYCNT]
+     *
+     */
+    @JSONField(name = "leftstorycnt")
+    @JsonProperty("leftstorycnt")
+    private Integer leftstorycnt;
+
 
     /**
      * 设置 [NAME]

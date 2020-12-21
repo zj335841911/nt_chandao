@@ -12,6 +12,8 @@ function getLocaleResourceBase(){
 			name: commonLogic.appcommonhandle("名称",null),
 			finishedby: commonLogic.appcommonhandle("完成者",null),
 			taskefficient: commonLogic.appcommonhandle("效率",null),
+			taskid: commonLogic.appcommonhandle("任务编号",null),
+			taskname: commonLogic.appcommonhandle("任务名称",null),
 		},
 			views: {
 				userfinishtasksumgridview: {

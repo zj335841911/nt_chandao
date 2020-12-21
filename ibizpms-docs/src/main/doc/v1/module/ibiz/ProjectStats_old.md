@@ -69,6 +69,7 @@
 |其他|OTHERS|INT|&nbsp;|
 |项目消耗总工时|PROJECTTOTALCONSUMED|FLOAT|&nbsp;|
 |工期|TIMESCALE|TEXT|&nbsp;|
+|剩余需求数|LEFTSTORYCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -133,6 +134,7 @@
 |其他|默认规则|默认规则|
 |项目消耗总工时|默认规则|默认规则|
 |工期|默认规则|内容长度必须小于等于[100]|
+|剩余需求数|默认规则|默认规则|
 
 ## 状态控制
 

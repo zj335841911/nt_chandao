@@ -63,6 +63,7 @@ function getLocaleResourceBase(){
 			others: commonLogic.appcommonhandle("其他",null),
 			projecttotalconsumed: commonLogic.appcommonhandle("项目消耗总工时",null),
 			timescale: commonLogic.appcommonhandle("工期",null),
+			leftstorycnt: commonLogic.appcommonhandle("剩余需求数",null),
 		},
 			views: {
 				allgridview: {

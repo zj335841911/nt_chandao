@@ -107,6 +107,13 @@ public class TaskStats extends EntityMP implements Serializable {
     @JSONField(name = "taskefficient")
     @JsonProperty("taskefficient")
     private String taskefficient;
+    /**
+     * 任务编号
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskid")
+    @JsonProperty("taskid")
+    private Integer taskid;
 
 
 

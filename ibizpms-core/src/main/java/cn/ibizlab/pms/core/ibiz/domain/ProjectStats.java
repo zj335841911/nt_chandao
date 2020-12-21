@@ -467,6 +467,13 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "timescale")
     @JsonProperty("timescale")
     private String timescale;
+    /**
+     * 剩余需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "leftstorycnt")
+    @JsonProperty("leftstorycnt")
+    private Integer leftstorycnt;
 
 
 

@@ -77,4 +77,20 @@ export interface TaskStats {
      * @memberof TaskStats
      */
     taskefficient?: any;
+
+    /**
+     * 任务编号
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskid?: any;
+
+    /**
+     * 任务名称
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskname?: any;
 }

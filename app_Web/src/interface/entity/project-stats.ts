@@ -485,4 +485,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     timescale?: any;
+
+    /**
+     * 剩余需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    leftstorycnt?: any;
 }

@@ -31040,6 +31040,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"LEFTSTORYCNT" ,
+    "codename":"Leftstorycnt",
+    "field_logic_name":"剩余需求数",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -38517,6 +38530,19 @@
     "data_type":"VARCHAR",
     "data_length":200,
     "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TASKID" ,
+    "codename":"Taskid",
+    "field_logic_name":"任务编号",
+    "entity_name":"TaskStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
     "key_field":0,
     "show_order":1000,
     "major_field":0
