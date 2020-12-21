@@ -1120,7 +1120,7 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
             await this.getNodeState(item);
             this.$forceUpdate();
         }
-        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        let el: any = this.$el.getElementsByClassName('chart-item-operate')[index];
         if (el) {
             el.style.display = 'block'; 
         }
@@ -1133,7 +1133,7 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      * @memberof DoclibChildTreeViewBase
      */
     public hideToolBar(index: number){
-        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        let el: any = this.$el.getElementsByClassName('chart-item-operate')[index];
         if (el) {
             el.style.display = 'none'; 
         }

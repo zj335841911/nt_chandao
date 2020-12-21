@@ -1,5 +1,5 @@
 <div :class="['app-list', this.items.length > 0 ? '' : 'app-list-empty' ]">
-    <div v-if="items.length > 0" style="max-height: 800px;overflow-y:auto;">
+    <div v-if="items.length > 0" style="height: calc(100% - 35px);overflow-y:auto;">
         <div
             v-for="item in items"
             :key="item.srfkey"
@@ -7,8 +7,8 @@
             @click="handleClick(item)"
             @dblclick="handleDblClick(item)"
         >
-            <div class="app_list_index_item" style="  padding-left: 20px;"> {{item.index_type}} # {{item.srfkey}} / {{item.srfmajortext}}</div>
-				<div class="app_list_index_item" style="  padding-left: 20px;" v-html='item.indexdesc'></div>
+            <div class="app_list_index_item" style="padding-left: 20px;"> {{item.index_type}} # {{item.srfkey}} / {{item.srfmajortext}}</div>
+				<div class="app_list_index_item" style="overflow-x:auto;padding-left: 20px;" v-html='item.indexdesc'></div>
         </div>
     </div>
     <div v-else>

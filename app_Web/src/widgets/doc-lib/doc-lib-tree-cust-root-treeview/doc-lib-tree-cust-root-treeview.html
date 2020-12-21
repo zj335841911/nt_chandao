@@ -15,10 +15,10 @@
         </Breadcrumb>
         <div class="documents-library-toolbar">
             <div class="documents-library-search">
-                <i-input slot="quickSearch" v-model="srfnodefilter" clearable search @on-search="onSearch.apply(_self, arguments)" :placeholder="$t('app.directoryTree.placeholder')"></i-input>
+                <i-input size="small" v-model="srfnodefilter" clearable search @on-search="onSearch.apply(_self, arguments)" :placeholder="$t('app.directoryTree.placeholder')"></i-input>
             </div>
             <div class="documents-library-button">
-                <ButtonGroup>
+                <ButtonGroup size="small">
                     <Button icon="md-apps" :class="Object.is(mode,'chart') ? 'button-active-background' : ''" @click="modeChange('chart')"></Button>
                     <Button icon="md-menu" :class="Object.is(mode,'list') ? 'button-active-background' : ''" @click="modeChange('list')"></Button>
                 </ButtonGroup>
@@ -27,7 +27,7 @@
     </div>
     <div v-if="Object.is(mode, 'chart')" class="documents-library-chart" >
         <template v-for="(item,index) in curPageItems">
-            <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)" @mouseenter="showToolBar(item,index)">
+            <div :key="index" class="chart-item" @mouseleave="hideToolBar(index)" @mouseenter="showToolBar(item,index)">
                 <div
                     v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
                     @dblclick="openNode(item)">
@@ -48,7 +48,7 @@
                         {{ item.text }}
                     </span>
                 </div>
-                <div :class="['chart-item-operate','chart-item-operate-'+index]">
+                <div class="chart-item-operate">
                     <div v-if="item.curData && item.curData.copyActionModel">
                         <a 
                             v-for="(actionModel,i) in item.curData.copyActionModel"
