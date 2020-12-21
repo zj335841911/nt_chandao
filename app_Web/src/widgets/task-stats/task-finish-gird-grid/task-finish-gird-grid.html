@@ -33,12 +33,14 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.finishedby}}</span>
+                        <template >
+            <codelist :value="row.finishedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projectname')">
-                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.projectname')" :min-width="200"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.projectname')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.taskfinishgird_grid.columns.projectname')}}
@@ -62,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskname')">
-                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskname')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskname')" :min-width="200"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.taskfinishgird_grid.columns.taskname')}}

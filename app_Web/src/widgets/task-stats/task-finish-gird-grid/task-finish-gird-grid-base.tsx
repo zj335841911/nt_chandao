@@ -131,7 +131,7 @@ export class TaskFinishGirdGridBase extends GridControlBase {
             label: '所属项目',
             langtag: 'entities.taskstats.taskfinishgird_grid.columns.projectname',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -149,7 +149,7 @@ export class TaskFinishGirdGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -437,6 +437,14 @@ export class TaskFinishGirdGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'finishedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
         ]);
     }
 
