@@ -579,6 +579,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '16ddc45f2ef8c888e3143d72c076b457',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsProjectStoryStageStatusGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: '170c1d558f26cf37236390b28f8aca82',
             viewmodule: 'zentao',
             viewname: 'ProductPlanSubPlanCreateView',
@@ -4044,6 +4054,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b322707640e730a3acf826dd40e5eed1',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsProjectStoryStatusStatsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: 'b507b8efc20db47d7b01d67561638cd6',
             viewmodule: 'zentao',
             viewname: 'BugReleaseSubGridView_Undone',
@@ -5461,9 +5481,11 @@ export const viewstate: any = {
                 'ab5df14b40f3a74e59053c76e1f48744',
                 '6dee43bf4f06e90abee66563c398806a',
                 'a638e2a7d3b05b2f279ad28d14f5a85f',
+                'b322707640e730a3acf826dd40e5eed1',
                 '09ec3280dedaeac7260c00f3f923d20e',
                 '24148503ec2063b36eab0deebf4bcfd1',
                 'dabb076d51462709eafcea3fed743469',
+                '16ddc45f2ef8c888e3143d72c076b457',
                 'abaea74da4d7efea713dabf193a4bdaf',
                 '8e4b19edd3239846958a86bd33eef611',
             ],

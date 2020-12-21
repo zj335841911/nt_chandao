@@ -90,6 +90,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("任务状态统计",null),
 					title: commonLogic.appcommonhandle("项目统计表格视图（任务状态统计）",null),
 				},
+				projectstorystagestatusgridview: {
+					caption: commonLogic.appcommonhandle("项目需求阶段统计",null),
+					title: commonLogic.appcommonhandle("项目统计表格视图",null),
+				},
 				editview: {
 					caption: commonLogic.appcommonhandle("项目统计",null),
 					title: commonLogic.appcommonhandle("项目统计编辑视图",null),
@@ -109,6 +113,10 @@ function getLocaleResourceBase(){
 				projectqualityusr2gridview: {
 					caption: commonLogic.appcommonhandle("项目质量表",null),
 					title: commonLogic.appcommonhandle("项目质量表",null),
+				},
+				projectstorystatusstatsgridview: {
+					caption: commonLogic.appcommonhandle("项目需求状态统计",null),
+					title: commonLogic.appcommonhandle("项目统计表格视图",null),
 				},
 				projectprogressusr2gridview: {
 					caption: commonLogic.appcommonhandle("项目统计",null),
@@ -208,6 +216,26 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projectstorystagestats_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					emptystagestorycnt: commonLogic.appcommonhandle("空",null),
+					waitstagestorycnt: commonLogic.appcommonhandle("未开始",null),
+					plannedstagestorycnt: commonLogic.appcommonhandle("已计划",null),
+					projectedstagestorycnt: commonLogic.appcommonhandle("已立项",null),
+					developingstagestorycnt: commonLogic.appcommonhandle("研发中",null),
+					developedstagestorycnt: commonLogic.appcommonhandle("研发完毕",null),
+					testingstagestorycnt: commonLogic.appcommonhandle("测试中",null),
+					testedstagestorycnt: commonLogic.appcommonhandle("测试完毕",null),
+					verifiedstagestorycnt: commonLogic.appcommonhandle("已验收",null),
+					releasedstagestorycnt: commonLogic.appcommonhandle("已发布",null),
+					closedstagestorycnt: commonLogic.appcommonhandle("已关闭",null),
+					storycnt: commonLogic.appcommonhandle("总计",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			notcloseproject_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("项目名称",null),
@@ -299,6 +327,20 @@ function getLocaleResourceBase(){
 					storycnt: commonLogic.appcommonhandle("需求数",null),
 					membercnt: commonLogic.appcommonhandle("人数",null),
 					projecttotalconsumed: commonLogic.appcommonhandle("总消耗",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			projectstorystatusstats_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					emptystory: commonLogic.appcommonhandle("空",null),
+					draftstory: commonLogic.appcommonhandle("草稿",null),
+					activestory: commonLogic.appcommonhandle("激活",null),
+					closedstory: commonLogic.appcommonhandle("已关闭",null),
+					changedstory: commonLogic.appcommonhandle("已变更",null),
+					storycnt: commonLogic.appcommonhandle("总计",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

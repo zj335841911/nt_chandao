@@ -341,6 +341,7 @@
 |-|文档库树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|产品Bug类型统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|部门数据选择视图|DEPICKUPVIEW|&nbsp;|
+|-|项目统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|
 |-|计划详情|DEEDITVIEW|&nbsp;|
@@ -737,6 +738,7 @@ SRFNAVPARAM.project=%project%|
 |-|添加备注|DEOPTVIEW|&nbsp;|
 |-|暂停任务|DEOPTVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
+|-|项目统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|公司编辑视图|DEEDITVIEW|&nbsp;|
 |-|实体2表格视图|DEGRIDVIEW|&nbsp;|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|

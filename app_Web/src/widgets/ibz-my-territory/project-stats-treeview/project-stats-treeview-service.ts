@@ -82,6 +82,15 @@ export default class ProjectStatsService extends ControlService {
 	public TREENODE_PROJECTQUALITY: string = 'ProjectQuality';
 
     /**
+     * 项目需求阶段分布表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_PROJECTSTORYSTAGESTATS: string = 'ProjectStoryStageStats';
+
+    /**
      * bug解决方案统计节点分隔符号
      *
      * @public
@@ -134,6 +143,15 @@ export default class ProjectStatsService extends ControlService {
      * @memberof ProjectStatsService
      */
 	public TREENODE_ROOT: string = 'ROOT';
+
+    /**
+     * 项目需求状态分布表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_PROJECTSTORYSTATUSSTATS: string = 'ProjectStoryStatusStats';
 
     /**
      * 任务状态统计节点分隔符号
@@ -226,6 +244,10 @@ export default class ProjectStatsService extends ControlService {
             await this.fillProjectqualityNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_PROJECTSTORYSTAGESTATS)) {
+            await this.fillProjectstorystagestatsNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_BUGRESOLUTIONCOUNT)) {
             await this.fillBugresolutioncountNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -248,6 +270,10 @@ export default class ProjectStatsService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_PROJECTSTORYSTATUSSTATS)) {
+            await this.fillProjectstorystatusstatsNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_TASKSTATUSCOUNT)) {
@@ -370,6 +396,65 @@ export default class ProjectStatsService extends ControlService {
      */
     @Errorlog
     public async fillProjectqualityNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[项目需求阶段分布表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillProjectstorystagestatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.projectstorystagestats') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProjectStoryStageStats';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[项目需求阶段分布表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillProjectstorystagestatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -764,6 +849,16 @@ export default class ProjectStatsService extends ControlService {
             let ProjectprogressRsNavParams:any = {};
             let ProjectprogressRsParams:any = {};
 			await this.fillProjectprogressNodes(context, filter, list ,ProjectprogressRsNavContext,ProjectprogressRsNavParams,ProjectprogressRsParams);
+			// 填充项目需求状态分布表
+            let ProjectstorystatusstatsRsNavContext:any = {};
+            let ProjectstorystatusstatsRsNavParams:any = {};
+            let ProjectstorystatusstatsRsParams:any = {};
+			await this.fillProjectstorystatusstatsNodes(context, filter, list ,ProjectstorystatusstatsRsNavContext,ProjectstorystatusstatsRsNavParams,ProjectstorystatusstatsRsParams);
+			// 填充项目需求阶段分布表
+            let ProjectstorystagestatsRsNavContext:any = {};
+            let ProjectstorystagestatsRsNavParams:any = {};
+            let ProjectstorystagestatsRsParams:any = {};
+			await this.fillProjectstorystagestatsNodes(context, filter, list ,ProjectstorystagestatsRsNavContext,ProjectstorystagestatsRsNavParams,ProjectstorystagestatsRsParams);
 		} else {
 			// 填充bug状态统计
             let BugstatuscountRsNavContext:any = {};
@@ -805,6 +900,75 @@ export default class ProjectStatsService extends ControlService {
             let ProjectprogressRsNavParams:any = {};
             let ProjectprogressRsParams:any = {};
 			await this.fillProjectprogressNodes(context, filter, list ,ProjectprogressRsNavContext,ProjectprogressRsNavParams,ProjectprogressRsParams);
+			// 填充项目需求状态分布表
+            let ProjectstorystatusstatsRsNavContext:any = {};
+            let ProjectstorystatusstatsRsNavParams:any = {};
+            let ProjectstorystatusstatsRsParams:any = {};
+			await this.fillProjectstorystatusstatsNodes(context, filter, list ,ProjectstorystatusstatsRsNavContext,ProjectstorystatusstatsRsNavParams,ProjectstorystatusstatsRsParams);
+			// 填充项目需求阶段分布表
+            let ProjectstorystagestatsRsNavContext:any = {};
+            let ProjectstorystagestatsRsNavParams:any = {};
+            let ProjectstorystagestatsRsParams:any = {};
+			await this.fillProjectstorystagestatsNodes(context, filter, list ,ProjectstorystagestatsRsNavContext,ProjectstorystagestatsRsNavParams,ProjectstorystagestatsRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[项目需求状态分布表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillProjectstorystatusstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.projectstorystatusstats') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProjectStoryStatusStats';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[项目需求状态分布表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillProjectstorystatusstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
 		}
 	}
 

@@ -639,6 +639,16 @@
         "viewtag": "16b54862dad958907853dc7eb084a0c0",
         "memo": ""
     },
+    "projectstatsprojectstorystagestatusgridview": {
+        "title": "项目统计表格视图",
+        "caption": "项目需求阶段统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectStoryStageStatusGridView",
+        "viewfilename": "project-stats-project-story-stage-status-grid-view",
+        "viewtag": "16ddc45f2ef8c888e3143d72c076b457",
+        "memo": ""
+    },
     "productplansubplancreateview": {
         "title": "计划",
         "caption": "产品计划",
@@ -4567,6 +4577,16 @@
         "viewname": "CaseMainMyNewGridView",
         "viewfilename": "case-main-my-new-grid-view",
         "viewtag": "b137ebd68f63e15d9233d1092e565d15",
+        "memo": ""
+    },
+    "projectstatsprojectstorystatusstatsgridview": {
+        "title": "项目统计表格视图",
+        "caption": "项目需求状态统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectStoryStatusStatsGridView",
+        "viewfilename": "project-stats-project-story-status-stats-grid-view",
+        "viewtag": "b322707640e730a3acf826dd40e5eed1",
         "memo": ""
     },
     "companyeditview": {

@@ -519,6 +519,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DeptPickupView",
             "viewtag": "16b54862dad958907853dc7eb084a0c0"
         },
+        "projectstatsprojectstorystagestatusgridview": {
+            "title": "项目统计表格视图",
+            "caption": "项目需求阶段统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectStoryStageStatusGridView",
+            "viewtag": "16ddc45f2ef8c888e3143d72c076b457"
+        },
         "productplansubplancreateview": {
             "title": "计划",
             "caption": "产品计划",
@@ -3662,6 +3670,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseMainMyNewGridView",
             "viewtag": "b137ebd68f63e15d9233d1092e565d15"
+        },
+        "projectstatsprojectstorystatusstatsgridview": {
+            "title": "项目统计表格视图",
+            "caption": "项目需求状态统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectStoryStatusStatsGridView",
+            "viewtag": "b322707640e730a3acf826dd40e5eed1"
         },
         "companyeditview": {
             "title": "公司编辑视图",

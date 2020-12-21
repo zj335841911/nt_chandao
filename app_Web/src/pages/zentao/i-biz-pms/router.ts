@@ -4676,6 +4676,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/build-test-rounds-grid-view/build-test-rounds-grid-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/projectstorystatusstatsgridview/:projectstorystatusstatsgridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectstorystatusstatsgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectstorystatusstatsgridview', parameterName: 'projectstorystatusstatsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-story-status-stats-grid-view/project-stats-project-story-status-stats-grid-view.vue'),
+                },
+                {
                     path: 'doclibs/:doclib?/customdoclibroottreeview/:customdoclibroottreeview?',
                     meta: {
                         caption: 'entities.doclib.views.customdoclibroottreeview.caption',
@@ -8357,6 +8371,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-calendar-edit-view/story-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'projectstats/:projectstats?/projectstorystagestatusgridview/:projectstorystagestatusgridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectstorystagestatusgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectstorystagestatusgridview', parameterName: 'projectstorystagestatusgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-story-stage-status-grid-view/project-stats-project-story-stage-status-grid-view.vue'),
                 },
                 {
                     path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/gridview/:gridview?',
