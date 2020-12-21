@@ -214,6 +214,16 @@ function getLocaleResourceBase(){
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 			exportColumns: {
+					resolvedby: commonLogic.appcommonhandle("由谁解决",null),
+					bugid: commonLogic.appcommonhandle("Bug编号",null),
+					bugtitle: commonLogic.appcommonhandle("Bug标题",null),
+					bugpri: commonLogic.appcommonhandle("优先级",null),
+					bugseverity: commonLogic.appcommonhandle("严重程度",null),
+					bugopenedby: commonLogic.appcommonhandle("由谁创建",null),
+					bugopeneddate: commonLogic.appcommonhandle("创建",null),
+					bugresolution: commonLogic.appcommonhandle("解决方案",null),
+					bugresolveddate: commonLogic.appcommonhandle("解决日期",null),
+					bugstatus: commonLogic.appcommonhandle("Bug状态",null),
 			},
 				uiactions: {
 				},

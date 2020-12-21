@@ -376,7 +376,105 @@ export class BugResolvedGirdGridBase extends GridControlBase {
      * @memberof BugResolvedGirdGridBase
      */
     public allExportColumns: any[] = [
+        {
+            name: 'resolvedby',
+            label: '由谁解决',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.resolvedby',
+            show: true,
+        },
+        {
+            name: 'bugid',
+            label: 'Bug编号',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugid',
+            show: true,
+        },
+        {
+            name: 'bugtitle',
+            label: 'Bug标题',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugtitle',
+            show: true,
+        },
+        {
+            name: 'bugpri',
+            label: '优先级',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugpri',
+            show: true,
+        },
+        {
+            name: 'bugseverity',
+            label: '严重程度',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugseverity',
+            show: true,
+        },
+        {
+            name: 'bugopenedby',
+            label: '由谁创建',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugopenedby',
+            show: true,
+        },
+        {
+            name: 'bugopeneddate',
+            label: '创建',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugopeneddate',
+            show: true,
+        },
+        {
+            name: 'bugresolution',
+            label: '解决方案',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugresolution',
+            show: true,
+        },
+        {
+            name: 'bugresolveddate',
+            label: '解决日期',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugresolveddate',
+            show: true,
+        },
+        {
+            name: 'bugstatus',
+            label: 'Bug状态',
+            langtag: 'entities.bugstats.bugresolvedgird_grid.exportColumns.bugstatus',
+            show: true,
+        },
     ]
+
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof BugResolvedGirdGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'resolvedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'bugresolution',
+                srfkey: 'Bug__resolution',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'bugstatus',
+                srfkey: 'Bug__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ]);
+    }
 
 
     /**

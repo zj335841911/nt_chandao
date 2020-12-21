@@ -23,6 +23,56 @@ export default class BugResolvedGirdModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'bugid',
+          prop: 'bugid',
+          dataType: 'INT',
+        },
+        {
+          name: 'bugtitle',
+          prop: 'bugtitle',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'bugpri',
+          prop: 'bugpri',
+          dataType: 'INT',
+        },
+        {
+          name: 'bugseverity',
+          prop: 'bugseverity',
+          dataType: 'INT',
+        },
+        {
+          name: 'bugopenedby',
+          prop: 'bugopenedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'bugopeneddate',
+          prop: 'bugopeneddate',
+          dataType: 'DATE',
+        },
+        {
+          name: 'bugresolution',
+          prop: 'bugresolution',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'bugresolveddate',
+          prop: 'bugresolveddate',
+          dataType: 'DATE',
+        },
+        {
+          name: 'bugstatus',
+          prop: 'bugstatus',
+          dataType: 'TEXT',
+        },
       ]
     }else{
 		  return [
