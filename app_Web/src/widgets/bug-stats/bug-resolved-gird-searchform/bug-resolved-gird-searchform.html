@@ -65,7 +65,7 @@
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
-               <time-picker :value="data.n_begin_gtandeq" :transfer="true" :disabled="detailsModel.n_begin_gtandeq.disabled" format="HH:mm:ss" placeholder="请选择时间..." style="min-width: 150px; width:90px;"  @on-change="(val) => {this.data.n_begin_gtandeq = val}"></time-picker>
+              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_begin_gtandeq" :disabled="detailsModel.n_begin_gtandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_begin_gtandeq = val1 }"></date-picker>
           
           </app-form-item>
           
@@ -90,7 +90,7 @@
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
-               <time-picker :value="data.n_end_ltandeq" :transfer="true" :disabled="detailsModel.n_end_ltandeq.disabled" format="HH:mm:ss" placeholder="请选择时间..." style="min-width: 150px; width:90px;"  @on-change="(val) => {this.data.n_end_ltandeq = val}"></time-picker>
+              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_end_ltandeq" :disabled="detailsModel.n_end_ltandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_end_ltandeq = val1 }"></date-picker>
           
           </app-form-item>
           
