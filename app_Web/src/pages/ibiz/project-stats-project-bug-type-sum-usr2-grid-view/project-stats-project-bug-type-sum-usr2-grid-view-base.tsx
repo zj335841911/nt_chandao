@@ -339,4 +339,13 @@ export class ProjectStatsProjectBugTypeSumUsr2GridViewBase extends GridViewBase 
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProjectStatsProjectBugTypeSumUsr2GridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

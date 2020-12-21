@@ -103,6 +103,14 @@ export class ProductBugTypeSumFormGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof ProductBugTypeSumFormGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

@@ -325,4 +325,13 @@ export class ProjectStatsProjectQualityUsr2GridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProjectStatsProjectQualityUsr2GridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }
