@@ -45,5 +45,55 @@
           </app-form-item>
           
           </i-col>
+          <i-col
+              class="form-layout-container"
+              v-show="detailsModel.n_begin_ltandeq.visible"
+              :style="{}"
+              
+              
+              :lg="{ span: 6, offset: 0 }"
+              :xl="{ span: 6, offset: 0 }"
+          >
+              <app-form-item
+              name="n_begin_ltandeq"
+              :itemRules="this.rules.n_begin_ltandeq"
+              class=""
+              
+              :caption="$t('entities.bugstats.bugresolvedgird_searchform.details.n_begin_ltandeq')"
+              uiStyle="DEFAULT" :labelWidth="45" :isShowCaption="true"
+              :error="detailsModel.n_begin_ltandeq.error"
+              :isEmptyCaption="false"
+              labelPos="LEFT"
+          >
+              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_begin_ltandeq" :disabled="detailsModel.n_begin_ltandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_begin_ltandeq = val1 }"></date-picker>
+          
+          </app-form-item>
+          
+          </i-col>
+          <i-col
+              class="form-layout-container"
+              v-show="detailsModel.n_end_gtandeq.visible"
+              :style="{}"
+              
+              
+              :lg="{ span: 6, offset: 0 }"
+              :xl="{ span: 6, offset: 0 }"
+          >
+              <app-form-item
+              name="n_end_gtandeq"
+              :itemRules="this.rules.n_end_gtandeq"
+              class=""
+              
+              :caption="$t('entities.bugstats.bugresolvedgird_searchform.details.n_end_gtandeq')"
+              uiStyle="DEFAULT" :labelWidth="45" :isShowCaption="true"
+              :error="detailsModel.n_end_gtandeq.error"
+              :isEmptyCaption="false"
+              labelPos="LEFT"
+          >
+              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_end_gtandeq" :disabled="detailsModel.n_end_gtandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_end_gtandeq = val1 }"></date-picker>
+          
+          </app-form-item>
+          
+          </i-col>
     </div>
 </i-form>

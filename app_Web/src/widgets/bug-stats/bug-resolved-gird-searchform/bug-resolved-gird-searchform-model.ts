@@ -30,6 +30,16 @@ export default class BugResolvedGirdModel {
         prop: 'dept',
         dataType: 'SSCODELIST',
       },
+      {
+        name: 'n_begin_ltandeq',
+        prop: 'begin',
+        dataType: 'DATE',
+      },
+      {
+        name: 'n_end_gtandeq',
+        prop: 'end',
+        dataType: 'DATE',
+      },
     ]
   }
 

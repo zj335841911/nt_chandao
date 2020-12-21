@@ -111,6 +111,16 @@ export default class BugResolvedGirdModel {
         prop: 'n_dept_eq',
         dataType: 'SSCODELIST',
       },
+      {
+        name: 'n_begin_ltandeq',
+        prop: 'n_begin_ltandeq',
+        dataType: 'DATE',
+      },
+      {
+        name: 'n_end_gtandeq',
+        prop: 'n_end_gtandeq',
+        dataType: 'DATE',
+      },
 
         {
           name:'size',
