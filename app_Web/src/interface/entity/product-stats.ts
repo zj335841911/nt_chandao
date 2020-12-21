@@ -285,4 +285,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     bugstory?: any;
+
+    /**
+     * 严重bug比
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    importantbugpercent?: any;
 }

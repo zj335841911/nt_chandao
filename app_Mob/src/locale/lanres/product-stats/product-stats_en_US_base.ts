@@ -36,6 +36,7 @@ export default {
     rESOLVEDBUGCNT:  commonLogic.appcommonhandle("解决Bug数",null),
     iMPORtantBUGCNT:  commonLogic.appcommonhandle("重要的Bug数",null),
     bugStory:  commonLogic.appcommonhandle("需求所提bug数",null),
+    importantbugpercent:  commonLogic.appcommonhandle("严重bug比",null),
   },
 	views: {
 		mobmdview: {

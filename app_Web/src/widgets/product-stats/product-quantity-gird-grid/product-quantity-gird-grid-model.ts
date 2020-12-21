@@ -57,9 +57,9 @@ export default class ProductQuantityGirdModel {
           dataType: 'INT',
         },
         {
-          name: 'bugstory',
-          prop: 'bugstory',
-          dataType: 'INT',
+          name: 'importantbugpercent',
+          prop: 'importantbugpercent',
+          dataType: 'FLOAT',
         },
         {
           name: 'srfmajortext',

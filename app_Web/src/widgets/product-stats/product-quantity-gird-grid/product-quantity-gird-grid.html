@@ -99,15 +99,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('bugstory')">
-                <el-table-column show-overflow-tooltip :prop="'bugstory'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugstory')" :width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('importantbugpercent')">
+                <el-table-column show-overflow-tooltip :prop="'importantbugpercent'" :label="$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.productstats.productquantitygird_grid.columns.bugstory')}}
+                        {{$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.bugstory}}</span>
+                            <app-format-data dataType="FLOAT" precision="0" :data="row.importantbugpercent"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

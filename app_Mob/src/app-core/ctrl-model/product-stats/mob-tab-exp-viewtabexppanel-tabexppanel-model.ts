@@ -120,6 +120,9 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'bugstory',
       },
+      {
+        name: 'importantbugpercent',
+      },
     ]
   }
 
