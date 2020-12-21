@@ -40,7 +40,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugid')">
-                <el-table-column show-overflow-tooltip :prop="'bugid'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugid')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugid'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugid')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugid')}}
@@ -52,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugtitle')">
-                <el-table-column show-overflow-tooltip :prop="'bugtitle'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugtitle')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugtitle'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugtitle')" :min-width="200"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugtitle')}}
@@ -64,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugpri')">
-                <el-table-column show-overflow-tooltip :prop="'bugpri'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugpri')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugpri'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugpri')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugpri')}}
@@ -76,7 +76,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugseverity')">
-                <el-table-column show-overflow-tooltip :prop="'bugseverity'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugseverity')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugseverity'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugseverity')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugseverity')}}
@@ -88,7 +88,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugopenedby')">
-                <el-table-column show-overflow-tooltip :prop="'bugopenedby'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugopenedby')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugopenedby'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugopenedby')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugopenedby')}}
@@ -100,7 +100,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugopeneddate')">
-                <el-table-column show-overflow-tooltip :prop="'bugopeneddate'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugopeneddate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugopeneddate'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugopeneddate')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugopeneddate')}}
@@ -112,7 +112,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugresolution')">
-                <el-table-column show-overflow-tooltip :prop="'bugresolution'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugresolution')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugresolution'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugresolution')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugresolution')}}
@@ -126,7 +126,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugresolveddate')">
-                <el-table-column show-overflow-tooltip :prop="'bugresolveddate'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugresolveddate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugresolveddate'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugresolveddate')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugresolveddate')}}
@@ -138,7 +138,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugstatus')">
-                <el-table-column show-overflow-tooltip :prop="'bugstatus'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugstatus')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugstatus'" :label="$t('entities.bugstats.bugresolvedgird_grid.columns.bugstatus')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolvedgird_grid.columns.bugstatus')}}

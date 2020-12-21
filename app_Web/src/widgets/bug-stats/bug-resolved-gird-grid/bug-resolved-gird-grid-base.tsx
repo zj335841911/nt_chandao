@@ -140,7 +140,7 @@ export class BugResolvedGirdGridBase extends GridControlBase {
             label: 'Bug标题',
             langtag: 'entities.bugstats.bugresolvedgird_grid.columns.bugtitle',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
