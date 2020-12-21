@@ -123084,10 +123084,13 @@ CREATE TABLE `zt_module`(
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
 | TOTALESTIMATE        | 任务最初预计总工时  | DOUBLE      |   -1   | &nbsp; |
+| PROJECTEDSTAGESTORYCNT        | 已立项阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORY        | 已关闭需求  | INTEGER      |   -1   | &nbsp; |
+| TESTEDSTAGESTORYCNT        | 测试完毕阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | ID        | 项目编号  |       |   8   | 主键&nbsp; |
 | DRAFTSTORY        | 草稿需求  | INTEGER      |   -1   | &nbsp; |
 | FINISHTASKCNT        | 已结束任务总数  | INTEGER      |   -1   | &nbsp; |
+| VERIFIEDSTAGESTORYCNT        | 已验收阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | TASKCNT        | 任务总数  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORYCNT        | 关闭需求总数  | INTEGER      |   -1   | &nbsp; |
 | ACTIVESTORY        | 激活需求  | INTEGER      |   -1   | &nbsp; |
@@ -123095,6 +123098,8 @@ CREATE TABLE `zt_module`(
 | TOTALWH        | 总工时  | INTEGER      |   -1   | &nbsp; |
 | BUGCNT        | Bug总数  | INTEGER      |   -1   | &nbsp; |
 | YESTERDAYRBUGCNT        | 昨天解决Bug数  | INTEGER      |   -1   | &nbsp; |
+| DEVELOPEDSTAGESTORYCNT        | 研发完毕阶段需求数  | INTEGER      |   -1   | &nbsp; |
+| PLANNEDSTAGESTORYCNT        | 已计划阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | UNCLOSEDBUGCNT        | 未关闭Bug总数  | INTEGER      |   -1   | &nbsp; |
 | UNDONETASKCNT        | 未完成任务总数  | INTEGER      |   -1   | &nbsp; |
 | UNCONFIRMEDBUGCNT        | 未确认Bug总数  | INTEGER      |   -1   | &nbsp; |
@@ -123102,10 +123107,13 @@ CREATE TABLE `zt_module`(
 | STATUS        | 状态  | VARCHAR      |   100   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | SERIOUSBUGPROPORTION        | 严重Bug比率  | VARCHAR      |   200   | &nbsp; |
+| DEVELOPINGSTAGESTORYCNT        | 研发中阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | UNCLOSEDSTORYCNT        | 未关闭需求总数  | INTEGER      |   -1   | &nbsp; |
+| EMPTYSTAGESTORYCNT        | 空阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | CHANGEDSTORY        | 已变更需求  | INTEGER      |   -1   | &nbsp; |
 | END        | 截止日期  | DATETIME      |   -1   | &nbsp; |
 | STORYCNT        | 需求总数  | INTEGER      |   -1   | &nbsp; |
+| TESTINGSTAGESTORYCNT        | 测试中阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | NAME        | 项目名称  | VARCHAR      |   90   | &nbsp; |
 | YESTERDAYCTASKCNT        | 昨日完成任务数  | INTEGER      |   -1   | &nbsp; |
 | RELEASEDSTORYCNT        | 已发布需求数  | INTEGER      |   -1   | &nbsp; |
@@ -123115,6 +123123,7 @@ CREATE TABLE `zt_module`(
 | PROJECTTOTALCONSUMED        | 项目消耗总工时  | DOUBLE      |   -1   | &nbsp; |
 | TOTALCONSUMED        | 任务消耗总工时  | DOUBLE      |   -1   | &nbsp; |
 | EMPTYSTORY        | 空需求  | INTEGER      |   -1   | &nbsp; |
+| WAITSTAGESTORYCNT        | 未开始阶段需求数  | INTEGER      |   -1   | &nbsp; |
 
 
 

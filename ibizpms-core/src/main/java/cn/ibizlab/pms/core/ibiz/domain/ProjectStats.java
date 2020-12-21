@@ -509,6 +509,69 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "changedstory")
     @JsonProperty("changedstory")
     private Integer changedstory;
+    /**
+     * 空阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "emptystagestorycnt")
+    @JsonProperty("emptystagestorycnt")
+    private Integer emptystagestorycnt;
+    /**
+     * 未开始阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waitstagestorycnt")
+    @JsonProperty("waitstagestorycnt")
+    private Integer waitstagestorycnt;
+    /**
+     * 已计划阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plannedstagestorycnt")
+    @JsonProperty("plannedstagestorycnt")
+    private Integer plannedstagestorycnt;
+    /**
+     * 已立项阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+    /**
+     * 研发中阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+    /**
+     * 研发完毕阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+    /**
+     * 测试中阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    private Integer testingstagestorycnt;
+    /**
+     * 测试完毕阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+    /**
+     * 已验收阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
 
 
 

@@ -315,6 +315,11 @@ export default class EmployEeloadService extends ControlService {
             let CompanydynamicstatsRsNavParams:any = {};
             let CompanydynamicstatsRsParams:any = {};
 			await this.fillCompanydynamicstatsNodes(context, filter, list ,CompanydynamicstatsRsNavContext,CompanydynamicstatsRsNavParams,CompanydynamicstatsRsParams);
+			// 填充任务完成汇总表
+            let TaskfinishRsNavContext:any = {};
+            let TaskfinishRsNavParams:any = {};
+            let TaskfinishRsParams:any = {};
+			await this.fillTaskfinishNodes(context, filter, list ,TaskfinishRsNavContext,TaskfinishRsNavParams,TaskfinishRsParams);
 		} else {
 			// 填充员工负载表
             let EmployeeloadRsNavContext:any = {};
@@ -326,6 +331,11 @@ export default class EmployEeloadService extends ControlService {
             let CompanydynamicstatsRsNavParams:any = {};
             let CompanydynamicstatsRsParams:any = {};
 			await this.fillCompanydynamicstatsNodes(context, filter, list ,CompanydynamicstatsRsNavContext,CompanydynamicstatsRsNavParams,CompanydynamicstatsRsParams);
+			// 填充任务完成汇总表
+            let TaskfinishRsNavContext:any = {};
+            let TaskfinishRsNavParams:any = {};
+            let TaskfinishRsParams:any = {};
+			await this.fillTaskfinishNodes(context, filter, list ,TaskfinishRsNavContext,TaskfinishRsNavParams,TaskfinishRsParams);
 		}
 	}
 

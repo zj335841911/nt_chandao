@@ -364,6 +364,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取项目需求阶段统计
+#### 访问路径
+/projectstats/fetchprojectstorystagestats
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象列表 |
+
+### 查询项目需求阶段统计
+#### 访问路径
+/projectstats/searchprojectstorystagestats
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取项目需求状态统计
 #### 访问路径
 /projectstats/fetchprojectstorystatusstats
@@ -579,7 +615,16 @@ POST
 | 64 | activestory | Integer | 允许 | 激活需求 |
 | 65 | closedstory | Integer | 允许 | 已关闭需求 |
 | 66 | changedstory | Integer | 允许 | 已变更需求 |
-| 67 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 67 | emptystagestorycnt | Integer | 允许 | 空阶段需求数 |
+| 68 | waitstagestorycnt | Integer | 允许 | 未开始阶段需求数 |
+| 69 | plannedstagestorycnt | Integer | 允许 | 已计划阶段需求数 |
+| 70 | projectedstagestorycnt | Integer | 允许 | 已立项阶段需求数 |
+| 71 | developingstagestorycnt | Integer | 允许 | 研发中阶段需求数 |
+| 72 | developedstagestorycnt | Integer | 允许 | 研发完毕阶段需求数 |
+| 73 | testingstagestorycnt | Integer | 允许 | 测试中阶段需求数 |
+| 74 | testedstagestorycnt | Integer | 允许 | 测试完毕阶段需求数 |
+| 75 | verifiedstagestorycnt | Integer | 允许 | 已验收阶段需求数 |
+| 76 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

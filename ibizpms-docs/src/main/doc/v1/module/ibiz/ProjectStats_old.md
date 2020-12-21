@@ -75,6 +75,15 @@
 |激活需求|ACTIVESTORY|INT|&nbsp;|
 |已关闭需求|CLOSEDSTORY|INT|&nbsp;|
 |已变更需求|CHANGEDSTORY|INT|&nbsp;|
+|空阶段需求数|EMPTYSTAGESTORYCNT|INT|&nbsp;|
+|未开始阶段需求数|WAITSTAGESTORYCNT|INT|&nbsp;|
+|已计划阶段需求数|PLANNEDSTAGESTORYCNT|INT|&nbsp;|
+|已立项阶段需求数|PROJECTEDSTAGESTORYCNT|INT|&nbsp;|
+|研发中阶段需求数|DEVELOPINGSTAGESTORYCNT|INT|&nbsp;|
+|研发完毕阶段需求数|DEVELOPEDSTAGESTORYCNT|INT|&nbsp;|
+|测试中阶段需求数|TESTINGSTAGESTORYCNT|INT|&nbsp;|
+|测试完毕阶段需求数|TESTEDSTAGESTORYCNT|INT|&nbsp;|
+|已验收阶段需求数|VERIFIEDSTAGESTORYCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -145,6 +154,15 @@
 |激活需求|默认规则|默认规则|
 |已关闭需求|默认规则|默认规则|
 |已变更需求|默认规则|默认规则|
+|空阶段需求数|默认规则|默认规则|
+|未开始阶段需求数|默认规则|默认规则|
+|已计划阶段需求数|默认规则|默认规则|
+|已立项阶段需求数|默认规则|默认规则|
+|研发中阶段需求数|默认规则|默认规则|
+|研发完毕阶段需求数|默认规则|默认规则|
+|测试中阶段需求数|默认规则|默认规则|
+|测试完毕阶段需求数|默认规则|默认规则|
+|已验收阶段需求数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -192,6 +210,7 @@
 |ProjectBugType|项目bug类型统计|ProjectBugType|否|&nbsp;|
 |ProjectInputStats|项目投入统计|ProjectInputStats|否|&nbsp;|
 |ProjectQuality|项目质量|ProjectQuality|否|&nbsp;|
+|ProjectStoryStageStats|项目需求阶段统计|ProjectStoryStageStats|否|&nbsp;|
 |ProjectStoryStatusStats|项目需求状态统计|ProjectStoryStatusStats|否|&nbsp;|
 |ProjectTaskCountByTaskStatus|项目任务统计(任务状态)|ProjectTaskCountByTaskStatus|否|&nbsp;|
 |ProjectTaskCountByType|项目任务类型统计|ProjectTaskCountByType|否|&nbsp;|

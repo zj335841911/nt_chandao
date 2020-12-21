@@ -14187,7 +14187,27 @@ GROUP BY
 ```
 ### 项目需求阶段统计(ProjectStoryStageStats)<div id="ProjectStats_ProjectStoryStageStats"></div>
 ```sql
-
+select 
+t1.id, 
+t1.`name`, 
+sum(case when t3.`stage` = '' then 1 else 0 end) as `EmptyStageStoryCNT`, 
+sum(case when t3.`stage` = 'wait' then 1 else 0 end) as `WaitStageStoryCNT`, 
+sum(case when t3.`stage` = 'planned' then 1 else 0 end) as `PlannedStageStoryCNT`, 
+sum(case when t3.`stage` = 'projected' then 1 else 0 end) as `ProjectedStageStoryCNT`, 
+sum(case when t3.`stage` = 'developing' then 1 else 0 end) as `DevelopingStageStoryCNT`, 
+sum(case when t3.`stage` = 'developed' then 1 else 0 end) as `DevelopedStageStoryCNT`, 
+sum(case when t3.`stage` = 'testing' then 1 else 0 end) as `TestingStageStoryCNT`, 
+sum(case when t3.`stage` = 'tested' then 1 else 0 end) as `TestedStageStoryCNT`, 
+sum(case when t3.`stage` = 'verified' then 1 else 0 end) as `VerifiedStageStoryCNT`, 
+sum(case when t3.`stage` = 'released' then 1 else 0 end) as `ReleasedStageStoryCNT`, 
+sum(case when t3.`stage` = 'closed' then 1 else 0 end) as `ClosedStageStoryCNT`, 
+sum(case when t3.`stage` is not null then 1 else 0 end) as `StoryCNT` 
+from 
+zt_project t1 
+left join zt_projectstory t2 on t1.id = t2.project 
+left join zt_story t3 on t2.story = t3.id and t3.deleted = '0' 
+where t1.deleted = '0' 
+group by t1.id
 ```
 ### 项目需求状态统计(ProjectStoryStatusStats)<div id="ProjectStats_ProjectStoryStatusStats"></div>
 ```sql
@@ -14265,7 +14285,10 @@ SELECT
 0 AS `CLOSEDSTORY`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
+0 AS `DEVELOPEDSTAGESTORYCNT`,
+0 AS `DEVELOPINGSTAGESTORYCNT`,
 0 AS `DRAFTSTORY`,
+0 AS `EMPTYSTAGESTORYCNT`,
 0 AS `EMPTYSTORY`,
 t1.`END`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0') AS `FINISHBUGCNT`,
@@ -14274,12 +14297,16 @@ t1.`ID`,
 0 AS `MEMBERCNT`,
 t1.`NAME`,
 t1.`order` AS `ORDER1`,
+0 AS `PLANNEDSTAGESTORYCNT`,
+0 AS `PROJECTEDSTAGESTORYCNT`,
 0 AS `PROJECTTOTALCONSUMED`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0') AS `RELEASEDSTORYCNT`,
 null AS `SERIOUSBUGPROPORTION`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+0 AS `TESTEDSTAGESTORYCNT`,
+0 AS `TESTINGSTAGESTORYCNT`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
 (SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
 (SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
@@ -14288,6 +14315,7 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE `STATUS` <>  'closed' AND PROJECT = t1.`ID` AND DELETED = '0') AS `UNCLOSEDSTORYCNT`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMEDBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
+0 AS `WAITSTAGESTORYCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
 (SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`
 FROM `zt_project` t1 

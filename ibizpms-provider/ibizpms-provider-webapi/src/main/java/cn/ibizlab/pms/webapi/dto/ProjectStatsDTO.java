@@ -566,6 +566,78 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("changedstory")
     private Integer changedstory;
 
+    /**
+     * 属性 [EMPTYSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "emptystagestorycnt")
+    @JsonProperty("emptystagestorycnt")
+    private Integer emptystagestorycnt;
+
+    /**
+     * 属性 [WAITSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "waitstagestorycnt")
+    @JsonProperty("waitstagestorycnt")
+    private Integer waitstagestorycnt;
+
+    /**
+     * 属性 [PLANNEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "plannedstagestorycnt")
+    @JsonProperty("plannedstagestorycnt")
+    private Integer plannedstagestorycnt;
+
+    /**
+     * 属性 [PROJECTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+
+    /**
+     * 属性 [TESTINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    private Integer testingstagestorycnt;
+
+    /**
+     * 属性 [TESTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+
+    /**
+     * 属性 [VERIFIEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+
 
     /**
      * 设置 [NAME]

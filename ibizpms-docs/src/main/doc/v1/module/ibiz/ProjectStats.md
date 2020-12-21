@@ -82,6 +82,15 @@
 | 64 | [激活需求](#属性-激活需求（ACTIVESTORY）) | ACTIVESTORY | 整型 | 否 | 否 | 是 |
 | 65 | [已关闭需求](#属性-已关闭需求（CLOSEDSTORY）) | CLOSEDSTORY | 整型 | 否 | 否 | 是 |
 | 66 | [已变更需求](#属性-已变更需求（CHANGEDSTORY）) | CHANGEDSTORY | 整型 | 否 | 否 | 是 |
+| 67 | [空阶段需求数](#属性-空阶段需求数（EMPTYSTAGESTORYCNT）) | EMPTYSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 68 | [未开始阶段需求数](#属性-未开始阶段需求数（WAITSTAGESTORYCNT）) | WAITSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 69 | [已计划阶段需求数](#属性-已计划阶段需求数（PLANNEDSTAGESTORYCNT）) | PLANNEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 70 | [已立项阶段需求数](#属性-已立项阶段需求数（PROJECTEDSTAGESTORYCNT）) | PROJECTEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 71 | [研发中阶段需求数](#属性-研发中阶段需求数（DEVELOPINGSTAGESTORYCNT）) | DEVELOPINGSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 72 | [研发完毕阶段需求数](#属性-研发完毕阶段需求数（DEVELOPEDSTAGESTORYCNT）) | DEVELOPEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 73 | [测试中阶段需求数](#属性-测试中阶段需求数（TESTINGSTAGESTORYCNT）) | TESTINGSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 74 | [测试完毕阶段需求数](#属性-测试完毕阶段需求数（TESTEDSTAGESTORYCNT）) | TESTEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 75 | [已验收阶段需求数](#属性-已验收阶段需求数（VERIFIEDSTAGESTORYCNT）) | VERIFIEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -2587,6 +2596,357 @@ Integer
 #### 关系属性
 无
 
+### 属性-空阶段需求数（EMPTYSTAGESTORYCNT）
+#### 属性说明
+空阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-未开始阶段需求数（WAITSTAGESTORYCNT）
+#### 属性说明
+未开始阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已计划阶段需求数（PLANNEDSTAGESTORYCNT）
+#### 属性说明
+已计划阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已立项阶段需求数（PROJECTEDSTAGESTORYCNT）
+#### 属性说明
+已立项阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-研发中阶段需求数（DEVELOPINGSTAGESTORYCNT）
+#### 属性说明
+研发中阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-研发完毕阶段需求数（DEVELOPEDSTAGESTORYCNT）
+#### 属性说明
+研发完毕阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-测试中阶段需求数（TESTINGSTAGESTORYCNT）
+#### 属性说明
+测试中阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-测试完毕阶段需求数（TESTEDSTAGESTORYCNT）
+#### 属性说明
+测试完毕阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已验收阶段需求数（VERIFIEDSTAGESTORYCNT）
+#### 属性说明
+已验收阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -3309,7 +3669,27 @@ GROUP BY
 #### SQL
 - MYSQL5
 ```SQL
-
+select 
+t1.id, 
+t1.`name`, 
+sum(case when t3.`stage` = '' then 1 else 0 end) as `EmptyStageStoryCNT`, 
+sum(case when t3.`stage` = 'wait' then 1 else 0 end) as `WaitStageStoryCNT`, 
+sum(case when t3.`stage` = 'planned' then 1 else 0 end) as `PlannedStageStoryCNT`, 
+sum(case when t3.`stage` = 'projected' then 1 else 0 end) as `ProjectedStageStoryCNT`, 
+sum(case when t3.`stage` = 'developing' then 1 else 0 end) as `DevelopingStageStoryCNT`, 
+sum(case when t3.`stage` = 'developed' then 1 else 0 end) as `DevelopedStageStoryCNT`, 
+sum(case when t3.`stage` = 'testing' then 1 else 0 end) as `TestingStageStoryCNT`, 
+sum(case when t3.`stage` = 'tested' then 1 else 0 end) as `TestedStageStoryCNT`, 
+sum(case when t3.`stage` = 'verified' then 1 else 0 end) as `VerifiedStageStoryCNT`, 
+sum(case when t3.`stage` = 'released' then 1 else 0 end) as `ReleasedStageStoryCNT`, 
+sum(case when t3.`stage` = 'closed' then 1 else 0 end) as `ClosedStageStoryCNT`, 
+sum(case when t3.`stage` is not null then 1 else 0 end) as `StoryCNT` 
+from 
+zt_project t1 
+left join zt_projectstory t2 on t1.id = t2.project 
+left join zt_story t3 on t2.story = t3.id and t3.deleted = '0' 
+where t1.deleted = '0' 
+group by t1.id
 ```
 ### 数据查询-项目需求状态统计（ProjectStoryStatusStats）
 #### 说明
@@ -3442,7 +3822,10 @@ SELECT
 0 AS `CLOSEDSTORY`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
+0 AS `DEVELOPEDSTAGESTORYCNT`,
+0 AS `DEVELOPINGSTAGESTORYCNT`,
 0 AS `DRAFTSTORY`,
+0 AS `EMPTYSTAGESTORYCNT`,
 0 AS `EMPTYSTORY`,
 t1.`END`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0') AS `FINISHBUGCNT`,
@@ -3451,12 +3834,16 @@ t1.`ID`,
 0 AS `MEMBERCNT`,
 t1.`NAME`,
 t1.`order` AS `ORDER1`,
+0 AS `PLANNEDSTAGESTORYCNT`,
+0 AS `PROJECTEDSTAGESTORYCNT`,
 0 AS `PROJECTTOTALCONSUMED`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0') AS `RELEASEDSTORYCNT`,
 null AS `SERIOUSBUGPROPORTION`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+0 AS `TESTEDSTAGESTORYCNT`,
+0 AS `TESTINGSTAGESTORYCNT`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
 (SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
 (SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
@@ -3465,6 +3852,7 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE `STATUS` <>  'closed' AND PROJECT = t1.`ID` AND DELETED = '0') AS `UNCLOSEDSTORYCNT`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMEDBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
+0 AS `WAITSTAGESTORYCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
 (SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`
 FROM `zt_project` t1 
@@ -3479,10 +3867,11 @@ FROM `zt_project` t1
 | 3 | [项目bug类型统计](#数据集合-项目bug类型统计（ProjectBugType）) | ProjectBugType | 否 |
 | 4 | [项目投入统计](#数据集合-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
 | 5 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
-| 6 | [项目需求状态统计](#数据集合-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
-| 7 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 8 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 9 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 6 | [项目需求阶段统计](#数据集合-项目需求阶段统计（ProjectStoryStageStats）) | ProjectStoryStageStats | 否 |
+| 7 | [项目需求状态统计](#数据集合-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
+| 8 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 9 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 10 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -3554,6 +3943,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目质量表查询（ProjectQuality）](#数据查询-项目质量表查询（ProjectQuality）) |
+### 数据集合-项目需求阶段统计（ProjectStoryStageStats）
+#### 说明
+项目需求阶段统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目需求阶段统计（ProjectStoryStageStats）](#数据查询-项目需求阶段统计（ProjectStoryStageStats）) |
 ### 数据集合-项目需求状态统计（ProjectStoryStatusStats）
 #### 说明
 项目需求状态统计

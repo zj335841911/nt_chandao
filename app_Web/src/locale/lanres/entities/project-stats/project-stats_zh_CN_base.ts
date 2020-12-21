@@ -69,6 +69,15 @@ function getLocaleResourceBase(){
 			activestory: commonLogic.appcommonhandle("激活需求",null),
 			closedstory: commonLogic.appcommonhandle("已关闭需求",null),
 			changedstory: commonLogic.appcommonhandle("已变更需求",null),
+			emptystagestorycnt: commonLogic.appcommonhandle("空阶段需求数",null),
+			waitstagestorycnt: commonLogic.appcommonhandle("未开始阶段需求数",null),
+			plannedstagestorycnt: commonLogic.appcommonhandle("已计划阶段需求数",null),
+			projectedstagestorycnt: commonLogic.appcommonhandle("已立项阶段需求数",null),
+			developingstagestorycnt: commonLogic.appcommonhandle("研发中阶段需求数",null),
+			developedstagestorycnt: commonLogic.appcommonhandle("研发完毕阶段需求数",null),
+			testingstagestorycnt: commonLogic.appcommonhandle("测试中阶段需求数",null),
+			testedstagestorycnt: commonLogic.appcommonhandle("测试完毕阶段需求数",null),
+			verifiedstagestorycnt: commonLogic.appcommonhandle("已验收阶段需求数",null),
 		},
 			views: {
 				allgridview: {

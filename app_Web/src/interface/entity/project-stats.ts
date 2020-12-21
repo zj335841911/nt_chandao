@@ -533,4 +533,76 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     changedstory?: any;
+
+    /**
+     * 空阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    emptystagestorycnt?: any;
+
+    /**
+     * 未开始阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    waitstagestorycnt?: any;
+
+    /**
+     * 已计划阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    plannedstagestorycnt?: any;
+
+    /**
+     * 已立项阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    projectedstagestorycnt?: any;
+
+    /**
+     * 研发中阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    developingstagestorycnt?: any;
+
+    /**
+     * 研发完毕阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    developedstagestorycnt?: any;
+
+    /**
+     * 测试中阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    testingstagestorycnt?: any;
+
+    /**
+     * 测试完毕阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    testedstagestorycnt?: any;
+
+    /**
+     * 已验收阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    verifiedstagestorycnt?: any;
 }

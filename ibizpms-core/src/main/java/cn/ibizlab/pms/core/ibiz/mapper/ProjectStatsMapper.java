@@ -24,6 +24,7 @@ public interface ProjectStatsMapper extends BaseMapper<ProjectStats> {
     Page<ProjectStats> searchProjectBugType(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper);
     Page<ProjectStats> searchProjectInputStats(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper);
     Page<ProjectStats> searchProjectQuality(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper);
+    Page<ProjectStats> searchProjectStoryStageStats(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper);
     Page<ProjectStats> searchProjectStoryStatusStats(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper);
     Page<ProjectStats> searchProjectTaskCountByTaskStatus(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper);
     Page<ProjectStats> searchProjectTaskCountByType(IPage page, @Param("srf") ProjectStatsSearchContext context, @Param("ew") Wrapper<ProjectStats> wrapper);
