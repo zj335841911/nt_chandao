@@ -1966,5 +1966,27 @@ DEFAULT
 无
 
 ## 数据导出
-无
+| 序号 | 数据导出 | 数据导出名 | 最大导出数量 |
+| ---- | ---- | ---- | ---- |
+| 1 | [产品质量数据导出](#数据导出-产品质量数据导出（ProductQuantityExport）) | ProductQuantityExport | 1,000 |
+
+### 数据导出-产品质量数据导出（ProductQuantityExport）
+#### 说明
+产品质量数据导出
+
+- 最大导出数
+1,000
+
+- 行为持有者
+后台及前台
+
+| 序号 | 导出标题 | 属性 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| 1 | 产品名称 | [产品名称（NAME）](#属性-产品名称（NAME）) |  |
+| 2 | 需求总数 | [需求总数（STORYCNT）](#属性-需求总数（STORYCNT）) |  |
+| 3 | 已完成的需求数 | [已完成的需求数（FINISHEDSTORYCNT）](#属性-已完成的需求数（FINISHEDSTORYCNT）) |  |
+| 4 | 所有Bug数 | [所有Bug数（BUGCNT）](#属性-所有Bug数（BUGCNT）) |  |
+| 5 | 解决Bug数 | [解决Bug数（RESOLVEDBUGCNT）](#属性-解决Bug数（RESOLVEDBUGCNT）) |  |
+| 6 | 重要的Bug数 | [重要的Bug数（IMPORTANTBUGCNT）](#属性-重要的Bug数（IMPORTANTBUGCNT）) |  |
+| 7 | 需求所提bug数 | [需求所提bug数（BUGSTORY）](#属性-需求所提bug数（BUGSTORY）) |  |
 

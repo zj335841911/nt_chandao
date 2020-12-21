@@ -81,7 +81,6 @@ export default class ProductQuantityGirdModel {
           name: 'productstats',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

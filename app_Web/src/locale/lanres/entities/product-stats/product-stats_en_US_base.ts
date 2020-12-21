@@ -235,13 +235,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			default_searchform: {
-				details: {
-					formpage1: commonLogic.appcommonhandle("常规条件",null), 
-				},
-				uiactions: {
-				},
-			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("Save",null),
@@ -279,6 +272,10 @@ function getLocaleResourceBase(){
 				},
 			},
 			gridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
 			},
 		};
 		return data;
