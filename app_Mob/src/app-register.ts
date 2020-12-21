@@ -156,5 +156,7 @@ export const AppComponents = {
         v.component('app-mob-department-personnel',() => import('@/components/app-mob-department-personnel/app-mob-department-personnel.vue'));
         v.component('app-mob-group-picker',() => import('@/components/app-mob-group-picker/app-mob-group-picker.vue'));
         v.component('app-mob-group-select',() => import('@/components/app-mob-group-select/app-mob-group-select.vue'));
+        // 树选择
+        v.component('app-tree',() => import('@/components/app-tree/app-tree.vue'));
     },
 };
