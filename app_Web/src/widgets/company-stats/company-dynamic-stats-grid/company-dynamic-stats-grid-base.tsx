@@ -95,20 +95,20 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_companystats_companydynamicstats_grid';
 
     /**
-     * 是否支持分页
+     * 排序方向
      *
-     * @type {boolean}
+     * @type {string}
      * @memberof CompanyDynamicStatsGridBase
      */
-    public isEnablePagingBar: boolean = false;
+    public minorSortDir: string = 'DESC';
 
     /**
-     * 分页条数
+     * 排序字段
      *
-     * @type {number}
+     * @type {string}
      * @memberof CompanyDynamicStatsGridBase
      */
-    public limit: number = 1000;
+    public minorSortPSDEF: string = 'ztdate';
 
     /**
      * 所有列成员

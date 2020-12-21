@@ -88,9 +88,9 @@ export class CompanyDynamicStaticSearchFormBase extends SearchFormControlBase {
     public detailsModel: any = {
         formpage1: new FormPageModel({ caption: '表单分页', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_date_gtandeq: new FormItemModel({ caption: '起始时间', detailType: 'FORMITEM', name: 'n_date_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_date_gtandeq: new FormItemModel({ caption: '起始日期', detailType: 'FORMITEM', name: 'n_date_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_date_ltandeq: new FormItemModel({ caption: '结束时间', detailType: 'FORMITEM', name: 'n_date_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_date_ltandeq: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'n_date_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
