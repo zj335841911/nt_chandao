@@ -1140,7 +1140,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[Bug解决方案（Bug__resolution）](../../codelist/Bug__resolution)】
 
 - 数据格式
 无
@@ -1386,7 +1386,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
 
 - 数据格式
 无
