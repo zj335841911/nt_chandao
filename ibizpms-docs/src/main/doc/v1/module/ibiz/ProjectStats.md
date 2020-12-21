@@ -4082,7 +4082,7 @@ from(
 select t1.type,t1.project,t2.`name`,t2.`status`,t2.`begin`,t2.closedDate,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0' and t2.deleted = '0') t1
 GROUP BY t1.project ) t1 RIGHT JOIN zt_project t2 on t1.project = t2.id where t2.deleted = '0' and (t1.`status` = #{srf.datacontext.status} or #{srf.datacontext.status} is null)
 and (DATE_FORMAT(t1.`begin`,'%Y-%m-%d') >=  #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
-and (DATE_FORMAT(t1.`end`,'%Y-%m-%d') >=  #{srf.datacontext.end} or #{srf.datacontext.end} is null)
+and (DATE_FORMAT(t1.`closedDate`,'%Y-%m-%d') >=  #{srf.datacontext.end} or #{srf.datacontext.end} is null)
 
 ```
 ### 数据查询-任务工时消耗剩余查询（TaskTime）
