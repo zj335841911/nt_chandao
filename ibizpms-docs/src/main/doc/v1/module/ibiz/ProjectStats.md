@@ -95,7 +95,6 @@
 | 77 | [已关闭阶段需求数](#属性-已关闭阶段需求数（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 78 | [进度](#属性-进度（PROGRESS）) | PROGRESS | 文本，可指定长度 | 否 | 否 | 是 |
 | 79 | [开始时间](#属性-开始时间（BEGIN）) | BEGIN | 日期型 | 否 | 否 | 是 |
-| 80 | [部门](#属性-部门（DEPT）) | DEPT | 单项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -3108,45 +3107,6 @@ yyyy-MM-dd
 #### 关系属性
 无
 
-### 属性-部门（DEPT）
-#### 属性说明
-部门
-
-- 是否是主键
-否
-
-- 属性类型
-应用界面字段[无存储]
-
-- 数据类型
-单项选择(文本值)
-
-- Java类型
-String
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-参照数据字典【[真实部门（RealDept）](../../codelist/RealDept)】
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-| 序号 | 组合方式 |
-| ---- | ---- |
-| 1 | `=` |
-
-#### 关系属性
-无
-
 
 ## 业务状态
 无
@@ -3292,7 +3252,6 @@ Save
 | 3 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
 | 4 | [状态（STATUS）](#属性-状态（STATUS）) | `!=`或者`<>` |
 | 5 | [开始时间（BEGIN）](#属性-开始时间（BEGIN）) | `>=` |
-| 6 | [部门（DEPT）](#属性-部门（DEPT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -4017,6 +3976,7 @@ GROUP BY
 select 
 t1.id, 
 t1.`name`, 
+t1.`status`, 
 sum(case when t3.`stage` = '' then 1 else 0 end) as `EmptyStageStoryCNT`, 
 sum(case when t3.`stage` = 'wait' then 1 else 0 end) as `WaitStageStoryCNT`, 
 sum(case when t3.`stage` = 'planned' then 1 else 0 end) as `PlannedStageStoryCNT`, 
@@ -4052,6 +4012,7 @@ group by t1.id
 select 
 t1.id, 
 t1.`name`, 
+t1.`status`, 
 sum(case when t3.`status` = '' then 1 else 0 end) as `EmptyStory`, 
 sum(case when t3.`status` = 'draft' then 1 else 0 end) as `DraftStory`, 
 sum(case when t3.`status` = 'active' then 1 else 0 end) as `ActiveStory`, 
@@ -4103,8 +4064,10 @@ select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from 
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t2.id,t2.`name`,IFNULL(t1.designtaskcnt,0) as designtaskcnt,IFNULL(t1.discusstaskcnt,0) as discusstaskcnt, IFNULL(t1.studytaskcnt,0) as studytaskcnt,IFNULL(t1.uitaskcnt,0) as uitaskcnt, IFNULL(t1.testtaskcnt,0) as testtaskcnt,IFNULL(t1.servetaskcnt,0) as servetaskcnt,IFNULL(t1.develtaskcnt,0) as develtaskcnt,IFNULL(t1.misctaskcnt,0) as misctaskcnt,IFNULL(t1.affairtaskcnt,0) as affairtaskcnt,IFNULL(t1.taskcnt,0) as taskcnt from (
-SELECT t1.project,t1.`name`,
+SELECT t2.id,t2.`name`,IFNULL(t1.designtaskcnt,0) as designtaskcnt,IFNULL(t1.discusstaskcnt,0) as discusstaskcnt, IFNULL(t1.studytaskcnt,0) as studytaskcnt,IFNULL(t1.uitaskcnt,0) as uitaskcnt, IFNULL(t1.testtaskcnt,0) as testtaskcnt,IFNULL(t1.servetaskcnt,0) as servetaskcnt,IFNULL(t1.develtaskcnt,0) as develtaskcnt,IFNULL(t1.misctaskcnt,0) as misctaskcnt,IFNULL(t1.affairtaskcnt,0) as affairtaskcnt,IFNULL(t1.taskcnt,0) as taskcnt ,t1.`status`,t1.`status`,t1.`begin`,t1.closedDate as `end`
+
+from (
+SELECT t1.project,t1.`name`,t1.`status`,t1.`begin`,t1.closedDate,
 SUM(IF(t1.type = 'design',t1.num,0)) as designtaskcnt,
 SUM(IF(t1.type = 'discuss',t1.num,0)) as discusstaskcnt,
 SUM(IF(t1.type = 'study',t1.num,0)) as studytaskcnt,
@@ -4116,8 +4079,10 @@ SUM(IF(t1.type = 'misc',t1.num,0)) as misctaskcnt,
 SUM(IF(t1.type = 'affair',t1.num,0)) as affairtaskcnt,
 COUNT(1) as taskcnt
 from(
-select t1.type,t1.project,t2.`name`,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0' and t2.deleted = '0') t1
-GROUP BY t1.project ) t1 RIGHT JOIN zt_project t2 on t1.project = t2.id where t2.deleted = '0'
+select t1.type,t1.project,t2.`name`,t2.`status`,t2.`begin`,t2.closedDate,1 as num from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t2.id <> '0' and t2.deleted = '0') t1
+GROUP BY t1.project ) t1 RIGHT JOIN zt_project t2 on t1.project = t2.id where t2.deleted = '0' and (t1.`status` = #{srf.datacontext.status} or #{srf.datacontext.status} is null)
+and (DATE_FORMAT(t1.`begin`,'%Y-%m-%d') >=  #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
+and (DATE_FORMAT(t1.`end`,'%Y-%m-%d') >=  #{srf.datacontext.end} or #{srf.datacontext.end} is null)
 
 ```
 ### 数据查询-任务工时消耗剩余查询（TaskTime）

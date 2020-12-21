@@ -75,7 +75,7 @@ export class ProjectTaskTypeCountSearchFormBase extends SearchFormControlBase {
      * @memberof ProjectTaskTypeCountSearchFormBase
      */
     public data: any = {
-        n_dept_eq: null,
+        n_status_eq: null,
         n_begin_gtandeq: null,
         n_end_ltandeq: null,
     };
@@ -89,7 +89,7 @@ export class ProjectTaskTypeCountSearchFormBase extends SearchFormControlBase {
     public detailsModel: any = {
         formpage1: new FormPageModel({ caption: '表单分页', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_dept_eq: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'n_dept_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_status_eq: new FormItemModel({ caption: '项目状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_begin_gtandeq: new FormItemModel({ caption: '项目起始时间', detailType: 'FORMITEM', name: 'n_begin_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 

@@ -26,9 +26,9 @@ export default class ProjectTaskTypeCountModel {
         dataType: 'TEXT',
       },
       {
-        name: 'n_dept_eq',
-        prop: 'dept',
-        dataType: 'SSCODELIST',
+        name: 'n_status_eq',
+        prop: 'status',
+        dataType: 'TEXT',
       },
       {
         name: 'n_begin_gtandeq',

@@ -31468,21 +31468,6 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
-    },
-    {
-    "fieldname":"DEPT" ,
-    "codename":"Dept",
-    "field_logic_name":"部门",
-    "entity_name":"ProjectStats",
-    "field_type":"SSCODELIST",
-    "dict":"RealDept",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":200,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
     }
     ],
     "subEntitys":[

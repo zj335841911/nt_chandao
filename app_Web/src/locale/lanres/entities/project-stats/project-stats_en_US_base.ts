@@ -82,7 +82,6 @@ function getLocaleResourceBase(){
 			closedstagestorycnt: commonLogic.appcommonhandle("已关闭阶段需求数",null),
 			progress: commonLogic.appcommonhandle("进度",null),
 			begin: commonLogic.appcommonhandle("开始时间",null),
-			dept: commonLogic.appcommonhandle("部门",null),
 		},
 			views: {
 				allgridview: {
@@ -368,7 +367,7 @@ function getLocaleResourceBase(){
 			projecttasktypecount_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
-					n_dept_eq: commonLogic.appcommonhandle("部门",null), 
+					n_status_eq: commonLogic.appcommonhandle("项目状态",null), 
 					n_begin_gtandeq: commonLogic.appcommonhandle("项目起始时间",null), 
 					n_end_ltandeq: commonLogic.appcommonhandle("项目结束时间",null), 
 				},

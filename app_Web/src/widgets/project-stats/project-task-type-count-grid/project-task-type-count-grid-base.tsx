@@ -400,6 +400,33 @@ export class ProjectTaskTypeCountGridBase extends GridControlBase {
         ]);
     }
 
+    /**
+     * 合计行绘制
+     *
+     * @param {any} param
+     * @memberof ProjectTaskTypeCountGridBase
+     */
+    public getSummaries(param:any){
+        const { columns, data } = param;
+        const sums:Array<any> = [];
+        columns.forEach((column:any, index:number) => {
+          if (index === 0) {
+            sums[index] = (this.$t('app.gridpage.sum') as string);
+            return;
+          }
+          if(index === (columns.length - 1)){
+            sums[index] = '';
+            return;
+          }
+          const values = data.map((item:any) => Number(item[column.property]));
+          if (!values.every((value:any) => isNaN(value))) {
+          } else {
+            sums[index] = 'N/A';
+          }
+        });
+        return sums;
+      }
+
 
     /**
      * 更新默认值
