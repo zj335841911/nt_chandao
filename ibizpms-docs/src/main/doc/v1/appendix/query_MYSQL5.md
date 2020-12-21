@@ -14210,7 +14210,7 @@ WHERE
 	OR t1.acl = 'open' 
 	) 
 	) t1
-WHERE t1.status = #{srfdatacontext.status}  or  #{srfdatacontext.status is null} 
+WHERE t1.status =${srfwebcontext('status')}  or ${srfwebcontext('status') is null} 
 
 ```
 ### 项目质量表查询(ProjectQuality)<div id="ProjectStats_ProjectQuality"></div>
