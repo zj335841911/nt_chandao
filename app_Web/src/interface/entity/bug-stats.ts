@@ -287,7 +287,7 @@ export interface BugStats {
     dept?: any;
 
     /**
-     * 属性
+     * 开始
      *
      * @returns {*}
      * @memberof BugStats

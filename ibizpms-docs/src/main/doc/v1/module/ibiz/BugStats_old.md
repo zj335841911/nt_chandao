@@ -48,7 +48,7 @@ hide members
 |Bug创建日期|BUGOPENEDDATE|DATE|&nbsp;|
 |bug解决日期|BUGRESOLVEDDATE|DATE|&nbsp;|
 |部门|DEPT|SSCODELIST|&nbsp;|
-|属性|BEGIN|DATE|&nbsp;|
+|开始|BEGIN|DATE|&nbsp;|
 |结束|END|DATE|&nbsp;|
 
 ## 值规则
@@ -89,7 +89,7 @@ hide members
 |Bug创建日期|默认规则|默认规则|
 |bug解决日期|默认规则|默认规则|
 |部门|默认规则|内容长度必须小于等于[200]|
-|属性|默认规则|默认规则|
+|开始|默认规则|默认规则|
 |结束|默认规则|默认规则|
 
 ## 状态控制

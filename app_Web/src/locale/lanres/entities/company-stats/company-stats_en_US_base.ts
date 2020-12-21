@@ -40,6 +40,21 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			companydynamicstatic_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					n_date_gtandeq: commonLogic.appcommonhandle("起始时间",null), 
+					n_date_ltandeq: commonLogic.appcommonhandle("结束时间",null), 
+				},
+				uiactions: {
+				},
+			},
+			companydynamicstatsgridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+			},
 		};
 		return data;
 }

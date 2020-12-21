@@ -548,7 +548,7 @@ POST
 | 33 | bugopeneddate | Timestamp | 允许 | Bug创建日期<br>时间格式：yyyy-MM-dd |
 | 34 | bugresolveddate | Timestamp | 允许 | bug解决日期<br>时间格式：yyyy-MM-dd |
 | 35 | dept | String | 允许 | 部门 |
-| 36 | begin | Timestamp | 允许 | 属性<br>时间格式：yyyy-MM-dd |
+| 36 | begin | Timestamp | 允许 | 开始<br>时间格式：yyyy-MM-dd |
 | 37 | end | Timestamp | 允许 | 结束<br>时间格式：yyyy-MM-dd |
 | 38 | <动态属性> | Object | 允许 | 支持动态属性 |
 

@@ -292,7 +292,7 @@ public class BugStats extends EntityMP implements Serializable {
     @JsonProperty("dept")
     private String dept;
     /**
-     * 属性
+     * 开始
      */
     @TableField(exist = false)
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
