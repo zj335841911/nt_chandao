@@ -317,6 +317,14 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("bugstory")
     private Integer bugstory;
 
+    /**
+     * 属性 [IMPORTANTBUGPERCENT]
+     *
+     */
+    @JSONField(name = "importantbugpercent")
+    @JsonProperty("importantbugpercent")
+    private Double importantbugpercent;
+
 
     /**
      * 设置 [NAME]

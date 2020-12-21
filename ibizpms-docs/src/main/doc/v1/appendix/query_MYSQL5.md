@@ -12409,7 +12409,8 @@ WHERE
 ```
 ### 产品质量表(ProdctQuantiGird)<div id="ProductStats_ProdctQuantiGird"></div>
 ```sql
-SELECT t1.id,t1.`name`,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t2.finishedStory,0) as finishedStorycnt,IFNULL(t3.bugcnt,0) as bugcnt,IFNULL(t3.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t3.importantbugcnt,0) as importantbugcnt,IFNULL(t4.bugstory,0)  as bugstory from zt_product t1 LEFT JOIN (
+SELECT t1.id,t1.`name`,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t2.finishedStory,0) as finishedStorycnt,IFNULL(t3.bugcnt,0) as bugcnt,IFNULL(t3.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t3.importantbugcnt,0) as importantbugcnt,IFNULL(t4.bugstory,0)  as bugstory , CONCAT(IFNULL(ROUND(t3.importantbugcnt/t3.bugcnt,2)*100,0),'%') as ImportantBugpercent
+from zt_product t1 LEFT JOIN (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,
 SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory

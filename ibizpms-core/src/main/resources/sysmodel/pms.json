@@ -28102,6 +28102,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"IMPORTANTBUGPERCENT" ,
+    "codename":"Importantbugpercent",
+    "field_logic_name":"严重bug比",
+    "entity_name":"ProductStats",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

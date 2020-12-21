@@ -51,6 +51,7 @@
 | 33 | [解决Bug数](#属性-解决Bug数（RESOLVEDBUGCNT）) | RESOLVEDBUGCNT | 整型 | 否 | 否 | 是 |
 | 34 | [重要的Bug数](#属性-重要的Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
 | 35 | [需求所提bug数](#属性-需求所提bug数（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
+| 36 | [严重bug比](#属性-严重bug比（IMPORTANTBUGPERCENT）) | IMPORTANTBUGPERCENT | 浮点 | 否 | 否 | 是 |
 
 ### 属性-产品编号（ID）
 #### 属性说明
@@ -1404,6 +1405,43 @@ Integer
 #### 关系属性
 无
 
+### 属性-严重bug比（IMPORTANTBUGPERCENT）
+#### 属性说明
+严重bug比
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -1847,7 +1885,8 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.id,t1.`name`,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t2.finishedStory,0) as finishedStorycnt,IFNULL(t3.bugcnt,0) as bugcnt,IFNULL(t3.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t3.importantbugcnt,0) as importantbugcnt,IFNULL(t4.bugstory,0)  as bugstory from zt_product t1 LEFT JOIN (
+SELECT t1.id,t1.`name`,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t2.finishedStory,0) as finishedStorycnt,IFNULL(t3.bugcnt,0) as bugcnt,IFNULL(t3.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t3.importantbugcnt,0) as importantbugcnt,IFNULL(t4.bugstory,0)  as bugstory , CONCAT(IFNULL(ROUND(t3.importantbugcnt/t3.bugcnt,2)*100,0),'%') as ImportantBugpercent
+from zt_product t1 LEFT JOIN (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,
 SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
@@ -1988,5 +2027,5 @@ DEFAULT
 | 4 | 所有Bug数 | [所有Bug数（BUGCNT）](#属性-所有Bug数（BUGCNT）) |  |
 | 5 | 解决Bug数 | [解决Bug数（RESOLVEDBUGCNT）](#属性-解决Bug数（RESOLVEDBUGCNT）) |  |
 | 6 | 重要的Bug数 | [重要的Bug数（IMPORTANTBUGCNT）](#属性-重要的Bug数（IMPORTANTBUGCNT）) |  |
-| 7 | 需求所提bug数 | [需求所提bug数（BUGSTORY）](#属性-需求所提bug数（BUGSTORY）) |  |
+| 7 | 严重bug比 | [严重bug比（IMPORTANTBUGPERCENT）](#属性-严重bug比（IMPORTANTBUGPERCENT）) |  |
 
