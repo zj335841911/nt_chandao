@@ -2484,7 +2484,6 @@
     "field_logic_name":"bug创建人",
     "entity_name":"BugStats",
     "field_type":"TEXT",
-    "dict":"UserRealName",
     "nullable":1,
     "physical_field":0,
     "data_type":"VARCHAR",

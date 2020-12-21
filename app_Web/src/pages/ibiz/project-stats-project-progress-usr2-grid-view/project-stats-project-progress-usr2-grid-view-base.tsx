@@ -112,7 +112,7 @@ export class ProjectStatsProjectProgressUsr2GridViewBase extends GridViewBase {
      * @memberof ProjectStatsProjectProgressUsr2GridView
      */
     public toolBarModels: any = {
-        deuiaction7: { name: 'deuiaction7', caption: 'entities.projectstats.projectprogressusr2gridviewtoolbar_toolbar.deuiaction7.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.projectstats.projectprogressusr2gridviewtoolbar_toolbar.deuiaction7.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.projectstats.projectprogressusr2gridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.projectstats.projectprogressusr2gridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -188,8 +188,8 @@ export class ProjectStatsProjectProgressUsr2GridViewBase extends GridViewBase {
      * @memberof ProjectStatsProjectProgressUsr2GridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction7')) {
-            this.toolbar_deuiaction7_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
         }
     }
 
@@ -289,7 +289,7 @@ export class ProjectStatsProjectProgressUsr2GridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction7_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];

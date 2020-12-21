@@ -95,9 +95,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.bugopenedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                        </template>
+                            <span>{{row.bugopenedby}}</span>
                     </template>
                 </el-table-column>
             </template>

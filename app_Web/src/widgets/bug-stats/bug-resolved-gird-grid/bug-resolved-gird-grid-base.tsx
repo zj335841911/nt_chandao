@@ -380,14 +380,6 @@ export class BugResolvedGirdGridBase extends GridControlBase {
                 valueSeparator: ",",
             },
             {
-                name: 'bugopenedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
                 name: 'bugresolution',
                 srfkey: 'Bug__resolution',
                 codelistType : 'STATIC',
