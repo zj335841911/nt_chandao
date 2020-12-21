@@ -371,4 +371,16 @@ export class ProjectStatsProjectBugTypeSumUsr2GridViewBase extends GridViewBase 
      * @memberof ProjectStatsProjectBugTypeSumUsr2GridViewBase
      */
     protected isGridSingleSelect: boolean = true;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof ProjectStatsProjectBugTypeSumUsr2GridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

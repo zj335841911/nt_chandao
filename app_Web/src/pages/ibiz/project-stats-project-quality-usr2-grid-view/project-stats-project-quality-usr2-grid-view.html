@@ -2,15 +2,6 @@
     <template slot="title">
     <span class="caption-info">{{viewCaption}}</span>
     </template>
-    <i-input
-        slot="quickSearch"
-        clearable
-        
-        v-model="query"
-        :placeholder="$t('entities.projectstats.fields.name')"
-        search
-        @on-search="onSearch($event)"
-    ></i-input>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
