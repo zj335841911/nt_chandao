@@ -1,16 +1,16 @@
 /**
- * TaskFinshSearchGird 部件模型
+ * ProjectInputStats 部件模型
  *
  * @export
- * @class TaskFinshSearchGirdModel
+ * @class ProjectInputStatsModel
  */
-export default class TaskFinshSearchGirdModel {
+export default class ProjectInputStatsModel {
 
   /**
   * 获取数据项集合
   *
   * @returns {any[]}
-  * @memberof TaskFinshSearchGirdModel
+  * @memberof ProjectInputStatsModel
   */
   public getDataItems(): any[] {
     return [
@@ -26,9 +26,9 @@ export default class TaskFinshSearchGirdModel {
         dataType: 'TEXT',
       },
       {
-        name: 'n_dept_eq',
-        prop: 'dept',
-        dataType: 'SSCODELIST',
+        name: 'n_status_eq',
+        prop: 'status',
+        dataType: 'TEXT',
       },
       {
         name: 'n_begin_gtandeq',

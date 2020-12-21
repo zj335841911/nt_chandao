@@ -81,6 +81,12 @@ export default class ProjectStoryStatusStatsModel {
           name: 'projectstats',
           prop: 'id',
         },
+      {
+        name: 'n_status_eq',
+        prop: 'n_status_eq',
+        dataType: 'TEXT',
+      },
+
         {
           name:'size',
           prop:'size'

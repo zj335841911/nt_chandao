@@ -76,6 +76,8 @@ export class TaskFinshSearchGirdSearchFormBase extends SearchFormControlBase {
      */
     public data: any = {
         n_dept_eq: null,
+        n_begin_gtandeq: null,
+        n_end_ltandeq: null,
     };
 
     /**
@@ -88,6 +90,10 @@ export class TaskFinshSearchGirdSearchFormBase extends SearchFormControlBase {
         formpage1: new FormPageModel({ caption: '表单分页', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
         n_dept_eq: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'n_dept_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_begin_gtandeq: new FormItemModel({ caption: '任务完成时间', detailType: 'FORMITEM', name: 'n_begin_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_end_ltandeq: new FormItemModel({ caption: '至', detailType: 'FORMITEM', name: 'n_end_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

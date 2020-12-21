@@ -629,4 +629,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     progress?: any;
+
+    /**
+     * 开始时间
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    begin?: any;
+
+    /**
+     * 部门
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    dept?: any;
 }

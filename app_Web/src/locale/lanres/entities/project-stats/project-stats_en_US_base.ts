@@ -81,6 +81,8 @@ function getLocaleResourceBase(){
 			releasedstagestorycnt: commonLogic.appcommonhandle("已发布阶段需求数",null),
 			closedstagestorycnt: commonLogic.appcommonhandle("已关闭阶段需求数",null),
 			progress: commonLogic.appcommonhandle("进度",null),
+			begin: commonLogic.appcommonhandle("开始时间",null),
+			dept: commonLogic.appcommonhandle("部门",null),
 		},
 			views: {
 				allgridview: {
@@ -355,10 +357,28 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projectstorystats_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					n_status_eq: commonLogic.appcommonhandle("项目状态",null), 
+				},
+				uiactions: {
+				},
+			},
 			projectstatusdef_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
 					n_status_eq: commonLogic.appcommonhandle("项目状态",null), 
+				},
+				uiactions: {
+				},
+			},
+			projectinputstats_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					n_status_eq: commonLogic.appcommonhandle("项目状态",null), 
+					n_begin_gtandeq: commonLogic.appcommonhandle("项目起始时间",null), 
+					n_end_ltandeq: commonLogic.appcommonhandle("项目结束时间",null), 
 				},
 				uiactions: {
 				},
@@ -399,6 +419,12 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
 			},
+			projectstorystagestatusgridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+			},
 			projectqualityusr2gridviewtoolbar_toolbar: {
 				deuiaction1: {
 					caption: commonLogic.appcommonhandle("Export",null),
@@ -413,6 +439,18 @@ function getLocaleResourceBase(){
 			},
 			projectprogressusr2gridviewtoolbar_toolbar: {
 				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+			},
+			projectinputstatsgridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+			},
+			projectstorystatusstatsgridviewtoolbar_toolbar: {
+				deuiaction7: {
 					caption: commonLogic.appcommonhandle("Export",null),
 					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
 				},

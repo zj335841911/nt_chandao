@@ -683,7 +683,8 @@ POST
 | 77 | closedstagestorycnt | Integer | 允许 | 已关闭阶段需求数 |
 | 78 | progress | String | 允许 | 进度 |
 | 79 | begin | Timestamp | 允许 | 开始时间<br>时间格式：yyyy-MM-dd |
-| 80 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 80 | dept | String | 允许 | 部门 |
+| 81 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -693,10 +694,11 @@ POST
 | 3 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
 | 4 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
 | 5 | n_begin_gtandeq | Timestamp | 允许 | 条件字段：begin<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
-| 6 | customcond | String | 允许 | 自定义查询条件 |
-| 7 | customparams | String | 允许 | 自定义查询参数 |
-| 8 | query | String | 允许 | 快速搜索 |
-| 9 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 10 | page | int | 允许 | 当前页数<br>默认值0 |
-| 11 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 12 | sort | String | 允许 | 排序 |
+| 6 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
+| 7 | customcond | String | 允许 | 自定义查询条件 |
+| 8 | customparams | String | 允许 | 自定义查询参数 |
+| 9 | query | String | 允许 | 快速搜索 |
+| 10 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 11 | page | int | 允许 | 当前页数<br>默认值0 |
+| 12 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 13 | sort | String | 允许 | 排序 |

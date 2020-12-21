@@ -88,6 +88,7 @@
 |已关闭阶段需求数|CLOSEDSTAGESTORYCNT|INT|&nbsp;|
 |进度|PROGRESS|TEXT|&nbsp;|
 |开始时间|BEGIN|DATE|&nbsp;|
+|部门|DEPT|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -171,6 +172,7 @@
 |已关闭阶段需求数|默认规则|默认规则|
 |进度|默认规则|内容长度必须小于等于[100]|
 |开始时间|默认规则|默认规则|
+|部门|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -249,6 +251,7 @@ hide footbox
 |状态(STATUS)|EQ|
 |状态(STATUS)|NOTEQ|
 |开始时间(BEGIN)|GTANDEQ|
+|部门(DEPT)|EQ|
 
 ## 导入模式
 无

@@ -601,6 +601,13 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
+    /**
+     * 部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    private String dept;
 
 
 

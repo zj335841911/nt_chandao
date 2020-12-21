@@ -76,6 +76,8 @@ function getLocaleResourceBase(){
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
 					n_dept_eq: commonLogic.appcommonhandle("部门",null), 
+					n_begin_gtandeq: commonLogic.appcommonhandle("任务完成时间",null), 
+					n_end_ltandeq: commonLogic.appcommonhandle("至",null), 
 				},
 				uiactions: {
 				},
@@ -90,6 +92,10 @@ function getLocaleResourceBase(){
 				},
 			},
 			userfinishtaskgridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
 			},
 			userfinishtasksumgridviewtoolbar_toolbar: {
 			},

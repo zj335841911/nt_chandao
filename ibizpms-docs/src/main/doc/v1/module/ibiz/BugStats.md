@@ -1872,7 +1872,7 @@ bug解决汇总表
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus ,t2.dept,DATE_FORMAT(t1.resolvedDate,'%Y-%m-%d') as begin,DATE_FORMAT(t1.resolvedDate,'%Y-%m-%d') as end
+SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus ,t2.dept,DATE_FORMAT(t1.resolvedDate,'%Y-%m-%d') as `begin`,DATE_FORMAT(t1.resolvedDate,'%Y-%m-%d') as `end`
 
 from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') 
 and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null )

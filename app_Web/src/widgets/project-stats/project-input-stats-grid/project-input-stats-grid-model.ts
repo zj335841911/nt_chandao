@@ -76,6 +76,22 @@ export default class ProjectInputStatsModel {
           name: 'projectstats',
           prop: 'id',
         },
+      {
+        name: 'n_status_eq',
+        prop: 'n_status_eq',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'n_begin_gtandeq',
+        prop: 'n_begin_gtandeq',
+        dataType: 'DATE',
+      },
+      {
+        name: 'n_end_ltandeq',
+        prop: 'n_end_ltandeq',
+        dataType: 'DATE',
+      },
+
         {
           name:'size',
           prop:'size'

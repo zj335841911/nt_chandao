@@ -4,6 +4,8 @@
             :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
             @sort-change="onSortChange($event)"  
             :border="isDragendCol"
+            :show-summary="true && items.length > 0"
+            :summary-method="getSummaries"
             :highlight-current-row ="isSingleSelect"
             :row-class-name="getRowClassName.bind(_self)"
             :cell-class-name="getCellClassName.bind(_self)"
