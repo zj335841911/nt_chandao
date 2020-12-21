@@ -380,6 +380,72 @@ export class TestCaseStatsGridBase extends GridControlBase {
           }
           const values = data.map((item:any) => Number(item[column.property]));
           if (!values.every((value:any) => isNaN(value))) {
+                if(Object.is(column.property,'totalcase')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'passcase')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'failcase')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'blockedcase')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'totalruncase')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'passrate')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
           } else {
             sums[index] = 'N/A';
           }
