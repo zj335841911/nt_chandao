@@ -153,6 +153,8 @@ hide members
 |由谁解决(RESOLVEDBY)|EQ|
 |项目编号(PROJECT)|EQ|
 |部门(DEPT)|EQ|
+|开始(BEGIN)|LTANDEQ|
+|结束(END)|GTANDEQ|
 
 ## 导入模式
 无
