@@ -91,7 +91,7 @@ export class TaskFinshSearchGirdSearchFormBase extends SearchFormControlBase {
 , 
         n_dept_eq: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'n_dept_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_begin_gtandeq: new FormItemModel({ caption: '任务完成时间', detailType: 'FORMITEM', name: 'n_begin_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_begin_gtandeq: new FormItemModel({ caption: '完成时间', detailType: 'FORMITEM', name: 'n_begin_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_end_ltandeq: new FormItemModel({ caption: '至', detailType: 'FORMITEM', name: 'n_end_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -102,5 +102,8 @@ export class TaskFinshSearchGirdSearchFormBase extends SearchFormControlBase {
      * @memberof TaskFinshSearchGirdBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('n_dept_eq')) {
+            this.data['n_dept_eq'] = this.context['srforgsectorid'];
+        }
     }
 }
