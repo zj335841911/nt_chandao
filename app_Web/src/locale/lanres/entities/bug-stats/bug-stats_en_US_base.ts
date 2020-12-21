@@ -71,6 +71,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Bug指派表",null),
 					title: commonLogic.appcommonhandle("Bug统计表格视图（Bug指派表）",null),
 				},
+				bugresolvedbygridviewzuzhi: {
+					caption: commonLogic.appcommonhandle("Bug完成表",null),
+					title: commonLogic.appcommonhandle("Bug统计表格视图（Bug完成表）",null),
+				},
 			},
 			main_form: {
 				details: {
@@ -187,6 +191,23 @@ function getLocaleResourceBase(){
 					bugresolved: commonLogic.appcommonhandle("已解决",null),
 					bugclosed: commonLogic.appcommonhandle("已关闭",null),
 					bugcnt: commonLogic.appcommonhandle("总计",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			bugresolvedgird_grid: {
+				columns: {
+					resolvedby: commonLogic.appcommonhandle("由谁解决",null),
+					bugid: commonLogic.appcommonhandle("Bug编号",null),
+					bugtitle: commonLogic.appcommonhandle("Bug标题",null),
+					bugpri: commonLogic.appcommonhandle("优先级",null),
+					bugseverity: commonLogic.appcommonhandle("严重程度",null),
+					bugopenedby: commonLogic.appcommonhandle("由谁创建",null),
+					bugopeneddate: commonLogic.appcommonhandle("创建",null),
+					bugresolution: commonLogic.appcommonhandle("解决方案",null),
+					bugresolveddate: commonLogic.appcommonhandle("解决日期",null),
+					bugstatus: commonLogic.appcommonhandle("Bug状态",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

@@ -4495,6 +4495,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugCaseToBugEditView",
             "viewtag": "d5171a52df7b22d69c6a5ca34699233a"
         },
+        "bugstatsbugresolvedbygridviewzuzhi": {
+            "title": "Bug统计表格视图（Bug完成表）",
+            "caption": "Bug完成表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsBugResolvedByGridViewZuZhi",
+            "viewtag": "d5d237bd6a57b89a912bcff2a13f1ff4"
+        },
         "ibzmonthlymyreceivededitview": {
             "title": "月报编辑视图",
             "caption": "月报实体编辑视图",

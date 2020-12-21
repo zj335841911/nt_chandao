@@ -15731,6 +15731,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-mpickup-view2/story-mpickup-view2.vue'),
                 },
                 {
+                    path: 'bugstats/:bugstats?/bugresolvedbygridviewzuzhi/:bugresolvedbygridviewzuzhi?',
+                    meta: {
+                        caption: 'entities.bugstats.views.bugresolvedbygridviewzuzhi.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'bugresolvedbygridviewzuzhi', parameterName: 'bugresolvedbygridviewzuzhi' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-bug-resolved-by-grid-view-zu-zhi/bug-stats-bug-resolved-by-grid-view-zu-zhi.vue'),
+                },
+                {
                     path: 'products/:product?/testmodules/:testmodule?/treeexpview/:treeexpview?',
                     meta: {
                         caption: 'entities.testmodule.views.treeexpview.caption',

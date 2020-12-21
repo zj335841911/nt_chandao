@@ -122,6 +122,13 @@ export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
                 deKeyField:'taskstats'
 			};
         }
+        if (Object.is(expmode, 'BUGRESOLVED')) {
+            return {  
+                viewname: 'bug-stats-bug-resolved-by-grid-view-zu-zhi', 
+                parentdata: {},
+                deKeyField:'bugstats'
+			};
+        }
         if (Object.is(expmode, 'EMPLOYEELOAD')) {
             return {  
                 viewname: 'employeeloadgrid-view', 

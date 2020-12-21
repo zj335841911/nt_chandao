@@ -841,6 +841,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务表格视图（优先级分组）|DEGRIDVIEW|&nbsp;|
 |-|平台管理|DEEDITVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
+|-|Bug统计表格视图（Bug完成表）|DEGRIDVIEW|&nbsp;|
 |-|月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW|&nbsp;|
 |-|细分需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|

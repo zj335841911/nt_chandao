@@ -434,6 +434,7 @@ export const PageComponents = {
         Vue.component('test-suite-main-dashboard-view', () => import('@pages/zentao/test-suite-main-dashboard-view/test-suite-main-dashboard-view.vue'));
         Vue.component('product-main-dashboard-view', () => import('@pages/zentao/product-main-dashboard-view/product-main-dashboard-view.vue'));
         Vue.component('story-mpickup-view2', () => import('@pages/zentao/story-mpickup-view2/story-mpickup-view2.vue'));
+        Vue.component('bug-stats-bug-resolved-by-grid-view-zu-zhi', () => import('@pages/ibiz/bug-stats-bug-resolved-by-grid-view-zu-zhi/bug-stats-bug-resolved-by-grid-view-zu-zhi.vue'));
         Vue.component('test-module-tree-exp-view', () => import('@pages/ibiz/test-module-tree-exp-view/test-module-tree-exp-view.vue'));
         Vue.component('ibz-lib-case-steps-info-grid-view9', () => import('@pages/ibiz/ibz-lib-case-steps-info-grid-view9/ibz-lib-case-steps-info-grid-view9.vue'));
         Vue.component('product-plan-grid-view', () => import('@pages/zentao/product-plan-grid-view/product-plan-grid-view.vue'));

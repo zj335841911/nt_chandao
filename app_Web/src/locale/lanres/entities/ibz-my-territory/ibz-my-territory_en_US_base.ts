@@ -212,6 +212,7 @@ function getLocaleResourceBase(){
 			employeeload_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
+					bugresolved: commonLogic.appcommonhandle("bug解决汇总表",null),
 					employeeload: commonLogic.appcommonhandle("员工负载表",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
 					companydynamicstats: commonLogic.appcommonhandle("公司动态汇总表",null),
