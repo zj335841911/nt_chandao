@@ -24,6 +24,9 @@ function getLocaleResourceBase(){
 			taskcnt: commonLogic.appcommonhandle("总任务数",null),
 			projectconsumed: commonLogic.appcommonhandle("项目总消耗",null),
 			userconsumed: commonLogic.appcommonhandle("用户总消耗",null),
+			dept: commonLogic.appcommonhandle("部门",null),
+			end: commonLogic.appcommonhandle("结束",null),
+			begin: commonLogic.appcommonhandle("属性",null),
 		},
 			views: {
 				userfinishtaskgridview: {

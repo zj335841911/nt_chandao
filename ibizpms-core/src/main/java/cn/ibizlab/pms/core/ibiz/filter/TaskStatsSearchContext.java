@@ -48,6 +48,13 @@ public class TaskStatsSearchContext extends QueryWrapperContext<TaskStats> {
             this.getSearchCond().eq("`finishedby`", n_finishedby_eq);
         }
     }
+	private String n_dept_eq;//[部门]
+	public void setN_dept_eq(String n_dept_eq) {
+        this.n_dept_eq = n_dept_eq;
+        if(!ObjectUtils.isEmpty(this.n_dept_eq)){
+            this.getSearchCond().eq("`dept`", n_dept_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

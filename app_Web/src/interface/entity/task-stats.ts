@@ -173,4 +173,28 @@ export interface TaskStats {
      * @memberof TaskStats
      */
     userconsumed?: any;
+
+    /**
+     * 部门
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    dept?: any;
+
+    /**
+     * 结束
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    end?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    begin?: any;
 }

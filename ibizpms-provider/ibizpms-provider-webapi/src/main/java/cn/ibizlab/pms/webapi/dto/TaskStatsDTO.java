@@ -209,6 +209,33 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("userconsumed")
     private Integer userconsumed;
 
+    /**
+     * 属性 [DEPT]
+     *
+     */
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String dept;
+
+    /**
+     * 属性 [END]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+
+    /**
+     * 属性 [BEGIN]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
+
 
     /**
      * 设置 [NAME]

@@ -30,6 +30,9 @@
 |总任务数|TASKCNT|INT|&nbsp;|
 |项目总消耗|PROJECTCONSUMED|INT|&nbsp;|
 |用户总消耗|USERCONSUMED|INT|&nbsp;|
+|部门|DEPT|SSCODELIST|&nbsp;|
+|结束|END|DATE|&nbsp;|
+|属性|BEGIN|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -55,6 +58,9 @@
 |总任务数|默认规则|默认规则|
 |项目总消耗|默认规则|默认规则|
 |用户总消耗|默认规则|默认规则|
+|部门|默认规则|内容长度必须小于等于[200]|
+|结束|默认规则|默认规则|
+|属性|默认规则|默认规则|
 
 ## 状态控制
 
@@ -100,6 +106,7 @@
 |项目(PROJECT)|EQ|
 |名称(NAME)|LIKE|
 |完成者(FINISHEDBY)|EQ|
+|部门(DEPT)|EQ|
 
 ## 导入模式
 无

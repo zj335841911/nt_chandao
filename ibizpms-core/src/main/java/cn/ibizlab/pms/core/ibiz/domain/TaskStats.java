@@ -195,6 +195,29 @@ public class TaskStats extends EntityMP implements Serializable {
     @JSONField(name = "userconsumed")
     @JsonProperty("userconsumed")
     private Integer userconsumed;
+    /**
+     * 部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    private String dept;
+    /**
+     * 结束
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
 
 
 
