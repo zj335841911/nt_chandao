@@ -111,22 +111,6 @@ export class ProjectQualityGridBase extends GridControlBase {
     public limit: number = 1000;
 
     /**
-     * 表格聚合行为
-     *
-     * @type {string}
-     * @memberof ProjectQualityGridBase
-     */
-    public aggAction:string ='ProjectQualitySum';
-
-    /**
-     * 表格是否显示
-     *
-     * @type {boolean}
-     * @memberof ProjectQualityGridBase
-     */
-    public isDisplay: boolean = false;
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -423,52 +407,48 @@ export class ProjectQualityGridBase extends GridControlBase {
      * @memberof ProjectQualityGridBase
      */
     public getSummaries(param:any){
-        const { columns } = param;
+        const { columns, data } = param;
         const sums:Array<any> = [];
         columns.forEach((column:any, index:number) => {
-        if (index === 0) {
+          if (index === 0) {
             sums[index] = (this.$t('app.gridpage.sum') as string);
             return;
-        }else if(index === (columns.length - 1)){
+          }
+          if(index === (columns.length - 1)){
             sums[index] = '';
             return;
-        }else{
-            sums[index] = 'N/A';
-            if(Object.is(column.property,'storycnt')){
-                const value = Number(this.remoteData.storycnt);
-                if (!isNaN(value)) {
-                    sums[index] =  value;
+          }
+          const values = data.map((item:any) => Number(item[column.property]));
+          if (!values.every((value:any) => isNaN(value))) {
+                if(Object.is(column.property,'storycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
                 }
-            }
-        }
+                if(Object.is(column.property,'completestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+          } else {
+            sums[index] = 'N/A';
+          }
         });
-        return sums; 
+        return sums;
       }
 
-    /**
-     * 远程获取合计行数据
-     *
-     * @memberof ProjectQualityGridBase
-     */
-    public getAggData(){
-        this.service.getAggData(this.aggAction,JSON.parse(JSON.stringify(this.context)),this.showBusyIndicator).then((response:any) =>{
-            if (!response.status || response.status !== 200) {
-                if (response.errorMessage) {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
-                }
-                return;
-            }
-            this.remoteData = response.data;
-            this.isDisplay = true;
-        }).catch((response:any) =>{
-            if (response && response.status === 401) {
-                return;
-            }
-            this.remoteData = {};
-            this.isDisplay = true;
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
-        })
-    }
 
     /**
      * 更新默认值

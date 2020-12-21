@@ -2,22 +2,22 @@ import { Http } from '@/utils';
 import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
-import ProjectQualityModel from './project-quality-grid-model';
+import ProjectStatusDefModel from './project-status-def-searchform-model';
 
 
 /**
- * ProjectQuality 部件服务对象
+ * ProjectStatusDef 部件服务对象
  *
  * @export
- * @class ProjectQualityService
+ * @class ProjectStatusDefService
  */
-export default class ProjectQualityService extends ControlService {
+export default class ProjectStatusDefService extends ControlService {
 
     /**
      * 项目统计服务对象
      *
      * @type {ProjectStatsService}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     public appEntityService: ProjectStatsService = new ProjectStatsService({ $store: this.getStore() });
 
@@ -25,49 +25,40 @@ export default class ProjectQualityService extends ControlService {
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of ProjectQualityService.
+     * Creates an instance of ProjectStatusDefService.
      * 
      * @param {*} [opts={}]
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new ProjectQualityModel();
+        this.model = new ProjectStatusDefModel();
     }
-
-    /**
-     * 备份原生数据
-     *
-     * @type {*}
-     * @memberof ProjectQualityService
-     */
-    private copynativeData:any;
 
     /**
      * 远端数据
      *
      * @type {*}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     private remoteCopyData:any = {};
-
 
     /**
      * 处理数据
      *
-     * @public
+     * @private
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
-    public doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
+    private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
             promise.then((response: any) => {
                 if (response && response.status === 200) {
@@ -94,7 +85,7 @@ export default class ProjectQualityService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  ProjectQualityService
+     * @memberof  ProjectStatusDefService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
@@ -105,6 +96,70 @@ export default class ProjectQualityService extends ControlService {
     }
 
     /**
+     * 启动工作流
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @param {*} [localdata]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatusDefService
+     */
+    @Errorlog
+    public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+        data = this.handleWFData(data);
+        context = this.handleRequestData(action,context,data).context;
+        return new Promise((resolve: any, reject: any) => {
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](context,data, isloading,localdata);
+            } else {
+                result = this.appEntityService.WFStart(context,data, isloading,localdata);
+            }
+            result.then((response) => {
+                this.handleResponse(action, response);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });
+        });
+    }
+
+    /**
+     * 提交工作流
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @param {*} [localdata]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatusDefService
+     */
+    @Errorlog
+    public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
+        data = this.handleWFData(data,true);
+        context = this.handleRequestData(action,context,data,true).context;
+        return new Promise((resolve: any, reject: any) => {
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](context,data, isloading,localdata);
+            } else {
+                result = this.appEntityService.WFSubmit(context,data, isloading,localdata);
+            }
+            result.then((response) => {
+                this.handleResponse(action, response);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });
+        });
+    }
+
+    /**
      * 添加数据
      *
      * @param {string} action
@@ -112,25 +167,25 @@ export default class ProjectQualityService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         return new Promise((resolve: any, reject: any) => {
-            const _appEntityService: any = this.appEntityService;
             let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            }else{
-                result =_appEntityService.Create(Context,Data, isloading);
+            } else {
+                result = this.appEntityService.Create(Context,Data, isloading);
             }
             result.then((response) => {
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });      
+            });
         });
     }
 
@@ -142,24 +197,24 @@ export default class ProjectQualityService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         return new Promise((resolve: any, reject: any) => {
-            const _appEntityService: any = this.appEntityService;
             let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            }else{
-                result =_appEntityService.Remove(Context,Data, isloading);
+            } else {
+                result = this.appEntityService.Remove(Context,Data, isloading);
             }
             result.then((response) => {
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });      
+            });
         });
     }
 
@@ -171,54 +226,21 @@ export default class ProjectQualityService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
-        return new Promise((resolve: any, reject: any) => {
-            const _appEntityService: any = this.appEntityService;
-            let result: Promise<any>;
-            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](Context,Data,isloading);
-            }else{
-                result =_appEntityService.Update(Context,Data,isloading);
-            }
-            result.then((response) => {
-                this.handleResponse(action, response);
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });      
-        });
-    }
-
-    /**
-     * 获取数据
-     *
-     * @param {string} action
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectQualityService
-     */
-    @Errorlog
-    public get(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
             } else {
-                result = this.appEntityService.Get(Context,Data, isloading);
+                result = this.appEntityService.Update(Context,Data, isloading);
             }
             result.then((response) => {
-                //处理返回数据，补充判断标识
-                if(response.data){
-                    Object.assign(response.data,{srfuf:0});
-                }
+                this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
@@ -234,29 +256,28 @@ export default class ProjectQualityService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     @Errorlog
-    public search(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+    public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         return new Promise((resolve: any, reject: any) => {
-            const _appEntityService: any = this.appEntityService;
             let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
             if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
                 result = _appEntityService[action](Context,Data, isloading);
-            }else{
-                result =_appEntityService.FetchDefault(Context,Data, isloading);
+            } else {
+                result = this.appEntityService.Get(Context,Data, isloading);
             }
             result.then((response) => {
-                this.setCopynativeData(response.data);
+                this.setRemoteCopyData(response);
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
-            });      
+            });
         });
     }
-
 
     /**
      * 加载草稿
@@ -266,48 +287,28 @@ export default class ProjectQualityService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     @Errorlog
-    public loadDraft(action: string, context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+    public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.appEntityService;
-            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.GetDraft(Context,Data, isloading);
-            }
-            result.then((response) => {
-                //处理返回数据，补充判断标识
-                if(response.data){
-                    Object.assign(response.data,{srfuf:'0'});
-                    //仿真主键数据
-                    response.data.id = Util.createUUID();
-                }
-                this.setRemoteCopyData(response);
-                this.handleResponse(action, response, true);
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
+            resolve({ status: 200, data: {} });
         });
     }
 
-
-    /**
+     /**
      * 前台逻辑
      * @param {string} action
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     @Errorlog
-    public frontLogic(action:string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+    public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         return new Promise((resolve: any, reject: any)=>{
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -317,7 +318,7 @@ export default class ProjectQualityService extends ControlService {
                 return Promise.reject({ status: 500, data: { title: '失败', message: '系统异常' } });
             }
             result.then((response) => {
-                this.handleResponse(action, response);
+                this.handleResponse(action, response,true);
                 resolve(response);
             }).catch(response => {
                 reject(response);
@@ -326,29 +327,29 @@ export default class ProjectQualityService extends ControlService {
     }
 
     /**
-     * 处理请求数据(修改或增加数据)
+     * 处理请求数据
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
-    public handleRequestDataWithUpdate(action: string,context:any ={},data: any = {},isMerge:boolean = false){
-        let model: any = this.getMode();
-        if (!model && model.getDataItems instanceof Function) {
+    public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
+        let mode: any = this.getMode();
+        if (!mode && mode.getDataItems instanceof Function) {
             return data;
         }
-        let dataItems: any[] = model.getDataItems();
+        let formItemItems: any[] = mode.getDataItems();
         let requestData:any = {};
         if(isMerge && (data && data.viewparams)){
             Object.assign(requestData,data.viewparams);
         }
-        dataItems.forEach((item:any) =>{
+        formItemItems.forEach((item:any) =>{
             if(item && item.dataType && Object.is(item.dataType,'FONTKEY')){
-                if(item && item.prop && item.name ){
+                if(item && item.prop){
                     requestData[item.prop] = context[item.name];
                 }
             }else{
-                if(item && item.isEditable && item.prop && item.name && data.hasOwnProperty(item.name)){
+                if(item && item.prop){
                     requestData[item.prop] = data[item.name];
                 }
             }
@@ -360,11 +361,33 @@ export default class ProjectQualityService extends ControlService {
         }
         return {context:tempContext,data:requestData};
     }
+
+    /**
+     * 通过属性名称获取表单项名称
+     * 
+     * @param name 实体属性名称 
+     * @memberof ProjectStatusDefService
+     */
+    public getItemNameByDeName(name:string) :string{
+        let itemName = name;
+        let mode: any = this.getMode();
+        if (!mode && mode.getDataItems instanceof Function) {
+            return name;
+        }
+        let formItemItems: any[] = mode.getDataItems();
+        formItemItems.forEach((item:any)=>{
+            if(item.prop === name){
+                itemName = item.name;
+            }
+        });
+        return itemName.trim();
+    }
+
     /**
      * 设置远端数据
      * 
      * @param result 远端请求结果 
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     public setRemoteCopyData(result:any){
         if (result && result.status === 200) {
@@ -375,28 +398,10 @@ export default class ProjectQualityService extends ControlService {
     /**
      * 获取远端数据
      * 
-     * @memberof ProjectQualityService
+     * @memberof ProjectStatusDefService
      */
     public getRemoteCopyData(){
         return this.remoteCopyData;
     }
 
-    /**
-     * 设置备份原生数据
-     * 
-     * @param data 远端请求结果 
-     * @memberof ProjectQualityService
-     */
-    public setCopynativeData(data:any){
-        this.copynativeData = Util.deepCopy(data);
-    }
-
-    /**
-     * 获取备份原生数据
-     * 
-     * @memberof ProjectQualityService
-     */
-    public getCopynativeData(){
-        return this.copynativeData;
-    }    
 }

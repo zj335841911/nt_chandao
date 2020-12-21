@@ -107,8 +107,8 @@
 |名称(NAME)|LIKE|
 |完成者(FINISHEDBY)|EQ|
 |部门(DEPT)|EQ|
-|结束(END)|GTANDEQ|
-|属性(BEGIN)|LTANDEQ|
+|结束(END)|LTANDEQ|
+|属性(BEGIN)|GTANDEQ|
 
 ## 导入模式
 无

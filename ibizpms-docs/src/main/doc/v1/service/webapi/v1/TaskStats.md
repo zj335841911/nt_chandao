@@ -330,8 +330,8 @@ POST
 | 2 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
 | 3 | n_finishedby_eq | String | 允许 | 条件字段：finishedby<br>条件组合方式：`=` |
 | 4 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
-| 5 | n_end_gtandeq | Timestamp | 允许 | 条件字段：end<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
-| 6 | n_begin_ltandeq | Timestamp | 允许 | 条件字段：begin<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 5 | n_end_ltandeq | Timestamp | 允许 | 条件字段：end<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 6 | n_begin_gtandeq | Timestamp | 允许 | 条件字段：begin<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
 | 7 | customcond | String | 允许 | 自定义查询条件 |
 | 8 | customparams | String | 允许 | 自定义查询参数 |
 | 9 | query | String | 允许 | 快速搜索 |

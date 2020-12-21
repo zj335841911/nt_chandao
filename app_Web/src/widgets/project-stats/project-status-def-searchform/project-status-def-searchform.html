@@ -8,39 +8,39 @@
                   
           <i-col
               class="form-layout-container"
-              v-show="detailsModel.n_dept_eq.visible"
+              v-show="detailsModel.n_status_eq.visible"
               :style="{}"
               
               
-              :lg="{ span: 3, offset: 0 }"
-              :xl="{ span: 3, offset: 0 }"
+              :lg="{ span: 10, offset: 0 }"
+              :xl="{ span: 10, offset: 0 }"
           >
               <app-form-item
-              name="n_dept_eq"
-              :itemRules="this.rules.n_dept_eq"
+              name="n_status_eq"
+              :itemRules="this.rules.n_status_eq"
               class=""
               
-              :caption="$t('entities.taskstats.taskfinshsearchgird_searchform.details.n_dept_eq')"
-              uiStyle="DEFAULT" :labelWidth="45" :isShowCaption="true"
-              :error="detailsModel.n_dept_eq.error"
+              :caption="$t('entities.projectstats.projectstatusdef_searchform.details.n_status_eq')"
+              uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true"
+              :error="detailsModel.n_status_eq.error"
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
               
           <dropdown-list 
-              v-model="data.n_dept_eq"
+              v-model="data.n_status_eq"
               :data="data"
               :context="context"
               :formState="formState"
               :viewparams="viewparams"
-              :localContext='{ N_ORGID_EQ:"%srforgid%" }' 
-              :localParam='{ n_orgid_eq:"%srforgid%" }' 
-              :disabled="detailsModel.n_dept_eq.disabled"
+              :localContext='{ }' 
+              :localParam='{ }' 
+              :disabled="detailsModel.n_status_eq.disabled"
               valueType="string"
-              tag="RealDept"
-              codelistType="DYNAMIC"
+              tag="Project__status"
+              codelistType="STATIC"
               placeholder="请选择..."
-              style="width:100px;"
+          
           ></dropdown-list>
           </app-form-item>
           

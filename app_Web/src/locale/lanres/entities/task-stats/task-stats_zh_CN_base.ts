@@ -76,8 +76,6 @@ function getLocaleResourceBase(){
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
 					n_dept_eq: commonLogic.appcommonhandle("部门",null), 
-					begin: commonLogic.appcommonhandle("任务完成时间",null), 
-					end: commonLogic.appcommonhandle("至",null), 
 				},
 				uiactions: {
 				},

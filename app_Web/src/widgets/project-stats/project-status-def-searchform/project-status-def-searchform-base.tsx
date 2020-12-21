@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
-import TaskStatsService from '@/service/task-stats/task-stats-service';
-import TaskFinshSearchGirdService from './task-finsh-search-gird-searchform-service';
-import TaskStatsUIService from '@/uiservice/task-stats/task-stats-ui-service';
+import ProjectStatsService from '@/service/project-stats/project-stats-service';
+import ProjectStatusDefService from './project-status-def-searchform-service';
+import ProjectStatsUIService from '@/uiservice/project-stats/project-stats-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -13,87 +13,87 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  *
  * @export
  * @class SearchFormControlBase
- * @extends {TaskFinshSearchGirdSearchFormBase}
+ * @extends {ProjectStatusDefSearchFormBase}
  */
-export class TaskFinshSearchGirdSearchFormBase extends SearchFormControlBase {
+export class ProjectStatusDefSearchFormBase extends SearchFormControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof TaskFinshSearchGirdSearchFormBase
+     * @memberof ProjectStatusDefSearchFormBase
      */
     protected controlType: string = 'SEARCHFORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {TaskFinshSearchGirdService}
-     * @memberof TaskFinshSearchGirdSearchFormBase
+     * @type {ProjectStatusDefService}
+     * @memberof ProjectStatusDefSearchFormBase
      */
-    public service: TaskFinshSearchGirdService = new TaskFinshSearchGirdService({ $store: this.$store });
+    public service: ProjectStatusDefService = new ProjectStatusDefService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {TaskStatsService}
-     * @memberof TaskFinshSearchGirdSearchFormBase
+     * @type {ProjectStatsService}
+     * @memberof ProjectStatusDefSearchFormBase
      */
-    public appEntityService: TaskStatsService = new TaskStatsService({ $store: this.$store });
+    public appEntityService: ProjectStatsService = new ProjectStatsService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof TaskFinshSearchGirdSearchFormBase
+     * @memberof ProjectStatusDefSearchFormBase
      */
-    protected appDeName: string = 'taskstats';
+    protected appDeName: string = 'projectstats';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof TaskFinshSearchGirdSearchFormBase
+     * @memberof ProjectStatusDefSearchFormBase
      */
-    protected appDeLogicName: string = '任务统计';
+    protected appDeLogicName: string = '项目统计';
 
     /**
      * 界面UI服务对象
      *
-     * @type {TaskStatsUIService}
-     * @memberof TaskFinshSearchGirdBase
+     * @type {ProjectStatsUIService}
+     * @memberof ProjectStatusDefBase
      */  
-    public appUIService: TaskStatsUIService = new TaskStatsUIService(this.$store);
+    public appUIService: ProjectStatsUIService = new ProjectStatsUIService(this.$store);
 
 
     /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof TaskFinshSearchGirdSearchFormBase
+     * @memberof ProjectStatusDefSearchFormBase
      */
     public data: any = {
-        n_dept_eq: null,
+        n_status_eq: null,
     };
 
     /**
      * 详情模型集合
      *
      * @type {*}
-     * @memberof TaskFinshSearchGirdSearchFormBase
+     * @memberof ProjectStatusDefSearchFormBase
      */
     public detailsModel: any = {
         formpage1: new FormPageModel({ caption: '表单分页', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_dept_eq: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'n_dept_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_status_eq: new FormItemModel({ caption: '项目状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
     /**
      * 新建默认值
-     * @memberof TaskFinshSearchGirdBase
+     * @memberof ProjectStatusDefBase
      */
     public createDefault(){                    
     }

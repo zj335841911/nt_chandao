@@ -355,7 +355,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			projectstatus_searchform: {
+			projectstatusdef_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
 					n_status_eq: commonLogic.appcommonhandle("项目状态",null), 

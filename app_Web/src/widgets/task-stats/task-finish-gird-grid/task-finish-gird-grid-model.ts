@@ -126,16 +126,6 @@ export default class TaskFinishGirdModel {
         prop: 'n_dept_eq',
         dataType: 'SSCODELIST',
       },
-      {
-        name: 'begin',
-        prop: 'begin',
-        dataType: 'DATE',
-      },
-      {
-        name: 'end',
-        prop: 'end',
-        dataType: 'DATE',
-      },
 
         {
           name:'size',

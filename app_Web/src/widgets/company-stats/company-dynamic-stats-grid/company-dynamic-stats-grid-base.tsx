@@ -410,6 +410,105 @@ export class CompanyDynamicStatsGridBase extends GridControlBase {
           }
           const values = data.map((item:any) => Number(item[column.property]));
           if (!values.every((value:any) => isNaN(value))) {
+                if(Object.is(column.property,'logincnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'loghours')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'openedstorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'closedstorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'openedtaskcnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'finishedtaskcnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'openedbugcnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'resolvedbugcnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'dynamiccnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
           } else {
             sums[index] = 'N/A';
           }

@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectStatsProjectProgressUsr2GridViewBase } from './project-stats-project-progress-usr2-grid-view-base';
 import view_grid from '@widgets/project-stats/project-progress-grid/project-progress-grid.vue';
-import view_searchform from '@widgets/project-stats/project-status-searchform/project-status-searchform.vue';
+import view_searchform from '@widgets/project-stats/project-status-def-searchform/project-status-def-searchform.vue';
 
 /**
  * 项目进度表格视图视图
