@@ -1163,6 +1163,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      */
     public onSearch(query: string){
         const node = this.currentNode;
+        this.curPage = 1;
         this.load(node);
     }
 
