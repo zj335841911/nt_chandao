@@ -678,14 +678,13 @@ export default class TodoMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const view: any = { 
-            viewname: 'todo-new-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '快速新建', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.globaluiservice.openService.openModal(view, _context, _params);
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;
