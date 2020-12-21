@@ -4396,4 +4396,17 @@ DEFAULT
 - 行为持有者
 后台及前台
 
+| 序号 | 导出标题 | 属性 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| 1 | 项目名称 | [项目名称（NAME）](#属性-项目名称（NAME）) |  |
+| 2 | 设计 | [设计类型任务（DESIGNTASKCNT）](#属性-设计类型任务（DESIGNTASKCNT）) |  |
+| 3 | 开发 | [开发类型任务（DEVELTASKCNT）](#属性-开发类型任务（DEVELTASKCNT）) |  |
+| 4 | 测试 | [测试类型任务（TESTTASKCNT）](#属性-测试类型任务（TESTTASKCNT）) |  |
+| 5 | 研究 | [研究类型任务（STUDYTASKCNT）](#属性-研究类型任务（STUDYTASKCNT）) |  |
+| 6 | 讨论 | [讨论类型任务（DISCUSSTASKCNT）](#属性-讨论类型任务（DISCUSSTASKCNT）) |  |
+| 7 | 界面 | [界面类型任务（UITASKCNT）](#属性-界面类型任务（UITASKCNT）) |  |
+| 8 | 事务 | [事务类型任务（AFFAIRTASKCNT）](#属性-事务类型任务（AFFAIRTASKCNT）) |  |
+| 9 | 服务 | [服务类型任务（SERVETASKCNT）](#属性-服务类型任务（SERVETASKCNT）) |  |
+| 10 | 其他 | [其他类型任务（MISCTASKCNT）](#属性-其他类型任务（MISCTASKCNT）) |  |
+| 11 | 总计 | [任务总数（TASKCNT）](#属性-任务总数（TASKCNT）) |  |
 

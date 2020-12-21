@@ -365,6 +365,16 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projecttasktypecount_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					n_dept_eq: commonLogic.appcommonhandle("部门",null), 
+					n_begin_gtandeq: commonLogic.appcommonhandle("项目起始时间",null), 
+					n_end_ltandeq: commonLogic.appcommonhandle("项目结束时间",null), 
+				},
+				uiactions: {
+				},
+			},
 			projectstatusdef_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
@@ -421,6 +431,12 @@ function getLocaleResourceBase(){
 			},
 			projectstorystagestatusgridviewtoolbar_toolbar: {
 				deuiaction7: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+			},
+			usr2gridviewtasktypecounttoolbar_toolbar: {
+				deuiaction1: {
 					caption: commonLogic.appcommonhandle("导出",null),
 					tip: commonLogic.appcommonhandle("导出",null),
 				},

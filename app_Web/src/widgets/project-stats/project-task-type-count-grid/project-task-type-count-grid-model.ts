@@ -101,6 +101,21 @@ export default class ProjectTaskTypeCountModel {
           name: 'projectstats',
           prop: 'id',
         },
+      {
+        name: 'n_dept_eq',
+        prop: 'n_dept_eq',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'n_begin_gtandeq',
+        prop: 'n_begin_gtandeq',
+        dataType: 'DATE',
+      },
+      {
+        name: 'n_end_ltandeq',
+        prop: 'n_end_ltandeq',
+        dataType: 'DATE',
+      },
 
         {
           name:'size',
