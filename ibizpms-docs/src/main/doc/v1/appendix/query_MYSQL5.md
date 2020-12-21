@@ -4825,7 +4825,7 @@ from
 (select 
 0 as Module,
 '/' as ModuleName, 
-t1.id as Proudct, 
+t1.id as Product, 
 count(distinct t2.id) as TotalCase, 
 sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
 sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
