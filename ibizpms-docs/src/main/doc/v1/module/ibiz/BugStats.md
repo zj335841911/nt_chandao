@@ -1876,8 +1876,8 @@ SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as b
 
 from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') 
 and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null )
-and (t1.resolvedDate >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
-and (t1.resolvedDate <= #{srf.datacontext.end} or #{srf.datacontext.end} is null)
+and (DATE_FORMAT(t1.resolvedDate,'%Y-%m-%d') >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
+and (DATE_FORMAT(t1.resolvedDate,'%Y-%m-%d') <= #{srf.datacontext.end} or #{srf.datacontext.end} is null)
 
 ORDER BY t1.resolvedBy
 ```
