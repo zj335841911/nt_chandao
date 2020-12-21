@@ -672,15 +672,6 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("begin")
     private Timestamp begin;
 
-    /**
-     * 属性 [DEPT]
-     *
-     */
-    @JSONField(name = "dept")
-    @JsonProperty("dept")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String dept;
-
 
     /**
      * 设置 [NAME]
