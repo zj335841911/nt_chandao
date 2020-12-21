@@ -8,7 +8,7 @@
                   
           <i-col
               class="form-layout-container"
-              v-show="detailsModel.status.visible"
+              v-show="detailsModel.n_status_eq.visible"
               :style="{}"
               
               
@@ -16,26 +16,26 @@
               :xl="{ span: 10, offset: 0 }"
           >
               <app-form-item
-              name="status"
-              :itemRules="this.rules.status"
+              name="n_status_eq"
+              :itemRules="this.rules.n_status_eq"
               class=""
               
-              :caption="$t('entities.projectstats.projectstatus_searchform.details.status')"
+              :caption="$t('entities.projectstats.projectstatus_searchform.details.n_status_eq')"
               uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true"
-              :error="detailsModel.status.error"
+              :error="detailsModel.n_status_eq.error"
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
               
           <dropdown-list 
-              v-model="data.status"
+              v-model="data.n_status_eq"
               :data="data"
               :context="context"
               :formState="formState"
               :viewparams="viewparams"
               :localContext='{ }' 
               :localParam='{ }' 
-              :disabled="detailsModel.status.disabled"
+              :disabled="detailsModel.n_status_eq.disabled"
               valueType="string"
               tag="Project__status"
               codelistType="STATIC"

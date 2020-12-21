@@ -75,7 +75,7 @@ export class ProjectStatusSearchFormBase extends SearchFormControlBase {
      * @memberof ProjectStatusSearchFormBase
      */
     public data: any = {
-        status: null,
+        n_status_eq: null,
     };
 
     /**
@@ -87,7 +87,7 @@ export class ProjectStatusSearchFormBase extends SearchFormControlBase {
     public detailsModel: any = {
         formpage1: new FormPageModel({ caption: '表单分页', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        status: new FormItemModel({ caption: '项目状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_status_eq: new FormItemModel({ caption: '项目状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

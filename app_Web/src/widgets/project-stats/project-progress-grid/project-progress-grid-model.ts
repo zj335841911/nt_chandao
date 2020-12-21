@@ -97,8 +97,8 @@ export default class ProjectProgressModel {
           prop: 'id',
         },
       {
-        name: 'status',
-        prop: 'status',
+        name: 'n_status_eq',
+        prop: 'n_status_eq',
         dataType: 'TEXT',
       },
 

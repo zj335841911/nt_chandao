@@ -26,7 +26,7 @@ export default class ProjectStatusModel {
         dataType: 'TEXT',
       },
       {
-        name: 'status',
+        name: 'n_status_eq',
         prop: 'status',
         dataType: 'TEXT',
       },
