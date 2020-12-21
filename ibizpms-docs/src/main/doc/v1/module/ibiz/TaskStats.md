@@ -903,7 +903,9 @@ yyyy-MM-dd
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `>=` |
 
 #### 关系属性
 无
@@ -940,7 +942,9 @@ yyyy-MM-dd
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `<=` |
 
 #### 关系属性
 无
@@ -1061,6 +1065,8 @@ Save
 | 2 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
 | 3 | [完成者（FINISHEDBY）](#属性-完成者（FINISHEDBY）) | `=` |
 | 4 | [部门（DEPT）](#属性-部门（DEPT）) | `=` |
+| 5 | [结束（END）](#属性-结束（END）) | `>=` |
+| 6 | [属性（BEGIN）](#属性-属性（BEGIN）) | `<=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -1307,4 +1313,21 @@ FROM `zt_task` t1
 - 行为持有者
 后台及前台
 
+| 序号 | 导出标题 | 属性 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| 1 | 完成者 | [完成者（FINISHEDBY）](#属性-完成者（FINISHEDBY）) |  |
+| 2 | 所属项目 | [项目名称（PROJECTNAME）](#属性-项目名称（PROJECTNAME）) |  |
+| 3 | 编号 | [任务编号（TASKID）](#属性-任务编号（TASKID）) |  |
+| 4 | 任务名称 | [任务名称（TASKNAME）](#属性-任务名称（TASKNAME）) |  |
+| 5 | 优先级 | [任务优先级（TASKPRI）](#属性-任务优先级（TASKPRI）) |  |
+| 6 | 预计开始 | [任务预计开始日期（TASKESTSTARTED）](#属性-任务预计开始日期（TASKESTSTARTED）) |  |
+| 7 | 实际开始 | [任务实际开始时间（TASKREALSTART）](#属性-任务实际开始时间（TASKREALSTART）) |  |
+| 8 | 截至日期 | [任务截至日期（TASKDEADLINE）](#属性-任务截至日期（TASKDEADLINE）) |  |
+| 9 | 实际完成 | [任务实际完成日期（TASKFINISHEDDATE）](#属性-任务实际完成日期（TASKFINISHEDDATE）) |  |
+| 10 | 延期 | [任务延期（TASKDELAY）](#属性-任务延期（TASKDELAY）) |  |
+| 11 | 最初预计 | [任务预计消耗（TASKESTIMATE）](#属性-任务预计消耗（TASKESTIMATE）) |  |
+| 12 | 任务总消耗 | [消耗总工时（TOTALCONSUMED）](#属性-消耗总工时（TOTALCONSUMED）) |  |
+| 13 | 总任务数 | [总任务数（TASKCNT）](#属性-总任务数（TASKCNT）) |  |
+| 14 | 项目总消耗 | [项目总消耗（PROJECTCONSUMED）](#属性-项目总消耗（PROJECTCONSUMED）) |  |
+| 15 | 用户总消耗 | [用户总消耗（USERCONSUMED）](#属性-用户总消耗（USERCONSUMED）) |  |
 
