@@ -19,6 +19,17 @@
 |完成者|FINISHEDBY|TEXT|&nbsp;|
 |效率|TASKEFFICIENT|TEXT|&nbsp;|
 |任务编号|TASKID|INT|&nbsp;|
+|任务名称|TASKNAME|TEXT|&nbsp;|
+|任务优先级|TASKPRI|INT|&nbsp;|
+|任务总消耗|TASKESTIMATE|INT|&nbsp;|
+|任务实际开始时间|TASKREALSTART|DATE|&nbsp;|
+|任务截至日期|TASKDEADLINE|DATE|&nbsp;|
+|任务实际完成日期|TASKFINISHEDDATE|DATE|&nbsp;|
+|任务延期|TASKDELAY|TEXT|&nbsp;|
+|任务预计开始日期|TASKESTSTARTED|DATE|&nbsp;|
+|总任务数|TASKCNT|INT|&nbsp;|
+|项目总消耗|PROJECTCONSUMED|INT|&nbsp;|
+|用户总消耗|USERCONSUMED|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -33,6 +44,17 @@
 |完成者|默认规则|内容长度必须小于等于[100]|
 |效率|默认规则|内容长度必须小于等于[200]|
 |任务编号|默认规则|默认规则|
+|任务名称|默认规则|内容长度必须小于等于[100]|
+|任务优先级|默认规则|默认规则|
+|任务总消耗|默认规则|默认规则|
+|任务实际开始时间|默认规则|默认规则|
+|任务截至日期|默认规则|默认规则|
+|任务实际完成日期|默认规则|默认规则|
+|任务延期|默认规则|内容长度必须小于等于[100]|
+|任务预计开始日期|默认规则|默认规则|
+|总任务数|默认规则|默认规则|
+|项目总消耗|默认规则|默认规则|
+|用户总消耗|默认规则|默认规则|
 
 ## 状态控制
 

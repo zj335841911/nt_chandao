@@ -64,6 +64,8 @@ function getLocaleResourceBase(){
 			projecttotalconsumed: commonLogic.appcommonhandle("项目消耗总工时",null),
 			timescale: commonLogic.appcommonhandle("工期",null),
 			leftstorycnt: commonLogic.appcommonhandle("剩余需求数",null),
+			emptystory: commonLogic.appcommonhandle("空需求",null),
+			draftstory: commonLogic.appcommonhandle("草稿需求",null),
 		},
 			views: {
 				allgridview: {
@@ -93,6 +95,10 @@ function getLocaleResourceBase(){
 				projectqualityusr2gridview: {
 					caption: commonLogic.appcommonhandle("项目质量表",null),
 					title: commonLogic.appcommonhandle("项目质量表",null),
+				},
+				projectprogressusr2gridview: {
+					caption: commonLogic.appcommonhandle("项目统计",null),
+					title: commonLogic.appcommonhandle("项目进度表格视图",null),
 				},
 				editview9: {
 					caption: commonLogic.appcommonhandle("项目统计",null),
@@ -257,6 +263,20 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projectprogress_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					storycnt: commonLogic.appcommonhandle("需求数",null),
+					leftstorycnt: commonLogic.appcommonhandle("剩余需求数",null),
+					taskcnt: commonLogic.appcommonhandle("任务数",null),
+					undonetaskcnt: commonLogic.appcommonhandle("剩余任务数",null),
+					totalleft: commonLogic.appcommonhandle("剩余工时",null),
+					totalconsumed: commonLogic.appcommonhandle("已消耗工时",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			projectinputstats_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("项目名称",null),
@@ -314,6 +334,8 @@ function getLocaleResourceBase(){
 				},
 			},
 			projectbugtypesumusr2gridviewtoolbar_toolbar: {
+			},
+			projectprogressusr2gridviewtoolbar_toolbar: {
 			},
 		};
 		return data;

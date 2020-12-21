@@ -70,6 +70,8 @@
 |项目消耗总工时|PROJECTTOTALCONSUMED|FLOAT|&nbsp;|
 |工期|TIMESCALE|TEXT|&nbsp;|
 |剩余需求数|LEFTSTORYCNT|INT|&nbsp;|
+|空需求|EMPTYSTORY|INT|&nbsp;|
+|草稿需求|DRAFTSTORY|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -135,6 +137,8 @@
 |项目消耗总工时|默认规则|默认规则|
 |工期|默认规则|内容长度必须小于等于[100]|
 |剩余需求数|默认规则|默认规则|
+|空需求|默认规则|默认规则|
+|草稿需求|默认规则|默认规则|
 
 ## 状态控制
 

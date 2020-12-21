@@ -14,6 +14,16 @@ function getLocaleResourceBase(){
 			taskefficient: commonLogic.appcommonhandle("效率",null),
 			taskid: commonLogic.appcommonhandle("任务编号",null),
 			taskname: commonLogic.appcommonhandle("任务名称",null),
+			taskpri: commonLogic.appcommonhandle("任务优先级",null),
+			taskestimate: commonLogic.appcommonhandle("任务总消耗",null),
+			taskrealstart: commonLogic.appcommonhandle("任务实际开始时间",null),
+			taskdeadline: commonLogic.appcommonhandle("任务截至日期",null),
+			taskfinisheddate: commonLogic.appcommonhandle("任务实际完成日期",null),
+			taskdelay: commonLogic.appcommonhandle("任务延期",null),
+			taskeststarted: commonLogic.appcommonhandle("任务预计开始日期",null),
+			taskcnt: commonLogic.appcommonhandle("总任务数",null),
+			projectconsumed: commonLogic.appcommonhandle("项目总消耗",null),
+			userconsumed: commonLogic.appcommonhandle("用户总消耗",null),
 		},
 			views: {
 				userfinishtasksumgridview: {

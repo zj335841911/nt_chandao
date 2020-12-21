@@ -493,4 +493,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     leftstorycnt?: any;
+
+    /**
+     * 空需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    emptystory?: any;
+
+    /**
+     * 草稿需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    draftstory?: any;
 }

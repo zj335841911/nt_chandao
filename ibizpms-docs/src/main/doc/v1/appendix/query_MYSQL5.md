@@ -14077,10 +14077,10 @@ select
 t1.id, 
 t1.`name`, 
 CONCAT(t1.`begin`, ' ~ ', t1.`end`) as `timescale`, 
-(select count(1) from zt_task t2 where t1.id = t2.project) as `taskcnt`,
-(select count(1) from zt_projectstory t2 where t1.id = t2.project) as `storycnt`,
+(select count(1) from zt_task t2 where t1.id = t2.project and t2.deleted = '0') as `taskcnt`,
+(select count(1) from zt_projectstory t2 where t1.id = t2.project and exists(select 1 from zt_story t3 where t2.story = t3.id and t3.deleted = '0')) as `storycnt`,
 (select count(1) from zt_team t2 where t2.type = 'project' and t1.id = t2.root) as `membercnt`, 
-IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where t2.task in (select t3.id from zt_task t3 where t3.project = t1.id)), 0) as `projecttotalconsumed`
+IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where exists(select 1 from zt_task t3 where t3.project = t1.id and t3.id = t2.task and t3.deleted = '0')), 0) as `projecttotalconsumed` 
 from zt_project t1
 WHERE t1.deleted = '0' 
 
@@ -14240,6 +14240,8 @@ SELECT
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
+0 AS `DRAFTSTORY`,
+0 AS `EMPTYSTORY`,
 t1.`END`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0') AS `FINISHBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` IN ('done','cancel','closed') AND DELETED = '0') AS `FINISHTASKCNT`,

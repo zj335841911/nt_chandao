@@ -93,4 +93,84 @@ export interface TaskStats {
      * @memberof TaskStats
      */
     taskname?: any;
+
+    /**
+     * 任务优先级
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskpri?: any;
+
+    /**
+     * 任务总消耗
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskestimate?: any;
+
+    /**
+     * 任务实际开始时间
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskrealstart?: any;
+
+    /**
+     * 任务截至日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskdeadline?: any;
+
+    /**
+     * 任务实际完成日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskfinisheddate?: any;
+
+    /**
+     * 任务延期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskdelay?: any;
+
+    /**
+     * 任务预计开始日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskeststarted?: any;
+
+    /**
+     * 总任务数
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskcnt?: any;
+
+    /**
+     * 项目总消耗
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    projectconsumed?: any;
+
+    /**
+     * 用户总消耗
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    userconsumed?: any;
 }

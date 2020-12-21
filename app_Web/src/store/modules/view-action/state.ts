@@ -5084,6 +5084,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'dabb076d51462709eafcea3fed743469',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsProjectProgressUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: 'db750bbb894c25f38ca2741f234df3c6',
             viewmodule: 'ibiz',
             viewname: 'UserYearWorkStatsEditView',
@@ -5443,6 +5453,7 @@ export const viewstate: any = {
                 'a638e2a7d3b05b2f279ad28d14f5a85f',
                 '09ec3280dedaeac7260c00f3f923d20e',
                 '24148503ec2063b36eab0deebf4bcfd1',
+                'dabb076d51462709eafcea3fed743469',
                 'abaea74da4d7efea713dabf193a4bdaf',
                 '8e4b19edd3239846958a86bd33eef611',
             ],

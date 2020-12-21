@@ -5699,6 +5699,16 @@
         "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2",
         "memo": ""
     },
+    "projectstatsprojectprogressusr2gridview": {
+        "title": "项目进度表格视图",
+        "caption": "项目统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectProgressUsr2GridView",
+        "viewfilename": "project-stats-project-progress-usr2-grid-view",
+        "viewtag": "dabb076d51462709eafcea3fed743469",
+        "memo": ""
+    },
     "bugtotalopenedchartview": {
         "title": "Bug图表视图（累计创建Bug）",
         "caption": "累计创建Bug",

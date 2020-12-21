@@ -850,6 +850,7 @@ SRFNAVPARAM.project=%project%|
 |-|首页|DEPORTALVIEW|&nbsp;|
 |-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug实体表格视图(项目遗留得Bug)|DEGRIDVIEW|&nbsp;|
+|-|项目进度表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug图表视图（累计创建Bug）|DECHARTVIEW|&nbsp;|
 |-|用户年度工作内容统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug表格视图(遗留的bug)|DEGRIDVIEW|&nbsp;|

@@ -123085,6 +123085,7 @@ CREATE TABLE `zt_module`(
 | --------   |------------| :-----:   | :----: | :--------- | 
 | TOTALESTIMATE        | 任务最初预计总工时  | DOUBLE      |   -1   | &nbsp; |
 | ID        | 项目编号  |       |   8   | 主键&nbsp; |
+| DRAFTSTORY        | 草稿需求  | INTEGER      |   -1   | &nbsp; |
 | FINISHTASKCNT        | 已结束任务总数  | INTEGER      |   -1   | &nbsp; |
 | TASKCNT        | 任务总数  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORYCNT        | 关闭需求总数  | INTEGER      |   -1   | &nbsp; |
@@ -123110,6 +123111,7 @@ CREATE TABLE `zt_module`(
 | TOTALLEFT        | 任务预计剩余总工时  | DOUBLE      |   -1   | &nbsp; |
 | PROJECTTOTALCONSUMED        | 项目消耗总工时  | DOUBLE      |   -1   | &nbsp; |
 | TOTALCONSUMED        | 任务消耗总工时  | DOUBLE      |   -1   | &nbsp; |
+| EMPTYSTORY        | 空需求  | INTEGER      |   -1   | &nbsp; |
 
 
 

@@ -271,7 +271,18 @@ POST
 | 8 | finishedby | String | 允许 | 完成者 |
 | 9 | taskefficient | String | 允许 | 效率 |
 | 10 | taskid | Integer | 允许 | 任务编号 |
-| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 11 | taskname | String | 允许 | 任务名称 |
+| 12 | taskpri | Integer | 允许 | 任务优先级 |
+| 13 | taskestimate | Integer | 允许 | 任务总消耗 |
+| 14 | taskrealstart | Timestamp | 允许 | 任务实际开始时间<br>时间格式：yyyy-MM-dd |
+| 15 | taskdeadline | Timestamp | 允许 | 任务截至日期<br>时间格式：yyyy-MM-dd |
+| 16 | taskfinisheddate | Timestamp | 允许 | 任务实际完成日期<br>时间格式：yyyy-MM-dd |
+| 17 | taskdelay | String | 允许 | 任务延期 |
+| 18 | taskeststarted | Timestamp | 允许 | 任务预计开始日期<br>时间格式：yyyy-MM-dd |
+| 19 | taskcnt | Integer | 允许 | 总任务数 |
+| 20 | projectconsumed | Integer | 允许 | 项目总消耗 |
+| 21 | userconsumed | Integer | 允许 | 用户总消耗 |
+| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

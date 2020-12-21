@@ -77,6 +77,8 @@
 | 59 | [项目消耗总工时](#属性-项目消耗总工时（PROJECTTOTALCONSUMED）) | PROJECTTOTALCONSUMED | 浮点 | 否 | 否 | 是 |
 | 60 | [工期](#属性-工期（TIMESCALE）) | TIMESCALE | 文本，可指定长度 | 否 | 否 | 是 |
 | 61 | [剩余需求数](#属性-剩余需求数（LEFTSTORYCNT）) | LEFTSTORYCNT | 整型 | 否 | 否 | 是 |
+| 62 | [空需求](#属性-空需求（EMPTYSTORY）) | EMPTYSTORY | 整型 | 否 | 否 | 是 |
+| 63 | [草稿需求](#属性-草稿需求（DRAFTSTORY）) | DRAFTSTORY | 整型 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -2387,6 +2389,84 @@ Integer
 #### 关系属性
 无
 
+### 属性-空需求（EMPTYSTORY）
+#### 属性说明
+空需求
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-草稿需求（DRAFTSTORY）
+#### 属性说明
+草稿需求
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -2977,10 +3057,10 @@ select
 t1.id, 
 t1.`name`, 
 CONCAT(t1.`begin`, ' ~ ', t1.`end`) as `timescale`, 
-(select count(1) from zt_task t2 where t1.id = t2.project) as `taskcnt`,
-(select count(1) from zt_projectstory t2 where t1.id = t2.project) as `storycnt`,
+(select count(1) from zt_task t2 where t1.id = t2.project and t2.deleted = '0') as `taskcnt`,
+(select count(1) from zt_projectstory t2 where t1.id = t2.project and exists(select 1 from zt_story t3 where t2.story = t3.id and t3.deleted = '0')) as `storycnt`,
 (select count(1) from zt_team t2 where t2.type = 'project' and t1.id = t2.root) as `membercnt`, 
-IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where t2.task in (select t3.id from zt_task t3 where t3.project = t1.id)), 0) as `projecttotalconsumed`
+IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where exists(select 1 from zt_task t3 where t3.project = t1.id and t3.id = t2.task and t3.deleted = '0')), 0) as `projecttotalconsumed` 
 from zt_project t1
 ```
 ### 数据查询-项目质量表查询（ProjectQuality）
@@ -3193,6 +3273,8 @@ SELECT
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
+0 AS `DRAFTSTORY`,
+0 AS `EMPTYSTORY`,
 t1.`END`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0') AS `FINISHBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` IN ('done','cancel','closed') AND DELETED = '0') AS `FINISHTASKCNT`,

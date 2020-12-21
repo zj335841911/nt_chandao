@@ -4567,6 +4567,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugProjectBugsGridView",
             "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2"
         },
+        "projectstatsprojectprogressusr2gridview": {
+            "title": "项目进度表格视图",
+            "caption": "项目统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectProgressUsr2GridView",
+            "viewtag": "dabb076d51462709eafcea3fed743469"
+        },
         "bugtotalopenedchartview": {
             "title": "Bug图表视图（累计创建Bug）",
             "caption": "累计创建Bug",

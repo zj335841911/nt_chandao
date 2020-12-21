@@ -3773,6 +3773,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-main-tab-exp-view/test-report-main-tab-exp-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/projectprogressusr2gridview/:projectprogressusr2gridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectprogressusr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectprogressusr2gridview', parameterName: 'projectprogressusr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-progress-usr2-grid-view/project-stats-project-progress-usr2-grid-view.vue'),
+                },
+                {
                     path: 'ibzplantemplets/:ibzplantemplet?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibzplantemplet.views.gridview.caption',
