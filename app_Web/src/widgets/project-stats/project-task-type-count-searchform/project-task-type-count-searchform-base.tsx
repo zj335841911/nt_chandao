@@ -93,7 +93,7 @@ export class ProjectTaskTypeCountSearchFormBase extends SearchFormControlBase {
 , 
         n_begin_gtandeq: new FormItemModel({ caption: '项目起始时间', detailType: 'FORMITEM', name: 'n_begin_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_end_ltandeq: new FormItemModel({ caption: '项目结束时间', detailType: 'FORMITEM', name: 'n_end_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_end_ltandeq: new FormItemModel({ caption: '至', detailType: 'FORMITEM', name: 'n_end_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

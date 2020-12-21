@@ -369,7 +369,7 @@ function getLocaleResourceBase(){
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
 					n_status_eq: commonLogic.appcommonhandle("项目状态",null), 
 					n_begin_gtandeq: commonLogic.appcommonhandle("项目起始时间",null), 
-					n_end_ltandeq: commonLogic.appcommonhandle("项目结束时间",null), 
+					n_end_ltandeq: commonLogic.appcommonhandle("至",null), 
 				},
 				uiactions: {
 				},

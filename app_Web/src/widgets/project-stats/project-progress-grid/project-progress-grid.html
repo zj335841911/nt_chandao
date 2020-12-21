@@ -28,7 +28,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectprogress_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectprogress_grid.columns.name')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectprogress_grid.columns.name')}}
@@ -66,7 +66,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('leftstorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'leftstorycnt'" :label="$t('entities.projectstats.projectprogress_grid.columns.leftstorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'leftstorycnt'" :label="$t('entities.projectstats.projectprogress_grid.columns.leftstorycnt')" :min-width="60"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectprogress_grid.columns.leftstorycnt')}}
@@ -90,7 +90,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('undonetaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'undonetaskcnt'" :label="$t('entities.projectstats.projectprogress_grid.columns.undonetaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'undonetaskcnt'" :label="$t('entities.projectstats.projectprogress_grid.columns.undonetaskcnt')" :min-width="60"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectprogress_grid.columns.undonetaskcnt')}}
@@ -114,7 +114,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalconsumed')">
-                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.projectstats.projectprogress_grid.columns.totalconsumed')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.projectstats.projectprogress_grid.columns.totalconsumed')" :min-width="60"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectprogress_grid.columns.totalconsumed')}}
