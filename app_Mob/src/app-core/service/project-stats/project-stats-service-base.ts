@@ -231,6 +231,21 @@ export class ProjectStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectProgress接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async FetchProjectProgress(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectstats/fetchprojectprogress`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchProjectQuality接口方法
      *
      * @param {*} [context={}]
@@ -242,6 +257,36 @@ export class ProjectStatsServiceBase extends EntityService {
     public async FetchProjectQuality(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projectstats/fetchprojectquality`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectStoryStageStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async FetchProjectStoryStageStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectstats/fetchprojectstorystagestats`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectStoryStatusStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async FetchProjectStoryStatusStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectstats/fetchprojectstorystatusstats`,tempData,isloading);
         return res;
     }
 

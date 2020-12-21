@@ -447,6 +447,50 @@ mock.onGet(new RegExp(/^\/projectstats\/fetchprojectinputstats(\?[\w-./?%&=,]*)*
     return [status, records ?  records : []];
 });
     
+// FetchProjectProgress
+mock.onGet(new RegExp(/^\/projectstats\/fetchprojectprogress$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectstats 方法: FetchProjectProgress");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectProgress
+mock.onGet(new RegExp(/^\/projectstats\/fetchprojectprogress(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectstats 方法: FetchProjectProgress");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchProjectQuality
 mock.onGet(new RegExp(/^\/projectstats\/fetchprojectquality$/)).reply((config: any) => {
     console.groupCollapsed("实体:projectstats 方法: FetchProjectQuality");
@@ -465,6 +509,94 @@ mock.onGet(new RegExp(/^\/projectstats\/fetchprojectquality$/)).reply((config: a
 // FetchProjectQuality
 mock.onGet(new RegExp(/^\/projectstats\/fetchprojectquality(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:projectstats 方法: FetchProjectQuality");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchProjectStoryStageStats
+mock.onGet(new RegExp(/^\/projectstats\/fetchprojectstorystagestats$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectstats 方法: FetchProjectStoryStageStats");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectStoryStageStats
+mock.onGet(new RegExp(/^\/projectstats\/fetchprojectstorystagestats(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectstats 方法: FetchProjectStoryStageStats");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchProjectStoryStatusStats
+mock.onGet(new RegExp(/^\/projectstats\/fetchprojectstorystatusstats$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectstats 方法: FetchProjectStoryStatusStats");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectStoryStatusStats
+mock.onGet(new RegExp(/^\/projectstats\/fetchprojectstorystatusstats(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectstats 方法: FetchProjectStoryStatusStats");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

@@ -992,23 +992,23 @@ FROM `zt_task` t1
 SELECT t4.account as finishedby,t1.project,t1.projectname,t1.id,t1.taskname,t1.pri,t1.estStarted as taskeststarted,t1.realStarted as taskrealstart,t1.deadline as taskdeadline,t1.finishedDate as taskfinisheddate,null as delay,t1.estimate as taskestimate,t1.consumed as totalconsumed, t2.taskcnt,t2.projectconsumed,t3.userconsumed 
 from (
 select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.pri,t1.estStarted,t1.realStarted,t1.deadline,t1.finishedDate,null as delay,t1.estimate,t1.consumed
-from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')#子任务
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')
 
 UNION
 select t3.account as finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.pri,t1.estStarted,t1.realStarted,t1.deadline,t1.finishedDate,null as delay,t1.estimate,t3.consumed
 from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id inner JOIN zt_team t3 on t3.root = t1.id and t3.type = 'task'
-where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 #多人任务
+where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 
 
 ) t1 LEFT JOIN (
 
 SELECT t1.finishedBy,t1.project,t1.projectname,t1.id,t1.taskname,COUNT(1) as taskcnt,SUM(t1.consumed) as projectconsumed from (
 select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.consumed
-from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')#子任务
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')
 
 UNION
 select t3.account as finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t3.consumed
 from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id inner JOIN zt_team t3 on t3.root = t1.id and t3.type = 'task'
-where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 #多人任务 
+where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 
 ) t1 GROUP BY t1.finishedBy,t1.project  
 
 ) t2 on t1.finishedBy = t2.finishedBy  and t1.project = t2.project   
@@ -1016,12 +1016,12 @@ LEFT JOIN (
 
 SELECT t1.finishedBy,SUM(t1.consumed) as userconsumed from (
 select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.consumed
-from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')#子任务
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')
 
 UNION
 select t3.account as finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t3.consumed
 from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id inner JOIN zt_team t3 on t3.root = t1.id and t3.type = 'task'
-where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 #多人任务
+where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 
 
 ) t1 GROUP BY t1.finishedBy
 
