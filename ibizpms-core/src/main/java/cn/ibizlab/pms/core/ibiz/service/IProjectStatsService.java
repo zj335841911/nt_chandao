@@ -44,6 +44,7 @@ public interface IProjectStatsService extends IService<ProjectStats> {
     ProjectStats get(Long key);
     ProjectStats getDraft(ProjectStats et);
     boolean checkKey(ProjectStats et);
+    ProjectStats projectQualitySum(ProjectStats et);
     boolean save(ProjectStats et);
     void saveBatch(List<ProjectStats> list);
     Page<ProjectStats> searchDefault(ProjectStatsSearchContext context);

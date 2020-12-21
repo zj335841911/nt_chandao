@@ -184,6 +184,7 @@
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|项目质量表聚合逻辑|实体处理逻辑|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
@@ -194,10 +195,13 @@
 {% plantuml %}
 hide footbox
 
+项目统计 -> 项目统计: 获取聚合数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
+|0|开始 | 
+|1|获取聚合数 |
 <center>项目质量表聚合逻辑</center>
 
 ## 查询集合

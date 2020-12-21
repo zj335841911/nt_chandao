@@ -3,6 +3,7 @@ import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
 import ProjectQualityModel from './project-quality-grid-model';
+import ProjectStatsService from '@/service/project-stats/project-stats-service';
 
 
 /**
@@ -295,6 +296,35 @@ export default class ProjectQualityService extends ControlService {
         });
     }
 
+    /**
+     * 表格聚合加载数据
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectQualityService
+     */
+    @Errorlog
+    public getAggData(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+        return new Promise((resolve: any, reject: any) => {
+            const _appEntityService: any = new ProjectStatsService({ $store: this.getStore() });
+            let result: Promise<any>;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data, isloading);
+            }else{
+                result = Promise.reject({});
+            }
+            result.then((response) => {
+                this.handleResponse(action, response);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });      
+        });
+    }
 
     /**
      * 前台逻辑

@@ -120,6 +120,17 @@ public class ProjectStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(projectstatsService.checkKey(projectstatsMapping.toDomain(projectstatsdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-ProjectQualitySum-all')")
+    @ApiOperation(value = "项目质量表聚合逻辑", tags = {"项目统计" },  notes = "项目质量表聚合逻辑")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectstats/{projectstats_id}/projectqualitysum")
+    public ResponseEntity<ProjectStatsDTO> projectQualitySum(@PathVariable("projectstats_id") Long projectstats_id, @RequestBody ProjectStatsDTO projectstatsdto) {
+        ProjectStats domain = projectstatsMapping.toDomain(projectstatsdto);
+        domain.setId(projectstats_id);
+        domain = projectstatsService.projectQualitySum(domain);
+        projectstatsdto = projectstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectstatsdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Save-all')")
     @ApiOperation(value = "保存项目统计", tags = {"项目统计" },  notes = "保存项目统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectstats/save")
