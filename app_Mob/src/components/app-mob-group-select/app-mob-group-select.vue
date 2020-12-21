@@ -192,7 +192,7 @@ export default class AppMobGroupSelect extends Vue {
      * @type {*}
      * @memberof AppMobGroupSelect
      */  
-    public openView() {
+    public async openView() {
         const view: any = {
             viewname: 'app-group-picker',
             title: (this.$t('components.AppMobGroupSelect.groupSelect') as string)
@@ -219,7 +219,7 @@ export default class AppMobGroupSelect extends Vue {
             multiple: this.multiple,
             selects: this.selects,
         });
-        let container: Subject<any> = this.$appmodal.openModal(view, context, param);
+        let container: Subject<any> = await this.$appmodal.openModal(view, context, param);
         container.subscribe((result: any) => {
             if (!result || !Object.is(result.ret, 'OK')) {
                 return;

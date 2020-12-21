@@ -5,8 +5,7 @@
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-import { Http } from '@/utils';
-import CodeListService from "@/codelist/codelist-service";
+import {CodeListService} from "@/ibiz-core";
 import { observable } from 'rxjs';
 @Component({})
 export default class AppMobOrgSelect extends Vue {
