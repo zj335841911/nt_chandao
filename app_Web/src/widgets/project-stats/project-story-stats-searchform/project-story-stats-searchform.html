@@ -13,7 +13,7 @@
               
               
               :lg="{ span: 24, offset: 0 }"
-              :xl="{ span: 8, offset: 2 }"
+              :xl="{ span: 8, offset: 1 }"
           >
               <app-form-item
               name="n_status_eq"
@@ -26,15 +26,22 @@
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
-              <input-box 
-              v-model="data.n_status_eq"  
-              @enter="onEnter($event)"  
-                
-              :disabled="detailsModel.n_status_eq.disabled" 
-              type='text' 
-              style="width:100px;">
-          </input-box>
+              
+          <dropdown-list 
+              v-model="data.n_status_eq"
+              :data="data"
+              :context="context"
+              :formState="formState"
+              :viewparams="viewparams"
+              :localContext='{ }' 
+              :localParam='{ }' 
+              :disabled="detailsModel.n_status_eq.disabled"
+              valueType="string"
+              tag="Project__status"
+              codelistType="STATIC"
+              placeholder="请选择..."
           
+          ></dropdown-list>
           </app-form-item>
           
           </i-col>
