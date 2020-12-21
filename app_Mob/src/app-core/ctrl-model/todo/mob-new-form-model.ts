@@ -155,6 +155,18 @@ export class MobNewModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'formitem3',
+            },
+            {
+                name: 'formitem4',
+            },
+            {
+                name: 'formitem5',
+            },
+            {
+                name: 'formitem6',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

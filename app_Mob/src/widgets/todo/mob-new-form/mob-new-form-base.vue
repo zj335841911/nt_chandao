@@ -462,6 +462,86 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='formitem3' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem3_item"  
+    :itemValue="this.data.formitem3" 
+    v-show="detailsModel.formitem3.visible" 
+    :itemRules="this.rules.formitem3" 
+    :caption="$t('todo.mobnew_form.details.formitem3')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem3.disabled"
+    :error="detailsModel.formitem3.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem4' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem4_item"  
+    :itemValue="this.data.formitem4" 
+    v-show="detailsModel.formitem4.visible" 
+    :itemRules="this.rules.formitem4" 
+    :caption="$t('todo.mobnew_form.details.formitem4')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem4.disabled"
+    :error="detailsModel.formitem4.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem5' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem5_item"  
+    :itemValue="this.data.formitem5" 
+    v-show="detailsModel.formitem5.visible" 
+    :itemRules="this.rules.formitem5" 
+    :caption="$t('todo.mobnew_form.details.formitem5')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem5.disabled"
+    :error="detailsModel.formitem5.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem6' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem6_item"  
+    :itemValue="this.data.formitem6" 
+    v-show="detailsModel.formitem6.visible" 
+    :itemRules="this.rules.formitem6" 
+    :caption="$t('todo.mobnew_form.details.formitem6')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem6.disabled"
+    :error="detailsModel.formitem6.error" 
+    :isEmptyCaption="false">
+        
+</app-form-item>
+
+
     
 </app-form-group>
 
@@ -824,6 +904,10 @@ export default class MobNewBase extends Vue implements ControlInterface {
         assignedby: null,
         assigneddate: null,
         assignedto: null,
+        formitem3: null,
+        formitem4: null,
+        formitem5: null,
+        formitem6: null,
         id: null,
         todo: null,
     };
@@ -1019,6 +1103,14 @@ export default class MobNewBase extends Vue implements ControlInterface {
         assigneddate: new FormItemModel({ caption: '【单选】指定单位及下级人员', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         assignedto: new FormItemModel({ caption: '【多选】指定单位及下级人员', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem3: new FormItemModel({ caption: '【单选】单位（仅含指定单位及其下级单位单选）', detailType: 'FORMITEM', name: 'formitem3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem4: new FormItemModel({ caption: '【多选】单位（仅含指定单位及其下级单位多选）', detailType: 'FORMITEM', name: 'formitem4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem5: new FormItemModel({ caption: '【单选】单位（全部单位单选）', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem6: new FormItemModel({ caption: '【多选】单位（全部单位多选）', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1385,6 +1477,54 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 formitem3 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem3')
+    onFormitem3Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem3', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem4 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem4')
+    onFormitem4Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem4', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem5 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem5')
+    onFormitem5Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem5', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem6 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem6')
+    onFormitem6Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem6', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1449,6 +1589,10 @@ export default class MobNewBase extends Vue implements ControlInterface {
             }
             this.detailsModel.name.setDisabled(!ret);
         }
+
+
+
+
 
 
 
