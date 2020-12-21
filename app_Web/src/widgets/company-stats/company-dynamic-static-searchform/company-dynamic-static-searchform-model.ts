@@ -26,16 +26,6 @@ export default class CompanyDynamicStaticModel {
         dataType: 'TEXT',
       },
       {
-        name: 'n_date_gtandeq',
-        prop: 'date',
-        dataType: 'DATE',
-      },
-      {
-        name: 'n_date_ltandeq',
-        prop: 'date',
-        dataType: 'DATE',
-      },
-      {
         name: 'begin',
       },
       {

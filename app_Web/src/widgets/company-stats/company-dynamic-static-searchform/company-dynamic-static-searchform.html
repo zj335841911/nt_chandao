@@ -8,56 +8,6 @@
                   
           <i-col
               class="form-layout-container"
-              v-show="detailsModel.n_date_gtandeq.visible"
-              :style="{}"
-              
-              
-              :lg="{ span: 24, offset: 0 }"
-              :xl="{ span: 6, offset: 1 }"
-          >
-              <app-form-item
-              name="n_date_gtandeq"
-              :itemRules="this.rules.n_date_gtandeq"
-              class=""
-              
-              :caption="$t('entities.companystats.companydynamicstatic_searchform.details.n_date_gtandeq')"
-              uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true"
-              :error="detailsModel.n_date_gtandeq.error"
-              :isEmptyCaption="false"
-              labelPos="LEFT"
-          >
-              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_date_gtandeq" :disabled="detailsModel.n_date_gtandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_date_gtandeq = val1 }"></date-picker>
-          
-          </app-form-item>
-          
-          </i-col>
-          <i-col
-              class="form-layout-container"
-              v-show="detailsModel.n_date_ltandeq.visible"
-              :style="{}"
-              
-              
-              :lg="{ span: 24, offset: 0 }"
-              :xl="{ span: 6, offset: 1 }"
-          >
-              <app-form-item
-              name="n_date_ltandeq"
-              :itemRules="this.rules.n_date_ltandeq"
-              class=""
-              
-              :caption="$t('entities.companystats.companydynamicstatic_searchform.details.n_date_ltandeq')"
-              uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true"
-              :error="detailsModel.n_date_ltandeq.error"
-              :isEmptyCaption="false"
-              labelPos="LEFT"
-          >
-              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_date_ltandeq" :disabled="detailsModel.n_date_ltandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_date_ltandeq = val1 }"></date-picker>
-          
-          </app-form-item>
-          
-          </i-col>
-          <i-col
-              class="form-layout-container"
               v-show="detailsModel.begin.visible"
               :style="{}"
               

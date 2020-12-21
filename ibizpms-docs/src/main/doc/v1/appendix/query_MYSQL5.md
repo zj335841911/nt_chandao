@@ -5042,6 +5042,8 @@ sum(case when t1.objecttype = 'bug' and t1.action = 'resolved' then 1 else 0 end
 count(1) as `DynamicCNT` 
 from zt_action t1 
 group by DATE_FORMAT(t1.date, '%Y-%m-%d')
+WHERE (DATE_FORMAT(t1.date, '%Y-%m-%d') >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null) and (DATE_FORMAT(t1.date, '%Y-%m-%d') <= #{srf.datacontext.end} or #{srf.datacontext.end} is null) 
+
 ```
 ### 数据查询(DEFAULT)<div id="CompanyStats_Default"></div>
 ```sql

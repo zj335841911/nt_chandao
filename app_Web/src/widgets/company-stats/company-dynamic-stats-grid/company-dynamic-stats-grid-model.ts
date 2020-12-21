@@ -97,16 +97,6 @@ export default class CompanyDynamicStatsModel {
           prop: 'id',
         },
       {
-        name: 'n_date_gtandeq',
-        prop: 'n_date_gtandeq',
-        dataType: 'DATE',
-      },
-      {
-        name: 'n_date_ltandeq',
-        prop: 'n_date_ltandeq',
-        dataType: 'DATE',
-      },
-      {
         name: 'begin',
         prop: 'begin',
       },
