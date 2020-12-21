@@ -1113,6 +1113,7 @@ FROM `zt_task` t1
 - MYSQL5
 ```SQL
 SELECT t4.account as finishedby,t1.project,t1.projectname,t1.id as taskid,t1.taskname,t1.pri as taskpri,t1.estStarted as taskeststarted,t1.realStarted as taskrealstart,t1.deadline as taskdeadline,t1.finishedDate as taskfinisheddate,null as delay,t1.estimate as taskestimate,t1.consumed as totalconsumed, t2.taskcnt,t2.projectconsumed,t3.userconsumed 
+,t4.dept,DATE_FORMAT(t1.finishedDate,'%Y-%m-%d') as `begin`,DATE_FORMAT(t1.finishedDate,'%Y-%m-%d') as `end`
 from (
 select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.pri,t1.estStarted,t1.realStarted,t1.deadline,t1.finishedDate,null as delay,t1.estimate,t1.consumed
 from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')

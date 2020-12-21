@@ -143,7 +143,7 @@
     </sql>
     <!--数据查询[ProjectInputStats]-->
     <sql id="ProjectInputStats" databaseId="mysql">
-		<![CDATA[ select t1.id,  t1.`name`,  CONCAT(t1.`begin`, ' ~ ', t1.`end`) as `timescale`,  (select count(1) from zt_task t2 where t1.id = t2.project and t2.deleted = '0') as `taskcnt`, (select count(1) from zt_projectstory t2 where t1.id = t2.project and exists(select 1 from zt_story t3 where t2.story = t3.id and t3.deleted = '0')) as `storycnt`, (select count(1) from zt_team t2 where t2.type = 'project' and t1.id = t2.root) as `membercnt`,  IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where exists(select 1 from zt_task t3 where t3.project = t1.id and t3.id = t2.task and t3.deleted = '0')), 0) as `projecttotalconsumed`  from zt_project t1
+		<![CDATA[ select t1.id,  t1.`name`,  CONCAT(t1.`begin`, ' ~ ', t1.`end`) as `timescale`,  t1.`begin`,  t1.`end`,  t1.`status`,  (select count(1) from zt_task t2 where t1.id = t2.project and t2.deleted = '0') as `taskcnt`, (select count(1) from zt_projectstory t2 where t1.id = t2.project and exists(select 1 from zt_story t3 where t2.story = t3.id and t3.deleted = '0')) as `storycnt`, (select count(1) from zt_team t2 where t2.type = 'project' and t1.id = t2.root) as `membercnt`,  IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where exists(select 1 from zt_task t3 where t3.project = t1.id and t3.id = t2.task and t3.deleted = '0')), 0) as `projecttotalconsumed`  from zt_project t1
 					 WHERE 	t1.deleted = '0'
 			]]>
     </sql>
