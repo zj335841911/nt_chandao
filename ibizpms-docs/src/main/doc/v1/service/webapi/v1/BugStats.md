@@ -547,7 +547,10 @@ POST
 | 32 | bugopenedby | String | 允许 | bug创建人 |
 | 33 | bugopeneddate | Timestamp | 允许 | Bug创建日期<br>时间格式：yyyy-MM-dd |
 | 34 | bugresolveddate | Timestamp | 允许 | bug解决日期<br>时间格式：yyyy-MM-dd |
-| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 35 | dept | String | 允许 | 部门 |
+| 36 | begin | Timestamp | 允许 | 属性<br>时间格式：yyyy-MM-dd |
+| 37 | end | Timestamp | 允许 | 结束<br>时间格式：yyyy-MM-dd |
+| 38 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -559,10 +562,11 @@ POST
 | 5 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
 | 6 | n_resolvedby_eq | String | 允许 | 条件字段：resolvedby<br>条件组合方式：`=` |
 | 7 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
-| 8 | customcond | String | 允许 | 自定义查询条件 |
-| 9 | customparams | String | 允许 | 自定义查询参数 |
-| 10 | query | String | 允许 | 快速搜索 |
-| 11 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 12 | page | int | 允许 | 当前页数<br>默认值0 |
-| 13 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 14 | sort | String | 允许 | 排序 |
+| 8 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
+| 9 | customcond | String | 允许 | 自定义查询条件 |
+| 10 | customparams | String | 允许 | 自定义查询参数 |
+| 11 | query | String | 允许 | 快速搜索 |
+| 12 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 13 | page | int | 允许 | 当前页数<br>默认值0 |
+| 14 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 15 | sort | String | 允许 | 排序 |

@@ -67,9 +67,9 @@ export default class ProjectProgressModel {
           dataType: 'TEXT',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'status',
+          prop: 'status',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmajortext',
@@ -77,15 +77,20 @@ export default class ProjectProgressModel {
           dataType: 'TEXT',
         },
         {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'srfkey',
+          name: 'id',
           prop: 'id',
           dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'projectstats',

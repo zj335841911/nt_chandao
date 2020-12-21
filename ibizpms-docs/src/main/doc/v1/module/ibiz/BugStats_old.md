@@ -47,6 +47,9 @@ hide members
 |bug创建人|BUGOPENEDBY|TEXT|&nbsp;|
 |Bug创建日期|BUGOPENEDDATE|DATE|&nbsp;|
 |bug解决日期|BUGRESOLVEDDATE|DATE|&nbsp;|
+|部门|DEPT|SSCODELIST|&nbsp;|
+|属性|BEGIN|DATE|&nbsp;|
+|结束|END|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -85,6 +88,9 @@ hide members
 |bug创建人|默认规则|内容长度必须小于等于[100]|
 |Bug创建日期|默认规则|默认规则|
 |bug解决日期|默认规则|默认规则|
+|部门|默认规则|内容长度必须小于等于[200]|
+|属性|默认规则|默认规则|
+|结束|默认规则|默认规则|
 
 ## 状态控制
 
@@ -146,6 +152,7 @@ hide members
 |指派给(ASSIGNEDTO)|EQ|
 |由谁解决(RESOLVEDBY)|EQ|
 |项目编号(PROJECT)|EQ|
+|部门(DEPT)|EQ|
 
 ## 导入模式
 无

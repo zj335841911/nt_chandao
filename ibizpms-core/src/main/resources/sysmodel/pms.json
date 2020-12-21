@@ -2517,6 +2517,47 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DEPT" ,
+    "codename":"Dept",
+    "field_logic_name":"部门",
+    "entity_name":"BugStats",
+    "field_type":"SSCODELIST",
+    "dict":"RealDept",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"BEGIN" ,
+    "codename":"Begin",
+    "field_logic_name":"属性",
+    "entity_name":"BugStats",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"END" ,
+    "codename":"End",
+    "field_logic_name":"结束",
+    "entity_name":"BugStats",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

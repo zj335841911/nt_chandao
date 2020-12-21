@@ -2661,7 +2661,7 @@
 
 
     <!--输出实体[ZT_TODO]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_todo-650-106">
+    <changeSet author="zentao" id="tab-zt_todo-658-106">
         <createTable tableName="zt_todo">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_ZT_TODO_ID"/>
@@ -2894,10 +2894,10 @@
        <addForeignKeyConstraint baseColumnNames="TESTTASK" baseTableName="zt_bug" constraintName="DER1N_ZT_BUG_ZT_TESTTASK_TESTT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testtask" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_BUGSTATS]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_bugstats-164-131">
+    <changeSet author="zentao" id="fk-ibz_bugstats-173-131">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_bug" constraintName="DER1N_IBZ_BUGSTATS_ZT_PRODUCT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibz_bugstats-164-132">
+    <changeSet author="zentao" id="fk-ibz_bugstats-173-132">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_bug" constraintName="DER1N_IBZ_BUGSTATS_ZT_PROJECT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_BUILD]外键关系 -->

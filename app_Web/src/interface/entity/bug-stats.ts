@@ -277,4 +277,28 @@ export interface BugStats {
      * @memberof BugStats
      */
     bugresolveddate?: any;
+
+    /**
+     * 部门
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    dept?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    begin?: any;
+
+    /**
+     * 结束
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    end?: any;
 }

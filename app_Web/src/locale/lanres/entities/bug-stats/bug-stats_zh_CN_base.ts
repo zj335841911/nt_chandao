@@ -37,6 +37,9 @@ function getLocaleResourceBase(){
 			bugopenedby: commonLogic.appcommonhandle("bug创建人",null),
 			bugopeneddate: commonLogic.appcommonhandle("Bug创建日期",null),
 			bugresolveddate: commonLogic.appcommonhandle("bug解决日期",null),
+			dept: commonLogic.appcommonhandle("部门",null),
+			begin: commonLogic.appcommonhandle("属性",null),
+			end: commonLogic.appcommonhandle("结束",null),
 		},
 			views: {
 				editview: {

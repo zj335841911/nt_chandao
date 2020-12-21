@@ -2889,10 +2889,12 @@ ORDER BY
 ```
 ### bug解决汇总表(BugResolvedGird)<div id="BugStats_BugResolvedGird"></div>
 ```sql
-
 SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus 
 
-from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
+from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') 
+and ( t2.dept = #{datacontext.dept} or #{datacontext.dept is null}
+)
+ORDER BY t1.resolvedBy
 ```
 ### Bug指派表(BugassignedTo)<div id="BugStats_BugassignedTo"></div>
 ```sql

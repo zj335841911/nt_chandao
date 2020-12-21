@@ -53,6 +53,9 @@ Bug统计
 | 32 | [bug创建人](#属性-bug创建人（BUGOPENEDBY）) | BUGOPENEDBY | 文本，可指定长度 | 否 | 是 | 是 |
 | 33 | [Bug创建日期](#属性-Bug创建日期（BUGOPENEDDATE）) | BUGOPENEDDATE | 日期型 | 否 | 是 | 是 |
 | 34 | [bug解决日期](#属性-bug解决日期（BUGRESOLVEDDATE）) | BUGRESOLVEDDATE | 日期型 | 否 | 是 | 是 |
+| 35 | [部门](#属性-部门（DEPT）) | DEPT | 单项选择(文本值) | 否 | 是 | 是 |
+| 36 | [属性](#属性-属性（BEGIN）) | BEGIN | 日期型 | 否 | 是 | 是 |
+| 37 | [结束](#属性-结束（END）) | END | 日期型 | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -1486,6 +1489,131 @@ yyyy-MM-dd
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-部门（DEPT）
+#### 属性说明
+部门
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[真实部门（RealDept）](../../codelist/RealDept)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-属性（BEGIN）
+#### 属性说明
+属性
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-结束（END）
+#### 属性说明
+结束
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1605,6 +1733,7 @@ Save
 | 5 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
 | 6 | [由谁解决（RESOLVEDBY）](#属性-由谁解决（RESOLVEDBY）) | `=` |
 | 7 | [项目编号（PROJECT）](#属性-项目编号（PROJECT）) | `=` |
+| 8 | [部门（DEPT）](#属性-部门（DEPT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -1732,10 +1861,12 @@ bug解决汇总表
 #### SQL
 - MYSQL5
 ```SQL
-
 SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus 
 
-from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
+from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') 
+and ( t2.dept = #{datacontext.dept} or #{datacontext.dept is null}
+)
+ORDER BY t1.resolvedBy
 ```
 ### 数据查询-Bug指派表（BugassignedTo）
 #### 说明
