@@ -435,17 +435,6 @@ export class TestCaseStatsGridBase extends GridControlBase {
                     }, 0);
                     sums[index] = tempData;
                 }
-                if(Object.is(column.property,'passrate')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
           } else {
             sums[index] = 'N/A';
           }

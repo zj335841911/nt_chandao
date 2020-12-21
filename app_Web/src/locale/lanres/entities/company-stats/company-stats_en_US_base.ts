@@ -43,8 +43,8 @@ function getLocaleResourceBase(){
 			companydynamicstatic_searchform: {
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
-					n_date_gtandeq: commonLogic.appcommonhandle("起始时间",null), 
-					n_date_ltandeq: commonLogic.appcommonhandle("结束时间",null), 
+					n_date_gtandeq: commonLogic.appcommonhandle("起始日期",null), 
+					n_date_ltandeq: commonLogic.appcommonhandle("结束日期",null), 
 				},
 				uiactions: {
 				},
