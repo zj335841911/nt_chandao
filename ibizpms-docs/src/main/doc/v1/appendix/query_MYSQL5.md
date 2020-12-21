@@ -2892,7 +2892,7 @@ ORDER BY
 SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus 
 
 from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') 
-and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept is null} 
+and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null )
 and (t1.resolvedDate >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
 and (t1.resolvedDate <= #{srf.datacontext.end} or #{srf.datacontext.end} is null)
 )
@@ -4822,16 +4822,18 @@ FROM `zt_case` t1
 select 
 0 as Module,
 '/' as ModuleName, 
-t1.product, 
-count(distinct t1.id) as TotalCase, 
-sum(case when t2.caseResult = 'pass' then 1 else 0 end) as PassCase, 
-sum(case when t2.caseResult = 'fail' then 1 else 0 end) as FailCase,
-sum(case when t2.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
-sum(case when t2.caseResult is not null then 1 else 0 end) as TotalRunCase,
-case when sum(case when t2.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t2.caseResult = 'pass' then 1 else 0 end) / sum(case when t2.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
-from zt_case t1 
-left join zt_testresult t2 on t1.id = t2.`case`
-where t1.deleted = '0' and t1.module = 0 and t1.product = #{srf.datacontext.n_product_eq}
+t1.id, 
+count(distinct t2.id) as TotalCase, 
+sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
+sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
+sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
+sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase,
+case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
+from zt_project t1 
+left join zt_case t2 on t2.deleted = '0' and t2.module = 0 and t1.id = t2.product 
+left join zt_testresult t3 on t2.id = t3.`case`
+where t1.deleted = '0'
+group by t1.id
 union
 select
 t1.id as Module, 
@@ -4847,7 +4849,7 @@ from
 zt_module t1
 left join zt_case t2 on t1.id = t2.module and t2.deleted = '0' 
 left join zt_testresult t3 on t2.id = t3.`case`
-where t1.deleted = '0' and t1.root = #{srf.datacontext.n_product_eq}
+where t1.deleted = '0'
 group by t1.id
 ```
 ### 默认（全部数据）(VIEW)<div id="CaseStats_View"></div>
@@ -14210,8 +14212,6 @@ WHERE
 	OR t1.acl = 'open' 
 	) 
 	) t1
-WHERE t1.status =${srfwebcontext('status')}  or ${srfwebcontext('status') is null} 
-
 ```
 ### 项目质量表查询(ProjectQuality)<div id="ProjectStats_ProjectQuality"></div>
 ```sql

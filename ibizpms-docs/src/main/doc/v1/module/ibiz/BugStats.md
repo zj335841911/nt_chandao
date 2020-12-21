@@ -1870,7 +1870,7 @@ bug解决汇总表
 SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus 
 
 from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') 
-and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept is null} 
+and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null )
 and (t1.resolvedDate >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
 and (t1.resolvedDate <= #{srf.datacontext.end} or #{srf.datacontext.end} is null)
 )
@@ -2355,4 +2355,16 @@ Bug解决数据导出
 - 行为持有者
 后台及前台
 
+| 序号 | 导出标题 | 属性 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| 1 | 由谁解决 | [由谁解决（RESOLVEDBY）](#属性-由谁解决（RESOLVEDBY）) |  |
+| 2 | Bug编号 | [Bug编号（BUGID）](#属性-Bug编号（BUGID）) |  |
+| 3 | Bug标题 | [Bug标题（BUGTITLE）](#属性-Bug标题（BUGTITLE）) |  |
+| 4 | 优先级 | [Bug优先级（BUGPRI）](#属性-Bug优先级（BUGPRI）) |  |
+| 5 | 严重程度 | [Bug严重程度（BUGSEVERITY）](#属性-Bug严重程度（BUGSEVERITY）) |  |
+| 6 | 由谁创建 | [bug创建人（BUGOPENEDBY）](#属性-bug创建人（BUGOPENEDBY）) |  |
+| 7 | 创建 | [Bug创建日期（BUGOPENEDDATE）](#属性-Bug创建日期（BUGOPENEDDATE）) |  |
+| 8 | 解决方案 | [Bug解决方案（BUGRESOLUTION）](#属性-Bug解决方案（BUGRESOLUTION）) |  |
+| 9 | 解决日期 | [bug解决日期（BUGRESOLVEDDATE）](#属性-bug解决日期（BUGRESOLVEDDATE）) |  |
+| 10 | Bug状态 | [Bug状态（BUGSTATUS）](#属性-Bug状态（BUGSTATUS）) |  |
 
