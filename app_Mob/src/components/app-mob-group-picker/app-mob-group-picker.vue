@@ -18,7 +18,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
-import { Http } from '../../utils';
+import { Http } from "@/ibiz-core/utils";
 @Component({})
 export default class AppMobGroupPicker extends Vue {
 

@@ -21,7 +21,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
-import CodeListService from "@/codelist/codelist-service";
+import {CodeListService} from "@/ibiz-core";
 
 @Component({})
 export default class AppMobGroupSelect extends Vue {
@@ -328,5 +328,5 @@ export default class AppMobGroupSelect extends Vue {
 </script>
 
 <style lang="less">
-@import './app-group-select.less';
+@import './app-mob-group-select.less';
 </style>
