@@ -31,13 +31,13 @@ export default class BugResolvedGirdModel {
         dataType: 'SSCODELIST',
       },
       {
-        name: 'n_bugresolveddate_gtandeq',
-        prop: 'bugresolveddate',
+        name: 'n_begin_gtandeq',
+        prop: 'begin',
         dataType: 'DATE',
       },
       {
-        name: 'n_bugresolveddate_ltandeq',
-        prop: 'bugresolveddate',
+        name: 'n_end_ltandeq',
+        prop: 'end',
         dataType: 'DATE',
       },
     ]

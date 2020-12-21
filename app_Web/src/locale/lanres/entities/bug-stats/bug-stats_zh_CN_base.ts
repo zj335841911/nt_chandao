@@ -276,8 +276,8 @@ function getLocaleResourceBase(){
 				details: {
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
 					n_dept_eq: commonLogic.appcommonhandle("部门",null), 
-					n_bugresolveddate_gtandeq: commonLogic.appcommonhandle("Bug解决日期",null), 
-					n_bugresolveddate_ltandeq: commonLogic.appcommonhandle("至",null), 
+					n_begin_gtandeq: commonLogic.appcommonhandle("bug解决日期",null), 
+					n_end_ltandeq: commonLogic.appcommonhandle("至",null), 
 				},
 				uiactions: {
 				},

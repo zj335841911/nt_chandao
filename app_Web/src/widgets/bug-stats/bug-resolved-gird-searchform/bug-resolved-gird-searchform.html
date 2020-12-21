@@ -47,7 +47,7 @@
           </i-col>
           <i-col
               class="form-layout-container"
-              v-show="detailsModel.n_bugresolveddate_gtandeq.visible"
+              v-show="detailsModel.n_begin_gtandeq.visible"
               :style="{}"
               
               
@@ -55,24 +55,24 @@
               :xl="{ span: 6, offset: 0 }"
           >
               <app-form-item
-              name="n_bugresolveddate_gtandeq"
-              :itemRules="this.rules.n_bugresolveddate_gtandeq"
+              name="n_begin_gtandeq"
+              :itemRules="this.rules.n_begin_gtandeq"
               class=""
               
-              :caption="$t('entities.bugstats.bugresolvedgird_searchform.details.n_bugresolveddate_gtandeq')"
+              :caption="$t('entities.bugstats.bugresolvedgird_searchform.details.n_begin_gtandeq')"
               uiStyle="DEFAULT" :labelWidth="45" :isShowCaption="true"
-              :error="detailsModel.n_bugresolveddate_gtandeq.error"
+              :error="detailsModel.n_begin_gtandeq.error"
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
-              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_bugresolveddate_gtandeq" :disabled="detailsModel.n_bugresolveddate_gtandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_bugresolveddate_gtandeq = val1 }"></date-picker>
+               <time-picker :value="data.n_begin_gtandeq" :transfer="true" :disabled="detailsModel.n_begin_gtandeq.disabled" format="HH:mm:ss" placeholder="请选择时间..." style="min-width: 150px; width:90px;"  @on-change="(val) => {this.data.n_begin_gtandeq = val}"></time-picker>
           
           </app-form-item>
           
           </i-col>
           <i-col
               class="form-layout-container"
-              v-show="detailsModel.n_bugresolveddate_ltandeq.visible"
+              v-show="detailsModel.n_end_ltandeq.visible"
               :style="{}"
               
               
@@ -80,17 +80,17 @@
               :xl="{ span: 6, offset: 0 }"
           >
               <app-form-item
-              name="n_bugresolveddate_ltandeq"
-              :itemRules="this.rules.n_bugresolveddate_ltandeq"
+              name="n_end_ltandeq"
+              :itemRules="this.rules.n_end_ltandeq"
               class=""
               
-              :caption="$t('entities.bugstats.bugresolvedgird_searchform.details.n_bugresolveddate_ltandeq')"
-              uiStyle="DEFAULT" :labelWidth="45" :isShowCaption="true"
-              :error="detailsModel.n_bugresolveddate_ltandeq.error"
+              :caption="$t('entities.bugstats.bugresolvedgird_searchform.details.n_end_ltandeq')"
+              uiStyle="DEFAULT" :labelWidth="25" :isShowCaption="true"
+              :error="detailsModel.n_end_ltandeq.error"
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
-              <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.n_bugresolveddate_ltandeq" :disabled="detailsModel.n_bugresolveddate_ltandeq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.n_bugresolveddate_ltandeq = val1 }"></date-picker>
+               <time-picker :value="data.n_end_ltandeq" :transfer="true" :disabled="detailsModel.n_end_ltandeq.disabled" format="HH:mm:ss" placeholder="请选择时间..." style="min-width: 150px; width:90px;"  @on-change="(val) => {this.data.n_end_ltandeq = val}"></time-picker>
           
           </app-form-item>
           

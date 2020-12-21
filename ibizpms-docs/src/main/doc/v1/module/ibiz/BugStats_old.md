@@ -155,8 +155,8 @@ hide members
 |bug解决日期(BUGRESOLVEDDATE)|GTANDEQ|
 |bug解决日期(BUGRESOLVEDDATE)|LTANDEQ|
 |部门(DEPT)|EQ|
-|开始(BEGIN)|LTANDEQ|
-|结束(END)|GTANDEQ|
+|开始(BEGIN)|GTANDEQ|
+|结束(END)|LTANDEQ|
 
 ## 导入模式
 无
