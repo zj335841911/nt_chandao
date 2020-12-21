@@ -144,7 +144,7 @@ export default class ProjectQualityGrid extends ProjectQualityGridBase {
           }
         });
         if(sums && sums[5]) {
-            let sumss = parseFloat(((sums[9] / sums[5]).toString()) * 100).toFixed(2);
+            let sumss = parseFloat(((sums[9] / sums[5]) * 100).toString()).toFixed(2);
             sumss += "%";
             sums[10] = sumss;
         }
