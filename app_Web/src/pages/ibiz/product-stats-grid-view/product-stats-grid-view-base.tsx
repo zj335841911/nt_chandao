@@ -339,4 +339,13 @@ export class ProductStatsGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProductStatsGridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

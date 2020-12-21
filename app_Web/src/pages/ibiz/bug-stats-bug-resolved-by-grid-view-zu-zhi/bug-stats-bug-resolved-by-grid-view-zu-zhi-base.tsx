@@ -91,6 +91,10 @@ export class BugStatsBugResolvedByGridViewZuZhiBase extends GridViewBase {
      * @memberof BugStatsBugResolvedByGridViewZuZhiBase
      */
     protected containerModel: any = {
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
         view_grid: {
             name: 'grid',
             type: 'GRID',
@@ -100,6 +104,16 @@ export class BugStatsBugResolvedByGridViewZuZhiBase extends GridViewBase {
             type: 'SEARCHFORM',
         },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof BugStatsBugResolvedByGridViewZuZhi
+     */
+    public toolBarModels: any = {
+    };
+
 
 
 	/**

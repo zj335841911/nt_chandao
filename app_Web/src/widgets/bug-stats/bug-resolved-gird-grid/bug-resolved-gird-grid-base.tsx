@@ -361,42 +361,22 @@ export class BugResolvedGirdGridBase extends GridControlBase {
     }
 
     /**
-     * 导出数据格式化
+     * 是否为实体导出对象
      *
-     * @param {*} filterVal
-     * @param {*} jsonData
-     * @param {any[]} [codelistColumns=[]]
-     * @returns {Promise<any>}
+     * @protected
+     * @type {boolean}
      * @memberof BugResolvedGirdGridBase
      */
-    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
-        return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'resolvedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'bugresolution',
-                srfkey: 'Bug__resolution',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'bugstatus',
-                srfkey: 'Bug__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-        ]);
-    }
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof BugResolvedGirdGridBase
+     */
+    public allExportColumns: any[] = [
+    ]
 
 
     /**

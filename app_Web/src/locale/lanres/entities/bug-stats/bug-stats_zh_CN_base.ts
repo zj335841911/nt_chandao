@@ -213,6 +213,8 @@ function getLocaleResourceBase(){
 					bugstatus: commonLogic.appcommonhandle("Bug状态",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
+			exportColumns: {
+			},
 				uiactions: {
 				},
 			},
@@ -291,6 +293,8 @@ function getLocaleResourceBase(){
 			productbugstatusgridviewtoolbar_toolbar: {
 			},
 			productbugresolutiongridviewtoolbar_toolbar: {
+			},
+			bugresolvedbygridviewzuzhitoolbar_toolbar: {
 			},
 		};
 		return data;
