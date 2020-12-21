@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projectname')">
-                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.projectname')" :min-width="2"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.projectname')" :min-width="200"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.taskfinishgird_grid.columns.projectname')}}
