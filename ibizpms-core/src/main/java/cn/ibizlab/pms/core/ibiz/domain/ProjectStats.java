@@ -592,7 +592,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "progress")
     @JsonProperty("progress")
-    private Double progress;
+    private String progress;
 
 
 

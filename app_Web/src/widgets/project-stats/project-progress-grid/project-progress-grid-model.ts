@@ -64,7 +64,7 @@ export default class ProjectProgressModel {
         {
           name: 'progress',
           prop: 'progress',
-          dataType: 'FLOAT',
+          dataType: 'TEXT',
         },
         {
           name: 'id',

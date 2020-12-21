@@ -93,7 +93,7 @@
 | 75 | [已验收阶段需求数](#属性-已验收阶段需求数（VERIFIEDSTAGESTORYCNT）) | VERIFIEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 76 | [已发布阶段需求数](#属性-已发布阶段需求数（RELEASEDSTAGESTORYCNT）) | RELEASEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 77 | [已关闭阶段需求数](#属性-已关闭阶段需求数（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
-| 78 | [进度](#属性-进度（PROGRESS）) | PROGRESS | 浮点 | 否 | 否 | 是 |
+| 78 | [进度](#属性-进度（PROGRESS）) | PROGRESS | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -3039,10 +3039,10 @@ Integer
 应用界面字段[无存储]
 
 - 数据类型
-浮点
+文本，可指定长度
 
 - Java类型
-Double
+String
 
 - 是否允许为空
 是
