@@ -123095,6 +123095,7 @@ CREATE TABLE `zt_module`(
 | CLOSEDSTORYCNT        | 关闭需求总数  | INTEGER      |   -1   | &nbsp; |
 | ACTIVESTORY        | 激活需求  | INTEGER      |   -1   | &nbsp; |
 | ORDER1        | 项目排序  | INTEGER      |   8   | &nbsp; |
+| RELEASEDSTAGESTORYCNT        | 已发布阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | TOTALWH        | 总工时  | INTEGER      |   -1   | &nbsp; |
 | BUGCNT        | Bug总数  | INTEGER      |   -1   | &nbsp; |
 | YESTERDAYRBUGCNT        | 昨天解决Bug数  | INTEGER      |   -1   | &nbsp; |
@@ -123115,6 +123116,7 @@ CREATE TABLE `zt_module`(
 | STORYCNT        | 需求总数  | INTEGER      |   -1   | &nbsp; |
 | TESTINGSTAGESTORYCNT        | 测试中阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | NAME        | 项目名称  | VARCHAR      |   90   | &nbsp; |
+| CLOSEDSTAGESTORYCNT        | 已关闭阶段需求数  | INTEGER      |   -1   | &nbsp; |
 | YESTERDAYCTASKCNT        | 昨日完成任务数  | INTEGER      |   -1   | &nbsp; |
 | RELEASEDSTORYCNT        | 已发布需求数  | INTEGER      |   -1   | &nbsp; |
 | ACTIVEBUGCNT        | 未解决Bug总数  | INTEGER      |   -1   | &nbsp; |

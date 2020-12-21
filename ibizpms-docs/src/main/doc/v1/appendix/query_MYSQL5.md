@@ -14085,6 +14085,83 @@ from zt_project t1
 WHERE t1.deleted = '0' 
 
 ```
+### 项目进度(ProjectProgress)<div id="ProjectStats_ProjectProgress"></div>
+```sql
+SELECT
+	IFNULL((
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_STORY 
+WHERE
+	`STAGE` in ( 'projected' ,'developing') 
+	AND FIND_IN_SET ( PRODUCT, ( SELECT GROUP_CONCAT( PRODUCT ) FROM ZT_PROJECTPRODUCT WHERE PROJECT = t1.`ID` ) ) 
+	AND DELETED = '0' 
+	),0)  AS `LEFTSTORYCNT`,
+	t1.`DELETED`,
+	t1.`ID`,
+	t1.`NAME`,
+	
+	t1.`STATUS`,
+	IFNULL((SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_STORY
+	LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	),0) AS `STORYCNT`,
+	IFNULL(( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ),0)  AS `TASKCNT`,
+	IFNULL((
+SELECT
+	round( SUM( CONSUMED ), 0 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
+	),0)  AS `TOTALCONSUMED`,
+	IFNULL((
+SELECT
+	round( SUM( `LEFT` ), 0 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
+	),0)  AS `TOTALLEFT`,
+	
+ IFNULL((
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND `STATUS` NOT IN ( 'done', 'cancel', 'closed' ) 
+	AND DELETED = '0' 
+	),0)	 AS `UNDONETASKCNT`,
+
+	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE t1.`ORDER` END ) AS `ORDER1`,
+	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END ) AS `ISTOP` 
+FROM
+	`zt_project` t1
+	LEFT JOIN t_ibz_top t2 ON t1.id = t2.OBJECTID 
+	AND t2.type = 'project' 
+	AND t2.ACCOUNT = #{srf.sessioncontext.srfloginname} 
+WHERE
+	t1.DELETED = '0' 
+	AND (
+	(
+	t1.acl = 'private' 
+	AND t1.id IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = #{srf.sessioncontext.srfloginname} AND t3.type = 'project' ) 
+	) 
+	OR t1.acl = 'open' 
+	)
+```
 ### 项目质量表查询(ProjectQuality)<div id="ProjectStats_ProjectQuality"></div>
 ```sql
 SELECT t1.bugcnt,t1.completetaskcnt,t1.completestorycnt,t1.name,t1.storycnt,t1.FINISHBUGCNT,t1.taskcnt,t1.bugstory,t1.bugtask,IFNULL(t4.IMPORTANTBUGCNT,0) as IMPORTANTBUGCNT ,CONCAT(round(IFNULL((IMPORTANTBUGCNT/t1.bugcnt),0),2)*100,'%')  as SERIOUSBUGPROPORTION from (
@@ -14282,6 +14359,7 @@ SELECT
 0 AS `ACTIVESTORY`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
 0 AS `CHANGEDSTORY`,
+0 AS `CLOSEDSTAGESTORYCNT`,
 0 AS `CLOSEDSTORY`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
@@ -14300,6 +14378,7 @@ t1.`order` AS `ORDER1`,
 0 AS `PLANNEDSTAGESTORYCNT`,
 0 AS `PROJECTEDSTAGESTORYCNT`,
 0 AS `PROJECTTOTALCONSUMED`,
+0 AS `RELEASEDSTAGESTORYCNT`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0') AS `RELEASEDSTORYCNT`,
 null AS `SERIOUSBUGPROPORTION`,
 t1.`STATUS`,
@@ -14315,6 +14394,7 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE `STATUS` <>  'closed' AND PROJECT = t1.`ID` AND DELETED = '0') AS `UNCLOSEDSTORYCNT`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMEDBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
+0 AS `VERIFIEDSTAGESTORYCNT`,
 0 AS `WAITSTAGESTORYCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
 (SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`

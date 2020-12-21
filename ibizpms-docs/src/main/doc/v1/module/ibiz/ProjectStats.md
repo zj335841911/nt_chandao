@@ -91,6 +91,8 @@
 | 73 | [测试中阶段需求数](#属性-测试中阶段需求数（TESTINGSTAGESTORYCNT）) | TESTINGSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 74 | [测试完毕阶段需求数](#属性-测试完毕阶段需求数（TESTEDSTAGESTORYCNT）) | TESTEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 75 | [已验收阶段需求数](#属性-已验收阶段需求数（VERIFIEDSTAGESTORYCNT）) | VERIFIEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 76 | [已发布阶段需求数](#属性-已发布阶段需求数（RELEASEDSTAGESTORYCNT）) | RELEASEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 77 | [已关闭阶段需求数](#属性-已关闭阶段需求数（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -2947,6 +2949,84 @@ Integer
 #### 关系属性
 无
 
+### 属性-已发布阶段需求数（RELEASEDSTAGESTORYCNT）
+#### 属性说明
+已发布阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已关闭阶段需求数（CLOSEDSTAGESTORYCNT）
+#### 属性说明
+已关闭阶段需求数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -3070,13 +3150,14 @@ Save
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
 | 3 | [项目bug类型](#数据查询-项目bug类型（ProjectBugType）) | ProjectBugType | 否 |
 | 4 | [项目投入统计](#数据查询-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
-| 5 | [项目质量表查询](#数据查询-项目质量表查询（ProjectQuality）) | ProjectQuality | 否 |
-| 6 | [项目需求阶段统计](#数据查询-项目需求阶段统计（ProjectStoryStageStats）) | ProjectStoryStageStats | 否 |
-| 7 | [项目需求状态统计](#数据查询-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
-| 8 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 9 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 10 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
-| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [项目进度](#数据查询-项目进度（ProjectProgress）) | ProjectProgress | 否 |
+| 6 | [项目质量表查询](#数据查询-项目质量表查询（ProjectQuality）) | ProjectQuality | 否 |
+| 7 | [项目需求阶段统计](#数据查询-项目需求阶段统计（ProjectStoryStageStats）) | ProjectStoryStageStats | 否 |
+| 8 | [项目需求状态统计](#数据查询-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
+| 9 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 10 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 11 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 12 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -3545,6 +3626,94 @@ CONCAT(t1.`begin`, ' ~ ', t1.`end`) as `timescale`,
 IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where exists(select 1 from zt_task t3 where t3.project = t1.id and t3.id = t2.task and t3.deleted = '0')), 0) as `projecttotalconsumed` 
 from zt_project t1
 ```
+### 数据查询-项目进度（ProjectProgress）
+#### 说明
+项目进度
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	IFNULL((
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_STORY 
+WHERE
+	`STAGE` in ( 'projected' ,'developing') 
+	AND FIND_IN_SET ( PRODUCT, ( SELECT GROUP_CONCAT( PRODUCT ) FROM ZT_PROJECTPRODUCT WHERE PROJECT = t1.`ID` ) ) 
+	AND DELETED = '0' 
+	),0)  AS `LEFTSTORYCNT`,
+	t1.`DELETED`,
+	t1.`ID`,
+	t1.`NAME`,
+	
+	t1.`STATUS`,
+	IFNULL((SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_STORY
+	LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	),0) AS `STORYCNT`,
+	IFNULL(( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ),0)  AS `TASKCNT`,
+	IFNULL((
+SELECT
+	round( SUM( CONSUMED ), 0 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
+	),0)  AS `TOTALCONSUMED`,
+	IFNULL((
+SELECT
+	round( SUM( `LEFT` ), 0 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
+	),0)  AS `TOTALLEFT`,
+	
+ IFNULL((
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND `STATUS` NOT IN ( 'done', 'cancel', 'closed' ) 
+	AND DELETED = '0' 
+	),0)	 AS `UNDONETASKCNT`,
+
+	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE t1.`ORDER` END ) AS `ORDER1`,
+	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END ) AS `ISTOP` 
+FROM
+	`zt_project` t1
+	LEFT JOIN t_ibz_top t2 ON t1.id = t2.OBJECTID 
+	AND t2.type = 'project' 
+	AND t2.ACCOUNT = #{srf.sessioncontext.srfloginname} 
+WHERE
+	t1.DELETED = '0' 
+	AND (
+	(
+	t1.acl = 'private' 
+	AND t1.id IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = #{srf.sessioncontext.srfloginname} AND t3.type = 'project' ) 
+	) 
+	OR t1.acl = 'open' 
+	)
+```
 ### 数据查询-项目质量表查询（ProjectQuality）
 #### 说明
 项目质量表查询
@@ -3819,6 +3988,7 @@ SELECT
 0 AS `ACTIVESTORY`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
 0 AS `CHANGEDSTORY`,
+0 AS `CLOSEDSTAGESTORYCNT`,
 0 AS `CLOSEDSTORY`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
@@ -3837,6 +4007,7 @@ t1.`order` AS `ORDER1`,
 0 AS `PLANNEDSTAGESTORYCNT`,
 0 AS `PROJECTEDSTAGESTORYCNT`,
 0 AS `PROJECTTOTALCONSUMED`,
+0 AS `RELEASEDSTAGESTORYCNT`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0') AS `RELEASEDSTORYCNT`,
 null AS `SERIOUSBUGPROPORTION`,
 t1.`STATUS`,
@@ -3852,6 +4023,7 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE `STATUS` <>  'closed' AND PROJECT = t1.`ID` AND DELETED = '0') AS `UNCLOSEDSTORYCNT`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMEDBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
+0 AS `VERIFIEDSTAGESTORYCNT`,
 0 AS `WAITSTAGESTORYCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
 (SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`
@@ -3866,12 +4038,13 @@ FROM `zt_project` t1
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
 | 3 | [项目bug类型统计](#数据集合-项目bug类型统计（ProjectBugType）) | ProjectBugType | 否 |
 | 4 | [项目投入统计](#数据集合-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
-| 5 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
-| 6 | [项目需求阶段统计](#数据集合-项目需求阶段统计（ProjectStoryStageStats）) | ProjectStoryStageStats | 否 |
-| 7 | [项目需求状态统计](#数据集合-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
-| 8 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 9 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 10 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 5 | [项目进度](#数据集合-项目进度（ProjectProgress）) | ProjectProgress | 否 |
+| 6 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
+| 7 | [项目需求阶段统计](#数据集合-项目需求阶段统计（ProjectStoryStageStats）) | ProjectStoryStageStats | 否 |
+| 8 | [项目需求状态统计](#数据集合-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
+| 9 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 10 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 11 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -3929,6 +4102,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目投入统计（ProjectInputStats）](#数据查询-项目投入统计（ProjectInputStats）) |
+### 数据集合-项目进度（ProjectProgress）
+#### 说明
+项目进度
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目进度（ProjectProgress）](#数据查询-项目进度（ProjectProgress）) |
 ### 数据集合-项目质量（ProjectQuality）
 #### 说明
 项目质量

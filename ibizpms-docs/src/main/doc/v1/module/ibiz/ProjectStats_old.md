@@ -84,6 +84,8 @@
 |测试中阶段需求数|TESTINGSTAGESTORYCNT|INT|&nbsp;|
 |测试完毕阶段需求数|TESTEDSTAGESTORYCNT|INT|&nbsp;|
 |已验收阶段需求数|VERIFIEDSTAGESTORYCNT|INT|&nbsp;|
+|已发布阶段需求数|RELEASEDSTAGESTORYCNT|INT|&nbsp;|
+|已关闭阶段需求数|CLOSEDSTAGESTORYCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -163,6 +165,8 @@
 |测试中阶段需求数|默认规则|默认规则|
 |测试完毕阶段需求数|默认规则|默认规则|
 |已验收阶段需求数|默认规则|默认规则|
+|已发布阶段需求数|默认规则|默认规则|
+|已关闭阶段需求数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -193,6 +197,7 @@
 |NOOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_NoOpenProduct))|否|&nbsp;|
 |ProjectBugType|项目bug类型([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectBugType))|否|&nbsp;|
 |ProjectInputStats|项目投入统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectInputStats))|否|&nbsp;|
+|ProjectProgress|项目进度([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectProgress))|否|&nbsp;|
 |ProjectQuality|项目质量表查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectQuality))|否|&nbsp;|
 |ProjectStoryStageStats|项目需求阶段统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectStoryStageStats))|否|&nbsp;|
 |ProjectStoryStatusStats|项目需求状态统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectStoryStatusStats))|否|&nbsp;|
@@ -209,6 +214,7 @@
 |NOOpenProduct|未关闭产品|NOOpenProduct|否|&nbsp;|
 |ProjectBugType|项目bug类型统计|ProjectBugType|否|&nbsp;|
 |ProjectInputStats|项目投入统计|ProjectInputStats|否|&nbsp;|
+|ProjectProgress|项目进度|ProjectProgress|否|&nbsp;|
 |ProjectQuality|项目质量|ProjectQuality|否|&nbsp;|
 |ProjectStoryStageStats|项目需求阶段统计|ProjectStoryStageStats|否|&nbsp;|
 |ProjectStoryStatusStats|项目需求状态统计|ProjectStoryStatusStats|否|&nbsp;|

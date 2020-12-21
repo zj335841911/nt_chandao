@@ -78,6 +78,8 @@ function getLocaleResourceBase(){
 			testingstagestorycnt: commonLogic.appcommonhandle("测试中阶段需求数",null),
 			testedstagestorycnt: commonLogic.appcommonhandle("测试完毕阶段需求数",null),
 			verifiedstagestorycnt: commonLogic.appcommonhandle("已验收阶段需求数",null),
+			releasedstagestorycnt: commonLogic.appcommonhandle("已发布阶段需求数",null),
+			closedstagestorycnt: commonLogic.appcommonhandle("已关闭阶段需求数",null),
 		},
 			views: {
 				allgridview: {

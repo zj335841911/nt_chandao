@@ -288,6 +288,35 @@ export default class ProjectStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectProgress接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async FetchProjectProgress(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectstats/fetchprojectprogress`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectProgress接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async searchProjectProgress(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projectstats/searchprojectprogress`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectQuality接口方法
      *
      * @param {*} [context={}]

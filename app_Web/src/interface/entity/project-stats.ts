@@ -605,4 +605,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     verifiedstagestorycnt?: any;
+
+    /**
+     * 已发布阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    releasedstagestorycnt?: any;
+
+    /**
+     * 已关闭阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    closedstagestorycnt?: any;
 }
