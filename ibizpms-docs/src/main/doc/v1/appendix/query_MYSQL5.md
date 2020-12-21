@@ -2887,6 +2887,10 @@ FROM
 ORDER BY
 	t1.resolvedBy ASC
 ```
+### bug解决汇总表(BugResolvedGird)<div id="BugStats_BugResolvedGird"></div>
+```sql
+SELECT t1.resolvedBy,t1.resolution,t1.id,t1.title,t1.pri,t1.severity,t1.openedBy,t1.openedDate,t1.resolvedDate,t1.`status` from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
+```
 ### Bug指派表(BugassignedTo)<div id="BugStats_BugassignedTo"></div>
 ```sql
 SELECT

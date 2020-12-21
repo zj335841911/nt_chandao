@@ -662,7 +662,8 @@ POST
 | 75 | verifiedstagestorycnt | Integer | 允许 | 已验收阶段需求数 |
 | 76 | releasedstagestorycnt | Integer | 允许 | 已发布阶段需求数 |
 | 77 | closedstagestorycnt | Integer | 允许 | 已关闭阶段需求数 |
-| 78 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 78 | progress | Double | 允许 | 进度 |
+| 79 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

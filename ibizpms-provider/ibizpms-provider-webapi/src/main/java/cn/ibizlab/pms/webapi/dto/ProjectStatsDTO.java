@@ -654,6 +654,14 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("closedstagestorycnt")
     private Integer closedstagestorycnt;
 
+    /**
+     * 属性 [PROGRESS]
+     *
+     */
+    @JSONField(name = "progress")
+    @JsonProperty("progress")
+    private Double progress;
+
 
     /**
      * 设置 [NAME]

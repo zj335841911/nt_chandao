@@ -179,6 +179,28 @@ public class BugStatsResource {
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugResolvedGird-all')")
+	@ApiOperation(value = "获取bug解决汇总表", tags = {"Bug统计" } ,notes = "获取bug解决汇总表")
+    @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchbugresolvedgird")
+	public ResponseEntity<List<BugStatsDTO>> fetchBugResolvedGird(BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugResolvedGird(context) ;
+        List<BugStatsDTO> list = bugstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugResolvedGird-all')")
+	@ApiOperation(value = "查询bug解决汇总表", tags = {"Bug统计" } ,notes = "查询bug解决汇总表")
+    @RequestMapping(method= RequestMethod.POST , value="/bugstats/searchbugresolvedgird")
+	public ResponseEntity<Page<BugStatsDTO>> searchBugResolvedGird(@RequestBody BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugResolvedGird(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugassignedTo-all')")
 	@ApiOperation(value = "获取Bug指派表", tags = {"Bug统计" } ,notes = "获取Bug指派表")
     @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchbugassignedto")

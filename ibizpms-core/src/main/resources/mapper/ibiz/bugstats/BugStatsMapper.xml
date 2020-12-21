@@ -54,6 +54,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[BugResolvedGird]-->
+	 <select id="searchBugResolvedGird"  parameterType="cn.ibizlab.pms.core.ibiz.filter.BugStatsSearchContext"  resultMap="BugStatsResultMap">
+         select t1.* from (
+                <include refid="BugResolvedGird" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[BugassignedTo]-->
 	 <select id="searchBugassignedTo"  parameterType="cn.ibizlab.pms.core.ibiz.filter.BugStatsSearchContext"  resultMap="BugStatsResultMap">
          select t1.* from (
@@ -116,6 +125,11 @@
     <!--数据查询[BugResolvedBy]-->
     <sql id="BugResolvedBy" databaseId="mysql">
 		<![CDATA[ SELECT 	t1.resolvedBy, 	t1.product, 	t1.productname, 	t1.bugcnt, 	t11.bugcnt AS bugtotal  FROM 	( 	SELECT 		t1.resolvedBy, 		t1.product, 		t11.`name` AS productname, 		COUNT( t1.id ) AS bugcnt  	FROM 		`zt_bug` t1 		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID  	WHERE 		t1.deleted = '0'  		AND t1.resolvedBy <> ''  		AND t1.product <> 0  		AND t11.deleted = '0'  	GROUP BY 		t1.resolvedBy, 		t1.product, 		t11.`name`  	) t1 	INNER JOIN ( 	SELECT 		t1.resolvedBy, 		COUNT( t1.id ) AS bugcnt  	FROM 		`zt_bug` t1 		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID  	WHERE 		t1.deleted = '0'  		AND t1.resolvedBy <> ''  		AND t1.product <> 0  		AND t11.deleted = '0'  	GROUP BY 		t1.resolvedBy  	) t11 ON t1.resolvedBy = t11.resolvedBy  ORDER BY 	t1.resolvedBy ASC
+			]]>
+    </sql>
+    <!--数据查询[BugResolvedGird]-->
+    <sql id="BugResolvedGird" databaseId="mysql">
+		<![CDATA[ SELECT t1.resolvedBy,t1.resolution,t1.id,t1.title,t1.pri,t1.severity,t1.openedBy,t1.openedDate,t1.resolvedDate,t1.`status` from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
 			]]>
     </sql>
     <!--数据查询[BugassignedTo]-->

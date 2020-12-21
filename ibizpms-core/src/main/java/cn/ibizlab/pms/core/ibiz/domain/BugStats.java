@@ -219,6 +219,71 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(name = "projectname1")
     @JsonProperty("projectname1")
     private String projectname1;
+    /**
+     * Bug解决方案
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugresolution")
+    @JsonProperty("bugresolution")
+    private String bugresolution;
+    /**
+     * Bug状态
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugstatus")
+    @JsonProperty("bugstatus")
+    private String bugstatus;
+    /**
+     * Bug编号
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugid")
+    @JsonProperty("bugid")
+    private Integer bugid;
+    /**
+     * Bug标题
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugtitle")
+    @JsonProperty("bugtitle")
+    private String bugtitle;
+    /**
+     * Bug优先级
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugpri")
+    @JsonProperty("bugpri")
+    private Integer bugpri;
+    /**
+     * Bug严重程度
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugseverity")
+    @JsonProperty("bugseverity")
+    private Integer bugseverity;
+    /**
+     * bug创建人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugopenedby")
+    @JsonProperty("bugopenedby")
+    private String bugopenedby;
+    /**
+     * Bug创建日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "bugopeneddate", format = "yyyy-MM-dd")
+    @JsonProperty("bugopeneddate")
+    private Timestamp bugopeneddate;
+    /**
+     * bug解决日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "bugresolveddate", format = "yyyy-MM-dd")
+    @JsonProperty("bugresolveddate")
+    private Timestamp bugresolveddate;
 
     /**
      * 产品

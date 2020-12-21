@@ -621,4 +621,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     closedstagestorycnt?: any;
+
+    /**
+     * 进度
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    progress?: any;
 }

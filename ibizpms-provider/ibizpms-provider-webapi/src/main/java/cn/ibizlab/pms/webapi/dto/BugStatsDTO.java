@@ -240,6 +240,84 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String projectname1;
 
+    /**
+     * 属性 [BUGRESOLUTION]
+     *
+     */
+    @JSONField(name = "bugresolution")
+    @JsonProperty("bugresolution")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String bugresolution;
+
+    /**
+     * 属性 [BUGSTATUS]
+     *
+     */
+    @JSONField(name = "bugstatus")
+    @JsonProperty("bugstatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String bugstatus;
+
+    /**
+     * 属性 [BUGID]
+     *
+     */
+    @JSONField(name = "bugid")
+    @JsonProperty("bugid")
+    private Integer bugid;
+
+    /**
+     * 属性 [BUGTITLE]
+     *
+     */
+    @JSONField(name = "bugtitle")
+    @JsonProperty("bugtitle")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String bugtitle;
+
+    /**
+     * 属性 [BUGPRI]
+     *
+     */
+    @JSONField(name = "bugpri")
+    @JsonProperty("bugpri")
+    private Integer bugpri;
+
+    /**
+     * 属性 [BUGSEVERITY]
+     *
+     */
+    @JSONField(name = "bugseverity")
+    @JsonProperty("bugseverity")
+    private Integer bugseverity;
+
+    /**
+     * 属性 [BUGOPENEDBY]
+     *
+     */
+    @JSONField(name = "bugopenedby")
+    @JsonProperty("bugopenedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String bugopenedby;
+
+    /**
+     * 属性 [BUGOPENEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "bugopeneddate" , format="yyyy-MM-dd")
+    @JsonProperty("bugopeneddate")
+    private Timestamp bugopeneddate;
+
+    /**
+     * 属性 [BUGRESOLVEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "bugresolveddate" , format="yyyy-MM-dd")
+    @JsonProperty("bugresolveddate")
+    private Timestamp bugresolveddate;
+
 
     /**
      * 设置 [TITLE]

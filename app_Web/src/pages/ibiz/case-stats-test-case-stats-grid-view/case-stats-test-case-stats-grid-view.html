@@ -5,6 +5,24 @@
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
+    <template slot="searchForm">
+                <view_searchform 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :showBusyIndicator="true"
+            v-show="isExpandSearchForm"
+            loaddraftAction="FilterGetDraft"
+            loadAction="FilterGet"
+        
+            name="searchform"  
+            ref="searchform" 
+            @save="searchform_save($event)"  
+            @search="searchform_search($event)"  
+            @load="searchform_load($event)"  
+            @closeview="closeView($event)">
+        </view_searchform>
+    </template>
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

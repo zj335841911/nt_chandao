@@ -93,6 +93,7 @@
 | 75 | [已验收阶段需求数](#属性-已验收阶段需求数（VERIFIEDSTAGESTORYCNT）) | VERIFIEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 76 | [已发布阶段需求数](#属性-已发布阶段需求数（RELEASEDSTAGESTORYCNT）) | RELEASEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 77 | [已关闭阶段需求数](#属性-已关闭阶段需求数（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 78 | [进度](#属性-进度（PROGRESS）) | PROGRESS | 浮点 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -3014,6 +3015,43 @@ Integer
 ```SQL
 0
 ```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-进度（PROGRESS）
+#### 属性说明
+进度
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
 
 - 数据格式
 无

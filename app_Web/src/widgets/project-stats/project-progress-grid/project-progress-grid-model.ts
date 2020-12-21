@@ -62,6 +62,11 @@ export default class ProjectProgressModel {
           dataType: 'FLOAT',
         },
         {
+          name: 'progress',
+          prop: 'progress',
+          dataType: 'FLOAT',
+        },
+        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',

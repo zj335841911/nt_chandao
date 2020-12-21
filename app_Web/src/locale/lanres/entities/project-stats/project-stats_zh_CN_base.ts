@@ -80,6 +80,7 @@ function getLocaleResourceBase(){
 			verifiedstagestorycnt: commonLogic.appcommonhandle("已验收阶段需求数",null),
 			releasedstagestorycnt: commonLogic.appcommonhandle("已发布阶段需求数",null),
 			closedstagestorycnt: commonLogic.appcommonhandle("已关闭阶段需求数",null),
+			progress: commonLogic.appcommonhandle("进度",null),
 		},
 			views: {
 				allgridview: {
@@ -314,6 +315,7 @@ function getLocaleResourceBase(){
 					undonetaskcnt: commonLogic.appcommonhandle("剩余任务数",null),
 					totalleft: commonLogic.appcommonhandle("剩余工时",null),
 					totalconsumed: commonLogic.appcommonhandle("已消耗工时",null),
+					progress: commonLogic.appcommonhandle("进度",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
@@ -387,6 +389,12 @@ function getLocaleResourceBase(){
 				tbitem7: {
 					caption: commonLogic.appcommonhandle("删除",null),
 					tip: commonLogic.appcommonhandle("删除",null),
+				},
+			},
+			projectqualityusr2gridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
 				},
 			},
 			projectbugtypesumusr2gridviewtoolbar_toolbar: {

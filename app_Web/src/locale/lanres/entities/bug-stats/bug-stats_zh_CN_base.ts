@@ -28,6 +28,15 @@ function getLocaleResourceBase(){
 			bugresolved: commonLogic.appcommonhandle("已解决Bug",null),
 			bugclosed: commonLogic.appcommonhandle("已关闭Bug",null),
 			projectname1: commonLogic.appcommonhandle("项目名称",null),
+			bugresolution: commonLogic.appcommonhandle("Bug解决方案",null),
+			bugstatus: commonLogic.appcommonhandle("Bug状态",null),
+			bugid: commonLogic.appcommonhandle("Bug编号",null),
+			bugtitle: commonLogic.appcommonhandle("Bug标题",null),
+			bugpri: commonLogic.appcommonhandle("Bug优先级",null),
+			bugseverity: commonLogic.appcommonhandle("Bug严重程度",null),
+			bugopenedby: commonLogic.appcommonhandle("bug创建人",null),
+			bugopeneddate: commonLogic.appcommonhandle("Bug创建日期",null),
+			bugresolveddate: commonLogic.appcommonhandle("bug解决日期",null),
 		},
 			views: {
 				editview: {

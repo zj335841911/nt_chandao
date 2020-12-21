@@ -205,4 +205,76 @@ export interface BugStats {
      * @memberof BugStats
      */
     projectname1?: any;
+
+    /**
+     * Bug解决方案
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugresolution?: any;
+
+    /**
+     * Bug状态
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugstatus?: any;
+
+    /**
+     * Bug编号
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugid?: any;
+
+    /**
+     * Bug标题
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugtitle?: any;
+
+    /**
+     * Bug优先级
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugpri?: any;
+
+    /**
+     * Bug严重程度
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugseverity?: any;
+
+    /**
+     * bug创建人
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugopenedby?: any;
+
+    /**
+     * Bug创建日期
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugopeneddate?: any;
+
+    /**
+     * bug解决日期
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugresolveddate?: any;
 }

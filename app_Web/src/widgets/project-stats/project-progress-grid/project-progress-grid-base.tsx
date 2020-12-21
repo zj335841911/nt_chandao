@@ -172,6 +172,15 @@ export class ProjectProgressGridBase extends GridControlBase {
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
+        {
+            name: 'progress',
+            label: '进度',
+            langtag: 'entities.projectstats.projectprogress_grid.columns.progress',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
     ]
 
     /**
@@ -280,6 +289,7 @@ export class ProjectProgressGridBase extends GridControlBase {
         'undonetaskcnt':false,
         'totalleft':false,
         'totalconsumed':false,
+        'progress':false,
     };
 
     /**
@@ -367,7 +377,7 @@ export class ProjectProgressGridBase extends GridControlBase {
     * @memberof ProjectProgressBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','storycnt','leftstorycnt','taskcnt','undonetaskcnt','totalleft','totalconsumed'];
+        let allColumns:Array<any> = ['name','storycnt','leftstorycnt','taskcnt','undonetaskcnt','totalleft','totalconsumed','progress'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -453,6 +463,7 @@ export class ProjectProgressGridBase extends GridControlBase {
                 undonetaskcnt:'',
                 totalleft:'',
                 totalconsumed:'',
+                progress:'',
                 children: children
             }
             groupTree.push(tree);
@@ -484,6 +495,7 @@ export class ProjectProgressGridBase extends GridControlBase {
             undonetaskcnt:'',
             totalleft:'',
             totalconsumed:'',
+            progress:'',
             children: child
         }
         if(child && child.length > 0){
@@ -551,6 +563,7 @@ export class ProjectProgressGridBase extends GridControlBase {
                 undonetaskcnt:'',
                 totalleft:'',
                 totalconsumed:'',
+                progress:'',
                 children: children,
             }
             groupTree.push(tree);

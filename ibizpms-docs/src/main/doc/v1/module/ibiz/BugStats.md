@@ -44,6 +44,15 @@ Bug统计
 | 23 | [已解决Bug](#属性-已解决Bug（BUGRESOLVED）) | BUGRESOLVED | 整型 | 否 | 是 | 是 |
 | 24 | [已关闭Bug](#属性-已关闭Bug（BUGCLOSED）) | BUGCLOSED | 整型 | 否 | 是 | 是 |
 | 25 | [项目名称](#属性-项目名称（PROJECTNAME1）) | PROJECTNAME1 | 文本，可指定长度 | 否 | 是 | 是 |
+| 26 | [Bug解决方案](#属性-Bug解决方案（BUGRESOLUTION）) | BUGRESOLUTION | 文本，可指定长度 | 否 | 是 | 是 |
+| 27 | [Bug状态](#属性-Bug状态（BUGSTATUS）) | BUGSTATUS | 文本，可指定长度 | 否 | 是 | 是 |
+| 28 | [Bug编号](#属性-Bug编号（BUGID）) | BUGID | 整型 | 否 | 是 | 是 |
+| 29 | [Bug标题](#属性-Bug标题（BUGTITLE）) | BUGTITLE | 文本，可指定长度 | 否 | 是 | 是 |
+| 30 | [Bug优先级](#属性-Bug优先级（BUGPRI）) | BUGPRI | 整型 | 否 | 是 | 是 |
+| 31 | [Bug严重程度](#属性-Bug严重程度（BUGSEVERITY）) | BUGSEVERITY | 整型 | 否 | 是 | 是 |
+| 32 | [bug创建人](#属性-bug创建人（BUGOPENEDBY）) | BUGOPENEDBY | 文本，可指定长度 | 否 | 是 | 是 |
+| 33 | [Bug创建日期](#属性-Bug创建日期（BUGOPENEDDATE）) | BUGOPENEDDATE | 日期型 | 否 | 是 | 是 |
+| 34 | [bug解决日期](#属性-bug解决日期（BUGRESOLVEDDATE）) | BUGRESOLVEDDATE | 日期型 | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -1108,6 +1117,375 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-Bug解决方案（BUGRESOLUTION）
+#### 属性说明
+Bug解决方案
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-Bug状态（BUGSTATUS）
+#### 属性说明
+Bug状态
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-Bug编号（BUGID）
+#### 属性说明
+Bug编号
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-Bug标题（BUGTITLE）
+#### 属性说明
+Bug标题
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-Bug优先级（BUGPRI）
+#### 属性说明
+Bug优先级
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-Bug严重程度（BUGSEVERITY）
+#### 属性说明
+Bug严重程度
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-bug创建人（BUGOPENEDBY）
+#### 属性说明
+bug创建人
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-Bug创建日期（BUGOPENEDDATE）
+#### 属性说明
+Bug创建日期
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-bug解决日期（BUGRESOLVEDDATE）
+#### 属性说明
+bug解决日期
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1233,13 +1611,14 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [Bug在每个解决方案的Bug数](#数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）) | BugCountInResolution | 否 |
 | 2 | [Bug完成表](#数据查询-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
-| 3 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 4 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
-| 5 | [产品Bug解决方案汇总](#数据查询-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
-| 6 | [产品Bug状态汇总](#数据查询-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
-| 7 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
-| 8 | [项目bug状态统计](#数据查询-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [bug解决汇总表](#数据查询-bug解决汇总表（BugResolvedGird）) | BugResolvedGird | 否 |
+| 4 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 5 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
+| 6 | [产品Bug解决方案汇总](#数据查询-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
+| 7 | [产品Bug状态汇总](#数据查询-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
+| 8 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 9 | [项目bug状态统计](#数据查询-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
+| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）
 #### 说明
@@ -1339,6 +1718,21 @@ FROM
 	) t11 ON t1.resolvedBy = t11.resolvedBy 
 ORDER BY
 	t1.resolvedBy ASC
+```
+### 数据查询-bug解决汇总表（BugResolvedGird）
+#### 说明
+bug解决汇总表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.resolvedBy,t1.resolution,t1.id,t1.title,t1.pri,t1.severity,t1.openedBy,t1.openedDate,t1.resolvedDate,t1.`status` from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
 ```
 ### 数据查询-Bug指派表（BugassignedTo）
 #### 说明
@@ -1666,12 +2060,13 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 | ---- | ---- | ---- | ---- |
 | 1 | [Bug在每个解决方案的Bug数](#数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）) | BugCountInResolution | 否 |
 | 2 | [Bug完成表](#数据集合-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
-| 3 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 4 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 5 | [产品Bug解决方案汇总](#数据集合-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
-| 6 | [产品Bug状态汇总](#数据集合-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
-| 7 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
-| 8 | [项目bug状态统计](#数据集合-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
+| 3 | [bug解决汇总表](#数据集合-bug解决汇总表（BugResolvedGird）) | BugResolvedGird | 否 |
+| 4 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 5 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 6 | [产品Bug解决方案汇总](#数据集合-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
+| 7 | [产品Bug状态汇总](#数据集合-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
+| 8 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 9 | [项目bug状态统计](#数据集合-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
 
 ### 数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）
 #### 说明
@@ -1701,6 +2096,20 @@ Bug完成表
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [Bug完成表（BugResolvedBy）](#数据查询-Bug完成表（BugResolvedBy）) |
+### 数据集合-bug解决汇总表（BugResolvedGird）
+#### 说明
+bug解决汇总表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [bug解决汇总表（BugResolvedGird）](#数据查询-bug解决汇总表（BugResolvedGird）) |
 ### 数据集合-Bug指派表（BugassignedTo）
 #### 说明
 Bug指派表

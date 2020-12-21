@@ -86,6 +86,7 @@
 |已验收阶段需求数|VERIFIEDSTAGESTORYCNT|INT|&nbsp;|
 |已发布阶段需求数|RELEASEDSTAGESTORYCNT|INT|&nbsp;|
 |已关闭阶段需求数|CLOSEDSTAGESTORYCNT|INT|&nbsp;|
+|进度|PROGRESS|FLOAT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -167,6 +168,7 @@
 |已验收阶段需求数|默认规则|默认规则|
 |已发布阶段需求数|默认规则|默认规则|
 |已关闭阶段需求数|默认规则|默认规则|
+|进度|默认规则|默认规则|
 
 ## 状态控制
 
