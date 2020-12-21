@@ -28,7 +28,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectquality_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectquality_grid.columns.name')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.name')}}
@@ -66,7 +66,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('completestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'completestorycnt'" :label="$t('entities.projectstats.projectquality_grid.columns.completestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'completestorycnt'" :label="$t('entities.projectstats.projectquality_grid.columns.completestorycnt')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.completestorycnt')}}
@@ -90,7 +90,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('completetaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'completetaskcnt'" :label="$t('entities.projectstats.projectquality_grid.columns.completetaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'completetaskcnt'" :label="$t('entities.projectstats.projectquality_grid.columns.completetaskcnt')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.completetaskcnt')}}
@@ -114,7 +114,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('finishbugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'finishbugcnt'" :label="$t('entities.projectstats.projectquality_grid.columns.finishbugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'finishbugcnt'" :label="$t('entities.projectstats.projectquality_grid.columns.finishbugcnt')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.finishbugcnt')}}
@@ -126,7 +126,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugstory')">
-                <el-table-column show-overflow-tooltip :prop="'bugstory'" :label="$t('entities.projectstats.projectquality_grid.columns.bugstory')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugstory'" :label="$t('entities.projectstats.projectquality_grid.columns.bugstory')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.bugstory')}}
@@ -138,7 +138,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugtask')">
-                <el-table-column show-overflow-tooltip :prop="'bugtask'" :label="$t('entities.projectstats.projectquality_grid.columns.bugtask')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugtask'" :label="$t('entities.projectstats.projectquality_grid.columns.bugtask')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.bugtask')}}
@@ -150,7 +150,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('importantbugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'importantbugcnt'" :label="$t('entities.projectstats.projectquality_grid.columns.importantbugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'importantbugcnt'" :label="$t('entities.projectstats.projectquality_grid.columns.importantbugcnt')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.importantbugcnt')}}
@@ -162,7 +162,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('seriousbugproportion')">
-                <el-table-column show-overflow-tooltip :prop="'seriousbugproportion'" :label="$t('entities.projectstats.projectquality_grid.columns.seriousbugproportion')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'seriousbugproportion'" :label="$t('entities.projectstats.projectquality_grid.columns.seriousbugproportion')" :min-width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectquality_grid.columns.seriousbugproportion')}}
