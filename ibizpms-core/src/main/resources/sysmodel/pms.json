@@ -31081,6 +31081,48 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ACTIVESTORY" ,
+    "codename":"Activestory",
+    "field_logic_name":"激活需求",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CLOSEDSTORY" ,
+    "codename":"Closedstory",
+    "field_logic_name":"已关闭需求",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CHANGEDSTORY" ,
+    "codename":"Changedstory",
+    "field_logic_name":"已变更需求",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -38605,7 +38647,7 @@
     {
     "fieldname":"TASKESTIMATE" ,
     "codename":"Taskestimate",
-    "field_logic_name":"任务总消耗",
+    "field_logic_name":"任务预计消耗",
     "entity_name":"TaskStats",
     "field_type":"INT",
     "nullable":1,

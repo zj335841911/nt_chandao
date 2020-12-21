@@ -1,0 +1,213 @@
+<div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
+    <i-form>
+        <el-table v-if="isDisplay === true"
+            :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
+            @sort-change="onSortChange($event)"  
+            :border="isDragendCol"
+            :highlight-current-row ="isSingleSelect"
+            :row-class-name="getRowClassName.bind(_self)"
+            :cell-class-name="getCellClassName.bind(_self)"
+            size="mini"
+            stripe
+            :height="tableHeight"
+            @row-click="rowClick($event)"  
+            @select-all="selectAll($event)"  
+            @select="select.apply(_self, arguments)"  
+            @row-class-name="onRowClassName($event)"  
+            @row-dblclick="rowDBLClick($event)"  
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
+        >
+            <template slot="empty">
+                {{$t('entities.taskstats.taskfinishgird_grid.nodata')}} 
+                <span class="quick-toolbar">
+                </span>
+            </template>
+            <template v-if="!isSingleSelect">
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
+            </template>
+            <template v-if="getColumnState('finishedby')">
+                <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.finishedby')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.finishedby')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.finishedby}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('projectname')">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.projectname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.projectname')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.projectname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskid')">
+                <el-table-column show-overflow-tooltip :prop="'taskid'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskid')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskid')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskname')">
+                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskname')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskpri')">
+                <el-table-column show-overflow-tooltip :prop="'taskpri'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskpri')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskpri')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskpri}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskeststarted')">
+                <el-table-column show-overflow-tooltip :prop="'taskeststarted'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskeststarted')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskeststarted')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.taskeststarted"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskrealstart')">
+                <el-table-column show-overflow-tooltip :prop="'taskrealstart'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskrealstart')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskrealstart')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.taskrealstart"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskdeadline')">
+                <el-table-column show-overflow-tooltip :prop="'taskdeadline'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskdeadline')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskdeadline')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.taskdeadline"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskfinisheddate')">
+                <el-table-column show-overflow-tooltip :prop="'taskfinisheddate'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskfinisheddate')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskfinisheddate')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.taskfinisheddate"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskdelay')">
+                <el-table-column show-overflow-tooltip :prop="'taskdelay'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskdelay')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskdelay')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskdelay}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskestimate')">
+                <el-table-column show-overflow-tooltip :prop="'taskestimate'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskestimate')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskestimate')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskestimate}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('totalconsumed')">
+                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.totalconsumed')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.totalconsumed')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.totalconsumed}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.taskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.taskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('projectconsumed')">
+                <el-table-column show-overflow-tooltip :prop="'projectconsumed'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.projectconsumed')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.projectconsumed')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.projectconsumed}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('userconsumed')">
+                <el-table-column show-overflow-tooltip :prop="'userconsumed'" :label="$t('entities.taskstats.taskfinishgird_grid.columns.userconsumed')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.taskfinishgird_grid.columns.userconsumed')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.userconsumed}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="adaptiveState">
+                <el-table-column></el-table-column>
+            </template>
+        </el-table>
+    </i-form>
+</div>

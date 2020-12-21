@@ -129,7 +129,7 @@ public class TaskStats extends EntityMP implements Serializable {
     @JsonProperty("taskpri")
     private Integer taskpri;
     /**
-     * 任务总消耗
+     * 任务预计消耗
      */
     @TableField(exist = false)
     @JSONField(name = "taskestimate")

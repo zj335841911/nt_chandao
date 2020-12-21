@@ -28,7 +28,7 @@
 | 10 | [任务编号](#属性-任务编号（TASKID）) | TASKID | 整型 | 否 | 否 | 是 |
 | 11 | [任务名称](#属性-任务名称（TASKNAME）) | TASKNAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 12 | [任务优先级](#属性-任务优先级（TASKPRI）) | TASKPRI | 整型 | 否 | 否 | 是 |
-| 13 | [任务总消耗](#属性-任务总消耗（TASKESTIMATE）) | TASKESTIMATE | 整型 | 否 | 否 | 是 |
+| 13 | [任务预计消耗](#属性-任务预计消耗（TASKESTIMATE）) | TASKESTIMATE | 整型 | 否 | 否 | 是 |
 | 14 | [任务实际开始时间](#属性-任务实际开始时间（TASKREALSTART）) | TASKREALSTART | 日期型 | 否 | 否 | 是 |
 | 15 | [任务截至日期](#属性-任务截至日期（TASKDEADLINE）) | TASKDEADLINE | 日期型 | 否 | 否 | 是 |
 | 16 | [任务实际完成日期](#属性-任务实际完成日期（TASKFINISHEDDATE）) | TASKFINISHEDDATE | 日期型 | 否 | 否 | 是 |
@@ -496,9 +496,9 @@ Integer
 #### 关系属性
 无
 
-### 属性-任务总消耗（TASKESTIMATE）
+### 属性-任务预计消耗（TASKESTIMATE）
 #### 属性说明
-任务总消耗
+任务预计消耗
 
 - 是否是主键
 否
@@ -989,7 +989,8 @@ FROM `zt_task` t1
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.finishedBy,t1.project,t1.projectname,t1.id,t1.taskname,t1.pri,t1.estStarted,t1.realStarted,t1.deadline,t1.finishedDate,null as delay,t1.estimate,t1.consumed as taskconsumed, t2.taskcnt,t2.projectconsumed,t3.userconsumed from (
+SELECT t4.account as finishedby,t1.project,t1.projectname,t1.id,t1.taskname,t1.pri,t1.estStarted as taskeststarted,t1.realStarted as taskrealstart,t1.deadline as taskdeadline,t1.finishedDate as taskfinisheddate,null as delay,t1.estimate as taskestimate,t1.consumed as totalconsumed, t2.taskcnt,t2.projectconsumed,t3.userconsumed 
+from (
 select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.pri,t1.estStarted,t1.realStarted,t1.deadline,t1.finishedDate,null as delay,t1.estimate,t1.consumed
 from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')#子任务
 
@@ -1026,7 +1027,8 @@ where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishe
 
 ) t3 on t1.finishedBy = t3.finishedBy
 
-ORDER BY t1.finishedBy,t1.project
+RIGHT JOIN zt_user t4 on t1.finishedBy = t4.account
+ORDER BY t4.account,t1.project
 
 ```
 ### 数据查询-用户完成任务统计（UserFinishTaskSum）
@@ -1124,7 +1126,8 @@ FROM `zt_task` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 2 | [用户完成任务统计](#数据集合-用户完成任务统计（UserFinishTaskSum）) | UserFinishTaskSum | 否 |
+| 2 | [任务完成汇总表](#数据集合-任务完成汇总表（TaskFinishHuiZong）) | TaskFinishHuiZong | 否 |
+| 3 | [用户完成任务统计](#数据集合-用户完成任务统计（UserFinishTaskSum）) | UserFinishTaskSum | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1140,6 +1143,20 @@ FROM `zt_task` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-任务完成汇总表（TaskFinishHuiZong）
+#### 说明
+任务完成汇总表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [任务完成汇总表（TaskFinishHuiZong）](#数据查询-任务完成汇总表（TaskFinishHuiZong）) |
 ### 数据集合-用户完成任务统计（UserFinishTaskSum）
 #### 说明
 用户完成任务统计

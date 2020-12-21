@@ -66,6 +66,9 @@ function getLocaleResourceBase(){
 			leftstorycnt: commonLogic.appcommonhandle("剩余需求数",null),
 			emptystory: commonLogic.appcommonhandle("空需求",null),
 			draftstory: commonLogic.appcommonhandle("草稿需求",null),
+			activestory: commonLogic.appcommonhandle("激活需求",null),
+			closedstory: commonLogic.appcommonhandle("已关闭需求",null),
+			changedstory: commonLogic.appcommonhandle("已变更需求",null),
 		},
 			views: {
 				allgridview: {

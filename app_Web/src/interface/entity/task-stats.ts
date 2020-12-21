@@ -103,7 +103,7 @@ export interface TaskStats {
     taskpri?: any;
 
     /**
-     * 任务总消耗
+     * 任务预计消耗
      *
      * @returns {*}
      * @memberof TaskStats

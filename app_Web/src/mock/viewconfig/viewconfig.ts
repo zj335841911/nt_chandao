@@ -2503,6 +2503,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumStoryHoursSumGridView",
             "viewtag": "7ee436604d479bd0ba014e136c1b8f6f"
         },
+        "taskstatsuserfinishtaskgridview": {
+            "title": "任务统计表格视图",
+            "caption": "用户完成任务汇总",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "TaskStatsUserFinishTaskGridView",
+            "viewtag": "7ef19995ea97ed70642551457b6e9ac4"
+        },
         "docliblibtabexpview": {
             "title": "文档库分页导航视图（文档）",
             "caption": "文档库主页",

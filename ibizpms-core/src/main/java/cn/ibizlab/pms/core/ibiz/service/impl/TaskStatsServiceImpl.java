@@ -162,6 +162,15 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
     }
 
     /**
+     * 查询集合 任务完成汇总表
+     */
+    @Override
+    public Page<TaskStats> searchTaskFinishHuiZong(TaskStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskStats> pages=baseMapper.searchTaskFinishHuiZong(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<TaskStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 用户完成任务统计
      */
     @Override

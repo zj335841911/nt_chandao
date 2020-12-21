@@ -21,7 +21,7 @@
 |任务编号|TASKID|INT|&nbsp;|
 |任务名称|TASKNAME|TEXT|&nbsp;|
 |任务优先级|TASKPRI|INT|&nbsp;|
-|任务总消耗|TASKESTIMATE|INT|&nbsp;|
+|任务预计消耗|TASKESTIMATE|INT|&nbsp;|
 |任务实际开始时间|TASKREALSTART|DATE|&nbsp;|
 |任务截至日期|TASKDEADLINE|DATE|&nbsp;|
 |任务实际完成日期|TASKFINISHEDDATE|DATE|&nbsp;|
@@ -46,7 +46,7 @@
 |任务编号|默认规则|默认规则|
 |任务名称|默认规则|内容长度必须小于等于[100]|
 |任务优先级|默认规则|默认规则|
-|任务总消耗|默认规则|默认规则|
+|任务预计消耗|默认规则|默认规则|
 |任务实际开始时间|默认规则|默认规则|
 |任务截至日期|默认规则|默认规则|
 |任务实际完成日期|默认规则|默认规则|
@@ -91,6 +91,7 @@
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|TaskFinishHuiZong|任务完成汇总表|TaskFinishHuiZong|否|&nbsp;|
 |UserFinishTaskSum|用户完成任务统计|UserFinishTaskSum|否|&nbsp;|
 
 ## 查询模式

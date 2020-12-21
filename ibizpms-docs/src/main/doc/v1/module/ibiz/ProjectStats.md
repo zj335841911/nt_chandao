@@ -79,6 +79,9 @@
 | 61 | [剩余需求数](#属性-剩余需求数（LEFTSTORYCNT）) | LEFTSTORYCNT | 整型 | 否 | 否 | 是 |
 | 62 | [空需求](#属性-空需求（EMPTYSTORY）) | EMPTYSTORY | 整型 | 否 | 否 | 是 |
 | 63 | [草稿需求](#属性-草稿需求（DRAFTSTORY）) | DRAFTSTORY | 整型 | 否 | 否 | 是 |
+| 64 | [激活需求](#属性-激活需求（ACTIVESTORY）) | ACTIVESTORY | 整型 | 否 | 否 | 是 |
+| 65 | [已关闭需求](#属性-已关闭需求（CLOSEDSTORY）) | CLOSEDSTORY | 整型 | 否 | 否 | 是 |
+| 66 | [已变更需求](#属性-已变更需求（CHANGEDSTORY）) | CHANGEDSTORY | 整型 | 否 | 否 | 是 |
 
 ### 属性-项目编号（ID）
 #### 属性说明
@@ -2467,6 +2470,123 @@ Integer
 #### 关系属性
 无
 
+### 属性-激活需求（ACTIVESTORY）
+#### 属性说明
+激活需求
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已关闭需求（CLOSEDSTORY）
+#### 属性说明
+已关闭需求
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已变更需求（CHANGEDSTORY）
+#### 属性说明
+已变更需求
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -2591,10 +2711,12 @@ Save
 | 3 | [项目bug类型](#数据查询-项目bug类型（ProjectBugType）) | ProjectBugType | 否 |
 | 4 | [项目投入统计](#数据查询-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
 | 5 | [项目质量表查询](#数据查询-项目质量表查询（ProjectQuality）) | ProjectQuality | 否 |
-| 6 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 7 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 8 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [项目需求阶段统计](#数据查询-项目需求阶段统计（ProjectStoryStageStats）) | ProjectStoryStageStats | 否 |
+| 7 | [项目需求状态统计](#数据查询-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
+| 8 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 9 | [项目任务类型统计](#数据查询-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 10 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -3174,6 +3296,50 @@ GROUP BY
 	) t3 ON t1.id = t3.project
 	)t1 Left join (SELECT t1.project, count(1) as IMPORTANTBUGCNT from zt_bug t1 where t1.severity <=3 and t1.deleted='0' and t1.project <> '0' GROUP BY t1.project)t4 on t1.id=t4.project
 ```
+### 数据查询-项目需求阶段统计（ProjectStoryStageStats）
+#### 说明
+项目需求阶段统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
+```
+### 数据查询-项目需求状态统计（ProjectStoryStatusStats）
+#### 说明
+项目需求状态统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select 
+t1.id, 
+t1.`name`, 
+sum(case when t3.`status` = '' then 1 else 0 end) as `EmptyStory`, 
+sum(case when t3.`status` = 'draft' then 1 else 0 end) as `DraftStory`, 
+sum(case when t3.`status` = 'active' then 1 else 0 end) as `ActiveStory`, 
+sum(case when t3.`status` = 'closed' then 1 else 0 end) as `ClosedStory`, 
+sum(case when t3.`status` = 'changed' then 1 else 0 end) as `ChangedStory`, 
+sum(case when t3.`status` is not null then 1 else 0 end) as `StoryCNT` 
+from 
+zt_project t1 
+left join zt_projectstory t2 on t1.id = t2.project 
+left join zt_story t3 on t2.story = t3.id and t3.deleted = '0' 
+where t1.deleted = '0' 
+group by t1.id
+```
 ### 数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
 #### 说明
 项目任务统计(任务状态)
@@ -3270,7 +3436,10 @@ FROM `zt_project` t2 WHERE t2.`ID` = ${srfdatacontext('srfparentkey','{"defname"
 ```SQL
 SELECT
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0') AS `ACTIVEBUGCNT`,
+0 AS `ACTIVESTORY`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+0 AS `CHANGEDSTORY`,
+0 AS `CLOSEDSTORY`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
 0 AS `DRAFTSTORY`,
@@ -3310,9 +3479,10 @@ FROM `zt_project` t1
 | 3 | [项目bug类型统计](#数据集合-项目bug类型统计（ProjectBugType）) | ProjectBugType | 否 |
 | 4 | [项目投入统计](#数据集合-项目投入统计（ProjectInputStats）) | ProjectInputStats | 否 |
 | 5 | [项目质量](#数据集合-项目质量（ProjectQuality）) | ProjectQuality | 否 |
-| 6 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
-| 7 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
-| 8 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 6 | [项目需求状态统计](#数据集合-项目需求状态统计（ProjectStoryStatusStats）) | ProjectStoryStatusStats | 否 |
+| 7 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 8 | [项目任务类型统计](#数据集合-项目任务类型统计（ProjectTaskCountByType）) | ProjectTaskCountByType | 否 |
+| 9 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -3384,6 +3554,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目质量表查询（ProjectQuality）](#数据查询-项目质量表查询（ProjectQuality）) |
+### 数据集合-项目需求状态统计（ProjectStoryStatusStats）
+#### 说明
+项目需求状态统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目需求状态统计（ProjectStoryStatusStats）](#数据查询-项目需求状态统计（ProjectStoryStatusStats）) |
 ### 数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
 #### 说明
 项目任务统计(任务状态)

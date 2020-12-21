@@ -14242,6 +14242,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
                 },
                 {
+                    path: 'taskstats/:taskstats?/userfinishtaskgridview/:userfinishtaskgridview?',
+                    meta: {
+                        caption: 'entities.taskstats.views.userfinishtaskgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'taskstats', parameterName: 'taskstats' },
+                            { pathName: 'userfinishtaskgridview', parameterName: 'userfinishtaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stats-user-finish-task-grid-view/task-stats-user-finish-task-grid-view.vue'),
+                },
+                {
                     path: 'ibzreportlies/:ibzreportly?/myreceivedreportlydetaileditview/:myreceivedreportlydetaileditview?',
                     meta: {
                         caption: 'entities.ibzreportly.views.myreceivedreportlydetaileditview.caption',

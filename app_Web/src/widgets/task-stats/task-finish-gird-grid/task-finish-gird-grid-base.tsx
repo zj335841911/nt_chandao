@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
-import ProjectStatsService from '@/service/project-stats/project-stats-service';
-import ProjectProgressService from './project-progress-grid-service';
-import ProjectStatsUIService from '@/uiservice/project-stats/project-stats-ui-service';
+import TaskStatsService from '@/service/task-stats/task-stats-service';
+import TaskFinishGirdService from './task-finish-gird-grid-service';
+import TaskStatsUIService from '@/uiservice/task-stats/task-stats-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 /**
@@ -12,66 +12,66 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {ProjectProgressGridBase}
+ * @extends {TaskFinishGirdGridBase}
  */
-export class ProjectProgressGridBase extends GridControlBase {
+export class TaskFinishGirdGridBase extends GridControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProjectProgressService}
-     * @memberof ProjectProgressGridBase
+     * @type {TaskFinishGirdService}
+     * @memberof TaskFinishGirdGridBase
      */
-    public service: ProjectProgressService = new ProjectProgressService({ $store: this.$store });
+    public service: TaskFinishGirdService = new TaskFinishGirdService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ProjectStatsService}
-     * @memberof ProjectProgressGridBase
+     * @type {TaskStatsService}
+     * @memberof TaskFinishGirdGridBase
      */
-    public appEntityService: ProjectStatsService = new ProjectStatsService({ $store: this.$store });
+    public appEntityService: TaskStatsService = new TaskStatsService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
-    protected appDeName: string = 'projectstats';
+    protected appDeName: string = 'taskstats';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
-    protected appDeLogicName: string = '项目统计';
+    protected appDeLogicName: string = '任务统计';
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProjectStatsUIService}
-     * @memberof ProjectProgressBase
+     * @type {TaskStatsUIService}
+     * @memberof TaskFinishGirdBase
      */  
-    public appUIService: ProjectStatsUIService = new ProjectStatsUIService(this.$store);
+    public appUIService: TaskStatsUIService = new TaskStatsUIService(this.$store);
 
 
     /**
      * 界面行为模型
      *
      * @type {*}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */  
     public ActionModel: any = {
     };
@@ -80,9 +80,9 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 主信息表格列
      *
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */  
-    public majorInfoColName:string = "name";
+    public majorInfoColName:string = "";
 
 
     /**
@@ -90,74 +90,127 @@ export class ProjectProgressGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
-    protected localStorageTag: string = 'ibz_projectstats_projectprogress_grid';
+    protected localStorageTag: string = 'ibz_taskstats_taskfinishgird_grid';
 
     /**
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
     public isEnablePagingBar: boolean = false;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof TaskFinishGirdGridBase
+     */
+    public limit: number = 500;
 
     /**
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
     public allColumns: any[] = [
         {
-            name: 'name',
-            label: '项目名称',
-            langtag: 'entities.projectstats.projectprogress_grid.columns.name',
-            show: true,
-            unit: 'STAR',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'storycnt',
-            label: '需求数',
-            langtag: 'entities.projectstats.projectprogress_grid.columns.storycnt',
+            name: 'finishedby',
+            label: '完成者',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.finishedby',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'leftstorycnt',
-            label: '剩余需求数',
-            langtag: 'entities.projectstats.projectprogress_grid.columns.leftstorycnt',
+            name: 'projectname',
+            label: '所属项目',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.projectname',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'taskcnt',
-            label: '任务数',
-            langtag: 'entities.projectstats.projectprogress_grid.columns.taskcnt',
+            name: 'taskid',
+            label: '编号',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskid',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'undonetaskcnt',
-            label: '剩余任务数',
-            langtag: 'entities.projectstats.projectprogress_grid.columns.undonetaskcnt',
+            name: 'taskname',
+            label: '任务名称',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskname',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'totalleft',
-            label: '剩余工时',
-            langtag: 'entities.projectstats.projectprogress_grid.columns.totalleft',
+            name: 'taskpri',
+            label: '优先级',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskpri',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskeststarted',
+            label: '预计开始',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskeststarted',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskrealstart',
+            label: '实际开始',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskrealstart',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskdeadline',
+            label: '截至日期',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskdeadline',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskfinisheddate',
+            label: '实际完成',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskfinisheddate',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskdelay',
+            label: '延期',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskdelay',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskestimate',
+            label: '最初预计',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskestimate',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -165,8 +218,35 @@ export class ProjectProgressGridBase extends GridControlBase {
         },
         {
             name: 'totalconsumed',
-            label: '已消耗工时',
-            langtag: 'entities.projectstats.projectprogress_grid.columns.totalconsumed',
+            label: '任务总消耗',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.totalconsumed',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskcnt',
+            label: '总任务数',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.taskcnt',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'projectconsumed',
+            label: '项目总消耗',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.projectconsumed',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'userconsumed',
+            label: '用户总消耗',
+            langtag: 'entities.taskstats.taskfinishgird_grid.columns.userconsumed',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -178,7 +258,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
     public getGridRowModel(){
         return {
@@ -190,7 +270,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public isEnableGroup:boolean = false;
 
@@ -198,7 +278,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public groupAppField:string ="";
 
@@ -206,7 +286,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -214,7 +294,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -222,7 +302,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public groupMode:string ="NONE";
 
@@ -230,7 +310,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public codelistTag: string = "";
 
@@ -238,7 +318,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public codelistType: string = "";
 
@@ -246,13 +326,13 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
     public rules() {
         return {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '项目编号 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '项目编号 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
     }
@@ -261,7 +341,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public deRules:any = {
     };
@@ -270,16 +350,24 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public hasRowEdit: any = {
-        'name':false,
-        'storycnt':false,
-        'leftstorycnt':false,
-        'taskcnt':false,
-        'undonetaskcnt':false,
-        'totalleft':false,
+        'finishedby':false,
+        'projectname':false,
+        'taskid':false,
+        'taskname':false,
+        'taskpri':false,
+        'taskeststarted':false,
+        'taskrealstart':false,
+        'taskdeadline':false,
+        'taskfinisheddate':false,
+        'taskdelay':false,
+        'taskestimate':false,
         'totalconsumed':false,
+        'taskcnt':false,
+        'projectconsumed':false,
+        'userconsumed':false,
     };
 
     /**
@@ -287,7 +375,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -345,7 +433,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof ProjectProgressGridBase
+     * @memberof TaskFinishGirdGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -356,7 +444,7 @@ export class ProjectProgressGridBase extends GridControlBase {
     /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public updateDefault(row: any){                    
     }
@@ -364,10 +452,10 @@ export class ProjectProgressGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof ProjectProgressBase
+    * @memberof TaskFinishGirdBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','storycnt','leftstorycnt','taskcnt','undonetaskcnt','totalleft','totalconsumed'];
+        let allColumns:Array<any> = ['finishedby','projectname','taskid','taskname','taskpri','taskeststarted','taskrealstart','taskdeadline','taskfinisheddate','taskdelay','taskestimate','totalconsumed','taskcnt','projectconsumed','userconsumed'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -380,7 +468,7 @@ export class ProjectProgressGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -395,7 +483,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -412,7 +500,7 @@ export class ProjectProgressGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -446,13 +534,21 @@ export class ProjectProgressGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                name:'',
-                storycnt:'',
-                leftstorycnt:'',
-                taskcnt:'',
-                undonetaskcnt:'',
-                totalleft:'',
+                finishedby:'',
+                projectname:'',
+                taskid:'',
+                taskname:'',
+                taskpri:'',
+                taskeststarted:'',
+                taskrealstart:'',
+                taskdeadline:'',
+                taskfinisheddate:'',
+                taskdelay:'',
+                taskestimate:'',
                 totalconsumed:'',
+                taskcnt:'',
+                projectconsumed:'',
+                userconsumed:'',
                 children: children
             }
             groupTree.push(tree);
@@ -477,13 +573,21 @@ export class ProjectProgressGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            name:'',
-            storycnt:'',
-            leftstorycnt:'',
-            taskcnt:'',
-            undonetaskcnt:'',
-            totalleft:'',
+            finishedby:'',
+            projectname:'',
+            taskid:'',
+            taskname:'',
+            taskpri:'',
+            taskeststarted:'',
+            taskrealstart:'',
+            taskdeadline:'',
+            taskfinisheddate:'',
+            taskdelay:'',
+            taskestimate:'',
             totalconsumed:'',
+            taskcnt:'',
+            projectconsumed:'',
+            userconsumed:'',
             children: child
         }
         if(child && child.length > 0){
@@ -500,7 +604,7 @@ export class ProjectProgressGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public async drawGroup(){
         if(!this.isEnableGroup) return;
@@ -544,13 +648,21 @@ export class ProjectProgressGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                name:'',
-                storycnt:'',
-                leftstorycnt:'',
-                taskcnt:'',
-                undonetaskcnt:'',
-                totalleft:'',
+                finishedby:'',
+                projectname:'',
+                taskid:'',
+                taskname:'',
+                taskpri:'',
+                taskeststarted:'',
+                taskrealstart:'',
+                taskdeadline:'',
+                taskfinisheddate:'',
+                taskdelay:'',
+                taskestimate:'',
                 totalconsumed:'',
+                taskcnt:'',
+                projectconsumed:'',
+                userconsumed:'',
                 children: children,
             }
             groupTree.push(tree);
@@ -568,7 +680,7 @@ export class ProjectProgressGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof ProjectProgressBase
+     * @memberof TaskFinishGirdBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){

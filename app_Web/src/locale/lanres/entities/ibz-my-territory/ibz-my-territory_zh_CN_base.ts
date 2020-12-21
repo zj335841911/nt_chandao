@@ -213,6 +213,7 @@ function getLocaleResourceBase(){
 					employeeload: commonLogic.appcommonhandle("员工负载表",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
 					companydynamicstats: commonLogic.appcommonhandle("公司动态汇总表",null),
+					taskfinish: commonLogic.appcommonhandle("任务完成汇总表",null),
 				},
 				uiactions: {
 				},

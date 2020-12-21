@@ -2765,6 +2765,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7ef19995ea97ed70642551457b6e9ac4',
+            viewmodule: 'ibiz',
+            viewname: 'TaskStatsUserFinishTaskGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '7f0821e7efe42bbf91090b525b05c96d',
             viewmodule: 'zentao',
             viewname: 'DocLibLibTabExpView',
@@ -4791,6 +4800,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '59c85c1053657b4fea02d5bd53e305d8',
+                '7ef19995ea97ed70642551457b6e9ac4',
                 'e008123fe4c3014fac07b33dd79f6b13',
             ],
         },

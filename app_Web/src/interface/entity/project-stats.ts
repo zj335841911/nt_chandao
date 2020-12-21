@@ -509,4 +509,28 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     draftstory?: any;
+
+    /**
+     * 激活需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    activestory?: any;
+
+    /**
+     * 已关闭需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    closedstory?: any;
+
+    /**
+     * 已变更需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    changedstory?: any;
 }

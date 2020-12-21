@@ -115,6 +115,13 @@ export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
                 deKeyField:'companystats'
 			};
         }
+        if (Object.is(expmode, 'TASKFINISH')) {
+            return {  
+                viewname: 'task-stats-user-finish-task-grid-view', 
+                parentdata: {},
+                deKeyField:'taskstats'
+			};
+        }
         if (Object.is(expmode, 'EMPLOYEELOAD')) {
             return {  
                 viewname: 'employeeloadgrid-view', 

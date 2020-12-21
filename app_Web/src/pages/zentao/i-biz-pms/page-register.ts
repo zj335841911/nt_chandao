@@ -387,6 +387,7 @@ export const PageComponents = {
         Vue.component('test-task-grid-view', () => import('@pages/zentao/test-task-grid-view/test-task-grid-view.vue'));
         Vue.component('branch-pminfo-edit-view', () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'));
         Vue.component('todo-close-view', () => import('@pages/zentao/todo-close-view/todo-close-view.vue'));
+        Vue.component('task-stats-user-finish-task-grid-view', () => import('@pages/ibiz/task-stats-user-finish-task-grid-view/task-stats-user-finish-task-grid-view.vue'));
         Vue.component('ibz-reportly-my-received-reportly-detail-edit-view', () => import('@pages/report/ibz-reportly-my-received-reportly-detail-edit-view/ibz-reportly-my-received-reportly-detail-edit-view.vue'));
         Vue.component('doc-more-my-doc-tree-view', () => import('@pages/zentao/doc-more-my-doc-tree-view/doc-more-my-doc-tree-view.vue'));
         Vue.component('ibz-report-role-config-grid-view', () => import('@pages/report/ibz-report-role-config-grid-view/ibz-report-role-config-grid-view.vue'));

@@ -123084,11 +123084,13 @@ CREATE TABLE `zt_module`(
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
 | TOTALESTIMATE        | 任务最初预计总工时  | DOUBLE      |   -1   | &nbsp; |
+| CLOSEDSTORY        | 已关闭需求  | INTEGER      |   -1   | &nbsp; |
 | ID        | 项目编号  |       |   8   | 主键&nbsp; |
 | DRAFTSTORY        | 草稿需求  | INTEGER      |   -1   | &nbsp; |
 | FINISHTASKCNT        | 已结束任务总数  | INTEGER      |   -1   | &nbsp; |
 | TASKCNT        | 任务总数  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORYCNT        | 关闭需求总数  | INTEGER      |   -1   | &nbsp; |
+| ACTIVESTORY        | 激活需求  | INTEGER      |   -1   | &nbsp; |
 | ORDER1        | 项目排序  | INTEGER      |   8   | &nbsp; |
 | TOTALWH        | 总工时  | INTEGER      |   -1   | &nbsp; |
 | BUGCNT        | Bug总数  | INTEGER      |   -1   | &nbsp; |
@@ -123101,6 +123103,7 @@ CREATE TABLE `zt_module`(
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | SERIOUSBUGPROPORTION        | 严重Bug比率  | VARCHAR      |   200   | &nbsp; |
 | UNCLOSEDSTORYCNT        | 未关闭需求总数  | INTEGER      |   -1   | &nbsp; |
+| CHANGEDSTORY        | 已变更需求  | INTEGER      |   -1   | &nbsp; |
 | END        | 截止日期  | DATETIME      |   -1   | &nbsp; |
 | STORYCNT        | 需求总数  | INTEGER      |   -1   | &nbsp; |
 | NAME        | 项目名称  | VARCHAR      |   90   | &nbsp; |
