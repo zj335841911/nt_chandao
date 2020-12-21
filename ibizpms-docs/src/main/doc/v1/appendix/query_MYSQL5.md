@@ -5023,6 +5023,7 @@ WHERE t1.DELETED = '0'
 ```sql
 select 
 DATE_FORMAT(t1.date, '%Y-%m-%d') as `ZTDATE`, 
+t1.date, 
 sum(case when t1.objecttype = 'user' and t1.action = 'login' then 1 else 0 end) as `LoginCNT`,
 IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where t2.date = DATE_FORMAT(t1.date, '%Y-%m-%d')), 0) as `LogHours`, 
 sum(case when t1.objecttype = 'story' and t1.action = 'opened' then 1 else 0 end) as `OpenedStoryCNT`, 
@@ -14209,7 +14210,7 @@ WHERE
 	OR t1.acl = 'open' 
 	) 
 	) t1
-WHERE  t1.status = ${srfwebcontext('status')} 
+WHERE t1.status = #{srfdatacontext.status}  or  #{srfdatacontext.status is null} 
 
 ```
 ### 项目质量表查询(ProjectQuality)<div id="ProjectStats_ProjectQuality"></div>

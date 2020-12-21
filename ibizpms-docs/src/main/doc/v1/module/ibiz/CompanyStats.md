@@ -672,6 +672,7 @@ Save
 ```SQL
 select 
 DATE_FORMAT(t1.date, '%Y-%m-%d') as `ZTDATE`, 
+t1.date, 
 sum(case when t1.objecttype = 'user' and t1.action = 'login' then 1 else 0 end) as `LoginCNT`,
 IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where t2.date = DATE_FORMAT(t1.date, '%Y-%m-%d')), 0) as `LogHours`, 
 sum(case when t1.objecttype = 'story' and t1.action = 'opened' then 1 else 0 end) as `OpenedStoryCNT`, 
