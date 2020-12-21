@@ -44,7 +44,7 @@
 |解决Bug数|RESOLVEDBUGCNT|INT|&nbsp;|
 |重要的Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
 |需求所提bug数|BUGSTORY|INT|&nbsp;|
-|严重bug比|IMPORTANTBUGPERCENT|FLOAT|&nbsp;|
+|严重bug比|IMPORTANTBUGPERCENT|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -84,7 +84,7 @@
 |解决Bug数|默认规则|默认规则|
 |重要的Bug数|默认规则|默认规则|
 |需求所提bug数|默认规则|默认规则|
-|严重bug比|默认规则|默认规则|
+|严重bug比|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

@@ -323,7 +323,8 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "importantbugpercent")
     @JsonProperty("importantbugpercent")
-    private Double importantbugpercent;
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String importantbugpercent;
 
 
     /**

@@ -59,7 +59,7 @@ export default class ProductQuantityGirdModel {
         {
           name: 'importantbugpercent',
           prop: 'importantbugpercent',
-          dataType: 'FLOAT',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmajortext',

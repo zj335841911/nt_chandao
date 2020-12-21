@@ -51,7 +51,7 @@
 | 33 | [解决Bug数](#属性-解决Bug数（RESOLVEDBUGCNT）) | RESOLVEDBUGCNT | 整型 | 否 | 否 | 是 |
 | 34 | [重要的Bug数](#属性-重要的Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
 | 35 | [需求所提bug数](#属性-需求所提bug数（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
-| 36 | [严重bug比](#属性-严重bug比（IMPORTANTBUGPERCENT）) | IMPORTANTBUGPERCENT | 浮点 | 否 | 否 | 是 |
+| 36 | [严重bug比](#属性-严重bug比（IMPORTANTBUGPERCENT）) | IMPORTANTBUGPERCENT | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-产品编号（ID）
 #### 属性说明
@@ -1416,10 +1416,10 @@ Integer
 应用界面字段[无存储]
 
 - 数据类型
-浮点
+文本，可指定长度
 
 - Java类型
-Double
+String
 
 - 是否允许为空
 是
