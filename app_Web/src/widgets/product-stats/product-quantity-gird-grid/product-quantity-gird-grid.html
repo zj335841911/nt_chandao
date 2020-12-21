@@ -100,7 +100,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('importantbugpercent')">
-                <el-table-column show-overflow-tooltip :prop="'importantbugpercent'" :label="$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'importantbugpercent'" :label="$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')}}
