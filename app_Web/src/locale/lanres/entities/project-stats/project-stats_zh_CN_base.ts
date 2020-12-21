@@ -390,6 +390,10 @@ function getLocaleResourceBase(){
 				},
 			},
 			projectbugtypesumusr2gridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
 			},
 			projectprogressusr2gridviewtoolbar_toolbar: {
 			},

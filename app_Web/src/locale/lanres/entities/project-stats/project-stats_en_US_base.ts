@@ -390,6 +390,10 @@ function getLocaleResourceBase(){
 				},
 			},
 			projectbugtypesumusr2gridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
 			},
 			projectprogressusr2gridviewtoolbar_toolbar: {
 			},

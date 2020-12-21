@@ -35,6 +35,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			testcasestatsgridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+			},
 		};
 		return data;
 }
