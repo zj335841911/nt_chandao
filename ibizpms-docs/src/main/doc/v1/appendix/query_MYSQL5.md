@@ -14326,6 +14326,7 @@ GROUP BY
 select 
 t1.id, 
 t1.`name`, 
+t1.`status`, 
 sum(case when t3.`stage` = '' then 1 else 0 end) as `EmptyStageStoryCNT`, 
 sum(case when t3.`stage` = 'wait' then 1 else 0 end) as `WaitStageStoryCNT`, 
 sum(case when t3.`stage` = 'planned' then 1 else 0 end) as `PlannedStageStoryCNT`, 
@@ -14350,6 +14351,7 @@ group by t1.id
 select 
 t1.id, 
 t1.`name`, 
+t1.`status`, 
 sum(case when t3.`status` = '' then 1 else 0 end) as `EmptyStory`, 
 sum(case when t3.`status` = 'draft' then 1 else 0 end) as `DraftStory`, 
 sum(case when t3.`status` = 'active' then 1 else 0 end) as `ActiveStory`, 
