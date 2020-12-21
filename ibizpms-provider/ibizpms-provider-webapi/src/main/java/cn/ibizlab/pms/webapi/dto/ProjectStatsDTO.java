@@ -518,6 +518,151 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String timescale;
 
+    /**
+     * 属性 [LEFTSTORYCNT]
+     *
+     */
+    @JSONField(name = "leftstorycnt")
+    @JsonProperty("leftstorycnt")
+    private Integer leftstorycnt;
+
+    /**
+     * 属性 [EMPTYSTORY]
+     *
+     */
+    @JSONField(name = "emptystory")
+    @JsonProperty("emptystory")
+    private Integer emptystory;
+
+    /**
+     * 属性 [DRAFTSTORY]
+     *
+     */
+    @JSONField(name = "draftstory")
+    @JsonProperty("draftstory")
+    private Integer draftstory;
+
+    /**
+     * 属性 [ACTIVESTORY]
+     *
+     */
+    @JSONField(name = "activestory")
+    @JsonProperty("activestory")
+    private Integer activestory;
+
+    /**
+     * 属性 [CLOSEDSTORY]
+     *
+     */
+    @JSONField(name = "closedstory")
+    @JsonProperty("closedstory")
+    private Integer closedstory;
+
+    /**
+     * 属性 [CHANGEDSTORY]
+     *
+     */
+    @JSONField(name = "changedstory")
+    @JsonProperty("changedstory")
+    private Integer changedstory;
+
+    /**
+     * 属性 [EMPTYSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "emptystagestorycnt")
+    @JsonProperty("emptystagestorycnt")
+    private Integer emptystagestorycnt;
+
+    /**
+     * 属性 [WAITSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "waitstagestorycnt")
+    @JsonProperty("waitstagestorycnt")
+    private Integer waitstagestorycnt;
+
+    /**
+     * 属性 [PLANNEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "plannedstagestorycnt")
+    @JsonProperty("plannedstagestorycnt")
+    private Integer plannedstagestorycnt;
+
+    /**
+     * 属性 [PROJECTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+
+    /**
+     * 属性 [TESTINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    private Integer testingstagestorycnt;
+
+    /**
+     * 属性 [TESTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+
+    /**
+     * 属性 [VERIFIEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+
+    /**
+     * 属性 [RELEASEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    private Integer releasedstagestorycnt;
+
+    /**
+     * 属性 [CLOSEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    private Integer closedstagestorycnt;
+
+    /**
+     * 属性 [PROGRESS]
+     *
+     */
+    @JSONField(name = "progress")
+    @JsonProperty("progress")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String progress;
+
 
     /**
      * 设置 [NAME]

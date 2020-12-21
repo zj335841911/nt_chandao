@@ -196,11 +196,14 @@ function getLocaleResourceBase(){
 				nodes: {
 					tasktypecount: commonLogic.appcommonhandle("项目任务类型统计",null),
 					projectquality: commonLogic.appcommonhandle("项目质量表",null),
+					projectstorystagestats: commonLogic.appcommonhandle("项目需求阶段分布表",null),
 					bugresolutioncount: commonLogic.appcommonhandle("bug解决方案统计",null),
 					bugtype: commonLogic.appcommonhandle("bug类型统计",null),
+					projectprogress: commonLogic.appcommonhandle("项目进展表",null),
 					bugstatuscount: commonLogic.appcommonhandle("bug状态统计",null),
 					projectinputstats: commonLogic.appcommonhandle("项目投入统计表",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
+					projectstorystatusstats: commonLogic.appcommonhandle("项目需求状态分布表",null),
 					taskstatuscount: commonLogic.appcommonhandle("项目任务状态统计",null),
 				},
 				uiactions: {
@@ -212,6 +215,7 @@ function getLocaleResourceBase(){
 					employeeload: commonLogic.appcommonhandle("员工负载表",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
 					companydynamicstats: commonLogic.appcommonhandle("公司动态汇总表",null),
+					taskfinish: commonLogic.appcommonhandle("任务完成汇总表",null),
 				},
 				uiactions: {
 				},

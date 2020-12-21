@@ -223,6 +223,28 @@ public class ProjectStatsResource {
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectProgress-all')")
+	@ApiOperation(value = "获取项目进度", tags = {"项目统计" } ,notes = "获取项目进度")
+    @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchprojectprogress")
+	public ResponseEntity<List<ProjectStatsDTO>> fetchProjectProgress(ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectProgress(context) ;
+        List<ProjectStatsDTO> list = projectstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectProgress-all')")
+	@ApiOperation(value = "查询项目进度", tags = {"项目统计" } ,notes = "查询项目进度")
+    @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchprojectprogress")
+	public ResponseEntity<Page<ProjectStatsDTO>> searchProjectProgress(@RequestBody ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectProgress(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectQuality-all')")
 	@ApiOperation(value = "获取项目质量", tags = {"项目统计" } ,notes = "获取项目质量")
     @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchprojectquality")
@@ -241,6 +263,50 @@ public class ProjectStatsResource {
     @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchprojectquality")
 	public ResponseEntity<Page<ProjectStatsDTO>> searchProjectQuality(@RequestBody ProjectStatsSearchContext context) {
         Page<ProjectStats> domains = projectstatsService.searchProjectQuality(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectStoryStageStats-all')")
+	@ApiOperation(value = "获取项目需求阶段统计", tags = {"项目统计" } ,notes = "获取项目需求阶段统计")
+    @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchprojectstorystagestats")
+	public ResponseEntity<List<ProjectStatsDTO>> fetchProjectStoryStageStats(ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectStoryStageStats(context) ;
+        List<ProjectStatsDTO> list = projectstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectStoryStageStats-all')")
+	@ApiOperation(value = "查询项目需求阶段统计", tags = {"项目统计" } ,notes = "查询项目需求阶段统计")
+    @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchprojectstorystagestats")
+	public ResponseEntity<Page<ProjectStatsDTO>> searchProjectStoryStageStats(@RequestBody ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectStoryStageStats(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectStoryStatusStats-all')")
+	@ApiOperation(value = "获取项目需求状态统计", tags = {"项目统计" } ,notes = "获取项目需求状态统计")
+    @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchprojectstorystatusstats")
+	public ResponseEntity<List<ProjectStatsDTO>> fetchProjectStoryStatusStats(ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectStoryStatusStats(context) ;
+        List<ProjectStatsDTO> list = projectstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchProjectStoryStatusStats-all')")
+	@ApiOperation(value = "查询项目需求状态统计", tags = {"项目统计" } ,notes = "查询项目需求状态统计")
+    @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchprojectstorystatusstats")
+	public ResponseEntity<Page<ProjectStatsDTO>> searchProjectStoryStatusStats(@RequestBody ProjectStatsSearchContext context) {
+        Page<ProjectStats> domains = projectstatsService.searchProjectStoryStatusStats(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

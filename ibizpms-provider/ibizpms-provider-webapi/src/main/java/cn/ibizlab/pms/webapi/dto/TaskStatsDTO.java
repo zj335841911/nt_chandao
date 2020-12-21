@@ -107,6 +107,108 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String taskefficient;
 
+    /**
+     * 属性 [TASKID]
+     *
+     */
+    @JSONField(name = "taskid")
+    @JsonProperty("taskid")
+    private Integer taskid;
+
+    /**
+     * 属性 [TASKNAME]
+     *
+     */
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String taskname;
+
+    /**
+     * 属性 [TASKPRI]
+     *
+     */
+    @JSONField(name = "taskpri")
+    @JsonProperty("taskpri")
+    private Integer taskpri;
+
+    /**
+     * 属性 [TASKESTIMATE]
+     *
+     */
+    @JSONField(name = "taskestimate")
+    @JsonProperty("taskestimate")
+    private Integer taskestimate;
+
+    /**
+     * 属性 [TASKREALSTART]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "taskrealstart" , format="yyyy-MM-dd")
+    @JsonProperty("taskrealstart")
+    private Timestamp taskrealstart;
+
+    /**
+     * 属性 [TASKDEADLINE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "taskdeadline" , format="yyyy-MM-dd")
+    @JsonProperty("taskdeadline")
+    private Timestamp taskdeadline;
+
+    /**
+     * 属性 [TASKFINISHEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "taskfinisheddate" , format="yyyy-MM-dd")
+    @JsonProperty("taskfinisheddate")
+    private Timestamp taskfinisheddate;
+
+    /**
+     * 属性 [TASKDELAY]
+     *
+     */
+    @JSONField(name = "taskdelay")
+    @JsonProperty("taskdelay")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String taskdelay;
+
+    /**
+     * 属性 [TASKESTSTARTED]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "taskeststarted" , format="yyyy-MM-dd")
+    @JsonProperty("taskeststarted")
+    private Timestamp taskeststarted;
+
+    /**
+     * 属性 [TASKCNT]
+     *
+     */
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
+
+    /**
+     * 属性 [PROJECTCONSUMED]
+     *
+     */
+    @JSONField(name = "projectconsumed")
+    @JsonProperty("projectconsumed")
+    private Integer projectconsumed;
+
+    /**
+     * 属性 [USERCONSUMED]
+     *
+     */
+    @JSONField(name = "userconsumed")
+    @JsonProperty("userconsumed")
+    private Integer userconsumed;
+
 
     /**
      * 设置 [NAME]

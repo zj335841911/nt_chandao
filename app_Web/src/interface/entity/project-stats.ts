@@ -485,4 +485,148 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     timescale?: any;
+
+    /**
+     * 剩余需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    leftstorycnt?: any;
+
+    /**
+     * 空需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    emptystory?: any;
+
+    /**
+     * 草稿需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    draftstory?: any;
+
+    /**
+     * 激活需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    activestory?: any;
+
+    /**
+     * 已关闭需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    closedstory?: any;
+
+    /**
+     * 已变更需求
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    changedstory?: any;
+
+    /**
+     * 空阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    emptystagestorycnt?: any;
+
+    /**
+     * 未开始阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    waitstagestorycnt?: any;
+
+    /**
+     * 已计划阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    plannedstagestorycnt?: any;
+
+    /**
+     * 已立项阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    projectedstagestorycnt?: any;
+
+    /**
+     * 研发中阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    developingstagestorycnt?: any;
+
+    /**
+     * 研发完毕阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    developedstagestorycnt?: any;
+
+    /**
+     * 测试中阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    testingstagestorycnt?: any;
+
+    /**
+     * 测试完毕阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    testedstagestorycnt?: any;
+
+    /**
+     * 已验收阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    verifiedstagestorycnt?: any;
+
+    /**
+     * 已发布阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    releasedstagestorycnt?: any;
+
+    /**
+     * 已关闭阶段需求数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    closedstagestorycnt?: any;
+
+    /**
+     * 进度
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    progress?: any;
 }

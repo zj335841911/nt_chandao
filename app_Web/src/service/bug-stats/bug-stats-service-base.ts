@@ -230,6 +230,35 @@ export default class BugStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchBugResolvedGird接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async FetchBugResolvedGird(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugstats/fetchbugresolvedgird`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchBugResolvedGird接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async searchBugResolvedGird(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/bugstats/searchbugresolvedgird`,tempData,isloading);
+    }
+
+    /**
      * FetchBugassignedTo接口方法
      *
      * @param {*} [context={}]

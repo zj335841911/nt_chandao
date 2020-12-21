@@ -50,7 +50,10 @@ public interface IProjectStatsService extends IService<ProjectStats> {
     Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectBugType(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectInputStats(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectProgress(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectQuality(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectStoryStageStats(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectStoryStatusStats(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectTaskCountByTaskStatus(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectTaskCountByType(ProjectStatsSearchContext context);
     Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context);

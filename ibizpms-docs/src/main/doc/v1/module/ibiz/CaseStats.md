@@ -676,9 +676,10 @@ sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase,
 case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
 FROM
 zt_module t1
-LEFT JOIN zt_case t2 ON t1.id = t2.module
+LEFT JOIN zt_case t2 ON t1.id = t2.module and t2.deleted = '0' 
 LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
-group by t1.id, t1.`name`
+where t1.deleted = '0' 
+group by t1.id
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

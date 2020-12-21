@@ -115,9 +115,23 @@ export class TreeExpViewProjectStatstreeexpbarTreeExpBarBase extends TreeExpBarC
                 deKeyField:'projectstats'
 			};
         }
+        if (Object.is(expmode, 'PROJECTPROGRESS')) {
+            return {  
+                viewname: 'project-stats-project-progress-usr2-grid-view', 
+                parentdata: {},
+                deKeyField:'projectstats'
+			};
+        }
         if (Object.is(expmode, 'BUGTYPE')) {
             return {  
                 viewname: 'project-stats-project-bug-type-sum-usr2-grid-view', 
+                parentdata: {},
+                deKeyField:'projectstats'
+			};
+        }
+        if (Object.is(expmode, 'PROJECTSTORYSTAGESTATS')) {
+            return {  
+                viewname: 'project-stats-project-story-stage-status-grid-view', 
                 parentdata: {},
                 deKeyField:'projectstats'
 			};
@@ -148,6 +162,13 @@ export class TreeExpViewProjectStatstreeexpbarTreeExpBarBase extends TreeExpBarC
                 viewname: 'bug-stats-bugresolvetion', 
                 parentdata: {},
                 deKeyField:'bugstats'
+			};
+        }
+        if (Object.is(expmode, 'PROJECTSTORYSTATUSSTATS')) {
+            return {  
+                viewname: 'project-stats-project-story-status-stats-grid-view', 
+                parentdata: {},
+                deKeyField:'projectstats'
 			};
         }
         if (Object.is(expmode, 'BUGSTATUSCOUNT')) {

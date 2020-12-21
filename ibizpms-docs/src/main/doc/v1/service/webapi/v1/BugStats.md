@@ -256,6 +256,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取bug解决汇总表
+#### 访问路径
+/bugstats/fetchbugresolvedgird
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象列表 |
+
+### 查询bug解决汇总表
+#### 访问路径
+/bugstats/searchbugresolvedgird
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取Bug指派表
 #### 访问路径
 /bugstats/fetchbugassignedto
@@ -502,7 +538,16 @@ POST
 | 23 | bugresolved | Integer | 允许 | 已解决Bug |
 | 24 | bugclosed | Integer | 允许 | 已关闭Bug |
 | 25 | projectname1 | String | 允许 | 项目名称 |
-| 26 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 26 | bugresolution | String | 允许 | Bug解决方案 |
+| 27 | bugstatus | String | 允许 | Bug状态 |
+| 28 | bugid | Integer | 允许 | Bug编号 |
+| 29 | bugtitle | String | 允许 | Bug标题 |
+| 30 | bugpri | Integer | 允许 | Bug优先级 |
+| 31 | bugseverity | Integer | 允许 | Bug严重程度 |
+| 32 | bugopenedby | String | 允许 | bug创建人 |
+| 33 | bugopeneddate | Timestamp | 允许 | Bug创建日期<br>时间格式：yyyy-MM-dd |
+| 34 | bugresolveddate | Timestamp | 允许 | bug解决日期<br>时间格式：yyyy-MM-dd |
+| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

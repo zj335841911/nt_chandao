@@ -2887,6 +2887,13 @@ FROM
 ORDER BY
 	t1.resolvedBy ASC
 ```
+### bug解决汇总表(BugResolvedGird)<div id="BugStats_BugResolvedGird"></div>
+```sql
+
+SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus 
+
+from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
+```
 ### Bug指派表(BugassignedTo)<div id="BugStats_BugassignedTo"></div>
 ```sql
 SELECT
@@ -4819,9 +4826,10 @@ sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase,
 case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
 FROM
 zt_module t1
-LEFT JOIN zt_case t2 ON t1.id = t2.module
+LEFT JOIN zt_case t2 ON t1.id = t2.module and t2.deleted = '0' 
 LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
-group by t1.id, t1.`name`
+where t1.deleted = '0' 
+group by t1.id
 ```
 ### 默认（全部数据）(VIEW)<div id="CaseStats_View"></div>
 ```sql
@@ -14076,13 +14084,112 @@ select
 t1.id, 
 t1.`name`, 
 CONCAT(t1.`begin`, ' ~ ', t1.`end`) as `timescale`, 
-(select count(1) from zt_task t2 where t1.id = t2.project) as `taskcnt`,
-(select count(1) from zt_projectstory t2 where t1.id = t2.project) as `storycnt`,
+(select count(1) from zt_task t2 where t1.id = t2.project and t2.deleted = '0') as `taskcnt`,
+(select count(1) from zt_projectstory t2 where t1.id = t2.project and exists(select 1 from zt_story t3 where t2.story = t3.id and t3.deleted = '0')) as `storycnt`,
 (select count(1) from zt_team t2 where t2.type = 'project' and t1.id = t2.root) as `membercnt`, 
-IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where t2.task in (select t3.id from zt_task t3 where t3.project = t1.id)), 0) as `projecttotalconsumed`
+IFNULL((select sum(t2.consumed) from zt_taskestimate t2 where exists(select 1 from zt_task t3 where t3.project = t1.id and t3.id = t2.task and t3.deleted = '0')), 0) as `projecttotalconsumed` 
 from zt_project t1
 WHERE t1.deleted = '0' 
 
+```
+### 项目进度(ProjectProgress)<div id="ProjectStats_ProjectProgress"></div>
+```sql
+SELECT
+	t1.*,
+	CONCAT(
+	IFNULL( ROUND( ( t1.TOTALCONSUMED / ( t1.TOTALCONSUMED + t1.TOTALLEFT ) )*100, 2 ), 0 ),
+	'%' 
+	) AS progress 
+FROM
+	(
+SELECT
+	IFNULL(
+	(
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_STORY 
+WHERE
+	`STAGE` IN ( 'projected', 'developing' ) 
+	AND FIND_IN_SET ( PRODUCT, ( SELECT GROUP_CONCAT( PRODUCT ) FROM ZT_PROJECTPRODUCT WHERE PROJECT = t1.`ID` ) ) 
+	AND DELETED = '0' 
+	),
+	0 
+	) AS `LEFTSTORYCNT`,
+	t1.`DELETED`,
+	t1.`ID`,
+	t1.`NAME`,
+	t1.`STATUS`,
+	IFNULL(
+	(
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_STORY
+	LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	),
+	0 
+	) AS `STORYCNT`,
+	IFNULL( ( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ), 0 ) AS `TASKCNT`,
+	IFNULL(
+	(
+SELECT
+	round( SUM( CONSUMED ), 0 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
+	),
+	0 
+	) AS `TOTALCONSUMED`,
+	IFNULL(
+	(
+SELECT
+	round( SUM( `LEFT` ), 0 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND DELETED = '0' 
+	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
+	),
+	0 
+	) AS `TOTALLEFT`,
+	IFNULL(
+	(
+SELECT
+	COUNT( 1 ) 
+FROM
+	ZT_TASK 
+WHERE
+	PROJECT = t1.`ID` 
+	AND `STATUS` NOT IN ( 'done', 'cancel', 'closed' ) 
+	AND DELETED = '0' 
+	),
+	0 
+	) AS `UNDONETASKCNT`,
+	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE t1.`ORDER` END ) AS `ORDER1`,
+	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END ) AS `ISTOP` 
+FROM
+	`zt_project` t1
+	LEFT JOIN t_ibz_top t2 ON t1.id = t2.OBJECTID 
+	AND t2.type = 'project' 
+	AND t2.ACCOUNT = #{srf.sessioncontext.srfloginname} 
+WHERE
+	t1.DELETED = '0' 
+	AND (
+	(
+	t1.acl = 'private' 
+	AND t1.id IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = #{srf.sessioncontext.srfloginname} AND t3.type = 'project' ) 
+	) 
+	OR t1.acl = 'open' 
+	) 
+	) t1
 ```
 ### 项目质量表查询(ProjectQuality)<div id="ProjectStats_ProjectQuality"></div>
 ```sql
@@ -14103,7 +14210,8 @@ SELECT
 	t1.`END`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0' ) AS `FINISHBUGCNT`,
 	(SELECT count(1) from zt_task where PROJECT = t1.`ID` AND `STATUS`='done' AND DELETED = '0')as completetaskcnt,
-	(SELECT count(1) from zt_story where  `STAGE` in ('verified','released','closed') AND DELETED = '0')as completestorycnt,
+	(SELECT count( 1 ) FROM (SELECT t1.project,t1.story from zt_projectstory t1 left join zt_story t2 on t1.story = t2.id where t2.stage in ('verified','released','closed') and t2.deleted='0'
+)t2 WHERE t1.id = t2.project) as completestorycnt,
 	t1.`ID`,
 	t1.`NAME`,
 	t1.`STATUS`,
@@ -14183,6 +14291,48 @@ GROUP BY
 	) t3 ON t1.id = t3.project
 	)t1 Left join (SELECT t1.project, count(1) as IMPORTANTBUGCNT from zt_bug t1 where t1.severity <=3 and t1.deleted='0' and t1.project <> '0' GROUP BY t1.project)t4 on t1.id=t4.project
 ```
+### 项目需求阶段统计(ProjectStoryStageStats)<div id="ProjectStats_ProjectStoryStageStats"></div>
+```sql
+select 
+t1.id, 
+t1.`name`, 
+sum(case when t3.`stage` = '' then 1 else 0 end) as `EmptyStageStoryCNT`, 
+sum(case when t3.`stage` = 'wait' then 1 else 0 end) as `WaitStageStoryCNT`, 
+sum(case when t3.`stage` = 'planned' then 1 else 0 end) as `PlannedStageStoryCNT`, 
+sum(case when t3.`stage` = 'projected' then 1 else 0 end) as `ProjectedStageStoryCNT`, 
+sum(case when t3.`stage` = 'developing' then 1 else 0 end) as `DevelopingStageStoryCNT`, 
+sum(case when t3.`stage` = 'developed' then 1 else 0 end) as `DevelopedStageStoryCNT`, 
+sum(case when t3.`stage` = 'testing' then 1 else 0 end) as `TestingStageStoryCNT`, 
+sum(case when t3.`stage` = 'tested' then 1 else 0 end) as `TestedStageStoryCNT`, 
+sum(case when t3.`stage` = 'verified' then 1 else 0 end) as `VerifiedStageStoryCNT`, 
+sum(case when t3.`stage` = 'released' then 1 else 0 end) as `ReleasedStageStoryCNT`, 
+sum(case when t3.`stage` = 'closed' then 1 else 0 end) as `ClosedStageStoryCNT`, 
+sum(case when t3.`stage` is not null then 1 else 0 end) as `StoryCNT` 
+from 
+zt_project t1 
+left join zt_projectstory t2 on t1.id = t2.project 
+left join zt_story t3 on t2.story = t3.id and t3.deleted = '0' 
+where t1.deleted = '0' 
+group by t1.id
+```
+### 项目需求状态统计(ProjectStoryStatusStats)<div id="ProjectStats_ProjectStoryStatusStats"></div>
+```sql
+select 
+t1.id, 
+t1.`name`, 
+sum(case when t3.`status` = '' then 1 else 0 end) as `EmptyStory`, 
+sum(case when t3.`status` = 'draft' then 1 else 0 end) as `DraftStory`, 
+sum(case when t3.`status` = 'active' then 1 else 0 end) as `ActiveStory`, 
+sum(case when t3.`status` = 'closed' then 1 else 0 end) as `ClosedStory`, 
+sum(case when t3.`status` = 'changed' then 1 else 0 end) as `ChangedStory`, 
+sum(case when t3.`status` is not null then 1 else 0 end) as `StoryCNT` 
+from 
+zt_project t1 
+left join zt_projectstory t2 on t1.id = t2.project 
+left join zt_story t3 on t2.story = t3.id and t3.deleted = '0' 
+where t1.deleted = '0' 
+group by t1.id
+```
 ### 项目任务统计(任务状态)(ProjectTaskCountByTaskStatus)<div id="ProjectStats_ProjectTaskCountByTaskStatus"></div>
 ```sql
 SELECT t1.project,t1.projectname  as name,
@@ -14235,9 +14385,18 @@ FROM `zt_project` t2 WHERE t2.`ID` = ${srfdatacontext('srfparentkey','{"defname"
 ```sql
 SELECT
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0') AS `ACTIVEBUGCNT`,
+0 AS `ACTIVESTORY`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+0 AS `CHANGEDSTORY`,
+0 AS `CLOSEDSTAGESTORYCNT`,
+0 AS `CLOSEDSTORY`,
 (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)) AND DELETED = '0' ) AS `CLOSEDSTORYCNT`,
 t1.`DELETED`,
+0 AS `DEVELOPEDSTAGESTORYCNT`,
+0 AS `DEVELOPINGSTAGESTORYCNT`,
+0 AS `DRAFTSTORY`,
+0 AS `EMPTYSTAGESTORYCNT`,
+0 AS `EMPTYSTORY`,
 t1.`END`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0') AS `FINISHBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` IN ('done','cancel','closed') AND DELETED = '0') AS `FINISHTASKCNT`,
@@ -14245,12 +14404,17 @@ t1.`ID`,
 0 AS `MEMBERCNT`,
 t1.`NAME`,
 t1.`order` AS `ORDER1`,
+0 AS `PLANNEDSTAGESTORYCNT`,
+0 AS `PROJECTEDSTAGESTORYCNT`,
 0 AS `PROJECTTOTALCONSUMED`,
+0 AS `RELEASEDSTAGESTORYCNT`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0') AS `RELEASEDSTORYCNT`,
 null AS `SERIOUSBUGPROPORTION`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+0 AS `TESTEDSTAGESTORYCNT`,
+0 AS `TESTINGSTAGESTORYCNT`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
 (SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
 (SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
@@ -14259,6 +14423,8 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE `STATUS` <>  'closed' AND PROJECT = t1.`ID` AND DELETED = '0') AS `UNCLOSEDSTORYCNT`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMEDBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
+0 AS `VERIFIEDSTAGESTORYCNT`,
+0 AS `WAITSTAGESTORYCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
 (SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`
 FROM `zt_project` t1 
@@ -19095,6 +19261,50 @@ t1.`NAME`,
 0 AS `TOTALESTIMATE`,
 0 AS `TOTALLEFT`
 FROM `zt_task` t1 
+
+```
+### 任务完成汇总表(TaskFinishHuiZong)<div id="TaskStats_TaskFinishHuiZong"></div>
+```sql
+SELECT t4.account as finishedby,t1.project,t1.projectname,t1.id as taskid,t1.taskname,t1.pri as taskpri,t1.estStarted as taskeststarted,t1.realStarted as taskrealstart,t1.deadline as taskdeadline,t1.finishedDate as taskfinisheddate,null as delay,t1.estimate as taskestimate,t1.consumed as totalconsumed, t2.taskcnt,t2.projectconsumed,t3.userconsumed 
+from (
+select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.pri,t1.estStarted,t1.realStarted,t1.deadline,t1.finishedDate,null as delay,t1.estimate,t1.consumed
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')
+
+UNION
+select t3.account as finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.pri,t1.estStarted,t1.realStarted,t1.deadline,t1.finishedDate,null as delay,t1.estimate,t3.consumed
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id inner JOIN zt_team t3 on t3.root = t1.id and t3.type = 'task'
+where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 
+
+) t1 LEFT JOIN (
+
+SELECT t1.finishedBy,t1.project,t1.projectname,t1.id,t1.taskname,COUNT(1) as taskcnt,SUM(t1.consumed) as projectconsumed from (
+select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.consumed
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')
+
+UNION
+select t3.account as finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t3.consumed
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id inner JOIN zt_team t3 on t3.root = t1.id and t3.type = 'task'
+where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 
+) t1 GROUP BY t1.finishedBy,t1.project  
+
+) t2 on t1.finishedBy = t2.finishedBy  and t1.project = t2.project   
+LEFT JOIN ( 
+
+SELECT t1.finishedBy,SUM(t1.consumed) as userconsumed from (
+select t1.finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t1.consumed
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where (t1.`status` = 'done' or (t1.`status` = 'closed' and closedReason = 'done')) and t2.deleted ='0' and t1.deleted = '0'  and t2.id <> 0 and t1.finishedBy <> '' and t1.finishedBy is not null and t1.parent >= 0 and not EXISTS (select 1 from zt_team t where t.root = t1.id and t.type = 'task')
+
+UNION
+select t3.account as finishedBy,t1.project,t2.`name` as projectname,t1.id,t1.`name` as taskname ,t3.consumed
+from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id inner JOIN zt_team t3 on t3.root = t1.id and t3.type = 'task'
+where t2.deleted ='0' and t1.deleted = '0' and FIND_IN_SET(t3.account,t1.finishedList) and t2.id <> 0 and t1.parent >= 0 and t3.`left` = 0 
+
+) t1 GROUP BY t1.finishedBy
+
+) t3 on t1.finishedBy = t3.finishedBy
+
+RIGHT JOIN zt_user t4 on t1.finishedBy = t4.account
+ORDER BY t4.account,t1.project
 
 ```
 ### 用户完成任务统计(UserFinishTaskSum)<div id="TaskStats_UserFinishTaskSum"></div>

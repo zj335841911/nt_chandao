@@ -1292,7 +1292,6 @@ div::-webkit-scrollbar-thumb {
         width: 40px;
         background-color: #d8d8d8;
         color: #a5a5a5;
-        display: none;
         .unfold-icon {
             padding: 3px 0;
             font-size: 20px;
@@ -1321,6 +1320,9 @@ div::-webkit-scrollbar-thumb {
                 font-size: 20px;
                 color:#a5a5a5;
                 position: absolute;
+            }
+            .fold-text {
+                margin-left: 24px;
             }
             .group-action {
                 .group-action-item:nth-child(1) + .group-action-item {
@@ -1373,6 +1375,22 @@ div::-webkit-scrollbar-thumb {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .dragitems {
+        z-index: -1 !important;
+        margin: 0px !important;
+        border: none !important;
+        padding: 0px !important;
+        height: 0px !important;
+        width: 10px !important;
+        color: #fff;
+        overflow: hidden;
+        .app-layoutpanel {
+            .app-layoutpanel-container {
+                padding: 0px !important;
+            }
+        }
     }
 }
 

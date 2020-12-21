@@ -107,6 +107,94 @@ public class TaskStats extends EntityMP implements Serializable {
     @JSONField(name = "taskefficient")
     @JsonProperty("taskefficient")
     private String taskefficient;
+    /**
+     * 任务编号
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskid")
+    @JsonProperty("taskid")
+    private Integer taskid;
+    /**
+     * 任务名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
+    /**
+     * 任务优先级
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskpri")
+    @JsonProperty("taskpri")
+    private Integer taskpri;
+    /**
+     * 任务预计消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskestimate")
+    @JsonProperty("taskestimate")
+    private Integer taskestimate;
+    /**
+     * 任务实际开始时间
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "taskrealstart", format = "yyyy-MM-dd")
+    @JsonProperty("taskrealstart")
+    private Timestamp taskrealstart;
+    /**
+     * 任务截至日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "taskdeadline", format = "yyyy-MM-dd")
+    @JsonProperty("taskdeadline")
+    private Timestamp taskdeadline;
+    /**
+     * 任务实际完成日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "taskfinisheddate", format = "yyyy-MM-dd")
+    @JsonProperty("taskfinisheddate")
+    private Timestamp taskfinisheddate;
+    /**
+     * 任务延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskdelay")
+    @JsonProperty("taskdelay")
+    private String taskdelay;
+    /**
+     * 任务预计开始日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "taskeststarted", format = "yyyy-MM-dd")
+    @JsonProperty("taskeststarted")
+    private Timestamp taskeststarted;
+    /**
+     * 总任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
+    /**
+     * 项目总消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectconsumed")
+    @JsonProperty("projectconsumed")
+    private Integer projectconsumed;
+    /**
+     * 用户总消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "userconsumed")
+    @JsonProperty("userconsumed")
+    private Integer userconsumed;
 
 
 

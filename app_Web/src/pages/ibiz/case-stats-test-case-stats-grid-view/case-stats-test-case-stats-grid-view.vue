@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseStatsTestCaseStatsGridViewBase } from './case-stats-test-case-stats-grid-view-base';
 import view_grid from '@widgets/case-stats/test-case-stats-grid/test-case-stats-grid.vue';
+import view_searchform from '@widgets/case-stats/test-case-stats-searchform/test-case-stats-searchform.vue';
 
 /**
  * 测试用例统计表格视图视图
@@ -15,6 +16,7 @@ import view_grid from '@widgets/case-stats/test-case-stats-grid/test-case-stats-
 @Component({
     components: {
         view_grid, 
+        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

@@ -220,6 +220,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[TaskStatsDTO](#TaskStatsDTO)>：任务统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取任务完成汇总表
+#### 访问路径
+/taskstats/fetchtaskfinishhuizong
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskStatsSearchContext](#TaskStatsSearchContext) | 任务统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TaskStatsDTO](#TaskStatsDTO)>：任务统计实体传输对象列表 |
+
+### 查询任务完成汇总表
+#### 访问路径
+/taskstats/searchtaskfinishhuizong
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskStatsSearchContext](#TaskStatsSearchContext) | 任务统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TaskStatsDTO](#TaskStatsDTO)>：任务统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取用户完成任务统计
 #### 访问路径
 /taskstats/fetchuserfinishtasksum
@@ -270,7 +306,19 @@ POST
 | 7 | name | String | 允许 | 名称 |
 | 8 | finishedby | String | 允许 | 完成者 |
 | 9 | taskefficient | String | 允许 | 效率 |
-| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 10 | taskid | Integer | 允许 | 任务编号 |
+| 11 | taskname | String | 允许 | 任务名称 |
+| 12 | taskpri | Integer | 允许 | 任务优先级 |
+| 13 | taskestimate | Integer | 允许 | 任务预计消耗 |
+| 14 | taskrealstart | Timestamp | 允许 | 任务实际开始时间<br>时间格式：yyyy-MM-dd |
+| 15 | taskdeadline | Timestamp | 允许 | 任务截至日期<br>时间格式：yyyy-MM-dd |
+| 16 | taskfinisheddate | Timestamp | 允许 | 任务实际完成日期<br>时间格式：yyyy-MM-dd |
+| 17 | taskdelay | String | 允许 | 任务延期 |
+| 18 | taskeststarted | Timestamp | 允许 | 任务预计开始日期<br>时间格式：yyyy-MM-dd |
+| 19 | taskcnt | Integer | 允许 | 总任务数 |
+| 20 | projectconsumed | Integer | 允许 | 项目总消耗 |
+| 21 | userconsumed | Integer | 允许 | 用户总消耗 |
+| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

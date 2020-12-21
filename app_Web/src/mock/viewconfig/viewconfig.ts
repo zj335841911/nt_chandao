@@ -519,6 +519,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DeptPickupView",
             "viewtag": "16b54862dad958907853dc7eb084a0c0"
         },
+        "projectstatsprojectstorystagestatusgridview": {
+            "title": "项目统计表格视图",
+            "caption": "项目需求阶段统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectStoryStageStatusGridView",
+            "viewtag": "16ddc45f2ef8c888e3143d72c076b457"
+        },
         "productplansubplancreateview": {
             "title": "计划",
             "caption": "产品计划",
@@ -2503,6 +2511,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumStoryHoursSumGridView",
             "viewtag": "7ee436604d479bd0ba014e136c1b8f6f"
         },
+        "taskstatsuserfinishtaskgridview": {
+            "title": "任务统计表格视图",
+            "caption": "用户完成任务汇总",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "TaskStatsUserFinishTaskGridView",
+            "viewtag": "7ef19995ea97ed70642551457b6e9ac4"
+        },
         "docliblibtabexpview": {
             "title": "文档库分页导航视图（文档）",
             "caption": "文档库主页",
@@ -3655,6 +3671,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainMyNewGridView",
             "viewtag": "b137ebd68f63e15d9233d1092e565d15"
         },
+        "projectstatsprojectstorystatusstatsgridview": {
+            "title": "项目统计表格视图",
+            "caption": "项目需求状态统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectStoryStatusStatsGridView",
+            "viewtag": "b322707640e730a3acf826dd40e5eed1"
+        },
         "companyeditview": {
             "title": "公司编辑视图",
             "caption": "公司信息",
@@ -4566,6 +4590,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugProjectBugsGridView",
             "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2"
+        },
+        "projectstatsprojectprogressusr2gridview": {
+            "title": "项目进度表格视图",
+            "caption": "项目统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsProjectProgressUsr2GridView",
+            "viewtag": "dabb076d51462709eafcea3fed743469"
         },
         "bugtotalopenedchartview": {
             "title": "Bug图表视图（累计创建Bug）",

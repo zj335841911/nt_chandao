@@ -811,7 +811,7 @@
     "dename":"BugStats",
     "delogicname":"Bug统计",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"BugCountInResolution" , "name":"Bug在每个解决方案的Bug数"},{"id":"BugResolvedBy" , "name":"Bug完成表"},{"id":"BugassignedTo" , "name":"Bug指派表"},{"id":"Default" , "name":"数据集"},{"id":"ProductBugResolutionStats" , "name":"产品Bug解决方案汇总"},{"id":"ProductBugStatusSum" , "name":"产品Bug状态汇总"},{"id":"ProductCreateBug" , "name":"产品创建bug占比"},{"id":"ProjectBugStatusCount" , "name":"项目bug状态统计"}],
+    "dedataset":[{"id":"BugCountInResolution" , "name":"Bug在每个解决方案的Bug数"},{"id":"BugResolvedBy" , "name":"Bug完成表"},{"id":"BugResolvedGird" , "name":"bug解决汇总表"},{"id":"BugassignedTo" , "name":"Bug指派表"},{"id":"Default" , "name":"数据集"},{"id":"ProductBugResolutionStats" , "name":"产品Bug解决方案汇总"},{"id":"ProductBugStatusSum" , "name":"产品Bug状态汇总"},{"id":"ProductCreateBug" , "name":"产品创建bug占比"},{"id":"ProjectBugStatusCount" , "name":"项目bug状态统计"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
     }
@@ -1283,7 +1283,7 @@
     "dename":"ProjectStats",
     "delogicname":"项目统计",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"NoOpenProduct" , "name":"未关闭产品"},{"id":"ProjectBugType" , "name":"项目bug类型统计"},{"id":"ProjectInputStats" , "name":"项目投入统计"},{"id":"ProjectQuality" , "name":"项目质量"},{"id":"ProjectTaskCountByTaskStatus" , "name":"项目任务统计(任务状态)"},{"id":"ProjectTaskCountByType" , "name":"项目任务类型统计"},{"id":"TaskTime" , "name":"任务工时消耗剩余查询"}],
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"NoOpenProduct" , "name":"未关闭产品"},{"id":"ProjectBugType" , "name":"项目bug类型统计"},{"id":"ProjectInputStats" , "name":"项目投入统计"},{"id":"ProjectProgress" , "name":"项目进度"},{"id":"ProjectQuality" , "name":"项目质量"},{"id":"ProjectStoryStageStats" , "name":"项目需求阶段统计"},{"id":"ProjectStoryStatusStats" , "name":"项目需求状态统计"},{"id":"ProjectTaskCountByTaskStatus" , "name":"项目任务统计(任务状态)"},{"id":"ProjectTaskCountByType" , "name":"项目任务类型统计"},{"id":"TaskTime" , "name":"任务工时消耗剩余查询"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
     }
@@ -1435,7 +1435,7 @@
     "dename":"TaskStats",
     "delogicname":"任务统计",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"UserFinishTaskSum" , "name":"用户完成任务统计"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"TaskFinishHuiZong" , "name":"任务完成汇总表"},{"id":"UserFinishTaskSum" , "name":"用户完成任务统计"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
     }

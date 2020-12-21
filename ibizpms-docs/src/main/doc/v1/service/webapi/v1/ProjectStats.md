@@ -328,6 +328,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取项目进度
+#### 访问路径
+/projectstats/fetchprojectprogress
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象列表 |
+
+### 查询项目进度
+#### 访问路径
+/projectstats/searchprojectprogress
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取项目质量
 #### 访问路径
 /projectstats/fetchprojectquality
@@ -349,6 +385,78 @@ GET
 ### 查询项目质量
 #### 访问路径
 /projectstats/searchprojectquality
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取项目需求阶段统计
+#### 访问路径
+/projectstats/fetchprojectstorystagestats
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象列表 |
+
+### 查询项目需求阶段统计
+#### 访问路径
+/projectstats/searchprojectstorystagestats
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取项目需求状态统计
+#### 访问路径
+/projectstats/fetchprojectstorystatusstats
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectStatsSearchContext](#ProjectStatsSearchContext) | 项目统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectStatsDTO](#ProjectStatsDTO)>：项目统计实体传输对象列表 |
+
+### 查询项目需求状态统计
+#### 访问路径
+/projectstats/searchprojectstorystatusstats
 
 #### 请求方法
 POST
@@ -537,7 +645,25 @@ POST
 | 58 | others | Integer | 允许 | 其他 |
 | 59 | projecttotalconsumed | Double | 允许 | 项目消耗总工时 |
 | 60 | timescale | String | 允许 | 工期 |
-| 61 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 61 | leftstorycnt | Integer | 允许 | 剩余需求数 |
+| 62 | emptystory | Integer | 允许 | 空需求 |
+| 63 | draftstory | Integer | 允许 | 草稿需求 |
+| 64 | activestory | Integer | 允许 | 激活需求 |
+| 65 | closedstory | Integer | 允许 | 已关闭需求 |
+| 66 | changedstory | Integer | 允许 | 已变更需求 |
+| 67 | emptystagestorycnt | Integer | 允许 | 空阶段需求数 |
+| 68 | waitstagestorycnt | Integer | 允许 | 未开始阶段需求数 |
+| 69 | plannedstagestorycnt | Integer | 允许 | 已计划阶段需求数 |
+| 70 | projectedstagestorycnt | Integer | 允许 | 已立项阶段需求数 |
+| 71 | developingstagestorycnt | Integer | 允许 | 研发中阶段需求数 |
+| 72 | developedstagestorycnt | Integer | 允许 | 研发完毕阶段需求数 |
+| 73 | testingstagestorycnt | Integer | 允许 | 测试中阶段需求数 |
+| 74 | testedstagestorycnt | Integer | 允许 | 测试完毕阶段需求数 |
+| 75 | verifiedstagestorycnt | Integer | 允许 | 已验收阶段需求数 |
+| 76 | releasedstagestorycnt | Integer | 允许 | 已发布阶段需求数 |
+| 77 | closedstagestorycnt | Integer | 允许 | 已关闭阶段需求数 |
+| 78 | progress | String | 允许 | 进度 |
+| 79 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

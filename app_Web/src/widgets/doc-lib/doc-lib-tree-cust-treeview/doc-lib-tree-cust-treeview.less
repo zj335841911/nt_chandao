@@ -17,8 +17,13 @@
                     margin-right: 8px;
                 }
                 .documents-library-button{
-                    .button-active-background{
-                        background-color: var(--view-button-background-color-active);
+                    >.ivu-btn-group{
+                        >.ivu-btn{
+                            padding: 0px;
+                        }
+                        >.button-active-background{
+                            background-color: var(--view-button-background-color-active);
+                        }
                     }
                 }
             }
@@ -27,7 +32,7 @@
             display: flex;
             flex-wrap: wrap;
             overflow: auto;
-            max-height: 720px;
+            height: calc(100% - 65px);
             .chart-item{
                 width: 175px;
                 height: 175px;
@@ -53,7 +58,7 @@
         }
         > .documents-library-list{
             overflow: auto;
-            max-height: 720px;
+            height: calc(100% - 65px);
             .list-item{
                 font-size: 15px;
                 margin: 6px;

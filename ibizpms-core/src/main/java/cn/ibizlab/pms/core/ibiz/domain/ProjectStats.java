@@ -467,6 +467,132 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "timescale")
     @JsonProperty("timescale")
     private String timescale;
+    /**
+     * 剩余需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "leftstorycnt")
+    @JsonProperty("leftstorycnt")
+    private Integer leftstorycnt;
+    /**
+     * 空需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "emptystory")
+    @JsonProperty("emptystory")
+    private Integer emptystory;
+    /**
+     * 草稿需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "draftstory")
+    @JsonProperty("draftstory")
+    private Integer draftstory;
+    /**
+     * 激活需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestory")
+    @JsonProperty("activestory")
+    private Integer activestory;
+    /**
+     * 已关闭需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstory")
+    @JsonProperty("closedstory")
+    private Integer closedstory;
+    /**
+     * 已变更需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "changedstory")
+    @JsonProperty("changedstory")
+    private Integer changedstory;
+    /**
+     * 空阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "emptystagestorycnt")
+    @JsonProperty("emptystagestorycnt")
+    private Integer emptystagestorycnt;
+    /**
+     * 未开始阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waitstagestorycnt")
+    @JsonProperty("waitstagestorycnt")
+    private Integer waitstagestorycnt;
+    /**
+     * 已计划阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plannedstagestorycnt")
+    @JsonProperty("plannedstagestorycnt")
+    private Integer plannedstagestorycnt;
+    /**
+     * 已立项阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+    /**
+     * 研发中阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+    /**
+     * 研发完毕阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+    /**
+     * 测试中阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    private Integer testingstagestorycnt;
+    /**
+     * 测试完毕阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+    /**
+     * 已验收阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+    /**
+     * 已发布阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    private Integer releasedstagestorycnt;
+    /**
+     * 已关闭阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    private Integer closedstagestorycnt;
+    /**
+     * 进度
+     */
+    @TableField(exist = false)
+    @JSONField(name = "progress")
+    @JsonProperty("progress")
+    private String progress;
 
 
 

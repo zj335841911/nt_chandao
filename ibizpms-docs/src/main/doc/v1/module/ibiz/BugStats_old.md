@@ -38,6 +38,15 @@ hide members
 |已解决Bug|BUGRESOLVED|INT|&nbsp;|
 |已关闭Bug|BUGCLOSED|INT|&nbsp;|
 |项目名称|PROJECTNAME1|TEXT|&nbsp;|
+|Bug解决方案|BUGRESOLUTION|TEXT|&nbsp;|
+|Bug状态|BUGSTATUS|TEXT|&nbsp;|
+|Bug编号|BUGID|INT|&nbsp;|
+|Bug标题|BUGTITLE|TEXT|&nbsp;|
+|Bug优先级|BUGPRI|INT|&nbsp;|
+|Bug严重程度|BUGSEVERITY|INT|&nbsp;|
+|bug创建人|BUGOPENEDBY|TEXT|&nbsp;|
+|Bug创建日期|BUGOPENEDDATE|DATE|&nbsp;|
+|bug解决日期|BUGRESOLVEDDATE|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -67,6 +76,15 @@ hide members
 |已解决Bug|默认规则|默认规则|
 |已关闭Bug|默认规则|默认规则|
 |项目名称|默认规则|内容长度必须小于等于[100]|
+|Bug解决方案|默认规则|内容长度必须小于等于[100]|
+|Bug状态|默认规则|内容长度必须小于等于[100]|
+|Bug编号|默认规则|默认规则|
+|Bug标题|默认规则|内容长度必须小于等于[100]|
+|Bug优先级|默认规则|默认规则|
+|Bug严重程度|默认规则|默认规则|
+|bug创建人|默认规则|内容长度必须小于等于[100]|
+|Bug创建日期|默认规则|默认规则|
+|bug解决日期|默认规则|默认规则|
 
 ## 状态控制
 
@@ -95,6 +113,7 @@ hide members
 | --------  | --------   | --------   | ----- |
 |BugCountInResolution|Bug在每个解决方案的Bug数([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugCountInResolution))|否|&nbsp;|
 |BugResolvedBy|Bug完成表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugResolvedBy))|否|&nbsp;|
+|BugResolvedGird|bug解决汇总表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugResolvedGird))|否|&nbsp;|
 |BugassignedTo|Bug指派表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugassignedTo))|否|&nbsp;|
 |DEFAULT|Bug创建表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_Default))|否|&nbsp;|
 |ProductBugResolutionStats|产品Bug解决方案汇总([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductBugResolutionStats))|否|&nbsp;|
@@ -109,6 +128,7 @@ hide members
 | --------  | --------   | -------- | --------   | ----- |
 |BugCountInResolution|Bug在每个解决方案的Bug数|BugCountInResolution|否|&nbsp;|
 |BugResolvedBy|Bug完成表|BugResolvedBy|否|&nbsp;|
+|BugResolvedGird|bug解决汇总表|BugResolvedGird|否|&nbsp;|
 |BugassignedTo|Bug指派表|BugassignedTo|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProductBugResolutionStats|产品Bug解决方案汇总|ProductBugResolutionStats|否|&nbsp;|

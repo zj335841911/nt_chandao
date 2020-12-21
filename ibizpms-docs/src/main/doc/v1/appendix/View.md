@@ -341,6 +341,7 @@
 |-|文档库树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|产品Bug类型统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|部门数据选择视图|DEPICKUPVIEW|&nbsp;|
+|-|项目统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|
 |-|计划详情|DEEDITVIEW|&nbsp;|
@@ -592,6 +593,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|产品计划数和需求数实体表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
+|-|任务统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库分页导航视图（文档）|DETABEXPVIEW|&nbsp;|
 |-|工时|DEEDITVIEW|&nbsp;|
 |-|测试版本编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
@@ -736,6 +738,7 @@ SRFNAVPARAM.project=%project%|
 |-|添加备注|DEOPTVIEW|&nbsp;|
 |-|暂停任务|DEOPTVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
+|-|项目统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|公司编辑视图|DEEDITVIEW|&nbsp;|
 |-|实体2表格视图|DEGRIDVIEW|&nbsp;|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
@@ -850,6 +853,7 @@ SRFNAVPARAM.project=%project%|
 |-|首页|DEPORTALVIEW|&nbsp;|
 |-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug实体表格视图(项目遗留得Bug)|DEGRIDVIEW|&nbsp;|
+|-|项目进度表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug图表视图（累计创建Bug）|DECHARTVIEW|&nbsp;|
 |-|用户年度工作内容统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug表格视图(遗留的bug)|DEGRIDVIEW|&nbsp;|

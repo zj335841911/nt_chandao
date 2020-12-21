@@ -3773,6 +3773,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-main-tab-exp-view/test-report-main-tab-exp-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/projectprogressusr2gridview/:projectprogressusr2gridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectprogressusr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectprogressusr2gridview', parameterName: 'projectprogressusr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-progress-usr2-grid-view/project-stats-project-progress-usr2-grid-view.vue'),
+                },
+                {
                     path: 'ibzplantemplets/:ibzplantemplet?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibzplantemplet.views.gridview.caption',
@@ -4660,6 +4674,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/build-test-rounds-grid-view/build-test-rounds-grid-view.vue'),
+                },
+                {
+                    path: 'projectstats/:projectstats?/projectstorystatusstatsgridview/:projectstorystatusstatsgridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectstorystatusstatsgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectstorystatusstatsgridview', parameterName: 'projectstorystatusstatsgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-story-status-stats-grid-view/project-stats-project-story-status-stats-grid-view.vue'),
                 },
                 {
                     path: 'doclibs/:doclib?/customdoclibroottreeview/:customdoclibroottreeview?',
@@ -8343,6 +8371,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-calendar-edit-view/story-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'projectstats/:projectstats?/projectstorystagestatusgridview/:projectstorystagestatusgridview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.projectstorystagestatusgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'projectstorystagestatusgridview', parameterName: 'projectstorystagestatusgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-project-story-stage-status-grid-view/project-stats-project-story-stage-status-grid-view.vue'),
                 },
                 {
                     path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/gridview/:gridview?',
@@ -14226,6 +14268,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
+                },
+                {
+                    path: 'taskstats/:taskstats?/userfinishtaskgridview/:userfinishtaskgridview?',
+                    meta: {
+                        caption: 'entities.taskstats.views.userfinishtaskgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'taskstats', parameterName: 'taskstats' },
+                            { pathName: 'userfinishtaskgridview', parameterName: 'userfinishtaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stats-user-finish-task-grid-view/task-stats-user-finish-task-grid-view.vue'),
                 },
                 {
                     path: 'ibzreportlies/:ibzreportly?/myreceivedreportlydetaileditview/:myreceivedreportlydetaileditview?',
