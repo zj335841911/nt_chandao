@@ -666,9 +666,12 @@ FROM `zt_case` t1
 - MYSQL5
 ```SQL
 select 
+* 
+from
+(select 
 0 as Module,
 '/' as ModuleName, 
-t1.id, 
+t1.id as Proudct, 
 count(distinct t2.id) as TotalCase, 
 sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
 sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
@@ -696,7 +699,7 @@ zt_module t1
 left join zt_case t2 on t1.id = t2.module and t2.deleted = '0' 
 left join zt_testresult t3 on t2.id = t3.`case`
 where t1.deleted = '0'
-group by t1.id
+group by t1.id) t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

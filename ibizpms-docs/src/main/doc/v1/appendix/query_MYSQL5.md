@@ -2895,7 +2895,7 @@ from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.delet
 and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null )
 and (t1.resolvedDate >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
 and (t1.resolvedDate <= #{srf.datacontext.end} or #{srf.datacontext.end} is null)
-)
+
 ORDER BY t1.resolvedBy
 ```
 ### Bug指派表(BugassignedTo)<div id="BugStats_BugassignedTo"></div>
@@ -4820,9 +4820,12 @@ FROM `zt_case` t1
 ### 测试用例统计(TestCaseStats)<div id="CaseStats_TestCaseStats"></div>
 ```sql
 select 
+* 
+from
+(select 
 0 as Module,
 '/' as ModuleName, 
-t1.id, 
+t1.id as Proudct, 
 count(distinct t2.id) as TotalCase, 
 sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase, 
 sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
@@ -4850,7 +4853,9 @@ zt_module t1
 left join zt_case t2 on t1.id = t2.module and t2.deleted = '0' 
 left join zt_testresult t3 on t2.id = t3.`case`
 where t1.deleted = '0'
-group by t1.id
+group by t1.id) t1
+WHERE t1.product = #{srfdatacontext.product} 
+
 ```
 ### 默认（全部数据）(VIEW)<div id="CaseStats_View"></div>
 ```sql

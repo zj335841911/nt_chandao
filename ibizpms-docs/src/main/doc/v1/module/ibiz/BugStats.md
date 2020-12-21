@@ -1873,7 +1873,7 @@ from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.delet
 and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null )
 and (t1.resolvedDate >= #{srf.datacontext.begin} or #{srf.datacontext.begin} is null)
 and (t1.resolvedDate <= #{srf.datacontext.end} or #{srf.datacontext.end} is null)
-)
+
 ORDER BY t1.resolvedBy
 ```
 ### 数据查询-Bug指派表（BugassignedTo）
