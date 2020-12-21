@@ -26,7 +26,7 @@ export default class TestCaseStatsModel {
         dataType: 'TEXT',
       },
       {
-        name: 'n_product_eq',
+        name: 'product',
         prop: 'product',
         dataType: 'PICKUP',
       },

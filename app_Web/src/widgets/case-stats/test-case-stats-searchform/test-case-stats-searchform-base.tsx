@@ -75,7 +75,7 @@ export class TestCaseStatsSearchFormBase extends SearchFormControlBase {
      * @memberof TestCaseStatsSearchFormBase
      */
     public data: any = {
-        n_product_eq: null,
+        product: null,
     };
 
     /**
@@ -87,7 +87,7 @@ export class TestCaseStatsSearchFormBase extends SearchFormControlBase {
     public detailsModel: any = {
         formpage1: new FormPageModel({ caption: '表单分页', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_product_eq: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'n_product_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

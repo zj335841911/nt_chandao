@@ -8,7 +8,7 @@
                   
           <i-col
               class="form-layout-container"
-              v-show="detailsModel.n_product_eq.visible"
+              v-show="detailsModel.product.visible"
               :style="{}"
               
               
@@ -16,26 +16,26 @@
               :xl="{ span: 8, offset: 0 }"
           >
               <app-form-item
-              name="n_product_eq"
-              :itemRules="this.rules.n_product_eq"
+              name="product"
+              :itemRules="this.rules.product"
               class=""
               
-              :caption="$t('entities.casestats.testcasestats_searchform.details.n_product_eq')"
+              :caption="$t('entities.casestats.testcasestats_searchform.details.product')"
               uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true"
-              :error="detailsModel.n_product_eq.error"
+              :error="detailsModel.product.error"
               :isEmptyCaption="false"
               labelPos="LEFT"
           >
               
           <dropdown-list 
-              v-model="data.n_product_eq"
+              v-model="data.product"
               :data="data"
               :context="context"
               :formState="formState"
               :viewparams="viewparams"
               :localContext='{ }' 
               :localParam='{ }' 
-              :disabled="detailsModel.n_product_eq.disabled"
+              :disabled="detailsModel.product.disabled"
               valueType="number"
               tag="Product"
               codelistType="DYNAMIC"

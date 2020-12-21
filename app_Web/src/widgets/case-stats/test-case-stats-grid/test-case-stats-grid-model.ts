@@ -92,8 +92,8 @@ export default class TestCaseStatsModel {
           prop: 'id',
         },
       {
-        name: 'n_product_eq',
-        prop: 'n_product_eq',
+        name: 'product',
+        prop: 'product',
         dataType: 'PICKUP',
       },
 
