@@ -132,8 +132,8 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      * 属性 [DATE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
 

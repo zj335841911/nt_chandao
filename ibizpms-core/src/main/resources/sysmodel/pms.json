@@ -4906,7 +4906,7 @@
     "codename":"Date",
     "field_logic_name":"日志日期",
     "entity_name":"CompanyStats",
-    "field_type":"DATETIME",
+    "field_type":"DATE",
     "nullable":1,
     "physical_field":1,
     "data_type":"DATETIME",

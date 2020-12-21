@@ -21,7 +21,7 @@
 |新增Bug数|OPENEDBUGCNT|INT|&nbsp;|
 |解决Bug数|RESOLVEDBUGCNT|INT|&nbsp;|
 |动态数|DYNAMICCNT|INT|&nbsp;|
-|日志日期|DATE|DATETIME|&nbsp;|
+|日志日期|DATE|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |

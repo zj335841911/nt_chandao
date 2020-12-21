@@ -273,15 +273,15 @@ POST
 | 10 | openedbugcnt | Integer | 允许 | 新增Bug数 |
 | 11 | resolvedbugcnt | Integer | 允许 | 解决Bug数 |
 | 12 | dynamiccnt | Integer | 允许 | 动态数 |
-| 13 | date | Timestamp | 允许 | 日志日期<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 13 | date | Timestamp | 允许 | 日志日期<br>时间格式：yyyy-MM-dd |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### CompanyStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_comment_like | String | 允许 | 条件字段：comment<br>条件组合方式：`%like%` |
-| 2 | n_date_gtandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 3 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 2 | n_date_gtandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 3 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
 | 4 | customcond | String | 允许 | 自定义查询条件 |
 | 5 | customparams | String | 允许 | 自定义查询参数 |
 | 6 | query | String | 允许 | 快速搜索 |

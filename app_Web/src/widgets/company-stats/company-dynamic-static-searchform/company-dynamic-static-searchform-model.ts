@@ -28,12 +28,12 @@ export default class CompanyDynamicStaticModel {
       {
         name: 'n_date_gtandeq',
         prop: 'date',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
       {
         name: 'n_date_ltandeq',
         prop: 'date',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
     ]
   }

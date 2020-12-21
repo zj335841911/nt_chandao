@@ -28,7 +28,7 @@
 | 10 | [新增Bug数](#属性-新增Bug数（OPENEDBUGCNT）) | OPENEDBUGCNT | 整型 | 否 | 否 | 是 |
 | 11 | [解决Bug数](#属性-解决Bug数（RESOLVEDBUGCNT）) | RESOLVEDBUGCNT | 整型 | 否 | 否 | 是 |
 | 12 | [动态数](#属性-动态数（DYNAMICCNT）) | DYNAMICCNT | 整型 | 否 | 否 | 是 |
-| 13 | [日志日期](#属性-日志日期（DATE）) | DATE | 日期时间型 | 否 | 否 | 是 |
+| 13 | [日志日期](#属性-日志日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -505,7 +505,7 @@ Integer
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-日期时间型
+日期型
 
 - Java类型
 Timestamp
@@ -520,7 +520,7 @@ Timestamp
 无
 
 - 数据格式
-yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd
 
 - 是否支持快速搜索
 否
