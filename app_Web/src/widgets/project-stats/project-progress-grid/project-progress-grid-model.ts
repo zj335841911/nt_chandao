@@ -91,6 +91,11 @@ export default class ProjectProgressModel {
           name: 'projectstats',
           prop: 'id',
         },
+      {
+        name: 'status',
+        prop: 'status',
+        dataType: 'TEXT',
+      },
 
         {
           name:'size',

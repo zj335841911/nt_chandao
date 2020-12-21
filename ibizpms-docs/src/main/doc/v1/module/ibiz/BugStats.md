@@ -1181,7 +1181,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[Bug状态（Bug__status）](../../codelist/Bug__status)】
 
 - 数据格式
 无

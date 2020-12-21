@@ -203,6 +203,16 @@ function getLocaleResourceBase(){
 			productbugcnt_qa_chart: {
 				nodata:commonLogic.appcommonhandle("",null),
 			},
+			productstorysum_searchform: {
+				details: {
+					rawitem1: commonLogic.appcommonhandle("",null), 
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+					closed: commonLogic.appcommonhandle("关闭产品",null), 
+					n_id_eq: commonLogic.appcommonhandle("产品",null), 
+				},
+				uiactions: {
+				},
+			},
 			default_searchform: {
 				details: {
 					rawitem1: commonLogic.appcommonhandle("",null), 
@@ -211,16 +221,6 @@ function getLocaleResourceBase(){
 					expired: commonLogic.appcommonhandle("过期计划",null), 
 					n_id_eq: commonLogic.appcommonhandle("产品",null), 
 					n_plan_eq: commonLogic.appcommonhandle("计划",null), 
-				},
-				uiactions: {
-				},
-			},
-			productstorysum_searchform: {
-				details: {
-					rawitem1: commonLogic.appcommonhandle("",null), 
-					formpage1: commonLogic.appcommonhandle("常规条件",null), 
-					closed: commonLogic.appcommonhandle("关闭产品",null), 
-					n_id_eq: commonLogic.appcommonhandle("产品",null), 
 				},
 				uiactions: {
 				},

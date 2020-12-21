@@ -2416,6 +2416,7 @@
     "field_logic_name":"Bug状态",
     "entity_name":"BugStats",
     "field_type":"TEXT",
+    "dict":"Bug__status",
     "nullable":1,
     "physical_field":0,
     "data_type":"VARCHAR",

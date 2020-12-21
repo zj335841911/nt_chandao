@@ -106,7 +106,6 @@ export default class ProjectBugTypeSumModel {
           name: 'projectstats',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

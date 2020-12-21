@@ -1,0 +1,49 @@
+<i-form :model="this.data" class="app-search-form" ref="searchform" style="">
+    <input style="display:none;">
+    <div class="search-button">
+        <i-button size="small" type="primary" ghost @click="onSearch.apply(_self, arguments)">{{$t('app.searchButton.search')}}</i-button>
+        <i-button size="small" type="default" ghost @click="onReset.apply(_self, arguments)">{{this.$t('app.searchButton.reset')}}</i-button>
+    </div>
+    <div class="form-content">
+                  
+          <i-col
+              class="form-layout-container"
+              v-show="detailsModel.status.visible"
+              :style="{}"
+              
+              
+              :lg="{ span: 10, offset: 0 }"
+              :xl="{ span: 10, offset: 0 }"
+          >
+              <app-form-item
+              name="status"
+              :itemRules="this.rules.status"
+              class=""
+              
+              :caption="$t('entities.projectstats.projectstatus_searchform.details.status')"
+              uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true"
+              :error="detailsModel.status.error"
+              :isEmptyCaption="false"
+              labelPos="LEFT"
+          >
+              
+          <dropdown-list 
+              v-model="data.status"
+              :data="data"
+              :context="context"
+              :formState="formState"
+              :viewparams="viewparams"
+              :localContext='{ }' 
+              :localParam='{ }' 
+              :disabled="detailsModel.status.disabled"
+              valueType="string"
+              tag="Project__status"
+              codelistType="STATIC"
+              placeholder="请选择..."
+          
+          ></dropdown-list>
+          </app-form-item>
+          
+          </i-col>
+    </div>
+</i-form>

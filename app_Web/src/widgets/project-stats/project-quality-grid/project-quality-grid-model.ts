@@ -106,7 +106,6 @@ export default class ProjectQualityModel {
           name: 'projectstats',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

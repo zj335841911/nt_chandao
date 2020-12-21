@@ -379,6 +379,30 @@ export class BugResolvedGirdGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'bugopenedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'bugresolution',
+                srfkey: 'Bug__resolution',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'bugstatus',
+                srfkey: 'Bug__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 

@@ -355,6 +355,14 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projectstatus_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					status: commonLogic.appcommonhandle("项目状态",null), 
+				},
+				uiactions: {
+				},
+			},
 			allgridviewtoolbar_toolbar: {
 				deuiaction3_addproject: {
 					caption: commonLogic.appcommonhandle("添加项目",null),
@@ -404,6 +412,10 @@ function getLocaleResourceBase(){
 				},
 			},
 			projectprogressusr2gridviewtoolbar_toolbar: {
+				deuiaction7: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
 			},
 		};
 		return data;

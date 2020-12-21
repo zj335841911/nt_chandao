@@ -106,30 +106,6 @@ export default class ProductBugTypeSumFormModel {
           name: 'productsum',
           prop: 'id',
         },
-      {
-        name: 'closed',
-        prop: 'closed',
-      },
-      {
-        name: 'expired',
-        prop: 'expired',
-      },
-      {
-        name: 'n_id_eq',
-        prop: 'n_id_eq',
-        dataType: 'ACID',
-      },
-      {
-        name: 'n_plan_eq',
-        prop: 'n_plan_eq',
-        dataType: 'BIGINT',
-      },
-      {
-        name: 'productsum',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
-
         {
           name:'size',
           prop:'size'

@@ -4,7 +4,6 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectStatsProjectBugTypeSumUsr2GridViewBase } from './project-stats-project-bug-type-sum-usr2-grid-view-base';
 import view_grid from '@widgets/project-stats/project-bug-type-sum-grid/project-bug-type-sum-grid.vue';
-import view_searchform from '@widgets/project-stats/default-searchform/default-searchform.vue';
 
 /**
  * 项目bug类型统计表格视图视图
@@ -16,7 +15,6 @@ import view_searchform from '@widgets/project-stats/default-searchform/default-s
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

@@ -4,7 +4,6 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductSumProductBugTypeSumUsr4GridViewBase } from './product-sum-product-bug-type-sum-usr4-grid-view-base';
 import view_grid from '@widgets/product-sum/product-bug-type-sum-form-grid/product-bug-type-sum-form-grid.vue';
-import view_searchform from '@widgets/product-sum/default-searchform/default-searchform.vue';
 
 /**
  * 产品Bug类型统计表格视图视图
@@ -16,7 +15,6 @@ import view_searchform from '@widgets/product-sum/default-searchform/default-sea
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()
