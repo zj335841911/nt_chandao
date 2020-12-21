@@ -2889,7 +2889,10 @@ ORDER BY
 ```
 ### bug解决汇总表(BugResolvedGird)<div id="BugStats_BugResolvedGird"></div>
 ```sql
-SELECT t1.resolvedBy,t1.resolution,t1.id,t1.title,t1.pri,t1.severity,t1.openedBy,t1.openedDate,t1.resolvedDate,t1.`status` from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
+
+SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus 
+
+from zt_bug t1 where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') ORDER BY t1.resolvedBy
 ```
 ### Bug指派表(BugassignedTo)<div id="BugStats_BugassignedTo"></div>
 ```sql
@@ -14092,22 +14095,34 @@ WHERE t1.deleted = '0'
 ### 项目进度(ProjectProgress)<div id="ProjectStats_ProjectProgress"></div>
 ```sql
 SELECT
-	IFNULL((
+	t1.*,
+	CONCAT(
+	IFNULL( ROUND( ( t1.TOTALCONSUMED / ( t1.TOTALCONSUMED + t1.TOTALLEFT ) )*100, 2 ), 0 ),
+	'%' 
+	) AS progress 
+FROM
+	(
+SELECT
+	IFNULL(
+	(
 SELECT
 	COUNT( 1 ) 
 FROM
 	ZT_STORY 
 WHERE
-	`STAGE` in ( 'projected' ,'developing') 
+	`STAGE` IN ( 'projected', 'developing' ) 
 	AND FIND_IN_SET ( PRODUCT, ( SELECT GROUP_CONCAT( PRODUCT ) FROM ZT_PROJECTPRODUCT WHERE PROJECT = t1.`ID` ) ) 
 	AND DELETED = '0' 
-	),0)  AS `LEFTSTORYCNT`,
+	),
+	0 
+	) AS `LEFTSTORYCNT`,
 	t1.`DELETED`,
 	t1.`ID`,
 	t1.`NAME`,
-	
 	t1.`STATUS`,
-	IFNULL((SELECT
+	IFNULL(
+	(
+SELECT
 	COUNT( 1 ) 
 FROM
 	ZT_STORY
@@ -14115,9 +14130,12 @@ FROM
 WHERE
 	PROJECT = t1.`ID` 
 	AND DELETED = '0' 
-	),0) AS `STORYCNT`,
-	IFNULL(( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ),0)  AS `TASKCNT`,
-	IFNULL((
+	),
+	0 
+	) AS `STORYCNT`,
+	IFNULL( ( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ), 0 ) AS `TASKCNT`,
+	IFNULL(
+	(
 SELECT
 	round( SUM( CONSUMED ), 0 ) 
 FROM
@@ -14126,8 +14144,11 @@ WHERE
 	PROJECT = t1.`ID` 
 	AND DELETED = '0' 
 	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
-	),0)  AS `TOTALCONSUMED`,
-	IFNULL((
+	),
+	0 
+	) AS `TOTALCONSUMED`,
+	IFNULL(
+	(
 SELECT
 	round( SUM( `LEFT` ), 0 ) 
 FROM
@@ -14136,9 +14157,11 @@ WHERE
 	PROJECT = t1.`ID` 
 	AND DELETED = '0' 
 	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
-	),0)  AS `TOTALLEFT`,
-	
- IFNULL((
+	),
+	0 
+	) AS `TOTALLEFT`,
+	IFNULL(
+	(
 SELECT
 	COUNT( 1 ) 
 FROM
@@ -14147,8 +14170,9 @@ WHERE
 	PROJECT = t1.`ID` 
 	AND `STATUS` NOT IN ( 'done', 'cancel', 'closed' ) 
 	AND DELETED = '0' 
-	),0)	 AS `UNDONETASKCNT`,
-
+	),
+	0 
+	) AS `UNDONETASKCNT`,
 	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE t1.`ORDER` END ) AS `ORDER1`,
 	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END ) AS `ISTOP` 
 FROM
@@ -14164,7 +14188,8 @@ WHERE
 	AND t1.id IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = #{srf.sessioncontext.srfloginname} AND t3.type = 'project' ) 
 	) 
 	OR t1.acl = 'open' 
-	)
+	) 
+	) t1
 ```
 ### 项目质量表查询(ProjectQuality)<div id="ProjectStats_ProjectQuality"></div>
 ```sql

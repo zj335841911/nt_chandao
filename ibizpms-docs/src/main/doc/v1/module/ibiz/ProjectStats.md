@@ -3678,22 +3678,34 @@ from zt_project t1
 - MYSQL5
 ```SQL
 SELECT
-	IFNULL((
+	t1.*,
+	CONCAT(
+	IFNULL( ROUND( ( t1.TOTALCONSUMED / ( t1.TOTALCONSUMED + t1.TOTALLEFT ) )*100, 2 ), 0 ),
+	'%' 
+	) AS progress 
+FROM
+	(
+SELECT
+	IFNULL(
+	(
 SELECT
 	COUNT( 1 ) 
 FROM
 	ZT_STORY 
 WHERE
-	`STAGE` in ( 'projected' ,'developing') 
+	`STAGE` IN ( 'projected', 'developing' ) 
 	AND FIND_IN_SET ( PRODUCT, ( SELECT GROUP_CONCAT( PRODUCT ) FROM ZT_PROJECTPRODUCT WHERE PROJECT = t1.`ID` ) ) 
 	AND DELETED = '0' 
-	),0)  AS `LEFTSTORYCNT`,
+	),
+	0 
+	) AS `LEFTSTORYCNT`,
 	t1.`DELETED`,
 	t1.`ID`,
 	t1.`NAME`,
-	
 	t1.`STATUS`,
-	IFNULL((SELECT
+	IFNULL(
+	(
+SELECT
 	COUNT( 1 ) 
 FROM
 	ZT_STORY
@@ -3701,9 +3713,12 @@ FROM
 WHERE
 	PROJECT = t1.`ID` 
 	AND DELETED = '0' 
-	),0) AS `STORYCNT`,
-	IFNULL(( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ),0)  AS `TASKCNT`,
-	IFNULL((
+	),
+	0 
+	) AS `STORYCNT`,
+	IFNULL( ( SELECT COUNT( 1 ) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' ), 0 ) AS `TASKCNT`,
+	IFNULL(
+	(
 SELECT
 	round( SUM( CONSUMED ), 0 ) 
 FROM
@@ -3712,8 +3727,11 @@ WHERE
 	PROJECT = t1.`ID` 
 	AND DELETED = '0' 
 	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
-	),0)  AS `TOTALCONSUMED`,
-	IFNULL((
+	),
+	0 
+	) AS `TOTALCONSUMED`,
+	IFNULL(
+	(
 SELECT
 	round( SUM( `LEFT` ), 0 ) 
 FROM
@@ -3722,9 +3740,11 @@ WHERE
 	PROJECT = t1.`ID` 
 	AND DELETED = '0' 
 	AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) 
-	),0)  AS `TOTALLEFT`,
-	
- IFNULL((
+	),
+	0 
+	) AS `TOTALLEFT`,
+	IFNULL(
+	(
 SELECT
 	COUNT( 1 ) 
 FROM
@@ -3733,8 +3753,9 @@ WHERE
 	PROJECT = t1.`ID` 
 	AND `STATUS` NOT IN ( 'done', 'cancel', 'closed' ) 
 	AND DELETED = '0' 
-	),0)	 AS `UNDONETASKCNT`,
-
+	),
+	0 
+	) AS `UNDONETASKCNT`,
 	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE t1.`ORDER` END ) AS `ORDER1`,
 	( CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END ) AS `ISTOP` 
 FROM
@@ -3750,7 +3771,8 @@ WHERE
 	AND t1.id IN ( SELECT t3.root FROM zt_team t3 WHERE t3.account = #{srf.sessioncontext.srfloginname} AND t3.type = 'project' ) 
 	) 
 	OR t1.acl = 'open' 
-	)
+	) 
+	) t1
 ```
 ### 数据查询-项目质量表查询（ProjectQuality）
 #### 说明
