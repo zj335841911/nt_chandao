@@ -187,7 +187,18 @@
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 项目质量表聚合逻辑 (ProjectQualitySum)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>项目质量表聚合逻辑</center>
 
 ## 查询集合
 

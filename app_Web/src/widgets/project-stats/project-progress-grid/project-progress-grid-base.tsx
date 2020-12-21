@@ -103,6 +103,14 @@ export class ProjectProgressGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof ProjectProgressGridBase
+     */
+    public limit: number = 1000;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

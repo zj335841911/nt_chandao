@@ -111,6 +111,14 @@ export class ProductBugTypeSumFormGridBase extends GridControlBase {
     public isNoSort: boolean = true;
 
     /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof ProductBugTypeSumFormGridBase
+     */
+    public limit: number = 1000;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
