@@ -35,6 +35,12 @@ export default class CompanyDynamicStaticModel {
         prop: 'date',
         dataType: 'DATE',
       },
+      {
+        name: 'begin',
+      },
+      {
+        name: 'end',
+      },
     ]
   }
 

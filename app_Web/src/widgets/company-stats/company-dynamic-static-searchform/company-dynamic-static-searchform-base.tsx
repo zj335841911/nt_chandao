@@ -77,6 +77,8 @@ export class CompanyDynamicStaticSearchFormBase extends SearchFormControlBase {
     public data: any = {
         n_date_gtandeq: null,
         n_date_ltandeq: null,
+        begin: null,
+        end: null,
     };
 
     /**
@@ -91,6 +93,10 @@ export class CompanyDynamicStaticSearchFormBase extends SearchFormControlBase {
         n_date_gtandeq: new FormItemModel({ caption: '起始日期', detailType: 'FORMITEM', name: 'n_date_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_date_ltandeq: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'n_date_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        begin: new FormItemModel({ caption: '起始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

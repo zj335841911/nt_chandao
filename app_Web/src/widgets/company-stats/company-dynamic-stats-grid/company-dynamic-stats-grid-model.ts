@@ -106,6 +106,14 @@ export default class CompanyDynamicStatsModel {
         prop: 'n_date_ltandeq',
         dataType: 'DATE',
       },
+      {
+        name: 'begin',
+        prop: 'begin',
+      },
+      {
+        name: 'end',
+        prop: 'end',
+      },
 
         {
           name:'size',
