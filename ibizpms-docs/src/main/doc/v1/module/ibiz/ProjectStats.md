@@ -2975,7 +2975,8 @@ SELECT
 	t1.`END`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0' ) AS `FINISHBUGCNT`,
 	(SELECT count(1) from zt_task where PROJECT = t1.`ID` AND `STATUS`='done' AND DELETED = '0')as completetaskcnt,
-	(SELECT count(1) from zt_story where  `STAGE` in ('verified','released','closed') AND DELETED = '0')as completestorycnt,
+	(SELECT count( 1 ) FROM (SELECT t1.project,t1.story from zt_projectstory t1 left join zt_story t2 on t1.story = t2.id where t2.stage in ('verified','released','closed') and t2.deleted='0'
+)t2 WHERE t1.id = t2.project) as completestorycnt,
 	t1.`ID`,
 	t1.`NAME`,
 	t1.`STATUS`,

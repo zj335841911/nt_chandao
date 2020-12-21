@@ -61,7 +61,7 @@
     </sql>
     <!--数据查询[TestCaseStats]-->
     <sql id="TestCaseStats" databaseId="mysql">
-		<![CDATA[ SELECT t1.id as Module,  t1.`name` as ModuleName,  count(distinct t2.id) as TotalCase,  sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase,  sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase, sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase, sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase, case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate FROM zt_module t1 LEFT JOIN zt_case t2 ON t1.id = t2.module LEFT JOIN zt_testresult t3 ON t2.id = t3.`case` group by t1.id, t1.`name`
+		<![CDATA[ SELECT t1.id as Module,  t1.`name` as ModuleName,  count(distinct t2.id) as TotalCase,  sum(case when t3.caseResult = 'pass' then 1 else 0 end) as PassCase,  sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase, sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase, sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase, case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate FROM zt_module t1 LEFT JOIN zt_case t2 ON t1.id = t2.module and t2.deleted = '0'  LEFT JOIN zt_testresult t3 ON t2.id = t3.`case` where t1.deleted = '0'  group by t1.id
 			]]>
     </sql>
     <!--数据查询[View]-->

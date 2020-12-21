@@ -4819,9 +4819,10 @@ sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase,
 case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
 FROM
 zt_module t1
-LEFT JOIN zt_case t2 ON t1.id = t2.module
+LEFT JOIN zt_case t2 ON t1.id = t2.module and t2.deleted = '0' 
 LEFT JOIN zt_testresult t3 ON t2.id = t3.`case`
-group by t1.id, t1.`name`
+where t1.deleted = '0' 
+group by t1.id
 ```
 ### 默认（全部数据）(VIEW)<div id="CaseStats_View"></div>
 ```sql
@@ -14103,7 +14104,8 @@ SELECT
 	t1.`END`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active' AND DELETED = '0' ) AS `FINISHBUGCNT`,
 	(SELECT count(1) from zt_task where PROJECT = t1.`ID` AND `STATUS`='done' AND DELETED = '0')as completetaskcnt,
-	(SELECT count(1) from zt_story where  `STAGE` in ('verified','released','closed') AND DELETED = '0')as completestorycnt,
+	(SELECT count( 1 ) FROM (SELECT t1.project,t1.story from zt_projectstory t1 left join zt_story t2 on t1.story = t2.id where t2.stage in ('verified','released','closed') and t2.deleted='0'
+)t2 WHERE t1.id = t2.project) as completestorycnt,
 	t1.`ID`,
 	t1.`NAME`,
 	t1.`STATUS`,
