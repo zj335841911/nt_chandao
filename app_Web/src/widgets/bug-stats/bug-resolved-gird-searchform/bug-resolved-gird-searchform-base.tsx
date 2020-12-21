@@ -76,8 +76,8 @@ export class BugResolvedGirdSearchFormBase extends SearchFormControlBase {
      */
     public data: any = {
         n_dept_eq: null,
-        n_begin_ltandeq: null,
-        n_end_gtandeq: null,
+        n_bugresolveddate_gtandeq: null,
+        n_bugresolveddate_ltandeq: null,
     };
 
     /**
@@ -91,9 +91,9 @@ export class BugResolvedGirdSearchFormBase extends SearchFormControlBase {
 , 
         n_dept_eq: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'n_dept_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_begin_ltandeq: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'n_begin_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_bugresolveddate_gtandeq: new FormItemModel({ caption: 'Bug解决日期', detailType: 'FORMITEM', name: 'n_bugresolveddate_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_end_gtandeq: new FormItemModel({ caption: '至', detailType: 'FORMITEM', name: 'n_end_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_bugresolveddate_ltandeq: new FormItemModel({ caption: '至', detailType: 'FORMITEM', name: 'n_bugresolveddate_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

@@ -1480,7 +1480,10 @@ yyyy-MM-dd
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `>=` |
+| 2 | `<=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -1737,9 +1740,11 @@ Save
 | 5 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
 | 6 | [由谁解决（RESOLVEDBY）](#属性-由谁解决（RESOLVEDBY）) | `=` |
 | 7 | [项目编号（PROJECT）](#属性-项目编号（PROJECT）) | `=` |
-| 8 | [部门（DEPT）](#属性-部门（DEPT）) | `=` |
-| 9 | [开始（BEGIN）](#属性-开始（BEGIN）) | `<=` |
-| 10 | [结束（END）](#属性-结束（END）) | `>=` |
+| 8 | [bug解决日期（BUGRESOLVEDDATE）](#属性-bug解决日期（BUGRESOLVEDDATE）) | `>=` |
+| 9 | [bug解决日期（BUGRESOLVEDDATE）](#属性-bug解决日期（BUGRESOLVEDDATE）) | `<=` |
+| 10 | [部门（DEPT）](#属性-部门（DEPT）) | `=` |
+| 11 | [开始（BEGIN）](#属性-开始（BEGIN）) | `<=` |
+| 12 | [结束（END）](#属性-结束（END）) | `>=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -1867,7 +1872,7 @@ bug解决汇总表
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus ,t2.dept,t1.resolvedDate as begin,t1.resolvedDate as end
+SELECT t1.resolvedBy,t1.resolution as bugresolution,t1.id as bugid,t1.title as bugtitle,t1.pri as bugpri,t1.severity as bugseverity,t1.openedBy as bugopenedby,t1.openedDate as bugopeneddate,t1.resolvedDate as bugresolvedDate,t1.`status` as bugstatus ,t2.dept
 
 from zt_bug t1 LEFT JOIN zt_user t2 on t1.resolvedBy = t2.account where t1.deleted = '0' and t1.resolution = 'fixed' and t1.`status` in ('closed','resolved') 
 and ( t2.dept = #{srf.datacontext.dept} or #{srf.datacontext.dept} is null )

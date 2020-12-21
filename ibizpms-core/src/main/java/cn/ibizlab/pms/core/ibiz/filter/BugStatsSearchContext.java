@@ -76,6 +76,24 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
             this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_bugresolveddate_gtandeq;//[bug解决日期]
+	public void setN_bugresolveddate_gtandeq(Timestamp n_bugresolveddate_gtandeq) {
+        this.n_bugresolveddate_gtandeq = n_bugresolveddate_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_bugresolveddate_gtandeq)){
+            this.getSearchCond().ge("`bugresolveddate`", n_bugresolveddate_gtandeq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_bugresolveddate_ltandeq;//[bug解决日期]
+	public void setN_bugresolveddate_ltandeq(Timestamp n_bugresolveddate_ltandeq) {
+        this.n_bugresolveddate_ltandeq = n_bugresolveddate_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_bugresolveddate_ltandeq)){
+            this.getSearchCond().le("`bugresolveddate`", n_bugresolveddate_ltandeq);
+        }
+    }
 	private String n_dept_eq;//[部门]
 	public void setN_dept_eq(String n_dept_eq) {
         this.n_dept_eq = n_dept_eq;
