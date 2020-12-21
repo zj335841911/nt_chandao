@@ -1,6 +1,12 @@
 <template>
   <div class="app-mob-department-select">
-    <ibiz-select-tree  :NodesData="Nodesdata" v-model="selectTreeValue" :disabled="disabled" :multiple="multiple" @select="onSelect"></ibiz-select-tree>
+    <div class="checkField">
+      <ion-input :disabled="disabled" :value="curValue" readonly @click="openModal">
+        <div class="icon">
+          <svg t="1608543874255" class="icon" viewBox="0 0 1165 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2970" width="200" height="200"><path d="M1107.30913719 909.45959375l-186.86323313-145.37686875a479.97811781 479.97811781 0 1 0-69.42107062 87.6783975q13.80107531-13.80107531 26.30518125-28.51668l185.08405875 143.96350594a36.58116281 36.58116281 0 1 0 44.89506375-57.73172719z m-594.79308657 9.37807969c-223.66055812 0-405.63521719-181.95803156-405.63521718-405.63521719S288.80560906 107.56723906 512.46616719 107.56723906 918.10138437 289.59178156 918.10138437 513.20245625 736.14335281 918.83767344 512.46616719 918.83767344z" fill="#474747" p-id="2971"></path></svg>
+        </div>
+      </ion-input>
+    </div>
   </div>
 </template>
 
@@ -88,6 +94,13 @@ export default class AppMobDepartmentSelect extends Vue {
      * @memberof AppMobDepartmentSelect
      */
     public selectTreeValue:any = "";
+
+    /**
+     * 选中回填
+     * 
+     * @type {*}
+     */
+    public curValue: any = '';
 
     /**
      * 树节点数据
@@ -280,6 +293,53 @@ export default class AppMobDepartmentSelect extends Vue {
     }
   }
   
+  /**
+   * 打开模态
+   * 
+   * @memberof AppOrgSelect
+   */
+  public async openModal(){
+    const view: any = {
+        viewname: 'app-tree',
+        title: (this.$t('components.AppMobGroupSelect.groupSelect') as string)
+    };
+    const context: any = JSON.parse(JSON.stringify(this.context));
+    let filtervalue:string = "";
+    if(this.filter){
+        if(this.data[this.filter]){
+            filtervalue = this.data[this.filter];
+        }else if(context[this.filter]){
+            filtervalue = context[this.filter];
+        }else{
+            filtervalue = context.srforgid;
+        }
+    }else{
+        filtervalue = context.srforgid;
+    }
+    const param: any = {};
+    Object.assign(param, {
+      selectTreeValue:this.selectTreeValue,
+      multiple:this.multiple,
+      nodesData: this.Nodesdata
+    });
+    let container: any = await this.$appmodal.openModal(view, context, param);
+    this.closeModal(container);
+  }
+
+  /**
+     * 模态关闭
+     *
+     * @memberof AppOrgSelect
+     */  
+    public closeModal(result: any) {
+       let checkValue: any[] = [];
+       result.datas.forEach((item: any)=>{
+         checkValue.push(item.label);
+       })
+       this.curValue = checkValue.join(',');
+       this.$emit('select-change',{name: this.fillMap.label, value: this.curValue });
+    }
+
 }
 </script>
 
