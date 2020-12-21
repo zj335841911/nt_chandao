@@ -4854,7 +4854,7 @@ left join zt_case t2 on t1.id = t2.module and t2.deleted = '0'
 left join zt_testresult t3 on t2.id = t3.`case`
 where t1.deleted = '0'
 group by t1.id) t1
-WHERE t1.product = #{srfdatacontext.product} 
+WHERE t1.product = #{srf.datacontext.product} 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="CaseStats_View"></div>
