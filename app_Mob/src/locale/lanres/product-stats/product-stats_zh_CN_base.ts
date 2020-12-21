@@ -36,6 +36,7 @@ export default {
     resolvedbugcnt: "解决Bug数",
     importantbugcnt: "重要的Bug数",
     bugstory: "需求所提bug数",
+    importantbugpercent: "严重bug比",
   },
 	views: {
 		mobmdview: {
