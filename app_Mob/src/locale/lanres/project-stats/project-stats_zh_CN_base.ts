@@ -78,5 +78,6 @@ export default {
     verifiedstagestorycnt: "已验收阶段需求数",
     releasedstagestorycnt: "已发布阶段需求数",
     closedstagestorycnt: "已关闭阶段需求数",
+    progress: "进度",
   },
 };

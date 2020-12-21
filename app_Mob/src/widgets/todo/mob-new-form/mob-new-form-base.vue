@@ -245,6 +245,26 @@
 
 
 <app-form-item 
+    name='formitem' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem_item"  
+    :itemValue="this.data.formitem" 
+    v-show="detailsModel.formitem.visible" 
+    :itemRules="this.rules.formitem" 
+    :caption="$t('todo.mobnew_form.details.formitem')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem.disabled"
+    :error="detailsModel.formitem.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'','label':'formitem'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+</app-form-item>
+
+
+
+<app-form-item 
     name='assignedtopk' 
     class='' 
     uiStyle="DEFAULT"  
@@ -259,7 +279,47 @@
     :disabled="detailsModel.assignedtopk.disabled"
     :error="detailsModel.assignedtopk.error" 
     :isEmptyCaption="false">
-        <app-department-select :data="data" :disabled="detailsModel.assignedtopk.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'assignedto','label':'assignedtopk'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-department-select>
+        <app-mob-department-select :data="data" :disabled="detailsModel.assignedtopk.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'assignedto','label':'assignedtopk'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem2' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem2_item"  
+    :itemValue="this.data.formitem2" 
+    v-show="detailsModel.formitem2.visible" 
+    :itemRules="this.rules.formitem2" 
+    :caption="$t('todo.mobnew_form.details.formitem2')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem2.disabled"
+    :error="detailsModel.formitem2.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem2.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'','label':'formitem2'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem1' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem1_item"  
+    :itemValue="this.data.formitem1" 
+    v-show="detailsModel.formitem1.visible" 
+    :itemRules="this.rules.formitem1" 
+    :caption="$t('todo.mobnew_form.details.formitem1')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem1.disabled"
+    :error="detailsModel.formitem1.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem1.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'','label':'formitem1'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
 </app-form-item>
 
 
@@ -756,7 +816,10 @@ export default class MobNewBase extends Vue implements ControlInterface {
         private: null,
         desc: null,
         status: null,
+        formitem: null,
         assignedtopk: null,
+        formitem2: null,
+        formitem1: null,
         account: null,
         assignedby: null,
         assigneddate: null,
@@ -941,7 +1004,13 @@ export default class MobNewBase extends Vue implements ControlInterface {
 , 
         status: new FormItemModel({ caption: '人员', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedtopk: new FormItemModel({ caption: '部门', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitem: new FormItemModel({ caption: '【多选】部门（指定单位及其下级单位的所有部门多选)', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedtopk: new FormItemModel({ caption: '【单选】部门（指定单位及其下级单位的所有部门）', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem2: new FormItemModel({ caption: '【多选】部门（指定单位内的部门多选）', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem1: new FormItemModel({ caption: '【单选】部门（指定单位内的部门单选）', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         account: new FormItemModel({ caption: '【单选】指定单位内人员', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1220,6 +1289,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 formitem 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem')
+    onFormitemChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 assignedtopk 值
      *
      * @param {*} newVal
@@ -1229,6 +1310,30 @@ export default class MobNewBase extends Vue implements ControlInterface {
     @Watch('data.assignedtopk')
     onAssignedtopkChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem2 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem2')
+    onFormitem2Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem2', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem1')
+    onFormitem1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem1', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1344,6 +1449,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
             }
             this.detailsModel.name.setDisabled(!ret);
         }
+
+
+
 
 
 

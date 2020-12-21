@@ -148,7 +148,13 @@ export const AppComponents = {
         v.component('app-select-tree-list',() => import('@/components/app-select-tree-list/app-select-tree-list.vue'));
         // 上下文菜单
         v.component('app-mob-context-menu',() => import('@/components/app-mob-context-menu/app-mob-context-menu.vue'));
+        // 单位选择器
+        v.component('app-mob-org-select',() => import('@/components/app-mob-org-select/app-mob-org-select.vue'));
+        // 部门选择器
+        v.component('app-mob-department-select',() => import('@/components/app-mob-department-select/app-mob-department-select.vue'));
         // 人员部门选择器
         v.component('app-mob-department-personnel',() => import('@/components/app-mob-department-personnel/app-mob-department-personnel.vue'));
+        v.component('app-mob-group-picker',() => import('@/components/app-mob-group-picker/app-mob-group-picker.vue'));
+        v.component('app-mob-group-select',() => import('@/components/app-mob-group-select/app-mob-group-select.vue'));
     },
 };

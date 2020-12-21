@@ -121,9 +121,18 @@ export class MobNewModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'formitem',
+            },
+            {
                 name: 'assignedtopk',
                 prop: 'assignedtopk',
                 dataType: 'TEXT',
+            },
+            {
+                name: 'formitem2',
+            },
+            {
+                name: 'formitem1',
             },
             {
                 name: 'account',

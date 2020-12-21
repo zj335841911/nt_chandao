@@ -87,6 +87,25 @@ export const getSearchformStatus = (state: any) => {
     return state.searchformStatus;
   }
 
+/** 获取单位数据
+  * 
+  * @param state 
+  */
+ export const getOrgData = (state: any) => (srfkey: string) => {
+     let orgData = state.orgDataMap[srfkey];
+     return orgData;
+ }
+ 
+ /**
+  * 获取部门数据
+  * 
+  * @param state 
+  */
+ export const getDepData = (state: any) => (srfkey: string) => {
+   let depData = state.depDataMap[srfkey];
+   return depData;
+ }
+
 /**
  * 获取部门成员
  * 
