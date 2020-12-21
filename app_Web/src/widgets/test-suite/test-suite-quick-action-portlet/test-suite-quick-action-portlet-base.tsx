@@ -424,6 +424,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @memberof TestSuiteQuickActionBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

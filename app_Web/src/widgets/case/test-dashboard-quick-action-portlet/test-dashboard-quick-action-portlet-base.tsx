@@ -486,6 +486,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @memberof TestDashboardQuickActionBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

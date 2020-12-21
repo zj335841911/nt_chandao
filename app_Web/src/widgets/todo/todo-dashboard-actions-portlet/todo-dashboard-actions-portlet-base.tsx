@@ -634,6 +634,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @memberof TodoDashboardActionsBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

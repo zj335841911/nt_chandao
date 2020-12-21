@@ -886,6 +886,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @memberof ToolbarBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

@@ -382,6 +382,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @memberof IbzLibCzBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

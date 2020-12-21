@@ -185,5 +185,25 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
         this.engine.onCtrlEvent('dashboard', 'load', $event);
     }
 
+    /** 
+     * 实体数据看板视图刷新状态
+     * 
+     * @type {boolean}
+     * @memberof BugMainDashboardViewBase
+     */
+    public state: boolean = true;
+
+    /** 
+     * 刷新
+     * 
+     * @memberof BugMainDashboardViewBase
+     */
+    public refresh(args: any){
+        this.state = false;
+        setTimeout(() => {
+            this.state = true;
+            this.loadModel();
+        }, 0);
+    }
 
 }

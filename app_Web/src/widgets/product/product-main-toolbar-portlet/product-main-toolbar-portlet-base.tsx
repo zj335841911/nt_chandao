@@ -365,6 +365,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @memberof ProductMainToolbarBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

@@ -382,6 +382,7 @@ export class DocActionPortletBase extends MainControlBase {
      * @memberof DocActionBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

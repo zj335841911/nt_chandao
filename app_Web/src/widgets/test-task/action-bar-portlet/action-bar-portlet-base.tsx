@@ -466,6 +466,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }
