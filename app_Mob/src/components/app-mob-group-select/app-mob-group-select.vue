@@ -1,20 +1,8 @@
 <template>
     <div class="ibiz-mob-group-select">
-        <div class="ibiz-group-content">
-            <span class="group-item-text" v-if="!multiple">
-                {{ selectName }}
-            </span>
-            <template v-else v-for="(select, index) of selects">
-                <div :key="index" class="ibiz-group-item">
-                    <span class="group-item-multiple">{{ select.label }}</span>
-                    <i v-if="!disabled" class="el-icon-close" @click="remove(select)"></i>
-                </div>
-            </template>
-        </div>
-        <div v-if="!disabled" class="ibiz-group-open">
-            <i v-if="!disabled && !multiple && selects.length > 0" class="el-icon-close" @click="remove(selects[0])"></i>
-            <i class="el-icon-search" @click="openView" style="color: #c0c4cc;"></i>
-        </div>
+        <ion-input class="ibz-input" :value="selectName"  readonly></ion-input>
+        <ion-icon  v-show="selects.length>0" class="delete-value " name="close-circle-outline" @click.stop="clearSelects"></ion-icon>
+        <ion-icon  v-show="selects.length<1" class="open-picker" name="search-outline" @click.stop="openView"></ion-icon>
     </div>
 </template>
 
@@ -39,7 +27,7 @@ export default class AppMobGroupSelect extends Vue {
      * @type {*}
      * @memberof AppMobGroupSelect
      */  
-    @Prop() treeurl?:boolean;
+    @Prop() treeurl?:string;
 
     /**
      * 数据接口地址
@@ -181,8 +169,15 @@ export default class AppMobGroupSelect extends Vue {
      * @memberof AppMobGroupSelect
      */  
     get selectName() {
-        if(this.selects.length > 0) {
+        if(this.selects.length == 1) {
             return this.selects[0].label;
+        } else {
+            let chosenName = '';
+            for (let i = 0; i < this.selects.length; i++) {
+              const element:any = this.selects[i];
+              chosenName += element.label + ',';
+            }
+            return chosenName.slice(0,chosenName.length-1)
         }
     }
 
@@ -194,7 +189,7 @@ export default class AppMobGroupSelect extends Vue {
      */  
     public async openView() {
         const view: any = {
-            viewname: 'app-group-picker',
+            viewname: 'app-mob-group-picker',
             title: (this.$t('components.AppMobGroupSelect.groupSelect') as string)
         };
         const context: any = JSON.parse(JSON.stringify(this.context));
@@ -219,13 +214,10 @@ export default class AppMobGroupSelect extends Vue {
             multiple: this.multiple,
             selects: this.selects,
         });
-        let container: Subject<any> = await this.$appmodal.openModal(view, context, param);
-        container.subscribe((result: any) => {
-            if (!result || !Object.is(result.ret, 'OK')) {
-                return;
-            }
+        const result: any = await this.$appmodal.openModal(view, context, param);
+        if (result || Object.is(result.ret, 'OK')) {
             this.openViewClose(result);
-        });
+        }
     }
 
     /**
@@ -237,9 +229,9 @@ export default class AppMobGroupSelect extends Vue {
     public openViewClose(result: any) {
         this.selects = [];
         if (result.datas && result.datas.length > 0) {
-            this.selects = result.datas
+            this.selects = result.datas;
         }
-        this.setValue()
+        this.setValue();
     }
 
     /**
@@ -250,14 +242,14 @@ export default class AppMobGroupSelect extends Vue {
      */  
     public remove(item: any) {
         this.selects.splice(this.selects.indexOf(item), 1);
-        this.setValue()
+        this.setValue();
     }
 
     /**
      * 设置值
      *
      * @type {*}
-     * @memberof AppMobGroupSelect
+     * @memberof AppGroupSelect
      */  
     public setValue() {
         let item: any = {};
@@ -323,7 +315,17 @@ export default class AppMobGroupSelect extends Vue {
         })
         }
     }
-  
+
+    /**
+     * 全部清除
+     * 
+     * @memberof AppMobGroupSelect
+     */
+    public clearSelects(){
+      this.selects = [];
+      this.setValue();
+    }
+
 }
 </script>
 

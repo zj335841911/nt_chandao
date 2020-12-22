@@ -1,18 +1,44 @@
 <template>
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'app-mob-group-picker-choose-view': true }">
+    <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button  @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"> 选择</label></ion-title>
+        </ion-toolbar>
+    </ion-header>
     <div class="ibiz-mob-group-picker">
         <div class="ibiz-group-container">
-            <div v-if="showTree" class="ibiz-group-tree">
-                <ibiz-select-tree :NodesData="treeItems" v-model="treeSelectVal" :treeOnly="true" :defaultChecked="true" @select="treeSelect"></ibiz-select-tree>
-            </div>
-            <div class="ibiz-group-content">
-                <ibiz-group-card :data="cardItems" text="label" value="id" groupName="group" :multiple="multiple" :defaultSelect="cardSelctVal" @select="groupSelect"></ibiz-group-card>
-            </div>
-        </div>
-        <div class="ibiz-group-footer">
-            <el-button size="small" type="primary" @click="onOK">{{$t('app.commonWords.ok')}}</el-button>
-            <el-button size="small" @click="onCancel">{{$t('app.commonWords.cancel')}}</el-button>
+          <div class="top">
+              <div class="left-part" v-if="treeItems.length > 0">
+                <van-sidebar v-model="activeKey">
+                  <van-sidebar-item :title="item.label" v-for="(item, index) in treeItems" :key="index" @click="treeSelect(item.id)"/>
+                </van-sidebar>
+              </div>
+              <div class="right-part">
+                <div v-for="(item,index) in handledCardItems" :key="index">
+                  <div class="group-header">{{ item.title }}</div>
+                  <ion-list class="group-list">
+                    <template v-for="(item, index) in item.value">
+                      <ion-item :key="index" @click="click_node(item)" class="list-item">
+                        <ion-label>{{ item.label }}</ion-label>
+                        <ion-icon class="tree-icon" slot="end" :name="geticon(item.status)" @click.stop="icon_click(item)"></ion-icon>
+                      </ion-item>
+                    </template>
+                  </ion-list>
+                </div>
+              </div>
+          </div>
+          <div class="ibiz-group-footer">
+              <van-button size="large" type="primary" @click="onOK">确定</van-button>
+          </div>
         </div>
     </div>
+</ion-page>
 </template>
 
 <script lang="ts">
@@ -28,7 +54,7 @@ export default class AppMobGroupPicker extends Vue {
      * @type {*}
      * @memberof AppMobGroupPicker
      */  
-    @Prop() viewdata: any;
+    @Prop() _context: any;
 
     /**
      * 视图参数
@@ -36,7 +62,15 @@ export default class AppMobGroupPicker extends Vue {
      * @type {*}
      * @memberof AppMobGroupPicker
      */  
-    @Prop() viewparam: any;
+    @Prop() _viewparams: any;
+
+    /**
+     * 侧边栏激活项
+     *
+     * @type {*}
+     * @memberof AppMobGroupPicker
+     */  
+    public activeKey:number = 0;
 
     /**
      * 多选
@@ -119,6 +153,34 @@ export default class AppMobGroupPicker extends Vue {
     protected selects: any[] = [];
 
     /**
+     * 处理后的分组表数据集
+     *
+     * @type {*}
+     * @memberof AppMobGroupPicker
+     */  
+    public handledCardItems: any[] = [];
+
+     /**
+     * 设置工具栏标题状态
+     *
+     * @memberof IbzDailyDailyCreateMobEditViewBase
+     */
+    public titleStatus: boolean = true;
+
+     /**
+     * 设置工具栏状态
+     *
+     * @memberof IbzDailyDailyCreateMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+
+    /**
      * 是否显示树
      *
      * @type {*}
@@ -137,11 +199,11 @@ export default class AppMobGroupPicker extends Vue {
      * @memberof AppMobGroupPicker
      */  
     public created() {
-        if(!this.viewdata || !this.viewparam) {
+        if(!this._context || !this._viewparams) {
             return;
         }
-        this.viewData = JSON.parse(this.viewdata);
-        this.viewParam = JSON.parse(this.viewparam);
+        this.viewData = JSON.parse(this._context);
+        this.viewParam = JSON.parse(this._viewparams);
         this.multiple = this.viewParam.multiple;
         this.treeurl = this.viewParam.treeurl;
         this.url = this.viewParam.url;
@@ -152,6 +214,7 @@ export default class AppMobGroupPicker extends Vue {
             })
         }
         this.load();
+        this.setViewTitleStatus();
     }
 
     /**
@@ -189,7 +252,7 @@ export default class AppMobGroupPicker extends Vue {
             }
         }).catch((error: any) => {
             console.log(error)
-        })
+        })        
     }
 
     /**
@@ -209,11 +272,52 @@ export default class AppMobGroupPicker extends Vue {
         get.then((response: any) => {
             if(response.status === 200) {
                 this.cardItems = response.data;
+                this.handleGroupData()
             }
         }).catch((error: any) => {
             console.log(error)
         })
     }
+
+    /**
+     * 处理分组表数据
+     *
+     * @type {*}
+     * @memberof AppMobGroupPicker
+     */  
+    public handleGroupData(){
+      const  groupBy = (array:any, f:any) => {
+          let groups:any = {};
+          array.forEach(function (o:any) {
+              var group:any = JSON.stringify(f(o));
+              groups[group] = groups[group] || [];
+              groups[group].push(o);
+          });
+          return Object.keys(groups).map(function (group:any) {
+              return groups[group];
+          });
+      };
+      const arrayGroupBy = (list:any, groupId:any) => {
+          let handled:any = groupBy(list, function (item:any) {
+              return [item[groupId]];
+          });
+
+          for (let i = 0; i < handled.length; i++) {
+            let array:any = handled[i];
+            // 初始化图标状态
+            for (let i = 0; i < array.length; i++) {
+              let element = array[i];
+              element.status = 0
+            }
+            this.handledCardItems[i] = {}
+            this.handledCardItems[i].title = array[0].group
+            this.handledCardItems[i].value = array;
+          }          
+      }
+      arrayGroupBy(this.cardItems,'group');
+      this.$forceUpdate();
+    }
+
 
     /**
      * 树选中
@@ -222,42 +326,58 @@ export default class AppMobGroupPicker extends Vue {
      * @memberof AppMobGroupPicker
      */  
     public treeSelect(event: any) {
-        if(!event || JSON.parse(event).length == 0) {
-            return;
-        }
-        const items: any = JSON.parse(event);
-        this.loadGroupData(items[0].id);
+        this.loadGroupData(event);
+    }
+
+
+    /**
+     * 节点点击
+     */
+    public click_node(item: any) {
+        this.icon_click(item);
     }
 
     /**
-     * 分组表选中
-     *
-     * @type {*}
-     * @memberof AppMobGroupPicker
-     */  
-    public groupSelect(event: any) {
-        if (!event || !event.select) {
-            return;
+     * 图标点击
+     */
+    public icon_click(item: any) {
+      if (item.status === 0) {
+        let index = this.selects.indexOf(item)
+        if (index == -1) {
+          if (this.multiple) {
+            item.status = 1;
+            this.selects.push(item);
+          } else {
+            this.selects[0] = item;
+            // 维护图标状态
+            this.handledCardItems.forEach((arr:any)=>{
+                arr.value.forEach((item:any)=>{
+                  item.status = 0;
+                })
+            })
+            item.status = 1;
+          }
         }
-        if(!this.multiple) {
-            this.selects = [];
-        }
-        if(event.rselect) {
-            let index: number = this.selects.findIndex((item: any) => Object.is(event.rselect, item.id));
-            if(index >= 0) {
-                this.selects.splice(index, 1);
-            }
-        } else {
-            event.select.forEach((key: string) => {
-                let index: number = this.selects.findIndex((item: any) => Object.is(key, item.id));
-                if(index >= 0) {
-                    return;
-                }
-                let item: any = this.cardItems.find((item: any) => Object.is(key, item.id));
-                if (item) {
-                    this.selects.push(item);
-                }
-            });
+      } else {
+        item.status = 0;
+        let index = this.selects.indexOf(item)
+        this.selects.splice(index,1)
+      }
+      this.geticon(item);
+      this.$forceUpdate();
+    }
+
+    /**
+     * 获取图标
+     */
+    public geticon(value: any) {
+        switch (value) {
+            case 0:
+                return 'ellipse-outline'
+            case 1:
+                return 'checkmark-circle-outline'
+            default: 'ellipse-outline'
+                break;
         }
     }
 
@@ -280,34 +400,31 @@ export default class AppMobGroupPicker extends Vue {
     public onCancel() {
         this.$emit('close');
     }
+
+    public mounted(){
+      this.thirdPartyInit();
+    }
+
+     /**
+     * 第三方容器初始化
+     * 
+     * @memberof IbzDailyDailyCreateMobEditViewBase
+     */
+    protected  thirdPartyInit(){
+      this.$viewTool.setViewTitleOfThirdParty('选择');
+      this.$viewTool.setThirdPartyEvent(this.closeView);
+    }
+
+    /**
+     * on_ok_click
+     */
+    public closeView() {
+      this.$emit('close');
+    }
+
 }
 </script>
 
 <style lang="less">
-.ibiz-mob-group-picker{
-  width: 100%;
-  height: 100%;
-  .ibiz-group-container {
-      display: flex;
-      height: calc(100% - 65px);
-      .ibiz-group-tree {
-          min-width: 200px;
-          border-right: 1px solid #ddd;
-          padding: 0 34px 0 10px;
-          overflow: auto;
-          height: 100%;
-      }
-      .ibiz-group-content {
-          flex-grow: 1;
-          padding: 0 10px;
-          overflow: auto;
-          height: 100%;
-      }
-  }
-  .ibiz-group-footer {
-      padding: 16px;
-      text-align: right;
-      border-top: 1px solid #ddd;
-  }
-}
+ @import './app-mob-group-picker.less';
 </style>

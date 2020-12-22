@@ -288,16 +288,13 @@
     :disabled="detailsModel.name.disabled"
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
-        <app-mob-color-picker
-    v-model="data.name"  
-    @enter="onEnter($event)"
-    :data="data"
-    :disabled="detailsModel.name.disabled"
-    :formState="formState"
-    color="color"
-    @colorChange="(val) => {onFormItemValueChange(val)}">
-</app-mob-color-picker>
-
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.name"
+    unit=""
+    :disabled="detailsModel.name.disabled" 
+    @change="($event)=>this.data.name = $event" />
 </app-form-item>
 
 
