@@ -83,6 +83,17 @@ export default class ProductQuantityGirdGrid extends ProductQuantityGirdGridBase
                     }, 0);
                     sums[index] = tempData;
                 }
+                if(Object.is(column.property,'bugstory')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
                 if(Object.is(column.property,'importantbugcnt')){
                     let tempData = values.reduce((prev:any, curr:any) => {
                         const value = Number(curr);
@@ -109,8 +120,9 @@ export default class ProductQuantityGirdGrid extends ProductQuantityGirdGridBase
                 sums[index] = 'N/A';
             }
         });
+
         if (sums && sums[3]){
-            let sumss = parseFloat(((sums[5] / sums[3]) * 100).toString()).toFixed(2);
+            let sumss = parseFloat(((sums[6] / sums[3]) * 100).toString()).toFixed(2);
             sumss += '%';
             sums[6] = sumss;
         }
@@ -118,4 +130,5 @@ export default class ProductQuantityGirdGrid extends ProductQuantityGirdGridBase
     }
 
 }
+
 </script>
