@@ -445,6 +445,14 @@ export class TaskFinishGirdGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'taskpri',
+                srfkey: 'Task__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 

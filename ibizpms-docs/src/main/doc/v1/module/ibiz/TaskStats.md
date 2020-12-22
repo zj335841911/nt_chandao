@@ -485,7 +485,7 @@ Integer
 无
 
 - 取值范围/公式
-无
+参照数据字典【[任务优先级（Task__pri）](../../codelist/Task__pri)】
 
 - 数据格式
 无

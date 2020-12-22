@@ -83,7 +83,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.taskpri}}</span>
+                        <template >
+            <codelist :value="row.taskpri" tag="Task__pri" codelistType="STATIC" ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

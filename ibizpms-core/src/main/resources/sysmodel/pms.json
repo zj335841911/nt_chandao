@@ -39057,6 +39057,7 @@
     "field_logic_name":"任务优先级",
     "entity_name":"TaskStats",
     "field_type":"INT",
+    "dict":"Task__pri",
     "nullable":1,
     "physical_field":0,
     "data_type":"INT",
