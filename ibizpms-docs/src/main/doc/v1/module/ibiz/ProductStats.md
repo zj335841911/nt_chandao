@@ -52,7 +52,7 @@
 | 34 | [重要的Bug数](#属性-重要的Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
 | 35 | [需求所提bug数](#属性-需求所提bug数（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
 | 36 | [严重bug比](#属性-严重bug比（IMPORTANTBUGPERCENT）) | IMPORTANTBUGPERCENT | 文本，可指定长度 | 否 | 否 | 是 |
-| 37 | [已消耗工时](#属性-已消耗工时（HAVECONSUMED）) | HAVECONSUMED | 整型 | 否 | 否 | 是 |
+| 37 | [已消耗工时](#属性-已消耗工时（HAVECONSUMED）) | HAVECONSUMED | 浮点 | 否 | 否 | 是 |
 
 ### 属性-产品编号（ID）
 #### 属性说明
@@ -1454,10 +1454,10 @@ String
 应用界面字段[无存储]
 
 - 数据类型
-整型
+浮点
 
 - Java类型
-Integer
+Double
 
 - 是否允许为空
 是
@@ -1956,7 +1956,7 @@ GROUP BY t2.product ) t4 on t1.id = t4.product where t1.deleted = '0'
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,IFNULL(t2.haveconsumed,0) as haveconsumed from (
+SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,ROUND(IFNULL(t2.haveconsumed,0),2)  as haveconsumed from (
 SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project 
 where t3.deleted = '0' and t1.deleted = '0'
 GROUP BY t1.id) t1 

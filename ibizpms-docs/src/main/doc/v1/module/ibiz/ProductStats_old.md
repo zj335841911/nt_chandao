@@ -45,7 +45,7 @@
 |重要的Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
 |需求所提bug数|BUGSTORY|INT|&nbsp;|
 |严重bug比|IMPORTANTBUGPERCENT|TEXT|&nbsp;|
-|已消耗工时|HAVECONSUMED|INT|&nbsp;|
+|已消耗工时|HAVECONSUMED|FLOAT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |

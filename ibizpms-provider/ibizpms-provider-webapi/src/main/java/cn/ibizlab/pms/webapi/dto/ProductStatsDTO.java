@@ -332,7 +332,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "haveconsumed")
     @JsonProperty("haveconsumed")
-    private Integer haveconsumed;
+    private Double haveconsumed;
 
 
     /**

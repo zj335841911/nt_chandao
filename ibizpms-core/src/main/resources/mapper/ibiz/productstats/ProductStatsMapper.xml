@@ -89,7 +89,7 @@
     </sql>
     <!--数据查询[ProductInputTable]-->
     <sql id="ProductInputTable" databaseId="mysql">
-		<![CDATA[ SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,IFNULL(t2.haveconsumed,0) as haveconsumed from ( SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project  where t3.deleted = '0' and t1.deleted = '0' GROUP BY t1.id) t1  LEFT JOIN ( SELECT t1.id,t1.`name`,SUM(t4.consumed) as haveconsumed from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project LEFT JOIN zt_task  t4 on t4.project = t3.id  where t3.deleted = '0' and t1.deleted = '0' and t3.deleted = '0' and t4.parent >= 0 GROUP BY t1.id ) t2 on t1.id = t2.id 
+		<![CDATA[ SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,ROUND(IFNULL(t2.haveconsumed,0),2)  as haveconsumed from ( SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project  where t3.deleted = '0' and t1.deleted = '0' GROUP BY t1.id) t1  LEFT JOIN ( SELECT t1.id,t1.`name`,SUM(t4.consumed) as haveconsumed from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project LEFT JOIN zt_task  t4 on t4.project = t3.id  where t3.deleted = '0' and t1.deleted = '0' and t3.deleted = '0' and t4.parent >= 0 GROUP BY t1.id ) t2 on t1.id = t2.id 
 			]]>
     </sql>
     <!--数据查询[Productcompletionstatistics]-->

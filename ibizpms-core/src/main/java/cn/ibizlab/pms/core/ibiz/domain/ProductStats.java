@@ -304,7 +304,7 @@ public class ProductStats extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "haveconsumed")
     @JsonProperty("haveconsumed")
-    private Integer haveconsumed;
+    private Double haveconsumed;
 
 
 

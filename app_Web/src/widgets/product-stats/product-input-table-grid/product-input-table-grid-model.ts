@@ -39,7 +39,7 @@ export default class ProductInputTableModel {
         {
           name: 'haveconsumed',
           prop: 'haveconsumed',
-          dataType: 'INT',
+          dataType: 'FLOAT',
         },
         {
           name: 'srfmajortext',
