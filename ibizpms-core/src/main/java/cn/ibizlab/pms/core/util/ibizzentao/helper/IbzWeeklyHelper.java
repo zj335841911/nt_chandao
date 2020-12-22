@@ -74,7 +74,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         int week = getWeekAtThisMonth();
 
-        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",et.getAccount()).last("and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())"));
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",et.getAccount()).last("and YEARWEEK(date,1) = YEARWEEK(now(),1)"));
         if (list.size() > 0){
             throw new BadRequestAlertException(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week)+"已经存在，请勿重复创建！", StaticDict.ReportType.WEEKLY.getValue(), "");
         }
