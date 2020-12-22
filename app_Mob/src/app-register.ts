@@ -159,6 +159,6 @@ export const AppComponents = {
         // 树选择
         v.component('app-tree',() => import('@/components/app-tree/app-tree.vue'));
         // 文本框颜色选择
-        v.component('app-mob-color-picker',() => import('@/components/app-mob-color-picker/app-mob-color-picker.vue'));
+        v.component('app-mob-color-picker',() => import('@/ibiz-core/components/app-mob-color-picker/app-mob-color-picker.vue'));
     },
 };
