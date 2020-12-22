@@ -602,7 +602,10 @@ t1.`INDEX_TYPE`,
 t1.`MDEPTID`,
 t1.`ORGID`,
 t1.INDEXDESC,
-t1.color
+t1.color,
+t1.project,
+t1.acllist,
+t1.acl
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
@@ -611,6 +614,9 @@ FROM (SELECT
 ,v1.MDEPTID AS `MDEPTID`
 ,v1.steps as INDEXDESC
 ,v1.color
+,v1.project
+,v1.acllist
+,v1.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -619,7 +625,10 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t1.steps,
-t1.color
+t1.color,
+t11.acl,
+CONCAT_WS(',',t11.CREATEDBY,t11.qd,t11.po,t11.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.product GROUP BY t.product) as project
 FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v1
@@ -629,9 +638,12 @@ SELECT
 ,v2.`TITLE` AS `INDEXNAME`
 ,v2.deleted AS `DELETED`
 ,v2.orgid AS `ORGID`
-,v2.MDEPTID AS `MDEPTID`,
-v2.precondition as INDEXDESC
+,v2.MDEPTID AS `MDEPTID`
+,v2.precondition as INDEXDESC
 ,v2.color
+,v2.project
+,v2.acllist
+,v2.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -640,19 +652,26 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t1.`PRECONDITION`,
-t1.color
+t1.color,
+t11.acl,
+CONCAT_WS(',',t11.CREATEDBY,t11.qd,t11.po,t11.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.product GROUP BY t.product) as project
 FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v2
 UNION ALL
 SELECT
-'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
+'product' AS `INDEX_TYPE`
+,v3.`ID` AS `INDEXID`
 ,v3.`NAME` AS `INDEXNAME`
 ,v3.deleted AS `DELETED`
 ,v3.orgid AS `ORGID`
-,v3.MDEPTID AS `MDEPTID`,
-v3.`desc` as INDEXDESC
+,v3.MDEPTID AS `MDEPTID`
+,v3.`desc` as INDEXDESC
 , null as color
+,v3.project
+,v3.acllist
+,v3.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -660,7 +679,10 @@ t1.`NAME`,
 t1.orgid,
 t1.MDEPTID,
 t1.deleted,
-t1.`desc`
+t1.`desc`,
+t1.acl,
+CONCAT_WS(',',t1.CREATEDBY,t1.qd,t1.po,t1.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.id GROUP BY t.product) as project
 FROM `zt_product` t1 
 ) v3
 UNION ALL
@@ -672,6 +694,9 @@ SELECT
 ,v4.MDEPTID AS `MDEPTID`
 ,v4.`desc` as INDEXDESC
 ,null as color
+,v4.project
+,v4.acllist
+,v4.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -679,7 +704,10 @@ t1.`NAME`,
 t1.orgid,
 t1.MDEPTID,
 t1.deleted,
-t1.`desc`
+t1.`desc`,
+t1.acl,
+CONCAT_WS(',',t1.openedBy,t1.pm,t1.qd,t1.po,t1.rd) as acllist,
+t1.id as project
 FROM `zt_project` t1 
 ) v4
 UNION ALL
@@ -691,6 +719,9 @@ SELECT
 ,v5.MDEPTID AS `MDEPTID`
 ,v5.spec as INDEXDESC
 ,v5.color
+,v5.project
+,v5.acllist
+,v5.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -699,20 +730,27 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t21.spec,
-t1.color
+t1.color,
+t11.acl,
+CONCAT_WS(',',t11.CREATEDBY,t11.qd,t11.po,t11.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.product GROUP BY t.product) as project
 FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
 left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
 where t11.deleted = '0' 
 ) v5
 UNION ALL
 SELECT
-'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
+'task' AS `INDEX_TYPE`
+,v6.`ID` AS `INDEXID`
 ,v6.`NAME` AS `INDEXNAME`
 ,v6.deleted AS `DELETED`
 ,v6.orgid AS `ORGID`
-,v6.MDEPTID AS `MDEPTID`,
-v6.`desc` as INDEXDESC
+,v6.MDEPTID AS `MDEPTID`
+,v6.`desc` as INDEXDESC
 ,v6.color
+,v6.project
+,v6.acllist
+,v6.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -721,7 +759,10 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t1.`desc`,
-t1.color
+t1.color,
+t1.project,
+t11.acl,
+CONCAT_WS(',',t11.openedBy,t11.pm,t11.qd,t11.po,t11.rd) as acllist
 FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
 where t11.deleted = '0'
 ) v6
