@@ -17,6 +17,7 @@
             </el-col>
             <el-col :span="rowPreview && files.length > 0 ? 12 : 24" class="upload-col">
                 <el-upload
+                    :class="isUploading ? 'is-uploading': ''"
                     :disabled="disabled"
                     :file-list="files"
                     :action="uploadUrl"
@@ -445,6 +446,7 @@ export default class AppFileUpload extends Vue {
      * @memberof AppFileUpload
      */
     public onError(error: any, file: any, fileList: any) {
+        this.isUploading = false;
         this.$Notice.error({ title: this.$t('components.appFileUpload.uploadError') as any });
     }
 
@@ -466,6 +468,7 @@ export default class AppFileUpload extends Vue {
         if (arr.length == 0) {
             this.dialogVisible = false;
         }
+        this.isUploading = false;
         this.$emit('formitemvaluechange', { name: this.name, value: value });
     }
 

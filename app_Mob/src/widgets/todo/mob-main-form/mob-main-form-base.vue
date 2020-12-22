@@ -329,6 +329,41 @@
 
 
 
+<app-form-item 
+    name='id' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="id_item"  
+    :itemValue="this.data.id" 
+    v-show="detailsModel.id.visible" 
+    :itemRules="this.rules.id" 
+    :caption="$t('todo.mobmain_form.details.id')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.id.disabled"
+    :error="detailsModel.id.error" 
+    :isEmptyCaption="false">
+        <app-mob-group-select
+  name="id"
+  :value='data.id'
+  valueitem="desc"
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  treeurl="/sysorganizations/${orgid}/suborg/picker"
+  :multiple="true"
+  filter="srforgid"
+  :fillmap="{'id':'desc','label':'id'}"
+  :disabled="detailsModel.id.disabled"
+  :data="data"
+  :context="context"
+  
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+
+</app-form-item>
+
+
+
 <app-form-group 
     class='' 
     layoutType='TABLE_24COL' 
@@ -898,7 +933,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        id: new FormItemModel({ caption: '测试人员', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
