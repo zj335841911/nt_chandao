@@ -698,7 +698,7 @@ from
 zt_module t1
 left join zt_case t2 on t1.id = t2.module and t2.deleted = '0' 
 left join zt_testresult t3 on t2.id = t3.`case`
-where t1.deleted = '0'
+where t1.deleted = '0' and t1.type = 'story'
 group by t1.id) t1
 ```
 ### 数据查询-默认（全部数据）（View）

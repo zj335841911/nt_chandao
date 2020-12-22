@@ -1,6 +1,8 @@
 <template>
   <div class="app-mob-org-select">
-    <ibiz-select-tree :NodesData="NodesData" v-model="selectTreeValue" :disabled="disabled" :multiple="multiple" @select="treeSelectChange"></ibiz-select-tree>
+  <ion-input :disabled="disabled" :value="data[fillMap.label]"  readonly @click="openView">
+      <svg t="1608543874255" class="icon" viewBox="0 0 1165 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2970" width="200" height="200"><path d="M1107.30913719 909.45959375l-186.86323313-145.37686875a479.97811781 479.97811781 0 1 0-69.42107062 87.6783975q13.80107531-13.80107531 26.30518125-28.51668l185.08405875 143.96350594a36.58116281 36.58116281 0 1 0 44.89506375-57.73172719z m-594.79308657 9.37807969c-223.66055812 0-405.63521719-181.95803156-405.63521718-405.63521719S288.80560906 107.56723906 512.46616719 107.56723906 918.10138437 289.59178156 918.10138437 513.20245625 736.14335281 918.83767344 512.46616719 918.83767344z" fill="#474747" p-id="2971"></path></svg>  
+    </ion-input>
   </div>
 </template>
 <script lang = 'ts'>
@@ -9,7 +11,6 @@ import {CodeListService} from "@/ibiz-core";
 import { observable } from 'rxjs';
 @Component({})
 export default class AppMobOrgSelect extends Vue {
-
   /**
    * 表单数据
    * 
@@ -106,7 +107,15 @@ export default class AppMobOrgSelect extends Vue {
    * 
    * @memberof AppMobOrgSelect
    */
-  public NodesData:any = [];
+  public nodesData:any = [];
+
+  /**
+     * 选中项集合
+     *
+     * @type {*}
+     * @memberof AppMobGroupSelect
+     */  
+    protected selects: any[] = [];
 
   /**
    * 备份过滤值
@@ -125,6 +134,57 @@ export default class AppMobOrgSelect extends Vue {
       this.loadTreeData(this.url);
     }
   }
+
+   /**
+     * 单选时选中名称
+     *
+     * @type {*}
+     * @memberof AppMobGroupSelect
+     */  
+    get selectName() {
+        if(this.selects.length > 0) {
+            return this.selects[0].label;
+        }
+    }
+
+  /**
+     * 打开选择视图
+     *
+     * @type {*}
+     * @memberof AppMobGroupSelect
+     */  
+    public async openView() {
+        const view: any = {
+            viewname: 'app-tree',
+            title: (this.$t('components.AppMobOrgSelect.orgSelect') as string)
+        };
+        const context: any = JSON.parse(JSON.stringify(this.context));
+        const param: any = {};
+        Object.assign(param, {
+            selectTreeValue: this.selectTreeValue,
+          multiple: this.multiple,
+          nodesData: this.nodesData
+        });
+        this.$appmodal.openModal(view, context,param).then((result)=>{
+          this.viewClose(result);
+        });
+        
+    }
+
+    /**
+     * 选择视图关闭
+     *
+     * @type {*}
+     * @memberof AppMobGroupSelect
+     */  
+    public viewClose(result: any) {
+        let treeValue:any[] = [];
+        result.datas.forEach((item:any) => {
+          treeValue.push(item.label);
+        });
+        let stringVal:string = treeValue.join(',');
+        this.$emit("select-change",{name: this.fillMap.label, value:stringVal});
+    }
 
   /**
    * 加载树数据
@@ -220,16 +280,16 @@ export default class AppMobOrgSelect extends Vue {
     if(this.filter){
       const result:any = this.$store.getters.getOrgData(this.filter);
       if(result){
-        this.NodesData = result;
+        this.nodesData = result;
         return;
       }
     }
-    Http.getInstance().get(requestUrl).then((res:any) =>{
+    this.$http.get(requestUrl).then((res:any) =>{
       if(!res.status && res.status !== 200){
         console.error((this.$t('components.AppMobOrgSelect.loadFail') as string));
         return;
       }
-      this.NodesData = res.data;
+      this.nodesData = res.data;
       if(this.filter){
         this.$store.commit('addOrgData', { srfkey: this.filter, orgData: res.data });
       }
