@@ -352,7 +352,8 @@ POST
 | 34 | importantbugcnt | Integer | 允许 | 重要的Bug数 |
 | 35 | bugstory | Integer | 允许 | 需求所提bug数 |
 | 36 | importantbugpercent | String | 允许 | 严重bug比 |
-| 37 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 37 | haveconsumed | Double | 允许 | 已消耗工时 |
+| 38 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

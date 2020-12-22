@@ -293,4 +293,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     importantbugpercent?: any;
+
+    /**
+     * 已消耗工时
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    haveconsumed?: any;
 }

@@ -298,6 +298,13 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "importantbugpercent")
     @JsonProperty("importantbugpercent")
     private String importantbugpercent;
+    /**
+     * 已消耗工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "haveconsumed")
+    @JsonProperty("haveconsumed")
+    private Double haveconsumed;
 
 
 

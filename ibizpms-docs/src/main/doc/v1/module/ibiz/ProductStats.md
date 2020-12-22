@@ -52,6 +52,7 @@
 | 34 | [重要的Bug数](#属性-重要的Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
 | 35 | [需求所提bug数](#属性-需求所提bug数（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
 | 36 | [严重bug比](#属性-严重bug比（IMPORTANTBUGPERCENT）) | IMPORTANTBUGPERCENT | 文本，可指定长度 | 否 | 否 | 是 |
+| 37 | [已消耗工时](#属性-已消耗工时（HAVECONSUMED）) | HAVECONSUMED | 浮点 | 否 | 否 | 是 |
 
 ### 属性-产品编号（ID）
 #### 属性说明
@@ -1442,6 +1443,43 @@ String
 #### 关系属性
 无
 
+### 属性-已消耗工时（HAVECONSUMED）
+#### 属性说明
+已消耗工时
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -1594,7 +1632,8 @@ Save
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
 | 3 | [产品质量表](#数据查询-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 4 | [产品投入表](#数据查询-产品投入表（ProductInputTable）) | ProductInputTable | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1902,6 +1941,30 @@ SELECT t1.`STATUS`,t1.resolution,t1.pri,t1.id,t1.product,t2.`name`,1 as num from
 SELECT t2.product,t2.`name`,COUNT(1) as bugstory from (
 SELECT t1.story,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t1.story <> 0 and t1.deleted = '0' and t2.deleted = '0' ) t2
 GROUP BY t2.product ) t4 on t1.id = t4.product where t1.deleted = '0'
+```
+### 数据查询-产品投入表（ProductInputTable）
+#### 说明
+产品投入表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.id,t1.`name`,t1.projectcnt,IFNULL(t2.haveconsumed,0) as haveconsumed from (
+SELECT t1.id,t1.`name`,COUNT(1) as projectcnt from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project 
+where t3.deleted = '0' and t1.deleted = '0'
+GROUP BY t1.id) t1 
+LEFT JOIN (
+SELECT t1.id,t1.`name`,SUM(t4.consumed) as haveconsumed from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project LEFT JOIN zt_task 
+t4 on t4.project = t3.id 
+where t3.deleted = '0' and t1.deleted = '0' and t3.deleted = '0' and t4.parent >= 0
+GROUP BY t1.id ) t2 on t1.id = t2.id
+
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

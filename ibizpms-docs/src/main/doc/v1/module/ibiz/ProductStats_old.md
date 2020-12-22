@@ -45,6 +45,7 @@
 |重要的Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
 |需求所提bug数|BUGSTORY|INT|&nbsp;|
 |严重bug比|IMPORTANTBUGPERCENT|TEXT|&nbsp;|
+|已消耗工时|HAVECONSUMED|FLOAT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -85,6 +86,7 @@
 |重要的Bug数|默认规则|默认规则|
 |需求所提bug数|默认规则|默认规则|
 |严重bug比|默认规则|内容长度必须小于等于[100]|
+|已消耗工时|默认规则|默认规则|
 
 ## 状态控制
 
@@ -129,6 +131,7 @@ hide footbox
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_Default))|否|&nbsp;|
 |NoOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_NoOpenProduct))|否|&nbsp;|
 |ProdctQuantiGird|产品质量表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_ProdctQuantiGird))|否|&nbsp;|
+|ProductInputTable|产品投入表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_ProductInputTable))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_View))|否|&nbsp;|
 
 * **数据集合**

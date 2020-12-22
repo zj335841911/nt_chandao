@@ -28116,6 +28116,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"HAVECONSUMED" ,
+    "codename":"Haveconsumed",
+    "field_logic_name":"已消耗工时",
+    "entity_name":"ProductStats",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
