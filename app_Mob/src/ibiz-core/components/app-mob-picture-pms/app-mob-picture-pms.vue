@@ -20,6 +20,7 @@
                     <i class="van-icon van-icon-photograph van-uploader__upload-icon"></i>
                 </div>
             </div>
+            <app-img-cropper :img="temp_file" v-if="isCrop" @closeCrop="closeCrop" @getCropData="getCropData" />
     </div>
 </template>
 
@@ -51,6 +52,46 @@ Vue.use(Uploader);
     }
 })
 export default class AppMobPicture extends Vue {
+
+    public isCrop = false;
+
+
+    /**
+     * closeCrop
+     */
+    public closeCrop() {
+        this.isCrop = false;
+    }
+
+    /**
+     * getCropData
+     */
+    public getCropData(file:any) {
+        console.log(file);
+        const params = new FormData()
+        params.append('file', file, file.name)
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+        Loading.show();
+        Axios.post(this.uploadUrl, params, config).then((response: any) => {
+            Loading.hidden();
+            if (response && response.data && response.status === 200) {
+                let data: any = response.data;
+                if (process.env.NODE_ENV === 'development') {
+                    this.devFiles.push(Object.assign({}, data, { url: file.content }));
+                }
+                this.onSuccess(data, file, this.files);
+            } else {
+                this.onError(response, file, this.files);
+            }
+        }).catch((response: any) => {
+            Loading.hidden();
+            this.onError(response, file, this.files);
+        });
+    }
 
     /**
      * 当前设备信息
@@ -135,6 +176,8 @@ export default class AppMobPicture extends Vue {
         return true;
     }
 
+    public temp_file :any;
+
     /**
      * 文件选择完成
      *
@@ -151,22 +194,9 @@ export default class AppMobPicture extends Vue {
                 'Content-Type': 'multipart/form-data'
             }
         }
-        Loading.show();
-        Axios.post(this.uploadUrl, params, config).then((response: any) => {
-            Loading.hidden();
-            if (response && response.data && response.status === 200) {
-                let data: any = response.data;
-                if (process.env.NODE_ENV === 'development') {
-                    this.devFiles.push(Object.assign({}, data, { url: file.content }));
-                }
-                this.onSuccess(data, file, this.files);
-            } else {
-                this.onError(response, file, this.files);
-            }
-        }).catch((response: any) => {
-            Loading.hidden();
-            this.onError(response, file, this.files);
-        });
+        this.temp_file = file.content;
+        console.log(file);
+        this.isCrop = true;
     }
 
     /**
