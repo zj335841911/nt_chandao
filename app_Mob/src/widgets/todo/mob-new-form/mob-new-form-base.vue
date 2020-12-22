@@ -259,13 +259,16 @@
     :disabled="detailsModel.formitem7.disabled"
     :error="detailsModel.formitem7.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.formitem7"
-    
-    :disabled="detailsModel.formitem7.disabled" 
-    @change="($event)=>this.data.formitem7 = $event" />
+        <app-mob-color-picker
+    v-model="data.formitem7"  
+    @enter="onEnter($event)"
+    :data="data"
+    :disabled="detailsModel.formitem7.disabled"
+    :formState="formState"
+    color=""
+    @colorChange="(val) => {onFormItemValueChange(val)}">
+</app-mob-color-picker>
+
 </app-form-item>
 
 
