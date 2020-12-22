@@ -319,9 +319,6 @@ div::-webkit-scrollbar-thumb {
             }
         }
         > .el-table__footer-wrapper{
-            position: absolute;
-            z-index: 1;
-            bottom: 0px;
             .el-table_1_column_1{
                 > .cell{
                     padding: 0px 6px;
@@ -329,7 +326,12 @@ div::-webkit-scrollbar-thumb {
             }
         }
     }
-
+    //聚合表格样式
+    .total-row-table{
+        >.el-table__body-wrapper{
+            height: calc(100% - 65px) !important;
+        }
+    }
     .grid-pagination {
         padding: 0px 3px;
         height: 35px;
