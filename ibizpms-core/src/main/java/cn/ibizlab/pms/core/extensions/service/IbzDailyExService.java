@@ -61,7 +61,7 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
     public IbzDaily getYeaterdayDailyPlansTaskEdit(IbzDaily et) {
         CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
         Timestamp date = et.getDate();
-        List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT('" + date + "','%Y-%m-%d')"));
+        List<Task> todayDailyCompleteTasks = iTaskService.list(new QueryWrapper<Task>().eq("finishedBy", et.getAccount()).last(" and DATE_FORMAT(finisheddate,'%Y-%m-%d') = DATE_FORMAT('" + date + "','%Y-%m-%d')"));
         String todaytask = et.getTodaytask() == null ? "" : et.getTodaytask();
         String[] todayTaskids = todaytask.split(ZTBaseHelper.MULTIPLE_CHOICE);
         Set<String> ids = new HashSet<>(Arrays.asList(todayTaskids));
@@ -82,7 +82,7 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
     @Transactional
     public IbzDaily getYesterdayDailyPlansTask(IbzDaily et) {
         //获取昨天的日报
-        List<IbzDaily> list = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 day),'%Y-%m-%d')"));
+        List<IbzDaily> list = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 day),'%Y-%m-%d')"));
         IbzDaily yesterdayIbzDaily = new IbzDaily();
         Set<String> taskIdsSet = new HashSet<>();
         if (list.size() > 0) {

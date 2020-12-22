@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('projectname')">
-                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.projectname')" :min-width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.projectname')" :min-width="200"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.projectname')}}
@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugduplicate')">
-                <el-table-column show-overflow-tooltip :prop="'bugduplicate'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugduplicate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugduplicate'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugduplicate')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugduplicate')}}
@@ -50,7 +50,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugbydesign')">
-                <el-table-column show-overflow-tooltip :prop="'bugbydesign'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugbydesign')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugbydesign'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugbydesign')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugbydesign')}}
@@ -62,7 +62,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugfixed')">
-                <el-table-column show-overflow-tooltip :prop="'bugfixed'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugfixed')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugfixed'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugfixed')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugfixed')}}
@@ -74,7 +74,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugpostponed')">
-                <el-table-column show-overflow-tooltip :prop="'bugpostponed'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugpostponed')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugpostponed'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugpostponed')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugpostponed')}}
@@ -86,7 +86,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugnotrepro')">
-                <el-table-column show-overflow-tooltip :prop="'bugnotrepro'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugnotrepro')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugnotrepro'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugnotrepro')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugnotrepro')}}
@@ -98,7 +98,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugtostory')">
-                <el-table-column show-overflow-tooltip :prop="'bugtostory'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugtostory')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugtostory'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugtostory')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugtostory')}}
@@ -110,7 +110,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugwillnotfix')">
-                <el-table-column show-overflow-tooltip :prop="'bugwillnotfix'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugwillnotfix')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugwillnotfix'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugwillnotfix')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugwillnotfix')}}
@@ -134,7 +134,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugcnt')" :width="50"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugcnt')" :width="50"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugcnt')}}

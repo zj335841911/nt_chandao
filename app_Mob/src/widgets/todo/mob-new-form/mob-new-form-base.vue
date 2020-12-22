@@ -245,6 +245,32 @@
 
 
 <app-form-item 
+    name='formitem7' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem7_item"  
+    :itemValue="this.data.formitem7" 
+    v-show="detailsModel.formitem7.visible" 
+    :itemRules="this.rules.formitem7" 
+    :caption="$t('todo.mobnew_form.details.formitem7')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem7.disabled"
+    :error="detailsModel.formitem7.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.formitem7"
+    
+    :disabled="detailsModel.formitem7.disabled" 
+    @change="($event)=>this.data.formitem7 = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
     name='formitem' 
     class='' 
     uiStyle="DEFAULT"  
@@ -539,32 +565,6 @@
     :error="detailsModel.formitem6.error" 
     :isEmptyCaption="false">
         <app-mob-org-select :data="data" :disabled="detailsModel.formitem6.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'','label':'formitem6'}" url="/sysorganizations/alls/suborg/picker" filter="srforgid" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-org-select>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='formitem7' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="formitem7_item"  
-    :itemValue="this.data.formitem7" 
-    v-show="detailsModel.formitem7.visible" 
-    :itemRules="this.rules.formitem7" 
-    :caption="$t('todo.mobnew_form.details.formitem7')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.formitem7.disabled"
-    :error="detailsModel.formitem7.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.formitem7"
-    
-    :disabled="detailsModel.formitem7.disabled" 
-    @change="($event)=>this.data.formitem7 = $event" />
 </app-form-item>
 
 
@@ -922,6 +922,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
         private: null,
         desc: null,
         status: null,
+        formitem7: null,
         formitem: null,
         assignedtopk: null,
         formitem2: null,
@@ -934,7 +935,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
         formitem4: null,
         formitem5: null,
         formitem6: null,
-        formitem7: null,
         id: null,
         todo: null,
     };
@@ -1115,6 +1115,8 @@ export default class MobNewBase extends Vue implements ControlInterface {
 , 
         status: new FormItemModel({ caption: '人员', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        formitem7: new FormItemModel({ caption: '显色选择', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         formitem: new FormItemModel({ caption: '【多选】部门（指定单位及其下级单位的所有部门多选)', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         assignedtopk: new FormItemModel({ caption: '【单选】部门（指定单位及其下级单位的所有部门）', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1138,8 +1140,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
         formitem5: new FormItemModel({ caption: '【单选】单位（全部单位单选）', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitem6: new FormItemModel({ caption: '【多选】单位（全部单位多选）', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        formitem7: new FormItemModel({ caption: '显色选择', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1410,6 +1410,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 formitem7 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem7')
+    onFormitem7Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem7', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 formitem 值
      *
      * @param {*} newVal
@@ -1551,18 +1563,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
     @Watch('data.formitem6')
     onFormitem6Change(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'formitem6', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 formitem7 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNew
-     */
-    @Watch('data.formitem7')
-    onFormitem7Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem7', newVal: newVal, oldVal: oldVal });
     }
 
     /**

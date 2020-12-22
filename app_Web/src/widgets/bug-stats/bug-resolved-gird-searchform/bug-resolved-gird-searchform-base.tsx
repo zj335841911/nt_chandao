@@ -102,5 +102,8 @@ export class BugResolvedGirdSearchFormBase extends SearchFormControlBase {
      * @memberof BugResolvedGirdBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('n_dept_eq')) {
+            this.data['n_dept_eq'] = this.context['srforgsectorid'];
+        }
     }
 }

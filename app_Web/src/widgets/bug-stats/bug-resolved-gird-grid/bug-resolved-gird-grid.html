@@ -71,7 +71,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.bugpri}}</span>
+                        <template >
+            <codelist :value="row.bugpri" tag="Bug__pri" codelistType="STATIC" ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -83,7 +85,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.bugseverity}}</span>
+                        <template >
+            <codelist :value="row.bugseverity" tag="Bug__severity" codelistType="STATIC" ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -95,7 +99,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.bugopenedby}}</span>
+                        <template >
+            <codelist :value="row.bugopenedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

@@ -1307,7 +1307,7 @@ Integer
 无
 
 - 取值范围/公式
-无
+参照数据字典【[Bug优先级（Bug__pri）](../../codelist/Bug__pri)】
 
 - 数据格式
 无
@@ -1348,7 +1348,7 @@ Integer
 无
 
 - 取值范围/公式
-无
+参照数据字典【[Bug严重程度（Bug__severity）](../../codelist/Bug__severity)】
 
 - 数据格式
 无
@@ -1389,7 +1389,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
 
 - 数据格式
 无
