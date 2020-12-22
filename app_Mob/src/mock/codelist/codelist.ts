@@ -321,6 +321,55 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Task__color',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '#3da7f5',
+                label: '#3da7f5',
+                text: '#3da7f5',
+                value: '#3da7f5',
+                disabled: false,
+            },
+            {
+                id: '#75c941',
+                label: '#75c941',
+                text: '#75c941',
+                value: '#75c941',
+                disabled: false,
+            },
+            {
+                id: '#2dbdb2',
+                label: '#2dbdb2',
+                text: '#2dbdb2',
+                value: '#2dbdb2',
+                disabled: false,
+            },
+            {
+                id: '#797ec9',
+                label: '#797ec9',
+                text: '#797ec9',
+                value: '#797ec9',
+                disabled: false,
+            },
+            {
+                id: '#ffaf38',
+                label: '#ffaf38',
+                text: '#ffaf38',
+                value: '#ffaf38',
+                disabled: false,
+            },
+            {
+                id: '#ff4e3e',
+                label: '#ff4e3e',
+                text: '#ff4e3e',
+                value: '#ff4e3e',
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "ProductBranch_Cache",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

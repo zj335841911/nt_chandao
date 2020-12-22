@@ -816,6 +816,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         story: null,
         storyname: null,
         name: null,
+        formitem: null,
         pri: null,
         estimate: null,
         eststarted: null,
@@ -1079,6 +1080,8 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        formitem: new FormItemModel({ caption: '任务名称color', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         estimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1338,6 +1341,18 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 formitem 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.formitem')
+    onFormitemChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 pri 值
      *
      * @param {*} newVal
@@ -1526,6 +1541,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

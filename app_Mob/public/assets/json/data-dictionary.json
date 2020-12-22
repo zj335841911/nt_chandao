@@ -468,6 +468,85 @@
         ]
     }, 
     {
+        "srfkey": "Task__color",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "#3da7f5",
+                "label": "#3da7f5",
+                "text": "#3da7f5",
+                "default": false,
+                "data": "",
+                "value": "#3da7f5",
+                "isValueNumber":false,
+                
+                "color": "rgba(61, 167, 245, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "#75c941",
+                "label": "#75c941",
+                "text": "#75c941",
+                "default": false,
+                "data": "",
+                "value": "#75c941",
+                "isValueNumber":false,
+                
+                "color": "rgba(117, 201, 65, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "#2dbdb2",
+                "label": "#2dbdb2",
+                "text": "#2dbdb2",
+                "default": false,
+                "data": "",
+                "value": "#2dbdb2",
+                "isValueNumber":false,
+                
+                "color": "rgba(45, 189, 178, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "#797ec9",
+                "label": "#797ec9",
+                "text": "#797ec9",
+                "default": false,
+                "data": "",
+                "value": "#797ec9",
+                "isValueNumber":false,
+                
+                "color": "rgba(121, 126, 201, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "#ffaf38",
+                "label": "#ffaf38",
+                "text": "#ffaf38",
+                "default": false,
+                "data": "",
+                "value": "#ffaf38",
+                "isValueNumber":false,
+                
+                "color": "rgba(255, 175, 56, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "#ff4e3e",
+                "label": "#ff4e3e",
+                "text": "#ff4e3e",
+                "default": false,
+                "data": "",
+                "value": "#ff4e3e",
+                "isValueNumber":false,
+                
+                "color": "rgba(255, 78, 62, 1)",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "ProductBranch_Cache",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

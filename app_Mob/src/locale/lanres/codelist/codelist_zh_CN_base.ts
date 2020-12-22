@@ -61,6 +61,15 @@ export default {
         'bvt': commonLogic.appcommonhandle("版本验证阶段",null),
         empty: commonLogic.appcommonhandle("",null),
     },
+    Task__color: {
+        '#3da7f5': commonLogic.appcommonhandle("#3da7f5",null),
+        '#75c941': commonLogic.appcommonhandle("#75c941",null),
+        '#2dbdb2': commonLogic.appcommonhandle("#2dbdb2",null),
+        '#797ec9': commonLogic.appcommonhandle("#797ec9",null),
+        '#ffaf38': commonLogic.appcommonhandle("#ffaf38",null),
+        '#ff4e3e': commonLogic.appcommonhandle("#ff4e3e",null),
+        empty: commonLogic.appcommonhandle("",null),
+    },
     ProductBranch_Cache: {
         empty: commonLogic.appcommonhandle("",null),
     },
