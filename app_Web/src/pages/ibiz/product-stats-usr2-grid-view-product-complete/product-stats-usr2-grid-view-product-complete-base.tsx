@@ -301,4 +301,13 @@ export class ProductStatsUsr2GridViewPRoductCompleteBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProductStatsUsr2GridViewPRoductCompleteBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }
