@@ -89,13 +89,12 @@
     </sql>
     <!--数据查询[ProductInputTable]-->
     <sql id="ProductInputTable" databaseId="mysql">
-		<![CDATA[ SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,IFNULL(t2.haveconsumed,0) as haveconsumed from ( SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project  where t3.deleted = '0' and t1.deleted = '0' GROUP BY t1.id) t1  LEFT JOIN ( SELECT t1.id,t1.`name`,SUM(t4.consumed) as haveconsumed from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project LEFT JOIN zt_task  t4 on t4.project = t3.id  where t3.deleted = '0' and t1.deleted = '0' and t3.deleted = '0' and t4.parent >= 0 GROUP BY t1.id ) t2 on t1.id = t2.id 
+		<![CDATA[ SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,ROUND(IFNULL(t2.haveconsumed,0),2)  as haveconsumed from ( SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project  where t3.deleted = '0' and t1.deleted = '0' GROUP BY t1.id) t1  LEFT JOIN ( SELECT t1.id,t1.`name`,SUM(t4.consumed) as haveconsumed from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project LEFT JOIN zt_task  t4 on t4.project = t3.id  where t3.deleted = '0' and t1.deleted = '0' and t3.deleted = '0' and t4.parent >= 0 GROUP BY t1.id ) t2 on t1.id = t2.id 
 			]]>
     </sql>
     <!--数据查询[Productcompletionstatistics]-->
     <sql id="Productcompletionstatistics" databaseId="mysql">
-		<![CDATA[ SELECT t1.product,t1.`name`, IFNULL(COUNT(1),0) as storycnt , SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory from ( select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product
-					 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT *,CONCAT(ROUND(t1.finishedstorycnt/t1.storycnt,2)*100,'%') as ImportantBugpercent from ( SELECT t1.product,t1.`name`, IFNULL(COUNT(1),0) as storycnt , SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStorycnt from ( select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product   ) t1
 			]]>
     </sql>
     <!--数据查询[View]-->

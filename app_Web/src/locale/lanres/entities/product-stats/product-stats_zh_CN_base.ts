@@ -58,6 +58,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计表格视图",null),
 				},
+				usr2gridviewproductcomplete: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计表格视图",null),
+				},
 				editview9: {
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
@@ -244,8 +248,20 @@ function getLocaleResourceBase(){
 					finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
 					bugcnt: commonLogic.appcommonhandle("所有Bug数",null),
 					resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
+					bugstory: commonLogic.appcommonhandle("需求所提bug数",null),
 					importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
 					importantbugpercent: commonLogic.appcommonhandle("严重bug比",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			productcompletetable_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("产品名称",null),
+					storycnt: commonLogic.appcommonhandle("需求总数",null),
+					finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
+					importantbugpercent: commonLogic.appcommonhandle("百分比",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
@@ -298,6 +314,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("导出",null),
 					tip: commonLogic.appcommonhandle("导出",null),
 				},
+			},
+			usr2gridviewproductcompletetoolbar_toolbar: {
 			},
 		};
 		return data;

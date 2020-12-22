@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
-import ProductQuantityGirdService from './product-quantity-gird-grid-service';
+import ProductCompleteTableService from './product-complete-table-grid-service';
 import ProductStatsUIService from '@/uiservice/product-stats/product-stats-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
@@ -12,31 +12,31 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {ProductQuantityGirdGridBase}
+ * @extends {ProductCompleteTableGridBase}
  */
-export class ProductQuantityGirdGridBase extends GridControlBase {
+export class ProductCompleteTableGridBase extends GridControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProductQuantityGirdService}
-     * @memberof ProductQuantityGirdGridBase
+     * @type {ProductCompleteTableService}
+     * @memberof ProductCompleteTableGridBase
      */
-    public service: ProductQuantityGirdService = new ProductQuantityGirdService({ $store: this.$store });
+    public service: ProductCompleteTableService = new ProductCompleteTableService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {ProductStatsService}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public appEntityService: ProductStatsService = new ProductStatsService({ $store: this.$store });
 
@@ -45,7 +45,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     protected appDeName: string = 'productstats';
 
@@ -54,7 +54,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     protected appDeLogicName: string = '产品统计';
 
@@ -62,7 +62,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 界面UI服务对象
      *
      * @type {ProductStatsUIService}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */  
     public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
@@ -71,7 +71,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */  
     public ActionModel: any = {
     };
@@ -80,7 +80,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 主信息表格列
      *
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */  
     public majorInfoColName:string = "name";
 
@@ -90,15 +90,15 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
-    protected localStorageTag: string = 'ibz_productstats_productquantitygird_grid';
+    protected localStorageTag: string = 'ibz_productstats_productcompletetable_grid';
 
     /**
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public isEnablePagingBar: boolean = false;
 
@@ -106,7 +106,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 分页条数
      *
      * @type {number}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public limit: number = 500;
 
@@ -114,22 +114,22 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public allColumns: any[] = [
         {
             name: 'name',
             label: '产品名称',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.name',
+            langtag: 'entities.productstats.productcompletetable_grid.columns.name',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
             name: 'storycnt',
             label: '需求总数',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.storycnt',
+            langtag: 'entities.productstats.productcompletetable_grid.columns.storycnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -138,43 +138,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
         {
             name: 'finishedstorycnt',
             label: '已完成的需求数',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.finishedstorycnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'bugcnt',
-            label: '所有Bug数',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.bugcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'resolvedbugcnt',
-            label: '解决Bug数',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.resolvedbugcnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'bugstory',
-            label: '需求所提bug数',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.bugstory',
-            show: true,
-            unit: 'STAR',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'importantbugcnt',
-            label: '重要的Bug数',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.importantbugcnt',
+            langtag: 'entities.productstats.productcompletetable_grid.columns.finishedstorycnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -182,8 +146,8 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
         },
         {
             name: 'importantbugpercent',
-            label: '严重bug比',
-            langtag: 'entities.productstats.productquantitygird_grid.columns.importantbugpercent',
+            label: '百分比',
+            langtag: 'entities.productstats.productcompletetable_grid.columns.importantbugpercent',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -195,7 +159,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public getGridRowModel(){
         return {
@@ -207,7 +171,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public isEnableGroup:boolean = false;
 
@@ -215,7 +179,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public groupAppField:string ="";
 
@@ -223,7 +187,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -231,7 +195,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -239,7 +203,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public groupMode:string ="NONE";
 
@@ -247,7 +211,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public codelistTag: string = "";
 
@@ -255,7 +219,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public codelistType: string = "";
 
@@ -263,7 +227,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public rules() {
         return {
@@ -278,7 +242,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public deRules:any = {
     };
@@ -287,16 +251,12 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public hasRowEdit: any = {
         'name':false,
         'storycnt':false,
         'finishedstorycnt':false,
-        'bugcnt':false,
-        'resolvedbugcnt':false,
-        'bugstory':false,
-        'importantbugcnt':false,
         'importantbugpercent':false,
     };
 
@@ -305,7 +265,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -363,7 +323,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -374,7 +334,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 合计行绘制
      *
      * @param {any} param
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public getSummaries(param:any){
         const { columns, data } = param;
@@ -412,50 +372,6 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
                     }, 0);
                     sums[index] = tempData;
                 }
-                if(Object.is(column.property,'bugcnt')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
-                if(Object.is(column.property,'resolvedbugcnt')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
-                if(Object.is(column.property,'bugstory')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
-                if(Object.is(column.property,'importantbugcnt')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
                 if(Object.is(column.property,'importantbugpercent')){
                     let tempData = values.reduce((prev:any, curr:any) => {
                         const value = Number(curr);
@@ -478,7 +394,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
     /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public updateDefault(row: any){                    
     }
@@ -486,10 +402,10 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof ProductQuantityGirdBase
+    * @memberof ProductCompleteTableBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','storycnt','finishedstorycnt','bugcnt','resolvedbugcnt','bugstory','importantbugcnt','importantbugpercent'];
+        let allColumns:Array<any> = ['name','storycnt','finishedstorycnt','importantbugpercent'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -502,7 +418,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -517,7 +433,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -534,7 +450,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -571,10 +487,6 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
                 name:'',
                 storycnt:'',
                 finishedstorycnt:'',
-                bugcnt:'',
-                resolvedbugcnt:'',
-                bugstory:'',
-                importantbugcnt:'',
                 importantbugpercent:'',
                 children: children
             }
@@ -603,10 +515,6 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
             name:'',
             storycnt:'',
             finishedstorycnt:'',
-            bugcnt:'',
-            resolvedbugcnt:'',
-            bugstory:'',
-            importantbugcnt:'',
             importantbugpercent:'',
             children: child
         }
@@ -624,7 +532,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public async drawGroup(){
         if(!this.isEnableGroup) return;
@@ -671,10 +579,6 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
                 name:'',
                 storycnt:'',
                 finishedstorycnt:'',
-                bugcnt:'',
-                resolvedbugcnt:'',
-                bugstory:'',
-                importantbugcnt:'',
                 importantbugpercent:'',
                 children: children,
             }
@@ -693,7 +597,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof ProductQuantityGirdBase
+     * @memberof ProductCompleteTableBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){

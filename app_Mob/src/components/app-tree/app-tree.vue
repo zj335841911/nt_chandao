@@ -1,4 +1,16 @@
 <template>
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-daily-daily-create-mob-edit-view': true }">
+    <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button  @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"> 选择</label></ion-title>
+        </ion-toolbar>
+    </ion-header>
   <div class="app-tree">
     <div class="app-mob-treeview sysemployee-tree">
       <div class="treeNav">
@@ -16,9 +28,10 @@
           </ion-item>
         </template>
       </ion-list>
-      <div @click="on_ok_click">确认</div>
+      <div class="ok_button" @click="on_ok_click" >确认</div>
     </div>
   </div>
+</ion-page>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, } from "vue-property-decorator";
@@ -27,6 +40,7 @@ import { Vue, Component, Prop, Watch, } from "vue-property-decorator";
     components: {},
 })
 export default class AppTree extends Vue {
+
     /**
      * 选择项
      *
@@ -38,8 +52,10 @@ export default class AppTree extends Vue {
 
     @Prop() public _viewparams?: string;
 
+
     @Watch('_viewparams', { immediate: true })
     on__viewparams_change(newVale: any, oldVal: any) {
+      
       const data = JSON.parse(newVale);
       const _this: any = this;
       for (let index = 0; index < Object.keys(data).length; index++) {
@@ -61,6 +77,20 @@ export default class AppTree extends Vue {
      * @memberof AppTree
      */
     public cacheValue: any = [];
+
+    public titleStatus: boolean = true;
+
+     /**
+     * 设置工具栏状态
+     *
+     * @memberof IbzDailyDailyCreateMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
 
     /**
      * 当前选中值 
@@ -260,6 +290,33 @@ export default class AppTree extends Vue {
      */
     public on_ok_click() {
       this.$emit('close',JSON.parse(JSON.stringify(this.curValue)));
+    }
+
+    public mounted(){
+      this.thirdPartyInit();
+    }
+
+
+    public created(){
+      this.setViewTitleStatus();
+    }
+
+     /**
+     * 第三方容器初始化
+     * 
+     * @memberof IbzDailyDailyCreateMobEditViewBase
+     */
+    protected  thirdPartyInit(){
+      this.$viewTool.setViewTitleOfThirdParty('选择');
+      this.$viewTool.setThirdPartyEvent(this.closeView);
+    }
+
+
+    /**
+     * on_ok_click
+     */
+    public closeView() {
+      this.$emit('close');
     }
 }
 </script>

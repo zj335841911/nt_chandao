@@ -542,6 +542,32 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='formitem7' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem7_item"  
+    :itemValue="this.data.formitem7" 
+    v-show="detailsModel.formitem7.visible" 
+    :itemRules="this.rules.formitem7" 
+    :caption="$t('todo.mobnew_form.details.formitem7')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem7.disabled"
+    :error="detailsModel.formitem7.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.formitem7"
+    
+    :disabled="detailsModel.formitem7.disabled" 
+    @change="($event)=>this.data.formitem7 = $event" />
+</app-form-item>
+
+
     
 </app-form-group>
 
@@ -908,6 +934,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
         formitem4: null,
         formitem5: null,
         formitem6: null,
+        formitem7: null,
         id: null,
         todo: null,
     };
@@ -1111,6 +1138,8 @@ export default class MobNewBase extends Vue implements ControlInterface {
         formitem5: new FormItemModel({ caption: '【单选】单位（全部单位单选）', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitem6: new FormItemModel({ caption: '【多选】单位（全部单位多选）', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem7: new FormItemModel({ caption: '显色选择', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1525,6 +1554,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 formitem7 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem7')
+    onFormitem7Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem7', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1589,6 +1630,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
             }
             this.detailsModel.name.setDisabled(!ret);
         }
+
 
 
 

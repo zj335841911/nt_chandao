@@ -4832,7 +4832,7 @@ sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
 sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
 sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase,
 case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
-from zt_project t1 
+from zt_product t1 
 left join zt_case t2 on t2.deleted = '0' and t2.module = 0 and t1.id = t2.product 
 left join zt_testresult t3 on t2.id = t3.`case`
 where t1.deleted = '0'
@@ -7303,7 +7303,10 @@ t1.`INDEX_TYPE`,
 t1.`MDEPTID`,
 t1.`ORGID`,
 t1.INDEXDESC,
-t1.color
+t1.color,
+t1.project,
+t1.acllist,
+t1.acl
 FROM (SELECT
 'bug' AS `INDEX_TYPE`,v1.`ID` AS `INDEXID`
 ,v1.`TITLE` AS `INDEXNAME`
@@ -7312,6 +7315,9 @@ FROM (SELECT
 ,v1.MDEPTID AS `MDEPTID`
 ,v1.steps as INDEXDESC
 ,v1.color
+,v1.project
+,v1.acllist
+,v1.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -7320,7 +7326,10 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t1.steps,
-t1.color
+t1.color,
+t11.acl,
+CONCAT_WS(',',t11.CREATEDBY,t11.qd,t11.po,t11.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.product GROUP BY t.product) as project
 FROM `zt_bug` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v1
@@ -7330,9 +7339,12 @@ SELECT
 ,v2.`TITLE` AS `INDEXNAME`
 ,v2.deleted AS `DELETED`
 ,v2.orgid AS `ORGID`
-,v2.MDEPTID AS `MDEPTID`,
-v2.precondition as INDEXDESC
+,v2.MDEPTID AS `MDEPTID`
+,v2.precondition as INDEXDESC
 ,v2.color
+,v2.project
+,v2.acllist
+,v2.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -7341,19 +7353,26 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t1.`PRECONDITION`,
-t1.color
+t1.color,
+t11.acl,
+CONCAT_WS(',',t11.CREATEDBY,t11.qd,t11.po,t11.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.product GROUP BY t.product) as project
 FROM `zt_case` t1 left join zt_product t11 on t11.id = t1.product 
 where t11.deleted = '0'
 ) v2
 UNION ALL
 SELECT
-'product' AS `INDEX_TYPE`,v3.`ID` AS `INDEXID`
+'product' AS `INDEX_TYPE`
+,v3.`ID` AS `INDEXID`
 ,v3.`NAME` AS `INDEXNAME`
 ,v3.deleted AS `DELETED`
 ,v3.orgid AS `ORGID`
-,v3.MDEPTID AS `MDEPTID`,
-v3.`desc` as INDEXDESC
+,v3.MDEPTID AS `MDEPTID`
+,v3.`desc` as INDEXDESC
 , null as color
+,v3.project
+,v3.acllist
+,v3.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -7361,7 +7380,10 @@ t1.`NAME`,
 t1.orgid,
 t1.MDEPTID,
 t1.deleted,
-t1.`desc`
+t1.`desc`,
+t1.acl,
+CONCAT_WS(',',t1.CREATEDBY,t1.qd,t1.po,t1.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.id GROUP BY t.product) as project
 FROM `zt_product` t1 
 ) v3
 UNION ALL
@@ -7373,6 +7395,9 @@ SELECT
 ,v4.MDEPTID AS `MDEPTID`
 ,v4.`desc` as INDEXDESC
 ,null as color
+,v4.project
+,v4.acllist
+,v4.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -7380,7 +7405,10 @@ t1.`NAME`,
 t1.orgid,
 t1.MDEPTID,
 t1.deleted,
-t1.`desc`
+t1.`desc`,
+t1.acl,
+CONCAT_WS(',',t1.openedBy,t1.pm,t1.qd,t1.po,t1.rd) as acllist,
+t1.id as project
 FROM `zt_project` t1 
 ) v4
 UNION ALL
@@ -7392,6 +7420,9 @@ SELECT
 ,v5.MDEPTID AS `MDEPTID`
 ,v5.spec as INDEXDESC
 ,v5.color
+,v5.project
+,v5.acllist
+,v5.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -7400,20 +7431,27 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t21.spec,
-t1.color
+t1.color,
+t11.acl,
+CONCAT_WS(',',t11.CREATEDBY,t11.qd,t11.po,t11.rd) as acllist,
+(select GROUP_CONCAT(t.project) from zt_projectproduct t where t.product = t1.product GROUP BY t.product) as project
 FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
 left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
 where t11.deleted = '0' 
 ) v5
 UNION ALL
 SELECT
-'task' AS `INDEX_TYPE`,v6.`ID` AS `INDEXID`
+'task' AS `INDEX_TYPE`
+,v6.`ID` AS `INDEXID`
 ,v6.`NAME` AS `INDEXNAME`
 ,v6.deleted AS `DELETED`
 ,v6.orgid AS `ORGID`
-,v6.MDEPTID AS `MDEPTID`,
-v6.`desc` as INDEXDESC
+,v6.MDEPTID AS `MDEPTID`
+,v6.`desc` as INDEXDESC
 ,v6.color
+,v6.project
+,v6.acllist
+,v6.acl
 FROM
 (SELECT
 t1.`ID`,
@@ -7422,18 +7460,24 @@ t11.orgid,
 t11.MDEPTID,
 t1.deleted,
 t1.`desc`,
-t1.color
+t1.color,
+t1.project,
+t11.acl,
+CONCAT_WS(',',t11.openedBy,t11.pm,t11.qd,t11.po,t11.rd) as acllist
 FROM `zt_task` t1 left join zt_project t11 on t11.id = t1.project 
 where t11.deleted = '0'
 ) v6
 ) t1
 WHERE t1.DELETED = '0' 
 t1.orgid = #{srf.sessioncontext.srforgid} 
+((t1.acl = 'open') or (FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.acllist)) or (EXISTS(select 1 from zt_team t where t.type = 'project' and t.account = #{srf.sessioncontext.srfloginname} and FIND_IN_SET(t.root, t1.project)))) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbizproIndex_View"></div>
 ```sql
 SELECT
+t1.`ACL`,
+t1.`ACLLIST`,
 t1.`COLOR`,
 t1.`DELETED`,
 t1.`INDEXDESC`,
@@ -7452,6 +7496,8 @@ FROM (SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
+,NULL AS `ACL`
 FROM
 (SELECT
 t1.`ID`,
@@ -7468,6 +7514,8 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
+,NULL AS `ACL`
 FROM
 (SELECT
 t1.`ID`,
@@ -7484,6 +7532,8 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
+,NULL AS `ACL`
 FROM
 (SELECT
 t1.`ID`,
@@ -7500,6 +7550,8 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
+,NULL AS `ACL`
 FROM
 (SELECT
 t1.`ID`,
@@ -7516,6 +7568,8 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
+,NULL AS `ACL`
 FROM
 (SELECT
 t1.`ID`,
@@ -7532,6 +7586,8 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
+,NULL AS `ACL`
 FROM
 (SELECT
 t1.`ID`,
@@ -12437,7 +12493,7 @@ GROUP BY t2.product ) t4 on t1.id = t4.product where t1.deleted = '0'
 ```
 ### 产品投入表(ProductInputTable)<div id="ProductStats_ProductInputTable"></div>
 ```sql
-SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,IFNULL(t2.haveconsumed,0) as haveconsumed from (
+SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,ROUND(IFNULL(t2.haveconsumed,0),2)  as haveconsumed from (
 SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project 
 where t3.deleted = '0' and t1.deleted = '0'
 GROUP BY t1.id) t1 
@@ -12450,13 +12506,12 @@ GROUP BY t1.id ) t2 on t1.id = t2.id
 ```
 ### 产品完成统计表(Productcompletionstatistics)<div id="ProductStats_Productcompletionstatistics"></div>
 ```sql
+SELECT *,CONCAT(ROUND(t1.finishedstorycnt/t1.storycnt,2)*100,'%') as ImportantBugpercent from (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,
-SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
+SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStorycnt
 from (
-select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product
-WHERE t1.DELETED = '0' 
-
+select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product   ) t1
 ```
 ### 默认（全部数据）(VIEW)<div id="ProductStats_View"></div>
 ```sql

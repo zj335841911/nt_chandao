@@ -20,7 +20,7 @@
             ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                {{$t('entities.productstats.productinputtable_grid.nodata')}} 
+                {{$t('entities.productstats.productcompletetable_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
@@ -28,10 +28,10 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productinputtable_grid.columns.name')" :width="300"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productcompletetable_grid.columns.name')" :width="300"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.productstats.productinputtable_grid.columns.name')}}
+                        {{$t('entities.productstats.productcompletetable_grid.columns.name')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -53,27 +53,39 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('resprojectcnt')">
-                <el-table-column show-overflow-tooltip :prop="'resprojectcnt'" :label="$t('entities.productstats.productinputtable_grid.columns.resprojectcnt')" :width="300"  :align="'left'">
+            <template v-if="getColumnState('storycnt')">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productstats.productcompletetable_grid.columns.storycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.productstats.productinputtable_grid.columns.resprojectcnt')}}
+                        {{$t('entities.productstats.productcompletetable_grid.columns.storycnt')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.resprojectcnt}}</span>
+                            <span>{{row.storycnt}}</span>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('haveconsumed')">
-                <el-table-column show-overflow-tooltip :prop="'haveconsumed'" :label="$t('entities.productstats.productinputtable_grid.columns.haveconsumed')" :width="300"  :align="'left'">
+            <template v-if="getColumnState('finishedstorycnt')">
+                <el-table-column show-overflow-tooltip :prop="'finishedstorycnt'" :label="$t('entities.productstats.productcompletetable_grid.columns.finishedstorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.productstats.productinputtable_grid.columns.haveconsumed')}}
+                        {{$t('entities.productstats.productcompletetable_grid.columns.finishedstorycnt')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.haveconsumed"></app-format-data>
+                            <span>{{row.finishedstorycnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('importantbugpercent')">
+                <el-table-column show-overflow-tooltip :prop="'importantbugpercent'" :label="$t('entities.productstats.productcompletetable_grid.columns.importantbugpercent')" :width="100"  :align="'left'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.productstats.productcompletetable_grid.columns.importantbugpercent')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.importantbugpercent}}</span>
                     </template>
                 </el-table-column>
             </template>

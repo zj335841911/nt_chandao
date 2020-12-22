@@ -1,16 +1,16 @@
 /**
- * ProductQuantityGird 部件模型
+ * ProductCompleteTable 部件模型
  *
  * @export
- * @class ProductQuantityGirdModel
+ * @class ProductCompleteTableModel
  */
-export default class ProductQuantityGirdModel {
+export default class ProductCompleteTableModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof ProductQuantityGirdGridMode
+	 * @memberof ProductCompleteTableGridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class ProductQuantityGirdModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof ProductQuantityGirdGridMode
+	 * @memberof ProductCompleteTableGridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -39,26 +39,6 @@ export default class ProductQuantityGirdModel {
         {
           name: 'finishedstorycnt',
           prop: 'finishedstorycnt',
-          dataType: 'INT',
-        },
-        {
-          name: 'bugcnt',
-          prop: 'bugcnt',
-          dataType: 'INT',
-        },
-        {
-          name: 'resolvedbugcnt',
-          prop: 'resolvedbugcnt',
-          dataType: 'INT',
-        },
-        {
-          name: 'bugstory',
-          prop: 'bugstory',
-          dataType: 'INT',
-        },
-        {
-          name: 'importantbugcnt',
-          prop: 'importantbugcnt',
           dataType: 'INT',
         },
         {

@@ -310,7 +310,7 @@ export default {
 			tip: 'deuiaction4',
 		},
 		deuiaction5: {
-			caption: commonLogic.appcommonhandle("团队成员管理",null),
+			caption: commonLogic.appcommonhandle("团队管理",null),
 			tip: 'deuiaction5',
 		},
 	},

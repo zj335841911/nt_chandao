@@ -1,16 +1,16 @@
-<template src="./product-quantity-gird-grid.html" />
+<template src="./product-complete-table-grid.html" />
 <script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProductQuantityGirdGridBase } from './product-quantity-gird-grid-base';
+import { ProductCompleteTableGridBase } from './product-complete-table-grid-base';
  
 
 /**
  * grid部件
  *
  * @export
- * @class ProductQuantityGirdGrid
- * @extends {ProductQuantityGirdGridBase}
+ * @class ProductCompleteTableGrid
+ * @extends {ProductCompleteTableGridBase}
  */
 @Component({
     components: {
@@ -18,12 +18,12 @@ import { ProductQuantityGirdGridBase } from './product-quantity-gird-grid-base';
     },
 })
 @VueLifeCycleProcessing()
-export default class ProductQuantityGirdGrid extends ProductQuantityGirdGridBase {
+export default class ProductCompleteTableGrid extends ProductCompleteTableGridBase {
     /**
      * 合计行绘制
      *
      * @param {any} param
-     * @memberof ProductQuantityGirdGridBase
+     * @memberof ProductCompleteTableGridBase
      */
     public getSummaries(param:any){
         const { columns, data } = param;
@@ -61,50 +61,6 @@ export default class ProductQuantityGirdGrid extends ProductQuantityGirdGridBase
                     }, 0);
                     sums[index] = tempData;
                 }
-                if(Object.is(column.property,'bugcnt')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
-                if(Object.is(column.property,'resolvedbugcnt')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
-                if(Object.is(column.property,'bugstory')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
-                if(Object.is(column.property,'importantbugcnt')){
-                    let tempData = values.reduce((prev:any, curr:any) => {
-                        const value = Number(curr);
-                        if (!isNaN(value)) {
-                            return prev + curr;
-                        } else {
-                            return prev;
-                        }
-                    }, 0);
-                    sums[index] = tempData;
-                }
                 if(Object.is(column.property,'importantbugpercent')){
                     let tempData = values.reduce((prev:any, curr:any) => {
                         const value = Number(curr);
@@ -120,15 +76,11 @@ export default class ProductQuantityGirdGrid extends ProductQuantityGirdGridBase
                 sums[index] = 'N/A';
             }
         });
-
-        if (sums && sums[3]){
-            let sumss = parseFloat(((sums[6] / sums[3]) * 100).toString()).toFixed(2);
-            sumss += '%';
-            sums[6] = sumss;
+        if (sums && sums[1]){
+            let sumss = parseFloat(((sums[2]/sums[1])*100).toString()).toFixed(2);
+            sums[3] = sumss;
         }
         return sums;
     }
-
 }
-
 </script>

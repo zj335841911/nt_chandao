@@ -167,6 +167,9 @@ export class MobNewModel {
                 name: 'formitem6',
             },
             {
+                name: 'formitem7',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

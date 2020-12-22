@@ -1956,7 +1956,7 @@ GROUP BY t2.product ) t4 on t1.id = t4.product where t1.deleted = '0'
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,IFNULL(t2.haveconsumed,0) as haveconsumed from (
+SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,ROUND(IFNULL(t2.haveconsumed,0),2)  as haveconsumed from (
 SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project 
 where t3.deleted = '0' and t1.deleted = '0'
 GROUP BY t1.id) t1 
@@ -1980,11 +1980,12 @@ GROUP BY t1.id ) t2 on t1.id = t2.id
 #### SQL
 - MYSQL5
 ```SQL
+SELECT *,CONCAT(ROUND(t1.finishedstorycnt/t1.storycnt,2)*100,'%') as ImportantBugpercent from (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,
-SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
+SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStorycnt
 from (
-select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product
+select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product   ) t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -2155,6 +2156,7 @@ DEFAULT
 | 3 | 已完成的需求数 | [已完成的需求数（FINISHEDSTORYCNT）](#属性-已完成的需求数（FINISHEDSTORYCNT）) |  |
 | 4 | 所有Bug数 | [所有Bug数（BUGCNT）](#属性-所有Bug数（BUGCNT）) |  |
 | 5 | 解决Bug数 | [解决Bug数（RESOLVEDBUGCNT）](#属性-解决Bug数（RESOLVEDBUGCNT）) |  |
-| 6 | 重要的Bug数 | [重要的Bug数（IMPORTANTBUGCNT）](#属性-重要的Bug数（IMPORTANTBUGCNT）) |  |
-| 7 | 严重bug比 | [严重bug比（IMPORTANTBUGPERCENT）](#属性-严重bug比（IMPORTANTBUGPERCENT）) |  |
+| 6 | 需求所提bug数 | [需求所提bug数（BUGSTORY）](#属性-需求所提bug数（BUGSTORY）) |  |
+| 7 | 重要的Bug数 | [重要的Bug数（IMPORTANTBUGCNT）](#属性-重要的Bug数（IMPORTANTBUGCNT）) |  |
+| 8 | 严重bug比 | [严重bug比（IMPORTANTBUGPERCENT）](#属性-严重bug比（IMPORTANTBUGPERCENT）) |  |
 

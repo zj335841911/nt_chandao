@@ -1,9 +1,12 @@
 <template>
   <div class="app-mob-department-select">
-    <div class="checkField">
-      <ion-input :disabled="disabled" :value="curValue" readonly @click="openModal"></ion-input>
+    <div class="main">
+      <div class="checkField">
+        <ion-input :disabled="disabled" :value="curValue" readonly @click="openModal"></ion-input>
+      </div>
       <div class="icon">
-         <ion-icon name="search-outline"></ion-icon>
+          <ion-icon  name="search-outline" v-show="!curValue" @click="openModal"></ion-icon>
+          <ion-icon  v-show="curValue" class="delete-value " name="close-circle-outline" @click.stop="onClear"></ion-icon>
       </div>
     </div>
     
@@ -217,6 +220,17 @@ export default class AppMobDepartmentSelect extends Vue {
        this.curValue = checkValue == []? '' : checkValue.join(',');
        let _value = checkValue == []? null : checkValue.join(',');
        this.$emit('select-change',{"name": this.fillMap.label, "value":_value });
+    }
+
+    /**
+     * 清除
+     * 
+     * @memberof AppMobDepartmentSelect
+     */
+    public onClear(){
+      this.curValue = '';
+      this.selectTreeValue = '';
+      this.$emit('select-change',{ "name": this.fillMap.label, "value":'' })
     }
 }
 </script>

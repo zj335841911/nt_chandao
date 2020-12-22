@@ -1399,6 +1399,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseTestMainDashboardView",
             "viewtag": "454743e1c8070362a873d0d4fe35740b"
         },
+        "productstatsusr2gridviewproductcomplete": {
+            "title": "产品统计表格视图",
+            "caption": "产品统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductStatsUsr2GridViewPRoductComplete",
+            "viewtag": "456a90200a66a37616388b42a254eb67"
+        },
         "storypickupgridview3": {
             "title": "需求",
             "caption": "需求",

@@ -87,8 +87,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('bugstory')">
+                <el-table-column show-overflow-tooltip :prop="'bugstory'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugstory')" :min-width="20"  :align="'left'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.productstats.productquantitygird_grid.columns.bugstory')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.bugstory}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('importantbugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'importantbugcnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.importantbugcnt')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'importantbugcnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.importantbugcnt')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.importantbugcnt')}}
@@ -100,7 +112,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('importantbugpercent')">
-                <el-table-column show-overflow-tooltip :prop="'importantbugpercent'" :label="$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'importantbugpercent'" :label="$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.importantbugpercent')}}

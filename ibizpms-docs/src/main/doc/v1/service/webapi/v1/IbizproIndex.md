@@ -270,7 +270,9 @@ POST
 | 7 | indexdesc | String | 允许 | 内容[需求、任务等] |
 | 8 | color | String | 允许 | 颜色 |
 | 9 | project | String | 允许 | 项目 |
-| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 10 | acllist | String | 允许 | 权限列表 |
+| 11 | acl | String | 允许 | 权限 |
+| 12 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproIndexSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
