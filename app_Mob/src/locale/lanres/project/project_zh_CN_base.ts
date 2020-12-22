@@ -310,8 +310,8 @@ export default {
 			tip: '删除',
 		},
 		deuiaction5: {
-			caption: commonLogic.appcommonhandle("团队成员管理",null),
-			tip: '团队成员管理',
+			caption: commonLogic.appcommonhandle("团队管理",null),
+			tip: '团队管理',
 		},
 	},
 	newmobeditviewrighttoolbar_toolbar: {

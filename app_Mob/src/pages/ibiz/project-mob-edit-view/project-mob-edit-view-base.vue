@@ -83,7 +83,7 @@
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction5.disabled}" v-show="righttoolbarModels.deuiaction5.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction5.disabled" @click="righttoolbar_click({ tag: 'deuiaction5' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="user"></ion-icon>
+                    <ion-icon name="users"></ion-icon>
                 <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
                 </ion-button>
                 <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
@@ -340,7 +340,7 @@ export default class ProjectMobEditViewBase extends Vue {
           deuiaction2: { name: 'deuiaction2', caption: '挂起', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_SUSPEND_BUT', uiaction: { tag: 'ProjectSuspendMob', target: 'SINGLEKEY' } },
           deuiaction3: { name: 'deuiaction3', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CLOSED_BUT', uiaction: { tag: 'ProjectCloseMob', target: 'SINGLEKEY' } },
           deuiaction4: { name: 'deuiaction4', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
-          deuiaction5: { name: 'deuiaction5', caption: '团队成员管理', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'TeamMemberManage', target: 'NONE' } },
+          deuiaction5: { name: 'deuiaction5', caption: '团队管理', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'TeamMemberManage', target: 'NONE' } },
 
     };
 
