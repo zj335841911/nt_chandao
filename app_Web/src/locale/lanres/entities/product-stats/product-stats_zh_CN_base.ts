@@ -255,8 +255,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			main_grid: {
+			productcompletetable_grid: {
 				columns: {
+					name: commonLogic.appcommonhandle("产品名称",null),
+					storycnt: commonLogic.appcommonhandle("需求总数",null),
+					finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
+					importantbugpercent: commonLogic.appcommonhandle("百分比",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {

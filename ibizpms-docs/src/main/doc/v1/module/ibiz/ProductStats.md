@@ -1980,11 +1980,13 @@ GROUP BY t1.id ) t2 on t1.id = t2.id
 #### SQL
 - MYSQL5
 ```SQL
+SELECT *,CONCAT(ROUND(t1.finishedstory/t1.storycnt,2)*100,'%') as importantbugcnt from (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,
 SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
 from (
-select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product
+select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product   ) t1
+
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

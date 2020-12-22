@@ -1583,6 +1583,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '456a90200a66a37616388b42a254eb67',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsUsr2GridViewPRoductComplete',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '00ad158575544b05271d9502c47918a8',
+            ],
+        },
+        {
             viewtag: '4571c6ac173283165334a20d5b218f3b',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView3',
@@ -5236,6 +5246,7 @@ export const viewstate: any = {
                 '3989c98a31e037a67b27cdf7acb1f7cd',
                 '15e5bef05cc545e3f705eeed95ac8dc1',
                 'c53ef5993dc196b00f0cfdc21d6dd3a8',
+                '456a90200a66a37616388b42a254eb67',
             ],
         },
         {

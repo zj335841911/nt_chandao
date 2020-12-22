@@ -172,6 +172,7 @@ function getLocaleResourceBase(){
 					productinputtable: commonLogic.appcommonhandle("产品投入表",null),
 					productquantity: commonLogic.appcommonhandle("产品质量表",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
+					productcompletetable: commonLogic.appcommonhandle("产品完成度统计表",null),
 					productsum: commonLogic.appcommonhandle("产品汇总表",null),
 					productstorysum: commonLogic.appcommonhandle("需求汇总表",null),
 				},
