@@ -51722,6 +51722,7 @@ CREATE TABLE `zt_user`(
 | INDEXID        | 主键  |       |   -1   | 主键&nbsp; |
 | MDEPTID        | 部门标识  | VARCHAR      |   200   | &nbsp; |
 | COLOR        | 颜色  | VARCHAR      |   200   | &nbsp; |
+| ACLLIST        | 权限列表  | VARCHAR      |   200   | &nbsp; |
 | INDEXNAME        | 标题[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
 | INDEXDESC        | 内容[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
 | ORGID        | 组织标识  | VARCHAR      |   200   | &nbsp; |

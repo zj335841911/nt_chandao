@@ -25,6 +25,7 @@
 | 7 | [内容[需求、任务等]](#属性-内容[需求、任务等]（INDEXDESC）) | INDEXDESC | 长文本，没有长度限制 | 否 | 否 | 是 |
 | 8 | [颜色](#属性-颜色（COLOR）) | COLOR | 文本，可指定长度 | 否 | 否 | 是 |
 | 9 | [项目](#属性-项目（PROJECT）) | PROJECT | 文本，可指定长度 | 否 | 否 | 是 |
+| 10 | [权限列表](#属性-权限列表（ACLLIST）) | ACLLIST | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-类型（INDEX_TYPE）
 #### 属性说明
@@ -379,6 +380,45 @@ null
 #### 关系属性
 无
 
+### 属性-权限列表（ACLLIST）
+#### 属性说明
+权限列表
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+null
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -661,6 +701,7 @@ where t11.deleted = '0'
 - MYSQL5
 ```SQL
 SELECT
+t1.`ACLLIST`,
 t1.`COLOR`,
 t1.`DELETED`,
 t1.`INDEXDESC`,
@@ -679,6 +720,7 @@ FROM (SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
 FROM
 (SELECT
 t1.`ID`,
@@ -695,6 +737,7 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
 FROM
 (SELECT
 t1.`ID`,
@@ -711,6 +754,7 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
 FROM
 (SELECT
 t1.`ID`,
@@ -727,6 +771,7 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
 FROM
 (SELECT
 t1.`ID`,
@@ -743,6 +788,7 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
 FROM
 (SELECT
 t1.`ID`,
@@ -759,6 +805,7 @@ SELECT
 ,NULL AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
+,NULL AS `ACLLIST`
 FROM
 (SELECT
 t1.`ID`,

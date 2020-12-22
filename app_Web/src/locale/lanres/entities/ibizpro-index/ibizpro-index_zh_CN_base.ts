@@ -12,6 +12,7 @@ function getLocaleResourceBase(){
 			indexdesc: commonLogic.appcommonhandle("内容[需求、任务等]",null),
 			color: commonLogic.appcommonhandle("颜色",null),
 			project: commonLogic.appcommonhandle("项目",null),
+			acllist: commonLogic.appcommonhandle("权限列表",null),
 		},
 			views: {
 				listview: {

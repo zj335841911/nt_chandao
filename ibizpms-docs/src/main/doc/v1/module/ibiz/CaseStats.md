@@ -678,7 +678,7 @@ sum(case when t3.caseResult = 'fail' then 1 else 0 end) as FailCase,
 sum(case when t3.caseResult = 'blocked' then 1 else 0 end) as BlockedCase,
 sum(case when t3.caseResult is not null then 1 else 0 end) as TotalRunCase,
 case when sum(case when t3.caseResult is not null then 1 else 0 end) = 0 then 'N/A' else CONCAT(FORMAT((sum(case when t3.caseResult = 'pass' then 1 else 0 end) / sum(case when t3.caseResult is not null then 1 else 0 end)) * 100, 2),'%') end as PassRate
-from zt_project t1 
+from zt_product t1 
 left join zt_case t2 on t2.deleted = '0' and t2.module = 0 and t1.id = t2.product 
 left join zt_testresult t3 on t2.id = t3.`case`
 where t1.deleted = '0'

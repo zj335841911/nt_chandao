@@ -58,6 +58,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计表格视图",null),
 				},
+				usr2gridviewproductcomplete: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计表格视图",null),
+				},
 				editview9: {
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
@@ -251,6 +255,20 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			main_grid: {
+				columns: {
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			default_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+				},
+				uiactions: {
+				},
+			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("Save",null),
@@ -298,6 +316,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Export",null),
 					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
 				},
+			},
+			usr2gridviewproductcompletetoolbar_toolbar: {
 			},
 		};
 		return data;

@@ -77,4 +77,12 @@ export interface IbizproIndex {
      * @memberof IbizproIndex
      */
     project?: any;
+
+    /**
+     * 权限列表
+     *
+     * @returns {*}
+     * @memberof IbizproIndex
+     */
+    acllist?: any;
 }
