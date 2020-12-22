@@ -4,6 +4,8 @@
             :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
             @sort-change="onSortChange($event)"  
             :border="isDragendCol"
+            :show-summary="true && items.length > 0"
+            :summary-method="getSummaries"
             :highlight-current-row ="isSingleSelect"
             :row-class-name="getRowClassName.bind(_self)"
             :cell-class-name="getCellClassName.bind(_self)"
@@ -26,7 +28,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.name')" :min-width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.name')}}
@@ -38,7 +40,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('doingtaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'doingtaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.doingtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'doingtaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.doingtaskcnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.doingtaskcnt')}}
@@ -50,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('waittaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'waittaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.waittaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'waittaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.waittaskcnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.waittaskcnt')}}
@@ -62,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pausetaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'pausetaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.pausetaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pausetaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.pausetaskcnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.pausetaskcnt')}}
@@ -74,7 +76,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('closedtaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'closedtaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.closedtaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'closedtaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.closedtaskcnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.closedtaskcnt')}}
@@ -86,7 +88,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('canceltaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'canceltaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.canceltaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'canceltaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.canceltaskcnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.canceltaskcnt')}}
@@ -98,7 +100,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('donetaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'donetaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.donetaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'donetaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.donetaskcnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.donetaskcnt')}}
@@ -110,7 +112,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.taskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.taskcnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.taskcnt')}}
