@@ -155,9 +155,9 @@ export class MobNewModel {
                 dataType: 'DATE',
             },
             {
-                name: 'assignedto',
-                prop: 'assignedto',
-                dataType: 'TEXT',
+                name: 'id',
+                prop: 'id',
+                dataType: 'ACID',
             },
             {
                 name: 'formitem3',
@@ -170,11 +170,6 @@ export class MobNewModel {
             },
             {
                 name: 'formitem6',
-            },
-            {
-                name: 'id',
-                prop: 'id',
-                dataType: 'ACID',
             },
             {
                 name: 'todo',
