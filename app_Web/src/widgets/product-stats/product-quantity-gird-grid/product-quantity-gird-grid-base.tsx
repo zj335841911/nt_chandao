@@ -163,6 +163,15 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'bugstory',
+            label: '需求所提bug数',
+            langtag: 'entities.productstats.productquantitygird_grid.columns.bugstory',
+            show: true,
+            unit: 'STAR',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'importantbugcnt',
             label: '重要的Bug数',
             langtag: 'entities.productstats.productquantitygird_grid.columns.importantbugcnt',
@@ -286,6 +295,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
         'finishedstorycnt':false,
         'bugcnt':false,
         'resolvedbugcnt':false,
+        'bugstory':false,
         'importantbugcnt':false,
         'importantbugpercent':false,
     };
@@ -468,7 +478,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
     * @memberof ProductQuantityGirdBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','storycnt','finishedstorycnt','bugcnt','resolvedbugcnt','importantbugcnt','importantbugpercent'];
+        let allColumns:Array<any> = ['name','storycnt','finishedstorycnt','bugcnt','resolvedbugcnt','bugstory','importantbugcnt','importantbugpercent'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -552,6 +562,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
                 finishedstorycnt:'',
                 bugcnt:'',
                 resolvedbugcnt:'',
+                bugstory:'',
                 importantbugcnt:'',
                 importantbugpercent:'',
                 children: children
@@ -583,6 +594,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
             finishedstorycnt:'',
             bugcnt:'',
             resolvedbugcnt:'',
+            bugstory:'',
             importantbugcnt:'',
             importantbugpercent:'',
             children: child
@@ -650,6 +662,7 @@ export class ProductQuantityGirdGridBase extends GridControlBase {
                 finishedstorycnt:'',
                 bugcnt:'',
                 resolvedbugcnt:'',
+                bugstory:'',
                 importantbugcnt:'',
                 importantbugpercent:'',
                 children: children,

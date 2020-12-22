@@ -248,6 +248,7 @@ function getLocaleResourceBase(){
 					finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
 					bugcnt: commonLogic.appcommonhandle("所有Bug数",null),
 					resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
+					bugstory: commonLogic.appcommonhandle("需求所提bug数",null),
 					importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
 					importantbugpercent: commonLogic.appcommonhandle("严重bug比",null),
 				},

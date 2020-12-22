@@ -2157,6 +2157,7 @@ DEFAULT
 | 3 | 已完成的需求数 | [已完成的需求数（FINISHEDSTORYCNT）](#属性-已完成的需求数（FINISHEDSTORYCNT）) |  |
 | 4 | 所有Bug数 | [所有Bug数（BUGCNT）](#属性-所有Bug数（BUGCNT）) |  |
 | 5 | 解决Bug数 | [解决Bug数（RESOLVEDBUGCNT）](#属性-解决Bug数（RESOLVEDBUGCNT）) |  |
-| 6 | 重要的Bug数 | [重要的Bug数（IMPORTANTBUGCNT）](#属性-重要的Bug数（IMPORTANTBUGCNT）) |  |
-| 7 | 严重bug比 | [严重bug比（IMPORTANTBUGPERCENT）](#属性-严重bug比（IMPORTANTBUGPERCENT）) |  |
+| 6 | 需求所提bug数 | [需求所提bug数（BUGSTORY）](#属性-需求所提bug数（BUGSTORY）) |  |
+| 7 | 重要的Bug数 | [重要的Bug数（IMPORTANTBUGCNT）](#属性-重要的Bug数（IMPORTANTBUGCNT）) |  |
+| 8 | 严重bug比 | [严重bug比（IMPORTANTBUGPERCENT）](#属性-严重bug比（IMPORTANTBUGPERCENT）) |  |
 

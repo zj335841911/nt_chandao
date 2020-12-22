@@ -52,6 +52,11 @@ export default class ProductQuantityGirdModel {
           dataType: 'INT',
         },
         {
+          name: 'bugstory',
+          prop: 'bugstory',
+          dataType: 'INT',
+        },
+        {
           name: 'importantbugcnt',
           prop: 'importantbugcnt',
           dataType: 'INT',
