@@ -368,12 +368,12 @@
         <app-mob-group-select
   name="account"
   :value='data.account'
-  valueitem=""
+  valueitem="formitem5"
   url="/sysorganizations/${selected-orgid}/sysemployees/picker"
   
   :multiple="false"
   filter="srforgid"
-  :fillmap="{'id':'','label':'account'}"
+  :fillmap="{'id':'formitem5','label':'account'}"
   :disabled="detailsModel.account.disabled"
   :data="data"
   :context="context"
@@ -403,12 +403,12 @@
         <app-mob-group-select
   name="assignedby"
   :value='data.assignedby'
-  valueitem=""
+  valueitem="formitem5"
   url="/sysorganizations/${selected-orgid}/sysemployees/picker"
   
   :multiple="true"
   filter="srforgid"
-  :fillmap="{'id':'','label':'assignedby'}"
+  :fillmap="{'id':'formitem5','label':'assignedby'}"
   :disabled="detailsModel.assignedby.disabled"
   :data="data"
   :context="context"
@@ -438,12 +438,12 @@
         <app-mob-group-select
   name="assigneddate"
   :value='data.assigneddate'
-  valueitem=""
+  valueitem="formitem5"
   url="/sysorganizations/${selected-orgid}/sysemployees/picker"
   treeurl="/sysorganizations/${orgid}/suborg/picker"
   :multiple="false"
   filter="srforgid"
-  :fillmap="{'id':'','label':'assigneddate'}"
+  :fillmap="{'id':'formitem5','label':'assigneddate'}"
   :disabled="detailsModel.assigneddate.disabled"
   :data="data"
   :context="context"
@@ -472,12 +472,12 @@
         <app-mob-group-select
   name="assignedto"
   :value='data.assignedto'
-  valueitem=""
+  valueitem="formitem5"
   url="/sysorganizations/${selected-orgid}/sysemployees/picker"
   treeurl="/sysorganizations/${orgid}/suborg/picker"
   :multiple="true"
   filter="srforgid"
-  :fillmap="{'id':'','label':'assignedto'}"
+  :fillmap="{'id':'formitem5','label':'assignedto'}"
   :disabled="detailsModel.assignedto.disabled"
   :data="data"
   :context="context"
