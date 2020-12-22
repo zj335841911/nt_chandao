@@ -1980,7 +1980,7 @@ GROUP BY t1.id ) t2 on t1.id = t2.id
 #### SQL
 - MYSQL5
 ```SQL
-SELECT *,CONCAT(ROUND(t1.finishedstory/t1.storycnt,2)*100,'%') as importantbugcnt from (
+SELECT *,CONCAT(ROUND(t1.finishedstory/t1.storycnt,2)*100,'%') as IMPORTANTBUGPERCENT from (
 SELECT t1.product,t1.`name`,
 IFNULL(COUNT(1),0) as storycnt ,
 SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
