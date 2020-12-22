@@ -121,6 +121,9 @@ export class MobNewModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'formitem7',
+            },
+            {
                 name: 'formitem',
             },
             {
@@ -165,9 +168,6 @@ export class MobNewModel {
             },
             {
                 name: 'formitem6',
-            },
-            {
-                name: 'formitem7',
             },
             {
                 name: 'id',

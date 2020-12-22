@@ -79,6 +79,7 @@ export default {
 			private: commonLogic.appcommonhandle("私人事务",null), 
 			desc: commonLogic.appcommonhandle("描述",null), 
 			status: commonLogic.appcommonhandle("人员",null), 
+			formitem7: commonLogic.appcommonhandle("显色选择",null), 
 			formitem: commonLogic.appcommonhandle("【多选】部门（指定单位及其下级单位的所有部门多选)",null), 
 			assignedtopk: commonLogic.appcommonhandle("【单选】部门（指定单位及其下级单位的所有部门）",null), 
 			formitem2: commonLogic.appcommonhandle("【多选】部门（指定单位内的部门多选）",null), 
@@ -91,7 +92,6 @@ export default {
 			formitem4: commonLogic.appcommonhandle("【多选】单位（仅含指定单位及其下级单位多选）",null), 
 			formitem5: commonLogic.appcommonhandle("【单选】单位（全部单位单选）",null), 
 			formitem6: commonLogic.appcommonhandle("【多选】单位（全部单位多选）",null), 
-			formitem7: commonLogic.appcommonhandle("显色选择",null), 
 			id: commonLogic.appcommonhandle("编号",null), 
 		},
 		uiactions: {
