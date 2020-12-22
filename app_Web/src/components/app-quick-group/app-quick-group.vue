@@ -29,7 +29,7 @@
                 <span :style="{ color: item.color }" :class="{ 'app-seleted-item': isSelectedItem(item) }">
                     <i v-if="item.iconcls && !Object.is(item.iconcls, '')" :class="item.iconcls"></i>
                     <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
-                    <span class="app-quick-item-label">{{ tag ? $t('codelist.'+tag+'.'+item.value) : item.label }}</span>
+                    <span class="app-quick-item-label">{{ item.label }}</span>
                     <span
                         v-show="
                             isSelectedItem(item) &&
@@ -96,6 +96,14 @@ export default class AppQuickGroup extends Vue {
     public showItems: any[] = [];
 
     /**
+     * 翻译代码表后的初始列表
+     * 
+     * @type {any[]}
+     * @memberof AppQuickGroup
+     */
+    public initItems: any[] = [];
+
+    /**
      * 监控代码表变化
      *
      * @memberof AppQuickGroup
@@ -109,7 +117,8 @@ export default class AppQuickGroup extends Vue {
                 }
                 return !item.default;
             });
-            this.showItems = this.handleDataSet(this.items);
+            this.initItems = this.handleDataSet(this.items);
+            this.showItems = this.$util.deepCopy(this.initItems);
         }
     }
 
@@ -214,6 +223,13 @@ export default class AppQuickGroup extends Vue {
         if (isswitch) {
             this.selectedUiItem = $event;
         }
+        if (!$event.pvalue && !$event.children) { 
+            for (let i=0; i < this.showItems.length; i++) {
+                if (this.showItems[i].children) {
+                    this.showItems[i].label = this.initItems[i].label;
+                }
+            }
+        }
         this.$emit('valuechange', $event);
         this.$forceUpdate();
     }
@@ -226,6 +242,7 @@ export default class AppQuickGroup extends Vue {
      * @memberof AppQuickGroup
      */
     public handleCommand($event: any, item: any): void {
+        this.selectedUiItem = item;
         item.label = $event.label;
         item.codename = $event.codename;
         this.handleClick($event, false);

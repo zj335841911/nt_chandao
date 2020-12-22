@@ -436,6 +436,154 @@ export class ProductStorySumGridBase extends GridControlBase {
         ]);
     }
 
+    /**
+     * 合计行绘制
+     *
+     * @param {any} param
+     * @memberof ProductStorySumGridBase
+     */
+    public getSummaries(param:any){
+        const { columns, data } = param;
+        const sums:Array<any> = [];
+        columns.forEach((column:any, index:number) => {
+          if (index === 0) {
+            sums[index] = (this.$t('app.gridpage.sum') as string);
+            return;
+          }
+          if(index === (columns.length - 1)){
+            sums[index] = '';
+            return;
+          }
+          const values = data.map((item:any) => Number(item[column.property]));
+          if (!values.every((value:any) => isNaN(value))) {
+                if(Object.is(column.property,'waitstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'planedstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'projectedstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'developingstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'developedstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'testingstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'testedstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'verifiedstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'releasedstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'closedstagestorycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+                if(Object.is(column.property,'storycnt')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+          } else {
+            sums[index] = 'N/A';
+          }
+        });
+        return sums;
+      }
+
 
     /**
      * 更新默认值
