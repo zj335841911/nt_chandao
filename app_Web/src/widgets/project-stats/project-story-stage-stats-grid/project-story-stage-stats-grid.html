@@ -28,7 +28,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.name')" :min-width="200"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.name')" :min-width="200"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.name')}}
@@ -40,7 +40,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('emptystagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'emptystagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.emptystagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'emptystagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.emptystagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.emptystagestorycnt')}}
@@ -52,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('waitstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'waitstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.waitstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'waitstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.waitstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.waitstagestorycnt')}}
@@ -64,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('plannedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'plannedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.plannedstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'plannedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.plannedstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.plannedstagestorycnt')}}
@@ -76,7 +76,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projectedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'projectedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.projectedstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'projectedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.projectedstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.projectedstagestorycnt')}}
@@ -88,7 +88,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('developingstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'developingstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.developingstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'developingstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.developingstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.developingstagestorycnt')}}
@@ -112,7 +112,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('testingstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'testingstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.testingstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'testingstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.testingstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.testingstagestorycnt')}}
@@ -124,7 +124,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('testedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'testedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.testedstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'testedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.testedstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.testedstagestorycnt')}}
@@ -136,7 +136,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('verifiedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'verifiedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.verifiedstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'verifiedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.verifiedstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.verifiedstagestorycnt')}}
@@ -148,7 +148,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('releasedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'releasedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.releasedstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'releasedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.releasedstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.releasedstagestorycnt')}}
@@ -160,7 +160,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('closedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'closedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.closedstagestorycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'closedstagestorycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.closedstagestorycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.closedstagestorycnt')}}
@@ -172,7 +172,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
-                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.storycnt')" :width="100"  :align="'center'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.projectstats.projectstorystagestats_grid.columns.storycnt')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projectstorystagestats_grid.columns.storycnt')}}
