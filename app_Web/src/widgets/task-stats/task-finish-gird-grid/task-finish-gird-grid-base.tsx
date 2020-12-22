@@ -95,20 +95,12 @@ export class TaskFinishGirdGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_taskstats_taskfinishgird_grid';
 
     /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof TaskFinishGirdGridBase
-     */
-    public isEnablePagingBar: boolean = false;
-
-    /**
      * 分页条数
      *
      * @type {number}
      * @memberof TaskFinishGirdGridBase
      */
-    public limit: number = 500;
+    public limit: number = 40;
 
     /**
      * 所有列成员
