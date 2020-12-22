@@ -54,7 +54,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('resprojectcnt')">
-                <el-table-column show-overflow-tooltip :prop="'resprojectcnt'" :label="$t('entities.productstats.productinputtable_grid.columns.resprojectcnt')" :width="350"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'resprojectcnt'" :label="$t('entities.productstats.productinputtable_grid.columns.resprojectcnt')" :width="250"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productinputtable_grid.columns.resprojectcnt')}}
@@ -66,7 +66,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('haveconsumed')">
-                <el-table-column show-overflow-tooltip :prop="'haveconsumed'" :label="$t('entities.productstats.productinputtable_grid.columns.haveconsumed')" :width="350"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'haveconsumed'" :label="$t('entities.productstats.productinputtable_grid.columns.haveconsumed')" :width="250"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productinputtable_grid.columns.haveconsumed')}}
