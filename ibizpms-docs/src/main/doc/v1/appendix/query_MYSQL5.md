@@ -12464,8 +12464,6 @@ SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedSto
 from (
 select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product   ) t1
 
-WHERE t1.DELETED = '0' 
-
 ```
 ### 默认（全部数据）(VIEW)<div id="ProductStats_View"></div>
 ```sql
