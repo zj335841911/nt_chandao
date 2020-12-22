@@ -1639,6 +1639,16 @@
         "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3",
         "memo": ""
     },
+    "productstatsgridviewproducntinputtable": {
+        "title": "产品统计表格视图",
+        "caption": "产品统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsGridViewProducntInputTable",
+        "viewfilename": "product-stats-grid-view-producnt-input-table",
+        "viewtag": "438cf5075b908617ca9d1bcf357a5b3e",
+        "memo": ""
+    },
     "testrunmeditview9": {
         "title": "测试运行多表单编辑视图",
         "caption": "测试运行",

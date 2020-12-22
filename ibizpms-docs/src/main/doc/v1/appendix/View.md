@@ -444,6 +444,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试报告数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|人员表格视图|DEGRIDVIEW|&nbsp;|
 |-|指派表单视图|DEOPTVIEW|&nbsp;|
+|-|产品统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试运行多表单编辑视图|DEMEDITVIEW9|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|我的地盘日历导航视图|DECALENDAREXPVIEW|&nbsp;|

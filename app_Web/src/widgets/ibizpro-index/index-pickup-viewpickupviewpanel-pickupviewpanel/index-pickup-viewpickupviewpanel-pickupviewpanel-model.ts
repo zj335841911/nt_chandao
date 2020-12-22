@@ -39,6 +39,9 @@ export default class IndexPickupViewpickupviewpanelModel {
       {
         name: 'color',
       },
+      {
+        name: 'project',
+      },
     ]
   }
 

@@ -5810,6 +5810,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
                 },
                 {
+                    path: 'productstats/:productstats?/gridviewproducntinputtable/:gridviewproducntinputtable?',
+                    meta: {
+                        caption: 'entities.productstats.views.gridviewproducntinputtable.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productstats', parameterName: 'productstats' },
+                            { pathName: 'gridviewproducntinputtable', parameterName: 'gridviewproducntinputtable' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-stats-grid-view-producnt-input-table/product-stats-grid-view-producnt-input-table.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/pickupgridview2/:pickupgridview2?',
                     meta: {
                         caption: 'entities.story.views.pickupgridview2.caption',

@@ -1488,6 +1488,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '438cf5075b908617ca9d1bcf357a5b3e',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsGridViewProducntInputTable',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '00ad158575544b05271d9502c47918a8',
+            ],
+        },
+        {
             viewtag: '43c2d1a2b73b0363036aee72dc9312c5',
             viewmodule: 'zentao',
             viewname: 'BugBuildSubGridView_New_9212',
@@ -5220,6 +5230,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '438cf5075b908617ca9d1bcf357a5b3e',
                 '7ee436604d479bd0ba014e136c1b8f6f',
                 '240ec4bdf10888613e1601f420ad730f',
                 '3989c98a31e037a67b27cdf7acb1f7cd',

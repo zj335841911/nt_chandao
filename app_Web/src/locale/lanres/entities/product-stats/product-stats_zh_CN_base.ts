@@ -54,6 +54,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
 				},
+				gridviewproducntinputtable: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计表格视图",null),
+				},
 				editview9: {
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
@@ -223,6 +227,16 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			productinputtable_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("产品名称",null),
+					resprojectcnt: commonLogic.appcommonhandle("关联项目数",null),
+					haveconsumed: commonLogic.appcommonhandle("已消耗工时",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			productquantitygird_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("产品名称",null),
@@ -271,6 +285,12 @@ function getLocaleResourceBase(){
 				deuiaction4: {
 					caption: commonLogic.appcommonhandle("过滤",null),
 					tip: commonLogic.appcommonhandle("过滤",null),
+				},
+			},
+			gridviewproducntinputtabletoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
 				},
 			},
 			gridviewtoolbar_toolbar: {

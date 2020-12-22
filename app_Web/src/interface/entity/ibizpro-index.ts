@@ -69,4 +69,12 @@ export interface IbizproIndex {
      * @memberof IbizproIndex
      */
     color?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof IbizproIndex
+     */
+    project?: any;
 }

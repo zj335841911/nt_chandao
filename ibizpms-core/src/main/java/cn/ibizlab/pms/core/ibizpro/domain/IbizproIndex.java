@@ -100,6 +100,13 @@ public class IbizproIndex extends EntityMP implements Serializable {
     @JSONField(name = "color")
     @JsonProperty("color")
     private String color;
+    /**
+     * 项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private String project;
 
 
 

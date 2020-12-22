@@ -1319,6 +1319,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoAssignToView",
             "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3"
         },
+        "productstatsgridviewproducntinputtable": {
+            "title": "产品统计表格视图",
+            "caption": "产品统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductStatsGridViewProducntInputTable",
+            "viewtag": "438cf5075b908617ca9d1bcf357a5b3e"
+        },
         "testrunmeditview9": {
             "title": "测试运行多表单编辑视图",
             "caption": "测试运行",
