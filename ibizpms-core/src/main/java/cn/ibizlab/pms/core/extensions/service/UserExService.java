@@ -121,7 +121,7 @@ public class UserExService extends UserServiceImpl {
             deptIds += sysDepartment.getDeptid();
         }
         //禅道查找ou不存在的单位
-        List<Dept> deptList = iDeptService.list(new QueryWrapper<Dept>().last(" where FIND_IN_SET(id,'" + deptIds + "')=0"));
+        List<Dept> deptList = iDeptService.list(new QueryWrapper<Dept>().last(" where FIND_IN_SET(id,'" + deptIds + "')=0 order by grade asc"));
         if (deptList.size() > 0) {
             for (Dept dept : deptList) {
                 SysDepartment sysDepartment = new SysDepartment();
@@ -133,6 +133,7 @@ public class UserExService extends UserServiceImpl {
                 sysDepartment.setParentdeptname(dept.getParentname());
                 sysDepartment.setEnable(1);
                 sysDepartment.setShortname(dept.getName());
+                sysDepartment.setDeptlevel(dept.getGrade());
                 try {
                     iSysDepartmentService.save(sysDepartment);
                 } catch (RuntimeException e) {
