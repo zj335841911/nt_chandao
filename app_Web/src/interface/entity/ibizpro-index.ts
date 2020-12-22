@@ -85,4 +85,12 @@ export interface IbizproIndex {
      * @memberof IbizproIndex
      */
     acllist?: any;
+
+    /**
+     * 权限
+     *
+     * @returns {*}
+     * @memberof IbizproIndex
+     */
+    acl?: any;
 }

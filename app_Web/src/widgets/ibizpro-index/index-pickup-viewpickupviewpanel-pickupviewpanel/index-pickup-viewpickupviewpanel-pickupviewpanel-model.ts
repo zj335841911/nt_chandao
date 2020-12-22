@@ -45,6 +45,9 @@ export default class IndexPickupViewpickupviewpanelModel {
       {
         name: 'acllist',
       },
+      {
+        name: 'acl',
+      },
     ]
   }
 
