@@ -125,6 +125,8 @@ export class MobNewModel {
             },
             {
                 name: 'formitem',
+                prop: 'config',
+                dataType: 'TEXT',
             },
             {
                 name: 'assignedtopk',

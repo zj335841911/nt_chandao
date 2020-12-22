@@ -285,7 +285,7 @@
     :disabled="detailsModel.formitem.disabled"
     :error="detailsModel.formitem.error" 
     :isEmptyCaption="false">
-        <app-mob-department-select :data="data" :disabled="detailsModel.formitem.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'','label':'formitem'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'formitem'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
 </app-form-item>
 
 
@@ -305,7 +305,7 @@
     :disabled="detailsModel.assignedtopk.disabled"
     :error="detailsModel.assignedtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-department-select :data="data" :disabled="detailsModel.assignedtopk.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'assignedto','label':'assignedtopk'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+        <app-mob-department-select :data="data" :disabled="detailsModel.assignedtopk.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'assignedtopk'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
 </app-form-item>
 
 
@@ -325,7 +325,7 @@
     :disabled="detailsModel.formitem2.disabled"
     :error="detailsModel.formitem2.error" 
     :isEmptyCaption="false">
-        <app-mob-department-select :data="data" :disabled="detailsModel.formitem2.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'','label':'formitem2'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem2.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'formitem2'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
 </app-form-item>
 
 
@@ -345,7 +345,7 @@
     :disabled="detailsModel.formitem1.disabled"
     :error="detailsModel.formitem1.error" 
     :isEmptyCaption="false">
-        <app-mob-department-select :data="data" :disabled="detailsModel.formitem1.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'','label':'formitem1'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem1.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'formitem1'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
 </app-form-item>
 
 
