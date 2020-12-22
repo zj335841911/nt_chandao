@@ -348,7 +348,7 @@ export default {
 			story: commonLogic.appcommonhandle("相关需求",null), 
 			storyname: commonLogic.appcommonhandle("相关需求",null), 
 			name: commonLogic.appcommonhandle("任务名称",null), 
-			formitem: commonLogic.appcommonhandle("任务名称color",null), 
+			color: commonLogic.appcommonhandle("任务名称color",null), 
 			pri: commonLogic.appcommonhandle("优先级",null), 
 			estimate: commonLogic.appcommonhandle("预计",null), 
 			eststarted: commonLogic.appcommonhandle("预计开始",null), 

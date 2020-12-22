@@ -111,7 +111,7 @@ export class MobNewFromModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'formitem',
+                name: 'color',
                 prop: 'color',
                 dataType: 'SSCODELIST',
             },
