@@ -244,4 +244,19 @@ export class ProductStatsServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/productstats/fetchproductinputtable`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchProductcompletionstatistics接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductStatsServiceBase
+     */
+    public async FetchProductcompletionstatistics(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productstats/fetchproductcompletionstatistics`,tempData,isloading);
+        return res;
+    }
 }
