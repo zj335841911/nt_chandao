@@ -2020,6 +2020,7 @@ FROM `zt_product` t1
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
 | 3 | [产品质量表](#数据集合-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
+| 4 | [产品投入表](#数据集合-产品投入表（ProductInputTable）) | ProductInputTable | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -2063,6 +2064,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品质量表（ProdctQuantiGird）](#数据查询-产品质量表（ProdctQuantiGird）) |
+### 数据集合-产品投入表（ProductInputTable）
+#### 说明
+产品投入表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品投入表（ProductInputTable）](#数据查询-产品投入表（ProductInputTable）) |
 
 ## 数据导入
 无
@@ -2070,7 +2085,18 @@ DEFAULT
 ## 数据导出
 | 序号 | 数据导出 | 数据导出名 | 最大导出数量 |
 | ---- | ---- | ---- | ---- |
-| 1 | [产品质量数据导出](#数据导出-产品质量数据导出（ProductQuantityExport）) | ProductQuantityExport | 1,000 |
+| 1 | [产品投入数据导出](#数据导出-产品投入数据导出（ProductInputExport）) | ProductInputExport | 1,000 |
+| 2 | [产品质量数据导出](#数据导出-产品质量数据导出（ProductQuantityExport）) | ProductQuantityExport | 1,000 |
+
+### 数据导出-产品投入数据导出（ProductInputExport）
+#### 说明
+产品投入数据导出
+
+- 最大导出数
+1,000
+
+- 行为持有者
+后台及前台
 
 ### 数据导出-产品质量数据导出（ProductQuantityExport）
 #### 说明

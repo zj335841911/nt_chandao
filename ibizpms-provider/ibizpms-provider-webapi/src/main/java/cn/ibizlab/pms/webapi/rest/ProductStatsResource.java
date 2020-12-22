@@ -212,6 +212,28 @@ public class ProductStatsResource {
                 .body(new PageImpl(productstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-searchProductInputTable-all')")
+	@ApiOperation(value = "获取产品投入表", tags = {"产品统计" } ,notes = "获取产品投入表")
+    @RequestMapping(method= RequestMethod.GET , value="/productstats/fetchproductinputtable")
+	public ResponseEntity<List<ProductStatsDTO>> fetchProductInputTable(ProductStatsSearchContext context) {
+        Page<ProductStats> domains = productstatsService.searchProductInputTable(context) ;
+        List<ProductStatsDTO> list = productstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-searchProductInputTable-all')")
+	@ApiOperation(value = "查询产品投入表", tags = {"产品统计" } ,notes = "查询产品投入表")
+    @RequestMapping(method= RequestMethod.POST , value="/productstats/searchproductinputtable")
+	public ResponseEntity<Page<ProductStatsDTO>> searchProductInputTable(@RequestBody ProductStatsSearchContext context) {
+        Page<ProductStats> domains = productstatsService.searchProductInputTable(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

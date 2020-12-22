@@ -141,6 +141,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |NoOpenProduct|未关闭产品|NoOpenProduct|否|&nbsp;|
 |ProdctQuantiGird|产品质量表|ProdctQuantiGird|否|&nbsp;|
+|ProductInputTable|产品投入表|ProductInputTable|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
@@ -154,6 +155,11 @@ hide footbox
 
 
 ## 导出模式
+* 产品投入数据导出
+
+|
+|
+|
 * 产品质量数据导出
 
 |产品名称|需求总数|已完成的需求数|所有Bug数|解决Bug数|重要的Bug数|严重bug比|
