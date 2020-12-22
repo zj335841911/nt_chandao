@@ -95,20 +95,12 @@ export class BugResolvedGirdGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_bugstats_bugresolvedgird_grid';
 
     /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof BugResolvedGirdGridBase
-     */
-    public isEnablePagingBar: boolean = false;
-
-    /**
      * 分页条数
      *
      * @type {number}
      * @memberof BugResolvedGirdGridBase
      */
-    public limit: number = 500;
+    public limit: number = 40;
 
     /**
      * 所有列成员
