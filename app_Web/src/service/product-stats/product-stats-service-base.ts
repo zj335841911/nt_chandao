@@ -301,4 +301,33 @@ export default class ProductStatsServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productstats/searchproductinputtable`,tempData,isloading);
     }
+
+    /**
+     * FetchProductcompletionstatistics接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductStatsServiceBase
+     */
+    public async FetchProductcompletionstatistics(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productstats/fetchproductcompletionstatistics`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductcompletionstatistics接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductStatsServiceBase
+     */
+    public async searchProductcompletionstatistics(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productstats/searchproductcompletionstatistics`,tempData,isloading);
+    }
 }

@@ -229,7 +229,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('left')">
-                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.myfavoritemain_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.myfavoritemain_grid.columns.left')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.task.myfavoritemain_grid.columns.left')}}

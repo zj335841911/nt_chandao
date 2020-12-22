@@ -132,6 +132,7 @@ hide footbox
 |NoOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_NoOpenProduct))|否|&nbsp;|
 |ProdctQuantiGird|产品质量表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_ProdctQuantiGird))|否|&nbsp;|
 |ProductInputTable|产品投入表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_ProductInputTable))|否|&nbsp;|
+|Productcompletionstatistics|产品完成统计表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_Productcompletionstatistics))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_View))|否|&nbsp;|
 
 * **数据集合**
@@ -142,6 +143,7 @@ hide footbox
 |NoOpenProduct|未关闭产品|NoOpenProduct|否|&nbsp;|
 |ProdctQuantiGird|产品质量表|ProdctQuantiGird|否|&nbsp;|
 |ProductInputTable|产品投入表|ProductInputTable|否|&nbsp;|
+|Productcompletionstatistics|产品完成统计表|Productcompletionstatistics|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

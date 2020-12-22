@@ -28,7 +28,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productinputtable_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productinputtable_grid.columns.name')" :width="300"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productinputtable_grid.columns.name')}}
@@ -66,7 +66,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('haveconsumed')">
-                <el-table-column show-overflow-tooltip :prop="'haveconsumed'" :label="$t('entities.productstats.productinputtable_grid.columns.haveconsumed')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'haveconsumed'" :label="$t('entities.productstats.productinputtable_grid.columns.haveconsumed')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productinputtable_grid.columns.haveconsumed')}}

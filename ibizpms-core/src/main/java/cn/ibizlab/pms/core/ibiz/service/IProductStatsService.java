@@ -51,6 +51,7 @@ public interface IProductStatsService extends IService<ProductStats> {
     Page<ProductStats> searchNoOpenProduct(ProductStatsSearchContext context);
     Page<ProductStats> searchProdctQuantiGird(ProductStatsSearchContext context);
     Page<ProductStats> searchProductInputTable(ProductStatsSearchContext context);
+    Page<ProductStats> searchProductcompletionstatistics(ProductStatsSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

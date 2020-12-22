@@ -1633,7 +1633,8 @@ Save
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
 | 3 | [产品质量表](#数据查询-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
 | 4 | [产品投入表](#数据查询-产品投入表（ProductInputTable）) | ProductInputTable | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [产品完成统计表](#数据查询-产品完成统计表（Productcompletionstatistics）) | Productcompletionstatistics | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1966,6 +1967,25 @@ where t3.deleted = '0' and t1.deleted = '0' and t3.deleted = '0' and t4.parent >
 GROUP BY t1.id ) t2 on t1.id = t2.id
 
 ```
+### 数据查询-产品完成统计表（Productcompletionstatistics）
+#### 说明
+产品完成统计表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as storycnt ,
+SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
+from (
+select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -2021,6 +2041,7 @@ FROM `zt_product` t1
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
 | 3 | [产品质量表](#数据集合-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
 | 4 | [产品投入表](#数据集合-产品投入表（ProductInputTable）) | ProductInputTable | 否 |
+| 5 | [产品完成统计表](#数据集合-产品完成统计表（Productcompletionstatistics）) | Productcompletionstatistics | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -2078,6 +2099,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品投入表（ProductInputTable）](#数据查询-产品投入表（ProductInputTable）) |
+### 数据集合-产品完成统计表（Productcompletionstatistics）
+#### 说明
+产品完成统计表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品完成统计表（Productcompletionstatistics）](#数据查询-产品完成统计表（Productcompletionstatistics）) |
 
 ## 数据导入
 无

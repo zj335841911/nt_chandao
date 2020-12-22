@@ -23,6 +23,7 @@ public interface ProductStatsMapper extends BaseMapper<ProductStats> {
     Page<ProductStats> searchNoOpenProduct(IPage page, @Param("srf") ProductStatsSearchContext context, @Param("ew") Wrapper<ProductStats> wrapper);
     Page<ProductStats> searchProdctQuantiGird(IPage page, @Param("srf") ProductStatsSearchContext context, @Param("ew") Wrapper<ProductStats> wrapper);
     Page<ProductStats> searchProductInputTable(IPage page, @Param("srf") ProductStatsSearchContext context, @Param("ew") Wrapper<ProductStats> wrapper);
+    Page<ProductStats> searchProductcompletionstatistics(IPage page, @Param("srf") ProductStatsSearchContext context, @Param("ew") Wrapper<ProductStats> wrapper);
     @Override
     ProductStats selectById(Serializable id);
     @Override
