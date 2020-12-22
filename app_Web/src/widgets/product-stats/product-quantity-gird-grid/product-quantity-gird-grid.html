@@ -28,7 +28,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productquantitygird_grid.columns.name')" :min-width="20"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productquantitygird_grid.columns.name')" :width="200"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.name')}}
@@ -88,7 +88,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugstory')">
-                <el-table-column show-overflow-tooltip :prop="'bugstory'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugstory')" :min-width="20"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'bugstory'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugstory')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.bugstory')}}
