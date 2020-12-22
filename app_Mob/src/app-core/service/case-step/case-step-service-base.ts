@@ -560,7 +560,7 @@ export class CaseStepServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 
@@ -583,7 +583,7 @@ export class CaseStepServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 
@@ -606,7 +606,7 @@ export class CaseStepServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 
@@ -629,7 +629,7 @@ export class CaseStepServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 
@@ -652,7 +652,7 @@ export class CaseStepServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 
@@ -675,7 +675,7 @@ export class CaseStepServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 
