@@ -78,6 +78,7 @@ export default class ProductCompleteTableGrid extends ProductCompleteTableGridBa
         });
         if (sums && sums[1]){
             let sumss = parseFloat(((sums[2]/sums[1])*100).toString()).toFixed(2);
+            sumss += '%';
             sums[3] = sumss;
         }
         return sums;

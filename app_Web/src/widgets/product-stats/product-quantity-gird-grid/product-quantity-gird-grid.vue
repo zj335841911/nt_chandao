@@ -124,7 +124,7 @@ export default class ProductQuantityGirdGrid extends ProductQuantityGirdGridBase
         if (sums && sums[3]){
             let sumss = parseFloat(((sums[6] / sums[3]) * 100).toString()).toFixed(2);
             sumss += '%';
-            sums[6] = sumss;
+            sums[7] = sumss;
         }
         return sums;
     }
