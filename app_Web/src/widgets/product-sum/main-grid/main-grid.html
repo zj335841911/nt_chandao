@@ -2,8 +2,6 @@
     <i-form>
         <el-table v-if="isDisplay === true"
             :border="isDragendCol"
-            :show-summary="true && items.length > 0"
-            :summary-method="getSummaries"
             :highlight-current-row ="isSingleSelect"
             :row-class-name="getRowClassName.bind(_self)"
             :cell-class-name="getCellClassName.bind(_self)"

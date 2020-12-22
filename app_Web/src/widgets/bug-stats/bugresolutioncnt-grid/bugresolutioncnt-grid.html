@@ -4,6 +4,8 @@
             :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
             @sort-change="onSortChange($event)"  
             :border="isDragendCol"
+            :show-summary="true && items.length > 0"
+            :summary-method="getSummaries"
             :highlight-current-row ="isSingleSelect"
             :row-class-name="getRowClassName.bind(_self)"
             :cell-class-name="getCellClassName.bind(_self)"
@@ -122,7 +124,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugexternal')">
-                <el-table-column show-overflow-tooltip :prop="'bugexternal'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugexternal')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugexternal'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugexternal')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugexternal')}}
