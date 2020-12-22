@@ -12430,8 +12430,8 @@ GROUP BY t2.product ) t4 on t1.id = t4.product where t1.deleted = '0'
 ```
 ### 产品投入表(ProductInputTable)<div id="ProductStats_ProductInputTable"></div>
 ```sql
-SELECT t1.id,t1.`name`,t1.projectcnt,IFNULL(t2.haveconsumed,0) as haveconsumed from (
-SELECT t1.id,t1.`name`,COUNT(1) as projectcnt from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project 
+SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,IFNULL(t2.haveconsumed,0) as haveconsumed from (
+SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project 
 where t3.deleted = '0' and t1.deleted = '0'
 GROUP BY t1.id) t1 
 LEFT JOIN (
