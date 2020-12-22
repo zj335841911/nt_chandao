@@ -158,5 +158,7 @@ export const AppComponents = {
         v.component('app-mob-group-select',() => import('@/components/app-mob-group-select/app-mob-group-select.vue'));
         // 树选择
         v.component('app-tree',() => import('@/components/app-tree/app-tree.vue'));
+        // 文本框颜色选择
+        v.component('app-mob-color-picker',() => import('@/components/app-mob-color-picker/app-mob-color-picker.vue'));
     },
 };

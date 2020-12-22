@@ -178,7 +178,6 @@ export default class AppMobDepartmentSelect extends Vue {
     @Watch('data',{immediate:true,deep:true})
     public onValueChange(newVal: any, oldVal: any) {
         if(newVal){
-          // this.computedSelectedData();
           this.$nextTick(()=>{
             this.searchNodesData();
           });
@@ -202,8 +201,8 @@ export default class AppMobDepartmentSelect extends Vue {
       multiple: this.multiple,
       nodesData: this.Nodesdata
     });
-    let container: any = await this.$appmodal.openModal(view, context, param);
-    this.closeModal(container);
+    let result: any = await this.$appmodal.openModal(view, context, param);
+    this.closeModal(result.datas);
   }
 
   /**
@@ -211,15 +210,23 @@ export default class AppMobDepartmentSelect extends Vue {
      *
      * @memberof AppMobDepartmentSelect
      */  
-    public closeModal(result: any) {
+    public closeModal(datas: any) {
        let checkValue: any[] = [];
-       result.datas.forEach((item: any)=>{
+       datas.forEach((item: any)=>{
          checkValue.push(item.label);
        })
-       this.selectTreeValue = JSON.stringify(result.datas);
+       this.selectTreeValue = JSON.stringify(datas);
        this.curValue = checkValue == []? '' : checkValue.join(',');
-       let _value = checkValue == []? null : checkValue.join(',');
-       this.$emit('select-change',{"name": this.fillMap.label, "value":_value });
+       if(this.fillMap && Object.keys(this.fillMap).length > 0){
+            Object.keys(this.fillMap).forEach((attribute:string) => {
+                let _name = this.fillMap[attribute];
+                let values = datas.map((item:any) => item[attribute]);
+                let _value = datas === "[]" ? null : values.join(",");
+                setTimeout(() => {
+                  this.$emit('select-change',{name: this.fillMap[attribute], value: _value});
+                },0);
+            });
+        }
     }
 
     /**
@@ -230,7 +237,14 @@ export default class AppMobDepartmentSelect extends Vue {
     public onClear(){
       this.curValue = '';
       this.selectTreeValue = '';
-      this.$emit('select-change',{ "name": this.fillMap.label, "value":'' })
+      if(this.fillMap && Object.keys(this.fillMap).length > 0){
+            Object.keys(this.fillMap).forEach((attribute:string) => {
+                let _name = this.fillMap[attribute];
+                setTimeout(() => {
+                  this.$emit('select-change',{name: this.fillMap[attribute], value:null});
+                },0);
+            });
+        }
     }
 }
 </script>
