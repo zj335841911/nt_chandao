@@ -103,7 +103,7 @@ export default class TestCaseStatsGrid extends TestCaseStatsGridBase {
             sumss += "%";
             sums[6] = sumss;
         } else {
-          sums[6] = 'N/A';
+          sums[6] = '0.00%';
         }
         return sums;
     }
