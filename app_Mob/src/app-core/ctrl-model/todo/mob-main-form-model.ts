@@ -101,6 +101,11 @@ export class MobMainModel {
                 dataType: 'LONGTEXT',
             },
             {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

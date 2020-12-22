@@ -330,30 +330,30 @@
 
 
 <app-form-item 
-    name='id' 
+    name='noticeusers' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="id_item"  
-    :itemValue="this.data.id" 
-    v-show="detailsModel.id.visible" 
-    :itemRules="this.rules.id" 
-    :caption="$t('todo.mobmain_form.details.id')"  
+    ref="noticeusers_item"  
+    :itemValue="this.data.noticeusers" 
+    v-show="detailsModel.noticeusers.visible" 
+    :itemRules="this.rules.noticeusers" 
+    :caption="$t('todo.mobmain_form.details.noticeusers')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.id.disabled"
-    :error="detailsModel.id.error" 
+    :disabled="detailsModel.noticeusers.disabled"
+    :error="detailsModel.noticeusers.error" 
     :isEmptyCaption="false">
         <app-mob-group-select
-  name="id"
-  :value='data.id'
+  name="noticeusers"
+  :value='data.noticeusers'
   valueitem="desc"
   url="/sysorganizations/${selected-orgid}/sysemployees/picker"
   treeurl="/sysorganizations/${orgid}/suborg/picker"
   :multiple="true"
   filter="srforgid"
-  :fillmap="{'id':'desc','label':'id'}"
-  :disabled="detailsModel.id.disabled"
+  :fillmap="{'id':'desc','label':'noticeusers'}"
+  :disabled="detailsModel.noticeusers.disabled"
   :data="data"
   :context="context"
   
@@ -757,6 +757,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         assigneddate: null,
         assignedto: null,
         desc: null,
+        noticeusers: null,
         id: null,
         todo: null,
     };
@@ -933,7 +934,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '测试人员', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        noticeusers: new FormItemModel({ caption: '测试人员', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -1154,6 +1157,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1201,6 +1216,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

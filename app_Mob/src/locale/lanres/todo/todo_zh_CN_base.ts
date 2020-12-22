@@ -87,11 +87,12 @@ export default {
 			account: commonLogic.appcommonhandle("【单选】指定单位内人员",null), 
 			assignedby: commonLogic.appcommonhandle("【多选】指定单位内人员",null), 
 			assigneddate: commonLogic.appcommonhandle("【单选】指定单位及下级人员",null), 
-			id: commonLogic.appcommonhandle("【多选】指定单位及下级人员",null), 
+			noticeusers: commonLogic.appcommonhandle("【多选】指定单位及下级人员",null), 
 			formitem3: commonLogic.appcommonhandle("【单选】单位（仅含指定单位及其下级单位单选）",null), 
 			formitem4: commonLogic.appcommonhandle("【多选】单位（仅含指定单位及其下级单位多选）",null), 
 			formitem5: commonLogic.appcommonhandle("【单选】单位（全部单位单选）",null), 
 			formitem6: commonLogic.appcommonhandle("【多选】单位（全部单位多选）",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
 		},
 		uiactions: {
 		},
@@ -141,7 +142,8 @@ export default {
 			assigneddate: commonLogic.appcommonhandle("指派日期",null), 
 			assignedto: commonLogic.appcommonhandle("指派给",null), 
 			desc: commonLogic.appcommonhandle("描述",null), 
-			id: commonLogic.appcommonhandle("测试人员",null), 
+			noticeusers: commonLogic.appcommonhandle("测试人员",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
 		},
 		uiactions: {
 		},
