@@ -1,12 +1,12 @@
 <template>
   <div class="app-mob-department-select">
     <div class="checkField">
-      <ion-input :disabled="disabled" :value="curValue" readonly @click="openModal">
-        <div class="icon">
-          <svg t="1608543874255" class="icon" viewBox="0 0 1165 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2970" width="200" height="200"><path d="M1107.30913719 909.45959375l-186.86323313-145.37686875a479.97811781 479.97811781 0 1 0-69.42107062 87.6783975q13.80107531-13.80107531 26.30518125-28.51668l185.08405875 143.96350594a36.58116281 36.58116281 0 1 0 44.89506375-57.73172719z m-594.79308657 9.37807969c-223.66055812 0-405.63521719-181.95803156-405.63521718-405.63521719S288.80560906 107.56723906 512.46616719 107.56723906 918.10138437 289.59178156 918.10138437 513.20245625 736.14335281 918.83767344 512.46616719 918.83767344z" fill="#474747" p-id="2971"></path></svg>
-        </div>
-      </ion-input>
+      <ion-input :disabled="disabled" :value="curValue" readonly @click="openModal"></ion-input>
+      <div class="icon">
+         <ion-icon name="search-outline"></ion-icon>
+      </div>
     </div>
+    
   </div>
 </template>
 
@@ -175,128 +175,17 @@ export default class AppMobDepartmentSelect extends Vue {
     @Watch('data',{immediate:true,deep:true})
     public onValueChange(newVal: any, oldVal: any) {
         if(newVal){
-          this.computedSelectedData();
+          // this.computedSelectedData();
           this.$nextTick(()=>{
             this.searchNodesData();
           });
         }
     }
-
-    /**
-     * 计算选中值
-     * 
-     * @memberof AppOrgSelect
-     */
-    public computedSelectedData(){
-      // 单选
-      if(!this.multiple){
-        if(this.fillMap && Object.keys(this.fillMap).length >0){
-        let templateValue:any = {};
-        Object.keys(this.fillMap).forEach((item:any) =>{
-          if(this.data && this.data[this.fillMap[item]]){
-            Object.assign(templateValue,{[item]:this.data[this.fillMap[item]]});
-          }
-        })
-          if(!templateValue.label && templateValue.id && this.tag && this.codelistType && Object.is(this.codelistType,"DYNAMIC")){
-            this.fillLabel(templateValue,templateValue.id,(templateValue:any) =>{
-              this.selectTreeValue = JSON.stringify([templateValue]);
-            });
-          }else{
-            this.selectTreeValue = JSON.stringify([templateValue]);
-          }
-        }
-      }else{
-      // 多选
-        if(this.fillMap && Object.keys(this.fillMap).length >0){
-          let tempArray:Array<any> = [];
-          Object.keys(this.fillMap).forEach((item:any) =>{
-            if(this.data && this.data[this.fillMap[item]]){
-              let tempDataArray:Array<any> = (this.data[this.fillMap[item]]).split(",");
-              tempDataArray.forEach((tempData:any,index:number) =>{
-                if(tempArray.length < tempDataArray.length){
-                  let singleData:any ={[item]:tempData};
-                  tempArray.push(singleData);
-                }else{
-                  Object.assign(tempArray[index],{[item]:tempData});
-                }
-              })
-            }
-          })
-          let tempflag:boolean = false;
-          if(tempArray.length >0 && tempArray.length >0){
-            tempArray.forEach((item:any) =>{
-              if(!item.label) tempflag = true;
-            })
-          }
-          if(tempflag && this.tag && this.codelistType && Object.is(this.codelistType,"DYNAMIC")){
-            let tempStatus:number = 0;
-            tempArray.forEach((item:any) =>{
-              if(!item.label){
-                tempStatus += 1;
-                this.fillLabel(item,item.id,(result:any) =>{
-                  item = result;
-                  tempStatus -= 1;
-                  if(tempStatus === 0){
-                    this.selectTreeValue = JSON.stringify(tempArray);
-                  }
-                })
-              }
-            })
-          }else{
-            this.selectTreeValue = JSON.stringify(tempArray);
-          }
-        }
-      }
-    } 
-
-    /**
-     * select事件处理
-     * 
-     * @param {*} $event
-     * @memberof AppMobDepartmentSelect
-     */
-    public onSelect($event:any){
-        // 组件自身抛值事件
-        let selectArr = JSON.parse($event);
-        // fillMap抛值事件
-        if(this.fillMap && Object.keys(this.fillMap).length > 0){
-            Object.keys(this.fillMap).forEach((attribute:string) => {
-                let _name = this.fillMap[attribute];
-                let values = selectArr.map((item:any) => item[attribute]);
-                let _value = $event === "[]" ? null : values.join(",");
-                setTimeout(() => {
-                  this.$emit('select-change',{name: this.fillMap[attribute], value: _value});
-                },0);
-            });
-        }
-    }
-
-  /**
-   * 填充label
-   * 
-   * @memberof AppOrgSelect
-   */
-  public fillLabel(tempObject:any,valueItem:any,callback:any){
-    if(!tempObject.label && tempObject.id && this.tag && this.codelistType && Object.is(this.codelistType,"DYNAMIC")){
-      let codeListService:CodeListService = new CodeListService();
-      codeListService.getItems(this.tag).then((items:any) =>{
-        if(items && items.length >0){
-          let result:any = items.find((item:any) =>{
-            return item.id === valueItem;
-          })
-          Object.assign(tempObject,{label:result.label});
-        }
-        callback(tempObject);
-      }).catch((error:any) =>{
-        console.log(error);
-      })
-    }
-  }
   
   /**
    * 打开模态
    * 
-   * @memberof AppOrgSelect
+   * @memberof AppMobDepartmentSelect
    */
   public async openModal(){
     const view: any = {
@@ -304,22 +193,10 @@ export default class AppMobDepartmentSelect extends Vue {
         title: (this.$t('components.AppMobGroupSelect.groupSelect') as string)
     };
     const context: any = JSON.parse(JSON.stringify(this.context));
-    let filtervalue:string = "";
-    if(this.filter){
-        if(this.data[this.filter]){
-            filtervalue = this.data[this.filter];
-        }else if(context[this.filter]){
-            filtervalue = context[this.filter];
-        }else{
-            filtervalue = context.srforgid;
-        }
-    }else{
-        filtervalue = context.srforgid;
-    }
     const param: any = {};
     Object.assign(param, {
-      selectTreeValue:this.selectTreeValue,
-      multiple:this.multiple,
+      selectTreeValue: this.selectTreeValue,
+      multiple: this.multiple,
       nodesData: this.Nodesdata
     });
     let container: any = await this.$appmodal.openModal(view, context, param);
@@ -329,17 +206,18 @@ export default class AppMobDepartmentSelect extends Vue {
   /**
      * 模态关闭
      *
-     * @memberof AppOrgSelect
+     * @memberof AppMobDepartmentSelect
      */  
     public closeModal(result: any) {
        let checkValue: any[] = [];
        result.datas.forEach((item: any)=>{
          checkValue.push(item.label);
        })
-       this.curValue = checkValue.join(',');
-       this.$emit('select-change',{name: this.fillMap.label, value: this.curValue });
+       this.selectTreeValue = JSON.stringify(result.datas);
+       this.curValue = checkValue == []? '' : checkValue.join(',');
+       let _value = checkValue == []? null : checkValue.join(',');
+       this.$emit('select-change',{"name": this.fillMap.label, "value":_value });
     }
-
 }
 </script>
 

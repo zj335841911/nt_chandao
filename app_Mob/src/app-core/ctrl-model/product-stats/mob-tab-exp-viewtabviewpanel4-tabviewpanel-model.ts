@@ -123,6 +123,9 @@ export class MobTabExpViewtabviewpanel4Model {
       {
         name: 'importantbugpercent',
       },
+      {
+        name: 'haveconsumed',
+      },
     ]
   }
 
