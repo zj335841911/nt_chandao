@@ -66,7 +66,6 @@ export default class ProductCompleteTableModel {
           name: 'productstats',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

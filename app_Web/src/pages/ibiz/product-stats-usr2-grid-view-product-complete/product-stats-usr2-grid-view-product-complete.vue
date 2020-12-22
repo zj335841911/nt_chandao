@@ -4,7 +4,6 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatsUsr2GridViewPRoductCompleteBase } from './product-stats-usr2-grid-view-product-complete-base';
 import view_grid from '@widgets/product-stats/product-complete-table-grid/product-complete-table-grid.vue';
-import view_searchform from '@widgets/product-stats/default-searchform/default-searchform.vue';
 
 /**
  * 产品统计表格视图视图
@@ -16,7 +15,6 @@ import view_searchform from '@widgets/product-stats/default-searchform/default-s
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

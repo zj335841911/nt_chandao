@@ -266,13 +266,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			default_searchform: {
-				details: {
-					formpage1: commonLogic.appcommonhandle("常规条件",null), 
-				},
-				uiactions: {
-				},
-			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("保存",null),
