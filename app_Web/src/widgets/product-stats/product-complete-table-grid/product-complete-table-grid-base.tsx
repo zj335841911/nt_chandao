@@ -122,7 +122,7 @@ export class ProductCompleteTableGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.productstats.productcompletetable_grid.columns.name',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
