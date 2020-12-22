@@ -1014,6 +1014,14 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        "srfkey": "UserRealName_valueofid",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         "srfkey": "CurProductBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

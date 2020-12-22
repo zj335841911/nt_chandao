@@ -7,6 +7,7 @@ import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
 import  SysOperator  from '@/app-core/code-list/sys-operator';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 import  ProductBranch  from '@/app-core/code-list/product-branch';
+import  UserRealName_valueofid  from '@/app-core/code-list/user-real-name-valueofid';
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
 import  BugModule  from '@/app-core/code-list/bug-module';
 import  Role  from '@/app-core/code-list/role';
@@ -73,6 +74,8 @@ export class CodeListService {
         UserRealName: new UserRealName(),
         // 产品平台（动态）
         ProductBranch: new ProductBranch(),
+        // 用户真实名称（值属性为主键）
+        UserRealName_valueofid: new UserRealName_valueofid(),
         // 当前产品版本（动态）
         CurProductBuild: new CurProductBuild(),
         // 所属模板（动态）

@@ -356,7 +356,7 @@
   :disabled="detailsModel.noticeusers.disabled"
   :data="data"
   :context="context"
-  
+    tag='UserRealName_valueofid' codelistType='DYNAMIC'
   @formitemvaluechange="onFormItemValueChange">
 </app-mob-group-select>
 

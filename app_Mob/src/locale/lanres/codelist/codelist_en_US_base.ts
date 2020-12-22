@@ -195,6 +195,9 @@ export default {
     ProductBranch: {
         empty: commonLogic.appcommonhandle("",null),
     },
+    UserRealName_valueofid: {
+        empty: commonLogic.appcommonhandle("",null),
+    },
     CurProductBuild: {
         empty: commonLogic.appcommonhandle("",null),
     },
