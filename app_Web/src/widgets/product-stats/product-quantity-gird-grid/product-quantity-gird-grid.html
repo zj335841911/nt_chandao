@@ -28,7 +28,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productquantitygird_grid.columns.name')" :min-width="20"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productstats.productquantitygird_grid.columns.name')" :min-width="20"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.name')}}
@@ -40,7 +40,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
-                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.storycnt')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.storycnt')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.storycnt')}}
@@ -52,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('finishedstorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'finishedstorycnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.finishedstorycnt')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'finishedstorycnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.finishedstorycnt')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.finishedstorycnt')}}
@@ -64,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugcnt')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.bugcnt')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.bugcnt')}}
@@ -76,7 +76,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('resolvedbugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'resolvedbugcnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.resolvedbugcnt')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'resolvedbugcnt'" :label="$t('entities.productstats.productquantitygird_grid.columns.resolvedbugcnt')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productstats.productquantitygird_grid.columns.resolvedbugcnt')}}
