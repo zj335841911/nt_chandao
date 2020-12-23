@@ -45,18 +45,18 @@
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobeditedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobeditedit.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_mobeditedit.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_mobeditedit' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="edit" />
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobeditedit' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditedit.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="remove" />
+                    iconName="remove" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
             </div>
         

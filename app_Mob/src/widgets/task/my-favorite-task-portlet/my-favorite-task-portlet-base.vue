@@ -8,7 +8,14 @@
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">{{$t('app.button.cancel')}}</ion-button><ion-button @click="onConfirmClick(true)">{{$t('app.button.confirm')}}</ion-button></div>
+            <div class="edit_title_btn" :style="edit_title_btn">
+                <app-mob-button
+                    :text="$t('app.button.cancel')"
+                    @click="onConfirmClick(false)" />
+                <app-mob-button 
+                    :tetx="$t('app.button.confirm')"
+                    @click="onConfirmClick(true)" />
+            </div>
             <task-favorite-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :isPortalView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></task-favorite-mob-mdview9>
         </ion-list>
         <van-action-sheet v-model="selectStatus" get-container="#app" :actions="actionBarModelData" cancel-text="取消" close-on-click-action @select="actionBarClick" @cancel="onCancel" />

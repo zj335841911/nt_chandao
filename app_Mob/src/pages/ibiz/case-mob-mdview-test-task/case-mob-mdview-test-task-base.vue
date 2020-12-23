@@ -111,9 +111,9 @@
                 <div :class="{'sub-item':true,'disabled':righttoolbar2Models.deuiaction1.disabled}" v-show="righttoolbar2Models.deuiaction1.visabled">
                 <app-mob-button 
                     :disabled="righttoolbar2Models.deuiaction1.disabled" 
-                    @click="righttoolbar2_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="link" />
+                    iconName="link" 
+                    @click="righttoolbar2_click({ tag: 'deuiaction1' }, $event),popUpGroup()" />
                 
             </div>
         

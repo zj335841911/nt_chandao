@@ -111,27 +111,27 @@
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction3.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="add" />
+                    iconName="add" 
+                    @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" />
                 
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="link" />
+                    iconName="link" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" />
                 
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction2.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="linkedin-square" />
+                    iconName="linkedin-square" 
+                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" />
                 
             </div>
         

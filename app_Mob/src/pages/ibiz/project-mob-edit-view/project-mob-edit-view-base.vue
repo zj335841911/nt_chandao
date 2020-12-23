@@ -57,45 +57,45 @@
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="color-wand" />
+                    iconName="color-wand" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction2.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="pause" />
+                    iconName="pause" 
+                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction3.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="power" />
+                    iconName="power" 
+                    @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction4.disabled}" v-show="righttoolbarModels.deuiaction4.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction4.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction4' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="close" />
+                    iconName="close" 
+                    @click="righttoolbar_click({ tag: 'deuiaction4' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction5.disabled}" v-show="righttoolbarModels.deuiaction5.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction5.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction5' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="users" />
+                    iconName="users" 
+                    @click="righttoolbar_click({ tag: 'deuiaction5' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
             </div>
         

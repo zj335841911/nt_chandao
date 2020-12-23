@@ -55,54 +55,54 @@
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_changestorydetailmob.disabled}" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="swap-vertical-outline" />
+                    iconName="swap-vertical-outline" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntomob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="hand-o-right" />
+                    iconName="hand-o-right" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_reviewstorymob.disabled}" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="search" />
+                    iconName="search" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closestorymob.disabled}" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="close" />
+                    iconName="close" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled}" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="edit" />
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="remove" />
+                    iconName="remove" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
             </div>
         

@@ -55,54 +55,54 @@
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assingtobugmob.disabled}" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="hand-o-right" />
+                    iconName="hand-o-right" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmbugmob.disabled}" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="eye" />
+                    iconName="eye" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activationmob.disabled}" v-show="righttoolbarModels.deuiaction1_activationmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="color-wand" />
+                    iconName="color-wand" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_resolvebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="check-square-o" />
+                    iconName="check-square-o" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="edit" />
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="close" />
+                    iconName="close" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
             </div>
         

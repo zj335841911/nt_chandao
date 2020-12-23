@@ -55,108 +55,108 @@
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmstorychangecz.disabled}" v-show="righttoolbarModels.deuiaction1_confirmstorychangecz.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_confirmstorychangecz.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="search" />
+                    iconName="search" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychangecz.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_startmobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_startmobteamtask.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_startmobteamtask.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_startmobteamtask' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="play" />
+                    iconName="play" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_startmobteamtask' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_startmobteamtask.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntaskmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="people" />
+                    iconName="people" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activemobtask.disabled}" v-show="righttoolbarModels.deuiaction1_activemobtask.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_activemobtask.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_activemobtask' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="magic" />
+                    iconName="magic" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_activemobtask' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_activemobtask.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled}" v-show="righttoolbarModels.deuiaction1_consumedmobtaskteam.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_consumedmobtaskteam' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="clock-o" />
+                    iconName="clock-o" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_consumedmobtaskteam' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_consumedmobtaskteam.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_finishtask1.disabled}" v-show="righttoolbarModels.deuiaction1_finishtask1.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_finishtask1.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_finishtask1' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="checkmark-circle-outline" />
+                    iconName="checkmark-circle-outline" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_finishtask1' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_finishtask1.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausemobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_pausemobteamtask.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_pausemobteamtask.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_pausemobteamtask' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="pause" />
+                    iconName="pause" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_pausemobteamtask' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausemobteamtask.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_restartmobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_restartmobteamtask.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_restartmobteamtask.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_restartmobteamtask' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="step-forward" />
+                    iconName="step-forward" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_restartmobteamtask' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_restartmobteamtask.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_canceltaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="power" />
+                    iconName="power" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_canceltaskmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_closetaskmob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_closetaskmob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="backspace" />
+                    iconName="backspace" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_closetaskmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="edit" />
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event),popUpGroup()" 
                     size="large"  
-                    iconName="remove" />
+                    iconName="remove" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
             </div>
         
