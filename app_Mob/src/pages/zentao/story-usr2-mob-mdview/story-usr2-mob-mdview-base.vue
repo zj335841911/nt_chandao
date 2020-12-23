@@ -15,7 +15,7 @@
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
                                 <app-mob-button 
-                            className="app-view-toolbar-button" 
+                            class="app-view-toolbar-button" 
                             iconName="add"
                             :text="''"
                             v-show="righttoolbarModels.deuiaction3.visabled" 
@@ -23,7 +23,7 @@
                             @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)" />
                 
                                 <app-mob-button 
-                            className="app-view-toolbar-button" 
+                            class="app-view-toolbar-button" 
                             iconName="link"
                             :text="''"
                             v-show="righttoolbarModels.deuiaction1.visabled" 
@@ -31,7 +31,7 @@
                             @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" />
                 
                                 <app-mob-button 
-                            className="app-view-toolbar-button" 
+                            class="app-view-toolbar-button" 
                             iconName="linkedin-square"
                             :text="''"
                             v-show="righttoolbarModels.deuiaction2.visabled" 

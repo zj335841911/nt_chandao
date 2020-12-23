@@ -29,12 +29,12 @@
         <ion-toolbar style="text-align: center;">
     <div class="mobpickupview_button">
       <app-mob-button 
-          className="pick-btn" 
+          class="pick-btn" 
           color="medium"
           :text="$t('app.button.cancel')"
           @click="onClickCancel"/>
       <app-mob-button 
-          className="pick-btn" 
+          class="pick-btn" 
           :text="$t('app.button.confirm')"
           :disabled="viewSelections.length === 0" 
           @click="onClickOk" />

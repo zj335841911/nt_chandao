@@ -12,5 +12,5 @@ export default class AppMobHeader extends Vue {
 }
 </script>
 <style lang='less'>
-@import './app-mob-header.less';
+
 </style>

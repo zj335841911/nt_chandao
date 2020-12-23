@@ -36,7 +36,7 @@
       </van-action-sheet>
       <div class="selectedCount"  @click="select_click">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
       <app-mob-button 
-          className="pick-btn" 
+          class="pick-btn" 
           :text="$t('app.button.confirm')"
           :disabled="viewSelections.length === 0" 
           @click="onClickOk"/>

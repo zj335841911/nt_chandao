@@ -50,14 +50,14 @@
         <ion-footer>
         <div class="search-btn">
             <app-mob-button 
-            className="search-btn-item"
+            class="search-btn-item"
             :text="$t('app.searchForm.searchButton.reset')" 
             color="light" 
             shape="round" 
             size="small"
             @click="onReset" />
             <app-mob-button 
-            className="search-btn-item" 
+            class="search-btn-item" 
             shape="round" 
             size="small" 
             :text="$t('app.searchForm.searchButton.search')" 
@@ -135,7 +135,7 @@
                         <div class="app-toolbar-container ">
             <div class="app-quick-toolbar toolbar-left-bottons">
                         <app-mob-button 
-                    className="app-view-toolbar-button" 
+                    class="app-view-toolbar-button" 
                     iconName="remove"
                     :text="$t('project.mobmdviewmdctrl_batchtoolbar_toolbar.deuiaction1.caption')"
                     v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" 
@@ -145,7 +145,7 @@
             </div>
         </div>
                 <app-mob-button
-                    className="app-view-toolbar-button"  
+                    class="app-view-toolbar-button"  
                     iconName="arrow-undo-outline"
                     :text="$t('app.button.cancel')"
                     @click="cancelSelect" />

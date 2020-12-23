@@ -7,7 +7,7 @@
                       <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       <app-mob-button 
                         v-if="!isTempMode && !allLoaded && needLoadMore" 
-                        className="loadmore_btn" 
+                        class="loadmore_btn" 
                         :text="$t('app.button.loadmore')"  
                         @click="loadBottom" />
                   </template>
@@ -37,7 +37,7 @@
                               <div class="app-toolbar-container ">
                 <div class="app-quick-toolbar toolbar-left-bottons">
                             <app-mob-button 
-                        className="app-view-toolbar-button" 
+                        class="app-view-toolbar-button" 
                         iconName="plus"
                         :text="$t('project.mobmdviewmdctrl_quicktoolbar_toolbar.deuiaction1.caption')"
                         v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" 

@@ -45,12 +45,12 @@
     <ion-footer class="view-footer">
         <div class="option-view-btnbox">
   <app-mob-button 
-      className="option-btn medium" 
+      class="option-btn medium" 
       color="medium" 
       :text="$t('app.button.cancel')"
       @click="back" />
   <app-mob-button 
-      className="option-btn success" 
+      class="option-btn success" 
       :text="$t('app.button.confirm')"
       @click="save" />
 </div>

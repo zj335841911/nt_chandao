@@ -7,7 +7,7 @@
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
     <app-mob-button 
-      className="filter-btn" 
+      class="filter-btn" 
       size="small" 
       slot="end"  
       text="过滤"
@@ -48,14 +48,14 @@
         <ion-footer>
         <div class="search-btn">
             <app-mob-button 
-            className="search-btn-item"
+            class="search-btn-item"
             :text="$t('app.searchForm.searchButton.reset')" 
             color="light" 
             shape="round" 
             size="small"
             @click="onReset" />
             <app-mob-button 
-            className="search-btn-item" 
+            class="search-btn-item" 
             shape="round" 
             size="small" 
             :text="$t('app.searchForm.searchButton.search')" 
@@ -84,7 +84,7 @@
     <div class="demobmpickupview_button">
       <div class="selectedCount"  >已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
       <app-mob-button 
-          className="pick-btn" 
+          class="pick-btn" 
           :text="$t('app.button.confirm')"
           :disabled="viewSelections.length === 0" 
           @click="onClickOk"/>

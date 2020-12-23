@@ -39,14 +39,14 @@
         <ion-footer>
         <div class="search-btn">
             <app-mob-button 
-            className="search-btn-item"
+            class="search-btn-item"
             :text="$t('app.searchForm.searchButton.reset')" 
             color="light" 
             shape="round" 
             size="small"
             @click="onReset" />
             <app-mob-button 
-            className="search-btn-item" 
+            class="search-btn-item" 
             shape="round" 
             size="small" 
             :text="$t('app.searchForm.searchButton.search')" 

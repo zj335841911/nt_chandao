@@ -1,6 +1,6 @@
 <template>
     <div class="app-mob-icon">
-        <ion-icon :name="name" :size="size" :slot="slotP" @click.stop="onClick" ></ion-icon>
+        <ion-icon :name="name" :size="size" :slot="Position" @click.stop="onClick" ></ion-icon>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ import { Http } from "@/ibiz-core/utils";
 @Component({})
 export default class AppMobIcon extends Vue {
     /**
-     * name属性
+     * 图标name属性
      * 
      * @type {*}
      * @memberof AppMobIcon
@@ -19,15 +19,15 @@ export default class AppMobIcon extends Vue {
     @Prop() public name: any;
 
     /**
-     * slot
+     * 图标位置
      * 
      * @type {*}
      * @memberof AppMobIcon
      */
-    @Prop() public slotP: any;
+    @Prop() public position: any;
 
     /**
-     * size
+     * 图标尺寸size
      * 
      * @type {*}
      * @memberof AppMobIcon
@@ -35,7 +35,7 @@ export default class AppMobIcon extends Vue {
     @Prop() public size: any;
 
     /**
-     * 点击事件
+     * 图标点击事件
      * 
      * @memberof AppMobIcon
      */

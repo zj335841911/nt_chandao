@@ -7,7 +7,7 @@
                       <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       <app-mob-button 
                         v-if="!isTempMode && !allLoaded && needLoadMore" 
-                        className="loadmore_btn" 
+                        class="loadmore_btn" 
                         :text="$t('app.button.loadmore')"  
                         @click="loadBottom" />
                   </template>

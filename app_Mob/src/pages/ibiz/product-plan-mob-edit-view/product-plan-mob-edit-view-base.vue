@@ -52,7 +52,7 @@
             <app-mob-button  
                 v-if="getToolBarLimit" 
                 iconName="chevron-up-circle-outline" 
-                className="app-view-toolbar-button" 
+                class="app-view-toolbar-button" 
                 @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">

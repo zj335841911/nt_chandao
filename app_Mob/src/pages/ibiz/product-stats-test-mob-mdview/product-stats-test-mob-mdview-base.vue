@@ -15,7 +15,7 @@
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
                                 <app-mob-button 
-                            className="app-view-toolbar-button" 
+                            class="app-view-toolbar-button" 
                             iconName="add"
                             :text="''"
                             v-show="righttoolbarModels.tbitem1.visabled" 

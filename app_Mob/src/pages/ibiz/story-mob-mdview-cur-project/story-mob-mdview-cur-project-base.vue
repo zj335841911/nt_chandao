@@ -40,14 +40,14 @@
         <ion-footer>
         <div class="search-btn">
             <app-mob-button 
-            className="search-btn-item"
+            class="search-btn-item"
             :text="$t('app.searchForm.searchButton.reset')" 
             color="light" 
             shape="round" 
             size="small"
             @click="onReset" />
             <app-mob-button 
-            className="search-btn-item" 
+            class="search-btn-item" 
             shape="round" 
             size="small" 
             :text="$t('app.searchForm.searchButton.search')" 
@@ -104,7 +104,7 @@
             <app-mob-button  
                 v-if="getToolBarLimit" 
                 iconName="chevron-up-circle-outline" 
-                className="app-view-toolbar-button" 
+                class="app-view-toolbar-button" 
                 @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">

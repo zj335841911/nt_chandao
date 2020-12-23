@@ -6,7 +6,7 @@
                       <app-story-list  :item="item"></app-story-list>
                       <app-mob-button 
                         v-if="!isTempMode && !allLoaded && needLoadMore" 
-                        className="loadmore_btn" 
+                        class="loadmore_btn" 
                         :text="$t('app.button.loadmore')"  
                         @click="loadBottom" />
                   </template>
