@@ -1,7 +1,5 @@
 <template>
-    <div>
         <ion-icon :name="name" :size="size" :slot="position" @click.stop="onClick" ></ion-icon>
-    </div>
 </template>
 
 <script lang="ts">
