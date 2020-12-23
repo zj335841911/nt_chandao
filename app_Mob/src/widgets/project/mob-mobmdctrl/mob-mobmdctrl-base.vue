@@ -37,7 +37,6 @@
                               <div class="app-toolbar-container ">
                 <div class="app-quick-toolbar toolbar-left-bottons">
                             <app-mob-button 
-                        class="app-view-toolbar-button" 
                         iconName="plus"
                         :text="$t('project.mobmdviewmdctrl_quicktoolbar_toolbar.deuiaction1.caption')"
                         v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" 

@@ -15,7 +15,6 @@
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
                                 <app-mob-button 
-                            class="app-view-toolbar-button" 
                             iconName="checkmark-outline"
                             :text="''"
                             v-show="righttoolbarModels.tbitem1.visabled" 

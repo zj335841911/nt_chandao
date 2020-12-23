@@ -122,7 +122,6 @@
                         <div class="app-toolbar-container ">
             <div class="app-quick-toolbar toolbar-left-bottons">
                         <app-mob-button 
-                    class="app-view-toolbar-button" 
                     iconName="remove"
                     :text="$t('product.testmobmdviewmdctrl_batchtoolbar_toolbar.deuiaction1.caption')"
                     v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" 
