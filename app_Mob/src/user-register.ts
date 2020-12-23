@@ -40,5 +40,7 @@ export const UserComponent = {
         v.component('app-mob-select-dynamic',() => import('@/ibiz-core/components/app-mob-select-dynamic/app-mob-select-dynamic.vue'));
         // 复合表单项插件
         v.component('comb-form-item',() => import('@/ibiz-core/components/comb-form-item/comb-form-item.vue'));
+        // 文本框颜色选择
+        v.component('app-mob-color-picker',() => import('@/ibiz-core/components/app-mob-color-picker/app-mob-color-picker.vue'));
     }
 };
