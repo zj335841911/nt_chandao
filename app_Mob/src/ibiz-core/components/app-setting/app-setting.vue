@@ -7,10 +7,10 @@
                 <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
                     <div class="content-list-item-content">
                     <div class="content-list-item-content-text">{{item.showtext}}</div>
-                    <ion-icon
+                    <app-mob-icon
                         v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
                         name="chevron-forward-outline"
-                    ></ion-icon>
+                    ></app-mob-icon>
                     <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
                     <div
                         v-if="item.name == 'accountInformation'"
@@ -30,10 +30,10 @@
                 <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
                     <div class="content-list-item-content">
                     <div class="content-list-item-content-text">{{item.showtext}}</div>
-                    <ion-icon
+                    <app-mob-icon
                         v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
                         name="chevron-forward-outline"
-                    ></ion-icon>
+                    ></app-mob-icon>
                     <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
                     <div
                         v-if="item.name == 'accountInformation'"
@@ -53,10 +53,10 @@
                 <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
                     <div class="content-list-item-content">
                     <div class="content-list-item-content-text">{{item.showtext}}</div>
-                    <ion-icon
+                    <app-mob-icon
                         v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
                         name="chevron-forward-outline"
-                    ></ion-icon>
+                    ></app-mob-icon>
                     <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
                     <div
                         v-if="item.name == 'accountInformation'"

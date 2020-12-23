@@ -9,7 +9,7 @@
                   <template v-for="item in items"  >
                     <template v-if="!item.hidden">
                       <div class="list" :key="item.index" @click="active(item)" :class="{'active':item.id == activeId}">
-                        <ion-icon :name=" item.iconcls ? item.iconcls : 'home' "></ion-icon>
+                        <app-mob-icon :name=" item.iconcls ? item.iconcls : 'home' "></app-mob-icon>
                         <div class="text">
                           <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
                           <ion-label v-else>{{item.text}}</ion-label>

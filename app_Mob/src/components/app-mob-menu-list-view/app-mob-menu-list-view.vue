@@ -20,11 +20,11 @@
                             <!-- fontawesome：END -->
                             <!-- ionic 图标：BEGIN -->
                             <template v-else-if="item.iconcls != ''">
-                                <ion-icon  :name="item.iconcls"></ion-icon>
+                                <app-mob-icon  :name="item.iconcls"></app-mob-icon>
                             </template>
                             <!-- ionic 图标：BEGIN -->
                             <template v-else>
-                                <ion-icon name="home-outline"></ion-icon>
+                                <app-mob-icon name="home-outline"></app-mob-icon>
                             </template>
                         </span>
                         <ion-label>

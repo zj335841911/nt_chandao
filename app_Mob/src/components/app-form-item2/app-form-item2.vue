@@ -6,7 +6,10 @@
           <div class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'" :style="{minWidth:labelWidth+'px'}" position="floating" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</div>
           <div class="selectValue" @click="setHight">
               <div class="select_text" v-if="slotValue && slotValue.activeItem && slotValue.activeItem.text">{{slotValue.activeItem.text}}</div>
-              <div class="select_icon" v-if="slotValue && slotValue.options && slotValue.options.length > 6" ><span v-show="!slotValue || !slotValue.activeItem || !slotValue.activeItem.text">全部</span><ion-icon v-if="!allDataStatus" name="chevron-down-outline"></ion-icon><ion-icon v-if="allDataStatus" name="chevron-up-outline"></ion-icon></div>
+              <div class="select_icon" v-if="slotValue && slotValue.options && slotValue.options.length > 6" ><span v-show="!slotValue || !slotValue.activeItem || !slotValue.activeItem.text">全部</span>
+                <app-mob-icon v-if="!allDataStatus" name="chevron-down-outline"></app-mob-icon>
+                <app-mob-icon v-if="allDataStatus" name="chevron-up-outline"></app-mob-icon>
+                </div>
           </div>
           </div>
       <div class="app-form-item2_content" ><slot ref="slot_content"></slot></div>

@@ -1,8 +1,8 @@
 <template>
     <div class="ibiz-mob-group-select">
         <ion-input class="ibz-input" :value="selectName"  readonly></ion-input>
-        <ion-icon  v-show="selects.length>0" class="delete-value " name="close-circle-outline" @click.stop="clearSelects"></ion-icon>
-        <ion-icon  v-show="selects.length<1" class="open-picker" name="search-outline" @click.stop="openView"></ion-icon>
+        <app-mob-icon  v-show="selects.length>0" class="delete-value " name="close-circle-outline" @onClick="clearSelects"></app-mob-icon>
+        <app-mob-icon  v-show="selects.length<1" class="open-picker" name="search-outline" @onClick="openView"></app-mob-icon>
     </div>
 </template>
 

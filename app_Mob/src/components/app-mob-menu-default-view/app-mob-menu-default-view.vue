@@ -13,8 +13,7 @@
             <template v-for="item in items">
                 <template v-if="!item.hidden">
                     <ion-tab-button :tab="item.name" :key="item.id" :selected="item.id == activeId" @click="active(item)">
-                        <ion-icon :name=" item.iconcls ? item.iconcls : 'home' ">
-                        </ion-icon>
+                        <app-mob-icon :name=" item.iconcls ? item.iconcls : 'home' "></app-mob-icon>
                         <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
                         <ion-label v-else>{{item.text}}</ion-label>
                         <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>

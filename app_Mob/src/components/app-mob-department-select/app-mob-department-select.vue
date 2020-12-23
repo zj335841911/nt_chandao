@@ -5,8 +5,8 @@
         <ion-input :disabled="disabled" :value="curValue" readonly @click="openModal"></ion-input>
       </div>
       <div class="icon">
-          <ion-icon  name="search-outline" v-show="!curValue" @click="openModal"></ion-icon>
-          <ion-icon  v-show="curValue" class="delete-value " name="close-circle-outline" @click.stop="onClear"></ion-icon>
+          <app-mob-icon  name="search-outline" v-show="!curValue" @onClick="openModal"></app-mob-icon>
+          <app-mob-icon  v-show="curValue" class="delete-value " name="close-circle-outline" @onClick="onClear"></app-mob-icon>
       </div>
     </div>
     

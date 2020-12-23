@@ -10,17 +10,17 @@
                                     <img :src="item.icon" />
                                 </template>
                                 <template v-else-if="item.iconcls != ''">
-                                    <ion-icon v-if="item.iconcls.indexOf('iconfont') === -1" :name="item.iconcls">
-                                    </ion-icon>
+                                    <app-mob-icon v-if="item.iconcls.indexOf('iconfont') === -1" :name="item.iconcls">
+                                    </app-mob-icon>
                                     <svg v-else class="icon" aria-hidden="true">
                                         <use :xlink:href="'#'+item.iconcls.substring(9)"></use>
                                     </svg>
                                 </template>
                                 <template v-else>
-                                    <ion-icon name="home-outline"></ion-icon>
+                                    <app-mob-icon name="home-outline"></app-mob-icon>
                                 </template>
                                 <!-- badge_style是为了用户在设置了图片图标时计数器会出现样式错乱， -->
-                                <ion-icon v-show="false" name="badge_style" />
+                                <app-mob-icon v-show="false" name="badge_style" />
                                 <ion-label >{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
                                 <template v-if="counterServide">
                                     <ion-badge color="danger" v-if="counterServide.counterData[item.counterid]">{{counterServide.counterData[item.counterid]}}</ion-badge>

@@ -1,6 +1,6 @@
 <template>
   <div class="app-mob-check-list-search" @click="open">
-    <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click.stop="clear"></ion-icon></div>
+    <div class="cancel-icon" v-if="curValue"><app-mob-icon name="close-circle-outline" @onClick="clear"></app-mob-icon></div>
     <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
     <div class="value_text">{{value_text}}</div>
     <van-action-sheet get-container="#app" class="ibiz_sheet"   v-model="show"  @click-overlay="onOverlayClick" >

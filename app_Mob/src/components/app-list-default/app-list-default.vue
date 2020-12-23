@@ -1,6 +1,6 @@
 <template>
     <div class="app-list-default">
-        <div class="icon_box" :style="getstyle()"><ion-icon :name="geticon()" /></div>
+        <div class="icon_box" :style="getstyle()"><app-mob-icon :name="geticon()" /></div>
         <div class="info_box" v-if=" dataItemNames.length > 0">
             <template v-for="(i,index) in dataItemNames" >
                 <div v-if="index == 0" :key="index" class="title">{{item[i]}}</div>

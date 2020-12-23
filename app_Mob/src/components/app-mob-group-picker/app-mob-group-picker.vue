@@ -4,7 +4,7 @@
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button  @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
+                    <app-mob-icon name="chevron-back"></app-mob-icon>
                     {{$t('app.button.back')}}
                 </ion-button>
             </ion-buttons>
@@ -26,7 +26,7 @@
                     <template v-for="(item, index) in item.value">
                       <ion-item :key="index" @click="click_node(item)" class="list-item">
                         <ion-label>{{ item.label }}</ion-label>
-                        <ion-icon class="tree-icon" slot="end" :name="geticon(item.status)" @click.stop="icon_click(item)"></ion-icon>
+                        <app-mob-icon class="tree-icon" position="end" :name="geticon(item.status)" @onClick="icon_click(item)"></app-mob-icon>
                       </ion-item>
                     </template>
                   </ion-list>

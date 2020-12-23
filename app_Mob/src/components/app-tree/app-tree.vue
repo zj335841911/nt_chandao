@@ -24,7 +24,7 @@
         <template v-for="(item, index) in readerData">
           <ion-item :key="index" @click="click_node(item)">
             <ion-label>{{ item.label }}<span class="node_length" v-if="item.children && item.children.length > 0"> ({{item.children.length}})</span></ion-label>
-            <ion-icon class="tree-icon" slot="end" :name="geticon(item.status)" @click.stop="icon_click(item)"></ion-icon>
+            <app-mob-icon class="tree-icon" position="end" :name="geticon(item.status)" @onClick="icon_click(item)"></app-mob-icon>
           </ion-item>
         </template>
       </ion-list>

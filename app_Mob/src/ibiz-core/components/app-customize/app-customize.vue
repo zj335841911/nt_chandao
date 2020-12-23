@@ -20,7 +20,7 @@
           <draggable v-model="selectedData" handle=".end" :animation="200" @end="dragEnd">
             <div class="content" v-for="item in selectedData" :key="item.componentName">
               <div class="start" @click="delteItem(item.id)">
-                <ion-icon name="remove-circle-outline"></ion-icon>
+                <app-mob-icon name="remove-circle-outline"></app-mob-icon>
               </div>
               <div class="drag-list-pic"><img  :src="item.detailImage?item.detailImage:'assets/images/add-task-list-card.jpg'" alt=""></div>
               <div class="drag-list-text">
@@ -29,7 +29,7 @@
                 <div v-else>暂无描述</div>
               </div>
               <div class="end">
-                <ion-icon name="drag-point"></ion-icon>
+                <app-mob-icon name="drag-point"></app-mob-icon>
               </div>
             </div>
           </draggable>
@@ -40,7 +40,7 @@
           <template v-for="item in selectData">
             <div class="content" v-if="item.componentName" :key="item.componentName">
               <div class="start" @click="addItem(item.id)">
-                <ion-icon name="add-circle-outline"></ion-icon>
+                <app-mob-icon name="add-circle-outline"></app-mob-icon>
               </div>
               <div class="drag-list-pic"><img  :src="item.detailImage?item.detailImage:'assets/images/add-task-list-card.jpg'" alt=""></div>
               <div class="drag-list-text">
