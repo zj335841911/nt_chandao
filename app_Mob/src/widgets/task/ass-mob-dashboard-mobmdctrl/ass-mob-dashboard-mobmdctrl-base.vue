@@ -112,7 +112,7 @@
                             <app-mob-button 
                         className="app-view-toolbar-button" 
                         iconName="more"
-                        :text=""
+                        :text="''"
                         v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" 
                         :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" 
                         @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" />

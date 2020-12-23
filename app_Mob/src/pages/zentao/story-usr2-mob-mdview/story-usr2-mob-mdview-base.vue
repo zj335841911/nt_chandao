@@ -17,7 +17,7 @@
                                 <app-mob-button 
                             className="app-view-toolbar-button" 
                             iconName="add"
-                            :text=""
+                            :text="''"
                             v-show="righttoolbarModels.deuiaction3.visabled" 
                             :disabled="righttoolbarModels.deuiaction3.disabled" 
                             @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)" />
@@ -25,7 +25,7 @@
                                 <app-mob-button 
                             className="app-view-toolbar-button" 
                             iconName="link"
-                            :text=""
+                            :text="''"
                             v-show="righttoolbarModels.deuiaction1.visabled" 
                             :disabled="righttoolbarModels.deuiaction1.disabled" 
                             @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" />
@@ -33,7 +33,7 @@
                                 <app-mob-button 
                             className="app-view-toolbar-button" 
                             iconName="linkedin-square"
-                            :text=""
+                            :text="''"
                             v-show="righttoolbarModels.deuiaction2.visabled" 
                             :disabled="righttoolbarModels.deuiaction2.disabled" 
                             @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" />

@@ -17,7 +17,7 @@
                                 <app-mob-button 
                             className="app-view-toolbar-button" 
                             iconName="add"
-                            :text=""
+                            :text="''"
                             v-show="righttoolbarModels.tbitem1.visabled" 
                             :disabled="righttoolbarModels.tbitem1.disabled" 
                             @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" />
