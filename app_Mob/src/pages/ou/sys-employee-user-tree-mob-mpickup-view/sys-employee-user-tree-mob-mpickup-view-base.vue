@@ -1,14 +1,14 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'sys-employee-user-tree-mob-mpickup-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_pickupviewpanel
@@ -34,7 +34,7 @@
           </div>
           <app-select-tree-list :items="viewSelections" @item_delete="item_delete"></app-select-tree-list>
       </van-action-sheet>
-      <div class="selectedCount"  @click="select_click">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
+      <div class="selectedCount"  @click="select_click">已选择：{{viewSelections.length}}<app-mob-icon name="chevron-up-outline"></app-mob-icon></div>
       <app-mob-button 
           class="pick-btn" 
           :text="$t('app.button.confirm')"

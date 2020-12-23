@@ -1,14 +1,14 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupview': true, 'task-mob-pickup-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_pickupviewpanel

@@ -1,11 +1,11 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoblistview': true, 'story-mob-list-view': true }">
     
-    <ion-header>
+    <app-mob-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <div>列表视图已废弃，请选择多数据视图</div>

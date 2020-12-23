@@ -1,7 +1,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'build-mob-mpickup-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
               <ion-toolbar>
@@ -15,14 +15,14 @@
       @click="openSearchform" />
   </ion-toolbar>
 
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>{{$t('app.searchForm.title')}}</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
@@ -82,7 +82,7 @@
     <ion-footer class="view-footer">
         <div class="mpicker_buttons">
     <div class="demobmpickupview_button">
-      <div class="selectedCount"  >已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
+      <div class="selectedCount"  >已选择：{{viewSelections.length}}<app-mob-icon name="chevron-up-outline"></app-mob-icon></div>
       <app-mob-button 
           class="pick-btn" 
           :text="$t('app.button.confirm')"

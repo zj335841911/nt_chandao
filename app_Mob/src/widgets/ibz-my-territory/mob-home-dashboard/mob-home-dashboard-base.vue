@@ -1,6 +1,6 @@
 <template>
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
-        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
+        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<app-mob-icon name="settings-outline"></app-mob-icon></div>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet1
     :viewState="viewState"

@@ -1,7 +1,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'bug-usr5-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
@@ -12,8 +12,8 @@
                             <div class="view-tool-sorts-item">
                                 <span :class="{text:true,active:hasColor}" @click="onSort('PRI')">优先级</span>
                                 <span class="sort-icon" @click="onSort('PRI')">
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></ion-icon>
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></ion-icon>
+                                    <app-mob-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></app-mob-icon>
+                                    <app-mob-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></app-mob-icon>
                                 </span>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                     <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
             </div>
-    </ion-header>
+    </app-mob-header>
 
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
                 <view_mdctrl

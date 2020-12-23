@@ -2,10 +2,10 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'test-task-mob-option-view-close': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form

@@ -1,7 +1,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'ibz-report-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <app-mob-button 
@@ -10,7 +10,7 @@
                     :text="$t('app.button.back')" 
                     @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
@@ -26,14 +26,14 @@
                     <app-van-select  name="n_type_eq" title="模板" :items="[{value:'weekly',label:'周报'},{value:'daily',label:'日报'},{value:'monthly',label:'月报'},{value:'reportly',label:'汇报'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
             </div>
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>{{$t('app.searchForm.title')}}</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"

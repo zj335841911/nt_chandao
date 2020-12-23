@@ -1,7 +1,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'user-mob-mpickup-view': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <app-mob-button 
@@ -10,7 +10,7 @@
                     :text="$t('app.button.back')" 
                     @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
 
     
@@ -18,7 +18,7 @@
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_pickupviewpanel
@@ -38,7 +38,7 @@
     <ion-footer class="view-footer">
         <div class="mpicker_buttons">
     <div class="demobmpickupview_button">
-      <div class="selectedCount"  >已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
+      <div class="selectedCount"  >已选择：{{viewSelections.length}}<app-mob-icon name="chevron-up-outline"></app-mob-icon></div>
       <app-mob-button 
           class="pick-btn" 
           :text="$t('app.button.confirm')"

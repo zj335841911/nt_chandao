@@ -1,14 +1,14 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'story-usr2-mob-mpickup-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
         <ion-refresher 
@@ -42,7 +42,7 @@
     <ion-footer class="view-footer">
         <div class="mpicker_buttons">
     <div class="demobmpickupview_button">
-      <div class="selectedCount"  >已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
+      <div class="selectedCount"  >已选择：{{viewSelections.length}}<app-mob-icon name="chevron-up-outline"></app-mob-icon></div>
       <app-mob-button 
           class="pick-btn" 
           :text="$t('app.button.confirm')"

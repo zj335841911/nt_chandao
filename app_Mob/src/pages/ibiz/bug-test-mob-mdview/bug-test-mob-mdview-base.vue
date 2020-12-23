@@ -1,7 +1,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'bug-test-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     <app-quick-group-tab
@@ -17,8 +17,8 @@
                             <div class="view-tool-sorts-item">
                                 <span :class="{text:true,active:hasColor}" @click="onSort('PRI')">优先级</span>
                                 <span class="sort-icon" @click="onSort('PRI')">
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></ion-icon>
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></ion-icon>
+                                    <app-mob-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></app-mob-icon>
+                                    <app-mob-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></app-mob-icon>
                                 </span>
                             </div>
                         </div>
@@ -29,14 +29,14 @@
                     <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
             </div>
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>{{$t('app.searchForm.title')}}</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"

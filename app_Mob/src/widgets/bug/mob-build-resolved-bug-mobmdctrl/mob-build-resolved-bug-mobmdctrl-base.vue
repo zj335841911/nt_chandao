@@ -14,7 +14,7 @@
                 <ion-list class="items" ref="ionlist"  >
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.unlinkBug_buildMob.visabled" :disabled="item.unlinkBug_buildMob.disabled" color="primary" @click="mdctrl_click($event, 'u0f6e85b', item)"><ion-icon v-if="item.unlinkBug_buildMob.icon && item.unlinkBug_buildMob.isShowIcon" :name="item.unlinkBug_buildMob.icon"></ion-icon><ion-label v-if="item.unlinkBug_buildMob.isShowCaption">解除关联</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.unlinkBug_buildMob.visabled" :disabled="item.unlinkBug_buildMob.disabled" color="primary" @click="mdctrl_click($event, 'u0f6e85b', item)"><app-mob-icon v-if="item.unlinkBug_buildMob.icon && item.unlinkBug_buildMob.isShowIcon" :name="item.unlinkBug_buildMob.icon"></app-mob-icon><ion-label v-if="item.unlinkBug_buildMob.isShowCaption">解除关联</ion-label></ion-item-option>
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">

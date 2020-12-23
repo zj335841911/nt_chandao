@@ -1,10 +1,10 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-monthly-main-info-mob-edit-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form

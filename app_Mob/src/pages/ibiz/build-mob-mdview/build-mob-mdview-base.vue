@@ -1,18 +1,18 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'build-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>{{$t('app.searchForm.title')}}</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"

@@ -5,8 +5,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobActive.visabled" :disabled="item.MobActive.disabled" color="primary" @click="mdctrl_click($event, 'u5b592f7', item)"><ion-icon v-if="item.MobActive.icon && item.MobActive.isShowIcon" :name="item.MobActive.icon"></ion-icon><ion-label v-if="item.MobActive.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobTerminal.visabled" :disabled="item.MobTerminal.disabled" color="primary" @click="mdctrl_click($event, 'u6b4bf36', item)"><ion-icon v-if="item.MobTerminal.icon && item.MobTerminal.isShowIcon" :name="item.MobTerminal.icon"></ion-icon><ion-label v-if="item.MobTerminal.isShowCaption">停止维护</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActive.visabled" :disabled="item.MobActive.disabled" color="primary" @click="mdctrl_click($event, 'u5b592f7', item)"><app-mob-icon v-if="item.MobActive.icon && item.MobActive.isShowIcon" :name="item.MobActive.icon"></app-mob-icon><ion-label v-if="item.MobActive.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobTerminal.visabled" :disabled="item.MobTerminal.disabled" color="primary" @click="mdctrl_click($event, 'u6b4bf36', item)"><app-mob-icon v-if="item.MobTerminal.icon && item.MobTerminal.isShowIcon" :name="item.MobTerminal.icon"></app-mob-icon><ion-label v-if="item.MobTerminal.isShowCaption">停止维护</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -21,8 +21,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobActive.visabled" :disabled="item.MobActive.disabled" color="primary" @click="mdctrl_click($event, 'u5b592f7', item)"><ion-icon v-if="item.MobActive.icon && item.MobActive.isShowIcon" :name="item.MobActive.icon"></ion-icon><ion-label v-if="item.MobActive.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobTerminal.visabled" :disabled="item.MobTerminal.disabled" color="primary" @click="mdctrl_click($event, 'u6b4bf36', item)"><ion-icon v-if="item.MobTerminal.icon && item.MobTerminal.isShowIcon" :name="item.MobTerminal.icon"></ion-icon><ion-label v-if="item.MobTerminal.isShowCaption">停止维护</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActive.visabled" :disabled="item.MobActive.disabled" color="primary" @click="mdctrl_click($event, 'u5b592f7', item)"><app-mob-icon v-if="item.MobActive.icon && item.MobActive.isShowIcon" :name="item.MobActive.icon"></app-mob-icon><ion-label v-if="item.MobActive.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobTerminal.visabled" :disabled="item.MobTerminal.disabled" color="primary" @click="mdctrl_click($event, 'u6b4bf36', item)"><app-mob-icon v-if="item.MobTerminal.icon && item.MobTerminal.isShowIcon" :name="item.MobTerminal.icon"></app-mob-icon><ion-label v-if="item.MobTerminal.isShowCaption">停止维护</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">

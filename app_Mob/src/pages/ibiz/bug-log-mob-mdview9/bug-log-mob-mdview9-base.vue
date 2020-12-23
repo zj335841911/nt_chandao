@@ -2,7 +2,7 @@
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'bug-log-mob-mdview9': true }">
     <template slot="header">
         <ion-toolbar>
-            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
+            <app-mob-title v-if="showTitle">{{$t(model.srfCaption)}}</app-mob-title>
         </ion-toolbar>
     </template>
 

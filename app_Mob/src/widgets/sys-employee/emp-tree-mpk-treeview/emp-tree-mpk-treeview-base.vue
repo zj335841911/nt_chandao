@@ -11,7 +11,7 @@
         <template v-for="(item ,index) in rootNodes">
             <ion-item  :key="index" @click="click_node(item)">
                 <ion-label>{{item.text}}</ion-label>
-                <ion-icon class="tree-icon" slot="end" name="chevron-forward-outline"></ion-icon>
+                <app-mob-icon class="tree-icon" position="end" name="chevron-forward-outline"></app-mob-icon>
             </ion-item>
         </template>
        </ion-list>

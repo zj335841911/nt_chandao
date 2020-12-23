@@ -14,7 +14,7 @@
                 <ion-list class="items" ref="ionlist"  >
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.buildUnlinkStory.visabled" :disabled="item.buildUnlinkStory.disabled" color="primary" @click="mdctrl_click($event, 'ue7d7c06', item)"><ion-icon v-if="item.buildUnlinkStory.icon && item.buildUnlinkStory.isShowIcon" :name="item.buildUnlinkStory.icon"></ion-icon><ion-label v-if="item.buildUnlinkStory.isShowCaption">解绑需求</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.buildUnlinkStory.visabled" :disabled="item.buildUnlinkStory.disabled" color="primary" @click="mdctrl_click($event, 'ue7d7c06', item)"><app-mob-icon v-if="item.buildUnlinkStory.icon && item.buildUnlinkStory.isShowIcon" :name="item.buildUnlinkStory.icon"></app-mob-icon><ion-label v-if="item.buildUnlinkStory.isShowCaption">解绑需求</ion-label></ion-item-option>
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">

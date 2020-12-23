@@ -2,7 +2,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'ibz-favorites-mob-tab-exp-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
                     <ion-toolbar>
@@ -15,7 +15,7 @@
                             任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_tabexppanel

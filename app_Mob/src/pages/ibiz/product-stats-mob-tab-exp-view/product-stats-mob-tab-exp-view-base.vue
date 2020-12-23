@@ -2,7 +2,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-stats-mob-tab-exp-view': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <app-mob-button 
@@ -11,34 +11,34 @@
                     :text="$t('app.button.back')" 
                     @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
 
     
                     <ion-toolbar>
                         <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
-                              <ion-icon name="briefcase"></ion-icon>
+                              <app-mob-icon name="briefcase"></app-mob-icon>
                             
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                              <ion-icon name="text"></ion-icon>
+                              <app-mob-icon name="text"></app-mob-icon>
                             
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                              <ion-icon name="reorder"></ion-icon>
+                              <app-mob-icon name="reorder"></app-mob-icon>
                             
                             计划</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
                             
                             发布</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
-                              <ion-icon name="bug"></ion-icon>
+                              <app-mob-icon name="bug"></app-mob-icon>
                             
                             BUG</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_tabexppanel
