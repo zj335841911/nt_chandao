@@ -274,6 +274,11 @@ export default {
             5003: 'New creation failed',
             5004: 'The data does not exist and cannot be saved',
             5005: 'Data deletion failed'
+        },
+        title: {
+            choose: '选择',
+            customDashboard: 'Custom dashboard',
+            styleSetting: 'Style setting'
         }
     },
     syspost: syspost_en_US,

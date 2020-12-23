@@ -275,6 +275,11 @@ export default {
             5003: '新建失败',
             5004: '数据不存在，无法保存',
             5005: '数据删除失败'
+        },
+        title: {
+            choose: '选择',
+            customDashboard: '自定义仪表盘',
+            styleSetting: '风格设置'
         }
     },
     syspost: syspost_zh_CN,
