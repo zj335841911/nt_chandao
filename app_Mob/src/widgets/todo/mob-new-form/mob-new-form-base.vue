@@ -1117,7 +1117,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
 , 
         status: new FormItemModel({ caption: '人员', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem7: new FormItemModel({ caption: '显色选择', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitem7: new FormItemModel({ caption: '颜色选择', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitem: new FormItemModel({ caption: '【多选】部门（指定单位及其下级单位的所有部门多选)', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
