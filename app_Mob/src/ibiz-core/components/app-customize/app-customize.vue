@@ -1,6 +1,6 @@
 <template>
   <ion-page :className="{ 'view-container': true, 'default-mode-view': true }">
-    <ion-header v-if="titleStatus">
+    <app-mob-header v-if="titleStatus">
       <ion-toolbar class="ionoc-view-header">
         <ion-buttons slot="start">
           <ion-button @click="closeView">
@@ -8,11 +8,11 @@
             {{$t('app.button.back')}}
           </ion-button>
         </ion-buttons>
-        <ion-title class="view-title">
-          <label class="title-label">自定义仪表盘</label>
-        </ion-title>
+        <app-mob-title>
+          <label class="title-label">{{$t('app.title.customDashboard')}}</label>
+        </app-mob-title>
       </ion-toolbar>
-    </ion-header>
+    </app-mob-header>
     <ion-content>
       <div class="drag-list">
         <div class="drag-list-item added">

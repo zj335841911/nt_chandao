@@ -1,6 +1,6 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'app-mob-group-picker-choose-view': true }">
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button  @click="closeView">
@@ -8,9 +8,9 @@
                     {{$t('app.button.back')}}
                 </ion-button>
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"> 选择</label></ion-title>
+            <app-mob-title><label class="title-label"> {{$t('app.title.choose')}}</label></app-mob-title>
         </ion-toolbar>
-    </ion-header>
+    </app-mob-header>
     <div class="ibiz-mob-group-picker">
         <div class="ibiz-group-container">
           <div class="top">
