@@ -1,6 +1,6 @@
 <template>
     <div class="app-mob-icon">
-        <ion-icon :name="name" :size="size" :slot="Position" @click.stop="onClick" ></ion-icon>
+        <ion-icon :name="name" :size="size" :slot="position" @click.stop="onClick" ></ion-icon>
     </div>
 </template>
 
