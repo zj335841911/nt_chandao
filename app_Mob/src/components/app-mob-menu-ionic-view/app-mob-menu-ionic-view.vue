@@ -10,14 +10,14 @@
                                     <img :src="item.icon" />
                                 </template>
                                 <template v-else-if="item.iconcls != ''">
-                                    <app-mob-icon v-if="item.iconcls.indexOf('iconfont') === -1" :name="item.iconcls">
-                                    </app-mob-icon>
+                                    <ion-icon v-if="item.iconcls.indexOf('iconfont') === -1" :name="item.iconcls">
+                                    </ion-icon>
                                     <svg v-else class="icon" aria-hidden="true">
                                         <use :xlink:href="'#'+item.iconcls.substring(9)"></use>
                                     </svg>
                                 </template>
                                 <template v-else>
-                                    <app-mob-icon name="home-outline"></app-mob-icon>
+                                    <ion-icon name="home-outline"></ion-icon>
                                 </template>
                                 <!-- badge_style是为了用户在设置了图片图标时计数器会出现样式错乱， -->
                                 <app-mob-icon v-show="false" name="badge_style" />
