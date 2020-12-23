@@ -4,7 +4,11 @@
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <app-mob-button iconName="chevron-back" :text="$t('app.button.back')" v-show="isShowBackButton" @click="closeView" />
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
@@ -41,55 +45,59 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
-            <ion-button  v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                className="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assingtobugmob.disabled}" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="hand-o-right"></ion-icon>
-                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="hand-o-right" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmbugmob.disabled}" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="eye"></ion-icon>
-                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="eye" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activationmob.disabled}" v-show="righttoolbarModels.deuiaction1_activationmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="color-wand"></ion-icon>
-                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="color-wand" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_resolvebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="check-square-o"></ion-icon>
-                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="check-square-o" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="edit" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="close"></ion-icon>
-                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="close" />
             </div>
         
                 </div>

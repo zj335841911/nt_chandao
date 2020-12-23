@@ -4,7 +4,11 @@
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <app-mob-button iconName="chevron-back" :text="$t('app.button.back')" v-show="isShowBackButton" @click="closeView" />
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
@@ -41,23 +45,27 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
-            <ion-button  v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                className="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit1.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit1' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_mobedit1.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_mobedit1' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="edit" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobsubmit.disabled}" v-show="righttoolbarModels.deuiaction1_mobsubmit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="check"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="check" />
             </div>
         
                 </div>

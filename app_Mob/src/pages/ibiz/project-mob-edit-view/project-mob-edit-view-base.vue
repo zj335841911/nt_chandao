@@ -4,7 +4,11 @@
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <app-mob-button iconName="chevron-back" :text="$t('app.button.back')" v-show="isShowBackButton" @click="closeView" />
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
@@ -41,49 +45,53 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
-            <ion-button  v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                className="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                 
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="color-wand"></ion-icon>
-                <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="color-wand" />
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="pause"></ion-icon>
-                <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction2.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="pause" />
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="power"></ion-icon>
-                <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction3.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="power" />
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction4.disabled}" v-show="righttoolbarModels.deuiaction4.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="close"></ion-icon>
-                <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction4.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction4' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="close" />
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction5.disabled}" v-show="righttoolbarModels.deuiaction5.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction5.disabled" @click="righttoolbar_click({ tag: 'deuiaction5' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="users"></ion-icon>
-                <span class="btn-inner-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction5.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction5' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="users" />
             </div>
         
         

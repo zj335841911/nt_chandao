@@ -39,8 +39,15 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.reset')" color="light" @click="onReset" />
-            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.search')" @click="onSearch" />
+            <app-mob-button 
+            className="search-btn-item" 
+            :text="$t('app.searchButton.reset')" 
+            color="light" 
+            @click="onReset" />
+            <app-mob-button 
+            className="search-btn-item" 
+            :text="$t('app.searchButton.search')" 
+            @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>

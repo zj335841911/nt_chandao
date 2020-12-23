@@ -4,7 +4,11 @@
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <app-mob-button iconName="chevron-back" :text="$t('app.button.back')" v-show="isShowBackButton" @click="closeView" />
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
@@ -60,11 +64,11 @@
                 <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
             <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="add"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="add" />
             </div>
         
             </div>

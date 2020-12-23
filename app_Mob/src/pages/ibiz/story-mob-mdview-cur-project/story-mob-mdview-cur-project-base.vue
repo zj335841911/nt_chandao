@@ -39,8 +39,15 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.reset')" color="light" @click="onReset" />
-            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.search')" @click="onSearch" />
+            <app-mob-button 
+            className="search-btn-item" 
+            :text="$t('app.searchButton.reset')" 
+            color="light" 
+            @click="onReset" />
+            <app-mob-button 
+            className="search-btn-item" 
+            :text="$t('app.searchButton.search')" 
+            @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>
@@ -90,31 +97,35 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
-            <ion-button  v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                className="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="add"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction3.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="add" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="link"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="link" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="linkedin-square"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction2.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="linkedin-square" />
             </div>
         
                 </div>

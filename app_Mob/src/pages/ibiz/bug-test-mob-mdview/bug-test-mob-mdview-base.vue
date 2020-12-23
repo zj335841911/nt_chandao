@@ -63,8 +63,15 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.reset')" color="light" @click="onReset" />
-            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.search')" @click="onSearch" />
+            <app-mob-button 
+            className="search-btn-item" 
+            :text="$t('app.searchButton.reset')" 
+            color="light" 
+            @click="onReset" />
+            <app-mob-button 
+            className="search-btn-item" 
+            :text="$t('app.searchButton.search')" 
+            @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>
@@ -117,11 +124,11 @@
                 <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
             <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="add"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="add" />
             </div>
         
             </div>

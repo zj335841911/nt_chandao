@@ -35,23 +35,27 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
-            <ion-button  v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                className="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="edit" />
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobsubmit.disabled}" v-show="righttoolbarModels.deuiaction1_mobsubmit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event),popUpGroup()" size="large">
-                    <ion-icon name="check"></ion-icon>
-                
-                </ion-button>
-                
+                <app-mob-button 
+                :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" 
+                @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event),popUpGroup()" 
+                size="large"  
+                iconName="check" />
             </div>
         
                 </div>
