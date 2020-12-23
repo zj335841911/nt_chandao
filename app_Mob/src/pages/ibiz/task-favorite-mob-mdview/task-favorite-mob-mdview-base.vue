@@ -9,7 +9,7 @@
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
         <ion-header>
             <ion-toolbar translucent>
-                <ion-title></ion-title>
+                <ion-title>{{$t('app.searchForm.title')}}</ion-title>
             </ion-toolbar>
         </ion-header>
         <div class="searchform_content">
@@ -40,7 +40,7 @@
         <div class="search-btn">
             <app-mob-button 
             className="search-btn-item"
-            :text="$t('app.searchButton.reset')" 
+            :text="$t('app.searchForm.searchButton.reset')" 
             color="light" 
             shape="round" 
             size="small"
@@ -49,7 +49,7 @@
             className="search-btn-item" 
             shape="round" 
             size="small" 
-            :text="$t('app.searchButton.search')" 
+            :text="$t('app.searchForm.searchButton.search')" 
             @click="onSearch" />
         </div>
         </ion-footer>

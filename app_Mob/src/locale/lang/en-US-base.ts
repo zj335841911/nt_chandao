@@ -75,9 +75,12 @@ export default {
         fileUpload: {
             caption: 'Upload',
         },
-        searchButton: {
-            search: 'Search',
-            reset: 'Reset',
+        searchForm:{
+            titile:'Conditional search',
+            searchButton: {
+                search: 'Search',
+                reset: 'Reset'
+            }
         },
         form: {
             rules: {

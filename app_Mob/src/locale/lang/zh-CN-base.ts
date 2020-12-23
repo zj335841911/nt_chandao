@@ -75,9 +75,12 @@ export default {
         fileUpload: {
             caption: '上传',
         },
-        searchButton: {
-            search: '搜索',
-            reset: '重置',
+        searchForm:{
+            titile:'条件搜索',
+            searchButton: {
+                search: '搜索',
+                reset: '重置'
+            }
         },
         form: {
             rules: {
