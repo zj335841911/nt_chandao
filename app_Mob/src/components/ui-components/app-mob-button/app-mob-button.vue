@@ -1,6 +1,6 @@
 <template>
-    <ion-button v-if="styleType==='default'" class="app-mob-button" :disabled="disabled" :class="className" @click="on_button_click">
-        <ion-icon :name="iconName" />
+    <ion-button v-if="styleType==='default'" class="app-mob-button" :disabled="disabled" @click="on_button_click">
+        <ion-icon v-if="iconName" :name="iconName" />
         {{ text }} 
     </ion-button>
 </template>
@@ -23,12 +23,6 @@ export default class AppMobButton extends Vue {
      */
     @Prop() 
     private text?: string;
-
-    /**
-     * 按钮class名称
-     */
-    @Prop() 
-    private className?: string;
 
     /**
      * 按钮类型
@@ -54,6 +48,8 @@ export default class AppMobButton extends Vue {
     private on_button_click() {
         this.$emit('click')
     }
+
+
 }
 </script>
 <style lang="less">
