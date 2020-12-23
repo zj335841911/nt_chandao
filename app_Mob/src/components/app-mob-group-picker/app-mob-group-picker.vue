@@ -4,7 +4,7 @@
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
                 <ion-button  @click="closeView">
-                    <app-mob-icon name="chevron-back"></app-mob-icon>
+                    <ion-icon name="chevron-back"></ion-icon>
                     {{$t('app.button.back')}}
                 </ion-button>
             </ion-buttons>
