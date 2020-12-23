@@ -44,8 +44,8 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.reset')" color="light" @click="onReset" />
+            <app-mob-button className="search-btn-item" shape="round" size="small" expand="full" :text="$t('app.searchButton.search')" @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>
