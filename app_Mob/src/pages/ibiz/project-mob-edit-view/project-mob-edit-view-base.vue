@@ -60,6 +60,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="color-wand" />
+                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
@@ -68,6 +69,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="pause" />
+                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
@@ -76,6 +78,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="power" />
+                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction4.disabled}" v-show="righttoolbarModels.deuiaction4.visabled">
@@ -84,6 +87,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction4' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="close" />
+                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction5.disabled}" v-show="righttoolbarModels.deuiaction5.visabled">
@@ -92,6 +96,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction5' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="users" />
+                <span class="btn-out-text">{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction5.caption')}}</span>
             </div>
         
         

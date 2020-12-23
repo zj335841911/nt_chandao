@@ -1,8 +1,8 @@
 <template>
   <div class="app-seach-history">
         <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')" @ionFocus="searchbarFocus" @ionBlur="searchbarBlur" @search="searchVal" ref="searchbar"></ion-searchbar>
-            <ion-button v-if="showfilter" class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button> 
+            <ion-searchbar style="height: 36px; padding-bottom: 0;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"  @ionFocus="searchbarFocus" @ionBlur="searchbarBlur" @search="searchVal" ref="searchbar"></ion-searchbar>
+            <ion-button v-if="showfilter" class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>
         </ion-toolbar>
         <div class="history" v-if="hasHistory && (searchbarIsFocus || isSpeaking ) ">
           <div class="hisText"><div>最近搜索</div> <van-icon name="delete" @click="clearHistory"/></div>

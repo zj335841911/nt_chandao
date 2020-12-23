@@ -58,6 +58,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="swap-vertical-outline" />
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntomob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled">
@@ -66,6 +67,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="hand-o-right" />
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_reviewstorymob.disabled}" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled">
@@ -74,6 +76,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="search" />
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closestorymob.disabled}" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled">
@@ -82,6 +85,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="close" />
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled}" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled">
@@ -90,6 +94,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="edit" />
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
@@ -98,6 +103,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="remove" />
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
             </div>
         
                 </div>

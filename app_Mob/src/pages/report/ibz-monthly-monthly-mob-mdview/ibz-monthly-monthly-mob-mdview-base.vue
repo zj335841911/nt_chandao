@@ -69,6 +69,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="plus" />
+                
             </div>
         
             </div>

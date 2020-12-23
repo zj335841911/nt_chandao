@@ -58,6 +58,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="hand-o-right" />
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmbugmob.disabled}" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled">
@@ -66,6 +67,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="eye" />
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activationmob.disabled}" v-show="righttoolbarModels.deuiaction1_activationmob.visabled">
@@ -74,6 +76,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="color-wand" />
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_resolvebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled">
@@ -82,6 +85,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="check-square-o" />
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
@@ -90,6 +94,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="edit" />
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled">
@@ -98,6 +103,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="close" />
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
             </div>
         
                 </div>

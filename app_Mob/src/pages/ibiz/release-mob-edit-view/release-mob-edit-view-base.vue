@@ -48,6 +48,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobactive' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="play" />
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobactive.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobterminal.disabled}" v-show="righttoolbarModels.deuiaction1_mobterminal.visabled">
@@ -56,6 +57,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobterminal' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="pause" />
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobterminal.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit.visabled">
@@ -64,6 +66,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="edit" />
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobedit.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobremove.disabled}" v-show="righttoolbarModels.deuiaction1_mobremove.visabled">
@@ -72,6 +75,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobremove' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="remove" />
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobremove.caption')}}</span>
             </div>
         
                 </div>

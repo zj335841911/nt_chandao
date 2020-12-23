@@ -6,7 +6,13 @@
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
-    <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
+    <app-mob-button 
+      className="filter-btn" 
+      size="small" 
+      slot="end"  
+      text="过滤"
+      :iconName="filter-outline"
+      @click="openSearchform" />
   </ion-toolbar>
 
     </ion-header>
@@ -14,7 +20,7 @@
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
         <ion-header>
             <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
+                <ion-title></ion-title>
             </ion-toolbar>
         </ion-header>
         <div class="searchform_content">
@@ -42,12 +48,16 @@
         <ion-footer>
         <div class="search-btn">
             <app-mob-button 
-            className="search-btn-item" 
+            className="search-btn-item"
             :text="$t('app.searchButton.reset')" 
             color="light" 
+            shape="round" 
+            size="small"
             @click="onReset" />
             <app-mob-button 
             className="search-btn-item" 
+            shape="round" 
+            size="small" 
             :text="$t('app.searchButton.search')" 
             @click="onSearch" />
         </div>

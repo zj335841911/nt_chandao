@@ -62,6 +62,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="edit" />
+                <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
@@ -70,6 +71,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="remove" />
+                <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
             </div>
         
                 </div>

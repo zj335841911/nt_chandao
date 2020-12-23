@@ -58,6 +58,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="edit" />
+                
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_submitmob.disabled}" v-show="righttoolbarModels.deuiaction1_submitmob.visabled">
@@ -66,6 +67,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1_submitmob' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="check" />
+                
             </div>
         
                 </div>

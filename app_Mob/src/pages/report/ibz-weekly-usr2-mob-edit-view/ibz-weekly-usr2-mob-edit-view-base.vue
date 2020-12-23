@@ -48,6 +48,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="edit" />
+                
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
@@ -56,6 +57,7 @@
                 @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="check" />
+                
             </div>
         
                 </div>

@@ -15,7 +15,7 @@
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
         <ion-header>
             <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
+                <ion-title></ion-title>
             </ion-toolbar>
         </ion-header>
         <div class="searchform_content">
@@ -45,12 +45,16 @@
         <ion-footer>
         <div class="search-btn">
             <app-mob-button 
-            className="search-btn-item" 
+            className="search-btn-item"
             :text="$t('app.searchButton.reset')" 
             color="light" 
+            shape="round" 
+            size="small"
             @click="onReset" />
             <app-mob-button 
             className="search-btn-item" 
+            shape="round" 
+            size="small" 
             :text="$t('app.searchButton.search')" 
             @click="onSearch" />
         </div>
@@ -110,6 +114,7 @@
                 @click="righttoolbar2_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
                 size="large"  
                 iconName="link" />
+                
             </div>
         
             </div>
