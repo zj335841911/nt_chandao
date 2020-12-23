@@ -14,10 +14,13 @@
             <ion-buttons slot="end">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="checkmark-outline"> </ion-icon>
-                    
-                    </ion-button>
+                                <app-mob-button 
+                            className="app-view-toolbar-button" 
+                            iconName="checkmark-outline"
+                            :text=""
+                            v-show="righttoolbarModels.tbitem1.visabled" 
+                            :disabled="righttoolbarModels.tbitem1.disabled" 
+                            @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" />
                 
                     </div>
                 </div>

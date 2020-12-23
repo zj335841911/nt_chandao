@@ -34,8 +34,15 @@
     </ion-content>
     <ion-footer class="view-footer">
         <div class="option-view-btnbox">
-  <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
-  <ion-button class="option-btn success" @click="save">保存</ion-button> 
+  <app-mob-button 
+      className="option-btn medium" 
+      color="medium" 
+      :text="$t('app.button.cancel')"
+      @click="back" />
+  <app-mob-button 
+      className="option-btn success" 
+      :text="$t('app.button.confirm')"
+      @click="save" />
 </div>
 
     </ion-footer>

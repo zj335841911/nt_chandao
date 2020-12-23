@@ -109,10 +109,13 @@
                 <div>暂无数据</div>
                               <div class="app-toolbar-container ">
                 <div class="app-quick-toolbar toolbar-left-bottons">
-                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                    <ion-icon class="ibiz-button-icon" name="more"> </ion-icon>
-                
-                </ion-button>
+                            <app-mob-button 
+                        className="app-view-toolbar-button" 
+                        iconName="more"
+                        :text=""
+                        v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" 
+                        :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" 
+                        @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" />
             
                 </div>
             </div>

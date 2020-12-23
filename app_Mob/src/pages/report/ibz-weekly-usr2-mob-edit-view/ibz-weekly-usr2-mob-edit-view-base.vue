@@ -44,19 +44,19 @@
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction1.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="edit" />
+                    :disabled="righttoolbarModels.deuiaction1.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="edit" />
                 
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction2.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="check" />
+                    :disabled="righttoolbarModels.deuiaction2.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="check" />
                 
             </div>
         

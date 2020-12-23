@@ -46,19 +46,19 @@
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction1.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="" />
+                    :disabled="righttoolbarModels.deuiaction1.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="" />
                 <span class="btn-out-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction2.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="" />
+                    :disabled="righttoolbarModels.deuiaction2.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="" />
                 <span class="btn-out-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
             </div>
         

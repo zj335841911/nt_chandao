@@ -110,28 +110,28 @@
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction3.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="add" />
+                    :disabled="righttoolbarModels.deuiaction3.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction3' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="add" />
                 
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction1.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="link" />
+                    :disabled="righttoolbarModels.deuiaction1.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="link" />
                 
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction2.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="linkedin-square" />
+                    :disabled="righttoolbarModels.deuiaction2.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="linkedin-square" />
                 
             </div>
         

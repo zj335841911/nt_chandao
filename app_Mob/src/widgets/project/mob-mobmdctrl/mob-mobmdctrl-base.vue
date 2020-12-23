@@ -5,7 +5,11 @@
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                       <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
-                      <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                      <app-mob-button 
+                        v-if="!isTempMode && !allLoaded && needLoadMore" 
+                        className="loadmore_btn" 
+                        :text="$t('app.button.loadmore')"  
+                        @click="loadBottom" />
                   </template>
                 </ion-list>
                 <ion-list class="items" ref="ionlist"  @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
@@ -32,10 +36,13 @@
                 <div>暂无数据</div>
                               <div class="app-toolbar-container ">
                 <div class="app-quick-toolbar toolbar-left-bottons">
-                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                    <ion-icon class="ibiz-button-icon" name="plus"> </ion-icon>
-                {{$t('project.mobmdviewmdctrl_quicktoolbar_toolbar.deuiaction1.caption')}}
-                </ion-button>
+                            <app-mob-button 
+                        className="app-view-toolbar-button" 
+                        iconName="plus"
+                        :text="$t('project.mobmdviewmdctrl_quicktoolbar_toolbar.deuiaction1.caption')"
+                        v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" 
+                        :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" 
+                        @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" />
             
                 </div>
             </div>

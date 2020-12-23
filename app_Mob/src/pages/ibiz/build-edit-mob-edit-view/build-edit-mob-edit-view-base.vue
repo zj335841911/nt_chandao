@@ -48,10 +48,10 @@
             <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.tbitem1.disabled" 
-                @click="righttoolbar_click({ tag: 'tbitem1' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="checkmark-outline" />
+                    :disabled="righttoolbarModels.tbitem1.disabled" 
+                    @click="righttoolbar_click({ tag: 'tbitem1' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="checkmark-outline" />
                 
             </div>
         

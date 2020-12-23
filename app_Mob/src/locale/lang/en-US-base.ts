@@ -76,7 +76,7 @@ export default {
             caption: 'Upload',
         },
         searchForm:{
-            titile:'Conditional search',
+            title:'Conditional search',
             searchButton: {
                 search: 'Search',
                 reset: 'Reset'
@@ -222,7 +222,10 @@ export default {
             cancel: 'Cancel',
             confirm: 'Confirm',
             back: 'Back',
-            loadmore: 'Load more'
+            loadmore: 'Load more',
+            previousStep: 'Previous step',
+            nextStep: 'Next step',
+            finish: 'finish',
         },
         loadding: 'Loadding',
         fastsearch: 'Quick search',

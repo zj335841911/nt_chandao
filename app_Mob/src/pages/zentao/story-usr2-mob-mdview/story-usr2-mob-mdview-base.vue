@@ -14,20 +14,29 @@
             <ion-buttons slot="end">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction3.visabled" :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="add"> </ion-icon>
-                    
-                    </ion-button>
+                                <app-mob-button 
+                            className="app-view-toolbar-button" 
+                            iconName="add"
+                            :text=""
+                            v-show="righttoolbarModels.deuiaction3.visabled" 
+                            :disabled="righttoolbarModels.deuiaction3.disabled" 
+                            @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)" />
                 
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="link"> </ion-icon>
-                    
-                    </ion-button>
+                                <app-mob-button 
+                            className="app-view-toolbar-button" 
+                            iconName="link"
+                            :text=""
+                            v-show="righttoolbarModels.deuiaction1.visabled" 
+                            :disabled="righttoolbarModels.deuiaction1.disabled" 
+                            @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" />
                 
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="linkedin-square"> </ion-icon>
-                    
-                    </ion-button>
+                                <app-mob-button 
+                            className="app-view-toolbar-button" 
+                            iconName="linkedin-square"
+                            :text=""
+                            v-show="righttoolbarModels.deuiaction2.visabled" 
+                            :disabled="righttoolbarModels.deuiaction2.disabled" 
+                            @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" />
                 
                     </div>
                 </div>

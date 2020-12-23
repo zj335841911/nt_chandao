@@ -76,7 +76,7 @@ export default {
             caption: '上传',
         },
         searchForm:{
-            titile:'条件搜索',
+            title:'条件搜索',
             searchButton: {
                 search: '搜索',
                 reset: '重置'
@@ -223,7 +223,10 @@ export default {
             cancel: '取消',
             confirm: '确认',
             back: '返回',
-            loadmore: '加载更多'
+            loadmore: '加载更多',
+            previousStep: '上一步',
+            nextStep: '下一步',
+            finish: '完成',
         },
         loadding: '加载中',
         fastsearch: '快速搜索',

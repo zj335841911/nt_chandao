@@ -117,10 +117,10 @@
             <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <app-mob-button 
-                :disabled="righttoolbarModels.deuiaction1.disabled" 
-                @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
-                size="large"  
-                iconName="add" />
+                    :disabled="righttoolbarModels.deuiaction1.disabled" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" 
+                    size="large"  
+                    iconName="add" />
                 
             </div>
         
@@ -134,17 +134,21 @@
                     <div class="batch_btn_content">
                         <div class="app-toolbar-container ">
             <div class="app-quick-toolbar toolbar-left-bottons">
-                    <ion-button class="app-view-toolbar-button" v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" :disabled="mdctrl_batchtoolbarModels.deuiaction1.disabled" @click="mdctrl_batchtoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                <ion-icon class="ibiz-button-icon" name="remove"> </ion-icon>
-            {{$t('project.mobmdviewmdctrl_batchtoolbar_toolbar.deuiaction1.caption')}}
-            </ion-button>
+                        <app-mob-button 
+                    className="app-view-toolbar-button" 
+                    iconName="remove"
+                    :text="$t('project.mobmdviewmdctrl_batchtoolbar_toolbar.deuiaction1.caption')"
+                    v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" 
+                    :disabled="mdctrl_batchtoolbarModels.deuiaction1.disabled" 
+                    @click="mdctrl_batchtoolbar_click({ tag: 'deuiaction1' }, $event)" />
         
             </div>
         </div>
-                <ion-button class="app-view-toolbar-button"  @click="cancelSelect" >
-                    <ion-icon name="arrow-undo-outline"></ion-icon>
-                    {{$t('app.button.cancel')}}
-                </ion-button>
+                <app-mob-button
+                    className="app-view-toolbar-button"  
+                    iconName="arrow-undo-outline"
+                    :text="$t('app.button.cancel')"
+                    @click="cancelSelect" />
             </div> 
         </div>     
 

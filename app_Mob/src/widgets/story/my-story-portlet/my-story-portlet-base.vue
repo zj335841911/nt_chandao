@@ -8,7 +8,7 @@
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">{{$t('app.button.cancel')}}</ion-button><ion-button @click="onConfirmClick(true)">{{$t('app.button.confirm')}}</ion-button></div>
             <story-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :isPortalView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></story-ass-mob-mdview9>
         </ion-list>
         <van-action-sheet v-model="selectStatus" get-container="#app" :actions="actionBarModelData" cancel-text="取消" close-on-click-action @select="actionBarClick" @cancel="onCancel" />
