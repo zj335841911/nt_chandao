@@ -3,7 +3,13 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                 <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                      <app-mob-icon 
+                            v-show="isChoose"
+                            position="start"
+                            :name=" item.checked ? 'checkmark-circle-outline' : 'ellipse-outline' " 
+                            class="select-icon" 
+                            @onClick="checkboxSelect(item)"
+                        ></app-mob-icon>
                       <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       <app-mob-button 
                         v-if="!isTempMode && !allLoaded && needLoadMore" 
@@ -22,11 +28,23 @@
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                        <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                        <app-mob-icon 
+                            v-show="isChoose"
+                            position="start"
+                            :name=" item.checked ? 'checkmark-circle-outline' : 'ellipse-outline' " 
+                            class="select-icon" 
+                            @onClick="checkboxSelect(item)"
+                        ></app-mob-icon>
                           <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                        <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                        <app-mob-icon 
+                            v-show="isChoose"
+                            position="start"
+                            :name=" item.checked ? 'checkmark-circle-outline' : 'ellipse-outline' " 
+                            class="select-icon" 
+                            @onClick="checkboxSelect(item)"
+                        ></app-mob-icon>
                           <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
                       </template>
                     </ion-item>
@@ -1245,26 +1263,28 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
+        item.checked = !item.checked;
         let count = this.selectedArray.findIndex((i) => {
             return i.id == item.id;
         });
-        let tempFalg = false;
         if(count == -1){
-            tempFalg = true;
             this.selectedArray.push(item);
         }else{
             this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
             if(_item.id == item.id){
-                this.items[index].checked = tempFalg;
+                this.items[index].checked = item.checked;
             }
         });
-        if(!item.checked){
-            this.$emit("checkBoxChange",false)
-        }else if(this.selectedArray.length == this.items.length){
-            this.$emit("checkBoxChange",true)
+        if(this.selectedArray.length == this.items.length){
+            this.$emit("checkBoxChange",{isSelectAll:true,isSelectSome:true})
+        }else if(this.selectedArray.length == 0){
+            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:false})
+        }else{
+            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:true})
         }
+        this.$forceUpdate();
     }
 
     /**
