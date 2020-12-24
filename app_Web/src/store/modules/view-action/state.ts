@@ -345,6 +345,7 @@ export const viewstate: any = {
                 'd21c783cde14166ba9deb09e746a0f28',
                 'fad11065c8858a545a9df670cdccce44',
                 'd86b9d1e9fad770e8fc97718cee8ed31',
+                'c3e6eea97c71f24dcf4115546b5ec769',
                 'bedf1f50199b74a65c2e17771144329c',
                 'd8df5ca51341d33ccc19208dde3f2cce',
                 '376e2623b256509cdf69e2de4c01d31b',
@@ -4443,6 +4444,15 @@ export const viewstate: any = {
                 '7a983ef690626958a9897f58efe15e58',
                 'aeee411b8bffcf0c30d65557a8deeeee',
                 'e53ca619c1e2592cff68b05a9a64ff0f',
+            ],
+        },
+        {
+            viewtag: 'c3e6eea97c71f24dcf4115546b5ec769',
+            viewmodule: 'uaa',
+            viewname: 'SysUserChangePasswordEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

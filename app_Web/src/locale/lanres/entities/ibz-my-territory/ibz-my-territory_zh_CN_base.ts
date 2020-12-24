@@ -266,6 +266,9 @@ function getLocaleResourceBase(){
 					tabviewpanel9: {
 						caption: commonLogic.appcommonhandle("动态",null),
 					},
+					tabviewpanel13: {
+						caption: commonLogic.appcommonhandle("密码",null),
+					},
 					tabviewpanel8: {
 						caption: commonLogic.appcommonhandle("联系人",null),
 					},
