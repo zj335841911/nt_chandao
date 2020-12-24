@@ -588,6 +588,16 @@ export class MainEditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 更新默认值
+     * @memberof MainEditFormBase
+     */
+    public updateDefault() {                    
+        if (this.data.hasOwnProperty('allmodules') && !this.data.allmodules) {
+            this.data['allmodules'] = '1';
+        }
+    }
+
+    /**
      * 面板数据变化处理事件
      * @param {any} item 当前数据
      * @param {any} $event 面板事件数据
