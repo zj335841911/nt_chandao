@@ -115,20 +115,22 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     }
 
 
-       @Override
+    @Override
     @Transactional
     public SysEmployee changepwd(SysEmployee et) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.SysEmployeeHelper.class).changepwd(et);
+        //自定义代码
+        return et;
     }
-	
-	@Override
+   @Override
     @Transactional
-    public boolean changepwdBatch (List<SysEmployee> etList) {
-		 for(SysEmployee et : etList) {
-		   changepwd(et);
-		 }
-	 	 return true;
+    public boolean changepwdBatch(List<SysEmployee> etList) {
+        for(SysEmployee et : etList) {
+            changepwd(et);
+        }
+        return true;
     }
+
+
 
     @Override
     public boolean checkKey(SysEmployee et) {
