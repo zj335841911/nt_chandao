@@ -44,6 +44,8 @@ public interface IIbzproConfigService extends IService<IbzproConfig> {
     IbzproConfig get(String key);
     IbzproConfig getDraft(IbzproConfig et);
     boolean checkKey(IbzproConfig et);
+    IbzproConfig getSystemConfig(IbzproConfig et);
+    boolean getSystemConfigBatch(List<IbzproConfig> etList);
     boolean save(IbzproConfig et);
     void saveBatch(List<IbzproConfig> list);
     Page<IbzproConfig> searchDefault(IbzproConfigSearchContext context);

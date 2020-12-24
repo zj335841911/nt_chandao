@@ -260,27 +260,6 @@ public class SysEmployee extends EntityClient implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
-    /**
-     * 原密码
-     */
-    @JSONField(name = "originalpassword")
-    @JsonProperty("originalpassword")
-    private String originalpassword;
-
-    /**
-     * 新密码
-     */
-    @JSONField(name = "newpassword")
-    @JsonProperty("newpassword")
-    private String newpassword;
-
-    /**
-     * 重复密码
-     */
-    @JSONField(name = "repeatpassword")
-    @JsonProperty("repeatpassword")
-    private String repeatpassword;
-
 
     /**
      * 

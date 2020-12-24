@@ -50,6 +50,7 @@
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|获取系统配置|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑

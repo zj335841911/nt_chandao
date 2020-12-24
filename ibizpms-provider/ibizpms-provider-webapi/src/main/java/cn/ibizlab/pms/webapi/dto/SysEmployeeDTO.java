@@ -310,33 +310,6 @@ public class SysEmployeeDTO extends DTOBase implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
-    /**
-     * 属性 [ORIGINALPASSWORD]
-     *
-     */
-    @JSONField(name = "originalpassword")
-    @JsonProperty("originalpassword")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String originalpassword;
-
-    /**
-     * 属性 [NEWPASSWORD]
-     *
-     */
-    @JSONField(name = "newpassword")
-    @JsonProperty("newpassword")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String newpassword;
-
-    /**
-     * 属性 [REPEATPASSWORD]
-     *
-     */
-    @JSONField(name = "repeatpassword")
-    @JsonProperty("repeatpassword")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String repeatpassword;
-
 
     /**
      * 设置 [USERNAME]

@@ -253,28 +253,4 @@ export interface SysEmployee {
      * @memberof SysEmployee
      */
     updatedate?: any;
-
-    /**
-     * 原密码
-     *
-     * @returns {*}
-     * @memberof SysEmployee
-     */
-    originalpassword?: any;
-
-    /**
-     * 新密码
-     *
-     * @returns {*}
-     * @memberof SysEmployee
-     */
-    newpassword?: any;
-
-    /**
-     * 重复密码
-     *
-     * @returns {*}
-     * @memberof SysEmployee
-     */
-    repeatpassword?: any;
 }

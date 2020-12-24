@@ -121,6 +121,23 @@ public class IbzproConfigResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzproconfigService.checkKey(ibzproconfigMapping.toDomain(ibzproconfigdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproConfig-GetSystemConfig-all')")
+    @ApiOperation(value = "获取系统配置", tags = {"系统配置表" },  notes = "获取系统配置")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzproconfigs/{ibzproconfig_id}/getsystemconfig")
+    public ResponseEntity<IbzproConfigDTO> getSystemConfig(@PathVariable("ibzproconfig_id") String ibzproconfig_id, @RequestBody IbzproConfigDTO ibzproconfigdto) {
+        IbzproConfig domain = ibzproconfigMapping.toDomain(ibzproconfigdto);
+        domain.setIbzproconfigid(ibzproconfig_id);
+        domain = ibzproconfigService.getSystemConfig(domain);
+        ibzproconfigdto = ibzproconfigMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproconfigdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproConfig-GetSystemConfig-all')")
+    @ApiOperation(value = "批量处理[获取系统配置]", tags = {"系统配置表" },  notes = "批量处理[获取系统配置]")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzproconfigs/{ibzproconfig_id}/getsystemconfigbatch")
+    public ResponseEntity<Boolean> getSystemConfigBatch(@RequestBody List<IbzproConfigDTO> ibzproconfigdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproconfigService.getSystemConfigBatch(ibzproconfigMapping.toDomain(ibzproconfigdtos)));
+    }
+
     @PreAuthorize("hasPermission(this.ibzproconfigMapping.toDomain(#ibzproconfigdto),'pms-IbzproConfig-Save')")
     @ApiOperation(value = "保存系统配置表", tags = {"系统配置表" },  notes = "保存系统配置表")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzproconfigs/save")

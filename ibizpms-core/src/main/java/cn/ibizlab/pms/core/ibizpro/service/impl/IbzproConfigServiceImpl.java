@@ -120,6 +120,21 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
     }
     @Override
     @Transactional
+    public IbzproConfig getSystemConfig(IbzproConfig et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean getSystemConfigBatch(List<IbzproConfig> etList) {
+        for(IbzproConfig et : etList) {
+            getSystemConfig(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IbzproConfig et) {
         if (!saveOrUpdate(et)) {
             return false;

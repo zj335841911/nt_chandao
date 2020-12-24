@@ -155,6 +155,21 @@ export default class IbzproConfigServiceBase extends EntityService {
     }
 
     /**
+     * GetSystemConfig接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproConfigServiceBase
+     */
+    public async GetSystemConfig(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzproconfigs/${context.ibzproconfig}/getsystemconfig`,isloading);
+            
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

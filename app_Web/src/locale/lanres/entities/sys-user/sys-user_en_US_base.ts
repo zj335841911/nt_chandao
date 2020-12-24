@@ -35,6 +35,9 @@ function getLocaleResourceBase(){
 			memo: commonLogic.appcommonhandle("备注",null),
 			reserver: commonLogic.appcommonhandle("保留",null),
 			superuser: commonLogic.appcommonhandle("超级管理员",null),
+			originalpassword: commonLogic.appcommonhandle("原密码",null),
+			newpassword: commonLogic.appcommonhandle("新密码",null),
+			repeatpassword: commonLogic.appcommonhandle("重复密码",null),
 		},
 		};
 		return data;

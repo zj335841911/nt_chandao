@@ -186,7 +186,7 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
     }
 
     /** 
-     * 实体数据看板视图刷新状态
+     * 数据看板部件刷新状态
      * 
      * @type {boolean}
      * @memberof BugMainDashboardViewBase

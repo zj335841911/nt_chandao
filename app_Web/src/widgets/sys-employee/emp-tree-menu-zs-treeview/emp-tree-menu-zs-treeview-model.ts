@@ -108,15 +108,6 @@ export default class EmpTreeMenuZSModel {
       {
         name: 'updatedate',
       },
-      {
-        name: 'originalpassword',
-      },
-      {
-        name: 'newpassword',
-      },
-      {
-        name: 'repeatpassword',
-      },
     ]
   }
 

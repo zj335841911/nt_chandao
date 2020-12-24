@@ -257,5 +257,7 @@ POST
 | 30 | memo | String | 允许 | 备注 |
 | 31 | reserver | String | 允许 | 保留 |
 | 32 | superuser | Integer | 允许 | 超级管理员 |
-| 33 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 33 | originalpassword | String | 允许 | 原密码 |
+| 34 | newpassword | String | 允许 | 新密码 |
+| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
 
