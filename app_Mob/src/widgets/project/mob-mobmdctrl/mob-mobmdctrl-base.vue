@@ -11,11 +11,6 @@
                             @onClick="checkboxSelect(item)"
                         ></app-mob-icon>
                       <app-list-index-text :item="item" :index="item.srfkey" @clickItem="item_click"></app-list-index-text>
-                      <app-mob-button 
-                        v-if="!isTempMode && !allLoaded && needLoadMore" 
-                        class="loadmore_btn" 
-                        :text="$t('app.button.loadmore')"  
-                        @click="loadBottom" />
                   </template>
                 </ion-list>
                 <ion-list class="items" ref="ionlist"  @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">

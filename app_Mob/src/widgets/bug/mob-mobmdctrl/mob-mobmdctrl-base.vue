@@ -4,11 +4,6 @@
                 <ion-list class="items" ref="ionlist" >
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <app-bug-list  :item="item"></app-bug-list>
-                      <app-mob-button 
-                        v-if="!isTempMode && !allLoaded && needLoadMore" 
-                        class="loadmore_btn" 
-                        :text="$t('app.button.loadmore')"  
-                        @click="loadBottom" />
                   </template>
                 </ion-list>
                 <ion-list class="items" ref="ionlist"  >

@@ -361,7 +361,7 @@ export default class ProductMobTabExpViewBase extends Vue {
             return;
         }
         this.viewState.next({ tag: 'tabexppanel', action: 'active', data: { activeItem: value } });
-        this.setLocalStorage(value);     
+        this.setCacheTabkey(value);     
     }
 
     /**
@@ -381,11 +381,9 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */    
-    public setLocalStorage(value:any) {
-        let name:string = 'product';
-        let id:any = this.context.product;
-        let obj:any = {"name":name,"id":id,"value":value};
-        localStorage.setItem('tabKey',JSON.stringify(obj));    
+    public setCacheTabkey(value:any) {
+        const cacheTab:any = {name:'product',id:this.context.product,value:value,viewtag: this.viewtag};
+        localStorage.setItem('tabKey',JSON.stringify(cacheTab));    
     }
     /**
      * localStorage取值
@@ -394,12 +392,12 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */
-    public getLocalStorage() {
-        let key:any = localStorage.getItem('tabKey')
-        if(key){
-        let info:any = JSON.parse(key);
-        if (info.name && info.name == 'product' && info.id && info.id == this.context.product) {
-          this.activiedTabViewPanel = info.value;
+    public getCacheTabkey() {
+        const _cacheTabKey: any = localStorage.getItem('tabKey')
+        if(_cacheTabKey){
+        let cacheTabKey:any = JSON.parse(_cacheTabKey);
+        if (cacheTabKey.name && cacheTabKey.name == 'product' && cacheTabKey.id && cacheTabKey.id == this.context.product && info.viewtag === this.viewtag) {
+          this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel';
         }
@@ -449,7 +447,7 @@ export default class ProductMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.getLocalStorage();
+        this.getCacheTabkey();
 
 
     }
