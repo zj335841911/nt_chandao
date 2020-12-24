@@ -495,8 +495,14 @@ export class SubStoryNewGridBase extends GridControlBase {
         if (row.hasOwnProperty('product')) {
             row['product'] = this.viewparams['product'];
         }
+        if (row.hasOwnProperty('neednotreview')) {
+            row['neednotreview'] = '0';
+        }
         if (row.hasOwnProperty('module')) {
             row['module'] = this.viewparams['module'];
+        }
+        if (row.hasOwnProperty('pri')) {
+            row['pri'] = 3;
         }
         if (row.hasOwnProperty('parent')) {
             row['parent'] = this.viewparams['parent'];
@@ -510,6 +516,9 @@ export class SubStoryNewGridBase extends GridControlBase {
      * @memberof SubStoryNewBase
      */
     public updateDefault(row: any){                    
+        if (row.hasOwnProperty('neednotreview') && !row.neednotreview && row.hasUpdated) {
+            row['neednotreview'] = '0';
+        }
     }
 
     /**
