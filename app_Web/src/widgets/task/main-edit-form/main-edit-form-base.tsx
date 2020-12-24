@@ -745,6 +745,16 @@ export class MainEditEditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 新建默认值
+     * @memberof MainEditEditFormBase
+     */
+    public createDefault() {                    
+        if (this.data.hasOwnProperty('allmodules')) {
+            this.data['allmodules'] = '1';
+        }
+    }
+
+    /**
      * 更新默认值
      * @memberof MainEditEditFormBase
      */
