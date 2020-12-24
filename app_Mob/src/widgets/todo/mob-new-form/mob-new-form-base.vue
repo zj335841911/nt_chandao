@@ -506,7 +506,7 @@
     :disabled="detailsModel.formitem3.disabled"
     :error="detailsModel.formitem3.error" 
     :isEmptyCaption="false">
-        <app-mob-org-select :data="data" :disabled="detailsModel.formitem3.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem3'}" url="/sysorganizations/${orgid}/suborg/picker" filter="srforgid" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-org-select>
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem3.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem3'}" url="/sysorganizations/${orgid}/suborg/picker" filter="srforgid" :multiple="false" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
 </app-form-item>
 
 
@@ -526,7 +526,7 @@
     :disabled="detailsModel.formitem4.disabled"
     :error="detailsModel.formitem4.error" 
     :isEmptyCaption="false">
-        <app-mob-org-select :data="data" :disabled="detailsModel.formitem4.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem4'}" url="/sysorganizations/${orgid}/suborg/picker" filter="srforgid" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-org-select>
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem4.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem4'}" url="/sysorganizations/${orgid}/suborg/picker" filter="srforgid" :multiple="true" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
 </app-form-item>
 
 
@@ -546,7 +546,7 @@
     :disabled="detailsModel.formitem5.disabled"
     :error="detailsModel.formitem5.error" 
     :isEmptyCaption="false">
-        <app-mob-org-select :data="data" :disabled="detailsModel.formitem5.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem5'}" url="/sysorganizations/alls/suborg/picker" filter="srforgid" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-org-select>
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem5.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem5'}" url="/sysorganizations/alls/suborg/picker" filter="srforgid" :multiple="false" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
 </app-form-item>
 
 
@@ -566,7 +566,7 @@
     :disabled="detailsModel.formitem6.disabled"
     :error="detailsModel.formitem6.error" 
     :isEmptyCaption="false">
-        <app-mob-org-select :data="data" :disabled="detailsModel.formitem6.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem6'}" url="/sysorganizations/alls/suborg/picker" filter="srforgid" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-org-select>
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem6.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem6'}" url="/sysorganizations/alls/suborg/picker" filter="srforgid" :multiple="true" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
 </app-form-item>
 
 
