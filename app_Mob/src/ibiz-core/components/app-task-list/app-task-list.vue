@@ -128,10 +128,28 @@ export default class appTaskList extends Vue {
     }
 
     /**
+     * isJson
+     */
+    public isJsonStr(str:any) {
+        try{
+            JSON.parse(str);
+            return true;
+        }
+        catch(e){
+            return false;
+        }
+    }
+
+
+    /**
      * 获取用户头像
      */
     public getUserImg(value:string) {
-        let icon = JSON.parse(this.getCodeListText('UserRealName',value).icon);
+        const _icon = this.getCodeListText('UserRealName',value).icon;
+        if(!this.isJsonStr(_icon)){
+            return ''
+        }
+        const icon = JSON.parse(_icon);
         if(icon && icon[0] && icon[0].id){
             return `${this.imageUrl}/${icon[0].id}`;
         }
