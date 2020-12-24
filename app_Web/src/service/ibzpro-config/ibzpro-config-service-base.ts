@@ -164,8 +164,7 @@ export default class IbzproConfigServiceBase extends EntityService {
      * @memberof IbzproConfigServiceBase
      */
     public async GetSystemConfig(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/ibzproconfigs/${context.ibzproconfig}/getsystemconfig`,isloading);
-            
+            let res:any = Http.getInstance().put(`/ibzproconfigs/${context.ibzproconfig}/getsystemconfig`,data,isloading);
             return res;
     }
 
