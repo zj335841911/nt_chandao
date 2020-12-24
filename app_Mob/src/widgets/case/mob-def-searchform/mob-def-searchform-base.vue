@@ -145,7 +145,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import CaseService from '@/app-core/service/case/case-service';
+import CaseEntityService from '@/app-core/service/case/case-service';
 import MobDefService from '@/app-core/ctrl-service/case/mob-def-searchform-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -257,7 +257,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @type {CaseService}
      * @memberof MobDef
      */
-    protected appEntityService: CaseService = new CaseService();
+    protected appEntityService: CaseEntityService = new CaseEntityService();
 
     /**
      * 界面UI服务对象

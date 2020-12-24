@@ -49,7 +49,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import AssMOBDASHBOARDService from '@/app-core/ctrl-service/story/ass-mobdashboard-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -158,7 +158,7 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
      * @type {StoryService}
      * @memberof AssMOBDASHBOARD
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象

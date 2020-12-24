@@ -97,7 +97,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ReleaseService from '@/app-core/service/release/release-service';
+import ReleaseEntityService from '@/app-core/service/release/release-service';
 import Mob_2622Service from '@/app-core/ctrl-service/release/mob-2622-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -206,7 +206,7 @@ export default class Mob_2622Base extends Vue implements ControlInterface {
      * @type {ReleaseService}
      * @memberof Mob_2622
      */
-    protected appEntityService: ReleaseService = new ReleaseService();
+    protected appEntityService: ReleaseEntityService = new ReleaseEntityService();
 
     /**
      * 界面UI服务对象

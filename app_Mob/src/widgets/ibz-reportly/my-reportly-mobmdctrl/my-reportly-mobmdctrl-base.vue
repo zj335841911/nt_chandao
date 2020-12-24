@@ -19,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzReportlyService from '@/app-core/service/ibz-reportly/ibz-reportly-service';
+import IbzReportlyEntityService from '@/app-core/service/ibz-reportly/ibz-reportly-service';
 import MyReportlyService from '@/app-core/ctrl-service/ibz-reportly/my-reportly-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -128,7 +128,7 @@ export default class MyReportlyBase extends Vue implements ControlInterface {
      * @type {IbzReportlyService}
      * @memberof MyReportly
      */
-    protected appEntityService: IbzReportlyService = new IbzReportlyService();
+    protected appEntityService: IbzReportlyEntityService = new IbzReportlyEntityService();
 
     /**
      * 界面UI服务对象

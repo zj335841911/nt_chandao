@@ -265,7 +265,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
+import BugEntityService from '@/app-core/service/bug/bug-service';
 import ResolveMobService from '@/app-core/ctrl-service/bug/resolve-mob-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -377,7 +377,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @type {BugService}
      * @memberof ResolveMob
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: BugEntityService = new BugEntityService();
 
     /**
      * 界面UI服务对象

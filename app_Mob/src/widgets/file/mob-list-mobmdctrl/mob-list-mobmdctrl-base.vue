@@ -19,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import FileService from '@/app-core/service/file/file-service';
+import FileEntityService from '@/app-core/service/file/file-service';
 import MobListService from '@/app-core/ctrl-service/file/mob-list-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -128,7 +128,7 @@ export default class MobListBase extends Vue implements ControlInterface {
      * @type {FileService}
      * @memberof MobList
      */
-    protected appEntityService: FileService = new FileService();
+    protected appEntityService: FileEntityService = new FileEntityService();
 
     /**
      * 界面UI服务对象

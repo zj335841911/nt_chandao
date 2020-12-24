@@ -259,7 +259,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzWeeklyService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
+import IbzWeeklyEntityService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
 import MobWeekEditService from '@/app-core/ctrl-service/ibz-weekly/mob-week-edit-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -371,7 +371,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      * @type {IbzWeeklyService}
      * @memberof MobWeekEdit
      */
-    protected appEntityService: IbzWeeklyService = new IbzWeeklyService();
+    protected appEntityService: IbzWeeklyEntityService = new IbzWeeklyEntityService();
 
     /**
      * 界面UI服务对象

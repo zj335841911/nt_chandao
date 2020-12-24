@@ -89,7 +89,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import MOB_ProjectLinkStoryService from '@/app-core/ctrl-service/story/mob-project-link-story-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -198,7 +198,7 @@ export default class MOB_ProjectLinkStoryBase extends Vue implements ControlInte
      * @type {StoryService}
      * @memberof MOB_ProjectLinkStory
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象

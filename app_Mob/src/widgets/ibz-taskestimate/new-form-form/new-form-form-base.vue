@@ -112,7 +112,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
+import IbzTaskestimateEntityService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
 import NewFormService from '@/app-core/ctrl-service/ibz-taskestimate/new-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -224,7 +224,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
      * @type {IbzTaskestimateService}
      * @memberof NewForm
      */
-    protected appEntityService: IbzTaskestimateService = new IbzTaskestimateService();
+    protected appEntityService: IbzTaskestimateEntityService = new IbzTaskestimateEntityService();
 
     /**
      * 界面UI服务对象

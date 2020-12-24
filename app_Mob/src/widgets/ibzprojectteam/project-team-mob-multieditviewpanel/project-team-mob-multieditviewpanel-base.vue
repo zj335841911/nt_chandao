@@ -31,7 +31,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IBZPROJECTTEAMService from '@/app-core/service/ibzprojectteam/ibzprojectteam-service';
+import IBZPROJECTTEAMEntityService from '@/app-core/service/ibzprojectteam/ibzprojectteam-service';
 import ProjectTeamMobService from '@/app-core/ctrl-service/ibzprojectteam/project-team-mob-multieditviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -140,7 +140,7 @@ export default class ProjectTeamMobBase extends Vue implements ControlInterface 
      * @type {IBZPROJECTTEAMService}
      * @memberof ProjectTeamMob
      */
-    protected appEntityService: IBZPROJECTTEAMService = new IBZPROJECTTEAMService();
+    protected appEntityService: IBZPROJECTTEAMEntityService = new IBZPROJECTTEAMEntityService();
 
     /**
      * 界面UI服务对象

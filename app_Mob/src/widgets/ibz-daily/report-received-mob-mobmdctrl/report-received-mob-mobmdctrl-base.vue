@@ -89,7 +89,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzDailyService from '@/app-core/service/ibz-daily/ibz-daily-service';
+import IbzDailyEntityService from '@/app-core/service/ibz-daily/ibz-daily-service';
 import ReportReceivedMobService from '@/app-core/ctrl-service/ibz-daily/report-received-mob-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -198,7 +198,7 @@ export default class ReportReceivedMobBase extends Vue implements ControlInterfa
      * @type {IbzDailyService}
      * @memberof ReportReceivedMob
      */
-    protected appEntityService: IbzDailyService = new IbzDailyService();
+    protected appEntityService: IbzDailyEntityService = new IbzDailyEntityService();
 
     /**
      * 界面UI服务对象

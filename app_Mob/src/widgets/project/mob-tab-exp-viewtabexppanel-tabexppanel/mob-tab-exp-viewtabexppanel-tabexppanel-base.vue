@@ -65,7 +65,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProjectService from '@/app-core/service/project/project-service';
+import ProjectEntityService from '@/app-core/service/project/project-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/project/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -175,7 +175,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {ProjectService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected appEntityService: ProjectService = new ProjectService();
+    protected appEntityService: ProjectEntityService = new ProjectEntityService();
 
     /**
      * 界面UI服务对象

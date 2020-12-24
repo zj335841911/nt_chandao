@@ -19,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SysUpdateFeaturesService from '@/app-core/service/sys-update-features/sys-update-features-service';
+import SysUpdateFeaturesEntityService from '@/app-core/service/sys-update-features/sys-update-features-service';
 import MOBYService from '@/app-core/ctrl-service/sys-update-features/moby-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -128,7 +128,7 @@ export default class MOBYBase extends Vue implements ControlInterface {
      * @type {SysUpdateFeaturesService}
      * @memberof MOBY
      */
-    protected appEntityService: SysUpdateFeaturesService = new SysUpdateFeaturesService();
+    protected appEntityService: SysUpdateFeaturesEntityService = new SysUpdateFeaturesEntityService();
 
     /**
      * 界面UI服务对象

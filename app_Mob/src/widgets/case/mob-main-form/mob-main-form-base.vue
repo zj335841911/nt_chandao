@@ -290,7 +290,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import CaseService from '@/app-core/service/case/case-service';
+import CaseEntityService from '@/app-core/service/case/case-service';
 import MobMainService from '@/app-core/ctrl-service/case/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -402,7 +402,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {CaseService}
      * @memberof MobMain
      */
-    protected appEntityService: CaseService = new CaseService();
+    protected appEntityService: CaseEntityService = new CaseEntityService();
 
     /**
      * 界面UI服务对象

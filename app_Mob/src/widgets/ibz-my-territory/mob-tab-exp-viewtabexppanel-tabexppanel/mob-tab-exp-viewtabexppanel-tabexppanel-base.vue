@@ -43,7 +43,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+import IbzMyTerritoryEntityService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-my-territory/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -153,7 +153,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {IbzMyTerritoryService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+    protected appEntityService: IbzMyTerritoryEntityService = new IbzMyTerritoryEntityService();
 
     /**
      * 界面UI服务对象

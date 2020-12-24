@@ -259,7 +259,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzDailyService from '@/app-core/service/ibz-daily/ibz-daily-service';
+import IbzDailyEntityService from '@/app-core/service/ibz-daily/ibz-daily-service';
 import MobDailyEditService from '@/app-core/ctrl-service/ibz-daily/mob-daily-edit-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -371,7 +371,7 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
      * @type {IbzDailyService}
      * @memberof MobDailyEdit
      */
-    protected appEntityService: IbzDailyService = new IbzDailyService();
+    protected appEntityService: IbzDailyEntityService = new IbzDailyEntityService();
 
     /**
      * 界面UI服务对象

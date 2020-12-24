@@ -41,7 +41,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import MOB_Release_StoryService from '@/app-core/ctrl-service/story/mob-release-story-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -150,7 +150,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * @type {StoryService}
      * @memberof MOB_Release_Story
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象

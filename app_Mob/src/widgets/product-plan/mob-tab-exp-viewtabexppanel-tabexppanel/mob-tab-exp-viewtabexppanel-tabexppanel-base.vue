@@ -43,7 +43,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
+import ProductPlanEntityService from '@/app-core/service/product-plan/product-plan-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/product-plan/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -153,7 +153,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {ProductPlanService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected appEntityService: ProductPlanService = new ProductPlanService();
+    protected appEntityService: ProductPlanEntityService = new ProductPlanEntityService();
 
     /**
      * 界面UI服务对象

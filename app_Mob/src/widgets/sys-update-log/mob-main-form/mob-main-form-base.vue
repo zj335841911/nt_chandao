@@ -195,7 +195,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SysUpdateLogService from '@/app-core/service/sys-update-log/sys-update-log-service';
+import SysUpdateLogEntityService from '@/app-core/service/sys-update-log/sys-update-log-service';
 import MobMainService from '@/app-core/ctrl-service/sys-update-log/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -307,7 +307,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {SysUpdateLogService}
      * @memberof MobMain
      */
-    protected appEntityService: SysUpdateLogService = new SysUpdateLogService();
+    protected appEntityService: SysUpdateLogEntityService = new SysUpdateLogEntityService();
 
     /**
      * 界面UI服务对象

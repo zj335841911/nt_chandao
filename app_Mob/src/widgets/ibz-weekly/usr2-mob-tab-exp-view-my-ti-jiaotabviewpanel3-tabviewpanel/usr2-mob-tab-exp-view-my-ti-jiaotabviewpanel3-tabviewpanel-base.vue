@@ -17,7 +17,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzWeeklyService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
+import IbzWeeklyEntityService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
 import Usr2MobTabExpViewMyTiJiaotabviewpanel3Service from '@/app-core/ctrl-service/ibz-weekly/usr2-mob-tab-exp-view-my-ti-jiaotabviewpanel3-tabviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -126,7 +126,7 @@ export default class Usr2MobTabExpViewMyTiJiaotabviewpanel3Base extends Vue impl
      * @type {IbzWeeklyService}
      * @memberof Usr2MobTabExpViewMyTiJiaotabviewpanel3
      */
-    protected appEntityService: IbzWeeklyService = new IbzWeeklyService();
+    protected appEntityService: IbzWeeklyEntityService = new IbzWeeklyEntityService();
 
     /**
      * 界面UI服务对象

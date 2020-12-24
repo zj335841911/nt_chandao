@@ -41,7 +41,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskTeamService from '@/app-core/service/task-team/task-team-service';
+import TaskTeamEntityService from '@/app-core/service/task-team/task-team-service';
 import MobService from '@/app-core/ctrl-service/task-team/mob-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -150,7 +150,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {TaskTeamService}
      * @memberof Mob
      */
-    protected appEntityService: TaskTeamService = new TaskTeamService();
+    protected appEntityService: TaskTeamEntityService = new TaskTeamEntityService();
 
     /**
      * 界面UI服务对象

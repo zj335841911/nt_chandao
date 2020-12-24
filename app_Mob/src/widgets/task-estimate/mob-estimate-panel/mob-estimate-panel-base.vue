@@ -55,7 +55,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-service';
+import TaskEstimateEntityService from '@/app-core/service/task-estimate/task-estimate-service';
 import MobEstimateService from '@/app-core/ctrl-service/task-estimate/mob-estimate-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -165,7 +165,7 @@ export default class MobEstimateBase extends Vue implements ControlInterface {
      * @type {TaskEstimateService}
      * @memberof MobEstimate
      */
-    protected appEntityService: TaskEstimateService = new TaskEstimateService();
+    protected appEntityService: TaskEstimateEntityService = new TaskEstimateEntityService();
 
     /**
      * 界面UI服务对象

@@ -51,7 +51,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
+import ProductEntityService from '@/app-core/service/product/product-service';
 import MobService from '@/app-core/ctrl-service/product/mob-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -160,7 +160,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {ProductService}
      * @memberof Mob
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProductEntityService = new ProductEntityService();
 
     /**
      * 界面UI服务对象

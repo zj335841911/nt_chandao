@@ -97,7 +97,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TaskEntityService from '@/app-core/service/task/task-service';
 import MyCompleteTaskMobService from '@/app-core/ctrl-service/task/my-complete-task-mob-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -206,7 +206,7 @@ export default class MyCompleteTaskMobBase extends Vue implements ControlInterfa
      * @type {TaskService}
      * @memberof MyCompleteTaskMob
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TaskEntityService = new TaskEntityService();
 
     /**
      * 界面UI服务对象

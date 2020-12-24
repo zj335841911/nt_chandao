@@ -122,7 +122,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TestTaskService from '@/app-core/service/test-task/test-task-service';
+import TestTaskEntityService from '@/app-core/service/test-task/test-task-service';
 import MobblockService from '@/app-core/ctrl-service/test-task/mobblock-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -234,7 +234,7 @@ export default class MobblockBase extends Vue implements ControlInterface {
      * @type {TestTaskService}
      * @memberof Mobblock
      */
-    protected appEntityService: TestTaskService = new TestTaskService();
+    protected appEntityService: TestTaskEntityService = new TestTaskEntityService();
 
     /**
      * 界面UI服务对象

@@ -388,7 +388,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import IbzMonthlyEntityService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
 import MonthlyInfoDingDingService from '@/app-core/ctrl-service/ibz-monthly/monthly-info-ding-ding-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -500,7 +500,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
      * @type {IbzMonthlyService}
      * @memberof MonthlyInfoDingDing
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzMonthlyEntityService = new IbzMonthlyEntityService();
 
     /**
      * 界面UI服务对象

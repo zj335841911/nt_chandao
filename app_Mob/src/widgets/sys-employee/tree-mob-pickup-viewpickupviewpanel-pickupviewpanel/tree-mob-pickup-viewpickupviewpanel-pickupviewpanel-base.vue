@@ -25,7 +25,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SysEmployeeService from '@/app-core/service/sys-employee/sys-employee-service';
+import SysEmployeeEntityService from '@/app-core/service/sys-employee/sys-employee-service';
 import TreeMobPickupViewpickupviewpanelService from '@/app-core/ctrl-service/sys-employee/tree-mob-pickup-viewpickupviewpanel-pickupviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -134,7 +134,7 @@ export default class TreeMobPickupViewpickupviewpanelBase extends Vue implements
      * @type {SysEmployeeService}
      * @memberof TreeMobPickupViewpickupviewpanel
      */
-    protected appEntityService: SysEmployeeService = new SysEmployeeService();
+    protected appEntityService: SysEmployeeEntityService = new SysEmployeeEntityService();
 
     /**
      * 界面UI服务对象

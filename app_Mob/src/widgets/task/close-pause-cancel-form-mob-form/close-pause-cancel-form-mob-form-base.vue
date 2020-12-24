@@ -95,7 +95,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TaskEntityService from '@/app-core/service/task/task-service';
 import ClosePauseCancelFormMobService from '@/app-core/ctrl-service/task/close-pause-cancel-form-mob-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -207,7 +207,7 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
      * @type {TaskService}
      * @memberof ClosePauseCancelFormMob
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TaskEntityService = new TaskEntityService();
 
     /**
      * 界面UI服务对象

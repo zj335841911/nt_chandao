@@ -25,7 +25,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ReleaseService from '@/app-core/service/release/release-service';
+import ReleaseEntityService from '@/app-core/service/release/release-service';
 import MobPickupViewpickupviewpanelService from '@/app-core/ctrl-service/release/mob-pickup-viewpickupviewpanel-pickupviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -134,7 +134,7 @@ export default class MobPickupViewpickupviewpanelBase extends Vue implements Con
      * @type {ReleaseService}
      * @memberof MobPickupViewpickupviewpanel
      */
-    protected appEntityService: ReleaseService = new ReleaseService();
+    protected appEntityService: ReleaseEntityService = new ReleaseEntityService();
 
     /**
      * 界面UI服务对象

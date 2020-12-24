@@ -11,7 +11,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
+import ProductEntityService from '@/app-core/service/product/product-service';
 import ProductStatusPieMobService from '@/app-core/ctrl-service/product/product-status-pie-mob-chart-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -124,7 +124,7 @@ export default class ProductStatusPieMobBase extends Vue implements ControlInter
      * @type {ProductService}
      * @memberof ProductStatusPieMob
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProductEntityService = new ProductEntityService();
 
     /**
      * 界面UI服务对象

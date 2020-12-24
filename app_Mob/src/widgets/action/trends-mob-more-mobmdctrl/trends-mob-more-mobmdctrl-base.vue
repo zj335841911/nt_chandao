@@ -19,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ActionService from '@/app-core/service/action/action-service';
+import ActionEntityService from '@/app-core/service/action/action-service';
 import TrendsMobMoreService from '@/app-core/ctrl-service/action/trends-mob-more-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -128,7 +128,7 @@ export default class TrendsMobMoreBase extends Vue implements ControlInterface {
      * @type {ActionService}
      * @memberof TrendsMobMore
      */
-    protected appEntityService: ActionService = new ActionService();
+    protected appEntityService: ActionEntityService = new ActionEntityService();
 
     /**
      * 界面UI服务对象

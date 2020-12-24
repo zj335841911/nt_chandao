@@ -44,7 +44,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProjectTeamService from '@/app-core/service/project-team/project-team-service';
+import ProjectTeamEntityService from '@/app-core/service/project-team/project-team-service';
 import MobService from '@/app-core/ctrl-service/project-team/mob-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -153,7 +153,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {ProjectTeamService}
      * @memberof Mob
      */
-    protected appEntityService: ProjectTeamService = new ProjectTeamService();
+    protected appEntityService: ProjectTeamEntityService = new ProjectTeamEntityService();
 
     /**
      * 界面UI服务对象

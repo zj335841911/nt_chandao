@@ -152,7 +152,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TaskEntityService from '@/app-core/service/task/task-service';
 import MobActiviteFormService from '@/app-core/ctrl-service/task/mob-activite-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -264,7 +264,7 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
      * @type {TaskService}
      * @memberof MobActiviteForm
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TaskEntityService = new TaskEntityService();
 
     /**
      * 界面UI服务对象

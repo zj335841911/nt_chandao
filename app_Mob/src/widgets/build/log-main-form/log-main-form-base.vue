@@ -146,7 +146,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BuildService from '@/app-core/service/build/build-service';
+import BuildEntityService from '@/app-core/service/build/build-service';
 import LogMainService from '@/app-core/ctrl-service/build/log-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -258,7 +258,7 @@ export default class LogMainBase extends Vue implements ControlInterface {
      * @type {BuildService}
      * @memberof LogMain
      */
-    protected appEntityService: BuildService = new BuildService();
+    protected appEntityService: BuildEntityService = new BuildEntityService();
 
     /**
      * 界面UI服务对象

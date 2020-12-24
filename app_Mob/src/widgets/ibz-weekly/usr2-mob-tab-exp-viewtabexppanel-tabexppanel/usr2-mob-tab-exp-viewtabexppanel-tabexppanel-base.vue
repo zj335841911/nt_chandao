@@ -43,7 +43,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzWeeklyService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
+import IbzWeeklyEntityService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
 import Usr2MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-weekly/usr2-mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -152,7 +152,7 @@ export default class Usr2MobTabExpViewtabexppanelBase extends Vue implements Con
      * @type {IbzWeeklyService}
      * @memberof Usr2MobTabExpViewtabexppanel
      */
-    protected appEntityService: IbzWeeklyService = new IbzWeeklyService();
+    protected appEntityService: IbzWeeklyEntityService = new IbzWeeklyEntityService();
 
     /**
      * 界面UI服务对象

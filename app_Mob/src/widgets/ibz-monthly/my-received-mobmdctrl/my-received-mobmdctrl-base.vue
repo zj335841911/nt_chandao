@@ -89,7 +89,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import IbzMonthlyEntityService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
 import MyReceivedService from '@/app-core/ctrl-service/ibz-monthly/my-received-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -198,7 +198,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * @type {IbzMonthlyService}
      * @memberof MyReceived
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzMonthlyEntityService = new IbzMonthlyEntityService();
 
     /**
      * 界面UI服务对象

@@ -19,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzWeeklyService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
+import IbzWeeklyEntityService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
 import MyWeeklyService from '@/app-core/ctrl-service/ibz-weekly/my-weekly-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -128,7 +128,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
      * @type {IbzWeeklyService}
      * @memberof MyWeekly
      */
-    protected appEntityService: IbzWeeklyService = new IbzWeeklyService();
+    protected appEntityService: IbzWeeklyEntityService = new IbzWeeklyEntityService();
 
     /**
      * 界面UI服务对象

@@ -17,7 +17,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzDailyService from '@/app-core/service/ibz-daily/ibz-daily-service';
+import IbzDailyEntityService from '@/app-core/service/ibz-daily/ibz-daily-service';
 import MyDailyMobTabExpViewtabviewpanelService from '@/app-core/ctrl-service/ibz-daily/my-daily-mob-tab-exp-viewtabviewpanel-tabviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -126,7 +126,7 @@ export default class MyDailyMobTabExpViewtabviewpanelBase extends Vue implements
      * @type {IbzDailyService}
      * @memberof MyDailyMobTabExpViewtabviewpanel
      */
-    protected appEntityService: IbzDailyService = new IbzDailyService();
+    protected appEntityService: IbzDailyEntityService = new IbzDailyEntityService();
 
     /**
      * 界面UI服务对象

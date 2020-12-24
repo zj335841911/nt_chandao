@@ -421,7 +421,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TodoService from '@/app-core/service/todo/todo-service';
+import TodoEntityService from '@/app-core/service/todo/todo-service';
 import MobMainService from '@/app-core/ctrl-service/todo/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -533,7 +533,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {TodoService}
      * @memberof MobMain
      */
-    protected appEntityService: TodoService = new TodoService();
+    protected appEntityService: TodoEntityService = new TodoEntityService();
 
     /**
      * 界面UI服务对象

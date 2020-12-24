@@ -19,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzReportService from '@/app-core/service/ibz-report/ibz-report-service';
+import IbzReportEntityService from '@/app-core/service/ibz-report/ibz-report-service';
 import MyReService from '@/app-core/ctrl-service/ibz-report/my-re-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -128,7 +128,7 @@ export default class MyReBase extends Vue implements ControlInterface {
      * @type {IbzReportService}
      * @memberof MyRe
      */
-    protected appEntityService: IbzReportService = new IbzReportService();
+    protected appEntityService: IbzReportEntityService = new IbzReportEntityService();
 
     /**
      * 界面UI服务对象

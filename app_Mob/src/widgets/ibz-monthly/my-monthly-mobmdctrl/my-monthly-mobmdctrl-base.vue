@@ -19,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import IbzMonthlyEntityService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
 import MyMonthlyService from '@/app-core/ctrl-service/ibz-monthly/my-monthly-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -128,7 +128,7 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
      * @type {IbzMonthlyService}
      * @memberof MyMonthly
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzMonthlyEntityService = new IbzMonthlyEntityService();
 
     /**
      * 界面UI服务对象

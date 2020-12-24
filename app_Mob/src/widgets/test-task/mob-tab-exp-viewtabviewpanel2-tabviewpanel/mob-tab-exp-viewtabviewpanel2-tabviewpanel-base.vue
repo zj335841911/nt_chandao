@@ -17,7 +17,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TestTaskService from '@/app-core/service/test-task/test-task-service';
+import TestTaskEntityService from '@/app-core/service/test-task/test-task-service';
 import MobTabExpViewtabviewpanel2Service from '@/app-core/ctrl-service/test-task/mob-tab-exp-viewtabviewpanel2-tabviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -126,7 +126,7 @@ export default class MobTabExpViewtabviewpanel2Base extends Vue implements Contr
      * @type {TestTaskService}
      * @memberof MobTabExpViewtabviewpanel2
      */
-    protected appEntityService: TestTaskService = new TestTaskService();
+    protected appEntityService: TestTaskEntityService = new TestTaskEntityService();
 
     /**
      * 界面UI服务对象

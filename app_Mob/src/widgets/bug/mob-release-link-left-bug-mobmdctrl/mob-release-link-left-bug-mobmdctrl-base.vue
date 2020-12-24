@@ -99,7 +99,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
+import BugEntityService from '@/app-core/service/bug/bug-service';
 import MOB_ReleaseLink_LeftBugService from '@/app-core/ctrl-service/bug/mob-release-link-left-bug-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -208,7 +208,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
      * @type {BugService}
      * @memberof MOB_ReleaseLink_LeftBug
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: BugEntityService = new BugEntityService();
 
     /**
      * 界面UI服务对象

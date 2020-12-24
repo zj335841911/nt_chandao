@@ -183,7 +183,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzReportlyService from '@/app-core/service/ibz-reportly/ibz-reportly-service';
+import IbzReportlyEntityService from '@/app-core/service/ibz-reportly/ibz-reportly-service';
 import MobCreateService from '@/app-core/ctrl-service/ibz-reportly/mob-create-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -295,7 +295,7 @@ export default class MobCreateBase extends Vue implements ControlInterface {
      * @type {IbzReportlyService}
      * @memberof MobCreate
      */
-    protected appEntityService: IbzReportlyService = new IbzReportlyService();
+    protected appEntityService: IbzReportlyEntityService = new IbzReportlyEntityService();
 
     /**
      * 界面UI服务对象

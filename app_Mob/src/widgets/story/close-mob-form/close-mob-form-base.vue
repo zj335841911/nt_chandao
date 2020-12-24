@@ -126,7 +126,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import CloseMobService from '@/app-core/ctrl-service/story/close-mob-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -238,7 +238,7 @@ export default class CloseMobBase extends Vue implements ControlInterface {
      * @type {StoryService}
      * @memberof CloseMob
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象

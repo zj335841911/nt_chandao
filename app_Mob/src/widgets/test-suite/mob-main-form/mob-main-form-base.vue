@@ -245,7 +245,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
+import TestSuiteEntityService from '@/app-core/service/test-suite/test-suite-service';
 import MobMainService from '@/app-core/ctrl-service/test-suite/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -357,7 +357,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {TestSuiteService}
      * @memberof MobMain
      */
-    protected appEntityService: TestSuiteService = new TestSuiteService();
+    protected appEntityService: TestSuiteEntityService = new TestSuiteEntityService();
 
     /**
      * 界面UI服务对象
