@@ -76,7 +76,7 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
     protected customViewNavContexts: any = {
         'SYSUSER': {
             isRawValue: false,
-            value: 'srfparentkey',
+            value: 'srfuserid',
         }
     };
 
