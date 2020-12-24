@@ -172,7 +172,7 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
                       ruleInfo:"由字母、数字和下划线中两种以上组成且长度大于等于6", 
                       isKeyCond:false,
                       isNotMode:false,
-                      regExCode:/^(?![0-9]+$)(?![a-zA-z]+$)(?!_+$)\w{5,}$/,
+                      regExCode:/^(?![0-9]+$)(?![a-zA-z]+$)(?!_+$)\w{6,}$/,
                       deName:"newpassword",
                   },
                   {
