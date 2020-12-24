@@ -295,7 +295,7 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
      */
     public createDefault() {                    
         if (this.data.hasOwnProperty('username')) {
-            this.data['username'] = this.context['srfusername'];
+            this.data['username'] = this.context['srfloginname'];
         }
     }
 

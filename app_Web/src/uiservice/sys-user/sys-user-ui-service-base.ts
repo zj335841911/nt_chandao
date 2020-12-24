@@ -132,7 +132,10 @@ export default class SysUserUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { sysuser: '%sysuser%' });
+        Object.assign(params, { userid: '%sysuser%' });
+        Object.assign(params, { personname: '%personname%' });
         if(_this.context){
             parentContext = _this.context;
         }

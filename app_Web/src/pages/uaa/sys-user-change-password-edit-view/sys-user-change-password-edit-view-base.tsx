@@ -66,6 +66,20 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
      */
     public appUIService: SysUserUIService = new SysUserUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof SysUserChangePasswordEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'SYSUSER': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *
@@ -112,7 +126,7 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
      * @memberof SysUserChangePasswordEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': false, tooltip: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChangePassword', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': false, tooltip: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChangePassword', target: 'SINGLEKEY', class: '' } },
 
     };
 
