@@ -151,7 +151,7 @@ export default {
 		uiactions: {
 		},
 	},
-	zt_todo_form: {
+	todo_form: {
 		details: {
 			group1: commonLogic.appcommonhandle("待办基本信息",null), 
 			formpage1: commonLogic.appcommonhandle("基本信息",null), 

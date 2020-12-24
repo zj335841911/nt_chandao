@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TodoUsr2MobEditViewBase from './todo-usr2-mob-edit-view-base.vue';
 
-import view_form from '@widgets/todo/zt-todo-form/zt-todo-form.vue';
+import view_form from '@widgets/todo/todo-form/todo-form.vue';
 @Component({
     components: {
         view_form, 
