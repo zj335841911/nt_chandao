@@ -1,32 +1,32 @@
 import { FormServiceBase } from '@/ibiz-core';
 import { Util, HttpResponse } from '@/ibiz-core/utils';
-import { TODOModel } from '@/app-core/ctrl-model/todo/todo-form-model';
+import { TodoModel } from '@/app-core/ctrl-model/todo/todo-form-model';
 
 
 /**
- * TODO 部件服务对象
+ * Todo 部件服务对象
  *
  * @export
- * @class TODOService
+ * @class TodoService
  * @extends {FormServiceBase}
  */
-export class TODOService extends FormServiceBase {
+export class TodoService extends FormServiceBase {
 
     /**
      * 部件模型
      *
      * @protected
-     * @type {TODOModel}
+     * @type {TodoModel}
      * @memberof ControlServiceBase
      */
-    protected model: TODOModel = new TODOModel();
+    protected model: TodoModel = new TodoModel();
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof TODOService
+     * @memberof TodoService
      */
     protected appDEName: string = 'todo';
 
@@ -35,7 +35,7 @@ export class TODOService extends FormServiceBase {
      *
      * @protected
      * @type {string}
-     * @memberof TODOService
+     * @memberof TodoService
      */
     protected appDeKey: string = 'id';
 
@@ -48,7 +48,7 @@ export class TODOService extends FormServiceBase {
      * @param {*} [data]
      * @param {boolean} [isLoading]
      * @returns {Promise<any[]>}
-     * @memberof  TODOService
+     * @memberof  TodoService
      */
     public async getItems(serviceName: string, interfaceName: string, context?: any, data?: any, isLoading?: boolean): Promise<any[]> {
         return [];
@@ -59,7 +59,7 @@ export class TODOService extends FormServiceBase {
      *
      * @protected
      * @param {*} [response={}]
-     * @memberof TODOService
+     * @memberof TodoService
      */
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
@@ -68,4 +68,4 @@ export class TODOService extends FormServiceBase {
 
 }
 // 默认导出
-export default TODOService;
+export default TodoService;

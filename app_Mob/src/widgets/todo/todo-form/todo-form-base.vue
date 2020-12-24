@@ -57,7 +57,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
-import TODOService from '@/app-core/ctrl-service/todo/todo-form-service';
+import TodoService from '@/app-core/ctrl-service/todo/todo-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import TodoUIService from '@/ui-service/todo/todo-ui-action';
@@ -70,13 +70,13 @@ import {  Util } from '@/ibiz-core/utils';
 @Component({
     components: { }
 })
-export default class TODOBase extends Vue implements ControlInterface {
+export default class TodoBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected name?: string;
 
@@ -84,7 +84,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected viewName!: string;
 
@@ -93,7 +93,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -101,7 +101,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -109,7 +109,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -118,7 +118,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -126,7 +126,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected getControlType(): string {
         return 'FORM'
@@ -136,7 +136,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -145,7 +145,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  TODOBase
+     * @memberof  TodoBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -157,16 +157,16 @@ export default class TODOBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {TODOService}
-     * @memberof TODO
+     * @type {TodoService}
+     * @memberof Todo
      */
-    protected service: TODOService = new TODOService({$store:this.$store});
+    protected service: TodoService = new TodoService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
      * @type {TodoService}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected appEntityService: TodoService = new TodoService();
 
@@ -174,7 +174,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 界面UI服务对象
      *
      * @type {TodoUIService}
-     * @memberof TODOBase
+     * @memberof TodoBase
      */  
     public deUIService:TodoUIService = new TodoUIService(this.$store);
     
@@ -183,7 +183,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TODO
+     * @memberof Todo
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -194,7 +194,7 @@ export default class TODOBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() srfwfmemo?: string;
 
@@ -202,7 +202,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof TODO
+     * @memberof Todo
      */
     public getDatas(): any[] {
         return [this.data];
@@ -212,7 +212,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     public getData(): any {
         return this.data;
@@ -222,7 +222,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -230,7 +230,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -238,7 +238,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -246,7 +246,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected WFStartAction!: string;
     
@@ -254,7 +254,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected updateAction!: string;
     
@@ -262,7 +262,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected removeAction!: string;
 
@@ -278,7 +278,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -286,7 +286,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected loadAction!: string;
     
@@ -294,7 +294,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected createAction!: string;
 
@@ -302,7 +302,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected searchAction!: string;
 
@@ -310,7 +310,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof TODO
+     * @memberof Todo
      */
     @Prop() protected viewtag!: string;
 
@@ -318,7 +318,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected formState: Subject<any> = new Subject();
 
@@ -328,7 +328,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof TODOBase
+     * @memberof TodoBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -336,7 +336,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -345,7 +345,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {Subject<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -354,7 +354,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof TODO
+     * @memberof Todo
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -363,7 +363,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     private oldData: any = {};
 
@@ -371,7 +371,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected data: any = {
         srforikey: null,
@@ -390,7 +390,7 @@ export default class TODOBase extends Vue implements ControlInterface {
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof TODO
+      * @memberof Todo
       */
     protected currentAction: string = "";
 
@@ -398,7 +398,7 @@ export default class TODOBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof TODO
+      * @memberof Todo
       */
     protected drcounter: number = 0;
 
@@ -406,7 +406,7 @@ export default class TODOBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof TODO
+      * @memberof Todo
       */
     protected saveState:any ;
 
@@ -414,7 +414,7 @@ export default class TODOBase extends Vue implements ControlInterface {
       * 异常信息缓存
       *
       * @type {any}
-      * @memberof TODO
+      * @memberof Todo
       */
     public errorCache :any = {};
 
@@ -422,7 +422,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected rules: any = {
     }
@@ -431,7 +431,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof TODOBase
+     * @memberof TodoBase
      */
     public deRules:any = {
     };
@@ -511,7 +511,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '待办基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'todo.todo_form', extractMode: 'ITEM', details: [] } })
@@ -543,7 +543,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -555,7 +555,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -567,7 +567,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -579,7 +579,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -591,7 +591,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -603,7 +603,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -615,7 +615,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -627,7 +627,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.name')
     onNameChange(newVal: any, oldVal: any) {
@@ -639,7 +639,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TODO
+     * @memberof Todo
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
@@ -652,7 +652,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof TODO
+     * @memberof Todo
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -678,7 +678,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof TODO
+     * @memberof Todo
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
@@ -726,7 +726,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @public
      * @param {{ filter: string}} { filter}
      * @returns {void}
-     * @memberof TODO
+     * @memberof Todo
      */
     public async validAll(filter:string = "defult") {
         let validateState = true;
@@ -749,7 +749,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof TODO
+     * @memberof Todo
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -767,7 +767,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof TODO
+     * @memberof Todo
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -783,7 +783,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof TODO
+     * @memberof Todo
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -808,7 +808,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @protected
      * @param {*} data
-     * @memberof TODO
+     * @memberof Todo
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -824,7 +824,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @private
-     * @memberof TODO
+     * @memberof Todo
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -836,7 +836,7 @@ export default class TODOBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof TODO
+     * @memberof Todo
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -852,7 +852,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof TODO
+     * @memberof Todo
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -870,7 +870,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected getValues(): any {
         return this.data;
@@ -881,7 +881,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -899,7 +899,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -917,7 +917,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof TODO
+     * @memberof Todo
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -929,7 +929,7 @@ export default class TODOBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof TODO
+     * @memberof Todo
      */
     protected created(): void {
         this.afterCreated();
@@ -938,7 +938,7 @@ export default class TODOBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof TODO
+     *  @memberof Todo
      */    
     protected afterCreated(){
         if(this.isautoload){
@@ -1004,7 +1004,7 @@ export default class TODOBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof TODO
+     * @memberof Todo
      */
     protected destroyed() {
         this.afterDestroy();
@@ -1013,7 +1013,7 @@ export default class TODOBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof TODO
+     * @memberof Todo
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1031,7 +1031,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof TODO
+     * @memberof @memberof Todo
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -1041,7 +1041,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof TODO
+     * @memberof Todo
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -1064,7 +1064,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1086,7 +1086,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -1114,7 +1114,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -1148,7 +1148,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -1192,7 +1192,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -1291,7 +1291,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -1314,7 +1314,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -1341,7 +1341,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1382,7 +1382,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof TODO
+     * @memberof Todo
      */
     protected onEnter($event: any): void {
     }
@@ -1393,7 +1393,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -1411,7 +1411,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1430,7 +1430,7 @@ export default class TODOBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof TODO
+     * @memberof Todo
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1445,7 +1445,7 @@ export default class TODOBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof TODO
+    * @memberof Todo
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -1468,14 +1468,14 @@ export default class TODOBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof TODO
+     * @memberof Todo
      */
     public createDefault(){                    
     }
 
         /**
      * 更新默认值
-     * @memberof TODOBase
+     * @memberof TodoBase
      */
     public updateDefault(){                    
     }

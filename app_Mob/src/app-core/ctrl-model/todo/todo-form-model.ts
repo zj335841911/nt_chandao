@@ -1,16 +1,16 @@
 /**
- * TODO 部件模型
+ * Todo 部件模型
  *
  * @export
- * @class TODOModel
+ * @class TodoModel
  */
-export class TODOModel {
+export class TodoModel {
 
     /**
     * 获取数据项集合
     *
     * @returns {any[]}
-    * @memberof TODOModel
+    * @memberof TodoModel
     */
     public getDataItems(): any[] {
         return [
@@ -65,4 +65,4 @@ export class TODOModel {
 
 }
 // 默认导出
-export default TODOModel;
+export default TodoModel;

@@ -1,6 +1,6 @@
 <script lang='ts'>
 import { Component } from 'vue-property-decorator';
-import TODOBase from './todo-form-base.vue';
+import TodoBase from './todo-form-base.vue';
 
  
 @Component({
@@ -8,7 +8,7 @@ import TODOBase from './todo-form-base.vue';
          
     }
 })
-export default class TODO extends TODOBase {
+export default class Todo extends TodoBase {
 
 }
 </script>
