@@ -131,7 +131,7 @@ export default class SysUserUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(params,{originalpassword:"%originalpassword%"});
+        Object.assign(params,{originalpassword:"%originalpassword%",newpassword:"%newpassword%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { sysuser: '%sysuser%' });
