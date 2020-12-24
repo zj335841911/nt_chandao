@@ -64,6 +64,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			changepasswordeditviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Save And Close",null),
+					tip: commonLogic.appcommonhandle("Save And Close Window",null),
+				},
+			},
 		};
 		return data;
 }
