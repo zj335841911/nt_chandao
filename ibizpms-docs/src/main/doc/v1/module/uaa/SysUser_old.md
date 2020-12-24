@@ -46,6 +46,7 @@ hide members
 |超级管理员|SUPERUSER|YESNO|&nbsp;|
 |原密码|ORIGINALPASSWORD|TEXT|&nbsp;|
 |新密码|NEWPASSWORD|TEXT|&nbsp;|
+|重复密码|REPEATPASSWORD|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -83,7 +84,9 @@ hide members
 |保留|默认规则|内容长度必须小于等于[255]|
 |超级管理员|默认规则|默认规则|
 |原密码|默认规则|内容长度必须小于等于[100]|
+|新密码|新密码值规则校验|新密码值规则校验|
 |新密码|默认规则|内容长度必须小于等于[100]|
+|重复密码|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

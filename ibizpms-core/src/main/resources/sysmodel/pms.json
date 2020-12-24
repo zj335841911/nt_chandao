@@ -37205,6 +37205,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"REPEATPASSWORD" ,
+    "codename":"Repeatpassword",
+    "field_logic_name":"重复密码",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

@@ -336,6 +336,15 @@ public class SysUserDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String newpassword;
 
+    /**
+     * 属性 [REPEATPASSWORD]
+     *
+     */
+    @JSONField(name = "repeatpassword")
+    @JsonProperty("repeatpassword")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String repeatpassword;
+
 
     /**
      * 设置 [USERNAME]

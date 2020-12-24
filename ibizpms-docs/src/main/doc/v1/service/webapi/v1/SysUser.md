@@ -259,5 +259,6 @@ POST
 | 32 | superuser | Integer | 允许 | 超级管理员 |
 | 33 | originalpassword | String | 允许 | 原密码 |
 | 34 | newpassword | String | 允许 | 新密码 |
-| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 35 | repeatpassword | String | 允许 | 重复密码 |
+| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
 
