@@ -40,6 +40,9 @@ export default {
 		newmobeditview: {
 			caption: commonLogic.appcommonhandle("快速新建",null),
 		},
+		usr2mobeditview: {
+			caption: commonLogic.appcommonhandle("待办",null),
+		},
 		moblistview: {
 			caption: commonLogic.appcommonhandle("待办",null),
 		},
@@ -148,6 +151,23 @@ export default {
 		uiactions: {
 		},
 	},
+	zt_todo_form: {
+		details: {
+			group1: commonLogic.appcommonhandle("待办基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("待办名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			name: commonLogic.appcommonhandle("待办名称",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: commonLogic.appcommonhandle("Save And Close",null),
@@ -161,6 +181,12 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	usr2mobeditviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("Save And Close",null),
+			tip: 'deuiaction1',
+		},
 	},
 	moblistviewrighttoolbar_toolbar: {
 	},

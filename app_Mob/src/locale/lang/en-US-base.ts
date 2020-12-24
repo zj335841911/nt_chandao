@@ -185,6 +185,7 @@ export default {
                 menuitem8: commonLogic.appcommonhandle("更新日志",null),
                 menuitem9: commonLogic.appcommonhandle("登录地图test",null),
                 menuitem10: commonLogic.appcommonhandle("头像",null),
+                menuitem11: commonLogic.appcommonhandle("测试",null),
             },
             my: {
                 menuitem6: commonLogic.appcommonhandle("我的待办",null),

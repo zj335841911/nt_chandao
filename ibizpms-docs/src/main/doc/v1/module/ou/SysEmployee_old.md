@@ -45,6 +45,9 @@ hide members
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|原密码|ORIGINALPASSWORD|TEXT|&nbsp;|
+|新密码|NEWPASSWORD|TEXT|&nbsp;|
+|重复密码|REPEATPASSWORD|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -80,6 +83,10 @@ hide members
 |更新人|默认规则|内容长度必须小于等于[60]|
 |建立人|默认规则|内容长度必须小于等于[60]|
 |更新时间|默认规则|默认规则|
+|原密码|默认规则|内容长度必须小于等于[100]|
+|新密码|新密码值规则校验|(新密码和重复密码相等 并且 新密码与原密码不相等)|
+|新密码|默认规则|内容长度必须小于等于[100]|
+|重复密码|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

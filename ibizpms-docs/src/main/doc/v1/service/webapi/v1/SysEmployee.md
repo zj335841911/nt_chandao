@@ -580,5 +580,8 @@ POST
 | 29 | updateman | String | 不可 | 更新人 |
 | 30 | createman | String | 不可 | 建立人 |
 | 31 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 32 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 32 | originalpassword | String | 允许 | 原密码 |
+| 33 | newpassword | String | 允许 | 新密码 |
+| 34 | repeatpassword | String | 允许 | 重复密码 |
+| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
 

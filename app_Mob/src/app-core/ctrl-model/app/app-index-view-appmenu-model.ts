@@ -185,6 +185,25 @@ export class AppIndexViewModel {
 	resourcetag: '',
 	authtag:'Mob-AppIndexView-menuitem10',
 },
+        {
+	id: '9F68027B-D8E0-4A48-9AFB-5D26BEED2773',
+	name: 'menuitem11',
+	text: '测试',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '测试',
+	expanded: false,
+	separator: false,
+	hidden: false,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc15',
+	resourcetag: '',
+	authtag:'Mob-AppIndexView-menuitem11',
+},
     ];
 
 	/**
@@ -296,6 +315,19 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'mobmdview', parameterName: 'mobmdview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc15',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'todo-usr2-mob-edit-view', 
+            codename: 'todousr2mobeditview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/todos/:todo?/usr2mobeditview/:usr2mobeditview?',
+            parameters: [
+                { pathName: 'todos', parameterName: 'todo' },
+                { pathName: 'usr2mobeditview', parameterName: 'usr2mobeditview' },
             ],
         },
         {

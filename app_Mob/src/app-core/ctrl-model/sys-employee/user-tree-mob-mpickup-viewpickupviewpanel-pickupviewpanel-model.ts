@@ -108,6 +108,15 @@ export class UserTreeMobMPickupViewpickupviewpanelModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'originalpassword',
+      },
+      {
+        name: 'newpassword',
+      },
+      {
+        name: 'repeatpassword',
+      },
     ]
   }
 

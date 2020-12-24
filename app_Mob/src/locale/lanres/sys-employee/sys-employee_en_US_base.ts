@@ -32,6 +32,9 @@ export default {
     updateMan:  commonLogic.appcommonhandle("更新人",null),
     createMan:  commonLogic.appcommonhandle("建立人",null),
     updateDate:  commonLogic.appcommonhandle("更新时间",null),
+    originalpassword:  commonLogic.appcommonhandle("原密码",null),
+    newpassword:  commonLogic.appcommonhandle("新密码",null),
+    repeatpassword:  commonLogic.appcommonhandle("重复密码",null),
   },
 	views: {
 		mpkmobpickuptreeview: {
