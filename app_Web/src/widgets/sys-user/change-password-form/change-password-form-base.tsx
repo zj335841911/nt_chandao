@@ -116,7 +116,33 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            originalpassword: [
+                {
+                    required: this.detailsModel.originalpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.originalpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.originalpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.originalpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
+        ],
             newpassword: [
+                {
+                    required: this.detailsModel.newpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.newpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.newpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.newpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
                 {
                     validator: (rule: any, value: any) => {
                         return this.verifyDeRules("newpassword").isPast;
@@ -133,6 +159,18 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
                 },
         ],
             repeatpassword: [
+                {
+                    required: this.detailsModel.repeatpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.repeatpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.repeatpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.repeatpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
                 {
                     validator: (rule: any, value: any) => {
                         return this.verifyDeRules("repeatpassword").isPast;
@@ -279,21 +317,21 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
 
         originalpassword: new FormItemModel({
     caption: '原密码', detailType: 'FORMITEM', name: 'originalpassword', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         newpassword: new FormItemModel({
     caption: '新密码', detailType: 'FORMITEM', name: 'newpassword', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         repeatpassword: new FormItemModel({
     caption: '重复密码', detailType: 'FORMITEM', name: 'repeatpassword', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
