@@ -115,6 +115,23 @@ public class SysEmployeeResource {
         return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(sysemployeeService.getDraft(new SysEmployee())));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-Changepwd-all')")
+    @ApiOperation(value = "修改密码", tags = {"人员" },  notes = "修改密码")
+	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/{sysemployee_id}/changepwd")
+    public ResponseEntity<SysEmployeeDTO> changepwd(@PathVariable("sysemployee_id") String sysemployee_id, @RequestBody SysEmployeeDTO sysemployeedto) {
+        SysEmployee domain = sysemployeeMapping.toDomain(sysemployeedto);
+        domain.setUserid(sysemployee_id);
+        domain = sysemployeeService.changepwd(domain);
+        sysemployeedto = sysemployeeMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysemployeedto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-Changepwd-all')")
+    @ApiOperation(value = "批量处理[修改密码]", tags = {"人员" },  notes = "批量处理[修改密码]")
+	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/{sysemployee_id}/changepwdbatch")
+    public ResponseEntity<Boolean> changepwdBatch(@RequestBody List<SysEmployeeDTO> sysemployeedtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.changepwdBatch(sysemployeeMapping.toDomain(sysemployeedtos)));
+    }
+
     @ApiOperation(value = "检查人员", tags = {"人员" },  notes = "检查人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody SysEmployeeDTO sysemployeedto) {

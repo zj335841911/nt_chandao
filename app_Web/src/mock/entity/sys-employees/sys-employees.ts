@@ -195,6 +195,44 @@ mock.onGet(new RegExp(/^\/sysemployees\/getdraft$/)).reply((config: any) => {
     return [status, {}];
 });
         
+// Changepwd
+mock.onPost(new RegExp(/^\/sysemployees\/?([a-zA-Z0-9\-\;]{0,35})\/changepwd$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: Changepwd");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['userid'];
+    const matchArray:any = new RegExp(/^\/sysemployees\/([a-zA-Z0-9\-\;]{1,35})\/changepwd$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.userid, tempValue.userid));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['userid'] == tempValue['userid'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
 // CheckKey
 mock.onPost(new RegExp(/^\/sysemployees\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
     console.groupCollapsed("实体:sysemployee 方法: CheckKey");

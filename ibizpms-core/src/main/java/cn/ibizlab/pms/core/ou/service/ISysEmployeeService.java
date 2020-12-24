@@ -42,6 +42,8 @@ public interface ISysEmployeeService {
     void removeBatch(Collection<String> idList);
     SysEmployee get(String key);
     SysEmployee getDraft(SysEmployee et);
+    SysEmployee changepwd(SysEmployee et);
+    boolean changepwdBatch(List<SysEmployee> etList);
     boolean checkKey(SysEmployee et);
     boolean save(SysEmployee et);
     void saveBatch(List<SysEmployee> list);

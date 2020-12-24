@@ -116,6 +116,23 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
 
     @Override
+    @Transactional
+    public SysEmployee changepwd(SysEmployee et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean changepwdBatch(List<SysEmployee> etList) {
+        for(SysEmployee et : etList) {
+            changepwd(et);
+        }
+        return true;
+    }
+
+
+
+    @Override
     public boolean checkKey(SysEmployee et) {
         return sysEmployeeFeignClient.checkKey(et);
     }

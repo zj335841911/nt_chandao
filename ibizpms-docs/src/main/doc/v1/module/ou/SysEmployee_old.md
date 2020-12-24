@@ -101,6 +101,7 @@ hide members
 |Remove|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
+|修改密码|用户自定义|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |Save|内置方法|&nbsp;|
 
