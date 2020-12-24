@@ -116,22 +116,6 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
-            newpassword: [
-                {
-                    validator: (rule: any, value: any) => {
-                        return this.verifyDeRules("newpassword").isPast;
-                    },
-                    message: this.verifyDeRules("newpassword").infoMessage,
-                    trigger: 'change',
-                },
-                {
-                    validator: (rule: any, value: any) => {
-                        return this.verifyDeRules("newpassword").isPast;
-                    },
-                    message: this.verifyDeRules("newpassword").infoMessage,
-                    trigger: 'blur',
-                },
-        ],
         }
     }
 
@@ -142,56 +126,6 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
      * @memberof ChangePasswordBase
      */
     public deRules:any = {
-        newpassword:[
-                  {
-                      type:"GROUP",
-                      condOP:"AND",
-                      ruleInfo:"(长度大于等于6，由字母、数字、下划线中两种以上组成 并且 新密码不等于原密码 并且 新密码不等于用户名 并且 新密码等于重复密码)", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      group:[
-                  {
-                      type:"REGEX",
-                      condOP:"",
-                      ruleInfo:"长度大于等于6，由字母、数字、下划线中两种以上组成", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      regExCode:/^(?![0-9]+$)(?![a-zA-z]+$)(?!_+$)\\w{6,}$/,
-                      deName:"newpassword",
-                  },
-                  {
-                      type:"SIMPLE",
-                      condOP:"NOTEQ",
-                      ruleInfo:"新密码不等于原密码", 
-                      isKeyCond:false,
-                      paramValue:"ORIGINALPASSWORD",
-                      paramType:"ENTITYFIELD",
-                      isNotMode:false,
-                      deName:"newpassword",
-                  },
-                  {
-                      type:"SIMPLE",
-                      condOP:"NOTEQ",
-                      ruleInfo:"新密码不等于用户名", 
-                      isKeyCond:false,
-                      paramValue:"USERNAME",
-                      paramType:"ENTITYFIELD",
-                      isNotMode:false,
-                      deName:"newpassword",
-                  },
-                  {
-                      type:"SIMPLE",
-                      condOP:"EQ",
-                      ruleInfo:"新密码等于重复密码", 
-                      isKeyCond:false,
-                      paramValue:"REPEATPASSWORD",
-                      paramType:"ENTITYFIELD",
-                      isNotMode:false,
-                      deName:"newpassword",
-                  },
-                        ]
-                  },
-                ],
     };
 
     /**
