@@ -61,6 +61,10 @@ public class SysUserFallback implements SysUserFeignClient {
 
 
 
+    public SysUser changePwd( String userid, SysUser sysuser) {
+        return null;
+    }
+
     public Boolean checkKey(SysUser sysuser) {
         return false;
     }

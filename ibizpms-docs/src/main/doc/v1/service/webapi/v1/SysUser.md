@@ -130,6 +130,25 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUserDTO](#SysUserDTO)：系统用户实体传输对象 |
 
+### 修改密码
+#### 访问路径
+/sysusers/{sysuser_id}/changepwd
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | sysuser_id | String | 系统用户主键ID |
+| 2 | sysuserdto | [SysUserDTO](#SysUserDTO) | 系统用户实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SysUserDTO](#SysUserDTO)：系统用户实体传输对象 |
+
 ### 检查系统用户
 #### 访问路径
 /sysusers/checkkey

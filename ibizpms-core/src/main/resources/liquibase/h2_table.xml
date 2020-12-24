@@ -1509,7 +1509,7 @@
 
 
     <!--输出实体[IBZPRO_CONFIG]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_config-39-54">
+    <changeSet author="zentao" id="tab-ibzpro_config-40-54">
         <createTable tableName="T_IBZPRO_CONFIG">
                 <column name="IBZPRO_CONFIGNAME" remarks="" type="VARCHAR(200)">
                 </column>

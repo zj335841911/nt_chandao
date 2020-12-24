@@ -61,10 +61,6 @@ public class SysEmployeeFallback implements SysEmployeeFeignClient {
 
 
 
-    public SysEmployee changepwd( String userid, SysEmployee sysemployee) {
-        return null;
-    }
-
     public Boolean checkKey(SysEmployee sysemployee) {
         return false;
     }

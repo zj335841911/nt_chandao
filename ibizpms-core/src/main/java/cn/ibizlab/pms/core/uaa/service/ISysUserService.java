@@ -42,6 +42,8 @@ public interface ISysUserService {
     void removeBatch(Collection<String> idList);
     SysUser get(String key);
     SysUser getDraft(SysUser et);
+    SysUser changePwd(SysUser et);
+    boolean changePwdBatch(List<SysUser> etList);
     boolean checkKey(SysUser et);
     boolean save(SysUser et);
     void saveBatch(List<SysUser> list);

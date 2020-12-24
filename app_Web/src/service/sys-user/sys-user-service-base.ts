@@ -141,6 +141,20 @@ export default class SysUserServiceBase extends EntityService {
     }
 
     /**
+     * ChangePwd接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysUserServiceBase
+     */
+    public async ChangePwd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/sysusers/${context.sysuser}/changepwd`,data,isloading);
+            return res;
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]

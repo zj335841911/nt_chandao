@@ -240,6 +240,35 @@
         </tab-pane>
         <tab-pane
             :index="8"
+            name="tabviewpanel13"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel13'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel13.caption')),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel13 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel13"
+    name="tabviewpanel13"  
+    ref="tabviewpanel13"
+    :expActive="activatedTabViewPanel === 'tabviewpanel13'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel13>
+        </tab-pane>
+        <tab-pane
+            :index="9"
             name="tabviewpanel9"
             tab="tabexpviewtabexppanel"
             class=""
@@ -268,7 +297,7 @@
 </view_tabviewpanel9>
         </tab-pane>
         <tab-pane
-            :index="9"
+            :index="10"
             name="tabviewpanel8"
             tab="tabexpviewtabexppanel"
             class=""
@@ -297,7 +326,7 @@
 </view_tabviewpanel8>
         </tab-pane>
         <tab-pane
-            :index="10"
+            :index="11"
             name="tabviewpanel11"
             tab="tabexpviewtabexppanel"
             class=""
@@ -326,7 +355,7 @@
 </view_tabviewpanel11>
         </tab-pane>
         <tab-pane
-            :index="11"
+            :index="12"
             name="tabviewpanel12"
             tab="tabexpviewtabexppanel"
             class=""

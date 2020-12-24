@@ -39,6 +39,37 @@ function getLocaleResourceBase(){
 			newpassword: commonLogic.appcommonhandle("新密码",null),
 			repeatpassword: commonLogic.appcommonhandle("重复密码",null),
 		},
+			views: {
+				changepasswordeditview: {
+					caption: commonLogic.appcommonhandle("修改密码",null),
+					title: commonLogic.appcommonhandle("系统用户编辑视图",null),
+				},
+			},
+			changepassword_form: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("基本信息",null), 
+					srforikey: commonLogic.appcommonhandle("",null), 
+					srfkey: commonLogic.appcommonhandle("用户标识",null), 
+					srfmajortext: commonLogic.appcommonhandle("用户姓名",null), 
+					srftempmode: commonLogic.appcommonhandle("",null), 
+					srfuf: commonLogic.appcommonhandle("",null), 
+					srfdeid: commonLogic.appcommonhandle("",null), 
+					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					username: commonLogic.appcommonhandle("用户名",null), 
+					originalpassword: commonLogic.appcommonhandle("原密码",null), 
+					newpassword: commonLogic.appcommonhandle("新密码",null), 
+					repeatpassword: commonLogic.appcommonhandle("重复密码",null), 
+					userid: commonLogic.appcommonhandle("用户标识",null), 
+				},
+				uiactions: {
+				},
+			},
+			changepasswordeditviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("保存",null),
+					tip: commonLogic.appcommonhandle("保存",null),
+				},
+			},
 		};
 		return data;
 }

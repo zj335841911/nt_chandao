@@ -782,6 +782,7 @@ SRFNAVPARAM.project=%project%|
 |-|解决Bug|DEOPTVIEW|&nbsp;|
 |-|我的工作|DELISTVIEW|&nbsp;|
 |-|测试套件数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|系统用户编辑视图|DEEDITVIEW|&nbsp;|
 |-|我的待办|DEGRIDVIEW9|&nbsp;|
 |-|系统插件表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|

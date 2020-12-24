@@ -55,6 +55,10 @@ public interface SysUserFeignClient {
     SysUser getDraft();
 
 
+    @RequestMapping(method = RequestMethod.POST, value = "/sysusers/{userid}/changepwd")
+    SysUser changePwd(@PathVariable("userid") String userid, @RequestBody SysUser sysuser);
+
+
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers/checkkey")
     Boolean checkKey(@RequestBody SysUser sysuser);
 

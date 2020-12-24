@@ -4023,6 +4023,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestSuiteMainDashboardView",
             "viewtag": "c2e4200fb7c9760b4931b43561289980"
         },
+        "sysuserchangepasswordeditview": {
+            "title": "系统用户编辑视图",
+            "caption": "修改密码",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "uaa",
+            "viewname": "SysUserChangePasswordEditView",
+            "viewtag": "c3e6eea97c71f24dcf4115546b5ec769"
+        },
         "todogridview9": {
             "title": "我的待办",
             "caption": "我的待办",
