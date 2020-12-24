@@ -132,7 +132,6 @@
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="110"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                           <i class="fa fa-hand-o-right"></i>
                         {{$t('entities.task.main_grid.columns.assignedto')}}
                        </span>
                     </template>

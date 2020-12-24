@@ -116,6 +116,76 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            originalpassword: [
+                {
+                    required: this.detailsModel.originalpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.originalpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.originalpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.originalpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
+        ],
+            newpassword: [
+                {
+                    required: this.detailsModel.newpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.newpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.newpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.newpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("newpassword").isPast;
+                    },
+                    message: this.verifyDeRules("newpassword").infoMessage,
+                    trigger: 'change',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("newpassword").isPast;
+                    },
+                    message: this.verifyDeRules("newpassword").infoMessage,
+                    trigger: 'blur',
+                },
+        ],
+            repeatpassword: [
+                {
+                    required: this.detailsModel.repeatpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.repeatpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.repeatpassword.required,
+                    type: 'string',
+                    message: `${this.$t('entities.sysuser.changepassword_form.details.repeatpassword')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("repeatpassword").isPast;
+                    },
+                    message: this.verifyDeRules("repeatpassword").infoMessage,
+                    trigger: 'change',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("repeatpassword").isPast;
+                    },
+                    message: this.verifyDeRules("repeatpassword").infoMessage,
+                    trigger: 'blur',
+                },
+        ],
         }
     }
 
@@ -126,6 +196,58 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
      * @memberof ChangePasswordBase
      */
     public deRules:any = {
+        newpassword:[
+                  {
+                      type:"GROUP",
+                      condOP:"AND",
+                      ruleInfo:"(由字母、数字和下划线中两种以上组成且长度大于等于6 并且 新密码不能与原密码相同 并且 新密码不能用户名相同)", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      group:[
+                  {
+                      type:"REGEX",
+                      condOP:"",
+                      ruleInfo:"由字母、数字和下划线中两种以上组成且长度大于等于6", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      regExCode:/^(?![0-9]+$)(?![a-zA-z]+$)(?!_+$)\w{6,}$/,
+                      deName:"newpassword",
+                  },
+                  {
+                      type:"SIMPLE",
+                      condOP:"NOTEQ",
+                      ruleInfo:"新密码不能与原密码相同", 
+                      isKeyCond:false,
+                      paramValue:"ORIGINALPASSWORD",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"newpassword",
+                  },
+                  {
+                      type:"SIMPLE",
+                      condOP:"NOTEQ",
+                      ruleInfo:"新密码不能用户名相同", 
+                      isKeyCond:false,
+                      paramValue:"USERNAME",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"newpassword",
+                  },
+                        ]
+                  },
+                ],
+        repeatpassword:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"EQ",
+                      ruleInfo:"重复密码错误", 
+                      isKeyCond:false,
+                      paramValue:"NEWPASSWORD",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"repeatpassword",
+                  },
+                ],
     };
 
     /**
@@ -195,21 +317,21 @@ export class ChangePasswordEditFormBase extends EditFormControlBase {
 
         originalpassword: new FormItemModel({
     caption: '原密码', detailType: 'FORMITEM', name: 'originalpassword', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         newpassword: new FormItemModel({
     caption: '新密码', detailType: 'FORMITEM', name: 'newpassword', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         repeatpassword: new FormItemModel({
     caption: '重复密码', detailType: 'FORMITEM', name: 'repeatpassword', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),

@@ -126,7 +126,7 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
      * @memberof SysUserChangePasswordEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': false, tooltip: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChangePassword', target: 'SINGLEKEY', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -259,9 +259,41 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:SysUserUIService  = new SysUserUIService();
-        curUIService.SysUser_ChangePassword(datas,contextJO, paramJO,  $event, xData,this,"SysUser");
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"SysUser");
     }
 
+    /**
+     * 保存并关闭
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof SysUserChangePasswordEditViewBase
+     */
+    public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (xData && xData.saveAndExit instanceof Function) {
+            xData.saveAndExit().then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
+            });
+        } else if (_this.saveAndExit && _this.saveAndExit instanceof Function) {
+            _this.saveAndExit().then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
+            });
+        }
+    }
 
 }

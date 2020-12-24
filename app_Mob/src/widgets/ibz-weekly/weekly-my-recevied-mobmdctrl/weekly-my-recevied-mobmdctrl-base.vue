@@ -1039,26 +1039,28 @@ export default class WeeklyMyReceviedBase extends Vue implements ControlInterfac
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
+        item.checked = !item.checked;
         let count = this.selectedArray.findIndex((i) => {
             return i.ibzweeklyid == item.ibzweeklyid;
         });
-        let tempFalg = false;
         if(count == -1){
-            tempFalg = true;
             this.selectedArray.push(item);
         }else{
             this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
             if(_item.ibzweeklyid == item.ibzweeklyid){
-                this.items[index].checked = tempFalg;
+                this.items[index].checked = item.checked;
             }
         });
-        if(!item.checked){
-            this.$emit("checkBoxChange",false)
-        }else if(this.selectedArray.length == this.items.length){
-            this.$emit("checkBoxChange",true)
+        if(this.selectedArray.length == this.items.length){
+            this.$emit("checkBoxChange",{isSelectAll:true,isSelectSome:true})
+        }else if(this.selectedArray.length == 0){
+            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:false})
+        }else{
+            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:true})
         }
+        this.$forceUpdate();
     }
 
     /**

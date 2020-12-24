@@ -339,7 +339,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
             return;
         }
         this.viewState.next({ tag: 'tabexppanel', action: 'active', data: { activeItem: value } });
-        this.setLocalStorage(value);     
+        this.setCacheTabkey(value);     
     }
 
     /**
@@ -359,11 +359,9 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */    
-    public setLocalStorage(value:any) {
-        let name:string = 'ibzmyterritory';
-        let id:any = this.context.ibzmyterritory;
-        let obj:any = {"name":name,"id":id,"value":value};
-        localStorage.setItem('tabKey',JSON.stringify(obj));    
+    public setCacheTabkey(value:any) {
+        const cacheTab:any = {name:'ibzmyterritory',id:this.context.ibzmyterritory,value:value,viewtag: this.viewtag};
+        localStorage.setItem('tabKey',JSON.stringify(cacheTab));    
     }
     /**
      * localStorage取值
@@ -372,12 +370,12 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */
-    public getLocalStorage() {
-        let key:any = localStorage.getItem('tabKey')
-        if(key){
-        let info:any = JSON.parse(key);
-        if (info.name && info.name == 'ibzmyterritory' && info.id && info.id == this.context.ibzmyterritory) {
-          this.activiedTabViewPanel = info.value;
+    public getCacheTabkey() {
+        const _cacheTabKey: any = localStorage.getItem('tabKey')
+        if(_cacheTabKey){
+        let cacheTabKey:any = JSON.parse(_cacheTabKey);
+        if (cacheTabKey.name && cacheTabKey.name == 'ibzmyterritory' && cacheTabKey.id && cacheTabKey.id == this.context.ibzmyterritory && cacheTabKey.viewtag === this.viewtag) {
+          this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel';
         }
@@ -427,7 +425,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.getLocalStorage();
+        this.getCacheTabkey();
 
 
     }

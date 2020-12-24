@@ -4,11 +4,6 @@
                 <ion-list class="items" ref="ionlist" >
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <app-task-list  :item="item"></app-task-list>
-                      <app-mob-button 
-                        v-if="!isTempMode && !allLoaded && needLoadMore" 
-                        class="loadmore_btn" 
-                        :text="$t('app.button.loadmore')"  
-                        @click="loadBottom" />
                   </template>
                 </ion-list>
                 <ion-list class="items" ref="ionlist"  >
@@ -1413,26 +1408,28 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
+        item.checked = !item.checked;
         let count = this.selectedArray.findIndex((i) => {
             return i.id == item.id;
         });
-        let tempFalg = false;
         if(count == -1){
-            tempFalg = true;
             this.selectedArray.push(item);
         }else{
             this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
             if(_item.id == item.id){
-                this.items[index].checked = tempFalg;
+                this.items[index].checked = item.checked;
             }
         });
-        if(!item.checked){
-            this.$emit("checkBoxChange",false)
-        }else if(this.selectedArray.length == this.items.length){
-            this.$emit("checkBoxChange",true)
+        if(this.selectedArray.length == this.items.length){
+            this.$emit("checkBoxChange",{isSelectAll:true,isSelectSome:true})
+        }else if(this.selectedArray.length == 0){
+            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:false})
+        }else{
+            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:true})
         }
+        this.$forceUpdate();
     }
 
     /**

@@ -66,8 +66,8 @@ function getLocaleResourceBase(){
 			},
 			changepasswordeditviewtoolbar_toolbar: {
 				deuiaction1: {
-					caption: commonLogic.appcommonhandle("保存",null),
-					tip: commonLogic.appcommonhandle("保存",null),
+					caption: commonLogic.appcommonhandle("保存并关闭",null),
+					tip: commonLogic.appcommonhandle("保存并关闭",null),
 				},
 			},
 		};

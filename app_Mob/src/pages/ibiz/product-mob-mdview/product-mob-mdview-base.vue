@@ -128,7 +128,12 @@
         </div>
                 <div v-show="isChoose" class="batch_btn">
                     <div class="selectall" v-show="isChoose">
-                        <ion-checkbox ref="selectAll"  :checked="isSelectAll"   @click="onSelectallClick(!isSelectAll)" ></ion-checkbox>
+                        <app-mob-icon 
+                            position="start"
+                            :name=" isSelectAll? 'checkmark-circle-outline' : isSelectSome? 'remove-circle-outline' : 'ellipse-outline' " 
+                            class="selectall-icon" 
+                            @onClick="onSelectallClick(isSelectAll)"
+                        ></app-mob-icon>
                         <ion-label class="selectal-label">全选</ion-label>
                     </div>
                     <div class="batch_btn_content">
@@ -1241,13 +1246,12 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */ 
     public onSelectallClick(value: any) {
+        value = !value;
+        this.isSelectAll = value;
+        if(!this.isSelectAll){
+            this.isSelectSome = false;
+        }
         setTimeout(() => {
-            this.isSelectAll = value;
-            let selectAlls: any = this.$refs.selectAll;
-            if (selectAlls) {
-                selectAlls.checked = value;
-                selectAlls.ariaChecked = value;
-            }
             let mdctrl: any = this.$refs.mdctrl;
             if (mdctrl && mdctrl.checkboxAll && this.$util.isFunction(mdctrl.checkboxAll)) {
                 mdctrl.checkboxAll(value);
@@ -1264,17 +1268,20 @@ export default class ProductMobMDViewBase extends Vue {
     public isSelectAll:boolean = false;
 
     /**
+     * 是否选择一部分
+     * 
+     * @memberof ProductMobMDViewBase
+     */
+    public isSelectSome:boolean = false;
+
+    /**
      * 单check改变
      *
      * @memberof ProductMobMDViewBase
      */
     public checkBoxChange(value: any) {
-        let selectAll: any = this.$refs.selectAll;
-        if (selectAll) {
-            selectAll.checked = value;
-            selectAll.ariaChecked = value;
-        }
-        this.isSelectAll = value;
+        this.isSelectAll = value.isSelectAll;
+        this.isSelectSome = value.isSelectSome;
         this.$forceUpdate();
     }
 }
