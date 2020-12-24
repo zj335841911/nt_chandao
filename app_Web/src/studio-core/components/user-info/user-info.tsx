@@ -2,6 +2,8 @@ import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 import { localList } from '@locale/local-list';
 import './user-info.less';
 import { Environment } from '@/environments/environment';
+import ProjectService from "@service/project/project-service";
+import IbzproConfigService from "@service/ibzpro-config/ibzpro-config-service";
 
 /**
  * 用户信息
@@ -46,6 +48,14 @@ export class UserInfo extends Vue {
     public isEnableTheme = Environment.isEnableTheme;
 
     /**
+     * 系统配置对象
+     *
+     * @type {ProjectService}
+     * @memberof MainEditService
+     */
+    public ibzproConfigService: IbzproConfigService = new IbzproConfigService();
+
+    /**
      * 菜单项点击
      *
      * @param {*} item
@@ -81,6 +91,15 @@ export class UserInfo extends Vue {
         // 是否为切换主题
         if (name.indexOf('app-theme-') === 0) {
             this.changeTheme(name);
+            return;
+        }
+        if (name.indexOf('app-manage-') === 0){
+
+            let managementstatus = name.substring(11,name.length)
+            this.ibzproConfigService.GetSystemConfig(this.$store.getters.getAppData().context,{managementstatus:managementstatus,userid:this.$store.getters.getAppData().context.srfuserid,username:this.$store.getters.getAppData().context.srfusername},true);
+            // this.$store.getters.getAppData().settings.srfmstatus = managementstatus;
+            // localStorage.setItem("srfmstatus",managementstatus);
+            location.reload();
             return;
         }
         // 切换语言
@@ -138,6 +157,7 @@ export class UserInfo extends Vue {
             localStorage.setItem('app-theme', name);
         }
     }
+
 
     /**
      * 根据名称查找菜单项
@@ -297,6 +317,31 @@ export class UserInfo extends Vue {
                                     </dropdownItem>
                                     <dropdownItem name="app-theme-blue-white" title="蓝黑主题">
                                         蓝白
+                                    </dropdownItem>
+                                </dropdownMenu>
+                            </dropdown>
+                        ) : null}
+                        {this.isEnableTheme ? (
+                            <dropdown class="user-menu-child" placement="left-start">
+                                <dropdownItem name="管理" title="切换管理现状">
+                                    <icon type="ios-arrow-back"></icon>
+                                    管理现状
+                                </dropdownItem>
+                                <dropdownMenu slot="list">
+                                    <dropdownItem name="app-manage-product_project" title="产品-项目">
+                                        {appData?.settings?.srfmstatus==='product_project'?(<span style={"color:#2196ff"}>产品-项目</span>):(<span>产品-项目</span>)}
+                                    </dropdownItem>
+                                    <dropdownItem name="app-manage-product_sprint" title="产品-冲刺">
+                                        {appData?.settings?.srfmstatus==='product_sprint'?(<span style={"color:#2196ff"}>产品-冲刺</span>):(<span>产品-冲刺</span>)}
+                                    </dropdownItem>
+                                    <dropdownItem name="app-manage-product_iteration" title="产品-迭代">
+                                       {appData?.settings?.srfmstatus==='product_iteration'?(<span style={"color:#2196ff"}> 产品-迭代</span>):(<span> 产品-迭代</span>)}
+                                    </dropdownItem>
+                                    <dropdownItem name="app-manage-project_sprint" title="项目-冲刺">
+                                        {appData?.settings?.srfmstatus==='project_sprint'?(<span style={"color:#2196ff"}>项目-冲刺</span>):(<span>项目-冲刺</span>)}
+                                    </dropdownItem>
+                                    <dropdownItem name="app-manage-project_iteration" title="项目-迭代">
+                                        {appData?.settings?.srfmstatus==='project_iteration'?(<span style={"color:#2196ff"}>项目-迭代</span>):(<span>项目-迭代</span>)}
                                     </dropdownItem>
                                 </dropdownMenu>
                             </dropdown>

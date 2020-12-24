@@ -41,7 +41,7 @@ public class UserHelper extends ZTBaseHelper<UserMapper, User> {
 
     public JSONObject getSettings() {
         JSONObject  jsonObject = new JSONObject();
-        List<IbzproConfig> list = iIbzproConfigService.list(new QueryWrapper<IbzproConfig>().eq("Scope", StaticDict.ConfigScope.SYS.getValue()).eq("vaild", StaticDict.YesNo.ITEM_1.getValue()).orderByDesc("updatedate"));
+        List<IbzproConfig> list = iIbzproConfigService.list(new QueryWrapper<IbzproConfig>().eq("createman",AuthenticationUser.getAuthenticationUser().getUserid()).eq("Scope", StaticDict.ConfigScope.USER.getValue()).eq("vaild", StaticDict.YesNo.ITEM_1.getValue()).orderByDesc("updatedate"));
        if(list.size() > 0) {
            jsonObject.put("srfmstatus", list.get(0).getManagementstatus());
        }else {
