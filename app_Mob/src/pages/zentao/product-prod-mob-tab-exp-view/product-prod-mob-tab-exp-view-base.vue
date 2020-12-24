@@ -397,7 +397,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         const _cacheTabKey: any = localStorage.getItem('tabKey')
         if(_cacheTabKey){
         let cacheTabKey:any = JSON.parse(_cacheTabKey);
-        if (cacheTabKey.name && cacheTabKey.name == 'product' && cacheTabKey.id && cacheTabKey.id == this.context.product && info.viewtag === this.viewtag) {
+        if (cacheTabKey.name && cacheTabKey.name == 'product' && cacheTabKey.id && cacheTabKey.id == this.context.product && cacheTabKey.viewtag === this.viewtag) {
           this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel2';

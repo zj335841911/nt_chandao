@@ -392,7 +392,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
         const _cacheTabKey: any = localStorage.getItem('tabKey')
         if(_cacheTabKey){
         let cacheTabKey:any = JSON.parse(_cacheTabKey);
-        if (cacheTabKey.name && cacheTabKey.name == 'ibzweekly' && cacheTabKey.id && cacheTabKey.id == this.context.ibzweekly && info.viewtag === this.viewtag) {
+        if (cacheTabKey.name && cacheTabKey.name == 'ibzweekly' && cacheTabKey.id && cacheTabKey.id == this.context.ibzweekly && cacheTabKey.viewtag === this.viewtag) {
           this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel';

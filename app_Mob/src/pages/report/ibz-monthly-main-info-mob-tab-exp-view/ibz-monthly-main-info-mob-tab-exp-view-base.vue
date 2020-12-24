@@ -392,7 +392,7 @@ export default class IbzMonthlyMainInfoMobTabExpViewBase extends Vue {
         const _cacheTabKey: any = localStorage.getItem('tabKey')
         if(_cacheTabKey){
         let cacheTabKey:any = JSON.parse(_cacheTabKey);
-        if (cacheTabKey.name && cacheTabKey.name == 'ibzmonthly' && cacheTabKey.id && cacheTabKey.id == this.context.ibzmonthly && info.viewtag === this.viewtag) {
+        if (cacheTabKey.name && cacheTabKey.name == 'ibzmonthly' && cacheTabKey.id && cacheTabKey.id == this.context.ibzmonthly && cacheTabKey.viewtag === this.viewtag) {
           this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel2';

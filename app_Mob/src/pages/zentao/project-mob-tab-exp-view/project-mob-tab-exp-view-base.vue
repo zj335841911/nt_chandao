@@ -400,7 +400,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
         const _cacheTabKey: any = localStorage.getItem('tabKey')
         if(_cacheTabKey){
         let cacheTabKey:any = JSON.parse(_cacheTabKey);
-        if (cacheTabKey.name && cacheTabKey.name == 'project' && cacheTabKey.id && cacheTabKey.id == this.context.project && info.viewtag === this.viewtag) {
+        if (cacheTabKey.name && cacheTabKey.name == 'project' && cacheTabKey.id && cacheTabKey.id == this.context.project && cacheTabKey.viewtag === this.viewtag) {
           this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel2';

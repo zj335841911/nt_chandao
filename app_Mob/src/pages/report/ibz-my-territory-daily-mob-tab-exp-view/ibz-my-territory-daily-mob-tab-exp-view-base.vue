@@ -382,7 +382,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
         const _cacheTabKey: any = localStorage.getItem('tabKey')
         if(_cacheTabKey){
         let cacheTabKey:any = JSON.parse(_cacheTabKey);
-        if (cacheTabKey.name && cacheTabKey.name == 'ibzmyterritory' && cacheTabKey.id && cacheTabKey.id == this.context.ibzmyterritory && info.viewtag === this.viewtag) {
+        if (cacheTabKey.name && cacheTabKey.name == 'ibzmyterritory' && cacheTabKey.id && cacheTabKey.id == this.context.ibzmyterritory && cacheTabKey.viewtag === this.viewtag) {
           this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel3';
