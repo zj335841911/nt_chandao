@@ -109,27 +109,11 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
      * @memberof SysUserChangePasswordEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: {
-            name: 'toolbar',
-            type: 'TOOLBAR',
-        },
         view_form: {
             name: 'form',
             type: 'FORM',
         },
     };
-
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof SysUserChangePasswordEditView
-     */
-    public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': false, tooltip: 'entities.sysuser.changepasswordeditviewtoolbar_toolbar.deuiaction1.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChangePassword', target: 'SINGLEKEY', class: '' } },
-
-    };
-
 
 
 	/**
@@ -189,19 +173,6 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
     }
 
     /**
-     * toolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof SysUserChangePasswordEditViewBase
-     */
-    public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.toolbar_deuiaction1_click(null, '', $event2);
-        }
-    }
-
-    /**
      * form 部件 save 事件
      *
      * @param {*} [args={}]
@@ -232,35 +203,6 @@ export class SysUserChangePasswordEditViewBase extends EditViewBase {
      */
     public form_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'load', $event);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:SysUserUIService  = new SysUserUIService();
-        curUIService.SysUser_ChangePassword(datas,contextJO, paramJO,  $event, xData,this,"SysUser");
     }
 
 

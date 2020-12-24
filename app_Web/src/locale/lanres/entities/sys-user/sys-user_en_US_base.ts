@@ -47,6 +47,7 @@ function getLocaleResourceBase(){
 			},
 			changepassword_form: {
 				details: {
+					button1: commonLogic.appcommonhandle("修改密码",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srforikey: commonLogic.appcommonhandle("",null), 
 					srfkey: commonLogic.appcommonhandle("用户标识",null), 
@@ -62,12 +63,8 @@ function getLocaleResourceBase(){
 					userid: commonLogic.appcommonhandle("用户标识",null), 
 				},
 				uiactions: {
-				},
-			},
-			changepasswordeditviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("保存",null),
-					tip: commonLogic.appcommonhandle("保存",null),
+				sysuser_changepassword: commonLogic.appcommonhandle("修改密码",null),
+				exit: commonLogic.appcommonhandle("返回",null),
 				},
 			},
 		};
