@@ -185,7 +185,6 @@ export const PageComponents = {
         Vue.component('project-mob-pickup-view', () => import('@pages/ibiz/project-mob-pickup-view/project-mob-pickup-view.vue'));
         Vue.component('bug-usr5-mob-mdview', () => import('@pages/zentao/bug-usr5-mob-mdview/bug-usr5-mob-mdview.vue'));
         Vue.component('story-mob-pickup-view', () => import('@pages/ibiz/story-mob-pickup-view/story-mob-pickup-view.vue'));
-        Vue.component('todo-usr2-mob-edit-view', () => import('@pages/zentao/todo-usr2-mob-edit-view/todo-usr2-mob-edit-view.vue'));
         Vue.component('sys-update-features-ymob-mdview9', () => import('@pages/ibiz/sys-update-features-ymob-mdview9/sys-update-features-ymob-mdview9.vue'));
         Vue.component('bug-usr3-mob-pickup-build-resolved-mdview', () => import('@pages/zentao/bug-usr3-mob-pickup-build-resolved-mdview/bug-usr3-mob-pickup-build-resolved-mdview.vue'));
         Vue.component('ibz-my-territory-mob-mdview9', () => import('@pages/ibiz/ibz-my-territory-mob-mdview9/ibz-my-territory-mob-mdview9.vue'));

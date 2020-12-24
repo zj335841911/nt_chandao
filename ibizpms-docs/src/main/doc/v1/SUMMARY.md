@@ -371,7 +371,6 @@
       * [我的收藏](app/Mob/func/IbzFavoritesMobTabExpView.md)
       * [测试](app/Mob/func/ProductTestMobMDView.md)
       * [月报](app/Mob/func/IbzMonthlyMonthlyMobMDView.md)
-      * [测试部件名称为实体名](app/Mob/func/TodoUsr2MobEditView.md)
       * [产品统计](app/Mob/func/ProductStatsMobMDView.md)
       * [我的地盘](app/Mob/func/AppPortalView2.md)
       * [我的周报](app/Mob/func/IbzWeeklyUsr2MobMDView.md)

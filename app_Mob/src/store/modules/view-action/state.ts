@@ -205,7 +205,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '97630768e30593ab04f3d7dc263796cb',
-                '43c69df69c0835044f0ea14e91d6ab6b',
                 '36115bf8c98ba37034812624719bb492',
                 '86fe20f86bf10c309e08f52cf7259b9d',
                 'e643a925b1d0dab04ef917b973354baa',
@@ -800,15 +799,6 @@ export const viewstate: any = {
             viewtag: '42217665efecfb18bd26480ca0e2780a',
             viewmodule: 'ibiz',
             viewname: 'StoryMobPickupMDView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
-            viewtag: '43c69df69c0835044f0ea14e91d6ab6b',
-            viewmodule: 'zentao',
-            viewname: 'TodoUsr2MobEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

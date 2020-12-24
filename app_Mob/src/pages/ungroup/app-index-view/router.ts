@@ -7709,20 +7709,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-pickup-view/story-mob-pickup-view.vue'),
                 },
                 {
-                    path: 'todos/:todo?/usr2mobeditview',
-                    name: 'todo_usr2mobeditview',
-                    meta: {
-                        caption: 'todo.views.usr2mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'todos', parameterName: 'todo' },
-                            { pathName: 'usr2mobeditview', parameterName: 'usr2mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/todo-usr2-mob-edit-view/todo-usr2-mob-edit-view.vue'),
-                },
-                {
                     path: 'sysupdatelogs/:sysupdatelog?/sysupdatefeatures/:sysupdatefeatures?/ymobmdview9',
                     name: 'sysupdatefeatures_ymobmdview9',
                     meta: {

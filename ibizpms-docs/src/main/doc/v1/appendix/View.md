@@ -75,7 +75,6 @@
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|日报移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
-|-|待办移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW9|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
