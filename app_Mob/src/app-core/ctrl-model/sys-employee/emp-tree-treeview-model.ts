@@ -108,15 +108,6 @@ export class EmpTreeModel {
       {
         name: 'updatedate',
       },
-      {
-        name: 'originalpassword',
-      },
-      {
-        name: 'newpassword',
-      },
-      {
-        name: 'repeatpassword',
-      },
     ]
   }
 

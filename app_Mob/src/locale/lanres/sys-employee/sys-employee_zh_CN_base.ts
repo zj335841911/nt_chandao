@@ -32,9 +32,6 @@ export default {
     updateman: "更新人",
     createman: "建立人",
     updatedate: "更新时间",
-    originalpassword: "原密码",
-    newpassword: "新密码",
-    repeatpassword: "重复密码",
   },
 	views: {
 		mpkmobpickuptreeview: {

@@ -17,13 +17,13 @@
     
                     <ion-toolbar>
                         <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel4">
+                            <ion-segment-button value="tabviewpanel4" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.mytodocnt?counter.counterData.mytodocnt:''}}</ion-badge>
                             我的待办</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel">
+                            <ion-segment-button value="tabviewpanel" layout="icon-start">
                             
                             仪表盘</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">
+                            <ion-segment-button value="tabviewpanel5" layout="icon-start">
                             
                             我的工作</ion-segment-button>
                         </ion-segment>

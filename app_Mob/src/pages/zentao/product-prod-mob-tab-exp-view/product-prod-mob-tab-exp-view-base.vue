@@ -17,16 +17,16 @@
     
                     <ion-toolbar>
                         <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel2">
+                            <ion-segment-button value="tabviewpanel2" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.draftstorycnt?counter.counterData.draftstorycnt:''}}</ion-badge>
                             需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
+                            <ion-segment-button value="tabviewpanel3" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.productplancnt?counter.counterData.productplancnt:''}}</ion-badge>
                             计划</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">
+                            <ion-segment-button value="tabviewpanel4" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.releasecnt?counter.counterData.releasecnt:''}}</ion-badge>
                             发布</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel6">
+                            <ion-segment-button value="tabviewpanel6" layout="icon-start">
                               <app-mob-icon name="folder"></app-mob-icon>
                             
                             文档</ion-segment-button>

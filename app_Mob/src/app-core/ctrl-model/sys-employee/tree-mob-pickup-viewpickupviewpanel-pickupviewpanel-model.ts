@@ -108,15 +108,6 @@ export class TreeMobPickupViewpickupviewpanelModel {
       {
         name: 'updatedate',
       },
-      {
-        name: 'originalpassword',
-      },
-      {
-        name: 'newpassword',
-      },
-      {
-        name: 'repeatpassword',
-      },
     ]
   }
 

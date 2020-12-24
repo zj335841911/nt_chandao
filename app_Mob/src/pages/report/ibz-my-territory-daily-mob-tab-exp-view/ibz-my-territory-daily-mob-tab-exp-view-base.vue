@@ -7,13 +7,13 @@
     
                     <ion-toolbar>
                         <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel3">
+                            <ion-segment-button value="tabviewpanel3" layout="icon-start">
                             
                             明日计划及计划参与</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel">
+                            <ion-segment-button value="tabviewpanel" layout="icon-start">
                             
                             日报</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
+                            <ion-segment-button value="tabviewpanel2" layout="icon-start">
                             
                             完成任务</ion-segment-button>
                         </ion-segment>

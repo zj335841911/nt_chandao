@@ -17,19 +17,19 @@
     
                     <ion-toolbar>
                         <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel2">
+                            <ion-segment-button value="tabviewpanel2" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.taskcnt?counter.counterData.taskcnt:''}}</ion-badge>
                             任务</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">
+                            <ion-segment-button value="tabviewpanel4" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.buildcnt?counter.counterData.buildcnt:''}}</ion-badge>
                             版本</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">
+                            <ion-segment-button value="tabviewpanel5" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.bugcnt?counter.counterData.bugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel6">
+                            <ion-segment-button value="tabviewpanel6" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.storycnt?counter.counterData.storycnt:''}}</ion-badge>
                             需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
+                            <ion-segment-button value="tabviewpanel3" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.teamcnt?counter.counterData.teamcnt:''}}</ion-badge>
                             团队</ion-segment-button>
                         </ion-segment>

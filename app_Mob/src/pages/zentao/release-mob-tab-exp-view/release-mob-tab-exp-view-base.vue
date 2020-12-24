@@ -17,16 +17,16 @@
     
                     <ion-toolbar>
                         <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel2">
+                            <ion-segment-button value="tabviewpanel2" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.stories?counter.counterData.stories:''}}</ion-badge>
                             完成的需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">
+                            <ion-segment-button value="tabviewpanel4" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.bugs?counter.counterData.bugs:''}}</ion-badge>
                             解决的bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">
+                            <ion-segment-button value="tabviewpanel5" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.leftbugs?counter.counterData.leftbugs:''}}</ion-badge>
                             遗留的bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
+                            <ion-segment-button value="tabviewpanel3" layout="icon-start">
                             
                             发布详情</ion-segment-button>
                         </ion-segment>

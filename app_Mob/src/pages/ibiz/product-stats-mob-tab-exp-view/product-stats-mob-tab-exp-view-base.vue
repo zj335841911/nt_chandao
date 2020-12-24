@@ -17,22 +17,22 @@
     
                     <ion-toolbar>
                         <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
+                            <ion-segment-button value="tabviewpanel" layout="icon-start">
                               <app-mob-icon name="briefcase"></app-mob-icon>
                             
                             详情</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
+                            <ion-segment-button value="tabviewpanel2" layout="icon-start">
                               <app-mob-icon name="text"></app-mob-icon>
                             
                             需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">
+                            <ion-segment-button value="tabviewpanel4" layout="icon-start">
                               <app-mob-icon name="reorder"></app-mob-icon>
                             
                             计划</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">
+                            <ion-segment-button value="tabviewpanel5" layout="icon-start">
                             
                             发布</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
+                            <ion-segment-button value="tabviewpanel3" layout="icon-start">
                               <app-mob-icon name="bug"></app-mob-icon>
                             
                             BUG</ion-segment-button>
