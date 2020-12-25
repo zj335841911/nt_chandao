@@ -70,6 +70,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 					file_look: commonLogic.appcommonhandle("查看",null),
 					file_ibzdownload: commonLogic.appcommonhandle("下载",null),
+					file_previewfile: commonLogic.appcommonhandle("预览",null),
 					file_delete: commonLogic.appcommonhandle("删除",null),
 				},
 			},

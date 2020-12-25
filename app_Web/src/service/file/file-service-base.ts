@@ -298,4 +298,16 @@ export default class FileServiceBase extends EntityService {
      */
     public async Ibzdownload(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
+
+    /**
+     * Preview接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async Preview(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }
