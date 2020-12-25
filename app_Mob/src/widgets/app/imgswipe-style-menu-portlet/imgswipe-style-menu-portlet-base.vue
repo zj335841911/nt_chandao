@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet  '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.portlets.imgswipestylemenu.caption')}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`app.views.${this.viewName.toLowerCase()}.imgswipestylemenu_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
@@ -345,7 +345,7 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return (this.$t('app.portlets.imgswipestylemenu.caption') as string)
+        return (this.$t(`app.views.${this.viewName.toLowerCase()}.imgswipestylemenu_portlet`) as string)
     }
 
     /**

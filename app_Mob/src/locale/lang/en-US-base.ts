@@ -96,9 +96,14 @@ export default {
             },
             appportalview2: {
                 caption: commonLogic.appcommonhandle("我的",null),
+                my_portlet:commonLogic.appcommonhandle("我的地盘",null),
+                reportnew_portlet:commonLogic.appcommonhandle("汇报",null),
             },
             appportalview: {
                 caption: commonLogic.appcommonhandle("工作台",null),
+                imgswipestylemenu_portlet:commonLogic.appcommonhandle("图片滑动",null),
+                iconstylemenu_portlet:commonLogic.appcommonhandle("图标",null),
+                listmenu_portlet:commonLogic.appcommonhandle("列表",null),
             },
         },
         portlets:{

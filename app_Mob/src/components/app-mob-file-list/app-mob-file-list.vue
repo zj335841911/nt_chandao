@@ -1,8 +1,8 @@
 <template>
-  <div class="app-mob-upload-list">
+  <div class="app-mob-file-list">
       <template  v-for="item in items">
           <v-touch v-on:press="node_touch(item)" :key="item.url">
-    <div class="app-mob-upload-list_item" @click="onItemClick(item)" >
+    <div class="app-mob-file-list_item" @click="onItemClick(item)" >
       <div class="index_icon">
         <img v-if="isImages(item)" @click.stop="openImages(getImage(item))"  data-error="xxx.jpg" attempt="1"  v-lazy="getImage(item)" alt="">
         <app-mob-icon v-else :class="item.extension" :name="item.extensionName"></app-mob-icon> 
@@ -15,7 +15,7 @@
             <div class="file_created_date">{{item.date}}</div>
         </div>
       </div>
-        <div v-if="isEnableDelete" class="file_delete_icon"><app-mob-icon class="app-mob-upload-list_item_icon ios hydrated" name="close-outline" @onClick="item_delete(item)"></app-mob-icon></div>
+        <div v-if="isEnableDelete" class="file_delete_icon"><app-mob-icon class="app-mob-file-list_item_icon ios hydrated" name="close-outline" @onClick="item_delete(item)"></app-mob-icon></div>
     </div>
           </v-touch>
       </template>
@@ -42,40 +42,47 @@ Vue.use(Uploader);
     },
     components: { [ImagePreview.Component.name]: ImagePreview.Component, }
 })
-export default class AppMobUploadList extends Vue {
+export default class AppMobFileList extends Vue {
+    /**
+     * 数据项说明：url映射实体属性id, date映射ADDEDDATE， size映射strsize, extension映射extension, srfmajortext映射title
+     * 参数说明：
+     *    是否启用删除：isEnableDelete，默认启用，不需要时父组件传递false
+     *    是否启用下载：isEnableDownload，默认启用，不需要时父组件传递false
+     *    是否启用下载：isEnableDownload，默认启用，不需要时父组件传递false
+     */
 
     /**
      * 下载文件路径
      *
-     * @memberof AppMobUploadList
+     * @memberof AppMobFileList
      */
     public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
 
     /**
      * 视图参数
      *
-     * @memberof AppMobUploadList
+     * @memberof AppMobFileList
      */
     @Prop() protected items!: any;
 
     /**
      * 是否启用删除
      *
-     * @memberof AppMobUploadList
+     * @memberof AppMobFileList
      */
     @Prop({default:true}) protected isEnableDelete?: boolean;
 
     /**
      * 是否启用下载
      *
-     * @memberof AppMobUploadList
+     * @memberof AppMobFileList
      */
     @Prop({default:true}) protected isEnableDownload?: boolean;
 
     /**
      * 是否启用下载
      *
-     * @memberof AppMobUploadList
+     * @memberof AppMobFileList
      */
     @Prop({default:true}) protected isEnablePreview?: boolean;
 
@@ -131,7 +138,7 @@ export default class AppMobUploadList extends Vue {
     /**
      * 文件项点击事件
      * 
-     * @memberof AppMobUploadList
+     * @memberof AppMobFileList
      */
     public onItemClick(item: any) {
         if(!this.isEnableDownload){
@@ -152,7 +159,7 @@ export default class AppMobUploadList extends Vue {
     /**
      * 文件项删除事件
      * 
-     * @memberof AppMobUploadList
+     * @memberof AppMobFileList
      */
     public item_delete(item: any) {
         this.$emit("delete", [item]);
@@ -189,5 +196,5 @@ export default class AppMobUploadList extends Vue {
 </script>
 
 <style lang="less">
-@import "./app-mob-upload-list.less";
+@import "./app-mob-file-list.less";
 </style>

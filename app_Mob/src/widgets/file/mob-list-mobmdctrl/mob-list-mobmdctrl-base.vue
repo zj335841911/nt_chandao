@@ -1,7 +1,7 @@
 <template>
     <div  class="app-mob-mdctrl file-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-                    <app-mob-upload-list :items="items" @delete="remove"></app-mob-upload-list>
+                    <app-mob-file-list :items="items" @delete="remove"></app-mob-upload-list>
              <div  v-if="items.length == 0" class="no-data">
             </div>
             <div v-show=" loadStatus && !allLoaded && isNeedLoaddingText" class="loadding" >
