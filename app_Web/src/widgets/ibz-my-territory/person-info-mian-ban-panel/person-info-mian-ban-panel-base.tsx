@@ -76,10 +76,6 @@ export class PersonInfoMianBanPanelBase extends PanelControlBase {
      * @memberof PersonInfoMianBan
      */
     public detailsModel: any = {
-        account: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'account', panel: this })
-,
-        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
-,
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
 ,
         container9: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container9', panel: this })
@@ -133,8 +129,6 @@ export class PersonInfoMianBanPanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
-
 
 
 

@@ -15,11 +15,6 @@ export default class PersonInfoMianBanModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'account',
-        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
-        prop: 'account'
-      },
-      {
         name: 'mytodocnt',
         prop: 'mytodocnt'
       },

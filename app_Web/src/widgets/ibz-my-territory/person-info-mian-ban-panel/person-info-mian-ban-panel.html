@@ -2,24 +2,6 @@
     <row class="app-layoutpanel" style="height:100%;">
                 <div v-show="detailsModel.container1.visible" class="app-layoutpanel-container container-margin-top-7px" style="">
             <div style="height:100%;display: flex;">
-                        <div v-show="detailsModel.container2.visible" class="app-layoutpanel-container container-lefttop-margin" style="width: 230px;">
-                    <div style="height:100%;display: flex;justify-content: flex-start;align-items: flex-start;margin:0px 0px 0px 0px">
-                                
-                        <div v-show="detailsModel.account.visible" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field  panelitem-20px">
-                            <div class="item-field">
-                            
-                            <div class="item-field-content">
-                            
-                        <app-span :value="data.account" name="account" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC'   style=""
-                        > </app-span> 
-                        
-                            </div>
-                        </div>
-                        
-                        
-                        </div>
-                    </div>
-                </div>
                         <div v-show="detailsModel.container3.visible" class="app-layoutpanel-container" style="flex-grow: 1;">
                     <div style="height:100%;display: flex;flex-direction: column;">
                                 <div v-show="detailsModel.container9.visible" class="app-layoutpanel-container container-updown-margin" style="">
@@ -55,7 +37,7 @@
                                             contentType="RAW"
                                             :htmlContent='``'
                                         >
-                                                我的任务
+                                                创建的待办数
                                         </app-rawitem>
                                         
                                         
@@ -88,7 +70,7 @@
                                             contentType="RAW"
                                             :htmlContent='``'
                                         >
-                                                我的bug
+                                                创建的需求数
                                         </app-rawitem>
                                         
                                         
@@ -121,13 +103,13 @@
                                             contentType="RAW"
                                             :htmlContent='``'
                                         >
-                                                我的需求
+                                                完成的任务数
                                         </app-rawitem>
                                         
                                         
                                         </div>
                                                 
-                                        <div v-show="detailsModel.mytasks.visible" style="color:rgba(255, 93, 93, 1);text-align:center" class="app-layoutpanel-field  text-center-red">
+                                        <div v-show="detailsModel.mytasks.visible" style="text-align:center" class="app-layoutpanel-field  text-center-marginupdown">
                                             <div class="item-field">
                                             
                                             <div class="item-field-content">
@@ -158,7 +140,7 @@
                                             contentType="RAW"
                                             :htmlContent='``'
                                         >
-                                                {{ $t('userCustom.noCloseProject') }}
+                                                解决的bug数
                                         </app-rawitem>
                                         
                                         
@@ -191,7 +173,7 @@
                                             contentType="RAW"
                                             :htmlContent='``'
                                         >
-                                                {{ $t('userCustom.noCloseProduct') }}
+                                                创建的用例数
                                         </app-rawitem>
                                         
                                         
