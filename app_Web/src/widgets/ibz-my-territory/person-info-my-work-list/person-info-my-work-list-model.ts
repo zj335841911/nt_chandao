@@ -24,7 +24,7 @@ export default class PersonInfoMyWorkModel {
 				name: 'mystorys',
 			},
 			{
-				name: 'myebugs',
+				name: 'myfavoritebugs',
 			},
 			{
 				name: 'mytasks',

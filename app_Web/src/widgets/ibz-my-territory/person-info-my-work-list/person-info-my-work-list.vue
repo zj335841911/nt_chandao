@@ -3,6 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PersonInfoMyWorkListBase } from './person-info-my-work-list-base';
+import layout_list_itempanel from '@widgets/ibz-my-territory/person-info-mian-ban-panel/person-info-mian-ban-panel.vue';
  
 
 /**
@@ -14,6 +15,7 @@ import { PersonInfoMyWorkListBase } from './person-info-my-work-list-base';
  */
 @Component({
     components: {
+        layout_list_itempanel,
          
     },
 })
