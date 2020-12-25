@@ -887,6 +887,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumPoChartView9",
             "viewtag": "2889bd5a8f15aadc0f60686124720c0d"
         },
+        "sysemployeeeditviewbasicinfo": {
+            "title": "人员编辑视图",
+            "caption": "人员",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "SysEmployeeEditViewBasicInfo",
+            "viewtag": "28c5418b1ed607876fc4c920195f717d"
+        },
         "ibzcaseopencaseview": {
             "title": "用例库用例数据看板视图",
             "caption": "测试用例",
@@ -1566,6 +1574,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskEditView_commitTest",
             "viewtag": "4d32793fc57ec1ae930a18608526d00e"
+        },
+        "ibzmyterritorylistview9personinfo": {
+            "title": "我的工作",
+            "caption": "我的工作",
+            "viewtype": "DELISTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryListView9PersonInfo",
+            "viewtag": "4d673563cfae3bd7ff908401e877f4bc"
         },
         "docmyfavouritepartgridview": {
             "title": "文档表格视图",
@@ -3470,6 +3486,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BuildMainView",
             "viewtag": "a6d8bd7fa388f638832b33dddaa6df86"
+        },
+        "sysemployeedashboardview": {
+            "title": "人员数据看板视图",
+            "caption": "人员",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeDashboardView",
+            "viewtag": "a6e3310693a8abeade4e5d1f928ab1f6"
         },
         "storympickupview2": {
             "title": "关联需求",

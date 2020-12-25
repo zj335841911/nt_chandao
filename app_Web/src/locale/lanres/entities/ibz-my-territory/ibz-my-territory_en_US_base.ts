@@ -65,6 +65,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("我的地盘",null),
 					title: commonLogic.appcommonhandle("我的地盘日历导航视图",null),
 				},
+				listview9personinfo: {
+					caption: commonLogic.appcommonhandle("我的工作",null),
+					title: commonLogic.appcommonhandle("我的工作",null),
+				},
 				reporttabexpview: {
 					caption: commonLogic.appcommonhandle("汇报",null),
 					title: commonLogic.appcommonhandle("我的地盘分页导航视图",null),
@@ -137,6 +141,11 @@ function getLocaleResourceBase(){
 				},
 			},
 			mywork_list: {
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			personinfomywork_list: {
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
 				},
@@ -265,6 +274,9 @@ function getLocaleResourceBase(){
 					},
 					tabviewpanel9: {
 						caption: commonLogic.appcommonhandle("动态",null),
+					},
+					tabviewpanel14: {
+						caption: commonLogic.appcommonhandle("个人信息",null),
 					},
 					tabviewpanel8: {
 						caption: commonLogic.appcommonhandle("联系人",null),

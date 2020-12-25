@@ -393,7 +393,7 @@ export class MyMainGridBase extends GridControlBase {
             },
             {
                 name: 'reportto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
