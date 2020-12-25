@@ -479,7 +479,7 @@ export class ProjectMainGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'createdby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
