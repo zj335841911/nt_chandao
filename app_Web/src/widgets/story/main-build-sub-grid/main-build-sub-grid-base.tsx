@@ -541,7 +541,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
