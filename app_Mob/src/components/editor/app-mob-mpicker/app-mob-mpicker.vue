@@ -8,8 +8,8 @@
         </template>
       </div>
     </ion-input>
-    <app-mob-icon class="open-picker" v-if="!curValue.length > 0" name="search-outline" @onClick="openView"></app-mob-icon>
-    <app-mob-icon  v-else class="open-picker" name="close-circle-outline" @onClick="onClear"></app-mob-icon>
+    <app-mob-icon class="open-picker right-common-icon" v-if="!curValue.length > 0" name="search-outline" @onClick="openView"></app-mob-icon>
+    <app-mob-icon  v-else class="open-picker right-common-icon" name="close-circle-outline" @onClick="onClear"></app-mob-icon>
   </div>
 </template>
 

@@ -117,9 +117,9 @@
                     <div class="selectall" v-show="isChoose">
                         <app-mob-icon 
                             position="start"
-                            :name=" isSelectAll? 'checkmark-circle-outline' : isSelectSome? 'remove-circle-outline' : 'ellipse-outline' " 
+                            :name=" this.selectAllStatus > 1? 'remove-circle-outline' : this.selectAllStatus < 1? 'ellipse-outline' : 'checkmark-circle-outline' " 
                             class="selectall-icon" 
-                            @onClick="onSelectallClick(isSelectAll)"
+                            @onClick="onSelectallClick"
                         ></app-mob-icon>
                         <ion-label class="selectal-label">全选</ion-label>
                     </div>
@@ -1117,34 +1117,20 @@ export default class ProductTestMobMDViewBase extends Vue {
      *
      * @memberof ProductTestMobMDViewBase
      */ 
-    public onSelectallClick(value: any) {
-        value = !value;
-        this.isSelectAll = value;
-        if(!this.isSelectAll){
-            this.isSelectSome = false;
+    public onSelectallClick() {
+        this.selectAllStatus > 0 ? this.selectAllStatus = 0 :this.selectAllStatus = 1;
+        let mdctrl: any = this.$refs.mdctrl;
+        if (mdctrl && mdctrl.checkboxAll && this.$util.isFunction(mdctrl.checkboxAll)) {
+            mdctrl.checkboxAll(this.selectAllStatus>0?true:false);
         }
-        setTimeout(() => {
-            let mdctrl: any = this.$refs.mdctrl;
-            if (mdctrl && mdctrl.checkboxAll && this.$util.isFunction(mdctrl.checkboxAll)) {
-                mdctrl.checkboxAll(value);
-            }
-        }, 1);
-        this.$forceUpdate();
     }
 
     /**
-     * 是否全选
+     * 全选按钮状态 0 未选中 1选中 2部分选中
      *
      * @memberof ProductTestMobMDViewBase
      */
-    public isSelectAll:boolean = false;
-
-    /**
-     * 是否选择一部分
-     * 
-     * @memberof ProductTestMobMDViewBase
-     */
-    public isSelectSome:boolean = false;
+    public selectAllStatus: 0 | 1 | 2 = 0 ;
 
     /**
      * 单check改变
@@ -1152,9 +1138,7 @@ export default class ProductTestMobMDViewBase extends Vue {
      * @memberof ProductTestMobMDViewBase
      */
     public checkBoxChange(value: any) {
-        this.isSelectAll = value.isSelectAll;
-        this.isSelectSome = value.isSelectSome;
-        this.$forceUpdate();
+        this.selectAllStatus = value;
     }
 }
 </script>

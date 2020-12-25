@@ -128,6 +128,11 @@
                                 <i class="fa fa-download"></i>
                                 
                             </a>
+                            <divider v-show="scope.row.PreviewFile.visible" type="vertical"></divider>
+                            <a v-show="scope.row.PreviewFile.visible" :disabled="scope.row.PreviewFile.disabled" @click="uiAction(scope.row, 'PreviewFile', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_previewfile')">
+                                <i class="eye"></i>
+                                
+                            </a>
                             <divider v-show="scope.row.delete.visible" type="vertical"></divider>
                             <a v-show="scope.row.delete.visible" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_delete')">
                                 <i class="fa fa-remove"></i>

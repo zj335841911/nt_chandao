@@ -181,7 +181,7 @@ export class BugassignedToGridBase extends GridControlBase {
      * @type {boolean}
      * @memberof BugassignedToBase
      */
-    public isEnableGroup:boolean = true;
+    public isEnableGroup:boolean = false;
 
     /**
      * 分组属性

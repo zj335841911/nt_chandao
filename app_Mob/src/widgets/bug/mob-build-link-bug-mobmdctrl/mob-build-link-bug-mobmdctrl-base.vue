@@ -304,9 +304,9 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
-    *上级传递的选中项
-    *@type {Array}
-    *@memberof MOB_BuildLink_Bug
+    * 上级传递的选中项
+    * @type {Array}
+    * @memberof MOB_BuildLink_Bug
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -334,15 +334,6 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
     * @memberof MOB_BuildLink_Bug
     */
     @Prop() public opendata?: Function; 
-
-
-    /**
-    * 当前选中数组
-    *
-    * @type {array}
-    * @memberof MOB_BuildLink_Bug
-    */
-    public  selectdata :any = [];
 
     /**
     * 加载显示状态
@@ -478,37 +469,6 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
     */
     public radio:any = '';
 
-
-    /**
-    * 点击多选按钮触发
-    *
-    *
-    * @memberof MOB_BuildLink_Bug
-    */
-    public change(){
-        if(this.isMutli){
-             let checkboxLists= this.items.filter((item,index)=>{
-                  if(this.checkboxList.indexOf(item.srfkey)!=-1){
-                    return true;
-                  }else{
-                    return false;
-                  }
-                })
-          this.$emit('selectchange',checkboxLists);
-        }else{
-           let radioItem = this.items.filter((item,index)=>{return item.srfkey==this.radio});
-           this.$emit('selectchange',radioItem);
-        }
-    }
-
-    /**
-    * 列表键值对
-    *
-    * @type {Map}
-    * @memberof MOB_BuildLink_Bug
-    */
-    public listMap: any = new Map();
-
     /**
     * 分页大小
     *
@@ -573,7 +533,7 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
     * @param {number}
     * @memberof MOB_BuildLink_Bug
     */
-    public selectednumber:number =0;
+    public selectednumber:number = 0;
 
     /**
     * 搜索行为
@@ -784,7 +744,7 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
         }
         this.items.forEach((item:any)=>{
             // 计算是否选中
-            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            let index = this.selectedArray.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
             if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
                 item.checked = true;
             }else{
@@ -833,35 +793,6 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
       }
     }
 
-
-    /**
-     * checkbox 选中回调
-     *
-     * @param {*} data
-     * @returns
-     * @memberof MOB_BuildLink_Bug
-     */
-    public checkboxChange(data: any) {
-        let { detail } = data;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.selectednumber = 0;
-        this.items.forEach((item: any, index: number) => {
-            if (item.value) {
-                this.selectednumber++;
-            }
-            if (Object.is(item.id, value)) {
-                if (detail.checked) {
-                    this.selectdata.push(this.items[index]);
-                } else {
-                    this.selectdata.splice(this.selectdata.findIndex((i: any) => i.value === item.value), 1)
-                }
-            }
-        });
-        this.$emit('selectionchange', this.selectdata);
-    }
 
     /**
      * 下拉刷新
@@ -1115,28 +1046,44 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
-        item.checked = !item.checked;
-        let count = this.selectedArray.findIndex((i) => {
-            return i.id == item.id;
+        item.checked = !item.checked
+        let count = this.selectedArray.findIndex((_item:any) => {
+            return _item.id == item.id;
         });
         if(count == -1){
             this.selectedArray.push(item);
         }else{
-            this.selectedArray.splice(count,1);
+            this.selectedArray.splice(count , 1);
         }
-        this.items.forEach((_item:any,index:number)=>{
-            if(_item.id == item.id){
-                this.items[index].checked = item.checked;
+        let _count = Object.is(this.items.length , this.selectedArray.length)? 1 : this.selectedArray.length > 0 ? 2 : 0;
+        this.$emit("checkBoxChange", _count)
+        this.$forceUpdate();
+    }
+    /** 
+     * checkbox 选中回调
+     *
+     * @memberof MOB_BuildLink_Bug
+     */
+    public checkboxChange(data: any) {
+        let { detail } = data;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.selectednumber = 0;
+        this.items.forEach((item: any, index: number) => {
+            if (item.value) {
+                this.selectednumber++;
+            }
+            if (Object.is(item.id, value)) {
+                if (detail.checked) {
+                    this.selectedArray.push(this.items[index]);
+                } else {
+                    this.selectedArray.splice(this.selectedArray.findIndex((i: any) => i.value === item.value), 1)
+                }
             }
         });
-        if(this.selectedArray.length == this.items.length){
-            this.$emit("checkBoxChange",{isSelectAll:true,isSelectSome:true})
-        }else if(this.selectedArray.length == 0){
-            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:false})
-        }else{
-            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:true})
-        }
-        this.$forceUpdate();
+        this.$emit('selectionchange', this.selectedArray);
     }
 
     /**
