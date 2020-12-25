@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet action-dashboard_sysportlet7 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`action${this.viewName.toLowerCase()}.alltrendsmob_portlet`)}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`action.${this.viewName.toLowerCase()}.alltrendsmob_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
