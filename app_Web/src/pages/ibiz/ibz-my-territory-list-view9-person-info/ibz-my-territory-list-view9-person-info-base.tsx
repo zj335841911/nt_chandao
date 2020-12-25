@@ -69,20 +69,6 @@ export class IbzMyTerritoryListView9PersonInfoBase extends ListView9Base {
      */
     public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof IbzMyTerritoryListView9PersonInfoBase
-	 */
-    protected customViewParams: any = {
-        'n_account_eq': {
-            isRawValue: false,
-            value: 'srfloginname',
-        }
-    };
-
     /**
      * 视图模型数据
      *
