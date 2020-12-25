@@ -2247,10 +2247,11 @@ GROUP BY
 #### SQL
 - MYSQL5
 ```SQL
-SELECT '#{srf.sessioncontext.srfloginname}' as account, (SELECT count(1) from zt_todo where account = '#{srf.sessioncontext.srfloginname}' ) as mytodocnt,(SELECT count(1) from zt_story where deleted = '0' and openedBy = '#{srf.sessioncontext.srfloginname}') as mystorys, (SELECT count(1) from zt_task where deleted = '0' and (`status` = 'done' or (`status` = 'closed' and closedReason = 'done') ) and parent >= 0 and ((finishedBy ='#{srf.sessioncontext.srfloginname}' and not EXISTS (SELECT 1 from zt_team t where t.root = id and t.type = 'task')) 
-or FIND_IN_SET('#{srf.sessioncontext.srfloginname}',finishedList)
-)) as mytasks, (SELECT count(1) from zt_bug where `status` in ('closed','resolved') and resolution = 'fixed' and resolvedBy = '#{srf.sessioncontext.srfloginname}') as mybugs,
-(SELECT count(1) from zt_case where deleted = '0' and openedBy = '#{srf.sessioncontext.srfloginname}') as MYEBUGS
+SELECT #{srf.sessioncontext.srfloginname} as account, (SELECT count(1) from zt_todo where account = #{srf.sessioncontext.srfloginname} ) as mytodocnt,(SELECT count(1) from zt_story where deleted = '0' and openedBy = #{srf.sessioncontext.srfloginname}) as mystorys, (SELECT count(1) from zt_task where deleted = '0' and (`status` = 'done' or (`status` = 'closed' and closedReason = 'done') ) and parent >= 0 and ((finishedBy = #{srf.sessioncontext.srfloginname} and not EXISTS (SELECT 1 from zt_team t where t.root = id and t.type = 'task')) 
+or FIND_IN_SET(#{srf.sessioncontext.srfloginname},finishedList)
+)) as mytasks, (SELECT count(1) from zt_bug where `status` in ('closed','resolved') and resolution = 'fixed' and resolvedBy = #{srf.sessioncontext.srfloginname}) as mybugs,
+(SELECT count(1) from zt_case where deleted = '0' and openedBy = 
+#{srf.sessioncontext.srfloginname}) as MYEBUGS
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
