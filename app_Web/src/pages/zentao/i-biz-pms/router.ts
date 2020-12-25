@@ -4947,6 +4947,39 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
                 },
                 {
+                    path: 'products/:product?/branches/:branch?/pmeditview/:pmeditview?',
+                    meta: {
+                        caption: 'entities.branch.views.pmeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'branches', parameterName: 'branch' },
+                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
+                },
+                {
+                    path: 'branches/:branch?/pmeditview/:pmeditview?',
+                    meta: {
+                        caption: 'entities.branch.views.pmeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'branches', parameterName: 'branch' },
+                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/todoeditview/:todoeditview?',
                     meta: {
                         caption: 'entities.task.views.todoeditview.caption',
@@ -5013,39 +5046,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-todo-edit-view/task-todo-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/branches/:branch?/pmeditview/:pmeditview?',
-                    meta: {
-                        caption: 'entities.branch.views.pmeditview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-code-fork',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
-                },
-                {
-                    path: 'branches/:branch?/pmeditview/:pmeditview?',
-                    meta: {
-                        caption: 'entities.branch.views.pmeditview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-code-fork',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
                 },
                 {
                     path: 'todos/:todo?/calendareditview/:calendareditview?',
@@ -10163,6 +10163,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-base-edit-view9/todo-base-edit-view9.vue'),
                 },
                 {
+                    path: 'sysemployees/:sysemployee?/dashboardview/:dashboardview?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.dashboardview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'dashboardview', parameterName: 'dashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-dashboard-view/sys-employee-dashboard-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mainview9/:mainview9?',
                     meta: {
                         caption: 'entities.story.views.mainview9.caption',
@@ -10813,6 +10827,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-group-tree-exp-view/task-group-tree-exp-view.vue'),
+                },
+                {
+                    path: 'ibzmyterritories/:ibzmyterritory?/listview9personinfo/:listview9personinfo?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.listview9personinfo.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'listview9personinfo', parameterName: 'listview9personinfo' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-list-view9-person-info/ibz-my-territory-list-view9-person-info.vue'),
                 },
                 {
                     path: 'docs/:doc?/moremyfavouritestreeview/:moremyfavouritestreeview?',

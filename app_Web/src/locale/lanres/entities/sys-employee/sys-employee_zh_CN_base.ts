@@ -36,6 +36,10 @@ function getLocaleResourceBase(){
 			updatedate: commonLogic.appcommonhandle("更新时间",null),
 		},
 			views: {
+				editviewbasicinfo: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员编辑视图",null),
+				},
 				usr3gridview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员表格视图",null),
@@ -67,6 +71,10 @@ function getLocaleResourceBase(){
 				gridview: {
 					caption: commonLogic.appcommonhandle("人员",null),
 					title: commonLogic.appcommonhandle("人员表格视图",null),
+				},
+				dashboardview: {
+					caption: commonLogic.appcommonhandle("人员",null),
+					title: commonLogic.appcommonhandle("人员数据看板视图",null),
 				},
 				gridexpviewprojectmember: {
 					caption: commonLogic.appcommonhandle("人员",null),
@@ -104,6 +112,34 @@ function getLocaleResourceBase(){
 					phone: commonLogic.appcommonhandle("电话",null), 
 					orgid: commonLogic.appcommonhandle("单位",null), 
 					userid: commonLogic.appcommonhandle("用户标识",null), 
+				},
+				uiactions: {
+				},
+			},
+			personalinfomain_form: {
+				details: {
+					grouppanel2: commonLogic.appcommonhandle("分组面板",null), 
+					grouppanel3: commonLogic.appcommonhandle("分组面板",null), 
+					grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
+					group1: commonLogic.appcommonhandle("人员基本信息",null), 
+					formpage1: commonLogic.appcommonhandle("基本信息",null), 
+					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+					srforikey: commonLogic.appcommonhandle("",null), 
+					srfkey: commonLogic.appcommonhandle("用户标识",null), 
+					srfmajortext: commonLogic.appcommonhandle("姓名",null), 
+					srftempmode: commonLogic.appcommonhandle("",null), 
+					srfuf: commonLogic.appcommonhandle("",null), 
+					srfdeid: commonLogic.appcommonhandle("",null), 
+					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					loginname: commonLogic.appcommonhandle("登录名",null), 
+					personname: commonLogic.appcommonhandle("姓名",null), 
+					sex: commonLogic.appcommonhandle("性别",null), 
+					mdeptname: commonLogic.appcommonhandle("主部门名称",null), 
+					userid: commonLogic.appcommonhandle("用户标识",null), 
+					phone: commonLogic.appcommonhandle("联系方式",null), 
+					email: commonLogic.appcommonhandle("邮件",null), 
+					addr: commonLogic.appcommonhandle("地址",null), 
+					avatar: commonLogic.appcommonhandle("社交账号",null), 
 				},
 				uiactions: {
 				},
@@ -231,6 +267,29 @@ function getLocaleResourceBase(){
 					post: commonLogic.appcommonhandle("岗位",null),
 					team: commonLogic.appcommonhandle("团队",null),
 					project: commonLogic.appcommonhandle("项目团队",null),
+				},
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container1_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container2_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_sysportlet2_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			personinfo_portlet: {
+				personinfo: {
+					title: commonLogic.appcommonhandle("个人贡献", null)
 				},
 				uiactions: {
 				},
