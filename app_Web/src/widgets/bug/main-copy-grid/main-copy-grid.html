@@ -119,7 +119,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -149,7 +149,7 @@
                                   <span><app-user-span 
             	:value="row.assignedto"  
             	:context="JSON.parse(JSON.stringify(context))"
-            	tag="UserRealNameW"
+            	tag="UserRealNameUnAssignTo_Gird"
             	codelistType="DYNAMIC" 
             	 renderMode="STR"  
             	 valueSeparator=","
