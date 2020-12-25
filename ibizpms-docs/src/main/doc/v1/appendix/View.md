@@ -475,6 +475,7 @@ SRFNAVPARAM.project=%project%|
 |-|人员选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|组织部门人员树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|提交测试|DEEDITVIEW|&nbsp;|
+|-|我的工作|DELISTVIEW9|&nbsp;|
 |-|文档表格视图|DEGRIDVIEW9|&nbsp;|
 |-|任务主数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|子计划|DEGRIDVIEW|&nbsp;|
