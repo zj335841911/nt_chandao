@@ -159,6 +159,13 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 是否为实体视图
+     *
+     * @memberof ImgswipeStyleMenu
+     */
+    @Prop() protected isDeView!: boolean;
+
+    /**
      * 定制标题
      *
      * @type {string}

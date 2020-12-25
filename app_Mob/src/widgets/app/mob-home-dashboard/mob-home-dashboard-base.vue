@@ -2,99 +2,117 @@
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
         <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<app-mob-icon name="settings-outline"></app-mob-icon></div>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet1
+            
+<view_dashboard_sysportlet1
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet1"  
     ref='dashboard_sysportlet1' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet1>
             </ion-card>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet2
+            
+<view_dashboard_sysportlet2
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet2"  
     ref='dashboard_sysportlet2' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet2>
             </ion-card>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet3
+            
+<view_dashboard_sysportlet3
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet3"  
     ref='dashboard_sysportlet3' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet3>
             </ion-card>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet5
+            
+<view_dashboard_sysportlet5
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet5"  
     ref='dashboard_sysportlet5' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet5>
             </ion-card>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet4
+            
+<view_dashboard_sysportlet4
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet4"  
     ref='dashboard_sysportlet4' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet4>
             </ion-card>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet6
+            
+<view_dashboard_sysportlet6
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet6"  
     ref='dashboard_sysportlet6' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet6>
             </ion-card>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet7
+            
+<view_dashboard_sysportlet7
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet7"  
     ref='dashboard_sysportlet7' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet7>
             </ion-card>
             <ion-card class="dashboard-item chart"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet8
+            
+<view_dashboard_sysportlet8
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet8"  
     ref='dashboard_sysportlet8' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet8>
             </ion-card>
             <ion-card class="dashboard-item chart"  v-if="!isEnableCustomized">
-            <view_dashboard_sysportlet9
+            
+<view_dashboard_sysportlet9
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
+:isDeView="isDeView"
     name="dashboard_sysportlet9"  
     ref='dashboard_sysportlet9' 
     @closeview="closeView($event)">
@@ -102,7 +120,7 @@
             </ion-card>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item userCustomize ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :viewName="viewName"   :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
+                    <component :is="item.componentName" :viewName="viewName" :isDeView="isDeView"   :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
                 </ion-card>
             </template>
     </ion-grid>
@@ -266,6 +284,13 @@ export default class MobHomeBase extends Vue implements ControlInterface {
         return [];
     }
 
+    /**
+     * 是否为实体视图
+     *
+     * @memberof MobHome
+     */
+    @Prop() protected isDeView!: boolean;
+    
     /**
      * modleId
      *

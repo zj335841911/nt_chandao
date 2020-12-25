@@ -159,6 +159,13 @@ export default class MyBase extends Vue implements ControlInterface {
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 是否为实体视图
+     *
+     * @memberof My
+     */
+    @Prop() protected isDeView!: boolean;
+
+    /**
      * 定制标题
      *
      * @type {string}

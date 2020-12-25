@@ -211,6 +211,13 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 是否为实体视图
+     *
+     * @memberof MyBugMob
+     */
+    @Prop() protected isDeView!: boolean;
+
+    /**
      * 定制标题
      *
      * @type {string}

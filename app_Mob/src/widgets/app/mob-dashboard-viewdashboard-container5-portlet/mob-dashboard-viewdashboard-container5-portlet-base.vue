@@ -180,6 +180,13 @@ export default class MobDashboardViewdashboard_container5Base extends Vue implem
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 是否为实体视图
+     *
+     * @memberof MobDashboardViewdashboard_container5
+     */
+    @Prop() protected isDeView!: boolean;
+
+    /**
      * 定制标题
      *
      * @type {string}

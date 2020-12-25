@@ -190,6 +190,13 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 是否为实体视图
+     *
+     * @memberof ProductStatusChartMob
+     */
+    @Prop() protected isDeView!: boolean;
+
+    /**
      * 定制标题
      *
      * @type {string}

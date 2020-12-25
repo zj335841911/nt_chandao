@@ -211,6 +211,13 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 是否为实体视图
+     *
+     * @memberof MOBMyFavoriteStory
+     */
+    @Prop() protected isDeView!: boolean;
+
+    /**
      * 定制标题
      *
      * @type {string}
