@@ -90,7 +90,10 @@ ribbon:
 #缓存级别：无缓存(无配置项)、一级缓存(L1)、二级缓存(L2)
 ibiz:
   enablePermissionValid: true
-  cacheLevel: L1 #(L1)一级本地caffeine缓存;(L2)caffeine缓存+Redis缓存
+  cacheLevel: L2 #(L1)一级本地caffeine缓存;(L2)caffeine缓存+Redis缓存
+  auth:
+    pwencrymode: 2 #(0)明文；(1)密码Md5加密；(2)用户名||密码MD5加密
+    ladp: false
 
 ### jobs
 jobs:
