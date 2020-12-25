@@ -501,7 +501,7 @@ export default class MobLogBase extends Vue implements ControlInterface {
     * @param {Array<any>}
     * @memberof MobLog
     */
-    public selectdata:Array<any> = [];
+    public selectedArray:Array<any> = [];
 
     /**
     * 多选计数
@@ -720,7 +720,7 @@ export default class MobLogBase extends Vue implements ControlInterface {
         }
         this.items.forEach((item:any)=>{
             // 计算是否选中
-            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            let index = this.selectedArray.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
             if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
                 item.checked = true;
             }else{
@@ -762,13 +762,13 @@ export default class MobLogBase extends Vue implements ControlInterface {
     */
     public item_click(item:any){
         if(this.isChoose){
-            let count = this.selectdata.findIndex((i) => {
+            let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
             if (count === -1) {
-                this.selectdata.push(item);
+                this.selectedArray.push(item);
             } else {
-                this.selectdata.splice(count, 1);
+                this.selectedArray.splice(count, 1);
             }
         } else {
             this.goPage(item)
@@ -790,7 +790,7 @@ export default class MobLogBase extends Vue implements ControlInterface {
     * @memberof MobLog
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectdata);
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**
@@ -799,7 +799,7 @@ export default class MobLogBase extends Vue implements ControlInterface {
     * @memberof MobLog
     */
     public getData(): any {
-        return this.selectdata[0];
+        return this.selectedArray[0];
     }
 
     /**
@@ -936,8 +936,8 @@ export default class MobLogBase extends Vue implements ControlInterface {
      */
     public mdctrl_click($event: any, tag: any, item: any): void {
         $event.stopPropagation();
-        this.selectdata = [];
-        this.selectdata.push(item);
+        this.selectedArray = [];
+        this.selectedArray.push(item);
         this.closeSlidings(item);
     }
 
@@ -960,7 +960,7 @@ export default class MobLogBase extends Vue implements ControlInterface {
     public onSimpleSelChange(item: any = {}) {
         this.$emit('selectionchange', [item]);
         this.selectedValue = item.srfkey;
-        this.selectdata = [];
+        this.selectedArray = [];
         this.goPage(item);
     }
 
@@ -979,15 +979,15 @@ export default class MobLogBase extends Vue implements ControlInterface {
      */
     public checkboxSelect(item:any){
         item.checked = !item.checked
-        let count = this.selectdata.findIndex((_item:any) => {
+        let count = this.selectedArray.findIndex((_item:any) => {
             return _item.id == item.id;
         });
         if(count == -1){
-            this.selectdata.push(item);
+            this.selectedArray.push(item);
         }else{
-            this.selectdata.splice(count , 1);
+            this.selectedArray.splice(count , 1);
         }
-        let _count = Object.is(this.items.length , this.selectdata.length)? 1 : this.selectdata.length > 0 ? 2 : 0;
+        let _count = Object.is(this.items.length , this.selectedArray.length)? 1 : this.selectedArray.length > 0 ? 2 : 0;
         this.$emit("checkBoxChange", _count)
         this.$forceUpdate();
     }
@@ -1003,9 +1003,9 @@ export default class MobLogBase extends Vue implements ControlInterface {
             this.items[index].checked = value;
         }
         if(value){
-            this.selectdata = [...this.items];
+            this.selectedArray = [...this.items];
         }else{
-            this.selectdata = [];
+            this.selectedArray = [];
         }
         this.$forceUpdate();
     }
