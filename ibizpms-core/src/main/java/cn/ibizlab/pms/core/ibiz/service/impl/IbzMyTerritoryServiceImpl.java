@@ -213,6 +213,15 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     }
 
     /**
+     * 查询集合 个人信息-个人贡献
+     */
+    @Override
+    public Page<IbzMyTerritory> searchPersonInfo(IbzMyTerritorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchPersonInfo(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 欢迎
      */
     @Override

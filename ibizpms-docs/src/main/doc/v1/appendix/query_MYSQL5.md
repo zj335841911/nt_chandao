@@ -8290,6 +8290,13 @@ GROUP BY
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
+### 个人信息-个人贡献(PersonInfo)<div id="IbzMyTerritory_PersonInfo"></div>
+```sql
+SELECT '#{srf.sessioncontext.srfloginname}' as account, (SELECT count(1) from zt_todo where account = '#{srf.sessioncontext.srfloginname}' ) as mytodocnt,(SELECT count(1) from zt_story where deleted = '0' and openedBy = '#{srf.sessioncontext.srfloginname}') as mystorys, (SELECT count(1) from zt_task where deleted = '0' and (`status` = 'done' or (`status` = 'closed' and closedReason = 'done') ) and parent >= 0 and ((finishedBy ='#{srf.sessioncontext.srfloginname}' and not EXISTS (SELECT 1 from zt_team t where t.root = id and t.type = 'task')) 
+or FIND_IN_SET('#{srf.sessioncontext.srfloginname}',finishedList)
+)) as mytasks, (SELECT count(1) from zt_bug where `status` in ('closed','resolved') and resolution = 'fixed' and resolvedBy = '#{srf.sessioncontext.srfloginname}') as mybugs,
+(SELECT count(1) from zt_case where deleted = '0' and openedBy = '#{srf.sessioncontext.srfloginname}') as MYEBUGS
+```
 ### 默认（全部数据）(VIEW)<div id="IbzMyTerritory_View"></div>
 ```sql
 SELECT

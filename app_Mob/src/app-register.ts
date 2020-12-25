@@ -157,6 +157,7 @@ export const AppComponents = {
         v.component('app-mob-group-select',() => import('@/components/app-mob-group-select/app-mob-group-select.vue'));
         // 树选择
         v.component('app-tree',() => import('@/components/app-tree/app-tree.vue'));
+        v.component('app-mob-upload-list',() => import('@/components/app-mob-upload-list/app-mob-upload-list.vue'));
 
         // ui组件 BEGIN
         // 按钮
