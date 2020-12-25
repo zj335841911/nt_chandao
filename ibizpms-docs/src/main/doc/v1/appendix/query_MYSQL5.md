@@ -8296,7 +8296,7 @@ SELECT #{srf.sessioncontext.srfloginname} as account, (SELECT count(1) from zt_t
 or FIND_IN_SET(#{srf.sessioncontext.srfloginname},finishedList)
 )) as mytasks, (SELECT count(1) from zt_bug where `status` in ('closed','resolved') and resolution = 'fixed' and resolvedBy = #{srf.sessioncontext.srfloginname}) as mybugs,
 (SELECT count(1) from zt_case where deleted = '0' and openedBy = 
-#{srf.sessioncontext.srfloginname}) as MYEBUGS
+#{srf.sessioncontext.srfloginname}) as MYFAVORITEBUGS
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzMyTerritory_View"></div>
 ```sql
