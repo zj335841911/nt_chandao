@@ -379,7 +379,7 @@ export class StoryaffectCaseGridBase extends GridControlBase {
             },
             {
                 name: 'openedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

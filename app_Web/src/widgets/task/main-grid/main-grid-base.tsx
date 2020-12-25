@@ -853,7 +853,7 @@ export class MainGridBase extends GridControlBase {
             },
             {
                 name: 'finishedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

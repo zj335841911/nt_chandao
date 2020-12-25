@@ -727,7 +727,7 @@
     :error="detailsModel.finishedby.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealName"
+    tag="UserRealName_Gird"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.finishedby.disabled" 

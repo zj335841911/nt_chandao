@@ -143,7 +143,7 @@
                     <app-user-span
                             :value="row.assignedto"
                             :context="JSON.parse(JSON.stringify(context))"
-                            tag="UserRealNameW"
+                            tag="UserRealNameUnAssignTo_Gird"
                             codelistType="DYNAMIC"
                             renderMode="STR"
                             valueSeparator=","
@@ -158,7 +158,7 @@
                     <app-user-span
                             :value="row.assignedto"
                             :context="JSON.parse(JSON.stringify(context))"
-                            tag="UserRealNameW"
+                            tag="UserRealNameUnAssignTo_Gird"
                             codelistType="DYNAMIC"
                             renderMode="STR"
                             valueSeparator=","
@@ -180,7 +180,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.finishedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.finishedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
