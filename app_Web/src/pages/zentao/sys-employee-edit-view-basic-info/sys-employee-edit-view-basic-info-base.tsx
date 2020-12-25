@@ -74,9 +74,9 @@ export class SysEmployeeEditViewBasicInfoBase extends EditViewBase {
 	 * @memberof SysEmployeeEditViewBasicInfoBase
 	 */
     protected customViewNavContexts: any = {
-        'USERID': {
+        'SYSEMPLOYEE': {
             isRawValue: false,
-            value: 'SysEmployee',
+            value: 'srfuserid',
         }
     };
 
@@ -88,9 +88,9 @@ export class SysEmployeeEditViewBasicInfoBase extends EditViewBase {
 	 * @memberof SysEmployeeEditViewBasicInfoBase
 	 */
     protected customViewParams: any = {
-        'userid': {
-            isRawValue: true,
-            value: 'SysEmployee',
+        'sysemployee': {
+            isRawValue: false,
+            value: 'srfuserid',
         }
     };
 
