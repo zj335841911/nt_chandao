@@ -66,6 +66,34 @@ export class SysEmployeeEditViewBasicInfoBase extends EditViewBase {
      */
     public appUIService: SysEmployeeUIService = new SysEmployeeUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof SysEmployeeEditViewBasicInfoBase
+	 */
+    protected customViewNavContexts: any = {
+        'USERID': {
+            isRawValue: false,
+            value: 'SysEmployee',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof SysEmployeeEditViewBasicInfoBase
+	 */
+    protected customViewParams: any = {
+        'userid': {
+            isRawValue: true,
+            value: 'SysEmployee',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *
