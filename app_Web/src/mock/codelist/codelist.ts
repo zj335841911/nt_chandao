@@ -142,6 +142,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "UserRealNameUnAssignTo_Gird",
+        "emptytext": "未指派",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         "srfkey": "AllCase",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

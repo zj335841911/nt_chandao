@@ -19,6 +19,9 @@ function getLocaleResourceBase(){
           "1": commonLogic.appcommonhandle("创建",null),
           "empty": commonLogic.appcommonhandle("",null)
       },
+      UserRealNameUnAssignTo_Gird: {
+          "empty": commonLogic.appcommonhandle("未指派",null),
+      },
       AllCase: {
           "empty": commonLogic.appcommonhandle("",null),
       },
