@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet bug-dashboard_sysportlet3 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`bug.${this.viewName.toLowerCase()}.mybugmob_portlet`)}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`${this.localeDeName}.views.${this.viewName.toLowerCase()}.mybugmob_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
@@ -211,11 +211,11 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
-     * 是否为实体视图
+     * 多语言实体名称
      *
      * @memberof MyBugMob
      */
-    @Prop() protected isDeView!: boolean;
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题

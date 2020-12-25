@@ -37,7 +37,6 @@
             viewName="AppPortalView2"
             :viewparams="viewparams" 
             :context="context" 
-        :isDeView="false"
             name="dashboard"  
             ref='dashboard' 
             @closeview="closeView($event)">

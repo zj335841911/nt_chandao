@@ -159,11 +159,11 @@ export default class MyBase extends Vue implements ControlInterface {
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
-     * 是否为实体视图
+     * 多语言实体名称
      *
      * @memberof My
      */
-    @Prop() protected isDeView!: boolean;
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题
