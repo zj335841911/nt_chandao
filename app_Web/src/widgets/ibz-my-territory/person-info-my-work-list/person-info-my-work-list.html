@@ -7,16 +7,7 @@
             @click="handleClick(item)"
             @dblclick="handleDblClick(item)"
         >
-                            <layout_list_itempanel 
-                    :viewState="viewState"  
-                    :viewparams="viewparams" 
-                    :context="context" 
-                    :parentRef="_self"
-                    :inputData="item"
-                    @panelDataChange="($event)=>{onPanelDataChange(item,$event)}"
-                    name="list_itempanel"  
-                    ref="list_itempanel">
-                </layout_list_itempanel>
+            {{item.srfmajortext}}
         </div>
     </div>
     <div v-else>

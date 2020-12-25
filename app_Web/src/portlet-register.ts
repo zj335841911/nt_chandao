@@ -101,6 +101,7 @@ import IbzCaseCaseNewEdit from '@/widgets/ibz-case/case-new-edit-portlet/case-ne
 import IbzCaseCaseInfo from '@/widgets/ibz-case/case-info-portlet/case-info-portlet.vue';
 import IbzCaseIbzCases from '@/widgets/ibz-case/ibz-cases-portlet/ibz-cases-portlet.vue';
 import SysEmployeePersonInfo from '@/widgets/sys-employee/person-info-portlet/person-info-portlet.vue';
+import SysEmployeePersonBasicInformation from '@/widgets/sys-employee/person-basic-information-portlet/person-basic-information-portlet.vue';
 
 export const  PortletComponent = {
     install(v: any, opt: any) {
@@ -171,6 +172,7 @@ export const  PortletComponent = {
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('app-product-product-status-chart-portlet', ProductProductStatusChart);
         v.component('app-story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
+        v.component('app-sys-employee-person-basic-information-portlet', SysEmployeePersonBasicInformation);
         v.component('app-sys-employee-person-info-portlet', SysEmployeePersonInfo);
         v.component('app-bug-total-cur-opened-bug-portlet', BugTotalCurOpenedBug);
         v.component('app-case-total-cur-opened-case-portlet', CaseTotalCurOpenedCase);
@@ -300,5 +302,6 @@ export const  PortletComponent = {
         v.component('ibz-case-case-info-portlet', IbzCaseCaseInfo);
         v.component('ibz-case-ibz-cases-portlet', IbzCaseIbzCases);
         v.component('sys-employee-person-info-portlet', SysEmployeePersonInfo);
+        v.component('sys-employee-person-basic-information-portlet', SysEmployeePersonBasicInformation);
     }
 };

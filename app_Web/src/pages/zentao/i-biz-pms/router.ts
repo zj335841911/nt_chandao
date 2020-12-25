@@ -16598,6 +16598,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-stats-edit-view9/project-stats-edit-view9.vue'),
                 },
                 {
+                    path: 'sysemployees/:sysemployee?/editviewbasicinfo/:editviewbasicinfo?',
+                    meta: {
+                        caption: 'entities.sysemployee.views.editviewbasicinfo.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'editviewbasicinfo', parameterName: 'editviewbasicinfo' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/sys-employee-edit-view-basic-info/sys-employee-edit-view-basic-info.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
                     meta: {
                         caption: 'entities.bug.views.buildsubgridview_new_9212.caption',

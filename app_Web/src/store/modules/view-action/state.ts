@@ -996,6 +996,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '28c5418b1ed607876fc4c920195f717d',
+            viewmodule: 'zentao',
+            viewname: 'SysEmployeeEditViewBasicInfo',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '2ae3586b0dd0f70c261ba6f24adb99df',
             viewmodule: 'zentao',
             viewname: 'ProductStatsTestEditView9',
@@ -3850,6 +3859,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '28c5418b1ed607876fc4c920195f717d',
                 '4d673563cfae3bd7ff908401e877f4bc',
             ],
         },

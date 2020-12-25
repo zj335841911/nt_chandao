@@ -3,7 +3,6 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PersonInfoMyWorkListBase } from './person-info-my-work-list-base';
-import layout_list_itempanel from '@widgets/ibz-my-territory/my-work2-panel/my-work2-panel.vue';
  
 
 /**
@@ -15,7 +14,6 @@ import layout_list_itempanel from '@widgets/ibz-my-territory/my-work2-panel/my-w
  */
 @Component({
     components: {
-        layout_list_itempanel,
          
     },
 })

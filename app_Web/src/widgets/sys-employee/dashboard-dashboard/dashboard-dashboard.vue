@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DashboardDashboardBase } from './dashboard-dashboard-base';
-import view_dashboard_sysportlet2 from '@widgets/sys-employee/dashboard-viewdashboard-sysportlet2-portlet/dashboard-viewdashboard-sysportlet2-portlet.vue';
+import view_dashboard_sysportlet2 from '@widgets/sys-employee/person-basic-information-portlet/person-basic-information-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/sys-employee/person-info-portlet/person-info-portlet.vue';
  
 

@@ -272,11 +272,11 @@ function getLocaleResourceBase(){
 					tabviewpanel7: {
 						caption: commonLogic.appcommonhandle("项目",null),
 					},
-					tabviewpanel14: {
-						caption: commonLogic.appcommonhandle("分页标题",null),
-					},
 					tabviewpanel9: {
 						caption: commonLogic.appcommonhandle("动态",null),
+					},
+					tabviewpanel14: {
+						caption: commonLogic.appcommonhandle("个人信息",null),
 					},
 					tabviewpanel8: {
 						caption: commonLogic.appcommonhandle("联系人",null),
