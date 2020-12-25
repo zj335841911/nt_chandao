@@ -983,6 +983,32 @@ export default class WeeklyMyReceviedBase extends Vue implements ControlInterfac
         this.$emit("checkBoxChange", _count)
         this.$forceUpdate();
     }
+    /** 
+     * checkbox 选中回调
+     *
+     * @memberof WeeklyMyRecevied
+     */
+    public checkboxChange(data: any) {
+        let { detail } = data;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.selectednumber = 0;
+        this.items.forEach((item: any, index: number) => {
+            if (item.value) {
+                this.selectednumber++;
+            }
+            if (Object.is(item.ibzweeklyid, value)) {
+                if (detail.checked) {
+                    this.selectedArray.push(this.items[index]);
+                } else {
+                    this.selectedArray.splice(this.selectedArray.findIndex((i: any) => i.value === item.value), 1)
+                }
+            }
+        });
+        this.$emit('selectionchange', this.selectedArray);
+    }
 
     /**
      * 全选事件

@@ -1,7 +1,7 @@
 <template>
   <div class="app-mob-upload-list">
       <template  v-for="item in items">
-          <v-touch v-on:press="node_touch(item)" :key="item.id">
+          <v-touch v-on:press="node_touch(item)" :key="item.url">
     <div class="app-mob-upload-list_item" @click="onItemClick(item)" >
       <div class="index_icon">
         <img v-if="isImages(item)" @click.stop="openImages(getImage(item))"  data-error="xxx.jpg" attempt="1"  v-lazy="getImage(item)" alt="">
@@ -10,9 +10,9 @@
       <div class="file_info_content">
         <div class="file_name"> <strong>{{ item.srfmajortext }}</strong></div>
         <div class="file_footer">
-            <div class="file_size">{{item.strsize}}</div>
+            <div class="file_size">{{item.size}}</div>
             <div class="file_size">|</div>
-            <div class="file_created_date">{{item.addeddate}}</div>
+            <div class="file_created_date">{{item.date}}</div>
         </div>
       </div>
         <div v-if="isEnableDelete" class="file_delete_icon"><app-mob-icon class="app-mob-upload-list_item_icon ios hydrated" name="close-outline" @onClick="item_delete(item)"></app-mob-icon></div>
@@ -138,7 +138,7 @@ export default class AppMobUploadList extends Vue {
             return
         }
         let tempUrl = window.location.href.split("#")[0];
-        let url = tempUrl + `${this.downloadUrl}` + `/${item.id}`;
+        let url = tempUrl + `${this.downloadUrl}` + `/${item.url}`;
         window.open(url);
     }
 
@@ -162,7 +162,7 @@ export default class AppMobUploadList extends Vue {
      * 解析图片地址
      */
     public getImage(item: any) {
-        return `${this.downloadUrl}` + `/${item.id}`
+        return `${this.downloadUrl}` + `/${item.url}`
     }
 
     /**

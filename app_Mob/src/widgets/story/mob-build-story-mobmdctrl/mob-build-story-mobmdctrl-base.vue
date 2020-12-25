@@ -967,6 +967,32 @@ export default class MOB_Build_StoryBase extends Vue implements ControlInterface
         this.$emit("checkBoxChange", _count)
         this.$forceUpdate();
     }
+    /** 
+     * checkbox 选中回调
+     *
+     * @memberof MOB_Build_Story
+     */
+    public checkboxChange(data: any) {
+        let { detail } = data;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.selectednumber = 0;
+        this.items.forEach((item: any, index: number) => {
+            if (item.value) {
+                this.selectednumber++;
+            }
+            if (Object.is(item.id, value)) {
+                if (detail.checked) {
+                    this.selectedArray.push(this.items[index]);
+                } else {
+                    this.selectedArray.splice(this.selectedArray.findIndex((i: any) => i.value === item.value), 1)
+                }
+            }
+        });
+        this.$emit('selectionchange', this.selectedArray);
+    }
 
     /**
      * 全选事件
