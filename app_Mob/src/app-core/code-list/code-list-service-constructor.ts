@@ -18,6 +18,7 @@ export class CodeListServiceConstructor extends ServiceConstructorBase {
         this.allService.set('RelatedStory', () => import('@/app-core/code-list/related-story'));
         this.allService.set('ProductBranch_Cache', () => import('@/app-core/code-list/product-branch-cache'));
         this.allService.set('MyPlanTask', () => import('@/app-core/code-list/my-plan-task'));
+        this.allService.set('UserRealName_Gird', () => import('@/app-core/code-list/user-real-name-gird'));
         this.allService.set('MonthlyCompleteTaskChoice', () => import('@/app-core/code-list/monthly-complete-task-choice'));
         this.allService.set('CurProductPlan', () => import('@/app-core/code-list/cur-product-plan'));
         this.allService.set('SysOperator', () => import('@/app-core/code-list/sys-operator'));

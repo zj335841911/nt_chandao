@@ -93,6 +93,9 @@ export default {
     MyPlanTask: {
         empty: commonLogic.appcommonhandle("",null),
     },
+    UserRealName_Gird: {
+        empty: commonLogic.appcommonhandle("",null),
+    },
     MonthlyCompleteTaskChoice: {
         empty: commonLogic.appcommonhandle("",null),
     },
