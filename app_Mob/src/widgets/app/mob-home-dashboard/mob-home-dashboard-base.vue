@@ -5,7 +5,7 @@
             
 <view_dashboard_sysportlet1
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -18,7 +18,7 @@
             
 <view_dashboard_sysportlet2
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -31,7 +31,7 @@
             
 <view_dashboard_sysportlet3
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -44,7 +44,7 @@
             
 <view_dashboard_sysportlet5
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -57,7 +57,7 @@
             
 <view_dashboard_sysportlet4
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -70,7 +70,7 @@
             
 <view_dashboard_sysportlet6
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -83,7 +83,7 @@
             
 <view_dashboard_sysportlet7
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -96,7 +96,7 @@
             
 <view_dashboard_sysportlet8
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -109,7 +109,7 @@
             
 <view_dashboard_sysportlet9
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"

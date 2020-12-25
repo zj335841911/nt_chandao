@@ -34,7 +34,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="IbzMonthlyMonthlyMobMDView"  
+            viewName="MonthlyMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="ProductCloseMobEditView"  
+            viewName="CloseMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

@@ -11,7 +11,7 @@
     <template slot="content">
                 <view_form
             :viewState="viewState"
-            viewName="TaskEstimateMobEditView9"  
+            viewName="MobEditView9"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

@@ -23,7 +23,7 @@
     <ion-content >
                 <view_tabexppanel
             :viewState="viewState"
-            viewName="IbzMyTerritoryDailyMobTabExpView"  
+            viewName="DailyMobTabExpView"
             :viewparams="viewparams" 
             :context="context" 
             :activiedTabViewPanel="activiedTabViewPanel"     

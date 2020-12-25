@@ -9,7 +9,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="IbzDailyDailyInfoMobEditView"  
+            viewName="DailyInfoMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

@@ -3,7 +3,7 @@
     <ion-content class="view-content" :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
         <view_mdctrl
     :viewState="viewState"
-    viewName="BugUsr3MobPickupBuildResolvedMDView"  
+    viewName="Usr3MobPickupBuildResolvedMDView"
     :viewparams="viewparams" 
     :context="context" 
     viewType="DEMOBPICKUPMDVIEW"

@@ -26,7 +26,7 @@
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="IbzDailyDailyReportSubmitMobMDView"  
+            viewName="DailyReportSubmitMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

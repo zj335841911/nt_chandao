@@ -27,7 +27,7 @@
         </ion-refresher>
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="StoryUsr2MobMPickupView"  
+            viewName="Usr2MobMPickupView"
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"

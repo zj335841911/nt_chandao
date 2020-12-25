@@ -26,7 +26,7 @@
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
-    viewName="BuildMobMPickupView"  
+    viewName="MobMPickupView"
     :viewparams="viewparams" 
     :context="context" 
      
@@ -67,7 +67,7 @@
     <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="BuildMobMPickupView"  
+            viewName="MobMPickupView"
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"

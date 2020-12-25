@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="BugResolveMobEditView"  
+            viewName="ResolveMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

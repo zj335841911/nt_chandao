@@ -5,7 +5,7 @@
             
 <view_db_appmenu1
     :viewState="viewState"
-    viewName="AppPortalView"  
+    viewName="AppPortalView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -18,7 +18,7 @@
             
 <view_db_appmenu2
     :viewState="viewState"
-    viewName="AppPortalView"  
+    viewName="AppPortalView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"
@@ -31,7 +31,7 @@
             
 <view_db_appmenu3
     :viewState="viewState"
-    viewName="AppPortalView"  
+    viewName="AppPortalView"
     :viewparams="viewparams" 
     :context="context" 
 :isDeView="isDeView"

@@ -10,7 +10,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="TestTaskMobOptionViewActivite"  
+            viewName="MobOptionViewActivite"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

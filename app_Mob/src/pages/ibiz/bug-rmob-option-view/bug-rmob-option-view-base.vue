@@ -20,7 +20,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="BugRMobOptionView"  
+            viewName="RMobOptionView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

@@ -6,7 +6,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="StoryAssMobMDView9"  
+            viewName="AssMobMDView9"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"

@@ -20,7 +20,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="TaskGSMobOptionView"  
+            viewName="GSMobOptionView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

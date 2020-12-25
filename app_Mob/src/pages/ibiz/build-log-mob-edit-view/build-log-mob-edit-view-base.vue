@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="BuildLogMobEditView"  
+            viewName="LogMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

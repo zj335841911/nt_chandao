@@ -11,7 +11,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="CaseStepMobMDView9"  
+            viewName="MobMDView9"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"

@@ -34,7 +34,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TodoMobMDView"  
+            viewName="MobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

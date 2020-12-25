@@ -23,7 +23,7 @@
         </ion-refresher>
                 <view_form
             :viewState="viewState"
-            viewName="ProductPlanMobEditView"  
+            viewName="MobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

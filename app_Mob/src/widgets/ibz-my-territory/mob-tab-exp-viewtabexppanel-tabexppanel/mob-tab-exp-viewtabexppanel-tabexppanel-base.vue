@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
                         <view_tabviewpanel4
                 :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel4"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel5'">
                         <view_tabviewpanel5
                 :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel5"  

@@ -17,7 +17,7 @@
     <ion-content >
                 <view_tabexppanel
             :viewState="viewState"
-            viewName="IbzMyTerritoryReportMobTabExpView"  
+            viewName="ReportMobTabExpView"
             :viewparams="viewparams" 
             :context="context" 
             :activiedTabViewPanel="activiedTabViewPanel"     

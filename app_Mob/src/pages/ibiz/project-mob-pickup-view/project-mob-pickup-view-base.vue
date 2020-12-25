@@ -13,7 +13,7 @@
     <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="ProjectMobPickupView"  
+            viewName="MobPickupView"
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"

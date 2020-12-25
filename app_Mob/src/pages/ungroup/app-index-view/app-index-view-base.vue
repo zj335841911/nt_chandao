@@ -3,7 +3,7 @@
 <div class="indexView">
     <view_appmenu
     :viewState="viewState"
-    viewName="AppIndexView"  
+    viewName="AppIndexView"
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 

@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="ProductPlanEditMobEditView"  
+            viewName="EditMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

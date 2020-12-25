@@ -14,7 +14,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="BugPlanMobMDView9"  
+            viewName="PlanMobMDView9"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"

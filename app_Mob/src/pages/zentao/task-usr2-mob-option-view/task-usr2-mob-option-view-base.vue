@@ -20,7 +20,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="TaskUsr2MobOptionView"  
+            viewName="Usr2MobOptionView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

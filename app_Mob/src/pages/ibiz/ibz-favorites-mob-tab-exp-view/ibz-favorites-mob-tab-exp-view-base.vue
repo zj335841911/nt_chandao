@@ -20,7 +20,7 @@
     <ion-content >
                 <view_tabexppanel
             :viewState="viewState"
-            viewName="IbzFavoritesMobTabExpView"  
+            viewName="MobTabExpView"
             :viewparams="viewparams" 
             :context="context" 
             :activiedTabViewPanel="activiedTabViewPanel"     

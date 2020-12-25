@@ -18,7 +18,7 @@
             </div>
                 <view_dashboard_sysportlet9_chart
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     fetchAction="FetchDefault"

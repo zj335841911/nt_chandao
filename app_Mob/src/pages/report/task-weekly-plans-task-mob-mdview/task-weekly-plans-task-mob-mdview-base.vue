@@ -8,7 +8,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TaskWeeklyPlansTaskMobMDView"  
+            viewName="WeeklyPlansTaskMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"

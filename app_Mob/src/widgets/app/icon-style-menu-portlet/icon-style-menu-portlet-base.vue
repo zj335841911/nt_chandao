@@ -18,7 +18,7 @@
             </div>
                 <view_db_appmenu2_appmenu
     :viewState="viewState"
-    viewName="AppPortalView"  
+    viewName="AppPortalView"
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 

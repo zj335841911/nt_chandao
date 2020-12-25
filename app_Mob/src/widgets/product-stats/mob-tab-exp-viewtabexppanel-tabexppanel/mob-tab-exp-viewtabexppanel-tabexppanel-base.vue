@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
                         <view_tabviewpanel4
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel4"  
@@ -36,7 +36,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel5'">
                         <view_tabviewpanel5
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel5"  
@@ -47,7 +47,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
                         <view_tabviewpanel3
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel3"  

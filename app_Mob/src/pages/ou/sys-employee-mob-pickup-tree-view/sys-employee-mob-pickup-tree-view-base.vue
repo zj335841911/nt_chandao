@@ -3,7 +3,7 @@
     <div class="view-content">
         <view_tree
     :viewState="viewState"
-    viewName="SysEmployeeMobPickupTreeView"  
+    viewName="MobPickupTreeView"
     :viewparams="viewparams" 
     :context="context" 
     :isOptional="false"

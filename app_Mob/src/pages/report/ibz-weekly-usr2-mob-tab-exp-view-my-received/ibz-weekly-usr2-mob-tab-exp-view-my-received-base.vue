@@ -33,7 +33,7 @@
     <ion-content >
                 <view_tabexppanel
             :viewState="viewState"
-            viewName="IbzWeeklyUsr2MobTabExpViewMyReceived"  
+            viewName="Usr2MobTabExpViewMyReceived"
             :viewparams="viewparams" 
             :context="context" 
             :activiedTabViewPanel="activiedTabViewPanel"     
