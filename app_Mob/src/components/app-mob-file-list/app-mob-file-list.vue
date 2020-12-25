@@ -44,7 +44,7 @@ Vue.use(Uploader);
 })
 export default class AppMobFileList extends Vue {
     /**
-     * 数据项说明：url映射实体属性id, date映射ADDEDDATE， size映射strsize, extension映射extension, srfmajortext映射title
+     * 数据项说明：url映射实体提供url的属性, date映射添加时间， size映射显示大小, extension映射文件类型, srfmajortext映射标题
      * 参数说明：
      *    是否启用删除：isEnableDelete，默认启用，不需要时父组件传递false
      *    是否启用下载：isEnableDownload，默认启用，不需要时父组件传递false
