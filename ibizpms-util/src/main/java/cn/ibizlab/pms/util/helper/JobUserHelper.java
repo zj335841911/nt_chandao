@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
+import org.springframework.util.DigestUtils;
 
 @Slf4j
 @Component
@@ -25,11 +26,26 @@ public class JobUserHelper {
     @Value("${jobs.adminpassword:123456}")
     private String adminpassword;
 
+    @Value("${ibiz.auth.pwencrymode:0}")
+    private int pwencrymode;
+
+    @Value("${ibiz.auth.ladp:false}")
+    private boolean ladp;
+
     @Cacheable(value="jobauthenticationinfo")
     public AuthenticationInfo getJobUser() {
         AuthorizationLogin authenticationLogin = new AuthorizationLogin();
         authenticationLogin.setLoginname(adminname);
-        authenticationLogin.setPassword(adminpassword);
+        String pwd = adminpassword;
+        if(!ladp) {
+            authenticationLogin.getLoginname();
+            if (pwencrymode == 1) {
+                pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
+            } else if (pwencrymode == 2) {
+                pwd = DigestUtils.md5DigestAsHex(String.format("%1$s||%2$s", authenticationLogin.getUsername(), pwd).getBytes());
+            }
+        }
+        authenticationLogin.setPassword(pwd);
         return uaaFeignClient.v7Login(authenticationLogin);
     }
 
