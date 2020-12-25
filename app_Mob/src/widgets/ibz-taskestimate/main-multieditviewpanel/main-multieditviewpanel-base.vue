@@ -3,7 +3,7 @@
 <div class="app-medit-view-panel">
     <div v-for="item in items" :key="item.id" class="app-medit-view-panel-card">
         <ion-card>
-          <div class="meditviewpanel_delete_icon_container" ><app-mob-icon @onClick="deleteItem(item)" class="meditviewpanel_delete_icon" name="close-circle-outline"></app-mob-icon></div>
+          <div class="meditviewpanel_delete_icon_container" ><app-mob-icon @onClick="deleteItem(item)" class="meditviewpanel_delete_icon right-common-icon" name="close-circle-outline"></app-mob-icon></div>
           <ion-card-content>
             <task-estimate-mob-edit-view9 
               class="viewcontainer2"

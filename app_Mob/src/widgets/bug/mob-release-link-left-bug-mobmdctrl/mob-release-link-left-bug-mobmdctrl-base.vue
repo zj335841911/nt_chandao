@@ -304,9 +304,9 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
-    *上级传递的选中项
-    *@type {Array}
-    *@memberof MOB_ReleaseLink_LeftBug
+    * 上级传递的选中项
+    * @type {Array}
+    * @memberof MOB_ReleaseLink_LeftBug
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -334,15 +334,6 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     * @memberof MOB_ReleaseLink_LeftBug
     */
     @Prop() public opendata?: Function; 
-
-
-    /**
-    * 当前选中数组
-    *
-    * @type {array}
-    * @memberof MOB_ReleaseLink_LeftBug
-    */
-    public  selectdata :any = [];
 
     /**
     * 加载显示状态
@@ -478,37 +469,6 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     */
     public radio:any = '';
 
-
-    /**
-    * 点击多选按钮触发
-    *
-    *
-    * @memberof MOB_ReleaseLink_LeftBug
-    */
-    public change(){
-        if(this.isMutli){
-             let checkboxLists= this.items.filter((item,index)=>{
-                  if(this.checkboxList.indexOf(item.srfkey)!=-1){
-                    return true;
-                  }else{
-                    return false;
-                  }
-                })
-          this.$emit('selectchange',checkboxLists);
-        }else{
-           let radioItem = this.items.filter((item,index)=>{return item.srfkey==this.radio});
-           this.$emit('selectchange',radioItem);
-        }
-    }
-
-    /**
-    * 列表键值对
-    *
-    * @type {Map}
-    * @memberof MOB_ReleaseLink_LeftBug
-    */
-    public listMap: any = new Map();
-
     /**
     * 分页大小
     *
@@ -565,7 +525,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     * @param {Array<any>}
     * @memberof MOB_ReleaseLink_LeftBug
     */
-    public selectedArray:Array<any> = [];
+    public selectdata:Array<any> = [];
 
     /**
     * 多选计数
@@ -573,7 +533,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     * @param {number}
     * @memberof MOB_ReleaseLink_LeftBug
     */
-    public selectednumber:number =0;
+    public selectednumber:number = 0;
 
     /**
     * 搜索行为
@@ -835,35 +795,6 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
 
 
     /**
-     * checkbox 选中回调
-     *
-     * @param {*} data
-     * @returns
-     * @memberof MOB_ReleaseLink_LeftBug
-     */
-    public checkboxChange(data: any) {
-        let { detail } = data;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.selectednumber = 0;
-        this.items.forEach((item: any, index: number) => {
-            if (item.value) {
-                this.selectednumber++;
-            }
-            if (Object.is(item.id, value)) {
-                if (detail.checked) {
-                    this.selectdata.push(this.items[index]);
-                } else {
-                    this.selectdata.splice(this.selectdata.findIndex((i: any) => i.value === item.value), 1)
-                }
-            }
-        });
-        this.$emit('selectionchange', this.selectdata);
-    }
-
-    /**
      * 下拉刷新
      *
      * @returns {Promise<any>}
@@ -887,13 +818,13 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     */
     public item_click(item:any){
         if(this.isChoose){
-            let count = this.selectedArray.findIndex((i) => {
+            let count = this.selectdata.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
             if (count === -1) {
-                this.selectedArray.push(item);
+                this.selectdata.push(item);
             } else {
-                this.selectedArray.splice(count, 1);
+                this.selectdata.splice(count, 1);
             }
         } else {
             this.goPage(item)
@@ -915,7 +846,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     * @memberof MOB_ReleaseLink_LeftBug
     */
     public getDatas(): any[] {
-      return this.service.handleRequestDatas(this.context,this.selectedArray);
+      return this.service.handleRequestDatas(this.context,this.selectdata);
     }
 
     /**
@@ -924,7 +855,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     * @memberof MOB_ReleaseLink_LeftBug
     */
     public getData(): any {
-        return this.selectedArray[0];
+        return this.selectdata[0];
     }
 
     /**
@@ -1073,8 +1004,8 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
      */
     public mdctrl_click($event: any, tag: any, item: any): void {
         $event.stopPropagation();
-        this.selectedArray = [];
-        this.selectedArray.push(item);
+        this.selectdata = [];
+        this.selectdata.push(item);
         this.closeSlidings(item);
     }
 
@@ -1097,7 +1028,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     public onSimpleSelChange(item: any = {}) {
         this.$emit('selectionchange', [item]);
         this.selectedValue = item.srfkey;
-        this.selectedArray = [];
+        this.selectdata = [];
         this.goPage(item);
     }
 
@@ -1115,27 +1046,17 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
-        item.checked = !item.checked;
-        let count = this.selectedArray.findIndex((i) => {
-            return i.id == item.id;
+        item.checked = !item.checked
+        let count = this.selectdata.findIndex((_item:any) => {
+            return _item.id == item.id;
         });
         if(count == -1){
-            this.selectedArray.push(item);
+            this.selectdata.push(item);
         }else{
-            this.selectedArray.splice(count,1);
+            this.selectdata.splice(count , 1);
         }
-        this.items.forEach((_item:any,index:number)=>{
-            if(_item.id == item.id){
-                this.items[index].checked = item.checked;
-            }
-        });
-        if(this.selectedArray.length == this.items.length){
-            this.$emit("checkBoxChange",{isSelectAll:true,isSelectSome:true})
-        }else if(this.selectedArray.length == 0){
-            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:false})
-        }else{
-            this.$emit("checkBoxChange",{isSelectAll:false,isSelectSome:true})
-        }
+        let _count = Object.is(this.items.length , this.selectdata.length)? 1 : this.selectdata.length > 0 ? 2 : 0;
+        this.$emit("checkBoxChange", _count)
         this.$forceUpdate();
     }
 
@@ -1150,9 +1071,9 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
             this.items[index].checked = value;
         }
         if(value){
-            this.selectedArray = [...this.items];
+            this.selectdata = [...this.items];
         }else{
-            this.selectedArray = [];
+            this.selectdata = [];
         }
         this.$forceUpdate();
     }
