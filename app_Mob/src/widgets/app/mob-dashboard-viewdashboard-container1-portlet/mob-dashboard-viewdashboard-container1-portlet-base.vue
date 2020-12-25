@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_container1 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.portlets.mobdashboardviewdashboard_container1.caption')}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.views.${this.viewName.toLowerCase()}.mobdashboardviewdashboard_container1_portlet')}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
@@ -366,7 +366,7 @@ export default class MobDashboardViewdashboard_container1Base extends Vue implem
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return (this.$t('app.portlets.mobdashboardviewdashboard_container1.caption') as string)
+        return (this.$t('app.views.${this.viewName.toLowerCase()}.mobdashboardviewdashboard_container1_portlet') as string)
     }
 
     /**

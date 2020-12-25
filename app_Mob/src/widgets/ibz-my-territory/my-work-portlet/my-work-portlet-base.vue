@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet6 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.portlets.mywork.caption')}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.views.${this.viewName.toLowerCase()}.mywork_portlet')}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
@@ -366,7 +366,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return (this.$t('app.portlets.mywork.caption') as string)
+        return (this.$t('app.views.${this.viewName.toLowerCase()}.mywork_portlet') as string)
     }
 
     /**
