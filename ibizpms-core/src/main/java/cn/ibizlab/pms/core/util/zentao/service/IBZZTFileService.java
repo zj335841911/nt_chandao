@@ -224,9 +224,6 @@ public class IBZZTFileService implements IIBZZTFileService {
             throw new InternalServerErrorException("文件不存在");
         }
         String relationPath = ztFile.getPathname();
-        if (!relationPath.endsWith(ztFile.getExtension())) {
-            relationPath += ztFile.getExtension();
-        }
         File file = new File(filePath + relationPath);
         if (!file.exists()) {
             if (relationPath.lastIndexOf(".") >= 0) {
