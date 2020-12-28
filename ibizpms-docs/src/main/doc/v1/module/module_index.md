@@ -41,6 +41,9 @@ class 文档 {
 class 实体 {
 }
 
+class 代理 {
+}
+
 class 测试用例 {
 }
 

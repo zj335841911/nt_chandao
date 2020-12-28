@@ -36,6 +36,14 @@ zuul:
       path: /v7/login
       serviceId: ${ibiz.ref.service.pms-webapi:ibzuaa-api}
       stripPrefix: false
+    changepwd:
+      path: /v7/changepwd
+      serviceId: ${ibiz.ref.service.pms-webapi:ibzuaa-api}
+      stripPrefix: false
+    sys_user:
+      path: /sysusers/**
+      serviceId: ${ibiz.ref.service.pms-webapi:ibzuaa-api}
+      stripPrefix: false
 
 environment:
   - TZ=Asia/Shanghai

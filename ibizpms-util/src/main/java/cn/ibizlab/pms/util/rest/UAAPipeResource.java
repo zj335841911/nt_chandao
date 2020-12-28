@@ -77,6 +77,31 @@ public class UAAPipeResource {
         return info;
     }
 
+    @PostMapping("/v7/changepwd")
+    public Boolean changepwd(@Validated @RequestBody JSONObject jsonObject) {
+        if (!ladp) {
+            // 加密原密码和新密码
+            String oldPwd = jsonObject.getString("oldPwd");
+            String newPwd = jsonObject.getString("newPwd");
+
+            if (pwencrymode == 1) {
+                oldPwd = DigestUtils.md5DigestAsHex(oldPwd.getBytes());
+                newPwd = DigestUtils.md5DigestAsHex(newPwd.getBytes());
+            } else if (pwencrymode == 2) {
+                String userName = AuthenticationUser.getAuthenticationUser().getUsername();
+                oldPwd = DigestUtils.md5DigestAsHex(String.format("%1$s||%2$s", userName, oldPwd).getBytes());
+                newPwd = DigestUtils.md5DigestAsHex(String.format("%1$s||%2$s", userName, newPwd).getBytes());
+            }
+
+            jsonObject.put("oldPwd", oldPwd);
+            jsonObject.put("newPwd", newPwd);
+        }
+
+        // 调用uaa的接口更改密码
+        uaaFeignClient.changepwd(jsonObject);
+        return true;
+    }
+
     @GetMapping(value = {"/uaa/open/dingtalk/access_token"})
     public ResponseEntity<JSONObject> getDingtalkAppId(@RequestParam(value = "id", required = false) String id) {
         String openAccessId = StringUtils.isEmpty(id) ? getRefererURL() : id;

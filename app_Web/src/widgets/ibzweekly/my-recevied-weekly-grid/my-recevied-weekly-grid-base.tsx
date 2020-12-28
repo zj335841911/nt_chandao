@@ -385,7 +385,7 @@ export class MyReceviedWeeklyGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'account',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

@@ -9,6 +9,7 @@ import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
+import ibzagent_zh_CN from '@locale/lanres/entities/ibz-agent/ibz-agent_zh_CN';
 import ibzprostorymodule_zh_CN from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_zh_CN';
 import productsum_zh_CN from '@locale/lanres/entities/product-sum/product-sum_zh_CN';
 import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
@@ -400,6 +401,7 @@ function getAppLocale(){
             product: product_zh_CN(),
             taskteam: taskteam_zh_CN(),
             file: file_zh_CN(),
+            ibzagent: ibzagent_zh_CN(),
             ibzprostorymodule: ibzprostorymodule_zh_CN(),
             productsum: productsum_zh_CN(),
             ibzlibcasesteps: ibzlibcasesteps_zh_CN(),

@@ -286,6 +286,9 @@ function getLocaleResourceBase(){
 					},
 					tabviewpanel12: {
 						caption: commonLogic.appcommonhandle("汇报",null),
+					},
+					tabviewpanel15: {
+						caption: commonLogic.appcommonhandle("代理",null),
 					}
 				},
 				uiactions: {

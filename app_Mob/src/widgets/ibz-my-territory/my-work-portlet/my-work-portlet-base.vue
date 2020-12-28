@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet6 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`ibzmyterritory${this.viewName.toLowerCase()}.mywork_portlet`)}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`${this.localeDeName}.views.${this.viewName.toLowerCase()}.mywork_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
@@ -180,11 +180,11 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
-     * 是否为实体视图
+     * 多语言实体名称
      *
      * @memberof MyWork
      */
-    @Prop() protected isDeView!: boolean;
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题

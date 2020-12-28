@@ -10436,6 +10436,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view9/project-grid-view9.vue'),
                 },
                 {
+                    path: 'ibzagents/:ibzagent?/maininfoeditview/:maininfoeditview?',
+                    meta: {
+                        caption: 'entities.ibzagent.views.maininfoeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzagents', parameterName: 'ibzagent' },
+                            { pathName: 'maininfoeditview', parameterName: 'maininfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-agent-main-info-edit-view/ibz-agent-main-info-edit-view.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/usr3gridview/:usr3gridview?',
                     meta: {
                         caption: 'entities.productsum.views.usr3gridview.caption',
@@ -17085,6 +17099,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/doc-lib-project-tree-view/doc-lib-project-tree-view.vue'),
                 },
                 {
+                    path: 'ibzagents/:ibzagent?/maingridview/:maingridview?',
+                    meta: {
+                        caption: 'entities.ibzagent.views.maingridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzagents', parameterName: 'ibzagent' },
+                            { pathName: 'maingridview', parameterName: 'maingridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-agent-main-grid-view/ibz-agent-main-grid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/editview_activate/:editview_activate?',
                     meta: {
                         caption: 'entities.project.views.editview_activate.caption',
@@ -17288,6 +17316,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-pickup-view/project-pickup-view.vue'),
+                },
+                {
+                    path: 'ibzagents/:ibzagent?/createeditview/:createeditview?',
+                    meta: {
+                        caption: 'entities.ibzagent.views.createeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzagents', parameterName: 'ibzagent' },
+                            { pathName: 'createeditview', parameterName: 'createeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-agent-create-edit-view/ibz-agent-create-edit-view.vue'),
                 },
                 {
                     path: 'ibzlibs/:ibzlib?/editview/:editview?',

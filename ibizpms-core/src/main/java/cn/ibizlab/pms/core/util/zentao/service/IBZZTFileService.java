@@ -74,8 +74,8 @@ public class IBZZTFileService implements IIBZZTFileService {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String curDate = sdf.format(new Date(curTime));
 //                String fileShortPath = curDate + File.separator + md5FileName + extname;
-                String fileShortPath = curDate + File.separator + md5FileName ;
-
+                String fileShortPath = curDate + File.separator + md5FileName;
+                fileShortPath = fileShortPath.replace("\\", "/");
                 String fileFullPath = filePath + fileShortPath;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
@@ -224,9 +224,6 @@ public class IBZZTFileService implements IIBZZTFileService {
             throw new InternalServerErrorException("文件不存在");
         }
         String relationPath = ztFile.getPathname();
-        if (!relationPath.endsWith(ztFile.getExtension())) {
-            relationPath += ztFile.getExtension();
-        }
         File file = new File(filePath + relationPath);
         if (!file.exists()) {
             if (relationPath.lastIndexOf(".") >= 0) {

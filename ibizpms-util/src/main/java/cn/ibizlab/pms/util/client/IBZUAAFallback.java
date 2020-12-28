@@ -49,4 +49,7 @@ public class IBZUAAFallback implements IBZUAAFeignClient {
     public JSONObject getDingTalkJSSign(String openAccessId, String url) {
         return null;
     }
+
+    @Override
+    public Boolean changepwd(JSONObject jsonObject) { return null; }
 }

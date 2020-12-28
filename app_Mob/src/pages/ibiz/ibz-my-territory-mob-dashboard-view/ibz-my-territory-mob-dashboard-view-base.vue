@@ -22,7 +22,6 @@
             viewName="MobDashboardView"
             :viewparams="viewparams" 
             :context="context" 
-        :isDeView="true"
             name="dashboard"  
             ref='dashboard' 
             @load="dashboard_load($event)"  
