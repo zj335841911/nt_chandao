@@ -10436,6 +10436,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view9/project-grid-view9.vue'),
                 },
                 {
+                    path: 'ibzagents/:ibzagent?/maininfoeditview/:maininfoeditview?',
+                    meta: {
+                        caption: 'entities.ibzagent.views.maininfoeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzagents', parameterName: 'ibzagent' },
+                            { pathName: 'maininfoeditview', parameterName: 'maininfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-agent-main-info-edit-view/ibz-agent-main-info-edit-view.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/usr3gridview/:usr3gridview?',
                     meta: {
                         caption: 'entities.productsum.views.usr3gridview.caption',

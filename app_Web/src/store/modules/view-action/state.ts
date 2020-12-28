@@ -2604,6 +2604,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '74e4f28ec8dc97e87f8de6255b2fd4b8',
+            viewmodule: 'ibiz',
+            viewname: 'IbzAgentMainInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '76bd64e6d21e10838e42517992e58c65',
             viewmodule: 'zentao',
             viewname: 'StoryTabExpView',
@@ -3426,6 +3435,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '74e4f28ec8dc97e87f8de6255b2fd4b8',
                 '2b5c1c3213fbe9290285fe76805d426b',
             ],
         },

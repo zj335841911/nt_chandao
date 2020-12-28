@@ -281,6 +281,7 @@ export const PageComponents = {
         Vue.component('product-pickup-grid-view', () => import('@pages/zentao/product-pickup-grid-view/product-pickup-grid-view.vue'));
         Vue.component('sys-update-log-info-edit-view', () => import('@pages/ibiz/sys-update-log-info-edit-view/sys-update-log-info-edit-view.vue'));
         Vue.component('project-grid-view9', () => import('@pages/zentao/project-grid-view9/project-grid-view9.vue'));
+        Vue.component('ibz-agent-main-info-edit-view', () => import('@pages/ibiz/ibz-agent-main-info-edit-view/ibz-agent-main-info-edit-view.vue'));
         Vue.component('product-sum-usr3-grid-view', () => import('@pages/ibiz/product-sum-usr3-grid-view/product-sum-usr3-grid-view.vue'));
         Vue.component('case-test-option-view', () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'));
         Vue.component('bug-stats-bugresolvetion', () => import('@pages/ibiz/bug-stats-bugresolvetion/bug-stats-bugresolvetion.vue'));
