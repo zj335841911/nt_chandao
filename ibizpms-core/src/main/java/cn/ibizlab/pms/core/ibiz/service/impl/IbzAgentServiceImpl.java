@@ -51,22 +51,16 @@ public class IbzAgentServiceImpl extends ServiceImpl<IbzAgentMapper, IbzAgent> i
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(IbzAgent et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzagentid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzAgentHelper.class).create(et);
     }
 
     @Override
-    @Transactional
     public void createBatch(List<IbzAgent> list) {
-        this.saveBatch(list, batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean update(IbzAgent et) {

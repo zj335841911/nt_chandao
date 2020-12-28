@@ -344,6 +344,7 @@ export const viewstate: any = {
                 'd21c783cde14166ba9deb09e746a0f28',
                 'a6e3310693a8abeade4e5d1f928ab1f6',
                 'd8df5ca51341d33ccc19208dde3f2cce',
+                '95b5793bf8fc4bcf4cee37dcef6627cc',
                 '379360eb2f83ea4dc50744144c2878b7',
                 'fad11065c8858a545a9df670cdccce44',
                 'd86b9d1e9fad770e8fc97718cee8ed31',
@@ -1008,6 +1009,15 @@ export const viewstate: any = {
             viewtag: '2ae3586b0dd0f70c261ba6f24adb99df',
             viewmodule: 'zentao',
             viewname: 'ProductStatsTestEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '2b5c1c3213fbe9290285fe76805d426b',
+            viewmodule: 'ibiz',
+            viewname: 'IbzAgentCreateEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -3407,6 +3417,16 @@ export const viewstate: any = {
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '5a62e423ec79ab9e8e3f26802cc5e68c',
                 '6cf95e90393715815492a7e5e6f2a6f3',
+            ],
+        },
+        {
+            viewtag: '95b5793bf8fc4bcf4cee37dcef6627cc',
+            viewmodule: 'ibiz',
+            viewname: 'IbzAgentMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2b5c1c3213fbe9290285fe76805d426b',
             ],
         },
         {
