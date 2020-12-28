@@ -51,5 +51,8 @@ public interface IBZUAAFeignClient {
 	@RequestMapping(method = RequestMethod.GET, value = "/uaa/dingtalk/jsapi/sign")
 	public JSONObject getDingTalkJSSign(@RequestParam ("openaccessid") String openAccessId, @RequestParam ("url")String url);
 
+	@PostMapping(value = "/v7/changepwd")
+	Boolean changepwd(@RequestBody JSONObject jsonObject);
+
 }
 

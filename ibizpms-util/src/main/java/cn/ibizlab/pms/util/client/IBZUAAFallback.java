@@ -6,6 +6,7 @@ import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Component
 public class IBZUAAFallback implements IBZUAAFeignClient {
@@ -49,4 +50,7 @@ public class IBZUAAFallback implements IBZUAAFeignClient {
     public JSONObject getDingTalkJSSign(String openAccessId, String url) {
         return null;
     }
+
+    @Override
+    public Boolean changepwd(@RequestBody JSONObject jsonObject) { return null; }
 }

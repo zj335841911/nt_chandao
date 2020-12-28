@@ -4,6 +4,7 @@ import './user-info.less';
 import { Environment } from '@/environments/environment';
 import ProjectService from "@service/project/project-service";
 import IbzproConfigService from "@service/ibzpro-config/ibzpro-config-service";
+import { Subject } from 'rxjs';
 
 /**
  * 用户信息
@@ -115,6 +116,15 @@ export class UserInfo extends Vue {
                 }
             }).catch((error: any) => {
                 console.error(error);
+            });
+            return;
+        }
+        if (name === 'updatepwd') {
+            let container: Subject<any> = this.$appmodal.openModal({ viewname: 'app-update-password', title: '修改密码',  width: 500, height: 320, }, {}, {});
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
             });
             return;
         }
@@ -346,6 +356,12 @@ export class UserInfo extends Vue {
                                 </dropdownMenu>
                             </dropdown>
                         ) : null}
+                        <dropdown className="user-menu-child" placement="left-start">
+                            <dropdownItem name='updatepwd' title="修改密码">
+                                <icon type="ios-create-outline"/>
+                                <span>修改密码</span>
+                            </dropdownItem>
+                        </dropdown>
                         <dropdown class="user-menu-child" placement="left-start">
                             <dropdownItem name="custom-logout" title="退出登录">
                                 <icon type="md-log-out" />
