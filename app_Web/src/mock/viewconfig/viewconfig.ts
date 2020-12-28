@@ -921,7 +921,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzagentcreateeditview": {
             "title": "代理编辑视图",
-            "caption": "新建",
+            "caption": "代理编辑视图",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "ibiz",
             "viewname": "IbzAgentCreateEditView",
