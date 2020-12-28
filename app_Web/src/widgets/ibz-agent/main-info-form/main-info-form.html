@@ -62,21 +62,11 @@
     labelPos="LEFT"
 >
     
-<dropdown-list 
-    v-model="data.agentuser"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.agentuser.disabled"
-    valueType="string"
-    tag="UserRealName"
-    codelistType="DYNAMIC"
-    placeholder="请选择..."
+<app-span name='agentuser' :value="data.agentuser" dataType="TEXT"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
-></dropdown-list>
 </app-form-item>
 
 </i-col>

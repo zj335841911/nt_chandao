@@ -15,7 +15,7 @@ function getLocaleResourceBase(){
 		},
 			views: {
 				createeditview: {
-					caption: commonLogic.appcommonhandle("新建",null),
+					caption: commonLogic.appcommonhandle("代理编辑视图",null),
 					title: commonLogic.appcommonhandle("代理编辑视图",null),
 				},
 				maininfoeditview: {
