@@ -4,7 +4,7 @@
         <div>
                         <view_meditviewpanel
                 :viewState="viewState"
-                viewName="ProjectTeamProjectTeamMobMEditView"  
+                viewName="ProjectTeamMobMEditView"
                 :viewparams="viewparams" 
                 :context="context" 
                 :showBusyIndicator="true" 

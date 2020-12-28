@@ -24,7 +24,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="BugUsr6MobMDView"  
+            viewName="Usr6MobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

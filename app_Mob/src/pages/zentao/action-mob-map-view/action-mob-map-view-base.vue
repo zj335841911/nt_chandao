@@ -19,7 +19,7 @@
     <ion-content >
                 <view_map
             :viewState="viewState"
-            viewName="ActionMobMapView"  
+            viewName="MobMapView"
             :viewparams="viewparams" 
             :context="context" 
             name="map"  

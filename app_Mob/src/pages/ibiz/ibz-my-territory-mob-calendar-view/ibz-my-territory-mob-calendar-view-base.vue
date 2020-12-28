@@ -19,7 +19,7 @@
     <ion-content >
                 <view_calendar
             :viewState="viewState"
-            viewName="IbzMyTerritoryMobCalendarView"  
+            viewName="MobCalendarView"
             :viewparams="viewparams" 
             :context="context" 
             :showBusyIndicator="true"  

@@ -20,7 +20,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="TaskSTARTMobOptionView"  
+            viewName="STARTMobOptionView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

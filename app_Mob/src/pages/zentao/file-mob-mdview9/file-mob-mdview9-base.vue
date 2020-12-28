@@ -6,7 +6,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="FileMobMDView9"  
+            viewName="MobMDView9"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"

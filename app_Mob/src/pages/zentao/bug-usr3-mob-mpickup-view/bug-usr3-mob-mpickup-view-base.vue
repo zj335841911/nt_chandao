@@ -37,7 +37,7 @@
         </ion-refresher>
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="BugUsr3MobMPickupView"  
+            viewName="Usr3MobMPickupView"
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"

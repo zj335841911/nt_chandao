@@ -19,7 +19,7 @@
     <ion-content >
                 <view_dashboard
             :viewState="viewState"
-            viewName="IbzMyTerritoryMobDashboardView"  
+            viewName="MobDashboardView"
             :viewparams="viewparams" 
             :context="context" 
             name="dashboard"  

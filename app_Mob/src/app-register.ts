@@ -4,6 +4,7 @@ import { IonPage } from './components/ion-page/ion-page';
 import { AppEmbedView } from './components/app-embed-view/app-embed-view';
 
 import AppKeepAlive from './components/app-keep-alive/app-keep-alive.vue';
+import AppMobFileList from './components/app-mob-file-list/app-mob-file-list.vue';
 
 /**
  * Vue插件
@@ -157,6 +158,8 @@ export const AppComponents = {
         v.component('app-mob-group-select',() => import('@/components/app-mob-group-select/app-mob-group-select.vue'));
         // 树选择
         v.component('app-tree',() => import('@/components/app-tree/app-tree.vue'));
+        //文件列表
+        v.component('app-mob-file-list',AppMobFileList);
 
         // ui组件 BEGIN
         // 按钮

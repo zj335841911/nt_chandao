@@ -205,6 +205,7 @@ hide footbox
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_Default))|否|&nbsp;|
 |MyWork|我的工作([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_MyWork))|否|&nbsp;|
 |MyWorkMob|我的工作([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_MyWorkMob))|否|&nbsp;|
+|PersonInfo|个人信息-个人贡献([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_PersonInfo))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_View))|否|&nbsp;|
 |welcome|欢迎([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_Welcome))|否|&nbsp;|
 
@@ -215,6 +216,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |MyWork|我的工作|MyWork|否|&nbsp;|
 |MyWorkMob|我的工作|MyWorkMob|否|&nbsp;|
+|PersonInfo|个人信息-个人贡献|PersonInfo|否|&nbsp;|
 |welcome|欢迎|welcome|否|&nbsp;|
 
 ## 查询模式

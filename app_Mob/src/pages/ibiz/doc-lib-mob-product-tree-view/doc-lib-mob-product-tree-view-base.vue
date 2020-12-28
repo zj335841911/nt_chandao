@@ -10,7 +10,7 @@
     <ion-content >
                 <view_tree
             :viewState="viewState"
-            viewName="DocLibMobProductTreeView"  
+            viewName="MobProductTreeView"
             :viewparams="viewparams" 
             :context="context" 
             :isOptional="false"

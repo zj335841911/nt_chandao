@@ -32,7 +32,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="SysUpdateFeaturesMobEditView"  
+            viewName="MobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

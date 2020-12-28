@@ -1099,6 +1099,16 @@
         "viewtag": "2889bd5a8f15aadc0f60686124720c0d",
         "memo": ""
     },
+    "sysemployeeeditviewbasicinfo": {
+        "title": "人员编辑视图",
+        "caption": "人员",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeEditViewBasicInfo",
+        "viewfilename": "sys-employee-edit-view-basic-info",
+        "viewtag": "28c5418b1ed607876fc4c920195f717d",
+        "memo": ""
+    },
     "ibzcaseopencaseview": {
         "title": "用例库用例数据看板视图",
         "caption": "测试用例",
@@ -1127,6 +1137,16 @@
         "viewname": "ProductStatsTestEditView9",
         "viewfilename": "product-stats-test-edit-view9",
         "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df",
+        "memo": ""
+    },
+    "ibzagentcreateeditview": {
+        "title": "代理编辑视图",
+        "caption": "新建",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentCreateEditView",
+        "viewfilename": "ibz-agent-create-edit-view",
+        "viewtag": "2b5c1c3213fbe9290285fe76805d426b",
         "memo": ""
     },
     "ibzreportlycalendareditview": {
@@ -1947,6 +1967,16 @@
         "viewname": "TestTaskEditView_commitTest",
         "viewfilename": "test-task-edit-view-commit-test",
         "viewtag": "4d32793fc57ec1ae930a18608526d00e",
+        "memo": ""
+    },
+    "ibzmyterritorylistview9personinfo": {
+        "title": "我的工作",
+        "caption": "我的工作",
+        "viewtype": "DELISTVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryListView9PersonInfo",
+        "viewfilename": "ibz-my-territory-list-view9-person-info",
+        "viewtag": "4d673563cfae3bd7ff908401e877f4bc",
         "memo": ""
     },
     "docmyfavouritepartgridview": {
@@ -2879,6 +2909,16 @@
         "viewtag": "74e206764fd747fa31467bd5a9f371df",
         "memo": ""
     },
+    "ibzagentmaininfoeditview": {
+        "title": "代理编辑视图",
+        "caption": "代理",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentMainInfoEditView",
+        "viewfilename": "ibz-agent-main-info-edit-view",
+        "viewtag": "74e4f28ec8dc97e87f8de6255b2fd4b8",
+        "memo": ""
+    },
     "ibzprostoryeditview": {
         "title": "需求编辑视图",
         "caption": "需求",
@@ -3799,6 +3839,16 @@
         "viewtag": "956ad42e59e60cd8b49e7035147e25cf",
         "memo": "视图参数中指定了过滤条件"
     },
+    "ibzagentmaingridview": {
+        "title": "代理表格视图",
+        "caption": "代理",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentMainGridView",
+        "viewfilename": "ibz-agent-main-grid-view",
+        "viewtag": "95b5793bf8fc4bcf4cee37dcef6627cc",
+        "memo": ""
+    },
     "storymaingridview_bymodule": {
         "title": "story表格视图",
         "caption": "需求",
@@ -4327,6 +4377,16 @@
         "viewname": "BuildMainView",
         "viewfilename": "build-main-view",
         "viewtag": "a6d8bd7fa388f638832b33dddaa6df86",
+        "memo": ""
+    },
+    "sysemployeedashboardview": {
+        "title": "人员数据看板视图",
+        "caption": "人员",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeDashboardView",
+        "viewfilename": "sys-employee-dashboard-view",
+        "viewtag": "a6e3310693a8abeade4e5d1f928ab1f6",
         "memo": ""
     },
     "storympickupview2": {

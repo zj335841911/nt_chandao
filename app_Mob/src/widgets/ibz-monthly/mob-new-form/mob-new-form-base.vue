@@ -233,7 +233,7 @@
     valueSeparator=","
     textSeparator=","
     type="dynamic"  
-    tag="UserRealName"
+    tag="UserRealName_Gird"
     :disabled="detailsModel.mailto.disabled" 
     :data="data"
     :context="context"

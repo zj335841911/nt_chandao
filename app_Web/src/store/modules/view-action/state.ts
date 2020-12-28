@@ -336,17 +336,19 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '24a03de02dc02b92a3c228b944e78ed9',
-                'cdba1a5e90e147e5f3bf9f2c08c87f56',
                 '6e1a903e2d94b6568debc087b75e5d53',
-                '379360eb2f83ea4dc50744144c2878b7',
-                '96ed1661161ecbd9adbb979fddb405a5',
+                'cdba1a5e90e147e5f3bf9f2c08c87f56',
+                '24a03de02dc02b92a3c228b944e78ed9',
                 '43d566a4567a5e337a73afa187dae97c',
+                '96ed1661161ecbd9adbb979fddb405a5',
                 'd21c783cde14166ba9deb09e746a0f28',
+                'a6e3310693a8abeade4e5d1f928ab1f6',
+                'd8df5ca51341d33ccc19208dde3f2cce',
+                '95b5793bf8fc4bcf4cee37dcef6627cc',
+                '379360eb2f83ea4dc50744144c2878b7',
                 'fad11065c8858a545a9df670cdccce44',
                 'd86b9d1e9fad770e8fc97718cee8ed31',
                 'bedf1f50199b74a65c2e17771144329c',
-                'd8df5ca51341d33ccc19208dde3f2cce',
                 '376e2623b256509cdf69e2de4c01d31b',
             ],
         },
@@ -995,9 +997,27 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '28c5418b1ed607876fc4c920195f717d',
+            viewmodule: 'zentao',
+            viewname: 'SysEmployeeEditViewBasicInfo',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '2ae3586b0dd0f70c261ba6f24adb99df',
             viewmodule: 'zentao',
             viewname: 'ProductStatsTestEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '2b5c1c3213fbe9290285fe76805d426b',
+            viewmodule: 'ibiz',
+            viewname: 'IbzAgentCreateEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1746,6 +1766,15 @@ export const viewstate: any = {
             viewtag: '4d32793fc57ec1ae930a18608526d00e',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView_commitTest',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '4d673563cfae3bd7ff908401e877f4bc',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryListView9PersonInfo',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -2575,6 +2604,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '74e4f28ec8dc97e87f8de6255b2fd4b8',
+            viewmodule: 'ibiz',
+            viewname: 'IbzAgentMainInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '76bd64e6d21e10838e42517992e58c65',
             viewmodule: 'zentao',
             viewname: 'StoryTabExpView',
@@ -3391,6 +3429,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '95b5793bf8fc4bcf4cee37dcef6627cc',
+            viewmodule: 'ibiz',
+            viewname: 'IbzAgentMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '74e4f28ec8dc97e87f8de6255b2fd4b8',
+                '2b5c1c3213fbe9290285fe76805d426b',
+            ],
+        },
+        {
             viewtag: '95d25c1556e049e220af04b99b06edeb',
             viewmodule: 'zentao',
             viewname: 'StoryMainGridView_ByModule',
@@ -3831,6 +3880,17 @@ export const viewstate: any = {
                 '9ed41cee96088630f3d4b0a91e705930',
                 '6c7b582273d0726bcf77214807cfe40c',
                 'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
+            viewtag: 'a6e3310693a8abeade4e5d1f928ab1f6',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '28c5418b1ed607876fc4c920195f717d',
+                '4d673563cfae3bd7ff908401e877f4bc',
             ],
         },
         {

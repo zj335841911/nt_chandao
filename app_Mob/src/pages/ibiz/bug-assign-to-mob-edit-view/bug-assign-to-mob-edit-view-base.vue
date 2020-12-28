@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="BugAssignToMobEditView"  
+            viewName="AssignToMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

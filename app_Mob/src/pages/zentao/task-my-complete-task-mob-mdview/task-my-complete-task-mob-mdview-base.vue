@@ -17,7 +17,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TaskMyCompleteTaskMobMDView"  
+            viewName="MyCompleteTaskMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"

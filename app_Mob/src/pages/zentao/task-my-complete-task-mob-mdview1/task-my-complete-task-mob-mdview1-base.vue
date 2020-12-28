@@ -10,7 +10,7 @@
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TaskMyCompleteTaskMobMDView1"  
+            viewName="MyCompleteTaskMobMDView1"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

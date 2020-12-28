@@ -17,7 +17,7 @@
     <template slot="content">
                 <view_form
             :viewState="viewState"
-            viewName="ProjectTeamProjectTeamMobEditView"  
+            viewName="ProjectTeamMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="TodoNewMobEditView"  
+            viewName="NewMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

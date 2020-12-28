@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet  '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.portlets.listmenu.caption')}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`app.views.${this.viewName.toLowerCase()}.listmenu_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
@@ -18,7 +18,7 @@
             </div>
                 <view_db_appmenu3_appmenu
     :viewState="viewState"
-    viewName="AppPortalView"  
+    viewName="AppPortalView"
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
@@ -157,6 +157,13 @@ export default class ListMenuBase extends Vue implements ControlInterface {
      * @memberof MyTaskMob
      */
     @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
+     * 多语言实体名称
+     *
+     * @memberof ListMenu
+     */
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题
@@ -345,7 +352,7 @@ export default class ListMenuBase extends Vue implements ControlInterface {
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return (this.$t('app.portlets.listmenu.caption') as string)
+        return (this.$t(`app.views.${this.viewName.toLowerCase()}.listmenu_portlet`) as string)
     }
 
     /**

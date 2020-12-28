@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="ProjectProjectTeamManageMobEditView"  
+            viewName="ProjectTeamManageMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

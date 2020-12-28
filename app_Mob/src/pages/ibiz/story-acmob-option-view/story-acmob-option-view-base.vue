@@ -20,7 +20,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="StoryACMobOptionView"  
+            viewName="ACMobOptionView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

@@ -19,7 +19,7 @@
     <ion-content >
                 <view_chart
             :viewState="viewState"
-            viewName="ProjectMobChartView"  
+            viewName="MobChartView"
             :viewparams="viewparams" 
             :context="context" 
             fetchAction="FetchDefault"

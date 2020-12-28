@@ -24,7 +24,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="StoryUsr2MobMDView_5219"  
+            viewName="Usr2MobMDView_5219"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

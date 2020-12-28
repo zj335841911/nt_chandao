@@ -887,6 +887,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumPoChartView9",
             "viewtag": "2889bd5a8f15aadc0f60686124720c0d"
         },
+        "sysemployeeeditviewbasicinfo": {
+            "title": "人员编辑视图",
+            "caption": "人员",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "SysEmployeeEditViewBasicInfo",
+            "viewtag": "28c5418b1ed607876fc4c920195f717d"
+        },
         "ibzcaseopencaseview": {
             "title": "用例库用例数据看板视图",
             "caption": "测试用例",
@@ -910,6 +918,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductStatsTestEditView9",
             "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df"
+        },
+        "ibzagentcreateeditview": {
+            "title": "代理编辑视图",
+            "caption": "新建",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzAgentCreateEditView",
+            "viewtag": "2b5c1c3213fbe9290285fe76805d426b"
         },
         "ibzreportlycalendareditview": {
             "title": "汇报编辑视图",
@@ -1566,6 +1582,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskEditView_commitTest",
             "viewtag": "4d32793fc57ec1ae930a18608526d00e"
+        },
+        "ibzmyterritorylistview9personinfo": {
+            "title": "我的工作",
+            "caption": "我的工作",
+            "viewtype": "DELISTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryListView9PersonInfo",
+            "viewtag": "4d673563cfae3bd7ff908401e877f4bc"
         },
         "docmyfavouritepartgridview": {
             "title": "文档表格视图",
@@ -2311,6 +2335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseCurSuitGridView",
             "viewtag": "74e206764fd747fa31467bd5a9f371df"
         },
+        "ibzagentmaininfoeditview": {
+            "title": "代理编辑视图",
+            "caption": "代理",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzAgentMainInfoEditView",
+            "viewtag": "74e4f28ec8dc97e87f8de6255b2fd4b8"
+        },
         "ibzprostoryeditview": {
             "title": "需求编辑视图",
             "caption": "需求",
@@ -3047,6 +3079,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryGridView9_SubStory",
             "viewtag": "956ad42e59e60cd8b49e7035147e25cf"
         },
+        "ibzagentmaingridview": {
+            "title": "代理表格视图",
+            "caption": "代理",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzAgentMainGridView",
+            "viewtag": "95b5793bf8fc4bcf4cee37dcef6627cc"
+        },
         "storymaingridview_bymodule": {
             "title": "story表格视图",
             "caption": "需求",
@@ -3470,6 +3510,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BuildMainView",
             "viewtag": "a6d8bd7fa388f638832b33dddaa6df86"
+        },
+        "sysemployeedashboardview": {
+            "title": "人员数据看板视图",
+            "caption": "人员",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ou",
+            "viewname": "SysEmployeeDashboardView",
+            "viewtag": "a6e3310693a8abeade4e5d1f928ab1f6"
         },
         "storympickupview2": {
             "title": "关联需求",

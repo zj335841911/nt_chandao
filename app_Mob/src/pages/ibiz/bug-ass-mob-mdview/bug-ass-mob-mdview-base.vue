@@ -15,7 +15,7 @@
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
-    viewName="BugAssMobMDView"  
+    viewName="AssMobMDView"
     :viewparams="viewparams" 
     :context="context" 
      
@@ -58,7 +58,7 @@
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="BugAssMobMDView"  
+            viewName="AssMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

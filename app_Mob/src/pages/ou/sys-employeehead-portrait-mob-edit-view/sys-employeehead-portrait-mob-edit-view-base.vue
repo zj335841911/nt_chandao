@@ -19,7 +19,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="SysEmployeeheadPortraitMobEditView"  
+            viewName="headPortraitMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="true" 

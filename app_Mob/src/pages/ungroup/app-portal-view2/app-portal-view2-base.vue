@@ -34,7 +34,7 @@
         </ion-refresher>
                 <view_dashboard
             :viewState="viewState"
-            viewName="AppPortalView2"  
+            viewName="AppPortalView2"
             :viewparams="viewparams" 
             :context="context" 
             name="dashboard"  

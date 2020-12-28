@@ -13,7 +13,7 @@
     <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="SysEmployeeUserTreeMobMPickupView"  
+            viewName="UserTreeMobMPickupView"
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"

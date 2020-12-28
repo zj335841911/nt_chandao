@@ -43,6 +43,10 @@ zuul:
       path: /files/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_agent:
+      path: /ibzagents/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibzpro_storymodule:
       path: /ibzprostorymodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

@@ -269,6 +269,35 @@
         </tab-pane>
         <tab-pane
             :index="9"
+            name="tabviewpanel14"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel14'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel14.caption')),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel14 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel14"
+    name="tabviewpanel14"  
+    ref="tabviewpanel14"
+    :expActive="activatedTabViewPanel === 'tabviewpanel14'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel14>
+        </tab-pane>
+        <tab-pane
+            :index="10"
             name="tabviewpanel8"
             tab="tabexpviewtabexppanel"
             class=""
@@ -297,7 +326,7 @@
 </view_tabviewpanel8>
         </tab-pane>
         <tab-pane
-            :index="10"
+            :index="11"
             name="tabviewpanel11"
             tab="tabexpviewtabexppanel"
             class=""
@@ -326,7 +355,7 @@
 </view_tabviewpanel11>
         </tab-pane>
         <tab-pane
-            :index="11"
+            :index="12"
             name="tabviewpanel12"
             tab="tabexpviewtabexppanel"
             class=""
@@ -353,6 +382,35 @@
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel12>
+        </tab-pane>
+        <tab-pane
+            :index="13"
+            name="tabviewpanel15"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel15'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel15.caption')),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel15 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel15"
+    name="tabviewpanel15"  
+    ref="tabviewpanel15"
+    :expActive="activatedTabViewPanel === 'tabviewpanel15'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel15>
         </tab-pane>
     </tabs>
 </div>

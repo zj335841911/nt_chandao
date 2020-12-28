@@ -16,7 +16,7 @@
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
-    viewName="StoryMobMDViewCurProject"  
+    viewName="MobMDViewCurProject"
     :viewparams="viewparams" 
     :context="context" 
      
@@ -73,7 +73,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="StoryMobMDViewCurProject"  
+            viewName="MobMDViewCurProject"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"

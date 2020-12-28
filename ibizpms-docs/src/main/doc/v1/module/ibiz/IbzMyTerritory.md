@@ -2095,8 +2095,9 @@ Save
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [我的工作](#数据查询-我的工作（MyWork）) | MyWork | 否 |
 | 3 | [我的工作](#数据查询-我的工作（MyWorkMob）) | MyWorkMob | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
-| 5 | [欢迎](#数据查询-欢迎（Welcome）) | Welcome | 否 |
+| 4 | [个人信息-个人贡献](#数据查询-个人信息-个人贡献（PersonInfo）) | PersonInfo | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [欢迎](#数据查询-欢迎（Welcome）) | Welcome | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -2233,6 +2234,25 @@ GROUP BY
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
+### 数据查询-个人信息-个人贡献（PersonInfo）
+#### 说明
+个人信息-个人贡献
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT #{srf.sessioncontext.srfloginname} as account, (SELECT count(1) from zt_todo where account = #{srf.sessioncontext.srfloginname} ) as mytodocnt,(SELECT count(1) from zt_story where deleted = '0' and openedBy = #{srf.sessioncontext.srfloginname}) as mystorys, (SELECT count(1) from zt_task where deleted = '0' and (`status` = 'done' or (`status` = 'closed' and closedReason = 'done') ) and parent >= 0 and ((finishedBy = #{srf.sessioncontext.srfloginname} and not EXISTS (SELECT 1 from zt_team t where t.root = id and t.type = 'task')) 
+or FIND_IN_SET(#{srf.sessioncontext.srfloginname},finishedList)
+)) as mytasks, (SELECT count(1) from zt_bug where `status` in ('closed','resolved') and resolution = 'fixed' and resolvedBy = #{srf.sessioncontext.srfloginname}) as mybugs,
+(SELECT count(1) from zt_case where deleted = '0' and openedBy = 
+#{srf.sessioncontext.srfloginname}) as MYFAVORITEBUGS
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -2311,7 +2331,8 @@ FROM
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [我的工作](#数据集合-我的工作（MyWork）) | MyWork | 否 |
 | 3 | [我的工作](#数据集合-我的工作（MyWorkMob）) | MyWorkMob | 否 |
-| 4 | [欢迎](#数据集合-欢迎（Welcome）) | Welcome | 否 |
+| 4 | [个人信息-个人贡献](#数据集合-个人信息-个人贡献（PersonInfo）) | PersonInfo | 否 |
+| 5 | [欢迎](#数据集合-欢迎（Welcome）) | Welcome | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -2355,6 +2376,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的工作（MyWorkMob）](#数据查询-我的工作（MyWorkMob）) |
+### 数据集合-个人信息-个人贡献（PersonInfo）
+#### 说明
+个人信息-个人贡献
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [个人信息-个人贡献（PersonInfo）](#数据查询-个人信息-个人贡献（PersonInfo）) |
 ### 数据集合-欢迎（Welcome）
 #### 说明
 欢迎

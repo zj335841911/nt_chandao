@@ -20,7 +20,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="TodoMobOptionView"  
+            viewName="MobOptionView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

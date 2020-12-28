@@ -4,7 +4,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet1
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet1"  
@@ -15,7 +15,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet2
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet2"  
@@ -26,7 +26,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet3
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet3"  
@@ -37,7 +37,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet5
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet5"  
@@ -48,7 +48,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet4
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet4"  
@@ -59,7 +59,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet6
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet6"  
@@ -70,7 +70,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet7
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet7"  
@@ -81,7 +81,7 @@
             <ion-card class="dashboard-item chart"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet8
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet8"  
@@ -92,7 +92,7 @@
             <ion-card class="dashboard-item chart"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet9
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet9"  
@@ -102,7 +102,7 @@
             </ion-card>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item userCustomize ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
+                    <component :is="item.componentName" :viewName="viewName" localeDeName="ibzmyterritory"   :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
                 </ion-card>
             </template>
     </ion-grid>
@@ -265,7 +265,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
     public getDatas(): any[] {
         return [];
     }
-
+    
     /**
      * modleId
      *

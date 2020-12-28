@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet product-dashboard_sysportlet8 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t('app.portlets.productstatuschartmob.caption')}}</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`${this.localeDeName}.views.${this.viewName.toLowerCase()}.productstatuschartmob_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
@@ -18,7 +18,7 @@
             </div>
                 <view_dashboard_sysportlet8_chart
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     fetchAction="FetchDefault"
@@ -188,6 +188,13 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * @memberof MyTaskMob
      */
     @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
+     * 多语言实体名称
+     *
+     * @memberof ProductStatusChartMob
+     */
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题
@@ -376,7 +383,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return (this.$t('app.portlets.productstatuschartmob.caption') as string)
+        return (this.$t(`app.views.${this.viewName.toLowerCase()}.productstatuschartmob_portlet`) as string)
     }
 
     /**
