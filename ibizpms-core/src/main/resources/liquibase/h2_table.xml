@@ -1077,7 +1077,7 @@
 
 
     <!--输出实体[IBZ_AGENT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_agent-19-37">
+    <changeSet author="zentao" id="tab-ibz_agent-39-37">
         <createTable tableName="T_IBZ_AGENT">
                 <column name="IBZ_AGENTID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_AGENT_IBZ_AGENTID"/>

@@ -919,6 +919,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsTestEditView9",
             "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df"
         },
+        "ibzagentcreateeditview": {
+            "title": "代理编辑视图",
+            "caption": "新建",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzAgentCreateEditView",
+            "viewtag": "2b5c1c3213fbe9290285fe76805d426b"
+        },
         "ibzreportlycalendareditview": {
             "title": "汇报编辑视图",
             "caption": "汇报",
@@ -2327,6 +2335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseCurSuitGridView",
             "viewtag": "74e206764fd747fa31467bd5a9f371df"
         },
+        "ibzagentmaininfoeditview": {
+            "title": "代理编辑视图",
+            "caption": "代理",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzAgentMainInfoEditView",
+            "viewtag": "74e4f28ec8dc97e87f8de6255b2fd4b8"
+        },
         "ibzprostoryeditview": {
             "title": "需求编辑视图",
             "caption": "需求",
@@ -3062,6 +3078,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryGridView9_SubStory",
             "viewtag": "956ad42e59e60cd8b49e7035147e25cf"
+        },
+        "ibzagentmaingridview": {
+            "title": "代理表格视图",
+            "caption": "代理",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzAgentMainGridView",
+            "viewtag": "95b5793bf8fc4bcf4cee37dcef6627cc"
         },
         "storymaingridview_bymodule": {
             "title": "story表格视图",

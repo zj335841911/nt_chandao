@@ -1139,6 +1139,16 @@
         "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df",
         "memo": ""
     },
+    "ibzagentcreateeditview": {
+        "title": "代理编辑视图",
+        "caption": "新建",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentCreateEditView",
+        "viewfilename": "ibz-agent-create-edit-view",
+        "viewtag": "2b5c1c3213fbe9290285fe76805d426b",
+        "memo": ""
+    },
     "ibzreportlycalendareditview": {
         "title": "汇报编辑视图",
         "caption": "汇报",
@@ -2899,6 +2909,16 @@
         "viewtag": "74e206764fd747fa31467bd5a9f371df",
         "memo": ""
     },
+    "ibzagentmaininfoeditview": {
+        "title": "代理编辑视图",
+        "caption": "代理",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentMainInfoEditView",
+        "viewfilename": "ibz-agent-main-info-edit-view",
+        "viewtag": "74e4f28ec8dc97e87f8de6255b2fd4b8",
+        "memo": ""
+    },
     "ibzprostoryeditview": {
         "title": "需求编辑视图",
         "caption": "需求",
@@ -3818,6 +3838,16 @@
         "viewfilename": "story-grid-view9-sub-story",
         "viewtag": "956ad42e59e60cd8b49e7035147e25cf",
         "memo": "视图参数中指定了过滤条件"
+    },
+    "ibzagentmaingridview": {
+        "title": "代理表格视图",
+        "caption": "代理",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentMainGridView",
+        "viewfilename": "ibz-agent-main-grid-view",
+        "viewtag": "95b5793bf8fc4bcf4cee37dcef6627cc",
+        "memo": ""
     },
     "storymaingridview_bymodule": {
         "title": "story表格视图",
