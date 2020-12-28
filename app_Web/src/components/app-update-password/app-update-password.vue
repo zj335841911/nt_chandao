@@ -23,7 +23,7 @@
         <div v-if="oldPwdErr" class="password-tips">{{ $t('components.appUpdatePassword.oldPwdErr') }}</div>
         <div v-if="newPwdErr" class="password-tips">{{ $t('components.appUpdatePassword.newPwdErr') }}</div>
         <div v-if="confirmPwdErr" class="password-tips">{{ $t('components.appUpdatePassword.confirmPwdErr') }}</div>
-        <div v-if="newPwdEqOldErr" class="password-tips">新密码与原密码相同</div>
+        <div v-if="newPwdEqOldErr" class="password-tips">新密码与原密码相同！</div>
     </div>
 </template>
 

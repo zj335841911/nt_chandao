@@ -5,6 +5,7 @@ import { Environment } from '@/environments/environment';
 import ProjectService from "@service/project/project-service";
 import IbzproConfigService from "@service/ibzpro-config/ibzpro-config-service";
 import { Subject } from 'rxjs';
+import UserRealName from "@codelist/user-real-name";
 
 /**
  * 用户信息
@@ -79,6 +80,9 @@ export class UserInfo extends Vue {
         const lang: string = this.$i18n.locale;
         const local: any = localList.find((_local: any) => Object.is(_local.type, lang));
         this.langTitle = local.name;
+        this.initCodeList().then((res)=>{
+            this.userImg = this.getUserImg(this.$store.getters.getAppData().context.srfloginname);
+        });
     }
 
     /**
@@ -260,6 +264,63 @@ export class UserInfo extends Vue {
     }
 
     /**
+     * 图片地址
+     *
+     * @param {*} nodes
+     * @memberof EmpTreeBase
+     */
+    public imageUrl = 'ibizutil/download';
+
+    /**
+     * 用户头像
+     */
+    public userImg: String = '';
+
+    /**
+     * 用户真实姓名动态代码表服务
+     */
+    public userRealNameService: UserRealName = new UserRealName();
+
+    /**
+     * 用户真实名称
+     */
+    public UserRealName: any;
+
+    /**
+     * 初始化代码表
+     */
+    public async initCodeList():Promise<any>{
+        this.UserRealName = await this.userRealNameService.getItems('UserRealName');
+        return true;
+    }
+
+    /**
+     * 获取代码表文本
+     */
+    public getCodeListText(tag:string,id:string):any{
+        let _this: any = this;
+        if(!_this[tag]){
+            return id;
+        }
+        let index = _this[tag].findIndex((item:any) => { return item.value == id })
+        return index > -1 ? _this[tag][index]: id;
+    }
+
+    /**
+     * 获取用户头像
+     */
+    public getUserImg(value:string) {
+        let icon = this.getCodeListText('UserRealName',value).icon;
+        if (icon) {
+            icon = JSON.parse(icon);
+        }
+        if(icon && icon[0] && icon[0].id){
+            return `${this.imageUrl}/${icon[0].id}`;
+        }
+        return '';
+    }
+
+    /**
      * 绘制内容
      *
      * @returns {*}
@@ -274,19 +335,24 @@ export class UserInfo extends Vue {
                 on-on-click={(name: string) => this.onSelect(name)}
             >
                 <div class="user-info">
-                    <span class="icon-span">
-                        <svg
-                            class="icon"
-                            viewBox="0 0 1024 1024"
-                            version="1.1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                        >
-                            <path d="M512 85.333333c235.52 0 426.666667 191.146667 426.666667 426.666667s-191.146667 426.666667-426.666667 426.666667S85.333333 747.52 85.333333 512 276.48 85.333333 512 85.333333z m0 85.333334c-188.373333 0-341.333333 152.96-341.333333 341.333333s152.96 341.333333 341.333333 341.333333 341.333333-152.96 341.333333-341.333333-152.96-341.333333-341.333333-341.333333z m0 597.333333c-84.010667 0-161.450667-34.858667-213.333333-93.098667 26.154667-39.68 121.941333-77.568 213.333333-77.568s187.178667 37.888 213.333333 77.568C673.450667 733.141333 596.010667 768 512 768z m0-469.333333c70.826667 0 128 57.173333 128 128s-57.173333 128-128 128-128-57.173333-128-128 57.173333-128 128-128z"></path>
-                        </svg>
-                    </span>
-                    <div class="user-head">{appData?.context?.srfloginname}</div>
+                    {this.userImg ?
+                        <span class="icon-span">
+                            <img src={this.userImg} alt=""/>
+                        </span> :
+                        <span class="icon-span">
+                            <svg
+                                class="icon"
+                                viewBox="0 0 1024 1024"
+                                version="1.1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                            >
+                                <path d="M512 85.333333c235.52 0 426.666667 191.146667 426.666667 426.666667s-191.146667 426.666667-426.666667 426.666667S85.333333 747.52 85.333333 512 276.48 85.333333 512 85.333333z m0 85.333334c-188.373333 0-341.333333 152.96-341.333333 341.333333s152.96 341.333333 341.333333 341.333333 341.333333-152.96 341.333333-341.333333-152.96-341.333333-341.333333-341.333333z m0 597.333333c-84.010667 0-161.450667-34.858667-213.333333-93.098667 26.154667-39.68 121.941333-77.568 213.333333-77.568s187.178667 37.888 213.333333 77.568C673.450667 733.141333 596.010667 768 512 768z m0-469.333333c70.826667 0 128 57.173333 128 128s-57.173333 128-128 128-128-57.173333-128-128 57.173333-128 128-128z"></path>
+                            </svg>
+                        </span>
+                    }
+                    <div class="user-head">{appData?.context?.srfusername}</div>
                 </div>
                 <template slot="list">
                     <dropdownMenu>
