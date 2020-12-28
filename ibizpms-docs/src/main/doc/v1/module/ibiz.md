@@ -31,6 +31,9 @@ class 文档 {
 class 实体 {
 }
 
+class 代理 {
+}
+
 class 测试用例 {
 }
 
@@ -157,6 +160,7 @@ hide members
 |IBZ_EMPLOYEELOAD|[员工负载表](ibiz/EmpLoyeeload.md)|主实体|&nbsp;|
 |IBZ_DOC|[文档](ibiz/IBzDoc.md)|主实体|&nbsp;|
 |IBZ_LOGIN|[实体](ibiz/IbiLogin.md)|主实体|&nbsp;|
+|IBZ_AGENT|[代理](ibiz/IbzAgent.md)|主实体|&nbsp;|
 |IBZ_CASE|[测试用例](ibiz/IbzCase.md)|主实体|&nbsp;|
 |IBZ_FAVORITES|[收藏](ibiz/IbzFavorites.md)|主实体|&nbsp;|
 |IBZ_LIB|[用例库](ibiz/IbzLib.md)|主实体|&nbsp;|

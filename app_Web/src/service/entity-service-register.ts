@@ -48,6 +48,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
         this.allEntityService.set('taskteam', () => import('@/service/task-team/task-team-service'));
         this.allEntityService.set('file', () => import('@/service/file/file-service'));
+        this.allEntityService.set('ibzagent', () => import('@/service/ibz-agent/ibz-agent-service'));
         this.allEntityService.set('ibzprostorymodule', () => import('@/service/ibzpro-story-module/ibzpro-story-module-service'));
         this.allEntityService.set('productsum', () => import('@/service/product-sum/product-sum-service'));
         this.allEntityService.set('ibzlibcasesteps', () => import('@/service/ibz-lib-casesteps/ibz-lib-casesteps-service'));

@@ -109,4 +109,5 @@ pms-webapi
 | 95 | [用户模板](1/UserTpl) | usertpl |  |
 | 96 | [日报](1/IbzDaily) | ibzdaily |  |
 | 97 | [岗位](1/SysPost) | syspost |  |
+| 98 | [代理](1/IbzAgent) | ibzagent |  |
 

@@ -16,6 +16,7 @@ import './entity/ibztask-teams/ibztask-teams';
 import './entity/products/products';
 import './entity/task-teams/task-teams';
 import './entity/files/files';
+import './entity/ibz-agents/ibz-agents';
 import './entity/ibzpro-story-modules/ibzpro-story-modules';
 import './entity/product-sums/product-sums';
 import './entity/ibz-lib-casestepss/ibz-lib-casestepss';

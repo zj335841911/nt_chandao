@@ -7598,6 +7598,39 @@ FROM `zt_task` t1
 
 ```
 
+# **代理**(IBZ_AGENT)
+
+### 数据查询(DEFAULT)<div id="IbzAgent_Default"></div>
+```sql
+SELECT
+t1.`AGENTBEGIN`,
+t1.`AGENTEND`,
+t1.`AGENTUSER`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_AGENTID`,
+t1.`IBZ_AGENTNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_AGENT` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzAgent_View"></div>
+```sql
+SELECT
+t1.`AGENTBEGIN`,
+t1.`AGENTEND`,
+t1.`AGENTUSER`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_AGENTID`,
+t1.`IBZ_AGENTNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_AGENT` t1 
+
+```
+
 # **测试用例**(IBZ_CASE)
 
 ### DEFAULT(DEFAULT)<div id="IbzCase_Default"></div>

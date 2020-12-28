@@ -48,6 +48,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('product', () => import('@/authservice/product/product-auth-service'));
         this.allAuthService.set('taskteam', () => import('@/authservice/task-team/task-team-auth-service'));
         this.allAuthService.set('file', () => import('@/authservice/file/file-auth-service'));
+        this.allAuthService.set('ibzagent', () => import('@/authservice/ibz-agent/ibz-agent-auth-service'));
         this.allAuthService.set('ibzprostorymodule', () => import('@/authservice/ibzpro-story-module/ibzpro-story-module-auth-service'));
         this.allAuthService.set('productsum', () => import('@/authservice/product-sum/product-sum-auth-service'));
         this.allAuthService.set('ibzlibcasesteps', () => import('@/authservice/ibz-lib-casesteps/ibz-lib-casesteps-auth-service'));

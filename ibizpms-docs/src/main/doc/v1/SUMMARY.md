@@ -22,6 +22,8 @@
 
     * [实体](module/ibiz/IbiLogin.md) 
 
+    * [代理](module/ibiz/IbzAgent.md) 
+
     * [测试用例](module/ibiz/IbzCase.md) 
 
     * [收藏](module/ibiz/IbzFavorites.md) 
