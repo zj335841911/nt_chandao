@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('ibz_agentid')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_agentid'" :label="$t('entities.ibzagent.main_grid.columns.ibz_agentid')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'ibz_agentid'" :label="$t('entities.ibzagent.main_grid.columns.ibz_agentid')" :width="100"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzagent.main_grid.columns.ibz_agentid')}}
@@ -38,19 +38,21 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('agentuser')">
-                <el-table-column show-overflow-tooltip :prop="'agentuser'" :label="$t('entities.ibzagent.main_grid.columns.agentuser')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'agentuser'" :label="$t('entities.ibzagent.main_grid.columns.agentuser')" :min-width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzagent.main_grid.columns.agentuser')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.agentuser}}</span>
+                        <template >
+            <codelist :value="row.agentuser" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('agentbegin')">
-                <el-table-column show-overflow-tooltip :prop="'agentbegin'" :label="$t('entities.ibzagent.main_grid.columns.agentbegin')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'agentbegin'" :label="$t('entities.ibzagent.main_grid.columns.agentbegin')" :width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzagent.main_grid.columns.agentbegin')}}
@@ -62,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('agentend')">
-                <el-table-column show-overflow-tooltip :prop="'agentend'" :label="$t('entities.ibzagent.main_grid.columns.agentend')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'agentend'" :label="$t('entities.ibzagent.main_grid.columns.agentend')" :width="150"  :align="'center'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzagent.main_grid.columns.agentend')}}
@@ -74,7 +76,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzagent.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzagent.main_grid.columns.uagridcolumn1')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzagent.main_grid.columns.uagridcolumn1')}}
