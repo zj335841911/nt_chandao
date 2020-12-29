@@ -1286,6 +1286,7 @@ hide footbox
 |CurFinishTask|用户年度完成任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_CurFinishTask))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Task_Default))|否|&nbsp;|
 |DefaultRow|DefaultRow([MYSQL5](../../appendix/query_MYSQL5.md#Task_DefaultRow))|否|&nbsp;|
+|MyAgentTask|我代理的任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyAgentTask))|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTask))|否|&nbsp;|
 |MyCompleteTaskMob|已完成任务（移动端）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMob))|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobMonthly))|否|&nbsp;|
@@ -1322,6 +1323,7 @@ hide footbox
 |CurFinishTask|用户年度完成任务|CurFinishTask|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DefaultRow|DefaultRow|DefaultRow|否|&nbsp;|
+|MyAgentTask|我代理的任务|MyAgentTask|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）|MyCompleteTask|否|&nbsp;|
 |MyCompleteTaskMobDaily|我完成的任务（移动端日报）|MyCompleteTaskMob|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）|MyCompleteTaskMobMonthly|否|&nbsp;|
