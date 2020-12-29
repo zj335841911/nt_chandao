@@ -156,6 +156,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

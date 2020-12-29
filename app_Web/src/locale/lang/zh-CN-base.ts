@@ -26,7 +26,7 @@ import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN
 import syspost_zh_CN from '@locale/lanres/entities/sys-post/sys-post_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
 import taskstats_zh_CN from '@locale/lanres/entities/task-stats/task-stats_zh_CN';
-import projectweekly_zh_CN from '@locale/lanres/entities/projectweekly/projectweekly_zh_CN';
+import ibizproprojectweekly_zh_CN from '@locale/lanres/entities/ibizpro-project-weekly/ibizpro-project-weekly_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import sysdepartment_zh_CN from '@locale/lanres/entities/sys-department/sys-department_zh_CN';
@@ -423,7 +423,7 @@ function getAppLocale(){
             syspost: syspost_zh_CN(),
             usertpl: usertpl_zh_CN(),
             taskstats: taskstats_zh_CN(),
-            projectweekly: projectweekly_zh_CN(),
+            ibizproprojectweekly: ibizproprojectweekly_zh_CN(),
             ibzfavorites: ibzfavorites_zh_CN(),
             branch: branch_zh_CN(),
             sysdepartment: sysdepartment_zh_CN(),

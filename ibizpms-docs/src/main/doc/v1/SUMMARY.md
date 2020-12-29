@@ -252,6 +252,8 @@
 
   * [汇报模块](module/report.md) 
 
+    * [项目周报](module/report/IbizproProjectWeekly.md) 
+
     * [日报](module/report/IbzDaily.md) 
 
     * [月报](module/report/IbzMonthly.md) 
@@ -263,8 +265,6 @@
     * [汇报](module/report/IbzReportly.md) 
 
     * [周报](module/report/IbzWeekly.md) 
-
-    * [项目周报](module/report/PROJECTWEEKLY.md) 
 
   * [iBiz系统模型](module/ibizsysmodel.md) 
 

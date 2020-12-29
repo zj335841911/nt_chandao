@@ -156,6 +156,9 @@ export default class TextExpViewModel {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

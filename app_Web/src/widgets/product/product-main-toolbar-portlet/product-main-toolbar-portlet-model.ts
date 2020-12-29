@@ -156,6 +156,9 @@ export default class ProductMainToolbarModel {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

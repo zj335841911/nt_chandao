@@ -85,7 +85,7 @@ pms-webapi
 | 71 | [月报](1/IbzMonthly) | ibzmonthly |  |
 | 72 | [公司](1/Company) | company |  |
 | 73 | [周报](1/IbzWeekly) | ibzweekly |  |
-| 74 | [项目周报](1/PROJECTWEEKLY) | projectweekly |  |
+| 74 | [项目周报](1/IbizproProjectWeekly) | ibizproprojectweekly |  |
 | 75 | [产品线](1/ProductLine) | productline |  |
 | 76 | [任务统计](1/TaskStats) | taskstats |  |
 | 77 | [关键字](1/IBIZProKeyword) | ibizprokeyword |  |

@@ -1048,6 +1048,14 @@
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }
     ,    {
+    "dename":"IbizproProjectWeekly",
+    "delogicname":"项目周报",
+    "sysmoudle":{"id":"REPORT","name":"汇报模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+    }
+    ,    {
     "dename":"IbzAgent",
     "delogicname":"代理",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
@@ -1214,14 +1222,6 @@
     "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"ProductTeamInfo" , "name":"产品团队成员信息"},{"id":"RowEditDefaultProductTeam" , "name":"产品团队管理"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
-    }
-    ,    {
-    "dename":"PROJECTWEEKLY",
-    "delogicname":"项目周报",
-    "sysmoudle":{"id":"REPORT","name":"汇报模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
-    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }
     ,    {
     "dename":"PSSysApp",

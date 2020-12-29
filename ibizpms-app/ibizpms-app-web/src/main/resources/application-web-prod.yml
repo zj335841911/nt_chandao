@@ -112,7 +112,7 @@ zuul:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibzpro_projectweekly:
-      path: /projectweeklies/**
+      path: /ibizproprojectweeklies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_favorites:

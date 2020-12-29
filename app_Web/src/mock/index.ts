@@ -33,7 +33,7 @@ import './entity/story-specs/story-specs';
 import './entity/sys-posts/sys-posts';
 import './entity/user-tpls/user-tpls';
 import './entity/task-statss/task-statss';
-import './entity/projectweeklys/projectweeklys';
+import './entity/ibizpro-project-weeklys/ibizpro-project-weeklys';
 import './entity/ibz-favoritess/ibz-favoritess';
 import './entity/branchs/branchs';
 import './entity/sys-departments/sys-departments';

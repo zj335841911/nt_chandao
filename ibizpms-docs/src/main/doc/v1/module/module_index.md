@@ -728,6 +728,9 @@ hide members
 
 package 汇报模块 {
 
+class 项目周报 {
+}
+
 class 日报 {
 }
 
@@ -744,9 +747,6 @@ class 汇报 {
 }
 
 class 周报 {
-}
-
-class 项目周报 {
 }
 
 

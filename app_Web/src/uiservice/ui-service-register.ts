@@ -65,7 +65,7 @@ export class UIServiceRegister {
         this.allUIService.set('syspost', () => import('@/uiservice/sys-post/sys-post-ui-service'));
         this.allUIService.set('usertpl', () => import('@/uiservice/user-tpl/user-tpl-ui-service'));
         this.allUIService.set('taskstats', () => import('@/uiservice/task-stats/task-stats-ui-service'));
-        this.allUIService.set('projectweekly', () => import('@/uiservice/projectweekly/projectweekly-ui-service'));
+        this.allUIService.set('ibizproprojectweekly', () => import('@/uiservice/ibizpro-project-weekly/ibizpro-project-weekly-ui-service'));
         this.allUIService.set('ibzfavorites', () => import('@/uiservice/ibz-favorites/ibz-favorites-ui-service'));
         this.allUIService.set('branch', () => import('@/uiservice/branch/branch-ui-service'));
         this.allUIService.set('sysdepartment', () => import('@/uiservice/sys-department/sys-department-ui-service'));
