@@ -273,7 +273,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
         return {
           id: new FormItemModel(),
           limited: new FormItemModel(),
-          root: new FormItemModel(),
           hours: new FormItemModel(),
           role: new FormItemModel(),
           account: new FormItemModel(),
@@ -354,10 +353,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
         limited: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'blur' },
-        ],
-        root: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品编号 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品编号 值不能为空', trigger: 'blur' },
         ],
         hours: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'change' },
@@ -522,9 +517,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
     public createDefault(row: any){                    
         if (row.hasOwnProperty('limited')) {
             row['limited'] = 'no';
-        }
-        if (row.hasOwnProperty('root')) {
-            row['root'] = this.viewparams[''];
         }
         if (row.hasOwnProperty('hours')) {
             row['hours'] = 7;
