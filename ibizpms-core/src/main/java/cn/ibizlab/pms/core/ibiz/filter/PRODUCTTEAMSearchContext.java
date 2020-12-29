@@ -41,7 +41,7 @@ public class PRODUCTTEAMSearchContext extends QueryWrapperContext<PRODUCTTEAM> {
             this.getSearchCond().eq("`limited`", n_limited_eq);
         }
     }
-	private Long n_root_eq;//[编号]
+	private Long n_root_eq;//[产品编号]
 	public void setN_root_eq(Long n_root_eq) {
         this.n_root_eq = n_root_eq;
         if(!ObjectUtils.isEmpty(this.n_root_eq)){

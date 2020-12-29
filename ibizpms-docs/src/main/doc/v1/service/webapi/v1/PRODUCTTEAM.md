@@ -303,7 +303,7 @@ POST
 | 4 | role | String | 允许 | 角色 |
 | 5 | type | String | 允许 | 团队类型 |
 | 6 | limited | String | 允许 | 受限用户 |
-| 7 | root | Long | 允许 | 编号 |
+| 7 | root | Long | 允许 | 产品编号 |
 | 8 | account | String | 允许 | 用户 |
 | 9 | days | Integer | 允许 | 可用工日 |
 | 10 | order | Integer | 允许 | 排序 |

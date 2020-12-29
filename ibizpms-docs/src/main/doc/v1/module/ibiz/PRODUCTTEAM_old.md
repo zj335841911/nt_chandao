@@ -18,7 +18,7 @@ hide members
 |角色|ROLE|TEXT|&nbsp;自动带入用户职位，可修改|
 |团队类型|TYPE|SSCODELIST|&nbsp;|
 |受限用户|LIMITED|SSCODELIST|&nbsp;|
-|编号|ROOT|PICKUP|&nbsp;|
+|产品编号|ROOT|PICKUP|&nbsp;|
 |用户|ACCOUNT|TEXT|&nbsp;|
 |可用工日|DAYS|INT|&nbsp;|
 |排序|ORDER|INT|&nbsp;task需要排序处理人顺序,project使用id排序|
@@ -38,7 +38,7 @@ hide members
 |角色|默认规则|内容长度必须小于等于[30]|
 |团队类型|默认规则|内容长度必须小于等于[7]|
 |受限用户|默认规则|内容长度必须小于等于[8]|
-|编号|默认规则|默认规则|
+|产品编号|默认规则|默认规则|
 |用户|默认规则|内容长度必须小于等于[30]|
 |可用工日|默认规则|默认规则|
 |排序|默认规则|默认规则|
@@ -66,7 +66,25 @@ hide members
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 获取项目的可用工日 (GetProjectDays)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+产品 -> 产品团队: 回填
+产品团队 -> 产品: 获取产品详情
+产品团队 -> 产品团队: 设置产品参数
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|1|回填 |
+|2|获取产品详情 |
+|2|开始 | 
+|3|设置产品参数 |
+<center>获取项目的可用工日</center>
 
 ## 查询集合
 
@@ -92,7 +110,7 @@ hide members
 | --------   |------------|
 |团队类型(TYPE)|EQ|
 |受限用户(LIMITED)|EQ|
-|编号(ROOT)|EQ|
+|产品编号(ROOT)|EQ|
 |用户(ACCOUNT)|LIKE|
 
 ## 导入模式

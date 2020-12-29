@@ -9,7 +9,7 @@ function getLocaleResourceBase(){
 			role: commonLogic.appcommonhandle("角色",null),
 			type: commonLogic.appcommonhandle("团队类型",null),
 			limited: commonLogic.appcommonhandle("受限用户",null),
-			root: commonLogic.appcommonhandle("编号",null),
+			root: commonLogic.appcommonhandle("产品编号",null),
 			account: commonLogic.appcommonhandle("用户",null),
 			days: commonLogic.appcommonhandle("可用工日",null),
 			order: commonLogic.appcommonhandle("排序",null),

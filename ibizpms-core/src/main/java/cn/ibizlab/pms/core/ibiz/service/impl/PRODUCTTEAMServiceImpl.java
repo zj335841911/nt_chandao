@@ -52,6 +52,10 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IPRODUCTTEAMGetProjectDaysLogic getprojectdaysLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -114,6 +118,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
 
     @Override
     public PRODUCTTEAM getDraft(PRODUCTTEAM et) {
+        getprojectdaysLogic.execute(et);
         return et;
     }
 
@@ -161,6 +166,43 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Override
     public void removeByRoot(Long id) {
         this.remove(new QueryWrapper<PRODUCTTEAM>().eq("root", id));
+    }
+
+    @Autowired
+    @Lazy
+    IPRODUCTTEAMService proxyService;
+    @Override
+    public void saveByRoot(Long id, List<PRODUCTTEAM> list) {
+        if (list == null) {
+            return;
+        }
+        Set<Long> delIds=new HashSet<Long>();
+        List<PRODUCTTEAM> _update=new ArrayList<PRODUCTTEAM>();
+        List<PRODUCTTEAM> _create=new ArrayList<PRODUCTTEAM>();
+        for (PRODUCTTEAM before:selectByRoot(id)){
+            delIds.add(before.getId());
+        }
+        for (PRODUCTTEAM sub : list) {
+            sub.setRoot(id);
+            if (ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((Long)sub.getDefaultKey(true));
+            if (delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else {
+                _create.add(sub);
+            }
+        }
+        if (_update.size() > 0) {
+            proxyService.updateBatch(_update);
+        }
+        if (_create.size() > 0) {
+            proxyService.createBatch(_create);
+        }
+        if (delIds.size() > 0) {
+            proxyService.removeBatch(delIds);
+        }
     }
 
 

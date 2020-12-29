@@ -18446,7 +18446,7 @@
     {
     "fieldname":"ROOT" ,
     "codename":"Root",
-    "field_logic_name":"编号",
+    "field_logic_name":"产品编号",
     "entity_name":"PRODUCTTEAM",
     "ref_de":"ZT_PRODUCT",
     "ref_field_name":"ID",

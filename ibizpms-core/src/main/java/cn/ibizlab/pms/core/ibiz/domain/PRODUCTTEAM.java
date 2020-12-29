@@ -92,7 +92,7 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     @JsonProperty("limited")
     private String limited;
     /**
-     * 编号
+     * 产品编号
      */
     @TableField(value = "`root`")
     @JSONField(name = "root")
@@ -228,7 +228,7 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [编号]
+     * 设置 [产品编号]
      */
     public void setRoot(Long root) {
         this.root = root;

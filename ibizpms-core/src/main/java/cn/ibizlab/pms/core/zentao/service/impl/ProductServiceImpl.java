@@ -181,6 +181,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             et.setId(key);
         }
         else {
+            et.setProductteam(productteamService.selectByRoot(key));
         }
         return et;
     }

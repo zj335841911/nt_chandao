@@ -55,7 +55,7 @@ export interface PRODUCTTEAM {
     limited?: any;
 
     /**
-     * 编号
+     * 产品编号
      *
      * @returns {*}
      * @memberof PRODUCTTEAM

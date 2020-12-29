@@ -13,7 +13,7 @@
 | 1 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
 | 2 | [测试用例统计（IBZ_CASESTATS）](../ibiz/CaseStats) | （默认） |
 | 3 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认） |
-| 4 | [产品团队（IBZ_PRODUCTTEAM）](../ibiz/PRODUCTTEAM) | （默认） |
+| 4 | [产品团队（IBZ_PRODUCTTEAM）](../ibiz/PRODUCTTEAM) | 嵌套操作 |
 | 5 | [测试模块（IBZ_TESTMODULE）](../ibiz/TestModule) | （默认） |
 | 6 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
 | 7 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |

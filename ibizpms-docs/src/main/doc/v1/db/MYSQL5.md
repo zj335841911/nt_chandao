@@ -99932,7 +99932,7 @@ CREATE TABLE `zt_module`(
 | ACCOUNT        | 用户  | VARCHAR      |   30   | &nbsp; |
 | DAYS        | 可用工日  | INTEGER      |   5   | &nbsp; |
 | ROLE        | 角色  | VARCHAR      |   30   | &nbsp; |
-| ROOT        | 编号  |       |   8   | &nbsp; |
+| ROOT        | 产品编号  |       |   8   | &nbsp; |
 | LEFT        | 预计剩余  | DOUBLE      |   -1   | &nbsp; |
 | CONSUMED        | 总计消耗  | DOUBLE      |   -1   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
@@ -100958,7 +100958,7 @@ CREATE TABLE `zt_team`(
 ,`ROLE`  VARCHAR(30) COMMENT '角色' 
 ,`TYPE`  VARCHAR(7) COMMENT '团队类型' 
 ,`LIMITED`  VARCHAR(8) COMMENT '受限用户' 
-,`ROOT`  BIGINT(8)  UNSIGNED COMMENT '编号' 
+,`ROOT`  BIGINT(8)  UNSIGNED COMMENT '产品编号' 
 ,`ACCOUNT`  VARCHAR(30) COMMENT '用户' 
 ,`DAYS`  INTEGER COMMENT '可用工日' 
 ,`ORDER`  INTEGER COMMENT '排序' 

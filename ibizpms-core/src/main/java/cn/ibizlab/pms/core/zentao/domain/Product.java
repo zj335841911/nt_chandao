@@ -402,6 +402,14 @@ public class Product extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.Module moduleline;
 
 
+    /**
+     * 产品团队
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibiz.domain.PRODUCTTEAM> productteam;
+
 
     /**
      * 设置 [测试负责人]
