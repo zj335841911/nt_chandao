@@ -647,6 +647,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductTestGridView",
             "viewtag": "1d697dd8e47a4781be8f690bcc5f7800"
         },
+        "productteamusr2gridview": {
+            "title": "产品团队表格视图",
+            "caption": "产品团队",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "PRODUCTTEAMUsr2GridView",
+            "viewtag": "1e6b69882f24208b7dfbd472051137e4"
+        },
         "bugpickupgridview": {
             "title": "bug选择表格视图",
             "caption": "Bug",
@@ -822,6 +830,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainMyGridView",
             "viewtag": "24a03de02dc02b92a3c228b944e78ed9"
+        },
+        "productteameditview": {
+            "title": "产品团队编辑视图",
+            "caption": "产品团队",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "PRODUCTTEAMEditView",
+            "viewtag": "24bd71cafa4143c58de671b37ce80b56"
         },
         "ibzprojectmembereditview9": {
             "title": "项目相关成员编辑视图（相关成员）",

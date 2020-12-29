@@ -130,7 +130,7 @@
                     <template v-slot="{row,column,$index}">
                         <template >
                                 <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
-            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameUnAssignTo_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                                 </a>
                         </template>
                     </template>

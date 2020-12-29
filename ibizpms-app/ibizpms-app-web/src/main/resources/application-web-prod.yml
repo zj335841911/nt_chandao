@@ -255,6 +255,10 @@ zuul:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_projectdaily:
+      path: /ibizproprojectdailies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_plantemplet:
       path: /ibzplantemplets/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

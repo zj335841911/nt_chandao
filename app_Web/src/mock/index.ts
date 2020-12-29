@@ -69,6 +69,7 @@ import './entity/product-modules/product-modules';
 import './entity/modules/modules';
 import './entity/productteams/productteams';
 import './entity/test-modules/test-modules';
+import './entity/ibizpro-project-dailys/ibizpro-project-dailys';
 import './entity/ibz-plan-templets/ibz-plan-templets';
 import './entity/sys-user-roles/sys-user-roles';
 import './entity/ibizpro-keywords/ibizpro-keywords';

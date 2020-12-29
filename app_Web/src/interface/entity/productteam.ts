@@ -125,4 +125,12 @@ export interface PRODUCTTEAM {
      * @memberof PRODUCTTEAM
      */
     taskcnt?: any;
+
+    /**
+     * 用户
+     *
+     * @returns {*}
+     * @memberof PRODUCTTEAM
+     */
+    username?: any;
 }

@@ -771,7 +771,7 @@ export class TaskGroupGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealNameW',
+                srfkey: 'UserRealNameUnAssignTo_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

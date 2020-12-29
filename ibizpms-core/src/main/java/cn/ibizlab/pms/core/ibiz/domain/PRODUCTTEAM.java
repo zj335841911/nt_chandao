@@ -159,6 +159,13 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
     private Integer taskcnt;
+    /**
+     * 用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "username")
+    @JsonProperty("username")
+    private String username;
 
     /**
      * 

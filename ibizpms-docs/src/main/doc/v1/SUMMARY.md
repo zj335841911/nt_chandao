@@ -228,6 +228,8 @@
 
     * [索引检索](module/ibizpro/IbizproIndex.md) 
 
+    * [项目日报](module/ibizpro/IbizproProjectDaily.md) 
+
     * [计划模板](module/ibizpro/IbzPlanTemplet.md) 
 
     * [计划模板详情](module/ibizpro/IbzPlanTempletDetail.md) 

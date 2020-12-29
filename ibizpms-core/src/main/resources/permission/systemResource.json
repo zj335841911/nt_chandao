@@ -1032,6 +1032,14 @@
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} ]
     }
     ,    {
+    "dename":"IbizproProjectDaily",
+    "delogicname":"项目日报",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+    }
+    ,    {
     "dename":"IbzAgent",
     "delogicname":"代理",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
@@ -1187,7 +1195,7 @@
     "dename":"PRODUCTTEAM",
     "delogicname":"产品团队",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"ProductTeamInfo" , "name":"产品团队成员信息"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"ProductTeamInfo" , "name":"产品团队成员信息"},{"id":"RowEditDefaultProductTeam" , "name":"产品团队管理"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
     }

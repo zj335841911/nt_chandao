@@ -179,6 +179,28 @@ public class PRODUCTTEAMResource {
                 .body(new PageImpl(productteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-searchRowEditDefaultProductTeam-all')")
+	@ApiOperation(value = "获取产品团队管理", tags = {"产品团队" } ,notes = "获取产品团队管理")
+    @RequestMapping(method= RequestMethod.GET , value="/productteams/fetchroweditdefaultproductteam")
+	public ResponseEntity<List<PRODUCTTEAMDTO>> fetchRowEditDefaultProductTeam(PRODUCTTEAMSearchContext context) {
+        Page<PRODUCTTEAM> domains = productteamService.searchRowEditDefaultProductTeam(context) ;
+        List<PRODUCTTEAMDTO> list = productteamMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-searchRowEditDefaultProductTeam-all')")
+	@ApiOperation(value = "查询产品团队管理", tags = {"产品团队" } ,notes = "查询产品团队管理")
+    @RequestMapping(method= RequestMethod.POST , value="/productteams/searchroweditdefaultproductteam")
+	public ResponseEntity<Page<PRODUCTTEAMDTO>> searchRowEditDefaultProductTeam(@RequestBody PRODUCTTEAMSearchContext context) {
+        Page<PRODUCTTEAM> domains = productteamService.searchRowEditDefaultProductTeam(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

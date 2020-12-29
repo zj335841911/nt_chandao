@@ -62,6 +62,7 @@ import productmodule_en_US from '@locale/lanres/entities/product-module/product-
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import productteam_en_US from '@locale/lanres/entities/productteam/productteam_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
+import ibizproprojectdaily_en_US from '@locale/lanres/entities/ibizpro-project-daily/ibizpro-project-daily_en_US';
 import ibzplantemplet_en_US from '@locale/lanres/entities/ibz-plan-templet/ibz-plan-templet_en_US';
 import sysuserrole_en_US from '@locale/lanres/entities/sys-user-role/sys-user-role_en_US';
 import ibizprokeyword_en_US from '@locale/lanres/entities/ibizpro-keyword/ibizpro-keyword_en_US';
@@ -456,6 +457,7 @@ function getAppLocale(){
             module: module_en_US(),
             productteam: productteam_en_US(),
             testmodule: testmodule_en_US(),
+            ibizproprojectdaily: ibizproprojectdaily_en_US(),
             ibzplantemplet: ibzplantemplet_en_US(),
             sysuserrole: sysuserrole_en_US(),
             ibizprokeyword: ibizprokeyword_en_US(),

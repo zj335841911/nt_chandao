@@ -156,6 +156,15 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JsonProperty("taskcnt")
     private Integer taskcnt;
 
+    /**
+     * 属性 [USERNAME]
+     *
+     */
+    @JSONField(name = "username")
+    @JsonProperty("username")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String username;
+
 
     /**
      * 设置 [JOIN]

@@ -228,4 +228,33 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productteams/searchproductteaminfo`,tempData,isloading);
     }
+
+    /**
+     * FetchRowEditDefaultProductTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async FetchRowEditDefaultProductTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchRowEditDefaultProductTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async searchRowEditDefaultProductTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productteams/searchroweditdefaultproductteam`,tempData,isloading);
+    }
 }

@@ -12150,6 +12150,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/ibizpro-tag-grid-view/ibizpro-tag-grid-view.vue'),
                 },
                 {
+                    path: 'productteams/:productteam?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.productteam.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productteams', parameterName: 'productteam' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/productteamusr2-grid-view/productteamusr2-grid-view.vue'),
+                },
+                {
                     path: 'actions/:action?/mytrendslistview/:mytrendslistview?',
                     meta: {
                         caption: 'entities.action.views.mytrendslistview.caption',
@@ -14579,6 +14593,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/user-year-work-stats-dashboard-view/user-year-work-stats-dashboard-view.vue'),
+                },
+                {
+                    path: 'productteams/:productteam?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.productteam.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productteams', parameterName: 'productteam' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/productteamedit-view/productteamedit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/gridexpview/:gridexpview?',

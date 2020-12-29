@@ -695,6 +695,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1e6b69882f24208b7dfbd472051137e4',
+            viewmodule: 'ibiz',
+            viewname: 'PRODUCTTEAMUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '24bd71cafa4143c58de671b37ce80b56',
+            ],
+        },
+        {
             viewtag: '1e7347f3fffc87077dd7f0156125b918',
             viewmodule: 'zentao',
             viewname: 'BugPickupGridView',
@@ -915,6 +925,15 @@ export const viewstate: any = {
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '35ba93bac795e0deb7297d2d471b7180',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: '24bd71cafa4143c58de671b37ce80b56',
+            viewmodule: 'ibiz',
+            viewname: 'PRODUCTTEAMEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2087,6 +2106,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1e6b69882f24208b7dfbd472051137e4',
+                '24bd71cafa4143c58de671b37ce80b56',
             ],
         },
         {

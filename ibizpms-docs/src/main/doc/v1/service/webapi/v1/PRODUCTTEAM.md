@@ -256,6 +256,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)>：产品团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品团队管理
+#### 访问路径
+/productteams/fetchroweditdefaultproductteam
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [PRODUCTTEAMSearchContext](#PRODUCTTEAMSearchContext) | 产品团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)>：产品团队实体传输对象列表 |
+
+### 查询产品团队管理
+#### 访问路径
+/productteams/searchroweditdefaultproductteam
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [PRODUCTTEAMSearchContext](#PRODUCTTEAMSearchContext) | 产品团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)>：产品团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### PRODUCTTEAMDTO
@@ -276,7 +312,8 @@ POST
 | 13 | estimate | Double | 允许 | 最初预计 |
 | 14 | total | Integer | 允许 | 总计可用 |
 | 15 | taskcnt | Integer | 允许 | 任务数 |
-| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 16 | username | String | 允许 | 用户 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### PRODUCTTEAMSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

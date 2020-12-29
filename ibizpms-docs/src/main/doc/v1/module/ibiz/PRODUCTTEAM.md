@@ -33,6 +33,7 @@
 | 13 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | 浮点 | 否 | 是 | 是 |
 | 14 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | 整型 | 否 | 是 | 是 |
 | 15 | [任务数](#属性-任务数（TASKCNT）) | TASKCNT | 整型 | 否 | 是 | 是 |
+| 16 | [用户](#属性-用户（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-加盟日（JOIN）
 #### 属性说明
@@ -686,6 +687,49 @@ Integer
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-用户（USERNAME）
+#### 属性说明
+用户
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+(select t.realname from zt_user t where t.account = t1.account)
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -808,7 +852,8 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [产品团队成员信息](#数据查询-产品团队成员信息（ProductTeamInfo）) | ProductTeamInfo | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [产品团队管理](#数据查询-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -837,7 +882,8 @@ t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
-t1.`TYPE`
+t1.`TYPE`,
+(select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
 
 ```
@@ -925,6 +971,98 @@ FROM
 	(	SELECT *,(SELECT GROUP_CONCAT(project) from zt_projectproduct where product =  t1.root and t1.type = 'product' ) as zzz from zt_team t1
 ) t1
 ```
+### 数据查询-产品团队管理（RowEditDefaultProductTeam）
+#### 说明
+产品团队管理
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.* 
+FROM
+	(
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CONSUMED`,
+	t1.`DAYS`,
+	t1.`ESTIMATE`,
+	t1.`HOURS`,
+	t1.id as `ID`,
+	t1.`JOIN`,
+	t1.`LEFT`,
+	t1.`LIMITED`,
+	t1.`ORDER`,
+	t1.`ROLE`,
+	t1.`ROOT`,
+	( t1.`DAYS` * t1.`HOURS` ) AS `TOTAL`,
+	t1.`TYPE`,
+	t2.`realname` AS `USERNAME` 
+FROM
+	`zt_team` t1
+	LEFT JOIN `zt_user` t2 ON t2.`account` = t1.`account` 
+	union 
+	SELECT
+	t1.`ACCOUNT`,
+	0 AS `CONSUMED`,
+	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
+	)) )
+	AS `DAYS`,
+	0 AS `ESTIMATE`,
+	7 AS `HOURS`,
+	null as `ID`,
+	'2020-07-13' AS `JOIN`,
+	0 AS `LEFT`,
+	'no' AS `LIMITED`,
+	0 AS `ORDER`,
+	t3.`name` as `ROLE`,
+	#{srf.datacontext.root} 
+	as `ROOT`,
+	90 AS `TOTAL`,
+	'product' AS `TYPE`,
+	t2.`realname` AS `USERNAME` 
+FROM
+	`zt_team` t1
+	LEFT JOIN `zt_user` t2 ON t2.`account` = t1.`account` 
+        left join zt_group t3 on t2.role = t3.role
+	where t1.type = 'product' and t1.root = #{srf.datacontext.teams} 
+	and t1.account not in (select  t.account from zt_team t where t.root = #{srf.datacontext.root} 
+	and t.type = 'product')
+	union 
+	SELECT
+	t2.`ACCOUNT`,
+	0 AS `CONSUMED`,
+	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
+	)) )
+	AS `DAYS`,
+	0 AS `ESTIMATE`,
+	7 AS `HOURS`,
+	null as `ID`,
+	'2020-07-13' AS `JOIN`,
+	0 AS `LEFT`,
+	'no' AS `LIMITED`,
+	0 AS `ORDER`,
+	t3.`name` as `ROLE`,
+	#{srf.datacontext.root}
+	as `ROOT`,
+	90 AS `TOTAL`,
+	'product' AS `TYPE`,
+	t2.`realname` AS `USERNAME` 
+FROM
+	`zt_dept` t1
+	LEFT JOIN `zt_user` t2 ON t2.`dept` = t1.`id` 
+	left join zt_group t3 on t2.role = t3.role
+	where t1.id = #{srf.datacontext.dept} 
+	and t2.account is not null and t2.account not in (select  t.account from zt_team t where t.root = #{srf.datacontext.root} 
+	and t.type = 'product')
+	) t1
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -952,7 +1090,8 @@ t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
-t1.`TYPE`
+t1.`TYPE`,
+(select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
 
 ```
@@ -962,6 +1101,7 @@ FROM `zt_team` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [产品团队成员信息](#数据集合-产品团队成员信息（ProductTeamInfo）) | ProductTeamInfo | 否 |
+| 3 | [产品团队管理](#数据集合-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -991,6 +1131,20 @@ FROM `zt_team` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品团队成员信息（ProductTeamInfo）](#数据查询-产品团队成员信息（ProductTeamInfo）) |
+### 数据集合-产品团队管理（RowEditDefaultProductTeam）
+#### 说明
+产品团队管理
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品团队管理（RowEditDefaultProductTeam）](#数据查询-产品团队管理（RowEditDefaultProductTeam）) |
 
 ## 数据导入
 无

@@ -7598,6 +7598,47 @@ FROM `zt_task` t1
 
 ```
 
+# **项目日报**(IBIZPRO_PROJECTDAILY)
+
+### 数据查询(DEFAULT)<div id="IbizproProjectDaily_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PROJECTDAILYID`,
+t1.`IBIZPRO_PROJECTDAILYNAME`,
+t1.`PM`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PROJECTDAILY` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbizproProjectDaily_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PROJECTDAILYID`,
+t1.`IBIZPRO_PROJECTDAILYNAME`,
+t1.`PM`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PROJECTDAILY` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+
+```
+
 # **代理**(IBZ_AGENT)
 
 ### 数据查询(DEFAULT)<div id="IbzAgent_Default"></div>
@@ -9845,7 +9886,8 @@ t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
-t1.`TYPE`
+t1.`TYPE`,
+(select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
 
 ```
@@ -9924,6 +9966,89 @@ FROM
 WHERE t1.type = 'product' 
 
 ```
+### 产品团队管理(RowEditDefaultProductTeam)<div id="PRODUCTTEAM_RowEditDefaultProductTeam"></div>
+```sql
+SELECT
+	t1.* 
+FROM
+	(
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CONSUMED`,
+	t1.`DAYS`,
+	t1.`ESTIMATE`,
+	t1.`HOURS`,
+	t1.id as `ID`,
+	t1.`JOIN`,
+	t1.`LEFT`,
+	t1.`LIMITED`,
+	t1.`ORDER`,
+	t1.`ROLE`,
+	t1.`ROOT`,
+	( t1.`DAYS` * t1.`HOURS` ) AS `TOTAL`,
+	t1.`TYPE`,
+	t2.`realname` AS `USERNAME` 
+FROM
+	`zt_team` t1
+	LEFT JOIN `zt_user` t2 ON t2.`account` = t1.`account` 
+	union 
+	SELECT
+	t1.`ACCOUNT`,
+	0 AS `CONSUMED`,
+	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
+	)) )
+	AS `DAYS`,
+	0 AS `ESTIMATE`,
+	7 AS `HOURS`,
+	null as `ID`,
+	'2020-07-13' AS `JOIN`,
+	0 AS `LEFT`,
+	'no' AS `LIMITED`,
+	0 AS `ORDER`,
+	t3.`name` as `ROLE`,
+	#{srf.datacontext.root} 
+	as `ROOT`,
+	90 AS `TOTAL`,
+	'product' AS `TYPE`,
+	t2.`realname` AS `USERNAME` 
+FROM
+	`zt_team` t1
+	LEFT JOIN `zt_user` t2 ON t2.`account` = t1.`account` 
+        left join zt_group t3 on t2.role = t3.role
+	where t1.type = 'product' and t1.root = #{srf.datacontext.teams} 
+	and t1.account not in (select  t.account from zt_team t where t.root = #{srf.datacontext.root} 
+	and t.type = 'product')
+	union 
+	SELECT
+	t2.`ACCOUNT`,
+	0 AS `CONSUMED`,
+	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
+	)) )
+	AS `DAYS`,
+	0 AS `ESTIMATE`,
+	7 AS `HOURS`,
+	null as `ID`,
+	'2020-07-13' AS `JOIN`,
+	0 AS `LEFT`,
+	'no' AS `LIMITED`,
+	0 AS `ORDER`,
+	t3.`name` as `ROLE`,
+	#{srf.datacontext.root}
+	as `ROOT`,
+	90 AS `TOTAL`,
+	'product' AS `TYPE`,
+	t2.`realname` AS `USERNAME` 
+FROM
+	`zt_dept` t1
+	LEFT JOIN `zt_user` t2 ON t2.`dept` = t1.`id` 
+	left join zt_group t3 on t2.role = t3.role
+	where t1.id = #{srf.datacontext.dept} 
+	and t2.account is not null and t2.account not in (select  t.account from zt_team t where t.root = #{srf.datacontext.root} 
+	and t.type = 'product')
+	) t1
+WHERE t1.type = 'product' 
+
+```
 ### 默认（全部数据）(VIEW)<div id="PRODUCTTEAM_View"></div>
 ```sql
 SELECT
@@ -9940,7 +10065,8 @@ t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
-t1.`TYPE`
+t1.`TYPE`,
+(select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
 
 ```

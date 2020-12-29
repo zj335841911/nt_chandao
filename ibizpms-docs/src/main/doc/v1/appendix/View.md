@@ -357,6 +357,7 @@
 |-|测试模块选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|所有产品|DEGRIDVIEW|&nbsp;|
+|-|产品团队表格视图|DEGRIDVIEW|&nbsp;|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|iBiz软件生产管理|APPINDEXVIEW|&nbsp;"????"
 "????"|
@@ -381,6 +382,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目bug类型统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW|&nbsp;|
+|-|产品团队编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目相关成员编辑视图（相关成员）|DEEDITVIEW9|&nbsp;|
 |-|doclib数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|模块|DEEDITVIEW|&nbsp;|
