@@ -223,6 +223,8 @@ export default class PRODUCTTEAMUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
