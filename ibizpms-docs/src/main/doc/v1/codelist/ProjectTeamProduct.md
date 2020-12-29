@@ -1,6 +1,6 @@
-# 数据字典-项目团队（有限关联产品）（ProjectTeamProduct）
+# 数据字典-真实用户项目团队（优先关联产品）（ProjectTeamProduct）
 ## 字典说明
-项目团队（有限关联产品）
+真实用户项目团队（优先关联产品）
 
 ## 基本说明
 | 项目 | 说明 |
@@ -12,5 +12,9 @@
 | 缓存超时时长 | 无 |
 
 ## 取值范围
-无
+指定实体查询结果集合。
+| 项目 | 说明 |
+| ---- | ---- |
+| 实体 | [人员](../module/ou/SysEmployee) |
+| 结果集合 | [项目团队管理（ProjectTeamMProduct）](../module/ou/SysEmployee/#数据集合-项目团队管理（ProjectTeamMProduct）) |
 

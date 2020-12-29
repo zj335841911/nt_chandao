@@ -127,6 +127,7 @@ hide members
 |ContActList|联系人用户|ContActList|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProjectTeamM|项目团队管理|ProjectTeamM|否|&nbsp;|
+|ProjectTeamMProduct|项目团队管理|ProjectTeamMProduct|否|&nbsp;|
 |ProjectTeamTaskUserTemp|项目团队成员(临时)|ProjectTeamTaskUserTemp|否|&nbsp;|
 |ProjectTeamUser|项目团队成员|ProjectTeamUser|否|&nbsp;|
 |ProjectTeamUserTask|项目团队成员|ProjectTeamUserTask|否|&nbsp;|

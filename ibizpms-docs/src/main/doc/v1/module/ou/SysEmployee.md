@@ -1870,12 +1870,13 @@ FROM `T_IBZEMP` t1
 | 2 | [联系人用户](#数据集合-联系人用户（ContActList）) | ContActList | 否 |
 | 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 4 | [项目团队管理](#数据集合-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
-| 5 | [项目团队成员(临时)](#数据集合-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
-| 6 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 7 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
-| 8 | [项目团队成员选择](#数据集合-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 9 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
-| 10 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
+| 5 | [项目团队管理](#数据集合-项目团队管理（ProjectTeamMProduct）) | ProjectTeamMProduct | 否 |
+| 6 | [项目团队成员(临时)](#数据集合-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
+| 7 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
+| 8 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
+| 9 | [项目团队成员选择](#数据集合-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
+| 10 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
+| 11 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
 
 ### 数据集合-Bug用户（BugUser）
 #### 说明
@@ -1933,6 +1934,20 @@ Bug用户
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目团队管理（ProjectTeamM）](#数据查询-项目团队管理（ProjectTeamM）) |
+### 数据集合-项目团队管理（ProjectTeamMProduct）
+#### 说明
+项目团队管理
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目团队管理（ProjectTeamMProduct）](#数据查询-项目团队管理（ProjectTeamMProduct）) |
 ### 数据集合-项目团队成员(临时)（ProjectTeamTaskUserTemp）
 #### 说明
 项目团队成员(临时)

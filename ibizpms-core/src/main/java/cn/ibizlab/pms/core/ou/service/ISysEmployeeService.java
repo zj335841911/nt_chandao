@@ -49,6 +49,7 @@ public interface ISysEmployeeService {
     Page<SysEmployee> searchContActList(SysEmployeeSearchContext context);
     Page<SysEmployee> searchDefault(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context);
+    Page<SysEmployee> searchProjectTeamMProduct(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamTaskUserTemp(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamUserTask(SysEmployeeSearchContext context);
