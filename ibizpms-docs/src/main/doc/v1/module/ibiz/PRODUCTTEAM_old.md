@@ -85,6 +85,21 @@ hide footbox
 |2|开始 | 
 |3|设置产品参数 |
 <center>获取项目的可用工日</center>
+* 获取成员角色 (GetUserRole)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+产品团队 -> 产品团队: 获取角色成员
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|获取角色成员 |
+<center>获取成员角色</center>
 
 ## 查询集合
 
