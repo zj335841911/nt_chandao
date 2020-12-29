@@ -56,6 +56,11 @@ export default class CreateFormModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'createmanname',
+        prop: 'createmanname',
+        dataType: 'TEXT',
+      },
+      {
         name: 'agentuser',
         prop: 'agentuser',
         dataType: 'TEXT',

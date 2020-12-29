@@ -77,4 +77,12 @@ export interface IbzAgent {
      * @memberof IbzAgent
      */
     agentend?: any;
+
+    /**
+     * 创建人姓名
+     *
+     * @returns {*}
+     * @memberof IbzAgent
+     */
+    createmanname?: any;
 }

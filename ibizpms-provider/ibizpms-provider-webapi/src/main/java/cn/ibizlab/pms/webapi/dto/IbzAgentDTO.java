@@ -110,6 +110,15 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JsonProperty("agentend")
     private Timestamp agentend;
 
+    /**
+     * 属性 [CREATEMANNAME]
+     *
+     */
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String createmanname;
+
 
     /**
      * 设置 [IBZ_AGENTNAME]

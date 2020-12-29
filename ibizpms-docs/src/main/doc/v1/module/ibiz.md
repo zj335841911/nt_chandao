@@ -61,6 +61,9 @@ class 项目相关成员 {
 class 置顶 {
 }
 
+class 产品团队 {
+}
+
 class 产品生命周期 {
 }
 
@@ -170,6 +173,7 @@ hide members
 |IBZ_MYTERRITORY|[我的地盘](ibiz/IbzMyTerritory.md)|主实体|&nbsp;|
 |IBZ_PROJECTMEMBER|[项目相关成员](ibiz/IbzProjectMember.md)|主实体|&nbsp;|
 |IBZ_TOP|[置顶](ibiz/IbzTop.md)|主实体|&nbsp;|
+|IBZ_PRODUCTTEAM|[产品团队](ibiz/PRODUCTTEAM.md)|主实体|&nbsp;|
 |IBZ_PRODUCTLIFE|[产品生命周期](ibiz/ProductLife.md)|主实体|&nbsp;|
 |IBZ_PRODUCTLINE|[产品线](ibiz/ProductLine.md)|主实体|&nbsp;|
 |IBZ_PRODUCTMODULE|[需求模块](ibiz/ProductModule.md)|主实体|&nbsp;产品需求模块|

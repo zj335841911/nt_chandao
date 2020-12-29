@@ -234,7 +234,8 @@ POST
 | 7 | agentuser | String | 允许 | 代理用户 |
 | 8 | agentbegin | Timestamp | 允许 | 代理开始日期<br>时间格式：yyyy-MM-dd |
 | 9 | agentend | Timestamp | 允许 | 代理结束日期<br>时间格式：yyyy-MM-dd |
-| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 10 | createmanname | String | 允许 | 创建人姓名 |
+| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzAgentSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

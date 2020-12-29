@@ -116,6 +116,14 @@ public class IbzAgent extends EntityMP implements Serializable {
     @JSONField(name = "agentend", format = "yyyy-MM-dd")
     @JsonProperty("agentend")
     private Timestamp agentend;
+    /**
+     * 创建人姓名
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`createmanname`")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    private String createmanname;
 
 
 

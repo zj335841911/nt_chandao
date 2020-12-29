@@ -7608,6 +7608,7 @@ t1.`AGENTEND`,
 t1.`AGENTUSER`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`IBZ_AGENTID`,
 t1.`IBZ_AGENTNAME`,
 t1.`UPDATEDATE`,
@@ -7623,6 +7624,7 @@ t1.`AGENTEND`,
 t1.`AGENTUSER`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`IBZ_AGENTID`,
 t1.`IBZ_AGENTNAME`,
 t1.`UPDATEDATE`,
@@ -9822,6 +9824,47 @@ t1.`STATUS`,
 t1.`SUBJECT`,
 t1.`TOLIST`
 FROM `zt_notify` t1 
+
+```
+
+# **产品团队**(IBZ_PRODUCTTEAM)
+
+### 数据查询(DEFAULT)<div id="PRODUCTTEAM_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DAYS`,
+t1.`ESTIMATE`,
+t1.`HOURS`,
+t1.`ID`,
+t1.`JOIN`,
+t1.`LEFT`,
+t1.`LIMITED`,
+t1.`ORDER`,
+t1.`ROLE`,
+t1.`ROOT`,
+t1.`TYPE`
+FROM `zt_team` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="PRODUCTTEAM_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DAYS`,
+t1.`ESTIMATE`,
+t1.`HOURS`,
+t1.`ID`,
+t1.`JOIN`,
+t1.`LEFT`,
+t1.`LIMITED`,
+t1.`ORDER`,
+t1.`ROLE`,
+t1.`ROOT`,
+t1.`TYPE`
+FROM `zt_team` t1 
 
 ```
 

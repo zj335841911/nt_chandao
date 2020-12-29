@@ -93,6 +93,7 @@ export class CreateFormEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        createmanname: null,
         agentuser: null,
         agentbegin: null,
         agentend: null,
@@ -195,6 +196,13 @@ export class CreateFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        createmanname: new FormItemModel({
+    caption: '创建人姓名', detailType: 'FORMITEM', name: 'createmanname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         agentuser: new FormItemModel({
     caption: '代理用户', detailType: 'FORMITEM', name: 'agentuser', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -224,6 +232,16 @@ export class CreateFormEditFormBase extends EditFormControlBase {
 }),
 
     };
+
+    /**
+     * 新建默认值
+     * @memberof CreateFormEditFormBase
+     */
+    public createDefault() {                    
+        if (this.data.hasOwnProperty('createmanname')) {
+            this.data['createmanname'] = this.context['srfloginname'];
+        }
+    }
 
     /**
      * 面板数据变化处理事件

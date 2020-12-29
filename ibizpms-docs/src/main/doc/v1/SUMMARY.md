@@ -42,6 +42,8 @@
 
     * [置顶](module/ibiz/IbzTop.md) 
 
+    * [产品团队](module/ibiz/PRODUCTTEAM.md) 
+
     * [产品生命周期](module/ibiz/ProductLife.md) 
 
     * [产品线](module/ibiz/ProductLine.md) 

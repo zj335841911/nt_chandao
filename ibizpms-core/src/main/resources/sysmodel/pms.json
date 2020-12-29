@@ -11027,6 +11027,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"CREATEMANNAME" ,
+    "codename":"CreateManName",
+    "field_logic_name":"创建人姓名",
+    "entity_name":"IbzAgent",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"CREATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -18127,6 +18142,213 @@
     "subEntitys":[
     ],
     "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBZ_PRODUCTTEAM",
+    "logic_name":"产品团队",
+    "code_name":"PRODUCTTEAM",
+    "table_name":"zt_team",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
+    "fields":[
+    {
+    "fieldname":"JOIN" ,
+    "codename":"Join",
+    "field_logic_name":"加盟日",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"HOURS" ,
+    "codename":"Hours",
+    "field_logic_name":"可用工时/天",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"FLOAT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"编号",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"ACID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ROLE" ,
+    "codename":"Role",
+    "field_logic_name":"角色",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":30,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TYPE" ,
+    "codename":"Type",
+    "field_logic_name":"团队类型",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"SSCODELIST",
+    "dict":"Team__type",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":7,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"LIMITED" ,
+    "codename":"Limited",
+    "field_logic_name":"受限用户",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo3",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":8,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ROOT" ,
+    "codename":"Root",
+    "field_logic_name":"编号",
+    "entity_name":"PRODUCTTEAM",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_PRODUCTTEAM_ZT_PRODUCT_ROOT",
+    "relation_codename":"Productteam",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"用户",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"TEXT",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":30,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"DAYS" ,
+    "codename":"Days",
+    "field_logic_name":"可用工日",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "data_length":5,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORDER" ,
+    "codename":"Order",
+    "field_logic_name":"排序",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "data_length":3,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CONSUMED" ,
+    "codename":"Consumed",
+    "field_logic_name":"总计消耗",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"FLOAT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"LEFT" ,
+    "codename":"Left",
+    "field_logic_name":"预计剩余",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"FLOAT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ESTIMATE" ,
+    "codename":"Estimate",
+    "field_logic_name":"最初预计",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"FLOAT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    {"name":"DER1N_IBZ_PRODUCTTEAM_ZT_PRODUCT_ROOT",
+     "relation_type":"DER1N",
+     "code_name":"Productteam",
+     "entity_name":"IBZ_PRODUCTTEAM",
+     "ref_entity_name":"ZT_PRODUCT"
+    }
     ]
  }
     ,
@@ -26680,6 +26902,12 @@
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
      "entity_name":"IBZ_PRODUCTMODULE",
+     "ref_entity_name":"ZT_PRODUCT"
+    },
+    {"name":"DER1N_IBZ_PRODUCTTEAM_ZT_PRODUCT_ROOT",
+     "relation_type":"DER1N",
+     "code_name":"Productteam",
+     "entity_name":"IBZ_PRODUCTTEAM",
      "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_IBZ_TESTMODULE_ZT_PRODUCT_ROOT",

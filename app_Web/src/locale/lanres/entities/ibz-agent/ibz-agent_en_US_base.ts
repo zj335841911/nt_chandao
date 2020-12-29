@@ -12,6 +12,7 @@ function getLocaleResourceBase(){
 			agentuser: commonLogic.appcommonhandle("代理用户",null),
 			agentbegin: commonLogic.appcommonhandle("代理开始日期",null),
 			agentend: commonLogic.appcommonhandle("代理结束日期",null),
+			createmanname: commonLogic.appcommonhandle("创建人姓名",null),
 		},
 			views: {
 				createeditview: {
@@ -39,6 +40,7 @@ function getLocaleResourceBase(){
 					srfuf: commonLogic.appcommonhandle("",null), 
 					srfdeid: commonLogic.appcommonhandle("",null), 
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					createmanname: commonLogic.appcommonhandle("创建人姓名",null), 
 					agentuser: commonLogic.appcommonhandle("代理用户",null), 
 					agentbegin: commonLogic.appcommonhandle("代理开始日期",null), 
 					agentend: commonLogic.appcommonhandle("代理结束日期",null), 
