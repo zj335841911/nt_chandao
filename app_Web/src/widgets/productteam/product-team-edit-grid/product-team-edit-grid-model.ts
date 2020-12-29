@@ -60,6 +60,7 @@ export default class ProductTeamEditModel {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'account_text',
