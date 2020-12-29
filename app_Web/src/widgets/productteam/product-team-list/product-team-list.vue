@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductTeamListBase } from './product-team-list-base';
-import layout_list_itempanel from '@widgets/productteam/product-team-panel/product-team-panel.vue';
+import layout_list_itempanel from '@widgets/project-team/project-team-pc-panel/project-team-pc-panel.vue';
  
 
 /**
