@@ -2555,8 +2555,9 @@ Save
 | 5 | [当前用户](#数据查询-当前用户（CurUer）) | CurUer | 否 |
 | 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 7 | [产品总览](#数据查询-产品总览（ProductPM）) | ProductPM | 否 |
-| 8 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 8 | [产品团队](#数据查询-产品团队（ProductTeam）) | ProductTeam | 否 |
+| 9 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-全部产品（AllList）
 #### 说明
@@ -2939,6 +2940,63 @@ LEFT JOIN zt_module t11 ON t1.LINE = t11.ID
 - MYSQL5
 ```SQL
 select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' and t.orgid = #{srf.sessioncontext.srforgid} GROUP BY t.`status`
+```
+### 数据查询-产品团队（ProductTeam）
+#### 说明
+产品团队
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0') AS `ACTIVEBUGCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='active' AND DELETED = '0') AS `ACTIVESTORYCNT`,
+(select count(1) from zt_build t where t.product = t1.id and t.deleted = '0') AS `BUILDCNT`,
+(select count(1) from zt_case t where t.product = t1.id and t.deleted = '0') AS `CASECNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='changed' AND DELETED = '0') AS `CHANGEDSTORYCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='closed' AND DELETED = '0') AS `CLOSEDSTORYCNT`,
+t1.`CODE`,
+t1.`CREATEDBY`,
+t1.`CREATEDDATE`,
+t1.`CREATEDVERSION`,
+t1.`DELETED`,
+(select count(1) from zt_doc t where t.product = t1.id and t.deleted = '0') AS `DOCCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='draft' AND DELETED = '0') AS `DRAFTSTORYCNT`,
+t1.`IBIZ_ID`,
+t1.`ID`,
+'0' AS `ISTOP`,
+t1.`LINE`,
+t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
+t1.`NAME`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
+t1.`ORDER`,
+t1.`order` AS `ORDER1`,
+t1.`ORGID`,
+t1.`PO`,
+t1.PO AS `POPK`,
+(SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
+t1.`QD`,
+t1.QD AS `QDPK`,
+t1.`RD`,
+t1.RD AS `RDPK`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
+(select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
+(SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
+t1.`STATUS`,
+t1.`SUBSTATUS`,
+t1.`TYPE`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`
+FROM `zt_product` t1 
+LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
+LEFT JOIN zt_team t21 on t21.root = t1.id
 ```
 ### 数据查询-当前项目（StoryCurProject）
 #### 说明

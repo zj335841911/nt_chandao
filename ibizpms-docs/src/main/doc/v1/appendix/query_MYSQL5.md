@@ -11770,6 +11770,54 @@ WHERE t1.DELETED = '0'
 ```sql
 select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' and t.orgid = #{srf.sessioncontext.srforgid} GROUP BY t.`status`
 ```
+### 产品团队(ProductTeam)<div id="Product_ProductTeam"></div>
+```sql
+SELECT
+t1.`ACL`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0') AS `ACTIVEBUGCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='active' AND DELETED = '0') AS `ACTIVESTORYCNT`,
+(select count(1) from zt_build t where t.product = t1.id and t.deleted = '0') AS `BUILDCNT`,
+(select count(1) from zt_case t where t.product = t1.id and t.deleted = '0') AS `CASECNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='changed' AND DELETED = '0') AS `CHANGEDSTORYCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='closed' AND DELETED = '0') AS `CLOSEDSTORYCNT`,
+t1.`CODE`,
+t1.`CREATEDBY`,
+t1.`CREATEDDATE`,
+t1.`CREATEDVERSION`,
+t1.`DELETED`,
+(select count(1) from zt_doc t where t.product = t1.id and t.deleted = '0') AS `DOCCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='draft' AND DELETED = '0') AS `DRAFTSTORYCNT`,
+t1.`IBIZ_ID`,
+t1.`ID`,
+'0' AS `ISTOP`,
+t1.`LINE`,
+t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
+t1.`NAME`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
+t1.`ORDER`,
+t1.`order` AS `ORDER1`,
+t1.`ORGID`,
+t1.`PO`,
+t1.PO AS `POPK`,
+(SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
+t1.`QD`,
+t1.QD AS `QDPK`,
+t1.`RD`,
+t1.RD AS `RDPK`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
+(select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
+(SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
+t1.`STATUS`,
+t1.`SUBSTATUS`,
+t1.`TYPE`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`
+FROM `zt_product` t1 
+LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
+LEFT JOIN zt_team t21 on t21.root = t1.id
+WHERE t1.DELETED = '0' 
+
+```
 ### 当前项目(StoryCURPROJECT)<div id="Product_StoryCurProject"></div>
 ```sql
 SELECT

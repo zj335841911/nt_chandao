@@ -303,6 +303,7 @@ hide footbox
 |CurUer|当前用户([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurUer))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Product_Default))|否|&nbsp;|
 |ProductPM|产品总览([MYSQL5](../../appendix/query_MYSQL5.md#Product_ProductPM))|否|&nbsp;|
+|ProductTeam|产品团队([MYSQL5](../../appendix/query_MYSQL5.md#Product_ProductTeam))|否|&nbsp;|
 |StoryCURPROJECT|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Product_StoryCurProject))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Product_View))|否|&nbsp;|
 
