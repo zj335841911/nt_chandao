@@ -16383,6 +16383,32 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ESTSTARTED" ,
+    "codename":"EstStarted",
+    "field_logic_name":"预计开始",
+    "entity_name":"IbzproProjectUserTask",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DEADLINE" ,
+    "codename":"Deadline",
+    "field_logic_name":"截止日期",
+    "entity_name":"IbzproProjectUserTask",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

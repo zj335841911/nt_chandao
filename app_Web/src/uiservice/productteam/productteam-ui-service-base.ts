@@ -238,6 +238,11 @@ export default class PRODUCTTEAMUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'productteams', parameterName: 'productteam' },
         ];

@@ -49,6 +49,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/${context.productteam}/select`,isloading);
+            
+            return res;
+        }
             let res:any = Http.getInstance().get(`/productteams/${context.productteam}/select`,isloading);
             
             return res;
@@ -64,6 +69,20 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productteams`,data,isloading);
+            
+            return res;
+        }
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -88,6 +107,13 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productteams/${context.productteam}`,data,isloading);
+            
+            return res;
+        }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productteams/${context.productteam}`,data,isloading);
@@ -105,6 +131,10 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productteams/${context.productteam}`,isloading);
+            return res;
+        }
             let res:any = Http.getInstance().delete(`/productteams/${context.productteam}`,isloading);
             return res;
     }
@@ -119,6 +149,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/${context.productteam}`,isloading);
+            
+            return res;
+        }
             let res:any = await Http.getInstance().get(`/productteams/${context.productteam}`,isloading);
             
             return res;
@@ -134,6 +169,12 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/getdraft`,isloading);
+            res.data.productteam = data.productteam;
+            
+            return res;
+        }
         let res:any = await  Http.getInstance().get(`/productteams/getdraft`,isloading);
         res.data.productteam = data.productteam;
         
@@ -150,6 +191,13 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productteams/${context.productteam}/checkkey`,data,isloading);
+            
+            return res;
+        }
             let res:any = Http.getInstance().post(`/productteams/${context.productteam}/checkkey`,data,isloading);
             return res;
     }
@@ -164,6 +212,13 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productteams/${context.productteam}/save`,data,isloading);
+            
+            return res;
+        }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productteams/${context.productteam}/save`,data,isloading);
@@ -181,6 +236,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchdefault`,tempData,isloading);
+            return res;
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productteams/fetchdefault`,tempData,isloading);
         return res;
@@ -196,6 +256,10 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productteams/searchdefault`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productteams/searchdefault`,tempData,isloading);
     }
@@ -210,6 +274,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async FetchProductTeamInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchproductteaminfo`,tempData,isloading);
+            return res;
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productteams/fetchproductteaminfo`,tempData,isloading);
         return res;
@@ -225,6 +294,10 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async searchProductTeamInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productteams/searchproductteaminfo`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productteams/searchproductteaminfo`,tempData,isloading);
     }
@@ -239,6 +312,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async FetchRowEditDefaultProductTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
+            return res;
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
         return res;
@@ -254,6 +332,10 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      * @memberof PRODUCTTEAMServiceBase
      */
     public async searchRowEditDefaultProductTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productteams/searchroweditdefaultproductteam`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productteams/searchroweditdefaultproductteam`,tempData,isloading);
     }
