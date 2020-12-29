@@ -70,14 +70,14 @@ export class IbzAgentMainGridViewBase extends GridViewBase {
     public appUIService: IbzAgentUIService = new IbzAgentUIService(this.$store);
 
 	/**
-	 * 自定义视图导航参数集合
+	 * 自定义视图导航上下文集合
 	 *
      * @protected
 	 * @type {*}
 	 * @memberof IbzAgentMainGridViewBase
 	 */
-    protected customViewParams: any = {
-        'n_createmanname_eq': {
+    protected customViewNavContexts: any = {
+        'N_CREATEMANNAME_EQ': {
             isRawValue: false,
             value: 'srfloginname',
         }
