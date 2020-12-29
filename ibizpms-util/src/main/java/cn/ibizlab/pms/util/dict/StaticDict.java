@@ -3149,7 +3149,7 @@ public class StaticDict {
     public enum Team__type {
         PROJECT("project","项目团队"),
         TASK("task","任务团队"),
-        PRODUCT("product","项目团队");
+        PRODUCT("product","产品团队");
 
         private String value;
         private String text;

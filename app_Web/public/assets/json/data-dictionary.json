@@ -8630,8 +8630,8 @@
             }
             , {
                 "id": "product",
-                "label": "项目团队",
-                "text": "项目团队",
+                "label": "产品团队",
+                "text": "产品团队",
                 "class":"",
                 "data":"",
                 "codename":"Product",
