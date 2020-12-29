@@ -56,7 +56,6 @@ function getLocaleResourceBase(){
 				columns: {
 					account: commonLogic.appcommonhandle("用户",null),
 					role: commonLogic.appcommonhandle("角色",null),
-					days: commonLogic.appcommonhandle("可用工日",null),
 					hours: commonLogic.appcommonhandle("可用工时/天",null),
 					limited: commonLogic.appcommonhandle("受限用户",null),
 					uagridcolumn1: commonLogic.appcommonhandle("操作",null),

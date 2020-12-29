@@ -39,12 +39,6 @@ export default class ProductTeamEditModel {
           isEditable:true
         },
         {
-          name: 'days',
-          prop: 'days',
-          dataType: 'INT',
-          isEditable:true
-        },
-        {
           name: 'hours',
           prop: 'hours',
           dataType: 'FLOAT',
@@ -85,15 +79,15 @@ export default class ProductTeamEditModel {
           dataType: 'TEXT',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'id',
