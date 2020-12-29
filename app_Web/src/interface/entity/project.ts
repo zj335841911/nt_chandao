@@ -605,4 +605,12 @@ export interface Project {
      * @memberof Project
      */
     projectteams?: any;
+
+    /**
+     * 支持项目汇报
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    supproreport?: any;
 }

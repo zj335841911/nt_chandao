@@ -106,6 +106,7 @@ hide members
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |项目团队成员|PROJECTTEAMS|ONE2MANYDATA|&nbsp;|
+|支持项目汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -187,6 +188,7 @@ hide members
 |组织标识|默认规则|内容长度必须小于等于[100]|
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |项目团队成员|默认规则|内容长度必须小于等于[1048576]|
+|支持项目汇报|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -700,6 +702,7 @@ hide footbox
 |项目团队成员(ACCOUNT)|EQ|
 |选择部门(DEPT)|EQ|
 |复制团队(MANAGEMEMBERS)|EQ|
+|支持项目汇报(SUPPROREPORT)|EQ|
 
 ## 导入模式
 无

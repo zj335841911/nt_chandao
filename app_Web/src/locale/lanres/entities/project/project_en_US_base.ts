@@ -78,6 +78,7 @@ function getLocaleResourceBase(){
 			orgid: commonLogic.appcommonhandle("组织标识",null),
 			mdeptid: commonLogic.appcommonhandle("部门标识",null),
 			projectteams: commonLogic.appcommonhandle("项目团队成员",null),
+			supproreport: commonLogic.appcommonhandle("支持项目汇报",null),
 		},
 			views: {
 				storymeditview9: {

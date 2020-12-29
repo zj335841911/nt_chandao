@@ -240,6 +240,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

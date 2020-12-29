@@ -240,6 +240,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

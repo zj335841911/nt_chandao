@@ -240,6 +240,9 @@ export default class MainTabExpViewtabviewpanel14Model {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

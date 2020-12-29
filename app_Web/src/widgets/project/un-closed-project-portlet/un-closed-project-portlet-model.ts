@@ -240,6 +240,9 @@ export default class UnClosedProjectModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

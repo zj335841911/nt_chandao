@@ -240,6 +240,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

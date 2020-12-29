@@ -908,8 +908,9 @@ POST
 | 72 | doclibcnt | Integer | 允许 | 文档数量 |
 | 73 | orgid | String | 允许 | 组织标识 |
 | 74 | mdeptid | String | 允许 | 部门标识 |
-| 75 | ibzprojectteams | List<[IBZPROJECTTEAMDTO}](#IBZPROJECTTEAMDTO})> | 允许 | 项目团队 |
-| 76 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 75 | supproreport | String | 允许 | 支持项目汇报 |
+| 76 | ibzprojectteams | List<[IBZPROJECTTEAMDTO}](#IBZPROJECTTEAMDTO})> | 允许 | 项目团队 |
+| 77 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZPROJECTTEAMDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -956,10 +957,11 @@ POST
 | 19 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
 | 20 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
 | 21 | n_managemembers_eq | String | 允许 | 条件字段：managemembers<br>条件组合方式：`=` |
-| 22 | customcond | String | 允许 | 自定义查询条件 |
-| 23 | customparams | String | 允许 | 自定义查询参数 |
-| 24 | query | String | 允许 | 快速搜索 |
-| 25 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 26 | page | int | 允许 | 当前页数<br>默认值0 |
-| 27 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 28 | sort | String | 允许 | 排序 |
+| 22 | n_supproreport_eq | String | 允许 | 条件字段：supproreport<br>条件组合方式：`=` |
+| 23 | customcond | String | 允许 | 自定义查询条件 |
+| 24 | customparams | String | 允许 | 自定义查询参数 |
+| 25 | query | String | 允许 | 快速搜索 |
+| 26 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 27 | page | int | 允许 | 当前页数<br>默认值0 |
+| 28 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 29 | sort | String | 允许 | 排序 |

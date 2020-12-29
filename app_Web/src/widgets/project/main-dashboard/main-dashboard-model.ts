@@ -240,6 +240,9 @@ export default class MainModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

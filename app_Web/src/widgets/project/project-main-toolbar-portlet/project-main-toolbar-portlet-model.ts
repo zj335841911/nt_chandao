@@ -240,6 +240,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 
