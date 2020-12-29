@@ -15,40 +15,38 @@ import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
-import cn.ibizlab.pms.core.ibizpro.domain.IbizproProductDaily;
-import cn.ibizlab.pms.core.ibizpro.filter.IbizproProductDailySearchContext;
+import cn.ibizlab.pms.core.ibizpro.domain.IbzproProjectUserTask;
+import cn.ibizlab.pms.core.ibizpro.filter.IbzproProjectUserTaskSearchContext;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * 实体[IbizproProductDaily] 服务对象接口
+ * 实体[IbzproProjectUserTask] 服务对象接口
  */
-public interface IIbizproProductDailyService extends IService<IbizproProductDaily> {
+public interface IIbzproProjectUserTaskService extends IService<IbzproProjectUserTask> {
 
     /**
      * 业务实体显示文本名称
      */
-    final static String OBJECT_TEXT_NAME = "产品日报";
+    final static String OBJECT_TEXT_NAME = "项目汇报用户任务";
 
     /**
      * 业务实体资源路径名
      */
-    final static String OBJECT_SOURCE_PATH = "ibizproproductdailies";
+    final static String OBJECT_SOURCE_PATH = "ibzproprojectusertasks";
 
-    boolean create(IbizproProductDaily et);
-    void createBatch(List<IbizproProductDaily> list);
-    boolean update(IbizproProductDaily et);
-    void updateBatch(List<IbizproProductDaily> list);
+    boolean create(IbzproProjectUserTask et);
+    void createBatch(List<IbzproProjectUserTask> list);
+    boolean update(IbzproProjectUserTask et);
+    void updateBatch(List<IbzproProjectUserTask> list);
     boolean remove(Long key);
     void removeBatch(Collection<Long> idList);
-    IbizproProductDaily get(Long key);
-    IbizproProductDaily getDraft(IbizproProductDaily et);
-    boolean checkKey(IbizproProductDaily et);
-    boolean save(IbizproProductDaily et);
-    void saveBatch(List<IbizproProductDaily> list);
-    Page<IbizproProductDaily> searchDefault(IbizproProductDailySearchContext context);
-    List<IbizproProductDaily> selectByProduct(Long id);
-    void removeByProduct(Long id);
+    IbzproProjectUserTask get(Long key);
+    IbzproProjectUserTask getDraft(IbzproProjectUserTask et);
+    boolean checkKey(IbzproProjectUserTask et);
+    boolean save(IbzproProjectUserTask et);
+    void saveBatch(List<IbzproProjectUserTask> list);
+    Page<IbzproProjectUserTask> searchDefault(IbzproProjectUserTaskSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
@@ -64,8 +62,6 @@ public interface IIbizproProductDailyService extends IService<IbizproProductDail
      */
     boolean execute(String sql, Map param);
 
-    List<IbizproProductDaily> getIbizproproductdailyByIds(List<Long> ids);
-    List<IbizproProductDaily> getIbizproproductdailyByEntities(List<IbizproProductDaily> entities);
 }
 
 

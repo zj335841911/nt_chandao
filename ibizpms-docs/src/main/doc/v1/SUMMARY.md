@@ -238,6 +238,8 @@
 
     * [系统配置表](module/ibizpro/IbzproConfig.md) 
 
+    * [项目汇报用户任务](module/ibizpro/IbzproProjectUserTask.md) 
+
   * [iBiz插件模块](module/ibizplugin.md) 
 
     * [关键字](module/ibizplugin/IBIZProKeyword.md) 
@@ -261,6 +263,8 @@
     * [汇报](module/report/IbzReportly.md) 
 
     * [周报](module/report/IbzWeekly.md) 
+
+    * [项目周报](module/report/PROJECTWEEKLY.md) 
 
   * [iBiz系统模型](module/ibizsysmodel.md) 
 

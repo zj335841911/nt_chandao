@@ -7605,8 +7605,13 @@ FROM `zt_task` t1
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`DATE`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`PO`,
+t1.`PRODUCT`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
@@ -7617,8 +7622,13 @@ FROM `T_IBIZPRO_PRODUCTDAILY` t1
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`DATE`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`PO`,
+t1.`PRODUCT`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
@@ -9172,6 +9182,34 @@ FROM `T_IBZPRO_CONFIG` t1
 
 ```
 
+# **项目汇报用户任务**(IBIZPRO_PROJECTUSERTASK)
+
+### 数据查询(DEFAULT)<div id="IbzproProjectUserTask_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DATE`,
+t1.`ID`,
+t1.`LEFT`,
+t1.`TASK`
+FROM `zt_taskestimate` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzproProjectUserTask_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DATE`,
+t1.`ID`,
+t1.`LEFT`,
+t1.`TASK`,
+t1.`WORK`
+FROM `zt_taskestimate` t1 
+
+```
+
 # **ImChat**(ZT_IM_CHAT)
 
 ### DEFAULT(DEFAULT)<div id="ImChat_Default"></div>
@@ -10095,6 +10133,43 @@ t1.`ROOT`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
+
+```
+
+# **项目周报**(IBZPRO_PROJECTWEEKLY)
+
+### 数据查询(DEFAULT)<div id="PROJECTWEEKLY_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZPRO_PROJECTWEEKLYID`,
+t1.`IBZPRO_PROJECTWEEKLYNAME`,
+t1.`PM`,
+t1.`PROJECT`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZPRO_PROJECTWEEKLY` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="PROJECTWEEKLY_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZPRO_PROJECTWEEKLYID`,
+t1.`IBZPRO_PROJECTWEEKLYNAME`,
+t1.`PM`,
+t1.`PROJECT`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZPRO_PROJECTWEEKLY` t1 
 
 ```
 

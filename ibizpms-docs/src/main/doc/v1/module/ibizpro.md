@@ -40,6 +40,9 @@ class 计划模板详情 {
 class 系统配置表 {
 }
 
+class 项目汇报用户任务 {
+}
+
 
 平台产品 *-- 需求模块 
 
@@ -79,3 +82,4 @@ hide members
 |IBZ_PLANTEMPLET|[计划模板](ibizpro/IbzPlanTemplet.md)|主实体|&nbsp;|
 |IBZ_PLANTEMPLETDETAIL|[计划模板详情](ibizpro/IbzPlanTempletDetail.md)|主实体|&nbsp;|
 |IBZPRO_CONFIG|[系统配置表](ibizpro/IbzproConfig.md)|主实体|&nbsp;|
+|IBIZPRO_PROJECTUSERTASK|[项目汇报用户任务](ibizpro/IbzproProjectUserTask.md)|主实体|&nbsp;|

@@ -9,25 +9,25 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import java.util.HashMap;
 import org.apache.ibatis.annotations.Select;
-import cn.ibizlab.pms.core.ibizpro.domain.IbizproProductDaily;
-import cn.ibizlab.pms.core.ibizpro.filter.IbizproProductDailySearchContext;
+import cn.ibizlab.pms.core.ibizpro.domain.IbzproProjectUserTask;
+import cn.ibizlab.pms.core.ibizpro.filter.IbzproProjectUserTaskSearchContext;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IbizproProductDailyMapper extends BaseMapper<IbizproProductDaily> {
+public interface IbzproProjectUserTaskMapper extends BaseMapper<IbzproProjectUserTask> {
 
-    Page<IbizproProductDaily> searchDefault(IPage page, @Param("srf") IbizproProductDailySearchContext context, @Param("ew") Wrapper<IbizproProductDaily> wrapper);
+    Page<IbzproProjectUserTask> searchDefault(IPage page, @Param("srf") IbzproProjectUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProjectUserTask> wrapper);
     @Override
-    IbizproProductDaily selectById(Serializable id);
+    IbzproProjectUserTask selectById(Serializable id);
     @Override
-    int insert(IbizproProductDaily entity);
+    int insert(IbzproProjectUserTask entity);
     @Override
-    int updateById(@Param(Constants.ENTITY) IbizproProductDaily entity);
+    int updateById(@Param(Constants.ENTITY) IbzproProjectUserTask entity);
     @Override
-    int update(@Param(Constants.ENTITY) IbizproProductDaily entity, @Param("ew") Wrapper<IbizproProductDaily> updateWrapper);
+    int update(@Param(Constants.ENTITY) IbzproProjectUserTask entity, @Param("ew") Wrapper<IbzproProjectUserTask> updateWrapper);
     @Override
     int deleteById(Serializable id);
     /**
@@ -61,7 +61,5 @@ public interface IbizproProductDailyMapper extends BaseMapper<IbizproProductDail
     */
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
-
-    List<IbizproProductDaily> selectByProduct(@Param("id") Serializable id);
 
 }

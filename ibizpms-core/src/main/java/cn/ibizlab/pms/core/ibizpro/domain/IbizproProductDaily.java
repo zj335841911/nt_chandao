@@ -93,6 +93,57 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
+    /**
+     * 产品负责人
+     */
+    @TableField(value = "`po`")
+    @JSONField(name = "po")
+    @JsonProperty("po")
+    private String po;
+    /**
+     * 产品
+     */
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+    /**
+     * 任务
+     */
+    @TableField(value = "`tasks`")
+    @JSONField(name = "tasks")
+    @JsonProperty("tasks")
+    private String tasks;
+    /**
+     * 总工时
+     */
+    @TableField(value = "`totalestimates`")
+    @JSONField(name = "totalestimates")
+    @JsonProperty("totalestimates")
+    private Double totalestimates;
+
+    /**
+     * 产品
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Product ztproduct;
 
 
 
@@ -102,6 +153,56 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     public void setIbizproproductdailyname(String ibizproproductdailyname) {
         this.ibizproproductdailyname = ibizproproductdailyname;
         this.modify("ibizpro_productdailyname", ibizproproductdailyname);
+    }
+
+    /**
+     * 设置 [产品负责人]
+     */
+    public void setPo(String po) {
+        this.po = po;
+        this.modify("po", po);
+    }
+
+    /**
+     * 设置 [产品]
+     */
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
+    }
+
+    /**
+     * 设置 [日期]
+     */
+    public void setDate(Timestamp date) {
+        this.date = date;
+        this.modify("date", date);
+    }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate() {
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+    /**
+     * 设置 [任务]
+     */
+    public void setTasks(String tasks) {
+        this.tasks = tasks;
+        this.modify("tasks", tasks);
+    }
+
+    /**
+     * 设置 [总工时]
+     */
+    public void setTotalestimates(Double totalestimates) {
+        this.totalestimates = totalestimates;
+        this.modify("totalestimates", totalestimates);
     }
 
 

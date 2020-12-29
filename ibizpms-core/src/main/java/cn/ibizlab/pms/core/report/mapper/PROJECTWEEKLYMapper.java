@@ -1,4 +1,4 @@
-package cn.ibizlab.pms.core.ibizpro.mapper;
+package cn.ibizlab.pms.core.report.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.*;
@@ -9,25 +9,25 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import java.util.HashMap;
 import org.apache.ibatis.annotations.Select;
-import cn.ibizlab.pms.core.ibizpro.domain.IbizproProductDaily;
-import cn.ibizlab.pms.core.ibizpro.filter.IbizproProductDailySearchContext;
+import cn.ibizlab.pms.core.report.domain.PROJECTWEEKLY;
+import cn.ibizlab.pms.core.report.filter.PROJECTWEEKLYSearchContext;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IbizproProductDailyMapper extends BaseMapper<IbizproProductDaily> {
+public interface PROJECTWEEKLYMapper extends BaseMapper<PROJECTWEEKLY> {
 
-    Page<IbizproProductDaily> searchDefault(IPage page, @Param("srf") IbizproProductDailySearchContext context, @Param("ew") Wrapper<IbizproProductDaily> wrapper);
+    Page<PROJECTWEEKLY> searchDefault(IPage page, @Param("srf") PROJECTWEEKLYSearchContext context, @Param("ew") Wrapper<PROJECTWEEKLY> wrapper);
     @Override
-    IbizproProductDaily selectById(Serializable id);
+    PROJECTWEEKLY selectById(Serializable id);
     @Override
-    int insert(IbizproProductDaily entity);
+    int insert(PROJECTWEEKLY entity);
     @Override
-    int updateById(@Param(Constants.ENTITY) IbizproProductDaily entity);
+    int updateById(@Param(Constants.ENTITY) PROJECTWEEKLY entity);
     @Override
-    int update(@Param(Constants.ENTITY) IbizproProductDaily entity, @Param("ew") Wrapper<IbizproProductDaily> updateWrapper);
+    int update(@Param(Constants.ENTITY) PROJECTWEEKLY entity, @Param("ew") Wrapper<PROJECTWEEKLY> updateWrapper);
     @Override
     int deleteById(Serializable id);
     /**
@@ -62,6 +62,6 @@ public interface IbizproProductDailyMapper extends BaseMapper<IbizproProductDail
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<IbizproProductDaily> selectByProduct(@Param("id") Serializable id);
+    List<PROJECTWEEKLY> selectByProject(@Param("id") Serializable id);
 
 }

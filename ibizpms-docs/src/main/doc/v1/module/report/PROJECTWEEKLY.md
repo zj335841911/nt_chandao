@@ -1,10 +1,10 @@
 
-# 实体-产品日报(IBIZPRO_PRODUCTDAILY)
+# 实体-项目周报(IBZPRO_PROJECTWEEKLY)
 ## 实体说明
-产品日报
+项目周报
 
 ## 所属模块
-[iBizPro模块](../ibizpro)
+[汇报模块](../report)
 
 ## 实体关系
 ### 1:N
@@ -12,28 +12,27 @@
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 1 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 1 | [产品日报名称](#属性-产品日报名称（IBIZPRO_PRODUCTDAILYNAME）) | IBIZPRO_PRODUCTDAILYNAME | 文本，可指定长度 | 否 | 否 | 是 |
-| 2 | [产品日报标识](#属性-产品日报标识（IBIZPRO_PRODUCTDAILYID）) | IBIZPRO_PRODUCTDAILYID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
-| 3 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
-| 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
-| 5 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
-| 6 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
-| 7 | [产品负责人](#属性-产品负责人（PO）) | PO | 文本，可指定长度 | 否 | 否 | 是 |
-| 8 | [产品](#属性-产品（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
-| 9 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
-| 10 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 是 | 是 |
-| 11 | [任务](#属性-任务（TASKS）) | TASKS | 文本，可指定长度 | 否 | 是 | 是 |
-| 12 | [总工时](#属性-总工时（TOTALESTIMATES）) | TOTALESTIMATES | 浮点 | 否 | 是 | 是 |
+| 1 | [项目周报名称](#属性-项目周报名称（IBZPRO_PROJECTWEEKLYNAME）) | IBZPRO_PROJECTWEEKLYNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [项目周报标识](#属性-项目周报标识（IBZPRO_PROJECTWEEKLYID）) | IBZPRO_PROJECTWEEKLYID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
+| 3 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 4 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 5 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 7 | [项目负责人](#属性-项目负责人（PM）) | PM | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [总工时](#属性-总工时（TOTALESTIMATES）) | TOTALESTIMATES | 浮点 | 否 | 否 | 是 |
+| 9 | [任务](#属性-任务（TASKS）) | TASKS | 文本，可指定长度 | 否 | 否 | 是 |
+| 10 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
+| 11 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
 
-### 属性-产品日报名称（IBIZPRO_PRODUCTDAILYNAME）
+### 属性-项目周报名称（IBZPRO_PROJECTWEEKLYNAME）
 #### 属性说明
-产品日报名称
+项目周报名称
 
 - 是否是主键
 否
@@ -70,13 +69,13 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-产品日报标识（IBIZPRO_PRODUCTDAILYID）
+### 属性-项目周报标识（IBZPRO_PROJECTWEEKLYID）
 #### 属性说明
-产品日报标识
+项目周报标识
 
 - 是否是主键
 是
@@ -85,48 +84,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-自增标识，整数类型，用户不可见
-
-- Java类型
-Long
-
-- 是否允许为空
-否
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-| 项目 | 说明 |
-| ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 关系类型 | 关系实体 1:N 当前实体 |
-
-### 属性-建立人（CREATEMAN）
-#### 属性说明
-建立人
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-文本，可指定长度
+全局唯一标识，文本类型，用户不可见
 
 - Java类型
 String
@@ -138,7 +96,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+无
 
 - 数据格式
 无
@@ -152,8 +110,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-建立时间（CREATEDATE）
@@ -193,49 +151,8 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 关系类型 | 关系实体 1:N 当前实体 |
-
-### 属性-更新时间（UPDATEDATE）
-#### 属性说明
-更新时间
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-日期时间型
-
-- Java类型
-Timestamp
-
-- 是否允许为空
-否
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-yyyy-MM-dd HH:mm:ss
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-| 项目 | 说明 |
-| ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新人（UPDATEMAN）
@@ -275,13 +192,13 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-产品负责人（PO）
+### 属性-建立人（CREATEMAN）
 #### 属性说明
-产品负责人
+建立人
 
 - 是否是主键
 否
@@ -296,13 +213,13 @@ String
 String
 
 - 是否允许为空
-是
+否
 
 - 默认值
 无
 
 - 取值范围/公式
-无
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
 
 - 数据格式
 无
@@ -316,13 +233,13 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-产品（PRODUCT）
+### 属性-更新时间（UPDATEDATE）
 #### 属性说明
-产品
+更新时间
 
 - 是否是主键
 否
@@ -331,100 +248,13 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-外键值
-
-- Java类型
-Long
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-| 序号 | 组合方式 |
-| ---- | ---- |
-| 1 | `=` |
-
-#### 关系属性
-| 项目 | 说明 |
-| ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
-| 关系类型 | 关系实体 1:N 当前实体 |
-
-### 属性-产品名称（PRODUCTNAME）
-#### 属性说明
-产品名称
-
-- 是否是主键
-否
-
-- 属性类型
-应用界面字段[无存储]
-
-- 数据类型
-外键值文本
-
-- Java类型
-String
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-| 序号 | 组合方式 |
-| ---- | ---- |
-| 1 | `=` |
-| 2 | `%like%` |
-
-#### 关系属性
-| 项目 | 说明 |
-| ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 关系类型 | 关系实体 1:N 当前实体 |
-
-### 属性-日期（DATE）
-#### 属性说明
-日期
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-日期型
+日期时间型
 
 - Java类型
 Timestamp
 
 - 是否允许为空
-是
+否
 
 - 默认值
 无
@@ -433,7 +263,7 @@ Timestamp
 无
 
 - 数据格式
-yyyy-MM-dd
+yyyy-MM-dd HH:mm:ss
 
 - 是否支持快速搜索
 否
@@ -444,13 +274,13 @@ yyyy-MM-dd
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-任务（TASKS）
+### 属性-项目负责人（PM）
 #### 属性说明
-任务
+项目负责人
 
 - 是否是主键
 否
@@ -485,8 +315,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总工时（TOTALESTIMATES）
@@ -526,8 +356,133 @@ Double
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-任务（TASKS）
+#### 属性说明
+任务
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-日期（DATE）
+#### 属性说明
+日期
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-项目编号（PROJECT）
+#### 属性说明
+项目编号
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+外键值
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 
@@ -637,15 +592,13 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [产品日报名称（IBIZPRO_PRODUCTDAILYNAME）](#属性-产品日报名称（IBIZPRO_PRODUCTDAILYNAME）) |
+| 1 | [项目周报名称（IBZPRO_PROJECTWEEKLYNAME）](#属性-项目周报名称（IBZPRO_PROJECTWEEKLYNAME）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [产品日报名称（IBIZPRO_PRODUCTDAILYNAME）](#属性-产品日报名称（IBIZPRO_PRODUCTDAILYNAME）) | `%like%` |
-| 2 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
-| 3 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
-| 4 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
+| 1 | [项目周报名称（IBZPRO_PROJECTWEEKLYNAME）](#属性-项目周报名称（IBZPRO_PROJECTWEEKLYNAME）) | `%like%` |
+| 2 | [项目编号（PROJECT）](#属性-项目编号（PROJECT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -670,15 +623,15 @@ SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
-t1.`IBIZPRO_PRODUCTDAILYID`,
-t1.`IBIZPRO_PRODUCTDAILYNAME`,
-t1.`PO`,
-t1.`PRODUCT`,
+t1.`IBZPRO_PROJECTWEEKLYID`,
+t1.`IBZPRO_PROJECTWEEKLYNAME`,
+t1.`PM`,
+t1.`PROJECT`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
-FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+FROM `T_IBZPRO_PROJECTWEEKLY` t1 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -698,15 +651,15 @@ SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
-t1.`IBIZPRO_PRODUCTDAILYID`,
-t1.`IBIZPRO_PRODUCTDAILYNAME`,
-t1.`PO`,
-t1.`PRODUCT`,
+t1.`IBZPRO_PROJECTWEEKLYID`,
+t1.`IBZPRO_PROJECTWEEKLYNAME`,
+t1.`PM`,
+t1.`PROJECT`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
-FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+FROM `T_IBZPRO_PROJECTWEEKLY` t1 
 
 ```
 

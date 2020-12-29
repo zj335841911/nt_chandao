@@ -1,4 +1,4 @@
-package cn.ibizlab.pms.core.ibizpro.service.impl;
+package cn.ibizlab.pms.core.report.service.impl;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,16 +25,16 @@ import org.springframework.beans.factory.annotation.Value;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
-import cn.ibizlab.pms.core.ibizpro.domain.IbizproProductDaily;
-import cn.ibizlab.pms.core.ibizpro.filter.IbizproProductDailySearchContext;
-import cn.ibizlab.pms.core.ibizpro.service.IIbizproProductDailyService;
+import cn.ibizlab.pms.core.report.domain.PROJECTWEEKLY;
+import cn.ibizlab.pms.core.report.filter.PROJECTWEEKLYSearchContext;
+import cn.ibizlab.pms.core.report.service.IPROJECTWEEKLYService;
 
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.ibizlab.pms.core.ibizpro.mapper.IbizproProductDailyMapper;
+import cn.ibizlab.pms.core.report.mapper.PROJECTWEEKLYMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -42,74 +42,70 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 
 /**
- * 实体[产品日报] 服务对象接口实现
+ * 实体[项目周报] 服务对象接口实现
  */
 @Slf4j
-@Service("IbizproProductDailyServiceImpl")
-public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDailyMapper, IbizproProductDaily> implements IIbizproProductDailyService {
+@Service("PROJECTWEEKLYServiceImpl")
+public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, PROJECTWEEKLY> implements IPROJECTWEEKLYService {
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
-    public boolean create(IbizproProductDaily et) {
-        fillParentData(et);
+    public boolean create(PROJECTWEEKLY et) {
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbizproproductdailyid()), et);
+        CachedBeanCopier.copy(get(et.getProjectweeklyid()), et);
         return true;
     }
 
     @Override
     @Transactional
-    public void createBatch(List<IbizproProductDaily> list) {
-        list.forEach(item->fillParentData(item));
+    public void createBatch(List<PROJECTWEEKLY> list) {
         this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
-    public boolean update(IbizproProductDaily et) {
-        fillParentData(et);
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibizpro_productdailyid", et.getIbizproproductdailyid()))) {
+    public boolean update(PROJECTWEEKLY et) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibzpro_projectweeklyid", et.getProjectweeklyid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbizproproductdailyid()), et);
+        CachedBeanCopier.copy(get(et.getProjectweeklyid()), et);
         return true;
     }
 
     @Override
     @Transactional
-    public void updateBatch(List<IbizproProductDaily> list) {
-        list.forEach(item->fillParentData(item));
+    public void updateBatch(List<PROJECTWEEKLY> list) {
         updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(String key) {
         boolean result = removeById(key);
         return result;
     }
 
     @Override
     @Transactional
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbizproProductDaily get(Long key) {
-        IbizproProductDaily et = getById(key);
+    public PROJECTWEEKLY get(String key) {
+        PROJECTWEEKLY et = getById(key);
         if (et == null) {
-            et = new IbizproProductDaily();
-            et.setIbizproproductdailyid(key);
+            et = new PROJECTWEEKLY();
+            et.setProjectweeklyid(key);
         }
         else {
         }
@@ -117,18 +113,17 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
     }
 
     @Override
-    public IbizproProductDaily getDraft(IbizproProductDaily et) {
-        fillParentData(et);
+    public PROJECTWEEKLY getDraft(PROJECTWEEKLY et) {
         return et;
     }
 
     @Override
-    public boolean checkKey(IbizproProductDaily et) {
-        return (!ObjectUtils.isEmpty(et.getIbizproproductdailyid())) && (!Objects.isNull(this.getById(et.getIbizproproductdailyid())));
+    public boolean checkKey(PROJECTWEEKLY et) {
+        return (!ObjectUtils.isEmpty(et.getProjectweeklyid())) && (!Objects.isNull(this.getById(et.getProjectweeklyid())));
     }
     @Override
     @Transactional
-    public boolean save(IbizproProductDaily et) {
+    public boolean save(PROJECTWEEKLY et) {
         if (!saveOrUpdate(et)) {
             return false;
         }
@@ -137,7 +132,7 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
 
     @Override
     @Transactional
-    public boolean saveOrUpdate(IbizproProductDaily et) {
+    public boolean saveOrUpdate(PROJECTWEEKLY et) {
         if (null == et) {
             return false;
         } else {
@@ -147,27 +142,25 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
 
     @Override
     @Transactional
-    public boolean saveBatch(Collection<IbizproProductDaily> list) {
-        list.forEach(item->fillParentData(item));
+    public boolean saveBatch(Collection<PROJECTWEEKLY> list) {
         saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
-    public void saveBatch(List<IbizproProductDaily> list) {
-        list.forEach(item -> fillParentData(item));
+    public void saveBatch(List<PROJECTWEEKLY> list) {
         saveOrUpdateBatch(list, batchSize);
     }
 
 
     @Override
-    public List<IbizproProductDaily> selectByProduct(Long id) {
-        return baseMapper.selectByProduct(id);
+    public List<PROJECTWEEKLY> selectByProject(Long id) {
+        return baseMapper.selectByProject(id);
     }
     @Override
-    public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<IbizproProductDaily>().eq("product", id));
+    public void removeByProject(Long id) {
+        this.remove(new QueryWrapper<PROJECTWEEKLY>().eq("project", id));
     }
 
 
@@ -175,29 +168,13 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
      * 查询集合 数据集
      */
     @Override
-    public Page<IbizproProductDaily> searchDefault(IbizproProductDailySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproProductDaily> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<IbizproProductDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    public Page<PROJECTWEEKLY> searchDefault(PROJECTWEEKLYSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PROJECTWEEKLY> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<PROJECTWEEKLY>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 
 
-    /**
-     * 为当前实体填充父数据（外键值文本、外键值附加数据）
-     * @param et
-     */
-    private void fillParentData(IbizproProductDaily et){
-        //实体关系[DER1N_IBIZPRO_PRODUCTDAILY_ZT_PRODUCT_PRODUCT]
-        if (!ObjectUtils.isEmpty(et.getProduct())) {
-            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if (ObjectUtils.isEmpty(ztproduct)) {
-                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
-                et.setZtproduct(majorEntity);
-                ztproduct = majorEntity;
-            }
-            et.setProductname(ztproduct.getName());
-        }
-    }
 
 
 
@@ -227,15 +204,15 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
     }
 
     @Override
-    public List<IbizproProductDaily> getIbizproproductdailyByIds(List<Long> ids) {
+    public List<PROJECTWEEKLY> getProjectweeklyByIds(List<String> ids) {
          return this.listByIds(ids);
     }
 
     @Override
-    public List<IbizproProductDaily> getIbizproproductdailyByEntities(List<IbizproProductDaily> entities) {
+    public List<PROJECTWEEKLY> getProjectweeklyByEntities(List<PROJECTWEEKLY> entities) {
         List ids =new ArrayList();
-        for(IbizproProductDaily entity : entities){
-            Serializable id=entity.getIbizproproductdailyid();
+        for(PROJECTWEEKLY entity : entities){
+            Serializable id=entity.getProjectweeklyid();
             if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
