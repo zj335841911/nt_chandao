@@ -2072,8 +2072,6 @@
                 </column>
                 <column name="PROJECT" remarks="" type="BIGINT">
                 </column>
-                <column name="PROJECTNAME" remarks="" type="VARCHAR(100)">
-                </column>
         </createTable>
     </changeSet>
 

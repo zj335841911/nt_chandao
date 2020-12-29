@@ -136,6 +136,23 @@ public class IbizproProductDailyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-StatsProductDaily-all')")
+    @ApiOperation(value = "汇总产品日报", tags = {"产品日报" },  notes = "汇总产品日报")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/{ibizproproductdaily_id}/statsproductdaily")
+    public ResponseEntity<IbizproProductDailyDTO> statsProductDaily(@PathVariable("ibizproproductdaily_id") Long ibizproproductdaily_id, @RequestBody IbizproProductDailyDTO ibizproproductdailydto) {
+        IbizproProductDaily domain = ibizproproductdailyMapping.toDomain(ibizproproductdailydto);
+        domain.setIbizproproductdailyid(ibizproproductdaily_id);
+        domain = ibizproproductdailyService.statsProductDaily(domain);
+        ibizproproductdailydto = ibizproproductdailyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-StatsProductDaily-all')")
+    @ApiOperation(value = "批量处理[汇总产品日报]", tags = {"产品日报" },  notes = "批量处理[汇总产品日报]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/{ibizproproductdaily_id}/statsproductdailybatch")
+    public ResponseEntity<Boolean> statsProductDailyBatch(@RequestBody List<IbizproProductDailyDTO> ibizproproductdailydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyService.statsProductDailyBatch(ibizproproductdailyMapping.toDomain(ibizproproductdailydtos)));
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-searchDefault-all') and hasPermission(#context,'pms-IbizproProductDaily-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"产品日报" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/ibizproproductdailies/fetchdefault")

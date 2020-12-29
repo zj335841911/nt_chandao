@@ -160,6 +160,21 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
         saveOrUpdateBatch(list, batchSize);
     }
 
+    @Override
+    @Transactional
+    public IbizproProductDaily statsProductDaily(IbizproProductDaily et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean statsProductDailyBatch(List<IbizproProductDaily> etList) {
+        for(IbizproProductDaily et : etList) {
+            statsProductDaily(et);
+        }
+        return true;
+    }
+
 
     @Override
     public List<IbizproProductDaily> selectByProduct(Long id) {

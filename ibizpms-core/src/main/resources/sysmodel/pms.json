@@ -16356,6 +16356,33 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PROGRESSRATE" ,
+    "codename":"Progressrate",
+    "field_logic_name":"进度",
+    "entity_name":"IbzproProjectUserTask",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DELAYDAYS" ,
+    "codename":"Delaydays",
+    "field_logic_name":"延期天数",
+    "entity_name":"IbzproProjectUserTask",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -19122,11 +19149,15 @@
     "codename":"ProjectName",
     "field_logic_name":"项目名称",
     "entity_name":"PROJECTWEEKLY",
-    "field_type":"TEXT",
+    "ref_de":"ZT_PROJECT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZPRO_PROJECTWEEKLY_ZT_PROJECT_PROJECT",
+    "relation_codename":"ZtProject",
+    "field_type":"PICKUPTEXT",
     "nullable":1,
-    "physical_field":1,
+    "physical_field":0,
     "data_type":"VARCHAR",
-    "data_length":100,
+    "data_length":90,
     "key_field":0,
     "show_order":1000,
     "major_field":0

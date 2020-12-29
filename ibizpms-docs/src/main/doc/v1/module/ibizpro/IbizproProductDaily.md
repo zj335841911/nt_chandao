@@ -544,6 +544,7 @@ Double
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 8 | [汇总产品日报](#实体行为-汇总产品日报（StatsProductDaily）) | StatsProductDaily | 用户自定义 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -626,6 +627,18 @@ Save
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-汇总产品日报（StatsProductDaily）
+#### 说明
+汇总产品日报
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无

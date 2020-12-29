@@ -112,6 +112,20 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     @JSONField(name = "tasktype")
     @JsonProperty("tasktype")
     private String tasktype;
+    /**
+     * 进度
+     */
+    @TableField(exist = false)
+    @JSONField(name = "progressrate")
+    @JsonProperty("progressrate")
+    private String progressrate;
+    /**
+     * 延期天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delaydays")
+    @JsonProperty("delaydays")
+    private Integer delaydays;
 
 
 

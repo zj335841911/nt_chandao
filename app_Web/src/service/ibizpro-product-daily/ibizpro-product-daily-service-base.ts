@@ -172,6 +172,20 @@ export default class IbizproProductDailyServiceBase extends EntityService {
     }
 
     /**
+     * StatsProductDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductDailyServiceBase
+     */
+    public async StatsProductDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/statsproductdaily`,data,isloading);
+            return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

@@ -29,7 +29,7 @@
 | 9 | [任务](#属性-任务（TASKS）) | TASKS | 文本，可指定长度 | 否 | 否 | 是 |
 | 10 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 11 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
-| 12 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 12 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
 
 ### 属性-项目周报名称（IBZPRO_PROJECTWEEKLYNAME）
 #### 属性说明
@@ -71,7 +71,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-项目周报标识（IBZPRO_PROJECTWEEKLYID）
@@ -112,7 +112,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-建立时间（CREATEDATE）
@@ -153,7 +153,7 @@ yyyy-MM-dd HH:mm:ss
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新人（UPDATEMAN）
@@ -194,7 +194,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-建立人（CREATEMAN）
@@ -235,7 +235,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新时间（UPDATEDATE）
@@ -276,7 +276,7 @@ yyyy-MM-dd HH:mm:ss
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-项目负责人（PM）
@@ -317,7 +317,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总工时（TOTALESTIMATES）
@@ -358,7 +358,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务（TASKS）
@@ -399,7 +399,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-日期（DATE）
@@ -440,7 +440,7 @@ yyyy-MM-dd
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-项目编号（PROJECT）
@@ -497,7 +497,7 @@ Long
 链接字段[来自关系实体字段]
 
 - 数据类型
-文本，可指定长度
+外键值文本
 
 - Java类型
 String
@@ -524,7 +524,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 
@@ -669,12 +669,13 @@ t1.`IBZPRO_PROJECTWEEKLYID`,
 t1.`IBZPRO_PROJECTWEEKLYNAME`,
 t1.`PM`,
 t1.`PROJECT`,
-t2.`PROJECTNAME`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZPRO_PROJECTWEEKLY` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -698,12 +699,13 @@ t1.`IBZPRO_PROJECTWEEKLYID`,
 t1.`IBZPRO_PROJECTWEEKLYNAME`,
 t1.`PM`,
 t1.`PROJECT`,
-t2.`PROJECTNAME`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZPRO_PROJECTWEEKLY` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 
 ```
 

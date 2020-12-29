@@ -57,6 +57,7 @@ public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, P
     @Override
     @Transactional
     public boolean create(PROJECTWEEKLY et) {
+        fillParentData(et);
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -67,12 +68,14 @@ public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, P
     @Override
     @Transactional
     public void createBatch(List<PROJECTWEEKLY> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(PROJECTWEEKLY et) {
+        fillParentData(et);
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibzpro_projectweeklyid", et.getProjectweeklyid()))) {
             return false;
         }
@@ -83,6 +86,7 @@ public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, P
     @Override
     @Transactional
     public void updateBatch(List<PROJECTWEEKLY> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list, batchSize);
     }
 
@@ -114,6 +118,7 @@ public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, P
 
     @Override
     public PROJECTWEEKLY getDraft(PROJECTWEEKLY et) {
+        fillParentData(et);
         return et;
     }
 
@@ -143,6 +148,7 @@ public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, P
     @Override
     @Transactional
     public boolean saveBatch(Collection<PROJECTWEEKLY> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list, batchSize);
         return true;
     }
@@ -150,6 +156,7 @@ public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, P
     @Override
     @Transactional
     public void saveBatch(List<PROJECTWEEKLY> list) {
+        list.forEach(item -> fillParentData(item));
         saveOrUpdateBatch(list, batchSize);
     }
 
@@ -175,6 +182,22 @@ public class PROJECTWEEKLYServiceImpl extends ServiceImpl<PROJECTWEEKLYMapper, P
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(PROJECTWEEKLY et){
+        //实体关系[DER1N_IBZPRO_PROJECTWEEKLY_ZT_PROJECT_PROJECT]
+        if (!ObjectUtils.isEmpty(et.getProject())) {
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if (ObjectUtils.isEmpty(ztproject)) {
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtproject(majorEntity);
+                ztproject = majorEntity;
+            }
+            et.setProjectname(ztproject.getName());
+        }
+    }
 
 
 
