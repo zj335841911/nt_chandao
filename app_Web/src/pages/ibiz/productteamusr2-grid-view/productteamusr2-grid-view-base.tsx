@@ -69,6 +69,34 @@ export class PRODUCTTEAMUsr2GridViewBase extends GridViewBase {
      */
     public appUIService: PRODUCTTEAMUIService = new PRODUCTTEAMUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof PRODUCTTEAMUsr2GridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'ROOT': {
+            isRawValue: false,
+            value: 'product',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof PRODUCTTEAMUsr2GridViewBase
+	 */
+    protected customViewParams: any = {
+        'root': {
+            isRawValue: false,
+            value: 'product',
+        }
+    };
+
     /**
      * 视图模型数据
      *
@@ -457,4 +485,25 @@ export class PRODUCTTEAMUsr2GridViewBase extends GridViewBase {
             _this.save();
         }
     }
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof PRODUCTTEAMUsr2GridViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof PRODUCTTEAMUsr2GridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

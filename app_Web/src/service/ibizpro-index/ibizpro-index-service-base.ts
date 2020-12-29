@@ -201,6 +201,35 @@ export default class IbizproIndexServiceBase extends EntityService {
     }
 
     /**
+     * FetchESquery接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproIndexServiceBase
+     */
+    public async FetchESquery(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibizproindices/fetchesquery`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchESquery接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproIndexServiceBase
+     */
+    public async searchESquery(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproindices/searchesquery`,tempData,isloading);
+    }
+
+    /**
      * FetchIndexDER接口方法
      *
      * @param {*} [context={}]
