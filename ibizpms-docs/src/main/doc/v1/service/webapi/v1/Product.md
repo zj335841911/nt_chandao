@@ -655,7 +655,7 @@ POST
 | 45 | orgid | String | 允许 | 组织标识 |
 | 46 | mdeptid | String | 允许 | 部门标识 |
 | 47 | ibiz_id | String | 允许 | IBIZ标识 |
-| 48 | supproreport | Integer | 允许 | 产品是否支持汇报 |
+| 48 | supproreport | String | 允许 | 支持产品汇报 |
 | 49 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSearchContext

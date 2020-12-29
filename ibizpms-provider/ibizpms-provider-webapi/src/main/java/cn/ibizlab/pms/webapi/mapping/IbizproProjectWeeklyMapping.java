@@ -1,7 +1,7 @@
 package cn.ibizlab.pms.webapi.mapping;
 
 import org.mapstruct.*;
-import cn.ibizlab.pms.core.report.domain.IbizproProjectWeekly;
+import cn.ibizlab.pms.core.ibizpro.domain.IbizproProjectWeekly;
 import cn.ibizlab.pms.webapi.dto.IbizproProjectWeeklyDTO;
 import cn.ibizlab.pms.util.domain.MappingBase;
 

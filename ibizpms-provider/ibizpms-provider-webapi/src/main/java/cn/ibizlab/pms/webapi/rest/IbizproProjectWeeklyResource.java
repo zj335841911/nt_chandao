@@ -29,9 +29,9 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import cn.ibizlab.pms.webapi.dto.*;
 import cn.ibizlab.pms.webapi.mapping.*;
-import cn.ibizlab.pms.core.report.domain.IbizproProjectWeekly;
-import cn.ibizlab.pms.core.report.service.IIbizproProjectWeeklyService;
-import cn.ibizlab.pms.core.report.filter.IbizproProjectWeeklySearchContext;
+import cn.ibizlab.pms.core.ibizpro.domain.IbizproProjectWeekly;
+import cn.ibizlab.pms.core.ibizpro.service.IIbizproProjectWeeklyService;
+import cn.ibizlab.pms.core.ibizpro.filter.IbizproProjectWeeklySearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j

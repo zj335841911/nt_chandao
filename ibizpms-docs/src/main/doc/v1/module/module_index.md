@@ -665,6 +665,9 @@ class 产品日报 {
 class 项目日报 {
 }
 
+class 项目周报 {
+}
+
 class 计划模板 {
 }
 
@@ -727,9 +730,6 @@ hide members
 {% plantuml %}
 
 package 汇报模块 {
-
-class 项目周报 {
-}
 
 class 日报 {
 }

@@ -11,7 +11,7 @@
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
 | 1 | [项目日报（IBIZPRO_PROJECTDAILY）](../ibizpro/IbizproProjectDaily) | （默认） |
-| 2 | [项目周报（IBZPRO_PROJECTWEEKLY）](../report/IbizproProjectWeekly) | （默认） |
+| 2 | [项目周报（IBZPRO_PROJECTWEEKLY）](../ibizpro/IbizproProjectWeekly) | （默认） |
 | 3 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
 | 4 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
 | 5 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |

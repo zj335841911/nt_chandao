@@ -1475,13 +1475,14 @@ Save
 | 2 | [联系人用户](#数据查询-联系人用户（ContActList）) | ContActList | 否 |
 | 3 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 4 | [项目团队管理](#数据查询-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
-| 5 | [项目团队成员(临时)](#数据查询-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
-| 6 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 7 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
-| 8 | [项目团队成员选择](#数据查询-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 9 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
-| 10 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
-| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [项目团队管理](#数据查询-项目团队管理（ProjectTeamMProduct）) | ProjectTeamMProduct | 否 |
+| 6 | [项目团队成员(临时)](#数据查询-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
+| 7 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
+| 8 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
+| 9 | [项目团队成员选择](#数据查询-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
+| 10 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
+| 11 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
+| 12 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug用户（BugUser）
 #### 说明
@@ -1642,6 +1643,18 @@ t1.`USERNAME`
 FROM `T_IBZEMP` t1 
 
 ```
+### 数据查询-项目团队管理（ProjectTeamMProduct）
+#### 说明
+排除当前项目已经选择的用户
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+无
 ### 数据查询-项目团队成员(临时)（ProjectTeamTaskUserTemp）
 #### 说明
 项目团队成员(临时)

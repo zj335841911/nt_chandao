@@ -393,12 +393,12 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("ibiz_id")
     private String ibizId;
     /**
-     * 产品是否支持汇报
+     * 支持产品汇报
      */
     @TableField(value = "`supproreport`")
     @JSONField(name = "supproreport")
     @JsonProperty("supproreport")
-    private Integer supproreport;
+    private String supproreport;
 
     /**
      * 产品线
@@ -539,9 +539,9 @@ public class Product extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [产品是否支持汇报]
+     * 设置 [支持产品汇报]
      */
-    public void setSupproreport(Integer supproreport) {
+    public void setSupproreport(String supproreport) {
         this.supproreport = supproreport;
         this.modify("supproreport", supproreport);
     }

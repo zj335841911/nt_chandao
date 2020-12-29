@@ -383,7 +383,7 @@ export interface Product {
     ibiz_id?: any;
 
     /**
-     * 产品是否支持汇报
+     * 支持产品汇报
      *
      * @returns {*}
      * @memberof Product

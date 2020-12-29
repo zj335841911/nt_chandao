@@ -11302,8 +11302,8 @@
     "table_name":"T_IBZPRO_PROJECTWEEKLY",
     "system_id":"pms",
     "system_name":"pms",
-    "module_id":"report",
-    "module_name":"汇报模块",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"IBZPRO_PROJECTWEEKLYNAME" ,
@@ -27764,13 +27764,14 @@
     {
     "fieldname":"SUPPROREPORT" ,
     "codename":"Supproreport",
-    "field_logic_name":"产品是否支持汇报",
+    "field_logic_name":"支持产品汇报",
     "entity_name":"Product",
-    "field_type":"YESNO",
-    "dict":"YesNo3",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
     "nullable":1,
     "physical_field":1,
-    "data_type":"INT",
+    "data_type":"VARCHAR",
+    "data_length":200,
     "key_field":0,
     "show_order":1000,
     "major_field":0

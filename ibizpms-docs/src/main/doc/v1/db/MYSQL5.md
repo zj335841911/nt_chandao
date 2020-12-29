@@ -124936,7 +124936,7 @@ CREATE TABLE `zt_team`(
 | BUILDCNT        | BUILD数  | INTEGER      |   -1   | &nbsp; |
 | SUBSTATUS        | 子状态  | VARCHAR      |   30   | &nbsp; |
 | DOCCNT        | 文档数  | INTEGER      |   -1   | &nbsp; |
-| SUPPROREPORT        | 产品是否支持汇报  | INTEGER      |   -1   | &nbsp; |
+| SUPPROREPORT        | 支持产品汇报  | VARCHAR      |   200   | &nbsp; |
 | ACL        | 访问控制  | VARCHAR      |   7   | &nbsp; |
 | ISTOP        | 是否置顶  | INTEGER      |   -1   | &nbsp; |
 | POPK        | 产品负责人（选择）  | VARCHAR      |   200   | &nbsp; |
@@ -125733,7 +125733,7 @@ CREATE TABLE `zt_product`(
 ,`ORGID`  VARCHAR(100) COMMENT '组织标识' 
 ,`MDEPTID`  VARCHAR(100) COMMENT '部门标识' 
 ,`IBIZ_ID`  VARCHAR(100) COMMENT 'IBIZ标识' 
-,`SUPPROREPORT`  INTEGER COMMENT '产品是否支持汇报' 
+,`SUPPROREPORT`  VARCHAR(200) COMMENT '支持产品汇报' 
 )COMMENT='产品';
 ```
 

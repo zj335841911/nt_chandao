@@ -439,7 +439,8 @@ public class ProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "supproreport")
     @JsonProperty("supproreport")
-    private Integer supproreport;
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String supproreport;
 
 
     /**
@@ -565,7 +566,7 @@ public class ProductDTO extends DTOBase implements Serializable {
     /**
      * 设置 [SUPPROREPORT]
      */
-    public void setSupproreport(Integer  supproreport){
+    public void setSupproreport(String  supproreport){
         this.supproreport = supproreport ;
         this.modify("supproreport",supproreport);
     }
