@@ -25,6 +25,9 @@ class 运行生产系统 {
 class 索引检索 {
 }
 
+class 产品日报 {
+}
+
 class 项目日报 {
 }
 
@@ -71,6 +74,7 @@ hide members
 |IBZPRO_SYSTPL|[系统模板](ibizpro/IBZProSysTpl.md)|主实体|&nbsp;|
 |IBZPRO_SYSTEM|[运行生产系统](ibizpro/IBZProSystem.md)|主实体|&nbsp;|
 |IBIZPRO_INDEX|[索引检索](ibizpro/IbizproIndex.md)|主实体|&nbsp;|
+|IBIZPRO_PRODUCTDAILY|[产品日报](ibizpro/IbizproProductDaily.md)|主实体|&nbsp;|
 |IBIZPRO_PROJECTDAILY|[项目日报](ibizpro/IbizproProjectDaily.md)|主实体|&nbsp;|
 |IBZ_PLANTEMPLET|[计划模板](ibizpro/IbzPlanTemplet.md)|主实体|&nbsp;|
 |IBZ_PLANTEMPLETDETAIL|[计划模板详情](ibizpro/IbzPlanTempletDetail.md)|主实体|&nbsp;|

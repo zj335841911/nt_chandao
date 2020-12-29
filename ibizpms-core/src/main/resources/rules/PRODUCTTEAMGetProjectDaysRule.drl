@@ -39,7 +39,7 @@ rule "prepareparam2"
 ruleflow-group "productteamgetprojectdaysprepareparam2"
     when
     then
-    productteamgetprojectdaysdefault.set("days",productteamgetprojectdaysproduct.get("days"));
+    productteamgetprojectdaysdefault.set("days",productteamgetprojectdaysproduct.get("id"));
     update(productteamgetprojectdaysproduct);//更新fact中变量值
     update(productteamgetprojectdaysdefault);//更新fact中变量值
     end

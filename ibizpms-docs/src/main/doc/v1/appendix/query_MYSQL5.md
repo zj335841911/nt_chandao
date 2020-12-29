@@ -7598,6 +7598,33 @@ FROM `zt_task` t1
 
 ```
 
+# **产品日报**(IBIZPRO_PRODUCTDAILY)
+
+### 数据查询(DEFAULT)<div id="IbizproProductDaily_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBIZPRO_PRODUCTDAILYID`,
+t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbizproProductDaily_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBIZPRO_PRODUCTDAILYID`,
+t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+
+```
+
 # **项目日报**(IBIZPRO_PROJECTDAILY)
 
 ### 数据查询(DEFAULT)<div id="IbizproProjectDaily_Default"></div>

@@ -659,6 +659,9 @@ class 运行生产系统 {
 class 索引检索 {
 }
 
+class 产品日报 {
+}
+
 class 项目日报 {
 }
 
