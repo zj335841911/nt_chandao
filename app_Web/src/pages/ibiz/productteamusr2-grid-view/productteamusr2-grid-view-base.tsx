@@ -94,6 +94,10 @@ export class PRODUCTTEAMUsr2GridViewBase extends GridViewBase {
         'root': {
             isRawValue: false,
             value: 'product',
+        },
+        'n_root_eq': {
+            isRawValue: false,
+            value: 'product',
         }
     };
 
