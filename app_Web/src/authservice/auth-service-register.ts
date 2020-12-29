@@ -65,6 +65,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('syspost', () => import('@/authservice/sys-post/sys-post-auth-service'));
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
         this.allAuthService.set('taskstats', () => import('@/authservice/task-stats/task-stats-auth-service'));
+        this.allAuthService.set('projectweekly', () => import('@/authservice/projectweekly/projectweekly-auth-service'));
         this.allAuthService.set('ibzfavorites', () => import('@/authservice/ibz-favorites/ibz-favorites-auth-service'));
         this.allAuthService.set('branch', () => import('@/authservice/branch/branch-auth-service'));
         this.allAuthService.set('sysdepartment', () => import('@/authservice/sys-department/sys-department-auth-service'));

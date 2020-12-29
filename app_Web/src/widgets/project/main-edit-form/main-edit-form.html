@@ -346,6 +346,47 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.supproreport.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 16, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
+>
+    <app-form-item
+    name="supproreport"
+    :itemRules="this.rules().supproreport"
+    class=""
+
+    :caption="$t('entities.project.main_edit_form.details.supproreport')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.supproreport.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.supproreport"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.supproreport.disabled"
+    valueType="string"
+    tag="YesNo"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.team.visible"
     :style="{}"
     

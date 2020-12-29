@@ -65,6 +65,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('syspost', () => import('@/service/sys-post/sys-post-service'));
         this.allEntityService.set('usertpl', () => import('@/service/user-tpl/user-tpl-service'));
         this.allEntityService.set('taskstats', () => import('@/service/task-stats/task-stats-service'));
+        this.allEntityService.set('projectweekly', () => import('@/service/projectweekly/projectweekly-service'));
         this.allEntityService.set('ibzfavorites', () => import('@/service/ibz-favorites/ibz-favorites-service'));
         this.allEntityService.set('branch', () => import('@/service/branch/branch-service'));
         this.allEntityService.set('sysdepartment', () => import('@/service/sys-department/sys-department-service'));
