@@ -81,6 +81,7 @@ hide members
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
+|支持产品汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -134,6 +135,7 @@ hide members
 |组织标识|默认规则|内容长度必须小于等于[100]|
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |IBIZ标识|默认规则|内容长度必须小于等于[100]|
+|支持产品汇报|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

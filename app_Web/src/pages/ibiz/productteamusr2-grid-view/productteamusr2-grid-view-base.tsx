@@ -399,7 +399,12 @@ export class PRODUCTTEAMUsr2GridViewBase extends GridViewBase {
         if(args.length >0){
             Object.assign(tempContext,args[0]);
         }
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if(tempContext.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'productteams', parameterName: 'productteam' },
             { pathName: 'editview', parameterName: 'editview' },
@@ -433,7 +438,12 @@ export class PRODUCTTEAMUsr2GridViewBase extends GridViewBase {
         if(args.length >0){
             Object.assign(tempContext,args[0]);
         }
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if(tempContext.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'productteams', parameterName: 'productteam' },
             { pathName: 'editview', parameterName: 'editview' },

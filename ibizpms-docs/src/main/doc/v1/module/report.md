@@ -25,9 +25,6 @@ class 汇报 {
 class 周报 {
 }
 
-class 项目周报 {
-}
-
 
 
 }
@@ -47,4 +44,3 @@ hide members
 |IBZ_REPORT_ROLE_CONFIG|[汇报角色配置](report/IbzReportRoleConfig.md)|主实体|&nbsp;|
 |IBZ_REPORTLY|[汇报](report/IbzReportly.md)|主实体|&nbsp;|
 |IBZ_WEEKLY|[周报](report/IbzWeekly.md)|主实体|&nbsp;|
-|IBZPRO_PROJECTWEEKLY|[项目周报](report/PROJECTWEEKLY.md)|主实体|&nbsp;|

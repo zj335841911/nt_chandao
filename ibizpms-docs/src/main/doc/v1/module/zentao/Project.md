@@ -11,7 +11,7 @@
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
 | 1 | [项目日报（IBIZPRO_PROJECTDAILY）](../ibizpro/IbizproProjectDaily) | （默认） |
-| 2 | [项目周报（IBZPRO_PROJECTWEEKLY）](../report/PROJECTWEEKLY) | （默认） |
+| 2 | [项目周报（IBZPRO_PROJECTWEEKLY）](../ibizpro/IbizproProjectWeekly) | （默认） |
 | 3 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
 | 4 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
 | 5 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
@@ -112,6 +112,7 @@
 | 73 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
 | 74 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 | 75 | [项目团队成员](#属性-项目团队成员（PROJECTTEAMS）) | PROJECTTEAMS | 一对多关系数据集合 | 否 | 是 | 是 |
+| 76 | [支持项目汇报](#属性-支持项目汇报（SUPPROREPORT）) | SUPPROREPORT | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-当前系统版本（OPENEDVERSION）
 #### 属性说明
@@ -3319,6 +3320,52 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-支持项目汇报（SUPPROREPORT）
+#### 属性说明
+支持项目汇报
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 1 |
+
+- 取值范围/公式
+参照数据字典【[是否（YesNo）](../../codelist/YesNo)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [项目状态](#属性-项目状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -4390,6 +4437,7 @@ Save
 | 19 | [项目团队成员（ACCOUNT）](#属性-项目团队成员（ACCOUNT）) | `=` |
 | 20 | [选择部门（DEPT）](#属性-选择部门（DEPT）) | `=` |
 | 21 | [复制团队（MANAGEMEMBERS）](#属性-复制团队（MANAGEMEMBERS）) | `=` |
+| 22 | [支持项目汇报（SUPPROREPORT）](#属性-支持项目汇报（SUPPROREPORT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -4454,6 +4502,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
@@ -4515,6 +4564,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
@@ -4687,6 +4737,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
@@ -5128,6 +5179,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,

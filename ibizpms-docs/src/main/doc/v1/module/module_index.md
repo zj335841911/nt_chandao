@@ -665,6 +665,9 @@ class 产品日报 {
 class 项目日报 {
 }
 
+class 项目周报 {
+}
+
 class 计划模板 {
 }
 
@@ -744,9 +747,6 @@ class 汇报 {
 }
 
 class 周报 {
-}
-
-class 项目周报 {
 }
 
 

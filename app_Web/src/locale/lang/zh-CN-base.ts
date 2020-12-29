@@ -26,6 +26,7 @@ import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN
 import syspost_zh_CN from '@locale/lanres/entities/sys-post/sys-post_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
 import taskstats_zh_CN from '@locale/lanres/entities/task-stats/task-stats_zh_CN';
+import ibizproprojectweekly_zh_CN from '@locale/lanres/entities/ibizpro-project-weekly/ibizpro-project-weekly_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import sysdepartment_zh_CN from '@locale/lanres/entities/sys-department/sys-department_zh_CN';
@@ -95,6 +96,7 @@ import ibzweekly_zh_CN from '@locale/lanres/entities/ibzweekly/ibzweekly_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import pssysapp_zh_CN from '@locale/lanres/entities/pssys-app/pssys-app_zh_CN';
+import ibzproprojectusertask_zh_CN from '@locale/lanres/entities/ibzpro-project-user-task/ibzpro-project-user-task_zh_CN';
 import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
 import systeammember_zh_CN from '@locale/lanres/entities/sys-team-member/sys-team-member_zh_CN';
 import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
@@ -421,6 +423,7 @@ function getAppLocale(){
             syspost: syspost_zh_CN(),
             usertpl: usertpl_zh_CN(),
             taskstats: taskstats_zh_CN(),
+            ibizproprojectweekly: ibizproprojectweekly_zh_CN(),
             ibzfavorites: ibzfavorites_zh_CN(),
             branch: branch_zh_CN(),
             sysdepartment: sysdepartment_zh_CN(),
@@ -490,6 +493,7 @@ function getAppLocale(){
             projectmodule: projectmodule_zh_CN(),
             ibzdoc: ibzdoc_zh_CN(),
             pssysapp: pssysapp_zh_CN(),
+            ibzproprojectusertask: ibzproprojectusertask_zh_CN(),
             ibzcase: ibzcase_zh_CN(),
             systeammember: systeammember_zh_CN(),
             pssystemdbcfg: pssystemdbcfg_zh_CN(),

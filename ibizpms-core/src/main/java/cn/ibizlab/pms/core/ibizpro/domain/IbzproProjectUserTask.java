@@ -126,6 +126,22 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     @JSONField(name = "delaydays")
     @JsonProperty("delaydays")
     private Integer delaydays;
+    /**
+     * 预计开始
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "eststarted", format = "yyyy-MM-dd")
+    @JsonProperty("eststarted")
+    private Timestamp eststarted;
+    /**
+     * 截止日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "deadline", format = "yyyy-MM-dd")
+    @JsonProperty("deadline")
+    private Timestamp deadline;
 
 
 

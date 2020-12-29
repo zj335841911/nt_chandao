@@ -240,6 +240,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

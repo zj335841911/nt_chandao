@@ -100,6 +100,7 @@ export class NewFormEditFormBase extends EditFormControlBase {
         days: null,
         team: null,
         type: null,
+        supproreport: null,
         srfarray: null,
         products: null,
         branchs: null,
@@ -366,6 +367,13 @@ export class NewFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        supproreport: new FormItemModel({
+    caption: '支持项目汇报', detailType: 'FORMITEM', name: 'supproreport', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         srfarray: new FormItemModel({
     caption: '关联数据数组', detailType: 'FORMITEM', name: 'srfarray', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -451,6 +459,7 @@ export class NewFormEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

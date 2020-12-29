@@ -24,6 +24,8 @@ hide members
 |日期|DATE|DATE|&nbsp;|
 |项目编号|PROJECT|PICKUP|&nbsp;|
 |项目名称|PROJECTNAME|PICKUPTEXT|&nbsp;|
+|周|WEEK|TEXT|&nbsp;|
+|年|YEAR|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -40,6 +42,8 @@ hide members
 |日期|默认规则|默认规则|
 |项目编号|默认规则|默认规则|
 |项目名称|默认规则|内容长度必须小于等于[90]|
+|周|默认规则|内容长度必须小于等于[100]|
+|年|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

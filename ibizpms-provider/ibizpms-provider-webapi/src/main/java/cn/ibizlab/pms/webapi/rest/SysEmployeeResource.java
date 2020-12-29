@@ -224,6 +224,28 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamMProduct-all') and hasPermission(#context,'pms-SysEmployee-Get')")
+	@ApiOperation(value = "获取项目团队管理", tags = {"人员" } ,notes = "获取项目团队管理")
+    @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteammproduct")
+	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectTeamMProduct(SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchProjectTeamMProduct(context) ;
+        List<SysEmployeeDTO> list = sysemployeeMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamMProduct-all') and hasPermission(#context,'pms-SysEmployee-Get')")
+	@ApiOperation(value = "查询项目团队管理", tags = {"人员" } ,notes = "查询项目团队管理")
+    @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteammproduct")
+	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectTeamMProduct(@RequestBody SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchProjectTeamMProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamTaskUserTemp-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取项目团队成员(临时)", tags = {"人员" } ,notes = "获取项目团队成员(临时)")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamtaskusertemp")

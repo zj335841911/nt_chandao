@@ -240,6 +240,9 @@ export default class TestTabExpViewtabviewpanel2Model {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

@@ -240,6 +240,9 @@ export default class UndoneProjectModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

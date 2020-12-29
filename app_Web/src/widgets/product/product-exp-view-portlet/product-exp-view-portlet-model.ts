@@ -156,6 +156,9 @@ export default class ProductExpViewModel {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

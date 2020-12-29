@@ -111,6 +111,10 @@ zuul:
       path: /taskstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibzpro_projectweekly:
+      path: /ibizproprojectweeklies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_favorites:
       path: /ibzfavorites/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -385,6 +389,10 @@ zuul:
       stripPrefix: false
     pssysapp:
       path: /pssysapps/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibizpro_projectusertask:
+      path: /ibzproprojectusertasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_case:

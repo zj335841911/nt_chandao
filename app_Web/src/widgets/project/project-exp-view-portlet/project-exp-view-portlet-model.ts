@@ -240,6 +240,9 @@ export default class ProjectExpViewModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

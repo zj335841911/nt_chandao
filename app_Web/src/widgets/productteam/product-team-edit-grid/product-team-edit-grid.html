@@ -93,37 +93,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('days')">
-                <el-table-column show-overflow-tooltip :prop="'days'" :label="$t('entities.productteam.productteamedit_grid.columns.days')" :width="200"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.productteam.productteamedit_grid.columns.days')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template v-if="actualIsOpenEdit">
-                            <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                <input-box 
-              :disabled="getColumnDisabled(row,column.property)" 
-              v-model="row[column.property]" 
-              type="number"
-              :precision="0"
-              style="" 
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-            </input-box>
-            
-                            </app-form-item>
-                        </template>
-                        <template v-if="!actualIsOpenEdit">
-                                    <app-span
-                                        name="days"
-                                        editorType="NUMBER"
-            :value="row.days" dataType="INT" precision="0" 
-                                    ></app-span>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('hours')">
                 <el-table-column show-overflow-tooltip :prop="'hours'" :label="$t('entities.productteam.productteamedit_grid.columns.hours')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

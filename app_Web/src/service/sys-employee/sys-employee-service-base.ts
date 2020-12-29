@@ -288,6 +288,35 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTeamMProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProjectTeamMProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteammproduct`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectTeamMProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProjectTeamMProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchprojectteammproduct`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamTaskUserTemp接口方法
      *
      * @param {*} [context={}]

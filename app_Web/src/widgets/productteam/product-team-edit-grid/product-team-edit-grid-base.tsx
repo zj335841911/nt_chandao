@@ -235,15 +235,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'days',
-            label: '可用工日',
-            langtag: 'entities.productteam.productteamedit_grid.columns.days',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: true,
-            enableCond: 3 ,
-        },
-        {
             name: 'hours',
             label: '可用工时/天',
             langtag: 'entities.productteam.productteamedit_grid.columns.hours',
@@ -282,8 +273,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
         return {
           id: new FormItemModel(),
           limited: new FormItemModel(),
-          days: new FormItemModel(),
-          root: new FormItemModel(),
           hours: new FormItemModel(),
           role: new FormItemModel(),
           account: new FormItemModel(),
@@ -365,14 +354,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'blur' },
         ],
-        days: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工日 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工日 值不能为空', trigger: 'blur' },
-        ],
-        root: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品编号 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品编号 值不能为空', trigger: 'blur' },
-        ],
         hours: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'blur' },
@@ -418,7 +399,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'account':true,
         'role':true,
-        'days':true,
         'hours':true,
         'limited':true,
         'uagridcolumn1':false,
@@ -538,9 +518,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
         if (row.hasOwnProperty('limited')) {
             row['limited'] = 'no';
         }
-        if (row.hasOwnProperty('root')) {
-            row['root'] = this.viewparams[''];
-        }
         if (row.hasOwnProperty('hours')) {
             row['hours'] = 7;
         }
@@ -570,7 +547,7 @@ export class ProductTeamEditGridBase extends GridControlBase {
     * @memberof ProductTeamEditBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['account','role','days','hours','limited','uagridcolumn1'];
+        let allColumns:Array<any> = ['account','role','hours','limited','uagridcolumn1'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -651,7 +628,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
                 group: group.label,
                 account:'',
                 role:'',
-                days:'',
                 hours:'',
                 limited:'',
                 NewRow:{
@@ -686,7 +662,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
             group: '其他',
             account:'',
             role:'',
-            days:'',
             hours:'',
             limited:'',
             NewRow:{
@@ -757,7 +732,6 @@ export class ProductTeamEditGridBase extends GridControlBase {
                 group: group,
                 account:'',
                 role:'',
-                days:'',
                 hours:'',
                 limited:'',
                 NewRow:{

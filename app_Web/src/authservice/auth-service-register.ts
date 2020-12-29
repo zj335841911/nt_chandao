@@ -65,6 +65,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('syspost', () => import('@/authservice/sys-post/sys-post-auth-service'));
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
         this.allAuthService.set('taskstats', () => import('@/authservice/task-stats/task-stats-auth-service'));
+        this.allAuthService.set('ibizproprojectweekly', () => import('@/authservice/ibizpro-project-weekly/ibizpro-project-weekly-auth-service'));
         this.allAuthService.set('ibzfavorites', () => import('@/authservice/ibz-favorites/ibz-favorites-auth-service'));
         this.allAuthService.set('branch', () => import('@/authservice/branch/branch-auth-service'));
         this.allAuthService.set('sysdepartment', () => import('@/authservice/sys-department/sys-department-auth-service'));
@@ -134,6 +135,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('projectmodule', () => import('@/authservice/project-module/project-module-auth-service'));
         this.allAuthService.set('ibzdoc', () => import('@/authservice/ibz-doc/ibz-doc-auth-service'));
         this.allAuthService.set('pssysapp', () => import('@/authservice/pssys-app/pssys-app-auth-service'));
+        this.allAuthService.set('ibzproprojectusertask', () => import('@/authservice/ibzpro-project-user-task/ibzpro-project-user-task-auth-service'));
         this.allAuthService.set('ibzcase', () => import('@/authservice/ibz-case/ibz-case-auth-service'));
         this.allAuthService.set('systeammember', () => import('@/authservice/sys-team-member/sys-team-member-auth-service'));
         this.allAuthService.set('pssystemdbcfg', () => import('@/authservice/pssystem-dbcfg/pssystem-dbcfg-auth-service'));

@@ -156,6 +156,9 @@ export default class ProductStatusChartModel {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

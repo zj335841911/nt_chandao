@@ -52,10 +52,6 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IPRODUCTTEAMGetProjectDaysLogic getprojectdaysLogic;
-
     protected int batchSize = 500;
 
     @Override
@@ -118,7 +114,6 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
 
     @Override
     public PRODUCTTEAM getDraft(PRODUCTTEAM et) {
-        getprojectdaysLogic.execute(et);
         return et;
     }
 

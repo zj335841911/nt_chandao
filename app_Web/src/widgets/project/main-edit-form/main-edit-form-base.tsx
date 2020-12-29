@@ -99,6 +99,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         period: null,
         days: null,
         type: null,
+        supproreport: null,
         team: null,
         status: null,
         po: null,
@@ -368,6 +369,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        supproreport: new FormItemModel({
+    caption: '支持项目汇报', detailType: 'FORMITEM', name: 'supproreport', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         team: new FormItemModel({
     caption: '团队名称', detailType: 'FORMITEM', name: 'team', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -501,6 +509,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

@@ -78,6 +78,7 @@ function getLocaleResourceBase(){
 			orgid: commonLogic.appcommonhandle("组织标识",null),
 			mdeptid: commonLogic.appcommonhandle("部门标识",null),
 			projectteams: commonLogic.appcommonhandle("项目团队成员",null),
+			supproreport: commonLogic.appcommonhandle("支持项目汇报",null),
 		},
 			views: {
 				storymeditview9: {
@@ -291,6 +292,7 @@ function getLocaleResourceBase(){
 					period: commonLogic.appcommonhandle("",null), 
 					days: commonLogic.appcommonhandle("可用工作日",null), 
 					type: commonLogic.appcommonhandle("项目类型",null), 
+					supproreport: commonLogic.appcommonhandle("支持项目汇报",null), 
 					team: commonLogic.appcommonhandle("团队名称",null), 
 					status: commonLogic.appcommonhandle("项目状态",null), 
 					po: commonLogic.appcommonhandle("产品负责人",null), 
@@ -376,6 +378,7 @@ function getLocaleResourceBase(){
 					days: commonLogic.appcommonhandle("可用工作日",null), 
 					team: commonLogic.appcommonhandle("团队名称",null), 
 					type: commonLogic.appcommonhandle("项目类型",null), 
+					supproreport: commonLogic.appcommonhandle("支持项目汇报",null), 
 					srfarray: commonLogic.appcommonhandle("关联数据数组",null), 
 					products: commonLogic.appcommonhandle("关联产品",null), 
 					branchs: commonLogic.appcommonhandle("关联产品平台集合",null), 
@@ -409,6 +412,7 @@ function getLocaleResourceBase(){
 					days: commonLogic.appcommonhandle("可用工作日",null), 
 					team: commonLogic.appcommonhandle("团队名称",null), 
 					type: commonLogic.appcommonhandle("项目类型",null), 
+					supproreport: commonLogic.appcommonhandle("支持项目汇报",null), 
 					srfarray: commonLogic.appcommonhandle("关联数据数组",null), 
 					products: commonLogic.appcommonhandle("关联产品",null), 
 					branchs: commonLogic.appcommonhandle("关联产品平台集合",null), 
