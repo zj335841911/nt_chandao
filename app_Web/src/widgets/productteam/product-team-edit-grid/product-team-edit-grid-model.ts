@@ -102,6 +102,14 @@ export default class ProductTeamEditModel {
           name: 'productteam',
           prop: 'id',
         },
+      {
+        name: 'dept',
+        prop: 'dept',
+      },
+      {
+        name: 'teams',
+        prop: 'teams',
+      },
 
         {
           name:'size',

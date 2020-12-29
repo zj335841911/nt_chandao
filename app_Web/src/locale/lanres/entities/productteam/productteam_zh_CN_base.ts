@@ -72,9 +72,11 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			default_searchform: {
+			productteamsearchform_searchform: {
 				details: {
-					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					dept: commonLogic.appcommonhandle("选择部门",null), 
+					teams: commonLogic.appcommonhandle("复制团队",null), 
 				},
 				uiactions: {
 				},

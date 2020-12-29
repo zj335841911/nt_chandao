@@ -3125,7 +3125,8 @@ LEFT JOIN zt_module t11 ON t1.LINE = t11.ID
 | 5 | [当前用户](#数据集合-当前用户（CurUer）) | CurUer | 否 |
 | 6 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 7 | [产品总览](#数据集合-产品总览（ProductPM）) | ProductPM | 否 |
-| 8 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 8 | [产品团队](#数据集合-产品团队（ProductTeam）) | ProductTeam | 否 |
+| 9 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
 
 ### 数据集合-全部产品（AllList）
 #### 说明
@@ -3225,6 +3226,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品总览（ProductPM）](#数据查询-产品总览（ProductPM）) |
+### 数据集合-产品团队（ProductTeam）
+#### 说明
+产品团队
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品团队（ProductTeam）](#数据查询-产品团队（ProductTeam）) |
 ### 数据集合-当前项目（StoryCurProject）
 #### 说明
 当前项目

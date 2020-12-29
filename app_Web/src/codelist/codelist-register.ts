@@ -41,6 +41,7 @@ export class CodeListRegister {
     protected init(): void {
             this.allCodeList.set('UserRealNameUnAssignTo_Gird', () => import('@/codelist/user-real-name-un-assign-to-gird'));
         this.allCodeList.set('AllCase', () => import('@/codelist/all-case'));
+        this.allCodeList.set('ProductTeam', () => import('@/codelist/product-team'));
         this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
         this.allCodeList.set('Backendservicesystem', () => import('@/codelist/backendservicesystem'));
         this.allCodeList.set('RealNameProjectM', () => import('@/codelist/real-name-project-m'));

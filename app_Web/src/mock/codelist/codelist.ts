@@ -313,6 +313,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "ProductTeam",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Product",
+        "appdedataset":"FetchProductTeam",
+        "items": []
+    },
+    {
         srfkey: "PlanAcl",
         emptytext: "未定义",
         "codelisttype":"static",

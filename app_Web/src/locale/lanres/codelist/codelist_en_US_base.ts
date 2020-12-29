@@ -47,6 +47,9 @@ function getLocaleResourceBase(){
           "bydesign": commonLogic.appcommonhandle("设计如此",null),
           "empty": commonLogic.appcommonhandle("",null)
       },
+      ProductTeam: {
+          "empty": commonLogic.appcommonhandle("",null),
+      },
       PlanAcl: {
           "open": commonLogic.appcommonhandle("公开",null),
           "private": commonLogic.appcommonhandle("私有",null),

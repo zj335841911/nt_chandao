@@ -11816,6 +11816,9 @@ FROM `zt_product` t1
 LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 LEFT JOIN zt_team t21 on t21.root = t1.id
 WHERE t1.DELETED = '0' 
+t21.type = 'product' 
+ t21.account = #{srf.sessioncontext.srfloginname} 
+t1.orgid = #{srf.sessioncontext.srforgid} 
 
 ```
 ### 当前项目(StoryCURPROJECT)<div id="Product_StoryCurProject"></div>
