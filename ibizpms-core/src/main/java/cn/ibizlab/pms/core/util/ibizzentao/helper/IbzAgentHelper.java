@@ -22,10 +22,10 @@ public class IbzAgentHelper extends ZTBaseHelper<IbzAgentMapper, IbzAgent> {
      */
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzAgent et) {
-        List<IbzAgent> agentList = this.list(new QueryWrapper<IbzAgent>().eq("AgentUser", et.getAgentuser())
+        List<IbzAgent> agentList = this.list(new QueryWrapper<IbzAgent>().eq("CreateManName", et.getCreatemanname())
                 .le("AgentBegin", et.getAgentend()).ge("AgentEnd", et.getAgentbegin()));
         if (agentList.size() > 0) {
-            throw new RuntimeException("代理用户的代理时间有交叉！");
+            throw new RuntimeException("您在该时间段已存在代理人！");
         }
         if (!SqlHelper.retBool(this.baseMapper.insert(et))) {
             return false;

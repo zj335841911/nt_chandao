@@ -12,18 +12,17 @@
         </div>
         <div class="password-item">
             <div class="password-lab">{{ $t('components.appUpdatePassword.confirmPwd') }}</div>
-            <div class="password-input"><Input type="password" v-model="confirmPwd" :disabled="!this.newPwd" @input="confirmInput" @on-blur="confirmVaild" /></div>
+            <div class="password-input"><Input type="password" v-model="confirmPwd" :disabled="!newPwd" @input="confirmInput" @on-blur="confirmVaild" /></div>
             <span class="password-strength"></span>
         </div>
         <div class="password-item">
-            <Button class="password-btn" type="primary" long :disabled="!oldPwd || !newPwd || !confirmPwd || disUpdate" @click="updatePwd">{{
+            <Button class="password-btn" type="primary" long :disabled="!oldPwd || !newPwd || !confirmPwd || disUpdate || newPwdErrTips != ''" @click="updatePwd">{{
                 $t('components.appUpdatePassword.sure')
             }}</Button>
         </div>
         <div v-if="oldPwdErr" class="password-tips">{{ $t('components.appUpdatePassword.oldPwdErr') }}</div>
-        <div v-if="newPwdErr" class="password-tips">{{ $t('components.appUpdatePassword.newPwdErr') }}</div>
+        <div v-if="newPwdErrTips" class="password-tips">{{ newPwdErrTips }}</div>
         <div v-if="confirmPwdErr" class="password-tips">{{ $t('components.appUpdatePassword.confirmPwdErr') }}</div>
-        <div v-if="newPwdEqOldErr" class="password-tips">新密码与原密码相同！</div>
     </div>
 </template>
 
@@ -83,14 +82,6 @@ export default class AppUpdatePassword extends Vue {
     public oldPwdErr: boolean = false;
 
     /**
-     * 新密码是否报错
-     *
-     * @public
-     * @memberof AppUpdatePassword
-     */
-    public newPwdErr: boolean = false;
-
-    /**
      * 确认密码是否报错
      *
      * @public
@@ -104,7 +95,7 @@ export default class AppUpdatePassword extends Vue {
      * @public
      * @memberof AppUpdatePassword
      */
-    public newPwdEqOldErr: boolean = false;
+    public newPwdErrTips: String = '';
 
     /**
      * 校验输入的原密码是否为空
@@ -126,17 +117,30 @@ export default class AppUpdatePassword extends Vue {
      */
     public oldPwdInput() {
         this.oldPwdErr = false;
+        if (this.newPwd) {
+            this.newPwdVaild();
+        }
     }
 
     /**
-     * 校验输入的新密码是否为空
+     * 校验输入的新密码
      *
      * @public
      * @memberof AppUpdatePassword
      */
     public newPwdVaild() {
         if (!this.newPwd) {
-            this.newPwdErr = true;
+            this.newPwdErrTips = this.$t('components.appUpdatePassword.newPwdErr') as String;
+        } else if (this.newPwd === this.oldPwd) {
+            this.newPwdErrTips = '新密码与原密码相同！';
+        } else if (this.newPwd === this.$store.getters.getAppData().context.srfloginname) {
+            this.newPwdErrTips = '新密码与账号名相同！';
+        } else if (this.newPwd.length < 6) {
+            this.newPwdErrTips = '新密码长度不能小于6位！';
+        } else if (/^([a-z]*)([A-Z]*)([0-9]*)([^a-zA-Z0-9]*)$/.test(this.newPwd)) {
+            this.newPwdErrTips = '新密码不能只有一种字符！';
+        } else {
+            this.newPwdErrTips = '';
         }
     }
 
@@ -147,7 +151,9 @@ export default class AppUpdatePassword extends Vue {
      * @memberof AppUpdatePassword
      */
     public newPwdInput() {
-        this.newPwdErr = false;
+        if (this.newPwdErrTips) {
+            this.newPwdVaild();
+        }
         this.confirmPwd = '';
         this.disUpdate = true;
         this.confirmPwdErr = false;
@@ -161,7 +167,9 @@ export default class AppUpdatePassword extends Vue {
      * @memberof AppUpdatePassword
      */
     public confirmVaild() {
-        this.confirmPwdErr = this.disUpdate;
+        if (this.confirmPwd) {
+            this.confirmPwdErr = this.disUpdate;
+        }
     }
 
     /**
@@ -199,14 +207,18 @@ export default class AppUpdatePassword extends Vue {
      * @memberof AppUpdatePassword
      */
     public updatePwd() {
-        if (this.newPwd === this.oldPwd) {
-            this.newPwdEqOldErr = true;
-            return;
-        }
         const post: Promise<any> = Http.getInstance().post(`/v7/changepwd`,{oldPwd:this.oldPwd,newPwd:this.newPwd}, true);
         post.then((response: any) => {
             if (response && response.status === 200) {
                 this.$emit('close');
+                const get: Promise<any> = this.$http.get('/v7/logout');
+                get.then((response: any) => {
+                    if (response && response.status === 200) {
+                        this.$appService.logout();
+                    }
+                }).catch((error: any) => {
+                    console.error(error);
+                });
             }
         }).catch((error: any) => {
             this.$Notice.error({
@@ -224,7 +236,7 @@ export default class AppUpdatePassword extends Vue {
      * @memberof AppUpdatePassword
      */
     public getPasswordStrength() {
-        if (!this.newPwd.length) {
+        if (this.newPwd.length === 0) {
             this.passwordStrength = '';
             return;
         }
@@ -257,10 +269,10 @@ export default class AppUpdatePassword extends Vue {
         } else if ((lowCh && !upperCh) || (!lowCh && upperCh)) {
             score += 10;
         }
-        if (digit === 1) {
-            score += 10;
-        } else if (digit >= 3) {
+        if (digit >= 3) {
             score += 20;
+        } else if (digit >= 1) {
+            score += 10;
         }
         if (symbol === 1) {
             score += 10;
@@ -288,7 +300,7 @@ export default class AppUpdatePassword extends Vue {
             this.passwordStrength = '强';
         } else if (score >= 50) {
             this.passwordStrength = '一般';
-        } else if (score >= 25) {
+        } else if (score >= 30) {
             this.passwordStrength = '弱';
         } else if (score >= 0) {
             this.passwordStrength = '非常弱';
