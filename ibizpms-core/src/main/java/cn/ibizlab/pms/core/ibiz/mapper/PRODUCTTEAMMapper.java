@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface PRODUCTTEAMMapper extends BaseMapper<PRODUCTTEAM> {
 
     Page<PRODUCTTEAM> searchDefault(IPage page, @Param("srf") PRODUCTTEAMSearchContext context, @Param("ew") Wrapper<PRODUCTTEAM> wrapper);
+    Page<PRODUCTTEAM> searchProductTeamInfo(IPage page, @Param("srf") PRODUCTTEAMSearchContext context, @Param("ew") Wrapper<PRODUCTTEAM> wrapper);
     @Override
     PRODUCTTEAM selectById(Serializable id);
     @Override

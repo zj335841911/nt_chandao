@@ -140,6 +140,22 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JsonProperty("estimate")
     private Double estimate;
 
+    /**
+     * 属性 [TOTAL]
+     *
+     */
+    @JSONField(name = "total")
+    @JsonProperty("total")
+    private Integer total;
+
+    /**
+     * 属性 [TASKCNT]
+     *
+     */
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
+
 
     /**
      * 设置 [JOIN]

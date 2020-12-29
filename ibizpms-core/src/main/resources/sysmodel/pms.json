@@ -18338,6 +18338,33 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"TOTAL" ,
+    "codename":"Total",
+    "field_logic_name":"总计可用",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(%1$s * %2$s)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TASKCNT" ,
+    "codename":"TaskCnt",
+    "field_logic_name":"任务数",
+    "entity_name":"PRODUCTTEAM",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

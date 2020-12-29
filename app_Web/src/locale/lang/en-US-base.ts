@@ -60,6 +60,7 @@ import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
 import companystats_en_US from '@locale/lanres/entities/company-stats/company-stats_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
+import productteam_en_US from '@locale/lanres/entities/productteam/productteam_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
 import ibzplantemplet_en_US from '@locale/lanres/entities/ibz-plan-templet/ibz-plan-templet_en_US';
 import sysuserrole_en_US from '@locale/lanres/entities/sys-user-role/sys-user-role_en_US';
@@ -453,6 +454,7 @@ function getAppLocale(){
             companystats: companystats_en_US(),
             productmodule: productmodule_en_US(),
             module: module_en_US(),
+            productteam: productteam_en_US(),
             testmodule: testmodule_en_US(),
             ibzplantemplet: ibzplantemplet_en_US(),
             sysuserrole: sysuserrole_en_US(),

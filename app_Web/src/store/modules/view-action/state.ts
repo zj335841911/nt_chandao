@@ -2081,6 +2081,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5adaf4d29de51f3f4c304ef50908925e',
+            viewmodule: 'ibiz',
+            viewname: 'PRODUCTTEAMProductTeamListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '5b1056f95f9015cdb45901308a758e25',
             viewmodule: 'zentao',
             viewname: 'StoryBuildSubGridView',
@@ -2393,6 +2402,7 @@ export const viewstate: any = {
                 '9ae49b10ec96e8f7b063be2ed4172247',
                 '522b28992d16207a0fc47340589bb2cf',
                 '81b0cee2fedff8f4902c0d735714e5af',
+                '5adaf4d29de51f3f4c304ef50908925e',
                 '905ab75396c304821d250f18e2fd6571',
                 '1340907d0c403b48b0ca086331cd2083',
                 '84104216ff9049079f9442c9cbd54342',

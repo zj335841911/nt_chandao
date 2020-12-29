@@ -25,6 +25,8 @@ hide members
 |总计消耗|CONSUMED|FLOAT|&nbsp;|
 |预计剩余|LEFT|FLOAT|&nbsp;|
 |最初预计|ESTIMATE|FLOAT|&nbsp;|
+|总计可用|TOTAL|INT|&nbsp;|
+|任务数|TASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -42,6 +44,8 @@ hide members
 |总计消耗|默认规则|默认规则|
 |预计剩余|默认规则|默认规则|
 |最初预计|默认规则|默认规则|
+|总计可用|默认规则|默认规则|
+|任务数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -69,6 +73,7 @@ hide members
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_Default))|否|&nbsp;|
+|ProductTeamInfo|产品团队成员信息([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_ProductTeamInfo))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_View))|否|&nbsp;|
 
 * **数据集合**
@@ -76,6 +81,7 @@ hide members
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|ProductTeamInfo|产品团队成员信息|ProductTeamInfo|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

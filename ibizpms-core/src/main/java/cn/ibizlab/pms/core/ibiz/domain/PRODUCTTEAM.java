@@ -145,6 +145,20 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
     private Double estimate;
+    /**
+     * 总计可用
+     */
+    @TableField(exist = false)
+    @JSONField(name = "total")
+    @JsonProperty("total")
+    private Integer total;
+    /**
+     * 任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
 
     /**
      * 

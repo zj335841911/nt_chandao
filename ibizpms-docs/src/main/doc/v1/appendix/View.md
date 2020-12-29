@@ -512,6 +512,7 @@ SRFNAVPARAM.project=%project%|
 |-|公司动态汇总表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|项目数据选择视图|DEPICKUPVIEW|&nbsp;|
+|-|产品团队列表视图|DELISTVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试单编辑视图|DEEDITVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|

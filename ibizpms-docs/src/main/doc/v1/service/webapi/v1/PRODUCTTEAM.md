@@ -21,7 +21,9 @@
 | 11 | consumed | Double | 允许 | 总计消耗 |
 | 12 | left | Double | 允许 | 预计剩余 |
 | 13 | estimate | Double | 允许 | 最初预计 |
-| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 14 | total | Integer | 允许 | 总计可用 |
+| 15 | taskcnt | Integer | 允许 | 任务数 |
+| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### PRODUCTTEAMSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

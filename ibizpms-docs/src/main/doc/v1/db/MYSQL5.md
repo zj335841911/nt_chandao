@@ -97643,6 +97643,7 @@ CREATE TABLE `zt_module`(
 | JOIN        | 加盟日  | DATETIME      |   -1   | &nbsp; |
 | TYPE        | 团队类型  | VARCHAR      |   7   | &nbsp; |
 | ORDER        | 排序  | INTEGER      |   3   | &nbsp; |
+| TOTAL        | 总计可用  | INTEGER      |   -1   | &nbsp; |
 | LIMITED        | 受限用户  | VARCHAR      |   8   | &nbsp; |
 | HOURS        | 可用工时/天  | DOUBLE      |   -1   | &nbsp; |
 

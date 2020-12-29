@@ -1863,6 +1863,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectPickupView",
             "viewtag": "5a8a29268a7563b62fc0160233958830"
         },
+        "productteamproductteamlistview": {
+            "title": "产品团队列表视图",
+            "caption": "产品团队",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "PRODUCTTEAMProductTeamListView",
+            "viewtag": "5adaf4d29de51f3f4c304ef50908925e"
+        },
         "storybuildsubgridview": {
             "title": "story表格视图",
             "caption": "需求",

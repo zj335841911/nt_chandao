@@ -247,6 +247,10 @@ zuul:
       path: /modules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_productteam:
+      path: /productteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_testmodule:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

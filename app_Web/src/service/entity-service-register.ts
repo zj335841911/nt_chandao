@@ -99,6 +99,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('companystats', () => import('@/service/company-stats/company-stats-service'));
         this.allEntityService.set('productmodule', () => import('@/service/product-module/product-module-service'));
         this.allEntityService.set('module', () => import('@/service/module/module-service'));
+        this.allEntityService.set('productteam', () => import('@/service/productteam/productteam-service'));
         this.allEntityService.set('testmodule', () => import('@/service/test-module/test-module-service'));
         this.allEntityService.set('ibzplantemplet', () => import('@/service/ibz-plan-templet/ibz-plan-templet-service'));
         this.allEntityService.set('sysuserrole', () => import('@/service/sys-user-role/sys-user-role-service'));

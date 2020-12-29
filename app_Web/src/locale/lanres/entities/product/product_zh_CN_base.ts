@@ -612,6 +612,9 @@ function getLocaleResourceBase(){
 					},
 					tabviewpanel10: {
 						caption: commonLogic.appcommonhandle("文档",null),
+					},
+					tabviewpanel12: {
+						caption: commonLogic.appcommonhandle("团队",null),
 					}
 				},
 				uiactions: {
