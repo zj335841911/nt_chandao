@@ -76,6 +76,7 @@ import './entity/ibizpro-keywords/ibizpro-keywords';
 import './entity/doc-lib-modules/doc-lib-modules';
 import './entity/product-lifes/product-lifes';
 import './entity/user-contacts/user-contacts';
+import './entity/ibizpro-product-dailys/ibizpro-product-dailys';
 import './entity/sys-roles/sys-roles';
 import './entity/tasks/tasks';
 import './entity/builds/builds';

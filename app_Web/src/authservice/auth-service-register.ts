@@ -108,6 +108,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('doclibmodule', () => import('@/authservice/doc-lib-module/doc-lib-module-auth-service'));
         this.allAuthService.set('productlife', () => import('@/authservice/product-life/product-life-auth-service'));
         this.allAuthService.set('usercontact', () => import('@/authservice/user-contact/user-contact-auth-service'));
+        this.allAuthService.set('ibizproproductdaily', () => import('@/authservice/ibizpro-product-daily/ibizpro-product-daily-auth-service'));
         this.allAuthService.set('sysrole', () => import('@/authservice/sys-role/sys-role-auth-service'));
         this.allAuthService.set('task', () => import('@/authservice/task/task-auth-service'));
         this.allAuthService.set('build', () => import('@/authservice/build/build-auth-service'));

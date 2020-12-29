@@ -34,6 +34,13 @@ public class IbzproProjectUserTaskSearchContext extends QueryWrapperContext<Ibzp
             this.getSearchCond().like("`id`", n_id_like);
         }
     }
+	private String n_tasktype_eq;//[任务类型]
+	public void setN_tasktype_eq(String n_tasktype_eq) {
+        this.n_tasktype_eq = n_tasktype_eq;
+        if(!ObjectUtils.isEmpty(this.n_tasktype_eq)){
+            this.getSearchCond().eq("`tasktype`", n_tasktype_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

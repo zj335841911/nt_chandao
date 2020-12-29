@@ -98,6 +98,20 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     private Long task;
+    /**
+     * 任务名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
+    /**
+     * 任务类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    private String tasktype;
 
 
 

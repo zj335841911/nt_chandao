@@ -106591,6 +106591,7 @@ CREATE TABLE `zt_team`(
 | TOTALESTIMATES        | 总工时  | DOUBLE      |   -1   | &nbsp; |
 | PM        | 项目负责人  | VARCHAR      |   100   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
+| PROJECTNAME        | 项目名称  | VARCHAR      |   100   | &nbsp; |
 | IBZPRO_PROJECTWEEKLYID        | 项目周报标识  | VARCHAR      |   100   | 主键&nbsp; |
 
 

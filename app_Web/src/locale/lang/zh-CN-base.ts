@@ -69,6 +69,7 @@ import ibizprokeyword_zh_CN from '@locale/lanres/entities/ibizpro-keyword/ibizpr
 import doclibmodule_zh_CN from '@locale/lanres/entities/doc-lib-module/doc-lib-module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
 import usercontact_zh_CN from '@locale/lanres/entities/user-contact/user-contact_zh_CN';
+import ibizproproductdaily_zh_CN from '@locale/lanres/entities/ibizpro-product-daily/ibizpro-product-daily_zh_CN';
 import sysrole_zh_CN from '@locale/lanres/entities/sys-role/sys-role_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
@@ -463,6 +464,7 @@ function getAppLocale(){
             doclibmodule: doclibmodule_zh_CN(),
             productlife: productlife_zh_CN(),
             usercontact: usercontact_zh_CN(),
+            ibizproproductdaily: ibizproproductdaily_zh_CN(),
             sysrole: sysrole_zh_CN(),
             task: task_zh_CN(),
             build: build_zh_CN(),

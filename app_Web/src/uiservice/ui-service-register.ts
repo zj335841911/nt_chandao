@@ -108,6 +108,7 @@ export class UIServiceRegister {
         this.allUIService.set('doclibmodule', () => import('@/uiservice/doc-lib-module/doc-lib-module-ui-service'));
         this.allUIService.set('productlife', () => import('@/uiservice/product-life/product-life-ui-service'));
         this.allUIService.set('usercontact', () => import('@/uiservice/user-contact/user-contact-ui-service'));
+        this.allUIService.set('ibizproproductdaily', () => import('@/uiservice/ibizpro-product-daily/ibizpro-product-daily-ui-service'));
         this.allUIService.set('sysrole', () => import('@/uiservice/sys-role/sys-role-ui-service'));
         this.allUIService.set('task', () => import('@/uiservice/task/task-ui-service'));
         this.allUIService.set('build', () => import('@/uiservice/build/build-ui-service'));

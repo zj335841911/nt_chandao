@@ -16327,6 +16327,35 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"TASKNAME" ,
+    "codename":"TaskName",
+    "field_logic_name":"任务名称",
+    "entity_name":"IbzproProjectUserTask",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TASKTYPE" ,
+    "codename":"Tasktype",
+    "field_logic_name":"任务类型",
+    "entity_name":"IbzproProjectUserTask",
+    "field_type":"SSCODELIST",
+    "dict":"Task__type",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -19084,6 +19113,20 @@
     "physical_field":1,
     "data_type":"BIGINT",
     "data_length":8,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROJECTNAME" ,
+    "codename":"ProjectName",
+    "field_logic_name":"项目名称",
+    "entity_name":"PROJECTWEEKLY",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
     "key_field":0,
     "show_order":1000,
     "major_field":0

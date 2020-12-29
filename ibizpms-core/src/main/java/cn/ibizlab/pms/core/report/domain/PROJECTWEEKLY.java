@@ -129,6 +129,13 @@ public class PROJECTWEEKLY extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
+    /**
+     * 项目名称
+     */
+    @TableField(value = "`projectname`")
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
 
     /**
      * 项目
@@ -196,6 +203,14 @@ public class PROJECTWEEKLY extends EntityMP implements Serializable {
     public void setProject(Long project) {
         this.project = project;
         this.modify("project", project);
+    }
+
+    /**
+     * 设置 [项目名称]
+     */
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+        this.modify("projectname", projectname);
     }
 
 

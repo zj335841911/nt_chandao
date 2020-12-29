@@ -303,7 +303,6 @@ export class Main_EditRowGridBase extends GridControlBase {
           role: new FormItemModel(),
           account: new FormItemModel(),
           join: new FormItemModel(),
-          type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -400,10 +399,6 @@ export class Main_EditRowGridBase extends GridControlBase {
         join: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '加盟日 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '加盟日 值不能为空', trigger: 'blur' },
-        ],
-        type: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '团队类型 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '团队类型 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -569,9 +564,6 @@ export class Main_EditRowGridBase extends GridControlBase {
         }
         if (row.hasOwnProperty('join')) {
             row['join'] = this.$util.dateFormat(new Date());
-        }
-        if (row.hasOwnProperty('type')) {
-            row['type'] = 'product';
         }
     }
 

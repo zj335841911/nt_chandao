@@ -23,6 +23,7 @@ hide members
 |任务|TASKS|TEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
 |项目编号|PROJECT|PICKUP|&nbsp;|
+|项目名称|PROJECTNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -38,6 +39,7 @@ hide members
 |任务|默认规则|内容长度必须小于等于[2000]|
 |日期|默认规则|默认规则|
 |项目编号|默认规则|默认规则|
+|项目名称|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

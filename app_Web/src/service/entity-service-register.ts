@@ -108,6 +108,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('doclibmodule', () => import('@/service/doc-lib-module/doc-lib-module-service'));
         this.allEntityService.set('productlife', () => import('@/service/product-life/product-life-service'));
         this.allEntityService.set('usercontact', () => import('@/service/user-contact/user-contact-service'));
+        this.allEntityService.set('ibizproproductdaily', () => import('@/service/ibizpro-product-daily/ibizpro-product-daily-service'));
         this.allEntityService.set('sysrole', () => import('@/service/sys-role/sys-role-service'));
         this.allEntityService.set('task', () => import('@/service/task/task-service'));
         this.allEntityService.set('build', () => import('@/service/build/build-service'));

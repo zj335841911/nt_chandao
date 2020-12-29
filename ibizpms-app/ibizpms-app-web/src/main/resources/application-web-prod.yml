@@ -283,6 +283,10 @@ zuul:
       path: /usercontacts/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_productdaily:
+      path: /ibizproproductdailies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     sys_role:
       path: /sysroles/**
       serviceId: ${ibiz.ref.service.ibzuaa-api:ibzuaa-api}
