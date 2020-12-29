@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface IbizproIndexMapper extends BaseMapper<IbizproIndex> {
 
     Page<IbizproIndex> searchDefault(IPage page, @Param("srf") IbizproIndexSearchContext context, @Param("ew") Wrapper<IbizproIndex> wrapper);
+    Page<IbizproIndex> searchESquery(IPage page, @Param("srf") IbizproIndexSearchContext context, @Param("ew") Wrapper<IbizproIndex> wrapper);
     Page<IbizproIndex> searchIndexDER(IPage page, @Param("srf") IbizproIndexSearchContext context, @Param("ew") Wrapper<IbizproIndex> wrapper);
     @Override
     IbizproIndex selectById(Serializable id);

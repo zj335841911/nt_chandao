@@ -162,6 +162,15 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
     }
 
     /**
+     * 查询集合 全文检索
+     */
+    @Override
+    public Page<IbizproIndex> searchESquery(IbizproIndexSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproIndex> pages=baseMapper.searchESquery(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbizproIndex>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 数据集2
      */
     @Override

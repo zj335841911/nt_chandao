@@ -77,6 +77,7 @@ hide members
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|ESquery|全文检索|DEFAULT|否|&nbsp;|
 |IndexDER|数据集2||否|&nbsp;|
 
 ## 查询模式

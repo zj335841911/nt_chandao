@@ -157,6 +157,28 @@ public class IbizproIndexResource {
                 .body(new PageImpl(ibizproindexMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchESquery-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
+	@ApiOperation(value = "获取全文检索", tags = {"索引检索" } ,notes = "获取全文检索")
+    @RequestMapping(method= RequestMethod.GET , value="/ibizproindices/fetchesquery")
+	public ResponseEntity<List<IbizproIndexDTO>> fetchESquery(IbizproIndexSearchContext context) {
+        Page<IbizproIndex> domains = ibizproindexService.searchESquery(context) ;
+        List<IbizproIndexDTO> list = ibizproindexMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchESquery-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
+	@ApiOperation(value = "查询全文检索", tags = {"索引检索" } ,notes = "查询全文检索")
+    @RequestMapping(method= RequestMethod.POST , value="/ibizproindices/searchesquery")
+	public ResponseEntity<Page<IbizproIndexDTO>> searchESquery(@RequestBody IbizproIndexSearchContext context) {
+        Page<IbizproIndex> domains = ibizproindexService.searchESquery(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibizproindexMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchIndexDER-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
 	@ApiOperation(value = "获取数据集2", tags = {"索引检索" } ,notes = "获取数据集2")
     @RequestMapping(method= RequestMethod.GET , value="/ibizproindices/fetchindexder")

@@ -2950,6 +2950,13 @@ const datas: Array<any> = [
                 value: 'task',
                 disabled: false,
             },
+            {
+                id: 'product',
+                label: '产品团队',
+                text: '产品团队',
+                value: 'product',
+                disabled: false,
+            },
         ]
     },
     {

@@ -541,6 +541,7 @@ export default {
     Team__type: {
         'project': commonLogic.appcommonhandle("项目团队",null),
         'task': commonLogic.appcommonhandle("任务团队",null),
+        'product': commonLogic.appcommonhandle("产品团队",null),
         empty: commonLogic.appcommonhandle("",null),
     },
     Product: {
