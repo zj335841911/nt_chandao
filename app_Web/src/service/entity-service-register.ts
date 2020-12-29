@@ -134,6 +134,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('projectmodule', () => import('@/service/project-module/project-module-service'));
         this.allEntityService.set('ibzdoc', () => import('@/service/ibz-doc/ibz-doc-service'));
         this.allEntityService.set('pssysapp', () => import('@/service/pssys-app/pssys-app-service'));
+        this.allEntityService.set('ibzproprojectusertask', () => import('@/service/ibzpro-project-user-task/ibzpro-project-user-task-service'));
         this.allEntityService.set('ibzcase', () => import('@/service/ibz-case/ibz-case-service'));
         this.allEntityService.set('systeammember', () => import('@/service/sys-team-member/sys-team-member-service'));
         this.allEntityService.set('pssystemdbcfg', () => import('@/service/pssystem-dbcfg/pssystem-dbcfg-service'));

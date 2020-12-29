@@ -95,6 +95,7 @@ import ibzweekly_en_US from '@locale/lanres/entities/ibzweekly/ibzweekly_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
+import ibzproprojectusertask_en_US from '@locale/lanres/entities/ibzpro-project-user-task/ibzpro-project-user-task_en_US';
 import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
 import systeammember_en_US from '@locale/lanres/entities/sys-team-member/sys-team-member_en_US';
 import pssystemdbcfg_en_US from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_en_US';
@@ -491,6 +492,7 @@ function getAppLocale(){
             projectmodule: projectmodule_en_US(),
             ibzdoc: ibzdoc_en_US(),
             pssysapp: pssysapp_en_US(),
+            ibzproprojectusertask: ibzproprojectusertask_en_US(),
             ibzcase: ibzcase_en_US(),
             systeammember: systeammember_en_US(),
             pssystemdbcfg: pssystemdbcfg_en_US(),

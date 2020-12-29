@@ -102,6 +102,7 @@ import './entity/ibzweeklys/ibzweeklys';
 import './entity/project-modules/project-modules';
 import './entity/ibz-docs/ibz-docs';
 import './entity/pssys-apps/pssys-apps';
+import './entity/ibzpro-project-user-tasks/ibzpro-project-user-tasks';
 import './entity/ibz-cases/ibz-cases';
 import './entity/sys-team-members/sys-team-members';
 import './entity/pssystem-dbcfgs/pssystem-dbcfgs';

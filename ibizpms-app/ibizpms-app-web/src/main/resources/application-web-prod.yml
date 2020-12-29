@@ -387,6 +387,10 @@ zuul:
       path: /pssysapps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_projectusertask:
+      path: /ibzproprojectusertasks/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_case:
       path: /ibzcases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
