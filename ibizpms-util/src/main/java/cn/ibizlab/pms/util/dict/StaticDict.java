@@ -1604,7 +1604,6 @@ public class StaticDict {
      */
     @Getter
     public enum Story__review_result_draft {
-        PASS("pass","确认通过"),
         CLARIFY("clarify","有待明确"),
         REJECT("reject","拒绝");
 

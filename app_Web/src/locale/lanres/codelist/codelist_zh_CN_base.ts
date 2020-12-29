@@ -870,7 +870,6 @@ function getLocaleResourceBase(){
           "empty": commonLogic.appcommonhandle("",null),
       },
       Story__review_result_draft: {
-          "pass": commonLogic.appcommonhandle("确认通过",null),
           "clarify": commonLogic.appcommonhandle("有待明确",null),
           "reject": commonLogic.appcommonhandle("拒绝",null),
           "empty": commonLogic.appcommonhandle("",null),

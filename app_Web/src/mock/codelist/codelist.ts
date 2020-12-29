@@ -6166,16 +6166,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: "pass",
-                label: "确认通过",
-                text: "确认通过",
-                "data":"",
-                "codename":"Pass",
-                value: "pass",
-                
-                disabled: false,
-            },
-            {
                 id: "clarify",
                 label: "有待明确",
                 text: "有待明确",

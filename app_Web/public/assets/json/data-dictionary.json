@@ -7208,18 +7208,6 @@
         "codelisttype":"static",
         "items": [
              {
-                "id": "pass",
-                "label": "确认通过",
-                "text": "确认通过",
-                "class":"",
-                "data":"",
-                "codename":"Pass",
-                "value": "pass",
-                
-                "disabled": false,
-                "default": false
-            }
-            , {
                 "id": "clarify",
                 "label": "有待明确",
                 "text": "有待明确",
