@@ -4,7 +4,6 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PRODUCTTEAMProductTeamListViewBase } from './productteamproduct-team-list-view-base';
 import view_list from '@widgets/productteam/product-team-list/product-team-list.vue';
-import view_searchform from '@widgets/productteam/default-searchform/default-searchform.vue';
 
 /**
  * 产品团队列表视图视图
@@ -16,7 +15,6 @@ import view_searchform from '@widgets/productteam/default-searchform/default-sea
 @Component({
     components: {
         view_list, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

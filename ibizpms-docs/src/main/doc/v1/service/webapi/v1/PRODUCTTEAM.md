@@ -3,6 +3,259 @@
 产品团队
 
 ## 接口清单
+### 新建产品团队
+#### 访问路径
+/productteams
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteamdto | [PRODUCTTEAMDTO](#PRODUCTTEAMDTO) | 产品团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [PRODUCTTEAMDTO](#PRODUCTTEAMDTO)：产品团队实体传输对象 |
+
+### 批量新建产品团队
+#### 访问路径
+/productteams/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteamdtos | List<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)> | 产品团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 更新产品团队
+#### 访问路径
+/productteams/{productteam_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteam_id | Long | 产品团队主键ID |
+| 2 | productteamdto | [PRODUCTTEAMDTO](#PRODUCTTEAMDTO) | 产品团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [PRODUCTTEAMDTO](#PRODUCTTEAMDTO)：产品团队实体传输对象 |
+
+### 批量更新产品团队
+#### 访问路径
+/productteams/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteamdtos | List<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)> | 产品团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 删除产品团队
+#### 访问路径
+/productteams/{productteam_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteam_id | Long | 产品团队主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量删除产品团队
+#### 访问路径
+/productteams/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ids | List<Long> | 产品团队主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取产品团队
+#### 访问路径
+/productteams/{productteam_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteam_id | Long | 产品团队主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [PRODUCTTEAMDTO](#PRODUCTTEAMDTO)：产品团队实体传输对象 |
+
+### 检查产品团队
+#### 访问路径
+/productteams/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteamdto | [PRODUCTTEAMDTO](#PRODUCTTEAMDTO) | 产品团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 保存产品团队
+#### 访问路径
+/productteams/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteamdto | [PRODUCTTEAMDTO](#PRODUCTTEAMDTO) | 产品团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量保存产品团队
+#### 访问路径
+/productteams/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productteamdtos | List<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)> | 产品团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取数据集
+#### 访问路径
+/productteams/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [PRODUCTTEAMSearchContext](#PRODUCTTEAMSearchContext) | 产品团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)>：产品团队实体传输对象列表 |
+
+### 查询数据集
+#### 访问路径
+/productteams/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [PRODUCTTEAMSearchContext](#PRODUCTTEAMSearchContext) | 产品团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)>：产品团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取产品团队成员信息
+#### 访问路径
+/productteams/fetchproductteaminfo
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [PRODUCTTEAMSearchContext](#PRODUCTTEAMSearchContext) | 产品团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)>：产品团队实体传输对象列表 |
+
+### 查询产品团队成员信息
+#### 访问路径
+/productteams/searchproductteaminfo
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [PRODUCTTEAMSearchContext](#PRODUCTTEAMSearchContext) | 产品团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[PRODUCTTEAMDTO](#PRODUCTTEAMDTO)>：产品团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### PRODUCTTEAMDTO

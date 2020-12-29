@@ -30,13 +30,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			default_searchform: {
-				details: {
-					formpage1: commonLogic.appcommonhandle("常规条件",null), 
-				},
-				uiactions: {
-				},
-			},
 			productteamlistviewtoolbar_toolbar: {
 			},
 		};

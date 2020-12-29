@@ -64,7 +64,6 @@ export default class ProductTeamModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
-
       {
         name:'size',
         prop:'size'

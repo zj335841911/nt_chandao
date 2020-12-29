@@ -99,10 +99,6 @@ export class PRODUCTTEAMProductTeamListViewBase extends ListViewBase {
             name: 'list',
             type: 'LIST',
         },
-        view_searchform: {
-            name: 'searchform',
-            type: 'SEARCHFORM',
-        },
     };
 
     /**
@@ -171,7 +167,6 @@ export class PRODUCTTEAMProductTeamListViewBase extends ListViewBase {
             newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
                 this.newdata(args, fullargs, params, $event, xData);
             },
-            searchform: this.$refs.searchform,
             keyPSDEField: 'productteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
@@ -231,39 +226,6 @@ export class PRODUCTTEAMProductTeamListViewBase extends ListViewBase {
      */
     public list_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'load', $event);
-    }
-
-    /**
-     * searchform 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof PRODUCTTEAMProductTeamListViewBase
-     */
-    public searchform_save($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof PRODUCTTEAMProductTeamListViewBase
-     */
-    public searchform_search($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof PRODUCTTEAMProductTeamListViewBase
-     */
-    public searchform_load($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
