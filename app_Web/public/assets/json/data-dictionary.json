@@ -8628,6 +8628,18 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "product",
+                "label": "项目团队",
+                "text": "项目团队",
+                "class":"",
+                "data":"",
+                "codename":"Product",
+                "value": "product",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {

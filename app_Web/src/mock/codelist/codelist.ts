@@ -7382,6 +7382,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "product",
+                label: "项目团队",
+                text: "项目团队",
+                "data":"",
+                "codename":"Product",
+                value: "product",
+                
+                disabled: false,
+            },
         ]
     },
     {
