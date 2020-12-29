@@ -874,7 +874,7 @@ FROM
 	zt_task t2 
 WHERE
 	t2.deleted = '0' 
-	AND t2.project = t1.root 
+	AND t2.project in (t1.zzz) 
 	AND t2.parent >= 0 
 	AND (
 	t2.assignedTo = t1.account 
@@ -891,7 +891,7 @@ FROM
 	AND tt.type = 'task' 
 WHERE
 	t2.deleted = '0' 
-	AND t2.project = t1.root 
+	AND t2.project  in (t1.zzz) 
 	AND t2.parent >= 0 
 	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
 	) AS `left`,
@@ -904,7 +904,7 @@ FROM
 	AND tt.type = 'task' 
 WHERE
 	t2.deleted = '0' 
-	AND t2.project = t1.root 
+	AND t2.project  in (t1.zzz) 
 	AND t2.parent >= 0 
 	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
 	) AS `estimate`,
@@ -917,12 +917,13 @@ FROM
 	AND tt.type = 'task' 
 WHERE
 	t2.deleted = '0' 
-	AND t2.project = t1.root 
+	AND t2.project in (t1.zzz) 
 	AND t2.parent >= 0 
 	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
 	) AS consumed 
 FROM
-	zt_team t1
+	(	SELECT *,(SELECT GROUP_CONCAT(project) from zt_projectproduct where product =  t1.root and t1.type = 'product' ) as zzz from zt_team t1
+) t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
