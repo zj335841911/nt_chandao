@@ -101,4 +101,20 @@ export interface PROJECTWEEKLY {
      * @memberof PROJECTWEEKLY
      */
     projectname?: any;
+
+    /**
+     * 周
+     *
+     * @returns {*}
+     * @memberof PROJECTWEEKLY
+     */
+    week?: any;
+
+    /**
+     * 年
+     *
+     * @returns {*}
+     * @memberof PROJECTWEEKLY
+     */
+    year?: any;
 }

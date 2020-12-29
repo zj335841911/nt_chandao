@@ -136,6 +136,24 @@ public class PROJECTWEEKLYDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String projectname;
 
+    /**
+     * 属性 [WEEK]
+     *
+     */
+    @JSONField(name = "week")
+    @JsonProperty("week")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String week;
+
+    /**
+     * 属性 [YEAR]
+     *
+     */
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String year;
+
 
     /**
      * 设置 [IBZPRO_PROJECTWEEKLYNAME]
@@ -183,6 +201,22 @@ public class PROJECTWEEKLYDTO extends DTOBase implements Serializable {
     public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
+    }
+
+    /**
+     * 设置 [WEEK]
+     */
+    public void setWeek(String  week){
+        this.week = week ;
+        this.modify("week",week);
+    }
+
+    /**
+     * 设置 [YEAR]
+     */
+    public void setYear(String  year){
+        this.year = year ;
+        this.modify("year",year);
     }
 
 

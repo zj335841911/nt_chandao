@@ -2047,7 +2047,7 @@
 
 
     <!--输出实体[IBZPRO_PROJECTWEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_projectweekly-35-74">
+    <changeSet author="zentao" id="tab-ibzpro_projectweekly-40-74">
         <createTable tableName="T_IBZPRO_PROJECTWEEKLY">
                 <column name="IBZPRO_PROJECTWEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -2071,6 +2071,10 @@
                 <column name="DATE" remarks="" type="DATETIME">
                 </column>
                 <column name="PROJECT" remarks="" type="BIGINT">
+                </column>
+                <column name="WEEK" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="YEAR" remarks="" type="VARCHAR(100)">
                 </column>
         </createTable>
     </changeSet>
@@ -3225,7 +3229,7 @@
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_team" constraintName="DER1N_IBZ_PRODUCTTEAM_ZT_PRODU" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_PROJECTWEEKLY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_projectweekly-35-184">
+    <changeSet author="zentao" id="fk-ibzpro_projectweekly-40-184">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="T_IBZPRO_PROJECTWEEKLY" constraintName="DER1N_IBZPRO_PROJECTWEEKLY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_PRODUCT]外键关系 -->
@@ -3250,7 +3254,7 @@
         <!--输出实体[IBZ_PRODUCTSTATS]外键关系 -->
         <!--输出实体[IBZ_PRODUCTSUM]外键关系 -->
         <!--输出实体[ZT_PROJECT]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_project-1144-190">
+    <changeSet author="zentao" id="fk-zt_project-1147-190">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_project" constraintName="DER1N__ZT_PROJECT__ZT_PROJECT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_PROJECTMODULE]外键关系 -->

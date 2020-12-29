@@ -20,7 +20,9 @@
 | 10 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
 | 11 | project | Long | 允许 | 项目编号 |
 | 12 | projectname | String | 允许 | 项目名称 |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | week | String | 允许 | 周 |
+| 14 | year | String | 允许 | 年 |
+| 15 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### PROJECTWEEKLYSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -30,6 +30,8 @@
 | 10 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 11 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
 | 12 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
+| 13 | [周](#属性-周（WEEK）) | WEEK | 文本，可指定长度 | 否 | 是 | 是 |
+| 14 | [年](#属性-年（YEAR）) | YEAR | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-项目周报名称（IBZPRO_PROJECTWEEKLYNAME）
 #### 属性说明
@@ -527,6 +529,88 @@ String
 | 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-周（WEEK）
+#### 属性说明
+周
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-年（YEAR）
+#### 属性说明
+年
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -673,7 +757,9 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
+t1.`UPDATEMAN`,
+t1.`WEEK`,
+t1.`YEAR`
 FROM `T_IBZPRO_PROJECTWEEKLY` t1 
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 
@@ -703,7 +789,9 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
+t1.`UPDATEMAN`,
+t1.`WEEK`,
+t1.`YEAR`
 FROM `T_IBZPRO_PROJECTWEEKLY` t1 
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 
