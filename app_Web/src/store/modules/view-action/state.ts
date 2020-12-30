@@ -3445,6 +3445,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '906a337ba9df8cccc8e6f49564ac5360',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProductDailyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                'f24328f024ca560f1d741035e0e2ffd8',
+            ],
+        },
+        {
             viewtag: '908a34af4784424622d2f7905335d023',
             viewmodule: 'zentao',
             viewname: 'ProductPlanProjectGridView9',
@@ -4258,6 +4269,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b0858b3700cc6146837e0f3a1bf949e9',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproProductUserTaskProductPartGridViewProductWeekly',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'b137ebd68f63e15d9233d1092e565d15',
             viewmodule: 'zentao',
             viewname: 'CaseMainMyNewGridView',
@@ -4648,7 +4668,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
-                'e49ea1cccee579b8b15d125583fa6fff',
+                'b0858b3700cc6146837e0f3a1bf949e9',
             ],
         },
         {
@@ -5405,6 +5425,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'dc4682bba4f9a504532ea1e10d4b11b5',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProductDailyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '906a337ba9df8cccc8e6f49564ac5360',
+            ],
+        },
+        {
             viewtag: 'de3b10b3f9f11d67c6ea3418bc77f2b3',
             viewmodule: 'zentao',
             viewname: 'BugTestBugsGridView',
@@ -5977,6 +6007,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f24328f024ca560f1d741035e0e2ffd8',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproProductUserTaskProductDailyPartGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'f27febc6ab4d30f9e419caf1e6930a94',
             viewmodule: 'zentao',
             viewname: 'TaskForwardView',
@@ -6051,7 +6090,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a3d1a3af80fdf764f13a63f9c19934c6',
-                'a4a6e9515a944ab2976c5034fb049f63',
+                'dc4682bba4f9a504532ea1e10d4b11b5',
                 'e49ea1cccee579b8b15d125583fa6fff',
                 'd054969e8eb4b11e01d771b95045178c',
             ],

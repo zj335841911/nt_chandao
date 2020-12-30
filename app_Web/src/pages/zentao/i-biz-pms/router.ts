@@ -5460,6 +5460,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/ibz-weekly-edit-view/ibz-weekly-edit-view.vue'),
                 },
                 {
+                    path: 'ibizproproductdailies/:ibizproproductdaily?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibizproproductdaily.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproproductdailies', parameterName: 'ibizproproductdaily' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-product-daily-edit-view/ibizpro-product-daily-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/releases/:release?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.release.views.gridview.caption',
@@ -14436,6 +14450,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-grid-view9/todo-grid-view9.vue'),
                 },
                 {
+                    path: 'ibzproproductusertasks/:ibzproproductusertask?/productpartgridviewproductweekly/:productpartgridviewproductweekly?',
+                    meta: {
+                        caption: 'entities.ibzproproductusertask.views.productpartgridviewproductweekly.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproproductusertasks', parameterName: 'ibzproproductusertask' },
+                            { pathName: 'productpartgridviewproductweekly', parameterName: 'productpartgridviewproductweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-product-user-task-product-part-grid-view-product-weekly/ibzpro-product-user-task-product-part-grid-view-product-weekly.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/usr2gridview/:usr2gridview?',
                     meta: {
                         caption: 'entities.productsum.views.usr2gridview.caption',
@@ -16018,6 +16046,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-stats-allgrid-view/product-stats-allgrid-view.vue'),
                 },
                 {
+                    path: 'ibzproproductusertasks/:ibzproproductusertask?/productdailypartgridview/:productdailypartgridview?',
+                    meta: {
+                        caption: 'entities.ibzproproductusertask.views.productdailypartgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproproductusertasks', parameterName: 'ibzproproductusertask' },
+                            { pathName: 'productdailypartgridview', parameterName: 'productdailypartgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-product-user-task-product-daily-part-grid-view/ibzpro-product-user-task-product-daily-part-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/testsuites/:testsuite?/maindashboardview/:maindashboardview?',
                     meta: {
                         caption: 'entities.testsuite.views.maindashboardview.caption',
@@ -17237,6 +17279,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-report-main-info-view/test-report-main-info-view.vue'),
+                },
+                {
+                    path: 'ibizproproductdailies/:ibizproproductdaily?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibizproproductdaily.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproproductdailies', parameterName: 'ibizproproductdaily' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-product-daily-grid-view/ibizpro-product-daily-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/releases/:release?/maininfoview/:maininfoview?',

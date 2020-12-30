@@ -201,7 +201,7 @@
     :caption="$t('entities.ibizproproductweekly.main_form.details.grouppanel2')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="0"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -236,10 +236,10 @@
     :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductweekly"
     parentName="IbizproProductWeekly"  
-    refviewtype="DEGRIDVIEW" 
-    refreshitems="" 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="tasks;date" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname="ibizpro-product-weekly-usr2-grid-view" 
+    viewname="ibzpro-product-user-task-product-part-grid-view-product-weekly" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
@@ -249,6 +249,75 @@
     
     </row>
 </app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.grouppanel3"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibizproproductweekly.main_form.details.grouppanel3')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel3"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+            
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproproductweekly" 
+    :parentdata='{"srfparentdename":"IBIZPRO_PRODUCTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"deve",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproproductweekly"
+    parentName="IbizproProductWeekly"  
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-product-user-task-product-part-grid-view-product-weekly" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
 
 </i-col>
 
