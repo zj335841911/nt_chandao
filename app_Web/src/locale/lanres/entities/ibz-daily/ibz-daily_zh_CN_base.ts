@@ -28,6 +28,10 @@ function getLocaleResourceBase(){
 			mailtopk: commonLogic.appcommonhandle("抄送给（选择）",null),
 		},
 			views: {
+				productdailygridview: {
+					caption: commonLogic.appcommonhandle("日报",null),
+					title: commonLogic.appcommonhandle("日报表格视图",null),
+				},
 				dailyeditview: {
 					caption: commonLogic.appcommonhandle("日报",null),
 					title: commonLogic.appcommonhandle("日报编辑视图",null),
@@ -192,6 +196,17 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			productdailymain_grid: {
+				columns: {
+					ibz_dailyname: commonLogic.appcommonhandle("日报名称",null),
+					account: commonLogic.appcommonhandle("用户",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					reportto: commonLogic.appcommonhandle("汇报给",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			mymain_grid: {
 				columns: {
 					ibz_dailyid: commonLogic.appcommonhandle("编号",null),
@@ -238,6 +253,8 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			dailyinfoeditviewtoolbar_toolbar: {
+			},
 			dailyinfocalendareditviewtoolbar_toolbar: {
 			},
 			maineditviewtoolbar_toolbar: {
@@ -245,8 +262,6 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("保存并关闭",null),
 					tip: commonLogic.appcommonhandle("保存并关闭",null),
 				},
-			},
-			dailyinfoeditviewtoolbar_toolbar: {
 			},
 			dailyeditviewtoolbar_toolbar: {
 				deuiaction1: {

@@ -10,7 +10,7 @@
             @on-open-change="onClick"
             :placeholder="$t('components.dropDownList.placeholder')"
         >
-            <i-option v-for="(item, index) in items" :key="index" :value="item.value">
+            <i-option v-for="(item, index) in items" :key="index" :value="item.value" :disabled="item.disabled">
                 {{
                     $t('codelist.' + tag + '.' + item.value) !== 'codelist.' + tag + '.' + item.value
                         ? $t('codelist.' + tag + '.' + item.value)

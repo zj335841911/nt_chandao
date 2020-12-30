@@ -283,6 +283,7 @@
 |-|产品统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计编辑视图|DEEDITVIEW|&nbsp;|
+|-|日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务表格视图（类型分组）|DEGRIDVIEW|&nbsp;|
 |-|组织部门树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|功能测试编辑视图|DEEDITVIEW|&nbsp;|

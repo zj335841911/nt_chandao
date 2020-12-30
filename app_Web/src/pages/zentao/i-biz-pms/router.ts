@@ -19,6 +19,9 @@ const router = new Router({
                 if (to.params && to.params[routerParamsName]) {
                     params[routerParamsName] = to.params[routerParamsName];
                 }
+                if (to.query) {
+                    Object.assign(params, to.query);
+                }
                 const url: string = '/appdata';
                 const bol = await AuthGuard.getInstance().authGuard(url, params, router);
                 if (bol) {

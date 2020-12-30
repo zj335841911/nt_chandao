@@ -55,6 +55,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugStatsEditView",
             "viewtag": "0174d3383dadc0878991e5c90bd5eaa3"
         },
+        "ibzdailyproductdailygridview": {
+            "title": "日报表格视图",
+            "caption": "日报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyProductDailyGridView",
+            "viewtag": "0178d8ab1c6cdcd8c03487a0f0cd09ec"
+        },
         "tasktypetaskgroupgridview": {
             "title": "任务表格视图（类型分组）",
             "caption": "类型分组",
