@@ -86,7 +86,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainInfoEditFormBase
      */
-    protected drCount: number = 9;
+    protected drCount: number = 10;
     /**
      * 表单数据对象
      *
@@ -186,6 +186,10 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         druipart9: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart9', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel10: new FormGroupPanelModel({ caption: '其他', detailType: 'GROUPPANEL', name: 'grouppanel10', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproproductdaily.maininfo_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart10: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart10', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel11: new FormGroupPanelModel({ caption: '产品成员日报', detailType: 'GROUPPANEL', name: 'grouppanel11', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproproductdaily.maininfo_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
