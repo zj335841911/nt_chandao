@@ -105,9 +105,10 @@ export class MainEditFormBase extends EditFormControlBase {
         project: null,
         projectname: null,
         pm: null,
-        date: null,
-        totalestimates: null,
+        week: null,
+        totalestimates1: null,
         tasks: null,
+        date: null,
         ibzpro_projectweeklyid: null,
         ibizproprojectweekly: null,
     };
@@ -268,15 +269,15 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        date: new FormItemModel({
-    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        week: new FormItemModel({
+    caption: '周', detailType: 'FORMITEM', name: 'week', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        totalestimates: new FormItemModel({
-    caption: '总工时', detailType: 'FORMITEM', name: 'totalestimates', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        totalestimates1: new FormItemModel({
+    caption: '总工时', detailType: 'FORMITEM', name: 'totalestimates1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -284,6 +285,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         tasks: new FormItemModel({
     caption: '任务', detailType: 'FORMITEM', name: 'tasks', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

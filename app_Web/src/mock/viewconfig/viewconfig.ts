@@ -3839,6 +3839,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskPauseTaskView",
             "viewtag": "b03bf2445d2e295fccbb6280b2601248"
         },
+        "ibzproproductusertaskproductpartgridviewproductweekly": {
+            "title": "产品汇报用户任务表格视图",
+            "caption": "产品日报",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzproProductUserTaskProductPartGridViewProductWeekly",
+            "viewtag": "b0858b3700cc6146837e0f3a1bf949e9"
+        },
         "casemainmynewgridview": {
             "title": "功能测试",
             "caption": "功能测试",

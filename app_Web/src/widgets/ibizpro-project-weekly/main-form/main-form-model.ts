@@ -71,12 +71,12 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'date',
-        prop: 'date',
-        dataType: 'DATE',
+        name: 'week',
+        prop: 'week',
+        dataType: 'TEXT',
       },
       {
-        name: 'totalestimates',
+        name: 'totalestimates1',
         prop: 'totalestimates',
         dataType: 'FLOAT',
       },
@@ -84,6 +84,11 @@ export default class MainModel {
         name: 'tasks',
         prop: 'tasks',
         dataType: 'TEXT',
+      },
+      {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
       },
       {
         name: 'ibzpro_projectweeklyid',

@@ -121,7 +121,7 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.date.visible"
+    v-show="detailsModel.week.visible"
     :style="{}"
     
     
@@ -129,26 +129,33 @@
     :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
-    name="date"
-    :itemRules="this.rules().date"
+    name="week"
+    :itemRules="this.rules().week"
     class=""
 
-    :caption="$t('entities.ibizproprojectweekly.main_form.details.date')"
+    :caption="$t('entities.ibizproprojectweekly.main_form.details.week')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.date.error"
+    :error="detailsModel.week.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+    <input-box 
+    v-model="data.week"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.week.disabled" 
+    type='text' 
+    style="">
+</input-box>
 
 </app-form-item>
 
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.totalestimates.visible"
+    v-show="detailsModel.totalestimates1.visible"
     :style="{}"
     
     
@@ -156,23 +163,23 @@
     :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
-    name="totalestimates"
-    :itemRules="this.rules().totalestimates"
+    name="totalestimates1"
+    :itemRules="this.rules().totalestimates1"
     class=""
 
-    :caption="$t('entities.ibizproprojectweekly.main_form.details.totalestimates')"
+    :caption="$t('entities.ibizproprojectweekly.main_form.details.totalestimates1')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.totalestimates.error"
+    :error="detailsModel.totalestimates1.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
     <input-box 
-    v-model="data.totalestimates"  
+    v-model="data.totalestimates1"  
     @enter="onEnter($event)"  
      unit=""  
-    :disabled="detailsModel.totalestimates.disabled" 
+    :disabled="detailsModel.totalestimates1.disabled" 
     type='number' 
     :precision="2"
     style="">
@@ -300,8 +307,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"devel",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"devel",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"devel"}'
+    :localParam ='{n_tasktype_eq:"devel",tasks:"%tasks%"}'
     parameterName="ibizproprojectweekly"
     parentName="IbizproProjectWeekly"  
     refviewtype="DEGRIDVIEW" 
@@ -783,8 +790,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"misc",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"misc",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"misc"}'
+    :localParam ='{n_tasktype_eq:"misc",tasks:"%tasks%"}'
     parameterName="ibizproprojectweekly"
     parentName="IbizproProjectWeekly"  
     refviewtype="DEGRIDVIEW" 

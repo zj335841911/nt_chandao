@@ -17,6 +17,10 @@ function getLocaleResourceBase(){
 			deadline: commonLogic.appcommonhandle("截止日期",null),
 		},
 			views: {
+				productpartgridviewproductweekly: {
+					caption: commonLogic.appcommonhandle("产品日报",null),
+					title: commonLogic.appcommonhandle("产品汇报用户任务表格视图",null),
+				},
 				productdailypartgridview: {
 					caption: commonLogic.appcommonhandle("产品日报",null),
 					title: commonLogic.appcommonhandle("产品汇报用户任务表格视图",null),

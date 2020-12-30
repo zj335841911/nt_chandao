@@ -759,6 +759,7 @@ SRFNAVPARAM.project=%project%|
 |-|历史记录|DELISTVIEW|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|添加备注|DEOPTVIEW|&nbsp;|
 |-|暂停任务|DEOPTVIEW|&nbsp;|
+|-|产品汇报用户任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|项目统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|公司编辑视图|DEEDITVIEW|&nbsp;|
