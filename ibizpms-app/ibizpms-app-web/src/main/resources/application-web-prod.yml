@@ -200,7 +200,7 @@ zuul:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibizpro_productweekly:
-      path: /ibizpro_productweeklies/**
+      path: /ibizproproductweeklies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_subtask:

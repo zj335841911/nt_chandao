@@ -87,7 +87,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('plantempletdetail', () => import('@/service/plan-templet-detail/plan-templet-detail-service'));
         this.allEntityService.set('todo', () => import('@/service/todo/todo-service'));
         this.allEntityService.set('ibzlibmodule', () => import('@/service/ibz-lib-module/ibz-lib-module-service'));
-        this.allEntityService.set('ibizpro_productweekly', () => import('@/service/ibizpro-productweekly/ibizpro-productweekly-service'));
+        this.allEntityService.set('ibizproproductweekly', () => import('@/service/ibizpro-product-weekly/ibizpro-product-weekly-service'));
         this.allEntityService.set('subtask', () => import('@/service/sub-task/sub-task-service'));
         this.allEntityService.set('useryearworkstats', () => import('@/service/user-year-work-stats/user-year-work-stats-service'));
         this.allEntityService.set('sysorganization', () => import('@/service/sys-organization/sys-organization-service'));

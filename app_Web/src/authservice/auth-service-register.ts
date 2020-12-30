@@ -87,7 +87,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('plantempletdetail', () => import('@/authservice/plan-templet-detail/plan-templet-detail-auth-service'));
         this.allAuthService.set('todo', () => import('@/authservice/todo/todo-auth-service'));
         this.allAuthService.set('ibzlibmodule', () => import('@/authservice/ibz-lib-module/ibz-lib-module-auth-service'));
-        this.allAuthService.set('ibizpro_productweekly', () => import('@/authservice/ibizpro-productweekly/ibizpro-productweekly-auth-service'));
+        this.allAuthService.set('ibizproproductweekly', () => import('@/authservice/ibizpro-product-weekly/ibizpro-product-weekly-auth-service'));
         this.allAuthService.set('subtask', () => import('@/authservice/sub-task/sub-task-auth-service'));
         this.allAuthService.set('useryearworkstats', () => import('@/authservice/user-year-work-stats/user-year-work-stats-auth-service'));
         this.allAuthService.set('sysorganization', () => import('@/authservice/sys-organization/sys-organization-auth-service'));

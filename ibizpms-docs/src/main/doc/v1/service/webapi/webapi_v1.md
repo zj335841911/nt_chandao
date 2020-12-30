@@ -62,7 +62,7 @@ pms-webapi
 | 48 | [产品计划](1/ProductPlan) | productplan |  |
 | 49 | [用例库模块](1/IbzLibModule) | ibzlibmodule |  |
 | 50 | [测试结果](1/TestResult) | testresult |  |
-| 51 | [产品周报](1/IBIZPRO_PRODUCTWEEKLY) | ibizpro_productweekly |  |
+| 51 | [产品周报](1/IbizproProductWeekly) | ibizproproductweekly |  |
 | 52 | [系统配置表](1/IbzproConfig) | ibzproconfig |  |
 | 53 | [系统用户](1/SysUser) | sysuser |  |
 | 54 | [索引检索](1/IbizproIndex) | ibizproindex |  |

@@ -888,36 +888,6 @@
     </changeSet>
 
 
-    <!--输出实体[IBIZPRO_PRODUCTWEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_productweekly-34-30">
-        <createTable tableName="T_IBIZPRO_PRODUCTWEEKLY">
-                <column name="TOTALESTIMATES" remarks="" type="FLOAT">
-                </column>
-                <column name="TASKS" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="PO" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="DATE" remarks="" type="DATETIME">
-                </column>
-                <column name="UPDATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="CREATEDATE" remarks="" type="DATETIME">
-                </column>
-                <column name="IBIZPRO_PRODUCTDAILYNAME" remarks="" type="VARCHAR(200)">
-                </column>
-                <column name="IBIZPRO_PRODUCTWEEKLYID" remarks="" type="BIGINT">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBIZPRO_PRODUCTWEEKLY_IBIZP"/>
-                </column>
-                <column name="PRODUCT" remarks="" type="BIGINT">
-                </column>
-        </createTable>
-    </changeSet>
-
-
 
 
 
@@ -927,7 +897,7 @@
 
 
     <!--输出实体[IBZPRO_PRODUCT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_product-27-31">
+    <changeSet author="zentao" id="tab-ibzpro_product-27-30">
         <createTable tableName="zt_product">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_PRODUCT_ID"/>
@@ -943,7 +913,7 @@
 
 
     <!--输出实体[IBZPRO_STORY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_story-104-32">
+    <changeSet author="zentao" id="tab-ibzpro_story-104-31">
         <createTable tableName="zt_story">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_STORY_ID"/>
@@ -1032,7 +1002,7 @@
 
 
     <!--输出实体[IBZPRO_SYSTPL]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_systpl-22-34">
+    <changeSet author="zentao" id="tab-ibzpro_systpl-22-33">
         <createTable tableName="T_IBZPRO_SYSTPL">
                 <column name="IBZPRO_SYSTPLID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_SYSTPL_IBZPRO_SYSTPL"/>
@@ -1062,7 +1032,7 @@
 
 
     <!--输出实体[IBZPRO_SYSTEM]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_system-10-35">
+    <changeSet author="zentao" id="tab-ibzpro_system-10-34">
         <createTable tableName="T_IBZPRO_SYSTEM">
                 <column name="IBZPRO_SYSTEMID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_SYSTEM_IBZPRO_SYSTEM"/>
@@ -1084,7 +1054,7 @@
 
 
     <!--输出实体[IBZ_LOGIN]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_login-27-36">
+    <changeSet author="zentao" id="tab-ibz_login-27-35">
         <createTable tableName="zt_user">
                 <column name="REALNAME" remarks="" type="VARCHAR(100)">
                 </column>
@@ -1100,14 +1070,14 @@
 
 
     <!--输出实体[IBIZPRO_INDEX]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_index-120-37">
+    <changeSet author="zentao" id="tab-ibizpro_index-120-36">
         <createTable tableName="">
         </createTable>
     </changeSet>
 
 
     <!--输出实体[IBIZPRO_PRODUCTDAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_productdaily-29-38">
+    <changeSet author="zentao" id="tab-ibizpro_productdaily-29-37">
         <createTable tableName="T_IBIZPRO_PRODUCTDAILY">
                 <column name="IBIZPRO_PRODUCTDAILYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1131,6 +1101,36 @@
                 <column name="TASKS" remarks="" type="VARCHAR(100)">
                 </column>
                 <column name="TOTALESTIMATES" remarks="" type="FLOAT">
+                </column>
+        </createTable>
+    </changeSet>
+
+
+    <!--输出实体[IBIZPRO_PRODUCTWEEKLY]数据结构 -->
+    <changeSet author="zentao" id="tab-ibizpro_productweekly-36-38">
+        <createTable tableName="T_IBIZPRO_PRODUCTWEEKLY">
+                <column name="TOTALESTIMATES" remarks="" type="FLOAT">
+                </column>
+                <column name="TASKS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="IBIZPRO_PRODUCTDAILYNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="IBIZPRO_PRODUCTWEEKLYID" remarks="" type="BIGINT">
+                    <constraints primaryKey="true" primaryKeyName="PK_IBIZPRO_PRODUCTWEEKLY_IBIZP"/>
+                </column>
+                <column name="PRODUCT" remarks="" type="BIGINT">
                 </column>
         </createTable>
     </changeSet>
@@ -1691,7 +1691,7 @@
 
 
     <!--输出实体[IBIZPRO_PRODUCTUSERTASK]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_productusertask-2-60">
+    <changeSet author="zentao" id="tab-ibizpro_productusertask-5-60">
         <createTable tableName="zt_taskestimate">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBIZPRO_PRODUCTUSERTASK_ID"/>
@@ -3159,32 +3159,32 @@
     <changeSet author="zentao" id="fk-zt_history-18-168">
        <addForeignKeyConstraint baseColumnNames="ACTION" baseTableName="zt_history" constraintName="DER1N_ZT_HISTORY_ZT_ACTION_ACT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_action" validate="true"/>
     </changeSet>
-        <!--输出实体[IBIZPRO_PRODUCTWEEKLY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibizpro_productweekly-34-169">
-       <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBIZPRO_PRODUCTWEEKLY" constraintName="DER1N_IBIZPRO_PRODUCTWEEKLY_ZT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
-    </changeSet>
         <!--输出实体[IBZPRO_PRODUCT]外键关系 -->
         <!--输出实体[IBZPRO_STORY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_story-104-170">
+    <changeSet author="zentao" id="fk-ibzpro_story-104-169">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_story" constraintName="DER1N_IBZPRO_STORY_IBZPRO_PROD" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibzpro_story-104-171">
+    <changeSet author="zentao" id="fk-ibzpro_story-104-170">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_story" constraintName="DER1N_IBZPRO_STORY_IBZPRO_STOR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_STORYMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_storymodule-72-172">
+    <changeSet author="zentao" id="fk-ibzpro_storymodule-72-171">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZPRO_STORYMODULE_IBZPR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_SYSTPL]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_systpl-22-174">
+    <changeSet author="zentao" id="fk-ibzpro_systpl-22-173">
        <addForeignKeyConstraint baseColumnNames="FILE" baseTableName="T_IBZPRO_SYSTPL" constraintName="DER1N_IBZPRO_SYSTPL_ZT_FILE_FI" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_file" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_SYSTEM]外键关系 -->
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBIZPRO_INDEX]外键关系 -->
         <!--输出实体[IBIZPRO_PRODUCTDAILY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibizpro_productdaily-29-175">
+    <changeSet author="zentao" id="fk-ibizpro_productdaily-29-174">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBIZPRO_PRODUCTDAILY" constraintName="DER1N_IBIZPRO_PRODUCTDAILY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
+    </changeSet>
+        <!--输出实体[IBIZPRO_PRODUCTWEEKLY]外键关系 -->
+    <changeSet author="zentao" id="fk-ibizpro_productweekly-36-175">
+       <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBIZPRO_PRODUCTWEEKLY" constraintName="DER1N_IBIZPRO_PRODUCTWEEKLY_ZT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBIZPRO_PROJECTDAILY]外键关系 -->
     <changeSet author="zentao" id="fk-ibizpro_projectdaily-56-176">

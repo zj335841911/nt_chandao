@@ -7,9 +7,6 @@
 
 package iBizPro模块 {
 
-class 产品周报 {
-}
-
 class 平台产品 {
 }
 
@@ -29,6 +26,9 @@ class 索引检索 {
 }
 
 class 产品日报 {
+}
+
+class 产品周报 {
 }
 
 class 项目日报 {
@@ -80,7 +80,6 @@ hide members
 
 | 实体编号    |    实体名称    |  实体类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|IBIZPRO_PRODUCTWEEKLY|[产品周报](ibizpro/IBIZPRO_PRODUCTWEEKLY.md)|主实体|&nbsp;|
 |IBZPRO_PRODUCT|[平台产品](ibizpro/IBZProProduct.md)|主实体|&nbsp;|
 |IBZPRO_STORY|[需求](ibizpro/IBZProStory.md)|主实体|&nbsp;|
 |IBZPRO_STORYMODULE|[需求模块](ibizpro/IBZProStoryModule.md)|主实体|&nbsp;|
@@ -88,6 +87,7 @@ hide members
 |IBZPRO_SYSTEM|[运行生产系统](ibizpro/IBZProSystem.md)|主实体|&nbsp;|
 |IBIZPRO_INDEX|[索引检索](ibizpro/IbizproIndex.md)|主实体|&nbsp;|
 |IBIZPRO_PRODUCTDAILY|[产品日报](ibizpro/IbizproProductDaily.md)|主实体|&nbsp;|
+|IBIZPRO_PRODUCTWEEKLY|[产品周报](ibizpro/IbizproProductWeekly.md)|主实体|&nbsp;|
 |IBIZPRO_PROJECTDAILY|[项目日报](ibizpro/IbizproProjectDaily.md)|主实体|&nbsp;|
 |IBZPRO_PROJECTWEEKLY|[项目周报](ibizpro/IbizproProjectWeekly.md)|主实体|&nbsp;|
 |IBZ_PLANTEMPLET|[计划模板](ibizpro/IbzPlanTemplet.md)|主实体|&nbsp;|

@@ -11,7 +11,7 @@
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
 | 1 | [产品日报（IBIZPRO_PRODUCTDAILY）](../ibizpro/IbizproProductDaily) | （默认） |
-| 2 | [产品周报（IBIZPRO_PRODUCTWEEKLY）](../ibizpro/IBIZPRO_PRODUCTWEEKLY) | （默认） |
+| 2 | [产品周报（IBIZPRO_PRODUCTWEEKLY）](../ibizpro/IbizproProductWeekly) | （默认） |
 | 3 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
 | 4 | [测试用例统计（IBZ_CASESTATS）](../ibiz/CaseStats) | （默认） |
 | 5 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认） |

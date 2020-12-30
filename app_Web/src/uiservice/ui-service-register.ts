@@ -87,7 +87,7 @@ export class UIServiceRegister {
         this.allUIService.set('plantempletdetail', () => import('@/uiservice/plan-templet-detail/plan-templet-detail-ui-service'));
         this.allUIService.set('todo', () => import('@/uiservice/todo/todo-ui-service'));
         this.allUIService.set('ibzlibmodule', () => import('@/uiservice/ibz-lib-module/ibz-lib-module-ui-service'));
-        this.allUIService.set('ibizpro_productweekly', () => import('@/uiservice/ibizpro-productweekly/ibizpro-productweekly-ui-service'));
+        this.allUIService.set('ibizproproductweekly', () => import('@/uiservice/ibizpro-product-weekly/ibizpro-product-weekly-ui-service'));
         this.allUIService.set('subtask', () => import('@/uiservice/sub-task/sub-task-ui-service'));
         this.allUIService.set('useryearworkstats', () => import('@/uiservice/user-year-work-stats/user-year-work-stats-ui-service'));
         this.allUIService.set('sysorganization', () => import('@/uiservice/sys-organization/sys-organization-ui-service'));
