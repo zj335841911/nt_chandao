@@ -33,7 +33,21 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
+                        <app-column-link
+                            deKeyField="ibizproprojectweekly"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'ibizpro-project-weekly-edit-view', height: 0,width: 0,title: $t('entities.ibizproprojectweekly.views.editview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'ibizproprojectweeklies', parameterName: 'ibizproprojectweekly' },
+            { pathName: 'editview', parameterName: 'editview' }
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.ibzpro_projectweeklyname}}</span>
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
