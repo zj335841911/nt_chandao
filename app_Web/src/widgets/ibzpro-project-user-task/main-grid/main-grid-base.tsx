@@ -137,7 +137,7 @@ export class MainGridBase extends GridControlBase {
      * @type {number}
      * @memberof MainGridBase
      */
-    public limit: number = 50;
+    public limit: number = 100;
 
     /**
      * 所有列成员

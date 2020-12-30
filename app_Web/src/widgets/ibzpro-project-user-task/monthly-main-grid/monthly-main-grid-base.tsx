@@ -132,12 +132,28 @@ export class MonthlyMainGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MonthlyMainGridBase
+     */
+    public minorSortDir: string = 'ASC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MonthlyMainGridBase
+     */
+    public minorSortPSDEF: string = 'date';
+
+    /**
      * 分页条数
      *
      * @type {number}
      * @memberof MonthlyMainGridBase
      */
-    public limit: number = 50;
+    public limit: number = 100;
 
     /**
      * 所有列成员
