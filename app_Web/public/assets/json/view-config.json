@@ -6969,6 +6969,16 @@
         "viewtag": "fd0b8748ff96edcde009d39903a9f211",
         "memo": ""
     },
+    "ibzweeklyproductweeklygridview": {
+        "title": "周报表格视图",
+        "caption": "周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyProductWeeklyGridView",
+        "viewfilename": "ibz-weekly-product-weekly-grid-view",
+        "viewtag": "fde813cf1679434aabed3c4a64d6f954",
+        "memo": ""
+    },
     "ibzproprojectusertaskgridview": {
         "title": "项目汇报用户任务表格视图",
         "caption": "项目汇报用户任务",

@@ -977,6 +977,7 @@ SRFNAVPARAM.project=%project%|
 |-|激活|DEOPTVIEW|&nbsp;|
 |-|系统更新日志表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目|DETABEXPVIEW|&nbsp;|
+|-|周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目汇报用户任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|版本分页导航视图|DETABEXPVIEW|&nbsp;|
