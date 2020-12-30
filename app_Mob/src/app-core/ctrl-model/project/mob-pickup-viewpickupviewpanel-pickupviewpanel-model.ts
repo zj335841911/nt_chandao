@@ -240,6 +240,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

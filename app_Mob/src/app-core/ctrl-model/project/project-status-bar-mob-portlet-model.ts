@@ -240,6 +240,9 @@ export class ProjectStatusBarMobModel {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

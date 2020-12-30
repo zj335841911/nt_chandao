@@ -240,6 +240,9 @@ export class MobTabExpViewtabviewpanel5Model {
       {
         name: 'projectteams',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

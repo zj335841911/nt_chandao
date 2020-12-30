@@ -76,6 +76,7 @@ export default {
     orgid: "组织标识",
     mdeptid: "部门标识",
     projectteams: "项目团队成员",
+    supproreport: "支持项目汇报",
   },
 	views: {
 		mobchartview: {

@@ -48,6 +48,7 @@ export default {
     orgid: "组织标识",
     mdeptid: "部门标识",
     ibiz_id: "IBIZ标识",
+    supproreport: "支持产品汇报",
   },
 	views: {
 		prodmobtabexpview: {

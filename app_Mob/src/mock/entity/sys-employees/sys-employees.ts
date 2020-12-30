@@ -403,6 +403,50 @@ mock.onGet(new RegExp(/^\/sysemployees\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply
     return [status, records ?  records : []];
 });
     
+// FetchProductTeamM
+mock.onGet(new RegExp(/^\/sysemployees\/fetchproductteamm$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProductTeamM");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProductTeamM
+mock.onGet(new RegExp(/^\/sysemployees\/fetchproductteamm(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProductTeamM");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchProjectTeamM
 mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamm$/)).reply((config: any) => {
     console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamM");
@@ -421,6 +465,50 @@ mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamm$/)).reply((config: any
 // FetchProjectTeamM
 mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamm(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamM");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchProjectTeamMProduct
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteammproduct$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamMProduct");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectTeamMProduct
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteammproduct(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamMProduct");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

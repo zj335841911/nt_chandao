@@ -342,4 +342,19 @@ export class IbzDailyServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/ibzdailies/fetchmysubmitdaily`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchProjectDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async FetchProjectDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzdailies/fetchprojectdaily`,tempData,isloading);
+        return res;
+    }
 }

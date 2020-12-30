@@ -156,6 +156,9 @@ export class ProdMobTabExpViewtabviewpanel4Model {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 
