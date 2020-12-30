@@ -75,6 +75,14 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
     private Double consumed;
+    /**
+     * 预计剩余
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`left`")
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    private Double left;
 
 
 
@@ -110,6 +118,14 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     public void setConsumed(Double consumed) {
         this.consumed = consumed;
         this.modify("consumed", consumed);
+    }
+
+    /**
+     * 设置 [预计剩余]
+     */
+    public void setLeft(Double left) {
+        this.left = left;
+        this.modify("left", left);
     }
 
 

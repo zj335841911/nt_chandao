@@ -32,6 +32,7 @@
 | 12 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
 | 13 | [周](#属性-周（WEEK）) | WEEK | 文本，可指定长度 | 否 | 是 | 是 |
 | 14 | [年](#属性-年（YEAR）) | YEAR | 文本，可指定长度 | 否 | 是 | 是 |
+| 15 | [月](#属性-月（MONTH）) | MONTH | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-项目周报名称（IBZPRO_PROJECTWEEKLYNAME）
 #### 属性说明
@@ -611,6 +612,47 @@ String
 | 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-月（MONTH）
+#### 属性说明
+月
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -751,6 +793,7 @@ t1.`CREATEMAN`,
 t1.`DATE`,
 t1.`IBZPRO_PROJECTWEEKLYID`,
 t1.`IBZPRO_PROJECTWEEKLYNAME`,
+t1.`MONTH`,
 t1.`PM`,
 t1.`PROJECT`,
 t11.`NAME` AS `PROJECTNAME`,
@@ -783,6 +826,7 @@ t1.`CREATEMAN`,
 t1.`DATE`,
 t1.`IBZPRO_PROJECTWEEKLYID`,
 t1.`IBZPRO_PROJECTWEEKLYNAME`,
+t1.`MONTH`,
 t1.`PM`,
 t1.`PROJECT`,
 t11.`NAME` AS `PROJECTNAME`,

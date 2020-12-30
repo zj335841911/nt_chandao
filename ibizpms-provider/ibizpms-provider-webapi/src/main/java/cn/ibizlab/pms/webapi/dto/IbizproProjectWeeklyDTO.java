@@ -154,6 +154,15 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String year;
 
+    /**
+     * 属性 [MONTH]
+     *
+     */
+    @JSONField(name = "month")
+    @JsonProperty("month")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String month;
+
 
     /**
      * 设置 [IBZPRO_PROJECTWEEKLYNAME]
@@ -217,6 +226,14 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     public void setYear(String  year){
         this.year = year ;
         this.modify("year",year);
+    }
+
+    /**
+     * 设置 [MONTH]
+     */
+    public void setMonth(String  month){
+        this.month = month ;
+        this.modify("month",month);
     }
 
 

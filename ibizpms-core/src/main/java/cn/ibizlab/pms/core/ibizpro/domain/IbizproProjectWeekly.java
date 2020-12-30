@@ -150,6 +150,13 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     @JSONField(name = "year")
     @JsonProperty("year")
     private String year;
+    /**
+     * 月
+     */
+    @TableField(value = "`month`")
+    @JSONField(name = "month")
+    @JsonProperty("month")
+    private String month;
 
     /**
      * 项目
@@ -233,6 +240,14 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     public void setYear(String year) {
         this.year = year;
         this.modify("year", year);
+    }
+
+    /**
+     * 设置 [月]
+     */
+    public void setMonth(String month) {
+        this.month = month;
+        this.modify("month", month);
     }
 
 

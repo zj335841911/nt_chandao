@@ -11717,6 +11717,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MONTH" ,
+    "codename":"Month",
+    "field_logic_name":"月",
+    "entity_name":"IbizproProjectWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -16712,6 +16726,20 @@
     "fieldname":"CONSUMED" ,
     "codename":"Consumed",
     "field_logic_name":"总计消耗",
+    "entity_name":"IbzproProductUserTask",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"FLOAT",
+    "data_preci":2,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"LEFT" ,
+    "codename":"Left",
+    "field_logic_name":"预计剩余",
     "entity_name":"IbzproProductUserTask",
     "field_type":"FLOAT",
     "nullable":1,
