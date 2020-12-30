@@ -8111,7 +8111,7 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_DAILY` t1 
 
-WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')})  AND  DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d') ) 
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('curproject')})  AND  DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d') ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzDaily_View"></div>
@@ -8502,7 +8502,7 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_MONTHLY` t1 
 
-WHERE ( t1.`ISSUBMIT` = '1'  AND  DATE_FORMAT(t1.date,'%Y-%m') = ${srfdatacontext('yearmonth')}  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')}) ) 
+WHERE ( t1.`ISSUBMIT` = '1'  AND  DATE_FORMAT(t1.date,'%Y-%m') = ${srfdatacontext('yearmonth')}  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('curproject')}) ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzMonthly_View"></div>

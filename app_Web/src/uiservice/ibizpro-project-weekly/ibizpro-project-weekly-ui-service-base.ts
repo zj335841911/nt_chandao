@@ -109,7 +109,7 @@ export default class IbizproProjectWeeklyUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'ibizproprojectweeklies',
             component: 'ibizpro-project-weekly-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_TOP',
             title: '项目周报',
             width: 0,
             height: 0
