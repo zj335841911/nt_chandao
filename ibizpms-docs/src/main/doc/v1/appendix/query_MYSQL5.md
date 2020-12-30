@@ -9269,6 +9269,7 @@ FROM `T_IBZPRO_CONFIG` t1
 ### 数据查询(DEFAULT)<div id="IbzproProductUserTask_Default"></div>
 ```sql
 SELECT
+t1.`ACCOUNT`,
 t1.`ID`
 FROM `zt_taskestimate` t1 
 
@@ -9276,6 +9277,7 @@ FROM `zt_taskestimate` t1
 ### 默认（全部数据）(VIEW)<div id="IbzproProductUserTask_View"></div>
 ```sql
 SELECT
+t1.`ACCOUNT`,
 t1.`ID`
 FROM `zt_taskestimate` t1 
 

@@ -16670,7 +16670,7 @@
     {
     "fieldname":"ID" ,
     "codename":"Id",
-    "field_logic_name":"标识",
+    "field_logic_name":"编号",
     "entity_name":"IbzproProductUserTask",
     "field_type":"ACID",
     "nullable":0,
@@ -16678,6 +16678,20 @@
     "data_type":"BIGINT",
     "data_length":20,
     "key_field":1,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"用户",
+    "entity_name":"IbzproProductUserTask",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":30,
+    "key_field":0,
     "show_order":1000,
     "major_field":0
     }

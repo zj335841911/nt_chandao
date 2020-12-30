@@ -150,6 +150,7 @@ export default class IbzproProjectUserTaskUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{TASK:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { ibzproprojectusertask: '%ibzproprojectusertask%' });

@@ -1696,6 +1696,8 @@
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBIZPRO_PRODUCTUSERTASK_ID"/>
                 </column>
+                <column name="ACCOUNT" remarks="" type="VARCHAR(30)">
+                </column>
         </createTable>
     </changeSet>
 

@@ -44,15 +44,31 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 标识
+     * 编号
      */
     @DEField(isKeyField = true)
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
+    /**
+     * 用户
+     */
+    @DEField(defaultValue = "#EMPTY")
+    @TableField(value = "`account`")
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
 
 
+
+    /**
+     * 设置 [用户]
+     */
+    public void setAccount(String account) {
+        this.account = account;
+        this.modify("account", account);
+    }
 
 
     @Override
