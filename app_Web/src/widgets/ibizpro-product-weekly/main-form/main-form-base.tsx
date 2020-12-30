@@ -93,6 +93,12 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        productname: null,
+        po: null,
+        date: null,
+        totalestimates: null,
+        product: null,
+        tasks: null,
         ibizpro_productweeklyid: null,
         ibizproproductweekly: null,
     };
@@ -132,13 +138,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '产品周报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproproductweekly.main_form', extractMode: 'ITEM', details: [] } }),
-
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproproductweekly.main_form', extractMode: 'ITEM', details: [] } }),
-
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({
     caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
@@ -196,6 +196,48 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        productname: new FormItemModel({
+    caption: '产品名称', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        po: new FormItemModel({
+    caption: '产品负责人', detailType: 'FORMITEM', name: 'po', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        totalestimates: new FormItemModel({
+    caption: '总工时', detailType: 'FORMITEM', name: 'totalestimates', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        product: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        tasks: new FormItemModel({
+    caption: '任务', detailType: 'FORMITEM', name: 'tasks', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         ibizpro_productweeklyid: new FormItemModel({
     caption: '产品周报标识', detailType: 'FORMITEM', name: 'ibizpro_productweeklyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -203,26 +245,6 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        form: new FormTabPanelModel({
-            caption: 'form',
-            detailType: 'TABPANEL',
-            name: 'form',
-            visible: true,
-            isShowCaption: true,
-            form: this,
-            tabPages: [
-                {
-                    name: 'formpage1',
-                    index: 0,
-                    visible: true,
-                },
-                {
-                    name: 'formpage2',
-                    index: 1,
-                    visible: true,
-                },
-            ]
-        }),
     };
 
     /**

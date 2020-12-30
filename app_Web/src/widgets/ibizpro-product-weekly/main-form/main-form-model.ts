@@ -56,6 +56,36 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'po',
+        prop: 'po',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
+      },
+      {
+        name: 'totalestimates',
+        prop: 'totalestimates',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'tasks',
+        prop: 'tasks',
+        dataType: 'TEXT',
+      },
+      {
         name: 'ibizpro_productweeklyid',
         prop: 'ibizpro_productweeklyid',
         dataType: 'ACID',

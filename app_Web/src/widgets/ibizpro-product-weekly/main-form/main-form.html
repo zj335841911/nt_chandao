@@ -1,6 +1,6 @@
 <i-form
     :model="this.data"
-    class="app-form"
+    class="app-form info-form-mode"
     ref="form"
     id="ibizproproductweekly_main"
     style=""
@@ -8,119 +8,145 @@
 >
     <input style="display:none;">
     <row>
-    <tabs
-        :animated="false"
-        size="small"
-        name="main"
-        :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)"
-    >
-        <tab-pane
-            v-show="detailsModel.formpage1.visible"
-            name="formpage1"
-            :index="0"
-            tab="main"
-            class=""  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                $t('entities.ibizproproductweekly.main_form.details.formpage1')
-                ])
-            }"
-        >
-                <i-col
+            <i-col
     class="form-layout-container"
-    v-show="detailsModel.group1.visible"
+    v-show="detailsModel.productname.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
     
 >
-    <app-form-group
-    :model="detailsModel.group1"
-    layoutType="TABLE_24COL"
-    titleStyle=""
+    <app-form-item
+    name="productname"
+    :itemRules="this.rules().productname"
     class=""
-    :uiActionGroup="detailsModel.group1.uiActionGroup"
-    @groupuiactionclick="groupUIActionClick($event)"
-    :caption="$t('entities.ibizproproductweekly.main_form.details.group1')"
-    :isShowCaption="true"
-    uiStyle="DEFAULT"
-    :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
 
->    
-    <app-form-group-data-panel
-        slot="dataInfoPanel"
-        :model="detailsModel.group1"
-        :data="data"
-        :context="context"
-        :viewparams="viewparams"
-    ></app-form-group-data-panel>
-    <row>
-            
-    </row>
-</app-form-group>
+    :caption="$t('entities.ibizproproductweekly.main_form.details.productname')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.productname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.productname.disabled"
+  name='productname'
+  deMajorField='name'
+  deKeyField='product'
+  valueitem='product' 
+  :value="data.productname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'ProductMainTabExpView', title: $t('entities.product.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 1400, height: 850, placement: '', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+
+</app-form-item>
 
 </i-col>
-
-
-        </tab-pane> 
-        <tab-pane
-            v-show="detailsModel.formpage2.visible"
-            name="formpage2"
-            :index="1"
-            tab="main"
-            class=""  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                $t('entities.ibizproproductweekly.main_form.details.formpage2')
-                ])
-            }"
-        >
-                <i-col
+<i-col
     class="form-layout-container"
-    v-show="detailsModel.group2.visible"
+    v-show="detailsModel.po.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 8, offset: 0 }"
 >
-    <app-form-group
-    :model="detailsModel.group2"
-    layoutType="TABLE_24COL"
-    titleStyle=""
+    <app-form-item
+    name="po"
+    :itemRules="this.rules().po"
     class=""
-    :uiActionGroup="detailsModel.group2.uiActionGroup"
-    @groupuiactionclick="groupUIActionClick($event)"
-    :caption="$t('entities.ibizproproductweekly.main_form.details.group2')"
-    :isShowCaption="true"
-    uiStyle="DEFAULT"
-    :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
 
->    
-    <app-form-group-data-panel
-        slot="dataInfoPanel"
-        :model="detailsModel.group2"
-        :data="data"
-        :context="context"
-        :viewparams="viewparams"
-    ></app-form-group-data-panel>
-    <row>
-            
-    </row>
-</app-form-group>
+    :caption="$t('entities.ibizproproductweekly.main_form.details.po')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.po.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='po' :value="data.po" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.date.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
+    <app-form-item
+    name="date"
+    :itemRules="this.rules().date"
+    class=""
+
+    :caption="$t('entities.ibizproproductweekly.main_form.details.date')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.date.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='date' :value="data.date" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.totalestimates.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
+>
+    <app-form-item
+    name="totalestimates"
+    :itemRules="this.rules().totalestimates"
+    class=""
+
+    :caption="$t('entities.ibizproproductweekly.main_form.details.totalestimates')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.totalestimates.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='totalestimates' :value="data.totalestimates" dataType="FLOAT"     :precision="2"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
 
 </i-col>
 
 
-        </tab-pane> 
-    </tabs>
     </row>
 </i-form>

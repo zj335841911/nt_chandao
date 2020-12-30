@@ -28,10 +28,7 @@ function getLocaleResourceBase(){
 			},
 			main_form: {
 				details: {
-					group1: commonLogic.appcommonhandle("产品周报基本信息",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
-					group2: commonLogic.appcommonhandle("操作信息",null), 
-					formpage2: commonLogic.appcommonhandle("其它",null), 
 					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
 					srforikey: commonLogic.appcommonhandle("",null), 
 					srfkey: commonLogic.appcommonhandle("产品周报标识",null), 
@@ -40,6 +37,12 @@ function getLocaleResourceBase(){
 					srfuf: commonLogic.appcommonhandle("",null), 
 					srfdeid: commonLogic.appcommonhandle("",null), 
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					productname: commonLogic.appcommonhandle("产品名称",null), 
+					po: commonLogic.appcommonhandle("产品负责人",null), 
+					date: commonLogic.appcommonhandle("日期",null), 
+					totalestimates: commonLogic.appcommonhandle("总工时",null), 
+					product: commonLogic.appcommonhandle("编号",null), 
+					tasks: commonLogic.appcommonhandle("任务",null), 
 					ibizpro_productweeklyid: commonLogic.appcommonhandle("产品周报标识",null), 
 				},
 				uiactions: {
