@@ -7654,6 +7654,23 @@ t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTWEEKLY` t1 
 
 ```
+### 产品周报详情(ProductWeeklyQuery)<div id="IbizproProductWeekly_ProductWeeklyQuery"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`IBIZPRO_PRODUCTWEEKLYID`,
+t1.`PO`,
+t1.`PRODUCT`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTWEEKLY` t1 
+
+```
 ### 默认（全部数据）(VIEW)<div id="IbizproProductWeekly_View"></div>
 ```sql
 SELECT

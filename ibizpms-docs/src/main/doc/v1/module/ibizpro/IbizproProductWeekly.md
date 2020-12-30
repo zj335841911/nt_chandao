@@ -664,11 +664,40 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [产品周报详情](#数据查询-产品周报详情（ProductWeeklyQuery）) | ProductWeeklyQuery | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
 数据查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`IBIZPRO_PRODUCTWEEKLYID`,
+t1.`PO`,
+t1.`PRODUCT`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTWEEKLY` t1 
+
+```
+### 数据查询-产品周报详情（ProductWeeklyQuery）
+#### 说明
+产品周报详情
 
 - 默认查询
 否
