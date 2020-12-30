@@ -3,6 +3,242 @@
 项目周报
 
 ## 接口清单
+### 新建项目周报
+#### 访问路径
+/ibizproprojectweeklies
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweeklydto | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO) | 项目周报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)：项目周报实体传输对象 |
+
+### 批量新建项目周报
+#### 访问路径
+/ibizproprojectweeklies/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweeklydtos | List<[IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)> | 项目周报实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 更新项目周报
+#### 访问路径
+/ibizproprojectweeklies/{ibizproprojectweekly_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweekly_id | String | 项目周报主键ID |
+| 2 | ibizproprojectweeklydto | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO) | 项目周报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)：项目周报实体传输对象 |
+
+### 批量更新项目周报
+#### 访问路径
+/ibizproprojectweeklies/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweeklydtos | List<[IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)> | 项目周报实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 删除项目周报
+#### 访问路径
+/ibizproprojectweeklies/{ibizproprojectweekly_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweekly_id | String | 项目周报主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量删除项目周报
+#### 访问路径
+/ibizproprojectweeklies/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ids | List<String> | 项目周报主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取项目周报
+#### 访问路径
+/ibizproprojectweeklies/{ibizproprojectweekly_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweekly_id | String | 项目周报主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)：项目周报实体传输对象 |
+
+### 检查项目周报
+#### 访问路径
+/ibizproprojectweeklies/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweeklydto | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO) | 项目周报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 定时推送项目周报
+#### 访问路径
+/ibizproprojectweeklies/{ibizproprojectweekly_id}/pushsumprojectweekly
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweekly_id | String | 项目周报主键ID |
+| 2 | ibizproprojectweeklydto | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO) | 项目周报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)：项目周报实体传输对象 |
+
+### 保存项目周报
+#### 访问路径
+/ibizproprojectweeklies/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweeklydto | [IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO) | 项目周报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量保存项目周报
+#### 访问路径
+/ibizproprojectweeklies/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectweeklydtos | List<[IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)> | 项目周报实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取数据集
+#### 访问路径
+/ibizproprojectweeklies/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbizproProjectWeeklySearchContext](#IbizproProjectWeeklySearchContext) | 项目周报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)>：项目周报实体传输对象列表 |
+
+### 查询数据集
+#### 访问路径
+/ibizproprojectweeklies/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbizproProjectWeeklySearchContext](#IbizproProjectWeeklySearchContext) | 项目周报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbizproProjectWeeklyDTO](#IbizproProjectWeeklyDTO)>：项目周报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### IbizproProjectWeeklyDTO
