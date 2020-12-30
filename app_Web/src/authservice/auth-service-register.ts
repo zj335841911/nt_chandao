@@ -140,6 +140,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibzcase', () => import('@/authservice/ibz-case/ibz-case-auth-service'));
         this.allAuthService.set('systeammember', () => import('@/authservice/sys-team-member/sys-team-member-auth-service'));
         this.allAuthService.set('pssystemdbcfg', () => import('@/authservice/pssystem-dbcfg/pssystem-dbcfg-auth-service'));
+        this.allAuthService.set('ibzproproductusertask', () => import('@/authservice/ibzpro-product-user-task/ibzpro-product-user-task-auth-service'));
         this.allAuthService.set('sysupdatefeatures', () => import('@/authservice/sys-update-features/sys-update-features-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
         this.allAuthService.set('casestats', () => import('@/authservice/case-stats/case-stats-auth-service'));

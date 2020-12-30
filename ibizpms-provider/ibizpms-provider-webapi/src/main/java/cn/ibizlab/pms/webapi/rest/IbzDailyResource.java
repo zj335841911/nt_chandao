@@ -365,6 +365,28 @@ public class IbzDailyResource {
                 .body(new PageImpl(ibzdailyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-searchProjectDaily-all') and hasPermission(#context,'pms-IbzDaily-Get')")
+	@ApiOperation(value = "获取项目日报", tags = {"日报" } ,notes = "获取项目日报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzdailies/fetchprojectdaily")
+	public ResponseEntity<List<IbzDailyDTO>> fetchProjectDaily(IbzDailySearchContext context) {
+        Page<IbzDaily> domains = ibzdailyService.searchProjectDaily(context) ;
+        List<IbzDailyDTO> list = ibzdailyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-searchProjectDaily-all') and hasPermission(#context,'pms-IbzDaily-Get')")
+	@ApiOperation(value = "查询项目日报", tags = {"日报" } ,notes = "查询项目日报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzdailies/searchprojectdaily")
+	public ResponseEntity<Page<IbzDailyDTO>> searchProjectDaily(@RequestBody IbzDailySearchContext context) {
+        Page<IbzDaily> domains = ibzdailyService.searchProjectDaily(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzdailyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

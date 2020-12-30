@@ -7990,6 +7990,33 @@ FROM
 WHERE t1.account=#{srf.sessioncontext.srfloginname} 
 
 ```
+### 项目日报(ProjectDaily)<div id="IbzDaily_ProjectDaily"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_DAILY` t1 
+
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')})  AND  DATE_FORMAT(t1.date,'%y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%y-%m-%d') ) 
+
+```
 ### 默认（全部数据）(VIEW)<div id="IbzDaily_View"></div>
 ```sql
 SELECT
@@ -9275,7 +9302,8 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DATE`,
 t1.`ID`,
-t1.`LEFT`
+t1.`LEFT`,
+t1.`TASK`
 FROM `zt_taskestimate` t1 
 
 ```
@@ -9286,7 +9314,8 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DATE`,
 t1.`ID`,
-t1.`LEFT`
+t1.`LEFT`,
+t1.`TASK`
 FROM `zt_taskestimate` t1 
 
 ```

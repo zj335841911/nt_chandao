@@ -10059,6 +10059,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9-related/story-main-view9-related.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/projectdailygridview/:projectdailygridview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.projectdailygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'projectdailygridview', parameterName: 'projectdailygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-project-daily-grid-view/ibz-daily-project-daily-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
                     meta: {
                         caption: 'entities.case.views.curtesttaskgridview.caption',

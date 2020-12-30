@@ -140,6 +140,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('ibzcase', () => import('@/service/ibz-case/ibz-case-service'));
         this.allEntityService.set('systeammember', () => import('@/service/sys-team-member/sys-team-member-service'));
         this.allEntityService.set('pssystemdbcfg', () => import('@/service/pssystem-dbcfg/pssystem-dbcfg-service'));
+        this.allEntityService.set('ibzproproductusertask', () => import('@/service/ibzpro-product-user-task/ibzpro-product-user-task-service'));
         this.allEntityService.set('sysupdatefeatures', () => import('@/service/sys-update-features/sys-update-features-service'));
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
         this.allEntityService.set('casestats', () => import('@/service/case-stats/case-stats-service'));

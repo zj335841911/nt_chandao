@@ -101,6 +101,7 @@ import ibzproprojectusertask_zh_CN from '@locale/lanres/entities/ibzpro-project-
 import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
 import systeammember_zh_CN from '@locale/lanres/entities/sys-team-member/sys-team-member_zh_CN';
 import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
+import ibzproproductusertask_zh_CN from '@locale/lanres/entities/ibzpro-product-user-task/ibzpro-product-user-task_zh_CN';
 import sysupdatefeatures_zh_CN from '@locale/lanres/entities/sys-update-features/sys-update-features_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import casestats_zh_CN from '@locale/lanres/entities/case-stats/case-stats_zh_CN';
@@ -499,6 +500,7 @@ function getAppLocale(){
             ibzcase: ibzcase_zh_CN(),
             systeammember: systeammember_zh_CN(),
             pssystemdbcfg: pssystemdbcfg_zh_CN(),
+            ibzproproductusertask: ibzproproductusertask_zh_CN(),
             sysupdatefeatures: sysupdatefeatures_zh_CN(),
             release: release_zh_CN(),
             casestats: casestats_zh_CN(),

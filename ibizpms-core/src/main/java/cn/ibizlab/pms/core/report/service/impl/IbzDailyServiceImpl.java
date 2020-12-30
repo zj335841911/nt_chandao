@@ -291,6 +291,15 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目日报
+     */
+    @Override
+    public Page<IbzDaily> searchProjectDaily(IbzDailySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchProjectDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

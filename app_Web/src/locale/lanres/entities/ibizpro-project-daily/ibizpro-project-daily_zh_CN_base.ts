@@ -28,6 +28,7 @@ function getLocaleResourceBase(){
 			},
 			main_form: {
 				details: {
+					grouppanel11: commonLogic.appcommonhandle("分组面板",null), 
 					druipart1: commonLogic.appcommonhandle("",null), 
 					grouppanel1: commonLogic.appcommonhandle("设计",null), 
 					druipart2: commonLogic.appcommonhandle("",null), 
@@ -46,6 +47,7 @@ function getLocaleResourceBase(){
 					grouppanel8: commonLogic.appcommonhandle("服务",null), 
 					druipart9: commonLogic.appcommonhandle("",null), 
 					grouppanel9: commonLogic.appcommonhandle("其他",null), 
+					druipart10: commonLogic.appcommonhandle("",null), 
 					grouppanel10: commonLogic.appcommonhandle("项目成员日报",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 

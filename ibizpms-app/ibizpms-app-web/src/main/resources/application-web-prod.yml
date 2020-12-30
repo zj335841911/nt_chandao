@@ -411,6 +411,10 @@ zuul:
       path: /pssystemdbcfgs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_productusertask:
+      path: /ibzproproductusertasks/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     sys_update_features:
       path: /sysupdatefeatures/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

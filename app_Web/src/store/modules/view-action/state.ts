@@ -1184,6 +1184,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3121f3e1c04527b61ae43ff50166870d',
+            viewmodule: 'report',
+            viewname: 'IbzDailyProjectDailyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ef8e8d565d141facde985ac87181e6e3',
+            ],
+        },
+        {
             viewtag: '31dc3f821fafa9e92cc28d217373a67b',
             viewmodule: 'ibizpro',
             viewname: 'IbizproIndexIndexPickupView',
@@ -3684,6 +3694,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'fe81fbd0978314233d70cf0219ba4890',
+                '3121f3e1c04527b61ae43ff50166870d',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],
         },

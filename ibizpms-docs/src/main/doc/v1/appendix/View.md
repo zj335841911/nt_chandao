@@ -407,6 +407,7 @@ SRFNAVPARAM.project=%project%|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试版本表格视图|DEGRIDVIEW9|&nbsp;|
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
+|-|日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|索引检索数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|

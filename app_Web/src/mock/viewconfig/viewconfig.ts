@@ -1031,6 +1031,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskMyDGridView",
             "viewtag": "30c07c840301a6ba07383d123bf9bba1"
         },
+        "ibzdailyprojectdailygridview": {
+            "title": "日报表格视图",
+            "caption": "日报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyProjectDailyGridView",
+            "viewtag": "3121f3e1c04527b61ae43ff50166870d"
+        },
         "ibizproindexindexpickupview": {
             "title": "索引检索数据选择视图",
             "caption": "索引检索",

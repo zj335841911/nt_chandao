@@ -32,6 +32,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("日报",null),
 					title: commonLogic.appcommonhandle("日报编辑视图",null),
 				},
+				projectdailygridview: {
+					caption: commonLogic.appcommonhandle("日报",null),
+					title: commonLogic.appcommonhandle("日报表格视图",null),
+				},
 				maineditview: {
 					caption: commonLogic.appcommonhandle("日报",null),
 					title: commonLogic.appcommonhandle("日报编辑视图（编辑）",null),
@@ -214,6 +218,17 @@ function getLocaleResourceBase(){
 				uiactions: {
 					ibzdaily_edit: commonLogic.appcommonhandle("修改",null),
 					ibzdaily_submitcz: commonLogic.appcommonhandle("提交",null),
+				},
+			},
+			projectdailymain_grid: {
+				columns: {
+					ibz_dailyname: commonLogic.appcommonhandle("日报名称",null),
+					account: commonLogic.appcommonhandle("用户",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					reportto: commonLogic.appcommonhandle("汇报给",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
 				},
 			},
 			default_searchform: {

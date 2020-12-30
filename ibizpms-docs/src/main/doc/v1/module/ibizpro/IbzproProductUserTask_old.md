@@ -14,6 +14,13 @@
 |日期|DATE|DATE|&nbsp;完成日期（指任务人的，不是任务的）|
 |总计消耗|CONSUMED|FLOAT|&nbsp;|
 |预计剩余|LEFT|FLOAT|&nbsp;|
+|任务|TASK|BIGINT|&nbsp;|
+|任务名称|TASKNAME|TEXT|&nbsp;|
+|任务类型|TASKTYPE|SSCODELIST|&nbsp;|
+|进度|PROGRESSRATE|TEXT|&nbsp;|
+|延期天数|DELAYDAYS|INT|&nbsp;|
+|预计开始|ESTSTARTED|DATE|&nbsp;|
+|截止日期|DEADLINE|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -23,6 +30,13 @@
 |日期|默认规则|默认规则|
 |总计消耗|默认规则|默认规则|
 |预计剩余|默认规则|默认规则|
+|任务|默认规则|默认规则|
+|任务名称|默认规则|内容长度必须小于等于[100]|
+|任务类型|默认规则|内容长度必须小于等于[200]|
+|进度|默认规则|内容长度必须小于等于[100]|
+|延期天数|默认规则|默认规则|
+|预计开始|默认规则|默认规则|
+|截止日期|默认规则|默认规则|
 
 ## 状态控制
 

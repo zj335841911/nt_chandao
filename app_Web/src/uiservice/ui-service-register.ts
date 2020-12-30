@@ -140,6 +140,7 @@ export class UIServiceRegister {
         this.allUIService.set('ibzcase', () => import('@/uiservice/ibz-case/ibz-case-ui-service'));
         this.allUIService.set('systeammember', () => import('@/uiservice/sys-team-member/sys-team-member-ui-service'));
         this.allUIService.set('pssystemdbcfg', () => import('@/uiservice/pssystem-dbcfg/pssystem-dbcfg-ui-service'));
+        this.allUIService.set('ibzproproductusertask', () => import('@/uiservice/ibzpro-product-user-task/ibzpro-product-user-task-ui-service'));
         this.allUIService.set('sysupdatefeatures', () => import('@/uiservice/sys-update-features/sys-update-features-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));
         this.allUIService.set('casestats', () => import('@/uiservice/case-stats/case-stats-ui-service'));

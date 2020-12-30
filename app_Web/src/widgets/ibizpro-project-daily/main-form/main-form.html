@@ -55,12 +55,43 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.pm.visible"
+    v-show="detailsModel.grouppanel11.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
     
+>
+    <app-form-group
+    :model="detailsModel.grouppanel11"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel11.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel11')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel11"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.pm.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="pm"
@@ -91,7 +122,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="date"
@@ -122,7 +153,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="totalestimates"
@@ -144,6 +175,11 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-span>
 
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col
@@ -234,7 +270,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel2')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -303,7 +339,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel3')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -372,7 +408,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel4')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -510,7 +546,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel6')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -579,7 +615,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel7')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -648,7 +684,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel8')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -717,7 +753,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel9')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -786,7 +822,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel10')"
     :isShowCaption="true"
     uiStyle="DEFAULT"
-    :titleBarCloseMode="1"
+    :titleBarCloseMode="2"
     :isInfoGroupMode="true"
 
 >    
@@ -798,7 +834,40 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart10.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectdaily" 
+    :parentdata='{"srfparentdename":"IBIZPRO_PROJECTDAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{DATE:"%date%",PROJECT:"%project%"}'
+    :localParam ='{project:"%project%",date:"%date%"}'
+    parameterName="ibizproprojectdaily"
+    parentName="IbizproProjectDaily"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="project;date" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibz-daily-project-daily-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 

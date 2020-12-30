@@ -108,6 +108,7 @@ import './entity/ibzpro-project-user-tasks/ibzpro-project-user-tasks';
 import './entity/ibz-cases/ibz-cases';
 import './entity/sys-team-members/sys-team-members';
 import './entity/pssystem-dbcfgs/pssystem-dbcfgs';
+import './entity/ibzpro-product-user-tasks/ibzpro-product-user-tasks';
 import './entity/sys-update-featuress/sys-update-featuress';
 import './entity/releases/releases';
 import './entity/case-statss/case-statss';

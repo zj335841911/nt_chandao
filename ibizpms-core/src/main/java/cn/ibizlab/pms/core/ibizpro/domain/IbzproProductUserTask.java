@@ -83,6 +83,57 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JSONField(name = "left")
     @JsonProperty("left")
     private Double left;
+    /**
+     * 任务
+     */
+    @TableField(value = "`task`")
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private Long task;
+    /**
+     * 任务名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
+    /**
+     * 任务类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    private String tasktype;
+    /**
+     * 进度
+     */
+    @TableField(exist = false)
+    @JSONField(name = "progressrate")
+    @JsonProperty("progressrate")
+    private String progressrate;
+    /**
+     * 延期天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delaydays")
+    @JsonProperty("delaydays")
+    private Integer delaydays;
+    /**
+     * 预计开始
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "eststarted", format = "yyyy-MM-dd")
+    @JsonProperty("eststarted")
+    private Timestamp eststarted;
+    /**
+     * 截止日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "deadline", format = "yyyy-MM-dd")
+    @JsonProperty("deadline")
+    private Timestamp deadline;
 
 
 
@@ -126,6 +177,14 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     public void setLeft(Double left) {
         this.left = left;
         this.modify("left", left);
+    }
+
+    /**
+     * 设置 [任务]
+     */
+    public void setTask(Long task) {
+        this.task = task;
+        this.modify("task", task);
     }
 
 

@@ -274,6 +274,7 @@ export const PageComponents = {
         Vue.component('test-task-edit-view9-info', () => import('@pages/zentao/test-task-edit-view9-info/test-task-edit-view9-info.vue'));
         Vue.component('ibz-daily-daily-info-calendar-edit-view', () => import('@pages/report/ibz-daily-daily-info-calendar-edit-view/ibz-daily-daily-info-calendar-edit-view.vue'));
         Vue.component('story-main-view9-related', () => import('@pages/zentao/story-main-view9-related/story-main-view9-related.vue'));
+        Vue.component('ibz-daily-project-daily-grid-view', () => import('@pages/report/ibz-daily-project-daily-grid-view/ibz-daily-project-daily-grid-view.vue'));
         Vue.component('case-cur-test-task-grid-view', () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'));
         Vue.component('case-step-main-grid-view9-edit-mode', () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'));
         Vue.component('ibz-lib-tab-exp-view', () => import('@pages/ibiz/ibz-lib-tab-exp-view/ibz-lib-tab-exp-view.vue'));

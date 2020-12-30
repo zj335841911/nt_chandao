@@ -106,6 +106,7 @@
 |MyDaily|我收到的日报([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_MyDaily))|否|&nbsp;|
 |MyNotSubmit|我的日报([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_MyNotSubmit))|否|&nbsp;|
 |MySubmitDaily|我提交的日报([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_MySubmitDaily))|否|&nbsp;|
+|ProjectDaily|项目日报([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_ProjectDaily))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_View))|否|&nbsp;|
 
 * **数据集合**
@@ -117,6 +118,7 @@
 |MyDaily|我收到的日报|MyDaily|否|&nbsp;|
 |MyNotSubmit|我的日报|MyNotSubmit|否|&nbsp;|
 |MySubmitDaily|我提交的日报|MySubmitDaily|否|&nbsp;|
+|ProjectDaily|项目日报|ProjectDaily|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
