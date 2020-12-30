@@ -49,6 +49,7 @@ public interface IIbzproProjectUserTaskService extends IService<IbzproProjectUse
     Page<IbzproProjectUserTask> searchDefault(IbzproProjectUserTaskSearchContext context);
     Page<IbzproProjectUserTask> searchProjectDailyTask(IbzproProjectUserTaskSearchContext context);
     Page<IbzproProjectUserTask> searchProjectMonthlyTask(IbzproProjectUserTaskSearchContext context);
+    Page<IbzproProjectUserTask> searchProjectWeeklyTask(IbzproProjectUserTaskSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

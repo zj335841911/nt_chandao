@@ -33,7 +33,21 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
+                        <app-column-link
+                            deKeyField="ibizproproductdaily"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'ibizpro-product-daily-edit-view', height: 0,width: 0,title: $t('entities.ibizproproductdaily.views.editview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'ibizproproductdailies', parameterName: 'ibizproproductdaily' },
+            { pathName: 'editview', parameterName: 'editview' }
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.ibizpro_productdailyname}}</span>
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
@@ -45,21 +59,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="product"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'product-main-tab-exp-view', height: 850,width: 1400,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}"
-                            valueitem="product"
-                        >
                             <span>{{row.productname}}</span>
-                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>

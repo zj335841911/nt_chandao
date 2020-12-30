@@ -22,6 +22,7 @@ public interface IbzWeeklyMapper extends BaseMapper<IbzWeekly> {
     Page<IbzWeekly> searchDefault(IPage page, @Param("srf") IbzWeeklySearchContext context, @Param("ew") Wrapper<IbzWeekly> wrapper);
     Page<IbzWeekly> searchMyNotSubmit(IPage page, @Param("srf") IbzWeeklySearchContext context, @Param("ew") Wrapper<IbzWeekly> wrapper);
     Page<IbzWeekly> searchMyWeekly(IPage page, @Param("srf") IbzWeeklySearchContext context, @Param("ew") Wrapper<IbzWeekly> wrapper);
+    Page<IbzWeekly> searchProjectWeekly(IPage page, @Param("srf") IbzWeeklySearchContext context, @Param("ew") Wrapper<IbzWeekly> wrapper);
     @Override
     IbzWeekly selectById(Serializable id);
     @Override

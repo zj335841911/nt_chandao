@@ -257,4 +257,33 @@ export default class IbzproProjectUserTaskServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzproprojectusertasks/searchprojectmonthlytask`,tempData,isloading);
     }
+
+    /**
+     * FetchProjectWeeklyTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProjectUserTaskServiceBase
+     */
+    public async FetchProjectWeeklyTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzproprojectusertasks/fetchprojectweeklytask`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectWeeklyTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProjectUserTaskServiceBase
+     */
+    public async searchProjectWeeklyTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzproprojectusertasks/searchprojectweeklytask`,tempData,isloading);
+    }
 }

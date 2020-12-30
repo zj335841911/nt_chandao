@@ -1389,6 +1389,7 @@ FROM `T_IBZ_WEEKLY` t1
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我的周报](#数据集合-我的周报（MyNotSubmit）) | MyNotSubmit | 否 |
 | 3 | [我收到的周报](#数据集合-我收到的周报（MyWeekly）) | MyWeekly | 否 |
+| 4 | [项目周报](#数据集合-项目周报（ProjectWeekly）) | ProjectWeekly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1432,6 +1433,20 @@ FROM `T_IBZ_WEEKLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我收到的周报（MyWeekly）](#数据查询-我收到的周报（MyWeekly）) |
+### 数据集合-项目周报（ProjectWeekly）
+#### 说明
+项目周报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目周报（ProjectWeekly）](#数据查询-项目周报（ProjectWeekly）) |
 
 ## 数据导入
 无

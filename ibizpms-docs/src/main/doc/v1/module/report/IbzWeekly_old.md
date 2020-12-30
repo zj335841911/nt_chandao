@@ -155,6 +155,7 @@ hide footbox
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |MyNotSubmit|我的周报|MyNotSubmit|否|&nbsp;|
 |MyWeekly|我收到的周报|MyWeekly|否|&nbsp;|
+|ProjectWeekly|项目周报|ProjectWeekly|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

@@ -4847,6 +4847,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbizproProductDailyGridView",
             "viewtag": "dc4682bba4f9a504532ea1e10d4b11b5"
         },
+        "ibzproprojectusertaskprojectweeklygridview": {
+            "title": "项目汇报用户任务表格视图",
+            "caption": "项目汇报用户任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzproProjectUserTaskProjectWeeklyGridView",
+            "viewtag": "dc67624c3f090fcbd2b405a393b38cd4"
+        },
         "bugtestbugsgridview": {
             "title": "Bug表格视图(遗留的bug)",
             "caption": "Bug",

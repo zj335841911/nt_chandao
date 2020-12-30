@@ -4870,20 +4870,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view/project-grid-view.vue'),
                 },
                 {
-                    path: 'ibzweeklies/:ibzweekly?/projectweeklygridview/:projectweeklygridview?',
-                    meta: {
-                        caption: 'entities.ibzweekly.views.projectweeklygridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-                            { pathName: 'projectweeklygridview', parameterName: 'projectweeklygridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-weekly-project-weekly-grid-view/ibz-weekly-project-weekly-grid-view.vue'),
-                },
-                {
                     path: 'products/:product?/productplans/:productplan?/maindataeditview/:maindataeditview?',
                     meta: {
                         caption: 'entities.productplan.views.maindataeditview.caption',

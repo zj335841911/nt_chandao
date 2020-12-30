@@ -26,6 +26,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("项目汇报用户任务",null),
 					title: commonLogic.appcommonhandle("项目汇报用户任务编辑视图",null),
 				},
+				projectweeklygridview: {
+					caption: commonLogic.appcommonhandle("项目汇报用户任务",null),
+					title: commonLogic.appcommonhandle("项目汇报用户任务表格视图",null),
+				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("项目汇报用户任务",null),
 					title: commonLogic.appcommonhandle("项目汇报用户任务表格视图",null),

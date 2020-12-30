@@ -2990,9 +2990,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'fe81fbd0978314233d70cf0219ba4890',
                 '5a8a29268a7563b62fc0160233958830',
-                'dfd88480fb413ae524dbbee4918676cb',
             ],
         },
         {
@@ -5454,16 +5452,6 @@ export const viewstate: any = {
                 '3458603afa6fef36eda88e9f794840f5',
                 '174408669d176924efbb3227d0784e93',
                 '770a170098d148e438a7666b248e6519',
-            ],
-        },
-        {
-            viewtag: 'dfd88480fb413ae524dbbee4918676cb',
-            viewmodule: 'report',
-            viewname: 'IbzWeeklyProjectWeeklyGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '7ae5b669ec5f5284763927aee60efde1',
             ],
         },
         {
