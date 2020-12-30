@@ -234,6 +234,8 @@
 
     * [项目日报](module/ibizpro/IbizproProjectDaily.md) 
 
+    * [项目月报](module/ibizpro/IbizproProjectMonthly.md) 
+
     * [项目周报](module/ibizpro/IbizproProjectWeekly.md) 
 
     * [计划模板](module/ibizpro/IbzPlanTemplet.md) 

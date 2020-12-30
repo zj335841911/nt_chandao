@@ -797,6 +797,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|
 |-|解决Bug|DEOPTVIEW|&nbsp;|
 |-|我的工作|DELISTVIEW|&nbsp;|
+|-|产品周报编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试套件数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|系统用户编辑视图|DEEDITVIEW|&nbsp;|
 |-|我的待办|DEGRIDVIEW9|&nbsp;|
@@ -894,6 +895,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品列表导航视图|DELISTEXPVIEW|&nbsp;|
 |-|开始|DEOPTVIEW|&nbsp;|
 |-|项目统计编辑视图|DEEDITVIEW9|&nbsp;|
+|-|产品周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|导入计划模板|DEOPTVIEW|&nbsp;|
 |-|Bug编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（关联用例）|DEGRIDVIEW|&nbsp;|

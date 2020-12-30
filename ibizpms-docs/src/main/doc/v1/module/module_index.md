@@ -668,6 +668,9 @@ class 产品周报 {
 class 项目日报 {
 }
 
+class 项目月报 {
+}
+
 class 项目周报 {
 }
 

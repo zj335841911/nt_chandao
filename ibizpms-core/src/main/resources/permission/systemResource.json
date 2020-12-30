@@ -1056,6 +1056,14 @@
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }
     ,    {
+    "dename":"IbizproProjectMonthly",
+    "delogicname":"项目月报",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"SumProjectMonthly" , "name":"汇总项目月报" , "type":"USERCUSTOM" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+    }
+    ,    {
     "dename":"IbizproProjectWeekly",
     "delogicname":"项目周报",
     "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},

@@ -4598,6 +4598,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c2466369bc195c738c016c59f423713a',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProductWeeklyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'c2e4200fb7c9760b4931b43561289980',
             viewmodule: 'zentao',
             viewname: 'TestSuiteMainDashboardView',
@@ -5487,6 +5496,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e49ea1cccee579b8b15d125583fa6fff',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProductWeeklyUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c2466369bc195c738c016c59f423713a',
+            ],
+        },
+        {
             viewtag: 'e4e450c40addd5d706151ea60dbe7826',
             viewmodule: 'zentao',
             viewname: 'ProductPlanOptionView',
@@ -5989,7 +6008,7 @@ export const viewstate: any = {
             refviews: [
                 'a3d1a3af80fdf764f13a63f9c19934c6',
                 'a4a6e9515a944ab2976c5034fb049f63',
-                'ab7bb92108f4ae63c52d94b39affb30a',
+                'e49ea1cccee579b8b15d125583fa6fff',
                 'd054969e8eb4b11e01d771b95045178c',
             ],
         },

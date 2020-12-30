@@ -7749,6 +7749,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-module-grid-view/product-module-grid-view.vue'),
                 },
                 {
+                    path: 'ibizproproductweeklies/:ibizproproductweekly?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibizproproductweekly.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproproductweeklies', parameterName: 'ibizproproductweekly' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-product-weekly-edit-view/ibizpro-product-weekly-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/zsgridview9/:zsgridview9?',
                     meta: {
                         caption: 'entities.task.views.zsgridview9.caption',
@@ -18161,6 +18175,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-report-sub-grid-view/story-report-sub-grid-view.vue'),
+                },
+                {
+                    path: 'ibizproproductweeklies/:ibizproproductweekly?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.ibizproproductweekly.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproproductweeklies', parameterName: 'ibizproproductweekly' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-product-weekly-usr2-grid-view/ibizpro-product-weekly-usr2-grid-view.vue'),
                 },
                 {
                     path: 'actions/:action?/producttrendslistview9/:producttrendslistview9?',

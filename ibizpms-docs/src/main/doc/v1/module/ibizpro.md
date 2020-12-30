@@ -34,6 +34,9 @@ class 产品周报 {
 class 项目日报 {
 }
 
+class 项目月报 {
+}
+
 class 项目周报 {
 }
 
@@ -89,6 +92,7 @@ hide members
 |IBIZPRO_PRODUCTDAILY|[产品日报](ibizpro/IbizproProductDaily.md)|主实体|&nbsp;|
 |IBIZPRO_PRODUCTWEEKLY|[产品周报](ibizpro/IbizproProductWeekly.md)|主实体|&nbsp;|
 |IBIZPRO_PROJECTDAILY|[项目日报](ibizpro/IbizproProjectDaily.md)|主实体|&nbsp;|
+|IBIZPRO_PROJECTMONTHLY|[项目月报](ibizpro/IbizproProjectMonthly.md)|主实体|&nbsp;|
 |IBZPRO_PROJECTWEEKLY|[项目周报](ibizpro/IbizproProjectWeekly.md)|主实体|&nbsp;|
 |IBZ_PLANTEMPLET|[计划模板](ibizpro/IbzPlanTemplet.md)|主实体|&nbsp;|
 |IBZ_PLANTEMPLETDETAIL|[计划模板详情](ibizpro/IbzPlanTempletDetail.md)|主实体|&nbsp;|

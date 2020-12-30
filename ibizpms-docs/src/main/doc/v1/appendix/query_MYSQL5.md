@@ -7713,6 +7713,49 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 
 ```
 
+# **项目月报**(IBIZPRO_PROJECTMONTHLY)
+
+### 数据查询(DEFAULT)<div id="IbizproProjectMonthly_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PROJECTMONTHLYID`,
+t1.`IBIZPRO_PROJECTMONTHLYNAME`,
+t11.`PM`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`YEAR_MONTH`
+FROM `T_IBIZPRO_PROJECTMONTHLY` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbizproProjectMonthly_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PROJECTMONTHLYID`,
+t1.`IBIZPRO_PROJECTMONTHLYNAME`,
+t11.`PM`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`YEAR_MONTH`
+FROM `T_IBIZPRO_PROJECTMONTHLY` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+
+```
+
 # **项目周报**(IBZPRO_PROJECTWEEKLY)
 
 ### 数据查询(DEFAULT)<div id="IbizproProjectWeekly_Default"></div>

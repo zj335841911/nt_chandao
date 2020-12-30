@@ -4143,6 +4143,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryMyWork",
             "viewtag": "c21e2ccc8e950461985b171f047bde56"
         },
+        "ibizproproductweeklyeditview": {
+            "title": "产品周报编辑视图",
+            "caption": "产品周报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProductWeeklyEditView",
+            "viewtag": "c2466369bc195c738c016c59f423713a"
+        },
         "testsuitemaindashboardview": {
             "title": "测试套件数据看板视图",
             "caption": "测试套件",
@@ -4918,6 +4926,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProjectStatsEditView9",
             "viewtag": "e444135470a806822b9b950e15c42a3e"
+        },
+        "ibizproproductweeklyusr2gridview": {
+            "title": "产品周报表格视图",
+            "caption": "产品周报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProductWeeklyUsr2GridView",
+            "viewtag": "e49ea1cccee579b8b15d125583fa6fff"
         },
         "productplanoptionview": {
             "title": "导入计划模板",

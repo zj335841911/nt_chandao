@@ -5169,6 +5169,16 @@
         "viewtag": "c21e2ccc8e950461985b171f047bde56",
         "memo": ""
     },
+    "ibizproproductweeklyeditview": {
+        "title": "产品周报编辑视图",
+        "caption": "产品周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductWeeklyEditView",
+        "viewfilename": "ibizpro-product-weekly-edit-view",
+        "viewtag": "c2466369bc195c738c016c59f423713a",
+        "memo": ""
+    },
     "testsuitemaindashboardview": {
         "title": "测试套件数据看板视图",
         "caption": "测试套件",
@@ -6137,6 +6147,16 @@
         "viewname": "ProjectStatsEditView9",
         "viewfilename": "project-stats-edit-view9",
         "viewtag": "e444135470a806822b9b950e15c42a3e",
+        "memo": ""
+    },
+    "ibizproproductweeklyusr2gridview": {
+        "title": "产品周报表格视图",
+        "caption": "产品周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductWeeklyUsr2GridView",
+        "viewfilename": "ibizpro-product-weekly-usr2-grid-view",
+        "viewtag": "e49ea1cccee579b8b15d125583fa6fff",
         "memo": ""
     },
     "productplanoptionview": {

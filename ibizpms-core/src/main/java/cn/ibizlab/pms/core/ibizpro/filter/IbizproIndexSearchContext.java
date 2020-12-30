@@ -15,7 +15,6 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
-import org.elasticsearch.index.query.QueryBuilders;
 
 
 import cn.ibizlab.pms.util.filter.QueryWrapperContext;
@@ -33,7 +32,6 @@ public class IbizproIndexSearchContext extends QueryWrapperContext<IbizproIndex>
         this.n_index_type_eq = n_index_type_eq;
         if(!ObjectUtils.isEmpty(this.n_index_type_eq)){
             this.getSearchCond().eq("`index_type`", n_index_type_eq);
-            this.getEsCond().must(QueryBuilders.termQuery("index_type", n_index_type_eq));
         }
     }
 	private String n_indexname_like;//[标题[需求、任务等]]
@@ -41,7 +39,6 @@ public class IbizproIndexSearchContext extends QueryWrapperContext<IbizproIndex>
         this.n_indexname_like = n_indexname_like;
         if(!ObjectUtils.isEmpty(this.n_indexname_like)){
             this.getSearchCond().like("`indexname`", n_indexname_like);
-            this.getEsCond().must(QueryBuilders.wildcardQuery("indexname", String.format("*%s*",n_indexname_like)));
         }
     }
 
