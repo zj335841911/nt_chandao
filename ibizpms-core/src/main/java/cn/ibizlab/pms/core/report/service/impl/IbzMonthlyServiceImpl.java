@@ -276,6 +276,15 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目月报
+     */
+    @Override
+    public Page<IbzMonthly> searchProjectMonthly(IbzMonthlySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchProjectMonthly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

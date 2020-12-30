@@ -2231,6 +2231,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseExcEditView",
             "viewtag": "6ca0081833718834ca4bbd9ebbf1ccce"
         },
+        "ibzmonthlyprojectmonthlygridview_": {
+            "title": "月报表格视图",
+            "caption": "月报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyProjectMonthlyGridView_",
+            "viewtag": "6cd2dae78bcd850a9e861a24f0a96bb4"
+        },
         "storysubgridview": {
             "title": "需求细分",
             "caption": "需求细分",
@@ -3054,6 +3062,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "DocLibByProductTreeExpView",
             "viewtag": "905ab75396c304821d250f18e2fd6571"
+        },
+        "ibizproproductdailyeditview": {
+            "title": "产品日报编辑视图",
+            "caption": "产品日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProductDailyEditView",
+            "viewtag": "906a337ba9df8cccc8e6f49564ac5360"
         },
         "caserunresultchartview9": {
             "title": "测试用例图表视图（执行结果）",

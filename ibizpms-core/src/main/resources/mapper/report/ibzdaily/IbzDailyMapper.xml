@@ -103,7 +103,7 @@
     <!--数据查询[ProjectDaily]-->
     <sql id="ProjectDaily" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_DAILYID`, t1.`IBZ_DAILYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`TODAYTASK`, t1.`TOMORROWPLANSTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_DAILY` t1  
-					 WHERE 	( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =#{srf.datacontext.project})  AND  DATE_FORMAT(t1.date,'%y-%m-%d') = DATE_FORMAT(#{srf.datacontext.date},'%y-%m-%d') )
+					 WHERE 	( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =#{srf.datacontext.project})  AND  DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(#{srf.datacontext.date},'%Y-%m-%d') )
 			]]>
     </sql>
     <!--数据查询[View]-->

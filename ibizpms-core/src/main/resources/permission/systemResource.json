@@ -1131,7 +1131,7 @@
     "dename":"IbzMonthly",
     "delogicname":"月报",
     "sysmoudle":{"id":"REPORT","name":"汇报模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyMonthly" , "name":"我的月报"},{"id":"MyMonthlyMob" , "name":"我的月报（移动端）"},{"id":"MyReceivedMonthly" , "name":"我收到的月报"},{"id":"MySubmitMonthly" , "name":"我提交的月报"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyMonthly" , "name":"我的月报"},{"id":"MyMonthlyMob" , "name":"我的月报（移动端）"},{"id":"MyReceivedMonthly" , "name":"我收到的月报"},{"id":"MySubmitMonthly" , "name":"我提交的月报"},{"id":"ProjectMonthly" , "name":"项目月报"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"CreateGetInfo" , "name":"新建时获取信息" , "type":"USERCUSTOM" },{"id":"CreateUserMonthly" , "name":"定时生成用户月报" , "type":"USERCUSTOM" },{"id":"EditGetCompleteTask" , "name":"编辑时获取完成任务" , "type":"USERCUSTOM" },{"id":"HaveRead" , "name":"已读" , "type":"USERCUSTOM" },{"id":"PushUserMonthly" , "name":"定时推送待阅提醒用户月报" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Submit" , "name":"提交" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }

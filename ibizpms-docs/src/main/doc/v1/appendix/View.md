@@ -558,6 +558,7 @@ SRFNAVPARAM.project=%project%|
 |-|日报编辑视图（编辑）|DEEDITVIEW|&nbsp;|
 |-|产品|DETABEXPVIEW|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
+|-|月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|需求细分|DEGRIDVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
 |-|项目统计表格视图|DEGRIDVIEW|&nbsp;|
@@ -661,6 +662,7 @@ SRFNAVPARAM.project=%project%|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|文档库树导航视图（产品下属）|DETREEEXPVIEW|&nbsp;|
+|-|产品日报编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例图表视图（执行结果）|DECHARTVIEW9|&nbsp;|
 |-|产品计划表格视图（项目）|DEGRIDVIEW9|&nbsp;|
 |-|指派|DEOPTVIEW|&nbsp;|

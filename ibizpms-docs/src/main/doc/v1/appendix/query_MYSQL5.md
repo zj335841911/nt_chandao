@@ -8057,7 +8057,7 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_DAILY` t1 
 
-WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')})  AND  DATE_FORMAT(t1.date,'%y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%y-%m-%d') ) 
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')})  AND  DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d') ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzDaily_View"></div>
@@ -8422,6 +8422,33 @@ FROM
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.issubmit = '1' 
 t1.account = #{srf.sessioncontext.srfloginname} 
+
+```
+### 项目月报(ProjectMonthly)<div id="IbzMonthly_ProjectMonthly"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_MONTHLYID`,
+t1.`IBZ_MONTHLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`NEXTMONTHPLANSTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISMONTHTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_MONTHLY` t1 
+
+WHERE ( t1.`ISSUBMIT` = '1'  AND  DATE_FORMAT(t1.date,'%Y-%m') = ${srfdatacontext('yearmonth')}  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')}) ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzMonthly_View"></div>

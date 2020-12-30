@@ -105,6 +105,7 @@
 |MyMonthlyMob|我的月报（移动端）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_MyMonthlyMob))|否|&nbsp;|
 |MyReceivedMonthly|我收到的月报([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_MyReceivedMonthly))|否|&nbsp;|
 |MySubmitMonthly|我提交的月报([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_MySubmitMonthly))|否|&nbsp;|
+|ProjectMonthly|项目月报([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_ProjectMonthly))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_View))|否|&nbsp;|
 
 * **数据集合**
@@ -116,6 +117,7 @@
 |MyMonthlyMob|我的月报（移动端）|MyMonthlyMob|否|&nbsp;|
 |MyReceivedMonthly|我收到的月报|MyReceivedMonthly|否|&nbsp;|
 |MySubmitMonthly|我提交的月报|MySubmitMonthly|否|&nbsp;|
+|ProjectMonthly|项目月报|ProjectMonthly|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

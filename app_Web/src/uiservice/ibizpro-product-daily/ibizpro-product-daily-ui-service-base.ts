@@ -96,6 +96,15 @@ export default class IbizproProductDailyUIServiceBase extends UIService {
      * @memberof  IbizproProductDailyUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibizproproductdailies',
+            component: 'ibizpro-product-daily-edit-view',
+            openmode: 'DRAWER_TOP',
+            title: '产品日报',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

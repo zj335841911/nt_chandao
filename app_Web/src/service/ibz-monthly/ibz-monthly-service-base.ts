@@ -399,4 +399,33 @@ export default class IbzMonthlyServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzmonthlies/searchmysubmitmonthly`,tempData,isloading);
     }
+
+    /**
+     * FetchProjectMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async FetchProjectMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchprojectmonthly`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async searchProjectMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/searchprojectmonthly`,tempData,isloading);
+    }
 }
