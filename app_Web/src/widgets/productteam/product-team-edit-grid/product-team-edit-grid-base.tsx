@@ -223,7 +223,7 @@ export class ProductTeamEditGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
-            enableCond: 3 ,
+            enableCond: 1 ,
         },
         {
             name: 'role',
