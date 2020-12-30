@@ -5255,6 +5255,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugMPickupView5",
             "viewtag": "f1e935bce2146c2c75597dcee9ee4412"
         },
+        "ibzproproductusertaskproductdailypartgridview": {
+            "title": "产品汇报用户任务表格视图",
+            "caption": "产品日报",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzproProductUserTaskProductDailyPartGridView",
+            "viewtag": "f24328f024ca560f1d741035e0e2ffd8"
+        },
         "taskforwardview": {
             "title": "转交任务",
             "caption": "转交任务",

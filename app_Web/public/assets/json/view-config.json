@@ -6559,6 +6559,16 @@
         "viewtag": "f1e935bce2146c2c75597dcee9ee4412",
         "memo": ""
     },
+    "ibzproproductusertaskproductdailypartgridview": {
+        "title": "产品汇报用户任务表格视图",
+        "caption": "产品日报",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProductUserTaskProductDailyPartGridView",
+        "viewfilename": "ibzpro-product-user-task-product-daily-part-grid-view",
+        "viewtag": "f24328f024ca560f1d741035e0e2ffd8",
+        "memo": ""
+    },
     "taskforwardview": {
         "title": "转交任务",
         "caption": "转交任务",

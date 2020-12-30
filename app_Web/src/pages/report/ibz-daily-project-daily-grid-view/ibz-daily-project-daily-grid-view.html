@@ -1,13 +1,4 @@
 <studio-view viewName="ibzdailyprojectdailygridview" viewTitle="日报表格视图" class='degridview ibz-daily-project-daily-grid-view'>
-    <i-input
-        slot="quickSearch"
-        clearable
-        v-show="!isExpandSearchForm"
-        v-model="query"
-        :placeholder="$t('entities.ibzdaily.fields.ibzdailyname')"
-        search
-        @on-search="onSearch($event)"
-    ></i-input>
     <template slot="searchForm">
                 <view_searchform 
             :viewState="viewState"  

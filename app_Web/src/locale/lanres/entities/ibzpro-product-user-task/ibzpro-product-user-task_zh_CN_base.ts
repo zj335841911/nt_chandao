@@ -16,6 +16,28 @@ function getLocaleResourceBase(){
 			eststarted: commonLogic.appcommonhandle("预计开始",null),
 			deadline: commonLogic.appcommonhandle("截止日期",null),
 		},
+			views: {
+				productdailypartgridview: {
+					caption: commonLogic.appcommonhandle("产品日报",null),
+					title: commonLogic.appcommonhandle("产品汇报用户任务表格视图",null),
+				},
+			},
+			productdaily_grid: {
+				columns: {
+					account: commonLogic.appcommonhandle("用户",null),
+					taskname: commonLogic.appcommonhandle("任务名称",null),
+					tasktype: commonLogic.appcommonhandle("任务类型",null),
+					consumed: commonLogic.appcommonhandle("当天消耗",null),
+					eststarted: commonLogic.appcommonhandle("预计开始",null),
+					deadline: commonLogic.appcommonhandle("截止日期",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					progressrate: commonLogic.appcommonhandle("进度",null),
+					delaydays: commonLogic.appcommonhandle("延期天数",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }
