@@ -27,7 +27,7 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     @Override
     public boolean create(IbizproIndex et) {
         repository.save(et);
-        CachedBeanCopier.copy(get(et.getIndexid()),et);
+        CachedBeanCopier.copy(get(et.getIndexid()), et);
         return true;
     }
 
@@ -49,8 +49,8 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     }
 
     @Override
-    public boolean remove(Integer key) {
-        repository.deleteById(key);
+    public boolean remove(IbizproIndex et) {
+        repository.deleteById(et.getDocid());
         return true;
     }
 
@@ -60,16 +60,7 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     }
     @Override
     public IbizproIndex get(Integer key) {
-        Optional<IbizproIndex> result = repository.findById(key);
-        if(!result.isPresent()){
-            IbizproIndex et=new IbizproIndex();
-            et.setIndexid(key);
-            return et;
-        }
-        else{
-            IbizproIndex et=result.get();
-            return et;
-        }
+        return null;
     }
     @Override
     public boolean save(IbizproIndex et) {
