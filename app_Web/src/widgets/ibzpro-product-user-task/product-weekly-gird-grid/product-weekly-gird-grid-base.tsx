@@ -131,7 +131,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.taskname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

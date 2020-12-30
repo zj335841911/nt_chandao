@@ -69,7 +69,7 @@ export default class ProductDailyModel {
         {
           name: 'delaydays',
           prop: 'delaydays',
-          dataType: 'INT',
+          dataType: 'TEXT',
         },
         {
           name: 'task',

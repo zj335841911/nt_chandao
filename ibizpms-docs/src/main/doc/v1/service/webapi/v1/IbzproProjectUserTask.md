@@ -343,7 +343,7 @@ POST
 | 8 | taskname | String | 允许 | 任务名称 |
 | 9 | tasktype | String | 允许 | 任务类型 |
 | 10 | progressrate | String | 允许 | 进度 |
-| 11 | delaydays | Integer | 允许 | 延期天数 |
+| 11 | delaydays | String | 允许 | 延期天数 |
 | 12 | eststarted | Timestamp | 允许 | 预计开始<br>时间格式：yyyy-MM-dd |
 | 13 | deadline | Timestamp | 允许 | 截止日期<br>时间格式：yyyy-MM-dd |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |

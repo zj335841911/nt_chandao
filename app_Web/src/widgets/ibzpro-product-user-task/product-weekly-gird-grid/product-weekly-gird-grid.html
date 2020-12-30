@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskname')">
-                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.taskname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.taskname')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.taskname')}}

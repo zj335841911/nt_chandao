@@ -88,26 +88,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			editviewtoolbar_toolbar: {
-				tbitem3: {
-					caption: commonLogic.appcommonhandle("保存",null),
-					tip: commonLogic.appcommonhandle("保存",null),
-				},
-				tbitem4: {
-					caption: commonLogic.appcommonhandle("保存并新建",null),
-					tip: commonLogic.appcommonhandle("保存并新建",null),
-				},
-				tbitem5: {
-					caption: commonLogic.appcommonhandle("保存并关闭",null),
-					tip: commonLogic.appcommonhandle("保存并关闭",null),
-				},
-				tbitem7: {
-					caption: commonLogic.appcommonhandle("删除",null),
-					tip: commonLogic.appcommonhandle("删除",null),
-				},
-			},
-			usr2gridviewtoolbar_toolbar: {
-			},
 		};
 		return data;
 }
