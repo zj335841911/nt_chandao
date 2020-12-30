@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('ibzpro_projectweeklyname')">
-                <el-table-column show-overflow-tooltip :prop="'ibzpro_projectweeklyname'" :label="$t('entities.ibizproprojectweekly.main_grid.columns.ibzpro_projectweeklyname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'ibzpro_projectweeklyname'" :label="$t('entities.ibizproprojectweekly.main_grid.columns.ibzpro_projectweeklyname')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibizproprojectweekly.main_grid.columns.ibzpro_projectweeklyname')}}
@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projectname')">
-                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.ibizproprojectweekly.main_grid.columns.projectname')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.ibizproprojectweekly.main_grid.columns.projectname')" :width="300"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibizproprojectweekly.main_grid.columns.projectname')}}
@@ -50,7 +50,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pm')">
-                <el-table-column show-overflow-tooltip :prop="'pm'" :label="$t('entities.ibizproprojectweekly.main_grid.columns.pm')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pm'" :label="$t('entities.ibizproprojectweekly.main_grid.columns.pm')" :width="130"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibizproprojectweekly.main_grid.columns.pm')}}
