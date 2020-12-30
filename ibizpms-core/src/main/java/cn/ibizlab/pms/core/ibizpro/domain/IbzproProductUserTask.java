@@ -117,7 +117,7 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "delaydays")
     @JsonProperty("delaydays")
-    private Integer delaydays;
+    private String delaydays;
     /**
      * 预计开始
      */

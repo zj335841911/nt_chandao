@@ -69,7 +69,7 @@ export default class MainModel {
         {
           name: 'delaydays',
           prop: 'delaydays',
-          dataType: 'INT',
+          dataType: 'TEXT',
         },
         {
           name: 'task',

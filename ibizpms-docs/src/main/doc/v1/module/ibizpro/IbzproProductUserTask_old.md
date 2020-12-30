@@ -18,7 +18,7 @@
 |任务名称|TASKNAME|TEXT|&nbsp;|
 |任务类型|TASKTYPE|SSCODELIST|&nbsp;|
 |进度|PROGRESSRATE|TEXT|&nbsp;|
-|延期天数|DELAYDAYS|INT|&nbsp;|
+|延期天数|DELAYDAYS|TEXT|&nbsp;|
 |预计开始|ESTSTARTED|DATE|&nbsp;|
 |截止日期|DEADLINE|DATE|&nbsp;|
 
@@ -34,7 +34,7 @@
 |任务名称|默认规则|内容长度必须小于等于[100]|
 |任务类型|默认规则|内容长度必须小于等于[200]|
 |进度|默认规则|内容长度必须小于等于[100]|
-|延期天数|默认规则|默认规则|
+|延期天数|默认规则|内容长度必须小于等于[100]|
 |预计开始|默认规则|默认规则|
 |截止日期|默认规则|默认规则|
 

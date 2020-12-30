@@ -114,7 +114,8 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "delaydays")
     @JsonProperty("delaydays")
-    private Integer delaydays;
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String delaydays;
 
     /**
      * 属性 [ESTSTARTED]

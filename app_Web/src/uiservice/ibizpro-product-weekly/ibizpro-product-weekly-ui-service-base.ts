@@ -100,7 +100,7 @@ export default class IbizproProductWeeklyUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'ibizproproductweeklies',
             component: 'ibizpro-product-weekly-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_TOP',
             title: '产品周报',
             width: 0,
             height: 0

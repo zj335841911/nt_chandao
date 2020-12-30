@@ -25,7 +25,7 @@
 | 7 | [任务名称](#属性-任务名称（TASKNAME）) | TASKNAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 8 | [任务类型](#属性-任务类型（TASKTYPE）) | TASKTYPE | 单项选择(文本值) | 否 | 否 | 是 |
 | 9 | [进度](#属性-进度（PROGRESSRATE）) | PROGRESSRATE | 文本，可指定长度 | 否 | 否 | 是 |
-| 10 | [延期天数](#属性-延期天数（DELAYDAYS）) | DELAYDAYS | 整型 | 否 | 否 | 是 |
+| 10 | [延期天数](#属性-延期天数（DELAYDAYS）) | DELAYDAYS | 文本，可指定长度 | 否 | 否 | 是 |
 | 11 | [预计开始](#属性-预计开始（ESTSTARTED）) | ESTSTARTED | 日期型 | 否 | 否 | 是 |
 | 12 | [截止日期](#属性-截止日期（DEADLINE）) | DEADLINE | 日期型 | 否 | 否 | 是 |
 
@@ -384,10 +384,10 @@ String
 应用界面字段[无存储]
 
 - 数据类型
-整型
+文本，可指定长度
 
 - Java类型
-Integer
+String
 
 - 是否允许为空
 是
