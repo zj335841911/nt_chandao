@@ -1189,8 +1189,9 @@ Save
 | 3 | [我收到的日报](#数据查询-我收到的日报（MyDaily）) | MyDaily | 否 |
 | 4 | [我的日报](#数据查询-我的日报（MyNotSubmit）) | MyNotSubmit | 否 |
 | 5 | [我提交的日报](#数据查询-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
-| 6 | [项目日报](#数据查询-项目日报（ProjectDaily）) | ProjectDaily | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [产品日报](#数据查询-产品日报（ProductDaily）) | ProductDaily | 否 |
+| 7 | [项目日报](#数据查询-项目日报（ProjectDaily）) | ProjectDaily | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1363,6 +1364,41 @@ FROM
 
 
 ```
+### 数据查询-产品日报（ProductDaily）
+#### 说明
+产品日报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_DAILY` t1
+```
 ### 数据查询-项目日报（ProjectDaily）
 #### 说明
 项目日报
@@ -1447,7 +1483,8 @@ FROM `T_IBZ_DAILY` t1
 | 3 | [我收到的日报](#数据集合-我收到的日报（MyDaily）) | MyDaily | 否 |
 | 4 | [我的日报](#数据集合-我的日报（MyNotSubmit）) | MyNotSubmit | 否 |
 | 5 | [我提交的日报](#数据集合-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
-| 6 | [项目日报](#数据集合-项目日报（ProjectDaily）) | ProjectDaily | 否 |
+| 6 | [产品日报](#数据集合-产品日报（ProductDaily）) | ProductDaily | 否 |
+| 7 | [项目日报](#数据集合-项目日报（ProjectDaily）) | ProjectDaily | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1519,6 +1556,20 @@ FROM `T_IBZ_DAILY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我提交的日报（MySubmitDaily）](#数据查询-我提交的日报（MySubmitDaily）) |
+### 数据集合-产品日报（ProductDaily）
+#### 说明
+产品日报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品日报（ProductDaily）](#数据查询-产品日报（ProductDaily）) |
 ### 数据集合-项目日报（ProjectDaily）
 #### 说明
 项目日报

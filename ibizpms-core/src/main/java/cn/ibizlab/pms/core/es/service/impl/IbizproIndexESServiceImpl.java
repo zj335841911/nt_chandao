@@ -83,19 +83,3 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
 
     }
 
-    public Page<IbizproIndex> searchDefault(IbizproIndexSearchContext context){
-        Iterable<IbizproIndex> list= repository.search(context.getEsCond());
-        List<IbizproIndex> entities = Lists.newArrayList(list);
-        return new PageImpl<IbizproIndex>(entities,context.getPageable(),entities.size());
-    }
-    public Page<IbizproIndex> searchESquery(IbizproIndexSearchContext context){
-        Iterable<IbizproIndex> list= repository.search(context.getEsCond());
-        List<IbizproIndex> entities = Lists.newArrayList(list);
-        return new PageImpl<IbizproIndex>(entities,context.getPageable(),entities.size());
-    }
-    public Page<IbizproIndex> searchIndexDER(IbizproIndexSearchContext context){
-        Iterable<IbizproIndex> list= repository.search(context.getEsCond());
-        List<IbizproIndex> entities = Lists.newArrayList(list);
-        return new PageImpl<IbizproIndex>(entities,context.getPageable(),entities.size());
-    }
-}

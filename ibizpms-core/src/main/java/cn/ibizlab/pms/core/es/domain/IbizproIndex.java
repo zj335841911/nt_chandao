@@ -15,6 +15,28 @@ public class IbizproIndex implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Field(type = FieldType.Text)
+    private String indextype;
+    @Id
+    private Long indexid;
+    @Field(type = FieldType.Text)
+    private String indexname;
+    @Field(type = FieldType.Text)
+    private String deleted;
+    @Field(type = FieldType.Text)
+    private String orgid;
+    @Field(type = FieldType.Text)
+    private String mdeptid;
+    @Field(type = FieldType.Text)
+    private String indexdesc;
+    @Field(type = FieldType.Text)
+    private String color;
+    @Field(type = FieldType.Text)
+    private String project;
+    @Field(type = FieldType.Text)
+    private String acllist;
+    @Field(type = FieldType.Text)
+    private String acl;
 }
 
 

@@ -19,9 +19,6 @@ public interface IIbizproIndexESService{
     IbizproIndex get(Long key) ;
     boolean save(IbizproIndex et) ;
     void saveBatch(List<IbizproIndex> list) ;
-    Page<IbizproIndex> searchDefault(IbizproIndexSearchContext context) ;
-    Page<IbizproIndex> searchESquery(IbizproIndexSearchContext context) ;
-    Page<IbizproIndex> searchIndexDER(IbizproIndexSearchContext context) ;
 }
 
 

@@ -8059,6 +8059,34 @@ FROM
 WHERE t1.account=#{srf.sessioncontext.srfloginname} 
 
 ```
+### 产品日报(ProductDaily)<div id="IbzDaily_ProductDaily"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_DAILY` t1
+WHERE (t1.`ISSUBMIT` = '1' 
+AND exists(select 1 from zt_team t2 where t2.account = t1.`ACCOUNT` and t2.type = 'product' and t2.root = ${srfdatacontext('product')}) 
+AND DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d'))) 
+
+```
 ### 项目日报(ProjectDaily)<div id="IbzDaily_ProjectDaily"></div>
 ```sql
 SELECT

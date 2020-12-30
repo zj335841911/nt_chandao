@@ -1091,7 +1091,7 @@
     "dename":"IbzDaily",
     "delogicname":"日报",
     "sysmoudle":{"id":"REPORT","name":"汇报模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyAllDaily" , "name":"我的日报（已提交和未提交）"},{"id":"MyDaily" , "name":"我收到的日报"},{"id":"MyNotSubmit" , "name":"我的日报"},{"id":"MySubmitDaily" , "name":"我提交的日报"},{"id":"ProjectDaily" , "name":"项目日报"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyAllDaily" , "name":"我的日报（已提交和未提交）"},{"id":"MyDaily" , "name":"我收到的日报"},{"id":"MyNotSubmit" , "name":"我的日报"},{"id":"MySubmitDaily" , "name":"我提交的日报"},{"id":"ProductDaily" , "name":"产品日报"},{"id":"ProjectDaily" , "name":"项目日报"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"CreateUserDaily" , "name":"定时生成用户日报" , "type":"USERCUSTOM" },{"id":"GetYeaterdayDailyPlansTaskEdit" , "name":"获取前一天日报计划参与任务（编辑）" , "type":"USERCUSTOM" },{"id":"GetYesterdayDailyPlansTask" , "name":"获取前一天日报计划参与任务（新建）" , "type":"USERCUSTOM" },{"id":"HaveRead" , "name":"已读" , "type":"USERCUSTOM" },{"id":"LinkCompleteTask" , "name":"关联完成任务" , "type":"USERCUSTOM" },{"id":"PushUserDaily" , "name":"定时推送待阅提醒用户日报" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Submit" , "name":"提交" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }

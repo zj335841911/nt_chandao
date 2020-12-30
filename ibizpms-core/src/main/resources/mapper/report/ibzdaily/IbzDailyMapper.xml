@@ -62,6 +62,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProductDaily]-->
+	 <select id="searchProductDaily"  parameterType="cn.ibizlab.pms.core.report.filter.IbzDailySearchContext"  resultMap="IbzDailyResultMap">
+         select t1.* from (
+                <include refid="ProductDaily" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ProjectDaily]-->
 	 <select id="searchProjectDaily"  parameterType="cn.ibizlab.pms.core.report.filter.IbzDailySearchContext"  resultMap="IbzDailyResultMap">
          select t1.* from (
@@ -98,6 +107,12 @@
     <sql id="MySubmitDaily" databaseId="mysql">
 		<![CDATA[ SELECT 	t1. IBZ_DAILYID, 	t1.IBZ_DAILYNAME, 	t1.ACCOUNT, 	t1.DATE, 	t1.ISSUBMIT, 	t1.REPORTTO, 	t1.REPORTSTATUS FROM 	t_ibz_daily t1   
 					 WHERE 	t1.account=#{srf.sessioncontext.srfloginname}
+			]]>
+    </sql>
+    <!--数据查询[ProductDaily]-->
+    <sql id="ProductDaily" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_DAILYID`, t1.`IBZ_DAILYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`TODAYTASK`, t1.`TOMORROWPLANSTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_DAILY` t1
+					 WHERE 	(t1.`ISSUBMIT` = '1'  AND exists(select 1 from zt_team t2 where t2.account = t1.`ACCOUNT` and t2.type = 'product' and t2.root = #{srf.datacontext.product})  AND DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(#{srf.datacontext.date},'%Y-%m-%d')))
 			]]>
     </sql>
     <!--数据查询[ProjectDaily]-->

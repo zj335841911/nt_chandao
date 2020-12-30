@@ -345,7 +345,7 @@ function getLocaleResourceBase(){
 						caption: commonLogic.appcommonhandle("项目日报",null),
 					},
 					tabviewpanel2: {
-						caption: commonLogic.appcommonhandle("周报",null),
+						caption: commonLogic.appcommonhandle("项目周报",null),
 					},
 					tabviewpanel3: {
 						caption: commonLogic.appcommonhandle("项目月报",null),
