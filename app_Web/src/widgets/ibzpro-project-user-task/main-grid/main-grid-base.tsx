@@ -95,6 +95,22 @@ export class MainGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibizpro_projectusertask_main_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MainGridBase
+     */
+    public limit: number = 50;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

@@ -29,6 +29,11 @@ function getLocaleResourceBase(){
 			main_form: {
 				details: {
 					druipart1: commonLogic.appcommonhandle("",null), 
+					grouppanel1: commonLogic.appcommonhandle("设计",null), 
+					druipart2: commonLogic.appcommonhandle("",null), 
+					grouppanel2: commonLogic.appcommonhandle("开发",null), 
+					druipart3: commonLogic.appcommonhandle("",null), 
+					grouppanel3: commonLogic.appcommonhandle("测试",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
 					srforikey: commonLogic.appcommonhandle("",null), 

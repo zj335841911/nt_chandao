@@ -148,6 +148,37 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.grouppanel1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel1')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
     v-show="detailsModel.druipart1.visible"
     :style="{}"
     
@@ -165,8 +196,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",DATE:"%date%"}'
-    :localParam ='{tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproprojectdaily"
     parentName="IbizproProjectDaily"  
     refviewtype="DEGRIDVIEW" 
@@ -177,6 +208,149 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.grouppanel2"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel2')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel2"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectdaily" 
+    :parentdata='{"srfparentdename":"IBIZPRO_PROJECTDAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"devel",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"devel",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectdaily"
+    parentName="IbizproProjectDaily"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="tasks;date" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.grouppanel3"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.grouppanel3')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel3"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectdaily" 
+    :parentdata='{"srfparentdename":"IBIZPRO_PROJECTDAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"test",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"test",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectdaily"
+    parentName="IbizproProjectDaily"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="tasks;date" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 

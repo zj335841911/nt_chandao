@@ -86,7 +86,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainEditFormBase
      */
-    protected drCount: number = 1;
+    protected drCount: number = 3;
     /**
      * 表单数据对象
      *
@@ -148,6 +148,16 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel1: new FormGroupPanelModel({ caption: '设计', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectdaily.main_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '开发', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectdaily.main_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel3: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectdaily.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
