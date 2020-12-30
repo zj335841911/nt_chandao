@@ -72,6 +72,11 @@ export default class MainModel {
           dataType: 'INT',
         },
         {
+          name: 'task',
+          prop: 'task',
+          dataType: 'BIGINT',
+        },
+        {
           name: 'srfmajortext',
           prop: 'id',
           dataType: 'ACID',
@@ -86,6 +91,11 @@ export default class MainModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'ibzproprojectusertask',
