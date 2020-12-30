@@ -1375,6 +1375,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoAssignToView",
             "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3"
         },
+        "ibizproprojectmonthlyeditview": {
+            "title": "项目月报编辑视图",
+            "caption": "项目月报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProjectMonthlyEditView",
+            "viewtag": "436294cf39a8a5ad49acd7e4501e7e2d"
+        },
         "productstatsgridviewproducntinputtable": {
             "title": "产品统计表格视图",
             "caption": "产品统计",
@@ -3902,6 +3910,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "DocMyMoreGridView",
             "viewtag": "b593c09602d9483d53b1f725395030a6"
+        },
+        "ibizproprojectmonthlygridview": {
+            "title": "项目月报表格视图",
+            "caption": "项目月报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProjectMonthlyGridView",
+            "viewtag": "b5d03d55fc9bec6dfce016fad04ace8b"
         },
         "productdashboardinfomainview9": {
             "title": "产品信息",

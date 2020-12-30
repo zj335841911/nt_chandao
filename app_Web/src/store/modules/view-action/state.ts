@@ -967,6 +967,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '254a74c1b8fa2b5d73daaa74d0af5a7b',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproProjectUserTaskMonthlyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                '9c16791b436de259a12aa770fc3e260b',
+            ],
+        },
+        {
             viewtag: '2671388d4c12a6f139e6fd806c524dc7',
             viewmodule: 'zentao',
             viewname: 'ModuleEditView',
@@ -1544,6 +1555,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '436294cf39a8a5ad49acd7e4501e7e2d',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProjectMonthlyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6cd2dae78bcd850a9e861a24f0a96bb4',
+                '254a74c1b8fa2b5d73daaa74d0af5a7b',
+                'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
         {
@@ -2460,6 +2483,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '136cd30bd141450ecd9e7791215733e6',
+            ],
+        },
+        {
+            viewtag: '6cd2dae78bcd850a9e861a24f0a96bb4',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyProjectMonthlyGridView_',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8caddd30a10ec08a95cd804fa2524e14',
             ],
         },
         {
@@ -4282,6 +4315,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b5d03d55fc9bec6dfce016fad04ace8b',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProjectMonthlyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '436294cf39a8a5ad49acd7e4501e7e2d',
+            ],
+        },
+        {
             viewtag: 'b5d2389c0dd12ae614b319090ecc2361',
             viewmodule: 'zentao',
             viewname: 'ProductDashboardInfoMainView9',
@@ -4941,10 +4984,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'a3d1a3af80fdf764f13a63f9c19934c6',
+                'b5d03d55fc9bec6dfce016fad04ace8b',
                 '19b354cc6d7f358e9e205a17283fda3b',
                 'ad54d5021cc21a2ec7eb02ac05cf402e',
-                'd054969e8eb4b11e01d771b95045178c',
             ],
         },
         {

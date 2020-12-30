@@ -451,6 +451,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试报告数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|人员表格视图|DEGRIDVIEW|&nbsp;|
 |-|指派表单视图|DEOPTVIEW|&nbsp;|
+|-|项目月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试运行多表单编辑视图|DEMEDITVIEW9|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
@@ -767,6 +768,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例编辑视图|DEEDITVIEW9|&nbsp;|
 |-|待办提交|DEEDITVIEW|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
+|-|项目月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品信息|DEEDITVIEW9|&nbsp;|
 |-|用例库用例编辑视图（主信息）|DEEDITVIEW9|&nbsp;|
 |-|doc编辑视图|DEEDITVIEW|&nbsp;|

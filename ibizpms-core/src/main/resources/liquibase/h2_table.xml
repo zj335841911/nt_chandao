@@ -1077,7 +1077,7 @@
 
 
     <!--输出实体[IBIZPRO_PRODUCTDAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_productdaily-30-37">
+    <changeSet author="zentao" id="tab-ibizpro_productdaily-37-37">
         <createTable tableName="T_IBIZPRO_PRODUCTDAILY">
                 <column name="IBIZPRO_PRODUCTDAILYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1167,7 +1167,7 @@
 
 
     <!--输出实体[IBIZPRO_PROJECTMONTHLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_projectmonthly-45-40">
+    <changeSet author="zentao" id="tab-ibizpro_projectmonthly-71-40">
         <createTable tableName="T_IBIZPRO_PROJECTMONTHLY">
                 <column name="IBIZPRO_PROJECTMONTHLYID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_IBIZPRO_PROJECTMONTHLY_IBIZ"/>
@@ -1197,7 +1197,7 @@
 
 
     <!--输出实体[IBZPRO_PROJECTWEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_projectweekly-78-41">
+    <changeSet author="zentao" id="tab-ibzpro_projectweekly-79-41">
         <createTable tableName="T_IBZPRO_PROJECTWEEKLY">
                 <column name="IBZPRO_PROJECTWEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1264,7 +1264,7 @@
 
 
     <!--输出实体[IBZ_DAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_daily-572-44">
+    <changeSet author="zentao" id="tab-ibz_daily-573-44">
         <createTable tableName="T_IBZ_DAILY">
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
@@ -1388,7 +1388,7 @@
 
 
     <!--输出实体[IBZ_MONTHLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_monthly-455-50">
+    <changeSet author="zentao" id="tab-ibz_monthly-462-50">
         <createTable tableName="T_IBZ_MONTHLY">
                 <column name="IBZ_MONTHLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_MONTHLY_IBZ_MONTHLYID"/>
@@ -3219,7 +3219,7 @@
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBIZPRO_INDEX]外键关系 -->
         <!--输出实体[IBIZPRO_PRODUCTDAILY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibizpro_productdaily-30-175">
+    <changeSet author="zentao" id="fk-ibizpro_productdaily-37-175">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBIZPRO_PRODUCTDAILY" constraintName="DER1N_IBIZPRO_PRODUCTDAILY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBIZPRO_PRODUCTWEEKLY]外键关系 -->
@@ -3231,11 +3231,11 @@
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="T_IBIZPRO_PROJECTDAILY" constraintName="DER1N_IBIZPRO_PROJECTDAILY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBIZPRO_PROJECTMONTHLY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibizpro_projectmonthly-45-178">
+    <changeSet author="zentao" id="fk-ibizpro_projectmonthly-71-178">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="T_IBIZPRO_PROJECTMONTHLY" constraintName="DER1N_IBIZPRO_PROJECTMONTHLY_Z" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_PROJECTWEEKLY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_projectweekly-78-179">
+    <changeSet author="zentao" id="fk-ibzpro_projectweekly-79-179">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="T_IBZPRO_PROJECTWEEKLY" constraintName="DER1N_IBZPRO_PROJECTWEEKLY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_AGENT]外键关系 -->
