@@ -82,7 +82,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainBase
      */  
-    public majorInfoColName:string = "";
+    public majorInfoColName:string = "ibizpro_projectdailyname";
 
 
     /**
@@ -102,11 +102,20 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
+            name: 'ibizpro_projectdailyname',
+            label: '项目日报名称',
+            langtag: 'entities.ibizproprojectdaily.main_grid.columns.ibizpro_projectdailyname',
+            show: true,
+            unit: 'STAR',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'projectname',
             label: '项目名称',
             langtag: 'entities.ibizproprojectdaily.main_grid.columns.projectname',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -238,6 +247,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
+        'ibizpro_projectdailyname':false,
         'projectname':false,
         'pm':false,
         'date':false,
@@ -337,7 +347,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['projectname','pm','date','totalestimates'];
+        let allColumns:Array<any> = ['ibizpro_projectdailyname','projectname','pm','date','totalestimates'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -416,6 +426,7 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                ibizpro_projectdailyname:'',
                 projectname:'',
                 pm:'',
                 date:'',
@@ -444,6 +455,7 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            ibizpro_projectdailyname:'',
             projectname:'',
             pm:'',
             date:'',
@@ -508,6 +520,7 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                ibizpro_projectdailyname:'',
                 projectname:'',
                 pm:'',
                 date:'',

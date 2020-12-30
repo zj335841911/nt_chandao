@@ -56,6 +56,7 @@ function getLocaleResourceBase(){
 			},
 			main_grid: {
 				columns: {
+					ibizpro_projectdailyname: commonLogic.appcommonhandle("项目日报名称",null),
 					projectname: commonLogic.appcommonhandle("项目名称",null),
 					pm: commonLogic.appcommonhandle("项目负责人",null),
 					date: commonLogic.appcommonhandle("日期",null),

@@ -66,6 +66,34 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService: IbzproProjectUserTaskUIService = new IbzproProjectUserTaskUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_taskname_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzproProjectUserTaskUIService  = new IbzproProjectUserTaskUIService();
+        curUIService.IbzproProjectUserTask_TaskDetail(datas,contextJO, paramJO,  $event, xData,this,"IbzproProjectUserTask");
+    }
+
 
     /**
      * 界面行为模型
@@ -74,6 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        TaskDetail: { name: 'TaskDetail',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -398,6 +427,21 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('TaskDetail', tag)) {
+            this.grid_taskname_click(row, tag, $event);
+        }
+    }
+
+    /**
      * 更新默认值
      * @param {*}  row 行数据
      * @memberof MainBase
@@ -491,6 +535,9 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 account:'',
+                TaskDetail:{
+                    visible: false
+                },
                 taskname:'',
                 tasktype:'',
                 consumed:'',
@@ -524,6 +571,9 @@ export class MainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             account:'',
+            TaskDetail:{
+                visible: false
+            },
             taskname:'',
             tasktype:'',
             consumed:'',
@@ -593,6 +643,9 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 account:'',
+                TaskDetail:{
+                    visible: false
+                },
                 taskname:'',
                 tasktype:'',
                 consumed:'',

@@ -59,6 +59,7 @@ function getLocaleResourceBase(){
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
+				ibzproprojectusertask_taskdetail: commonLogic.appcommonhandle("任务详情",null),
 				},
 			},
 			editviewtoolbar_toolbar: {

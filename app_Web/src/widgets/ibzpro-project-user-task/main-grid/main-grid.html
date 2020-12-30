@@ -47,7 +47,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
+                        <a v-show="row.TaskDetail.visible" :disabled="row.TaskDetail.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'TaskDetail', $event)">
                             <span>{{row.taskname}}</span>
+                        </a>
                     </template>
                 </el-table-column>
             </template>

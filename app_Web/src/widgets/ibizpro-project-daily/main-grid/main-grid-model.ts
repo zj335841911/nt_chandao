@@ -27,6 +27,11 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'ibizpro_projectdailyname',
+          prop: 'ibizproprojectdailyname',
+          dataType: 'TEXT',
+        },
+        {
           name: 'projectname',
           prop: 'projectname',
           dataType: 'PICKUPTEXT',
