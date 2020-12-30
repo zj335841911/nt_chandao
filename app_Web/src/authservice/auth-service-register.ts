@@ -96,6 +96,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('project', () => import('@/authservice/project/project-auth-service'));
         this.allAuthService.set('ibzreportly', () => import('@/authservice/ibz-reportly/ibz-reportly-auth-service'));
         this.allAuthService.set('history', () => import('@/authservice/history/history-auth-service'));
+        this.allAuthService.set('ibizproprojectmonthly', () => import('@/authservice/ibizpro-project-monthly/ibizpro-project-monthly-auth-service'));
         this.allAuthService.set('user', () => import('@/authservice/user/user-auth-service'));
         this.allAuthService.set('doclib', () => import('@/authservice/doc-lib/doc-lib-auth-service'));
         this.allAuthService.set('companystats', () => import('@/authservice/company-stats/company-stats-auth-service'));

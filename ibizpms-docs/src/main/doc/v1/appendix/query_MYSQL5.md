@@ -9393,6 +9393,16 @@ WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')})
 ```
 ### 项目日报任务(ProjectMonthlyTask)<div id="IbzproProjectUserTask_ProjectMonthlyTask"></div>
 ```sql
+select t1.*,t11.`name` as taskname,t11.deadline,t11.ESTSTARTED,t11.type as TASKTYPE,(CONCAT_WS('',case when t11.consumed = 0 or t11.consumed is null then '0' when t11.`left` = 0 or t11.`left` is null then '100' else ROUND((ROUND(t11.`consumed`/(t11.`left` + t11.consumed),2)) * 100) end ,'%')) as PROGRESSRATE,((case when t11.deadline is null or t11.deadline = '0000-00-00' or t11.deadline = '1970-01-01' then '' when t11.`status` in ('wait','doing') and t11.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t11.deadline, now()),'天') else '' end))as DELAYDAYS from (select t1.DATE,t1.TASK,t1.ACCOUNT,ROUND(sum(t1.CONSUMED),2) as CONSUMED,task as id from (
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DATE`,
+t1.`ID`,
+t1.`LEFT`,
+t1.`TASK`
+FROM `zt_taskestimate` t1 where ${srfdatacontext('yearmonth')} =DATE_FORMAT(t1.date,'%Y-%m')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
+WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')}) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzproProjectUserTask_View"></div>

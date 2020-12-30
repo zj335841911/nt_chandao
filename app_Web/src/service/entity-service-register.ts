@@ -96,6 +96,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('project', () => import('@/service/project/project-service'));
         this.allEntityService.set('ibzreportly', () => import('@/service/ibz-reportly/ibz-reportly-service'));
         this.allEntityService.set('history', () => import('@/service/history/history-service'));
+        this.allEntityService.set('ibizproprojectmonthly', () => import('@/service/ibizpro-project-monthly/ibizpro-project-monthly-service'));
         this.allEntityService.set('user', () => import('@/service/user/user-service'));
         this.allEntityService.set('doclib', () => import('@/service/doc-lib/doc-lib-service'));
         this.allEntityService.set('companystats', () => import('@/service/company-stats/company-stats-service'));

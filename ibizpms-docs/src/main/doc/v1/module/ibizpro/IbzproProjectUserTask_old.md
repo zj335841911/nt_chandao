@@ -76,6 +76,7 @@
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProjectDailyTask|项目日报任务|ProjectDailyTask|否|&nbsp;|
+|ProjectMonthlyTask|项目日报任务|ProjectMonthlyTask|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

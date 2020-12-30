@@ -57,6 +57,7 @@ import ibzlibcasesteptmp_zh_CN from '@locale/lanres/entities/ibz-lib-case-step-t
 import project_zh_CN from '@locale/lanres/entities/project/project_zh_CN';
 import ibzreportly_zh_CN from '@locale/lanres/entities/ibz-reportly/ibz-reportly_zh_CN';
 import history_zh_CN from '@locale/lanres/entities/history/history_zh_CN';
+import ibizproprojectmonthly_zh_CN from '@locale/lanres/entities/ibizpro-project-monthly/ibizpro-project-monthly_zh_CN';
 import user_zh_CN from '@locale/lanres/entities/user/user_zh_CN';
 import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
 import companystats_zh_CN from '@locale/lanres/entities/company-stats/company-stats_zh_CN';
@@ -456,6 +457,7 @@ function getAppLocale(){
             project: project_zh_CN(),
             ibzreportly: ibzreportly_zh_CN(),
             history: history_zh_CN(),
+            ibizproprojectmonthly: ibizproprojectmonthly_zh_CN(),
             user: user_zh_CN(),
             doclib: doclib_zh_CN(),
             companystats: companystats_zh_CN(),

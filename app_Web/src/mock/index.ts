@@ -64,6 +64,7 @@ import './entity/ibz-lib-case-step-tmps/ibz-lib-case-step-tmps';
 import './entity/projects/projects';
 import './entity/ibz-reportlys/ibz-reportlys';
 import './entity/historys/historys';
+import './entity/ibizpro-project-monthlys/ibizpro-project-monthlys';
 import './entity/users/users';
 import './entity/doc-libs/doc-libs';
 import './entity/company-statss/company-statss';

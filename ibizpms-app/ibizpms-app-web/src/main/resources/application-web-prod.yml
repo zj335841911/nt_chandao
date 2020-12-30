@@ -235,6 +235,10 @@ zuul:
       path: /histories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_projectmonthly:
+      path: /ibizproprojectmonthlies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_user:
       path: /users/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
