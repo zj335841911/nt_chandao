@@ -115,7 +115,7 @@ export class MainGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.ibzproprojectusertask.main_grid.columns.taskname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -361,6 +361,14 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'account',
+                srfkey: 'UserRealName_Gird',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
             {
                 name: 'tasktype',
                 srfkey: 'Task__type',

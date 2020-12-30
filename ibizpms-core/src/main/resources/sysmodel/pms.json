@@ -11274,6 +11274,7 @@
     "field_logic_name":"项目负责人",
     "entity_name":"IbizproProjectDaily",
     "field_type":"TEXT",
+    "dict":"UserRealName",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",

@@ -33,12 +33,14 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.account}}</span>
+                        <template >
+            <codelist :value="row.account" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskname')">
-                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.ibzproprojectusertask.main_grid.columns.taskname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.ibzproprojectusertask.main_grid.columns.taskname')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzproprojectusertask.main_grid.columns.taskname')}}
