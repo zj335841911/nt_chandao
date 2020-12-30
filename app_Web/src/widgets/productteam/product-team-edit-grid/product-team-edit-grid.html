@@ -45,7 +45,7 @@
                 :viewparams="viewparams" 
                 :localContext='{ ACCOUNT:"%account%" }' 
                 :localParam='{ account:"%account%" }' 
-                tag="RealNameProjectM" 
+                tag="CodeList25" 
                 codelistType="DYNAMIC"
                 placeholder="请选择..." 
                 style="" 
@@ -55,7 +55,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.account" tag="RealNameProjectM" codelistType="DYNAMIC" ></codelist>
+            <codelist :value="row.account" tag="CodeList25" codelistType="DYNAMIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>

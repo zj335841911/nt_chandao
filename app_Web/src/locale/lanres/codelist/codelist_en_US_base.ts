@@ -96,9 +96,6 @@ function getLocaleResourceBase(){
           "file": commonLogic.appcommonhandle("附件",null),
           "empty": commonLogic.appcommonhandle("",null)
       },
-      RealNameProjectM: {
-          "empty": commonLogic.appcommonhandle("",null),
-      },
       MyPlanTask: {
           "empty": commonLogic.appcommonhandle("",null),
       },
@@ -106,6 +103,9 @@ function getLocaleResourceBase(){
           "empty": commonLogic.appcommonhandle("",null),
       },
       SQLBuild: {
+          "empty": commonLogic.appcommonhandle("",null),
+      },
+      CodeList25: {
           "empty": commonLogic.appcommonhandle("",null),
       },
       CodeList81: {
@@ -852,6 +852,9 @@ function getLocaleResourceBase(){
           "1": commonLogic.appcommonhandle("是",null),
           "0": commonLogic.appcommonhandle("否",null),
           "empty": commonLogic.appcommonhandle("",null)
+      },
+      ProjectTeamProduct: {
+          "empty": commonLogic.appcommonhandle("",null),
       },
       TypeAll: {
           "custom": commonLogic.appcommonhandle("自定义",null),
