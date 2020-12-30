@@ -168,6 +168,7 @@ function getLocaleResourceBase(){
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
+					ibzmonthly_projectmonthly: commonLogic.appcommonhandle("项目月报查看详情",null),
 				},
 			},
 			default_searchform: {

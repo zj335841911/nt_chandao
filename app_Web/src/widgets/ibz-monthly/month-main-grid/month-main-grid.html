@@ -33,21 +33,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="ibzmonthly"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'ibz-monthly-monthly-main-msg-edit-view', height: 0,width: 0,title: $t('entities.ibzmonthly.views.monthlymainmsgeditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'monthlymainmsgeditview', parameterName: 'monthlymainmsgeditview' }
-            ]}"
-                            valueitem="srfkey"
-                        >
+                        <a v-show="row.ProjectMonthly.visible" :disabled="row.ProjectMonthly.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'ProjectMonthly', $event)">
                             <span>{{row.ibz_monthlyname}}</span>
-                        </app-column-link>
+                        </a>
                     </template>
                 </el-table-column>
             </template>

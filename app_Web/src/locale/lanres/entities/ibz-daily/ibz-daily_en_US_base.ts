@@ -244,6 +244,7 @@ function getLocaleResourceBase(){
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
+				ibzdaily_projectdaily: commonLogic.appcommonhandle("项目日报查看详情",null),
 				},
 			},
 			default_searchform: {
