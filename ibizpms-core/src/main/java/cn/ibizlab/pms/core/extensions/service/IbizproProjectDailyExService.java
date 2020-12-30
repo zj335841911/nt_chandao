@@ -50,7 +50,7 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
     @Override
     @Transactional
     public IbizproProjectDaily sumProjectDaily(IbizproProjectDaily et) {
-        // 计算上一天的日报
+        //
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         calendar.getTime();
@@ -61,6 +61,7 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
         Timestamp timestamp = new Timestamp(date.getTime());
         List<IbizproProjectDaily> ibizproProjectDailies = new ArrayList<>();
         for(Project project : projectList) {
+            this.remove(new QueryWrapper<IbizproProjectDaily>().eq("project", project.getId()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = '" + strDate + "'"));
             IbizproProjectDaily ibizproProjectDaily = new IbizproProjectDaily();
             ibizproProjectDaily.setProject(project.getId());
             ibizproProjectDaily.setDate(timestamp);
@@ -68,7 +69,7 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
             List<Task> taskList = getTaskList(project.getId(), strDate);
             ibizproProjectDaily.setTasks(getCurTasks(taskList));
             ibizproProjectDaily.setTotalestimates(getCusrTotalestimates(taskList, strDate));
-            ibizproProjectDaily.setIbizproprojectdailyname(String.format("%1$s-%2$s的项目日报", project.getName(), strDate));
+            ibizproProjectDaily.setIbizproprojectdailyname(String.format("%1$s-%2$s的日报", project.getName(), strDate));
             ibizproProjectDailies.add(ibizproProjectDaily);
         }
         if(ibizproProjectDailies.size() > 0) {

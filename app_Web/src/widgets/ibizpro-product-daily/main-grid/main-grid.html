@@ -51,8 +51,34 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('productname')">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibizproproductdaily.main_grid.columns.productname')" :width="250"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibizproproductdaily.main_grid.columns.productname')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link
+                            deKeyField="product"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'product-main-tab-exp-view', height: 850,width: 1400,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}"
+                            valueitem="product"
+                        >
+                            <span>{{row.productname}}</span>
+                        </app-column-link>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('po')">
-                <el-table-column show-overflow-tooltip :prop="'po'" :label="$t('entities.ibizproproductdaily.main_grid.columns.po')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'po'" :label="$t('entities.ibizproproductdaily.main_grid.columns.po')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibizproproductdaily.main_grid.columns.po')}}
@@ -66,7 +92,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('date')">
-                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibizproproductdaily.main_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibizproproductdaily.main_grid.columns.date')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibizproproductdaily.main_grid.columns.date')}}
@@ -78,7 +104,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalestimates')">
-                <el-table-column show-overflow-tooltip :prop="'totalestimates'" :label="$t('entities.ibizproproductdaily.main_grid.columns.totalestimates')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'totalestimates'" :label="$t('entities.ibizproproductdaily.main_grid.columns.totalestimates')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibizproproductdaily.main_grid.columns.totalestimates')}}
