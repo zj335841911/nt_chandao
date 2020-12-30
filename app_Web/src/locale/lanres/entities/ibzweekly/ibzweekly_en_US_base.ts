@@ -60,6 +60,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("周报",null),
 					title: commonLogic.appcommonhandle("周报表格视图",null),
 				},
+				productweeklygridview: {
+					caption: commonLogic.appcommonhandle("周报",null),
+					title: commonLogic.appcommonhandle("周报表格视图",null),
+				},
 			},
 			weeklymsg_form: {
 				details: {

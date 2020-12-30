@@ -5583,6 +5583,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainTabExpView",
             "viewtag": "fd0b8748ff96edcde009d39903a9f211"
         },
+        "ibzweeklyproductweeklygridview": {
+            "title": "周报表格视图",
+            "caption": "周报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzWeeklyProductWeeklyGridView",
+            "viewtag": "fde813cf1679434aabed3c4a64d6f954"
+        },
         "ibzproprojectusertaskgridview": {
             "title": "项目汇报用户任务表格视图",
             "caption": "项目汇报用户任务",

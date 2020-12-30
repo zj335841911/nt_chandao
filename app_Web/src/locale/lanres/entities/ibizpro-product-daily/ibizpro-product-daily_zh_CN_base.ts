@@ -57,6 +57,7 @@ function getLocaleResourceBase(){
 					srfuf: commonLogic.appcommonhandle("",null), 
 					srfdeid: commonLogic.appcommonhandle("",null), 
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					productname: commonLogic.appcommonhandle("产品名称",null), 
 					po: commonLogic.appcommonhandle("产品负责人",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
 					totalestimates: commonLogic.appcommonhandle("总工时",null), 

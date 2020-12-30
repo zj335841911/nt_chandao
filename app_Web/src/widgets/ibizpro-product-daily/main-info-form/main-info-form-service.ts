@@ -3,6 +3,7 @@ import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import IbizproProductDailyService from '@/service/ibizpro-product-daily/ibizpro-product-daily-service';
 import MainInfoModel from './main-info-form-model';
+import ProductService from '@/service/product/product-service';
 
 
 /**
@@ -41,6 +42,14 @@ export default class MainInfoService extends ControlService {
         super(opts);
         this.model = new MainInfoModel();
     }
+
+    /**
+     * 产品服务对象
+     *
+     * @type {ProductService}
+     * @memberof MainInfoService
+     */
+    public productService: ProductService = new ProductService();
 
     /**
      * 远端数据
@@ -91,6 +100,9 @@ export default class MainInfoService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
+        }
 
         return Promise.reject([])
     }
