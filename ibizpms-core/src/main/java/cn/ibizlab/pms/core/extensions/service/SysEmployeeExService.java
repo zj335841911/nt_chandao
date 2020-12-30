@@ -4,10 +4,12 @@ import cn.ibizlab.pms.core.ou.domain.SysEmployee;
 import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.ou.service.impl.SysEmployeeServiceImpl;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.TeamHelper;
+import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
 import cn.ibizlab.pms.core.zentao.domain.Team;
 import cn.ibizlab.pms.core.zentao.domain.User;
 import cn.ibizlab.pms.core.zentao.domain.UserContact;
 import cn.ibizlab.pms.core.zentao.filter.UserSearchContext;
+import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.service.IUserContactService;
 import cn.ibizlab.pms.core.zentao.service.IUserService;
@@ -47,6 +49,9 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     @Autowired
     IUserContactService userContactService;
 
+    @Autowired
+    IProjectProductService projectProductService;
+
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchDefault");
@@ -78,14 +83,47 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     public Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchProjectTeamM");
         Map<String,Object> params = context.getParams();
-        if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
+        if(params.get("root") != null && !"0".equals(params.get("root"))) {
             // 项目团队
-            context.setN_username_notin(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("srfparentkey"), params.get("account") != null ?  params.get("account").toString() : null));
+            context.setN_username_notin(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("root"), params.get("account") != null ?  params.get("account").toString() : null));
 
         }
         return super.searchDefault(context);
     }
 
+    @Override
+    public Page<SysEmployee> searchProjectTeamMProduct(SysEmployeeSearchContext context){
+        log.info("SysEmployeeExService：searchProjectTeamMProduct");
+        Map<String,Object> params = context.getParams();
+        if (params.get("root") != null && !"0".equals(params.get("root"))){
+            String account = "";
+            //项目团队，先去获取关联产品的产品团队成员
+            List<ProjectProduct> list = projectProductService.list(new QueryWrapper<ProjectProduct>().eq("project",params.get("root")));
+            for (int i = 0; i <list.size() ; i++) {
+                if (account.length() > 0){
+                    account += ",";
+                }
+                account += getAccounts(StaticDict.Team__type.PRODUCT.getValue(),list.get(i).getProduct());
+            }
+            if (!"".equals(account)){
+                context.setN_username_in(account);
+            }
+            context.setN_username_notin(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("root"), params.get("account") != null ?  params.get("account").toString() : null));
+        }
+        return super.searchDefault(context);
+    }
+
+    @Override
+    public Page<SysEmployee> searchProductTeamM(SysEmployeeSearchContext context) {
+        log.info("SysEmployeeExService：searchProductTeamM");
+        Map<String,Object> params = context.getParams();
+        if(params.get("root") != null && !"0".equals(params.get("root"))) {
+            // 产品团队
+            context.setN_username_notin(getAccounts(StaticDict.Team__type.PRODUCT.getValue(), params.get("root"), params.get("account") != null ?  params.get("account").toString() : null));
+
+        }
+        return super.searchDefault(context);
+    }
     @Override
     public Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchProjectTeamUser");
