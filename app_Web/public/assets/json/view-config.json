@@ -1069,6 +1069,16 @@
         "viewtag": "25452e386e72c70f03641cc650c1b979",
         "memo": ""
     },
+    "ibzproprojectusertaskmonthlygridview": {
+        "title": "项目汇报用户任务表格视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskMonthlyGridView",
+        "viewfilename": "ibzpro-project-user-task-monthly-grid-view",
+        "viewtag": "254a74c1b8fa2b5d73daaa74d0af5a7b",
+        "memo": ""
+    },
     "moduleeditview": {
         "title": "模块",
         "caption": "模块",

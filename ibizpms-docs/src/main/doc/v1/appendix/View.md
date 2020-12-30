@@ -386,6 +386,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品团队编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目相关成员编辑视图（相关成员）|DEEDITVIEW9|&nbsp;|
 |-|doclib数据选择视图|DEPICKUPVIEW|&nbsp;|
+|-|项目汇报用户任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|模块|DEEDITVIEW|&nbsp;|
 |-|测试结果多表单编辑视图|DEMEDITVIEW9|&nbsp;|
 |-|任务表格视图（展示）|DEGRIDVIEW9|&nbsp;|

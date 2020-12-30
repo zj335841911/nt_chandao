@@ -67,8 +67,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			usr2gridviewtoolbar_toolbar: {
-			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("Save",null),
@@ -86,6 +84,8 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Remove And Close",null),
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
+			},
+			usr2gridviewtoolbar_toolbar: {
 			},
 		};
 		return data;

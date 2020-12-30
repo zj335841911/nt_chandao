@@ -863,6 +863,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibPickupView",
             "viewtag": "25452e386e72c70f03641cc650c1b979"
         },
+        "ibzproprojectusertaskmonthlygridview": {
+            "title": "项目汇报用户任务表格视图",
+            "caption": "项目汇报用户任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzproProjectUserTaskMonthlyGridView",
+            "viewtag": "254a74c1b8fa2b5d73daaa74d0af5a7b"
+        },
         "moduleeditview": {
             "title": "模块",
             "caption": "模块",
