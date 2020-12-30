@@ -86,26 +86,6 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'createman',
-        prop: 'createman',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'createdate',
-        prop: 'createdate',
-        dataType: 'DATETIME',
-      },
-      {
-        name: 'updateman',
-        prop: 'updateman',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'updatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
-      },
-      {
         name: 'ibzpro_projectweeklyid',
         prop: 'projectweeklyid',
         dataType: 'GUID',

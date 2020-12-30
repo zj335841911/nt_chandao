@@ -44,6 +44,8 @@ public interface IIbizproProjectWeeklyService extends IService<IbizproProjectWee
     IbizproProjectWeekly get(String key);
     IbizproProjectWeekly getDraft(IbizproProjectWeekly et);
     boolean checkKey(IbizproProjectWeekly et);
+    IbizproProjectWeekly pushSumProjectWeekly(IbizproProjectWeekly et);
+    boolean pushSumProjectWeeklyBatch(List<IbizproProjectWeekly> etList);
     boolean save(IbizproProjectWeekly et);
     void saveBatch(List<IbizproProjectWeekly> list);
     Page<IbizproProjectWeekly> searchDefault(IbizproProjectWeeklySearchContext context);

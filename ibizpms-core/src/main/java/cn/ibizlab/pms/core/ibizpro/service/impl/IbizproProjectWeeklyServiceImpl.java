@@ -128,6 +128,21 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     }
     @Override
     @Transactional
+    public IbizproProjectWeekly pushSumProjectWeekly(IbizproProjectWeekly et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean pushSumProjectWeeklyBatch(List<IbizproProjectWeekly> etList) {
+        for(IbizproProjectWeekly et : etList) {
+            pushSumProjectWeekly(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IbizproProjectWeekly et) {
         if (!saveOrUpdate(et)) {
             return false;

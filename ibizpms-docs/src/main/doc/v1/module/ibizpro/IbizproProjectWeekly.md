@@ -666,7 +666,8 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [定时推送项目周报](#实体行为-定时推送项目周报（PushSumProjectWeekly）) | pushSumProjectWeekly | 用户自定义 | 后台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -737,6 +738,18 @@ CheckKey
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-定时推送项目周报（PushSumProjectWeekly）
+#### 说明
+定时推送项目周报
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无
