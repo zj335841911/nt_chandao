@@ -2781,7 +2781,7 @@
     },
     "ibzmyterritoryreporttabexpview": {
         "title": "我的地盘分页导航视图",
-        "caption": "汇报",
+        "caption": "个人",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "report",
         "viewname": "IbzMyTerritoryReportTabExpView",
@@ -3007,6 +3007,16 @@
         "viewname": "BranchPMGridView",
         "viewfilename": "branch-pmgrid-view",
         "viewtag": "776ea44ea05316c9c6cb9d5948e993f9",
+        "memo": ""
+    },
+    "ibzmyterritoryallreporttabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "汇报",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMyTerritoryALLReportTabExpView",
+        "viewfilename": "ibz-my-territory-allreport-tab-exp-view",
+        "viewtag": "778d5d75940369d519f4dbefd22628b8",
         "memo": ""
     },
     "taskgridview9_assignedtome": {
@@ -5469,6 +5479,16 @@
         "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64",
         "memo": ""
     },
+    "ibzmyterritoryprojectreporttabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "项目",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMyTerritoryProjectReportTabExpView",
+        "viewfilename": "ibz-my-territory-project-report-tab-exp-view",
+        "viewtag": "cc88c07d051f15f571735ac91fd6914d",
+        "memo": ""
+    },
     "ibzlibcasestepsgridview9": {
         "title": "用例库用例步骤表格视图",
         "caption": "用例库用例步骤",
@@ -6597,6 +6617,16 @@
         "viewname": "ProductBugTreeExpView",
         "viewfilename": "product-bug-tree-exp-view",
         "viewtag": "f78c94cb0a20d7f459753a4070f8f3e7",
+        "memo": ""
+    },
+    "ibzmyterritoryproductreporttabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "产品",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMyTerritoryProductReportTabExpView",
+        "viewfilename": "ibz-my-territory-product-report-tab-exp-view",
+        "viewtag": "f79a99531fb05baea75dee5401e4b5f9",
         "memo": ""
     },
     "actionproducttrendslistview": {

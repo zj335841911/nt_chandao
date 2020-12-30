@@ -605,14 +605,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        "srfkey": "RealNameProjectM",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
-        "appdedataset":"FetchProjectTeamM",
-        "items": []
-    },
-    {
         "srfkey": "MyPlanTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -634,6 +626,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"dynamic",
         "appdataentity":"PSSystemDBCfg",
         "appdedataset":"FetchBuild",
+        "items": []
+    },
+    {
+        "srfkey": "CodeList25",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchProductTeamM",
         "items": []
     },
     {
@@ -6055,6 +6055,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "ProjectTeamProduct",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchProjectTeamMProduct",
+        "items": []
     },
     {
         srfkey: "TypeAll",

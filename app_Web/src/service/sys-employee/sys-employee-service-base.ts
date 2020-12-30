@@ -259,6 +259,35 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * FetchProductTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProductTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchproductteamm`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProductTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchproductteamm`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamM接口方法
      *
      * @param {*} [context={}]

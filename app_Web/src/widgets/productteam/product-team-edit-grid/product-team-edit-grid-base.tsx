@@ -473,7 +473,7 @@ export class ProductTeamEditGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'account',
-                srfkey: 'RealNameProjectM',
+                srfkey: 'CodeList25',
                 codelistType : 'DYNAMIC',
                 renderMode: 'other',
                 textSeparator: '、',

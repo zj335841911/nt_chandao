@@ -336,13 +336,13 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6e1a903e2d94b6568debc087b75e5d53',
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
                 '24a03de02dc02b92a3c228b944e78ed9',
                 '43d566a4567a5e337a73afa187dae97c',
                 '96ed1661161ecbd9adbb979fddb405a5',
                 'd21c783cde14166ba9deb09e746a0f28',
                 'a6e3310693a8abeade4e5d1f928ab1f6',
+                '778d5d75940369d519f4dbefd22628b8',
                 'd8df5ca51341d33ccc19208dde3f2cce',
                 '95b5793bf8fc4bcf4cee37dcef6627cc',
                 '379360eb2f83ea4dc50744144c2878b7',
@@ -2696,6 +2696,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '778d5d75940369d519f4dbefd22628b8',
+            viewmodule: 'report',
+            viewname: 'IbzMyTerritoryALLReportTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cc88c07d051f15f571735ac91fd6914d',
+                '6e1a903e2d94b6568debc087b75e5d53',
+                'f79a99531fb05baea75dee5401e4b5f9',
+            ],
+        },
+        {
             viewtag: '79b3a14f0431747becc48f5b9f3aa990',
             viewmodule: 'zentao',
             viewname: 'TaskGridView9_AssignedToMe',
@@ -4850,6 +4862,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'cc88c07d051f15f571735ac91fd6914d',
+            viewmodule: 'report',
+            viewname: 'IbzMyTerritoryProjectReportTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a3d1a3af80fdf764f13a63f9c19934c6',
+                'a4a6e9515a944ab2976c5034fb049f63',
+                'ab7bb92108f4ae63c52d94b39affb30a',
+                'd054969e8eb4b11e01d771b95045178c',
+            ],
+        },
+        {
             viewtag: 'cc94f92626c795b12a5598ae3bf3da39',
             viewmodule: 'ibiz',
             viewname: 'IbzLibCaseStepsGridView9',
@@ -5880,6 +5905,19 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c9410c9f72535adf1fff569d5243edd1',
+            ],
+        },
+        {
+            viewtag: 'f79a99531fb05baea75dee5401e4b5f9',
+            viewmodule: 'report',
+            viewname: 'IbzMyTerritoryProductReportTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a3d1a3af80fdf764f13a63f9c19934c6',
+                'a4a6e9515a944ab2976c5034fb049f63',
+                'ab7bb92108f4ae63c52d94b39affb30a',
+                'd054969e8eb4b11e01d771b95045178c',
             ],
         },
         {

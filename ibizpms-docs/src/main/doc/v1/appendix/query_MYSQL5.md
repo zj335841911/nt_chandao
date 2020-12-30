@@ -17209,6 +17209,45 @@ t1.`USERNAME`
 FROM `T_IBZEMP` t1 
 
 ```
+### 项目团队管理(ProductTeamM)<div id="SysEmployee_ProductTeamM"></div>
+```sql
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`ENABLE`,
+t1.`IPADDR`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `T_IBZEMP` t1 
+
+WHERE ( (t1.account = ${srfwebcontext('account','{"defname":"ACCOUNT","dename":"ZT_USER"}')} or t1.account not in (select t.account from zt_team t where t.type = 'project' and t.root = ${srfwebcontext('srfparentkey','{"defname":"ACCOUNT","dename":"ZT_USER"}')})) ) 
+
+```
 ### 项目团队管理(ProjectTeamM)<div id="SysEmployee_ProjectTeamM"></div>
 ```sql
 SELECT

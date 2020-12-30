@@ -202,6 +202,28 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProductTeamM-all') and hasPermission(#context,'pms-SysEmployee-Get')")
+	@ApiOperation(value = "获取项目团队管理", tags = {"人员" } ,notes = "获取项目团队管理")
+    @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchproductteamm")
+	public ResponseEntity<List<SysEmployeeDTO>> fetchProductTeamM(SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchProductTeamM(context) ;
+        List<SysEmployeeDTO> list = sysemployeeMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProductTeamM-all') and hasPermission(#context,'pms-SysEmployee-Get')")
+	@ApiOperation(value = "查询项目团队管理", tags = {"人员" } ,notes = "查询项目团队管理")
+    @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchproductteamm")
+	public ResponseEntity<Page<SysEmployeeDTO>> searchProductTeamM(@RequestBody SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchProductTeamM(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamM-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取项目团队管理", tags = {"人员" } ,notes = "获取项目团队管理")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamm")
