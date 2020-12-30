@@ -52,6 +52,9 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProductStatsGetCurUserBugCntLogic getcuruserbugcntLogic;
+    @Autowired
+    @Lazy
+    IProductStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -147,21 +150,49 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProductStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductStats> create = new ArrayList<>();
+        List<ProductStats> update = new ArrayList<>();
+        for (ProductStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProductStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductStats> create = new ArrayList<>();
+        List<ProductStats> update = new ArrayList<>();
+        for (ProductStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -246,7 +277,6 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
 
 
 }
-
 
 
 

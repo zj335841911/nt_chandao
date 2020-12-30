@@ -22,6 +22,7 @@ public interface IbzproProjectUserTaskMapper extends BaseMapper<IbzproProjectUse
     Page<IbzproProjectUserTask> searchDefault(IPage page, @Param("srf") IbzproProjectUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProjectUserTask> wrapper);
     Page<IbzproProjectUserTask> searchProjectDailyTask(IPage page, @Param("srf") IbzproProjectUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProjectUserTask> wrapper);
     Page<IbzproProjectUserTask> searchProjectMonthlyTask(IPage page, @Param("srf") IbzproProjectUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProjectUserTask> wrapper);
+    Page<IbzproProjectUserTask> searchProjectWeeklyTask(IPage page, @Param("srf") IbzproProjectUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProjectUserTask> wrapper);
     @Override
     IbzproProjectUserTask selectById(Serializable id);
     @Override

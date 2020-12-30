@@ -104,6 +104,9 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkSuiteCasesLogic unlinksuitecasesLogic;
+    @Autowired
+    @Lazy
+    ICaseService proxyService;
 
     protected int batchSize = 500;
 
@@ -306,7 +309,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -314,7 +317,21 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Transactional
     public boolean saveBatch(Collection<Case> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Case> create = new ArrayList<>();
+        List<Case> update = new ArrayList<>();
+        for (Case et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -322,7 +339,21 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Transactional
     public void saveBatch(List<Case> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Case> create = new ArrayList<>();
+        List<Case> update = new ArrayList<>();
+        for (Case et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -752,7 +783,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
 }
-
 
 
 

@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("TeamServiceImpl")
 public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements ITeamService {
 
+    @Autowired
+    @Lazy
+    ITeamService proxyService;
 
     protected int batchSize = 500;
 
@@ -148,21 +151,49 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Team> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Team> create = new ArrayList<>();
+        List<Team> update = new ArrayList<>();
+        for (Team et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Team> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Team> create = new ArrayList<>();
+        List<Team> update = new ArrayList<>();
+        for (Team et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -226,7 +257,6 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
 
 
 }
-
 
 
 

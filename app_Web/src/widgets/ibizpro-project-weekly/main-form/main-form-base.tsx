@@ -168,23 +168,23 @@ export class MainEditFormBase extends EditFormControlBase {
 
         grouppanel9: new FormGroupPanelModel({ caption: '讨论', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectweekly.main_form', extractMode: 'ITEM', details: [] } }),
 
-        druipart6: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart6', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart10: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart10', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel5: new FormGroupPanelModel({ caption: '界面', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectweekly.main_form', extractMode: 'ITEM', details: [] } }),
 
-        druipart7: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart7', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart6: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart6', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel6: new FormGroupPanelModel({ caption: '事务', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectweekly.main_form', extractMode: 'ITEM', details: [] } }),
 
-        druipart8: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart8', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart7: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart7', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel7: new FormGroupPanelModel({ caption: '服务', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectweekly.main_form', extractMode: 'ITEM', details: [] } }),
 
-        druipart9: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart9', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart8: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart8', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel8: new FormGroupPanelModel({ caption: '其他', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectweekly.main_form', extractMode: 'ITEM', details: [] } }),
 
-        druipart10: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart10', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart9: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart9', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel10: new FormGroupPanelModel({ caption: '项目成员周报', detailType: 'GROUPPANEL', name: 'grouppanel10', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproprojectweekly.main_form', extractMode: 'ITEM', details: [] } }),
 

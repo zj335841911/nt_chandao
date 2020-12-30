@@ -69,6 +69,9 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IReleaseMobReleaseCounterLogic mobreleasecounterLogic;
+    @Autowired
+    @Lazy
+    IReleaseService proxyService;
 
     protected int batchSize = 500;
 
@@ -271,7 +274,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -279,7 +282,21 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Transactional
     public boolean saveBatch(Collection<Release> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Release> create = new ArrayList<>();
+        List<Release> update = new ArrayList<>();
+        for (Release et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -287,7 +304,21 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Transactional
     public void saveBatch(List<Release> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Release> create = new ArrayList<>();
+        List<Release> update = new ArrayList<>();
+        for (Release et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -430,7 +461,6 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
 
 }
-
 
 
 

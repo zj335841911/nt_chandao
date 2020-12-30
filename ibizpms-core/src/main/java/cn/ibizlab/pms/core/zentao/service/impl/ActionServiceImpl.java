@@ -58,6 +58,9 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IActionCommentLogic commentLogic;
+    @Autowired
+    @Lazy
+    IActionService proxyService;
 
     protected int batchSize = 500;
 
@@ -153,21 +156,49 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Action> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Action> create = new ArrayList<>();
+        List<Action> update = new ArrayList<>();
+        for (Action et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Action> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Action> create = new ArrayList<>();
+        List<Action> update = new ArrayList<>();
+        for (Action et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -279,7 +310,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
 
 }
-
 
 
 

@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzproProjectUserTaskServiceImpl")
 public class IbzproProjectUserTaskServiceImpl extends ServiceImpl<IbzproProjectUserTaskMapper, IbzproProjectUserTask> implements IIbzproProjectUserTaskService {
 
+    @Autowired
+    @Lazy
+    IIbzproProjectUserTaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class IbzproProjectUserTaskServiceImpl extends ServiceImpl<IbzproProjectU
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzproProjectUserTask> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzproProjectUserTask> create = new ArrayList<>();
+        List<IbzproProjectUserTask> update = new ArrayList<>();
+        for (IbzproProjectUserTask et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzproProjectUserTask> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzproProjectUserTask> create = new ArrayList<>();
+        List<IbzproProjectUserTask> update = new ArrayList<>();
+        for (IbzproProjectUserTask et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -176,6 +207,15 @@ public class IbzproProjectUserTaskServiceImpl extends ServiceImpl<IbzproProjectU
     @Override
     public Page<IbzproProjectUserTask> searchProjectMonthlyTask(IbzproProjectUserTaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproProjectUserTask> pages=baseMapper.searchProjectMonthlyTask(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzproProjectUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目周报任务
+     */
+    @Override
+    public Page<IbzproProjectUserTask> searchProjectWeeklyTask(IbzproProjectUserTaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproProjectUserTask> pages=baseMapper.searchProjectWeeklyTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzproProjectUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -214,7 +254,6 @@ public class IbzproProjectUserTaskServiceImpl extends ServiceImpl<IbzproProjectU
 
 
 }
-
 
 
 

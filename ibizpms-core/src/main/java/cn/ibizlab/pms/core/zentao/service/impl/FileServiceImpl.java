@@ -51,6 +51,9 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProSysTplService ibzprosystplService;
+    @Autowired
+    @Lazy
+    IFileService proxyService;
 
     protected int batchSize = 500;
 
@@ -137,21 +140,49 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<File> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<File> create = new ArrayList<>();
+        List<File> update = new ArrayList<>();
+        for (File et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<File> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<File> create = new ArrayList<>();
+        List<File> update = new ArrayList<>();
+        for (File et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -227,7 +258,6 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
 
 
 }
-
 
 
 

@@ -7511,7 +7511,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v2.`PRECONDITION` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7529,7 +7529,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v3.`DESC` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7547,7 +7547,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v4.`DESC` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7583,7 +7583,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v6.`DESC` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7610,11 +7610,13 @@ t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 ### 产品日报(ProductDaily)<div id="IbizproProductDaily_ProductDaily"></div>
@@ -7645,11 +7647,13 @@ t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 
@@ -9319,9 +9323,39 @@ WHERE t1.issubmit = '1'
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
 
 ```
+### 产品团队成员周报(ProductTeamMemberWeekly)<div id="IbzWeekly_ProductTeamMemberWeekly"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
+t1.`NEXTWEEKTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'product' and t.root =${srfdatacontext('product')})  
+and YEARWEEK(t1.date,INTERVAL 1 DAY) = YEARWEEK(${srfdatacontext('date')},INTERVAL 1 DAY) ) 
+
+```
 ### 项目周报(ProjectWeekly)<div id="IbzWeekly_ProjectWeekly"></div>
 ```sql
-SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_DAILYID`, t1.`IBZ_DAILYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`TODAYTASK`, t1.`TOMORROWPLANSTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1
+SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_WEEKLYID`, t1.`IBZ_WEEKLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`TODAYTASK`, t1.`TOMORROWPLANSTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')})  AND  DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d') ) 
+
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzWeekly_View"></div>
 ```sql
@@ -9502,6 +9536,12 @@ t1.`ID`,
 t1.`LEFT`,
 t1.`TASK`
 FROM `zt_taskestimate` t1 where ${srfdatacontext('yearmonth')} =DATE_FORMAT(t1.date,'%Y-%m')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
+WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')}) 
+
+```
+### 项目周报任务(ProjectWeeklyTask)<div id="IbzproProjectUserTask_ProjectWeeklyTask"></div>
+```sql
+select t1.*,t11.`name` as taskname,t11.deadline,t11.ESTSTARTED,t11.type as TASKTYPE,(CONCAT_WS('',case when t11.consumed = 0 or t11.consumed is null then '0' when t11.`left` = 0 or t11.`left` is null then '100' else ROUND((ROUND(t11.`consumed`/(t11.`left` + t11.consumed),2)) * 100) end ,'%')) as PROGRESSRATE,((case when t11.deadline is null or t11.deadline = '0000-00-00' or t11.deadline = '1970-01-01' then '' when t11.`status` in ('wait','doing') and t11.deadline <DATE_FORMAT(now(),'%Y-%m-%d') then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t11.deadline, now()),'天') else '' end))as DELAYDAYS from (select t1.DATE,t1.TASK,t1.ACCOUNT,ROUND(sum(t1.CONSUMED),2) as CONSUMED,task as id from ( SELECT t1.`ACCOUNT`, t1.`CONSUMED`, t1.`DATE`, t1.`ID`, t1.`LEFT`, t1.`TASK` FROM `zt_taskestimate` t1 where DATE_FORMAT(t1.date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB(now(), INTERVAL 8 day),'%Y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
 WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')}) 
 
 ```

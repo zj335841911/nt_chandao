@@ -61,6 +61,9 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestSuiteMobTestSuiteCountLogic mobtestsuitecountLogic;
+    @Autowired
+    @Lazy
+    ITestSuiteService proxyService;
 
     protected int batchSize = 500;
 
@@ -142,21 +145,49 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<TestSuite> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TestSuite> create = new ArrayList<>();
+        List<TestSuite> update = new ArrayList<>();
+        for (TestSuite et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<TestSuite> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TestSuite> create = new ArrayList<>();
+        List<TestSuite> update = new ArrayList<>();
+        for (TestSuite et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -223,7 +254,6 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
 
 }
-
 
 
 

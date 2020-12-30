@@ -51,6 +51,9 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    @Autowired
+    @Lazy
+    ITaskEstimateService proxyService;
 
     protected int batchSize = 500;
 
@@ -131,21 +134,49 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<TaskEstimate> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TaskEstimate> create = new ArrayList<>();
+        List<TaskEstimate> update = new ArrayList<>();
+        for (TaskEstimate et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<TaskEstimate> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TaskEstimate> create = new ArrayList<>();
+        List<TaskEstimate> update = new ArrayList<>();
+        for (TaskEstimate et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -158,9 +189,6 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         this.remove(new QueryWrapper<TaskEstimate>().eq("task", id));
     }
 
-    @Autowired
-    @Lazy
-    ITaskEstimateService proxyService;
     @Override
     public void saveByTask(Long id, List<TaskEstimate> list) {
         if (list == null) {
@@ -249,7 +277,6 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
 
 }
-
 
 
 

@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbizproIndexServiceImpl")
 public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, IbizproIndex> implements IIbizproIndexService {
 
+    @Autowired
+    @Lazy
+    IIbizproIndexService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbizproIndex> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproIndex> create = new ArrayList<>();
+        List<IbizproIndex> update = new ArrayList<>();
+        for (IbizproIndex et : list) {
+            if (ObjectUtils.isEmpty(et.getIndexid()) || ObjectUtils.isEmpty(getById(et.getIndexid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbizproIndex> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproIndex> create = new ArrayList<>();
+        List<IbizproIndex> update = new ArrayList<>();
+        for (IbizproIndex et : list) {
+            if (ObjectUtils.isEmpty(et.getIndexid()) || ObjectUtils.isEmpty(getById(et.getIndexid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -235,7 +266,6 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
 
 
 }
-
 
 
 

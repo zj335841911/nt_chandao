@@ -201,6 +201,28 @@ public class IbzproProjectUserTaskResource {
                 .body(new PageImpl(ibzproprojectusertaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProjectUserTask-searchProjectWeeklyTask-all')")
+	@ApiOperation(value = "获取项目周报任务", tags = {"项目汇报用户任务" } ,notes = "获取项目周报任务")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzproprojectusertasks/fetchprojectweeklytask")
+	public ResponseEntity<List<IbzproProjectUserTaskDTO>> fetchProjectWeeklyTask(IbzproProjectUserTaskSearchContext context) {
+        Page<IbzproProjectUserTask> domains = ibzproprojectusertaskService.searchProjectWeeklyTask(context) ;
+        List<IbzproProjectUserTaskDTO> list = ibzproprojectusertaskMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProjectUserTask-searchProjectWeeklyTask-all')")
+	@ApiOperation(value = "查询项目周报任务", tags = {"项目汇报用户任务" } ,notes = "查询项目周报任务")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzproprojectusertasks/searchprojectweeklytask")
+	public ResponseEntity<Page<IbzproProjectUserTaskDTO>> searchProjectWeeklyTask(@RequestBody IbzproProjectUserTaskSearchContext context) {
+        Page<IbzproProjectUserTask> domains = ibzproprojectusertaskService.searchProjectWeeklyTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzproprojectusertaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

@@ -14,6 +14,7 @@ public interface ProductInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="name",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="desc",target = "indexdesc"),
     })
     IbizproIndex toIbizproindex(Product minorEntity);
 
@@ -21,6 +22,7 @@ public interface ProductInheritMapping {
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "name"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="indexdesc",target = "desc"),
     })
     Product toProduct(IbizproIndex majorEntity);
 

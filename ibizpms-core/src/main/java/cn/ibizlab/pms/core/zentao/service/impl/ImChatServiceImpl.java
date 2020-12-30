@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("ImChatServiceImpl")
 public class ImChatServiceImpl extends ServiceImpl<ImChatMapper, ImChat> implements IImChatService {
 
+    @Autowired
+    @Lazy
+    IImChatService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class ImChatServiceImpl extends ServiceImpl<ImChatMapper, ImChat> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ImChat> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ImChat> create = new ArrayList<>();
+        List<ImChat> update = new ArrayList<>();
+        for (ImChat et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ImChat> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ImChat> create = new ArrayList<>();
+        List<ImChat> update = new ArrayList<>();
+        for (ImChat et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -196,7 +227,6 @@ public class ImChatServiceImpl extends ServiceImpl<ImChatMapper, ImChat> impleme
 
 
 }
-
 
 
 

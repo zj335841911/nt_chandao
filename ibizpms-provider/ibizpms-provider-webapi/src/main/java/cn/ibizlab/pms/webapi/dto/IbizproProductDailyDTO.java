@@ -102,15 +102,6 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
     private Long product;
 
     /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String productname;
-
-    /**
      * 属性 [DATE]
      *
      */
@@ -135,6 +126,15 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "totalestimates")
     @JsonProperty("totalestimates")
     private Double totalestimates;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
 
 
     /**

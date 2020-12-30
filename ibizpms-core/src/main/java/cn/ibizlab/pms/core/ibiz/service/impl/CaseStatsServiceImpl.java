@@ -54,6 +54,9 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    @Autowired
+    @Lazy
+    ICaseStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -144,7 +147,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -152,7 +155,21 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Transactional
     public boolean saveBatch(Collection<CaseStats> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<CaseStats> create = new ArrayList<>();
+        List<CaseStats> update = new ArrayList<>();
+        for (CaseStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -160,7 +177,21 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Transactional
     public void saveBatch(List<CaseStats> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<CaseStats> create = new ArrayList<>();
+        List<CaseStats> update = new ArrayList<>();
+        for (CaseStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -252,7 +283,6 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
 
 
 }
-
 
 
 

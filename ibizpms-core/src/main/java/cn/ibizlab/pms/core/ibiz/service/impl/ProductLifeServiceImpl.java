@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("ProductLifeServiceImpl")
 public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, ProductLife> implements IProductLifeService {
 
+    @Autowired
+    @Lazy
+    IProductLifeService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProductLife> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductLife> create = new ArrayList<>();
+        List<ProductLife> update = new ArrayList<>();
+        for (ProductLife et : list) {
+            if (ObjectUtils.isEmpty(et.getProductlifeid()) || ObjectUtils.isEmpty(getById(et.getProductlifeid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProductLife> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductLife> create = new ArrayList<>();
+        List<ProductLife> update = new ArrayList<>();
+        for (ProductLife et : list) {
+            if (ObjectUtils.isEmpty(et.getProductlifeid()) || ObjectUtils.isEmpty(getById(et.getProductlifeid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -244,7 +275,6 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
 
 
 }
-
 
 
 

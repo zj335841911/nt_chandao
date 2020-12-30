@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbiLoginServiceImpl")
 public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> implements IIbiLoginService {
 
+    @Autowired
+    @Lazy
+    IIbiLoginService proxyService;
 
     protected int batchSize = 500;
 
@@ -123,7 +126,6 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
 
 
 }
-
 
 
 

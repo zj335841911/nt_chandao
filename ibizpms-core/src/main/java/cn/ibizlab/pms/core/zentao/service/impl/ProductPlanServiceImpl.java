@@ -74,6 +74,9 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanMobProductPlanCounterLogic mobproductplancounterLogic;
+    @Autowired
+    @Lazy
+    IProductPlanService proxyService;
 
     protected int batchSize = 500;
 
@@ -235,7 +238,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -243,7 +246,21 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Transactional
     public boolean saveBatch(Collection<ProductPlan> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductPlan> create = new ArrayList<>();
+        List<ProductPlan> update = new ArrayList<>();
+        for (ProductPlan et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -251,7 +268,21 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Transactional
     public void saveBatch(List<ProductPlan> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductPlan> create = new ArrayList<>();
+        List<ProductPlan> update = new ArrayList<>();
+        for (ProductPlan et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -409,7 +440,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
 
 }
-
 
 
 

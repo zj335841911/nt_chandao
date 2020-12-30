@@ -20,10 +20,10 @@ hide members
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |产品负责人|PO|TEXT|&nbsp;|
 |产品|PRODUCT|PICKUP|&nbsp;|
-|产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
 |任务|TASKS|TEXT|&nbsp;|
 |总工时|TOTALESTIMATES|FLOAT|&nbsp;|
+|产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -36,10 +36,10 @@ hide members
 |更新人|默认规则|内容长度必须小于等于[60]|
 |产品负责人|默认规则|内容长度必须小于等于[100]|
 |产品|默认规则|默认规则|
-|产品名称|默认规则|内容长度必须小于等于[90]|
 |日期|默认规则|默认规则|
 |任务|默认规则|内容长度必须小于等于[100]|
 |总工时|默认规则|默认规则|
+|产品名称|默认规则|内容长度必须小于等于[90]|
 
 ## 状态控制
 

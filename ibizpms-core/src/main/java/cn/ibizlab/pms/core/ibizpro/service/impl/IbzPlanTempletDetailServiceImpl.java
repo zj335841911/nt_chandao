@@ -51,6 +51,9 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletService ibzplantempletService;
+    @Autowired
+    @Lazy
+    IIbzPlanTempletDetailService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,21 +139,49 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzPlanTempletDetail> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzPlanTempletDetail> create = new ArrayList<>();
+        List<IbzPlanTempletDetail> update = new ArrayList<>();
+        for (IbzPlanTempletDetail et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzplantempletdetailid()) || ObjectUtils.isEmpty(getById(et.getIbzplantempletdetailid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzPlanTempletDetail> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzPlanTempletDetail> create = new ArrayList<>();
+        List<IbzPlanTempletDetail> update = new ArrayList<>();
+        for (IbzPlanTempletDetail et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzplantempletdetailid()) || ObjectUtils.isEmpty(getById(et.getIbzplantempletdetailid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -163,9 +194,6 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
         this.remove(new QueryWrapper<IbzPlanTempletDetail>().eq("plantempletid", ibzplantempletid));
     }
 
-    @Autowired
-    @Lazy
-    IIbzPlanTempletDetailService proxyService;
     @Override
     public void saveByPlantempletid(String ibzplantempletid, List<IbzPlanTempletDetail> list) {
         if (list == null) {
@@ -266,7 +294,6 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
 
 
 }
-
 
 
 

@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("CompanyStatsServiceImpl")
 public class CompanyStatsServiceImpl extends ServiceImpl<CompanyStatsMapper, CompanyStats> implements ICompanyStatsService {
 
+    @Autowired
+    @Lazy
+    ICompanyStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class CompanyStatsServiceImpl extends ServiceImpl<CompanyStatsMapper, Com
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<CompanyStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<CompanyStats> create = new ArrayList<>();
+        List<CompanyStats> update = new ArrayList<>();
+        for (CompanyStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<CompanyStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<CompanyStats> create = new ArrayList<>();
+        List<CompanyStats> update = new ArrayList<>();
+        for (CompanyStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -205,7 +236,6 @@ public class CompanyStatsServiceImpl extends ServiceImpl<CompanyStatsMapper, Com
 
 
 }
-
 
 
 

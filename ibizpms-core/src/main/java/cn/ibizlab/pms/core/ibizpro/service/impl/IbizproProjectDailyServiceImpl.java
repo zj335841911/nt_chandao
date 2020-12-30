@@ -51,6 +51,9 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    @Autowired
+    @Lazy
+    IIbizproProjectDailyService proxyService;
 
     protected int batchSize = 500;
 
@@ -141,7 +144,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -149,7 +152,21 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Transactional
     public boolean saveBatch(Collection<IbizproProjectDaily> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProjectDaily> create = new ArrayList<>();
+        List<IbizproProjectDaily> update = new ArrayList<>();
+        for (IbizproProjectDaily et : list) {
+            if (ObjectUtils.isEmpty(et.getIbizproprojectdailyid()) || ObjectUtils.isEmpty(getById(et.getIbizproprojectdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -157,7 +174,21 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Transactional
     public void saveBatch(List<IbizproProjectDaily> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProjectDaily> create = new ArrayList<>();
+        List<IbizproProjectDaily> update = new ArrayList<>();
+        for (IbizproProjectDaily et : list) {
+            if (ObjectUtils.isEmpty(et.getIbizproprojectdailyid()) || ObjectUtils.isEmpty(getById(et.getIbizproprojectdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -267,7 +298,6 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
 
 
 }
-
 
 
 

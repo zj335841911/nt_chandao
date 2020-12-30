@@ -128,6 +128,7 @@ export class MainEditFormBase extends EditFormControlBase {
         qd: null,
         rd: null,
         type: null,
+        supproreport: null,
         desc: null,
         acl: null,
         id: null,
@@ -368,6 +369,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         type: new FormItemModel({
     caption: '产品类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        supproreport: new FormItemModel({
+    caption: '支持产品汇报', detailType: 'FORMITEM', name: 'supproreport', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

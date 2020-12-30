@@ -68,6 +68,7 @@
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzproProjectUserTask_Default))|否|&nbsp;|
 |ProjectDailyTask|项目日报任务([MYSQL5](../../appendix/query_MYSQL5.md#IbzproProjectUserTask_ProjectDailyTask))|否|&nbsp;|
 |ProjectMonthlyTask|项目月报任务([MYSQL5](../../appendix/query_MYSQL5.md#IbzproProjectUserTask_ProjectMonthlyTask))|否|&nbsp;|
+|ProjectWeeklyTask|项目周报任务([MYSQL5](../../appendix/query_MYSQL5.md#IbzproProjectUserTask_ProjectWeeklyTask))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzproProjectUserTask_View))|否|&nbsp;|
 
 * **数据集合**
@@ -77,6 +78,7 @@
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProjectDailyTask|项目日报任务|ProjectDailyTask|否|&nbsp;|
 |ProjectMonthlyTask|项目日报任务|ProjectMonthlyTask|否|&nbsp;|
+|ProjectWeeklyTask|项目周报任务|ProjectWeeklyTask|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

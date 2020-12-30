@@ -53,6 +53,9 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IIbzCaseService ibzcaseService;
+    @Autowired
+    @Lazy
+    IIbzLibCaseStepsService proxyService;
 
     protected int batchSize = 500;
 
@@ -146,7 +149,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -154,7 +157,21 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public boolean saveBatch(Collection<IbzLibCaseSteps> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzLibCaseSteps> create = new ArrayList<>();
+        List<IbzLibCaseSteps> update = new ArrayList<>();
+        for (IbzLibCaseSteps et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -162,7 +179,21 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public void saveBatch(List<IbzLibCaseSteps> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzLibCaseSteps> create = new ArrayList<>();
+        List<IbzLibCaseSteps> update = new ArrayList<>();
+        for (IbzLibCaseSteps et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -175,9 +206,6 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         this.remove(new QueryWrapper<IbzLibCaseSteps>().eq("case", id));
     }
 
-    @Autowired
-    @Lazy
-    IIbzLibCaseStepsService proxyService;
     @Override
     public void saveByIbizcase(Long id, List<IbzLibCaseSteps> list) {
         if (list == null) {
@@ -316,7 +344,6 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
 
 
 }
-
 
 
 

@@ -355,4 +355,62 @@ export default class IBZWEEKLYServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzweeklies/searchmyweekly`,tempData,isloading);
     }
+
+    /**
+     * FetchProductTeamMemberWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async FetchProductTeamMemberWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzweeklies/fetchproductteammemberweekly`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductTeamMemberWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async searchProductTeamMemberWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/searchproductteammemberweekly`,tempData,isloading);
+    }
+
+    /**
+     * FetchProjectWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async FetchProjectWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzweeklies/fetchprojectweekly`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async searchProjectWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/searchprojectweekly`,tempData,isloading);
+    }
 }

@@ -103,6 +103,9 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateStoryVersion__MSDenyLogic updatestoryversion__msdenyLogic;
+    @Autowired
+    @Lazy
+    ITaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -415,7 +418,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -423,7 +426,21 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public boolean saveBatch(Collection<Task> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Task> create = new ArrayList<>();
+        List<Task> update = new ArrayList<>();
+        for (Task et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -431,7 +448,21 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public void saveBatch(List<Task> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Task> create = new ArrayList<>();
+        List<Task> update = new ArrayList<>();
+        for (Task et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
       /**
@@ -950,7 +981,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
 }
-
 
 
 

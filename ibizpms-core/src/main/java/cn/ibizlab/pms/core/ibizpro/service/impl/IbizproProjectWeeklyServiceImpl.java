@@ -51,6 +51,9 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    @Autowired
+    @Lazy
+    IIbizproProjectWeeklyService proxyService;
 
     protected int batchSize = 500;
 
@@ -156,7 +159,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -164,7 +167,21 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Transactional
     public boolean saveBatch(Collection<IbizproProjectWeekly> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProjectWeekly> create = new ArrayList<>();
+        List<IbizproProjectWeekly> update = new ArrayList<>();
+        for (IbizproProjectWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getProjectweeklyid()) || ObjectUtils.isEmpty(getById(et.getProjectweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -172,7 +189,21 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Transactional
     public void saveBatch(List<IbizproProjectWeekly> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProjectWeekly> create = new ArrayList<>();
+        List<IbizproProjectWeekly> update = new ArrayList<>();
+        for (IbizproProjectWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getProjectweeklyid()) || ObjectUtils.isEmpty(getById(et.getProjectweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -267,7 +298,6 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
 
 
 }
-
 
 
 

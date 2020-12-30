@@ -6049,6 +6049,16 @@
         "viewtag": "dc4682bba4f9a504532ea1e10d4b11b5",
         "memo": ""
     },
+    "ibzproprojectusertaskprojectweeklygridview": {
+        "title": "项目汇报用户任务表格视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskProjectWeeklyGridView",
+        "viewfilename": "ibzpro-project-user-task-project-weekly-grid-view",
+        "viewtag": "dc67624c3f090fcbd2b405a393b38cd4",
+        "memo": ""
+    },
     "bugtestbugsgridview": {
         "title": "Bug表格视图(遗留的bug)",
         "caption": "Bug",

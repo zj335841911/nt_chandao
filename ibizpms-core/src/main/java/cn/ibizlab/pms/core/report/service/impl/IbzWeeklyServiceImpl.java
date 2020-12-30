@@ -56,6 +56,9 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.report.service.logic.IIbzWeeklyRemove__MSDenyLogic remove__msdenyLogic;
+    @Autowired
+    @Lazy
+    IIbzWeeklyService proxyService;
 
     protected int batchSize = 500;
 
@@ -220,21 +223,49 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzWeekly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzWeekly> create = new ArrayList<>();
+        List<IbzWeekly> update = new ArrayList<>();
+        for (IbzWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzweeklyid()) || ObjectUtils.isEmpty(getById(et.getIbzweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzWeekly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzWeekly> create = new ArrayList<>();
+        List<IbzWeekly> update = new ArrayList<>();
+        for (IbzWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzweeklyid()) || ObjectUtils.isEmpty(getById(et.getIbzweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -278,6 +309,24 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     @Override
     public Page<IbzWeekly> searchMyWeekly(IbzWeeklySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzWeekly> pages=baseMapper.searchMyWeekly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品团队成员周报
+     */
+    @Override
+    public Page<IbzWeekly> searchProductTeamMemberWeekly(IbzWeeklySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzWeekly> pages=baseMapper.searchProductTeamMemberWeekly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目周报
+     */
+    @Override
+    public Page<IbzWeekly> searchProjectWeekly(IbzWeeklySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzWeekly> pages=baseMapper.searchProjectWeekly(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -337,7 +386,6 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
 
 
 }
-
 
 
 

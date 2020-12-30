@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzReportlyServiceImpl")
 public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzReportly> implements IIbzReportlyService {
 
+    @Autowired
+    @Lazy
+    IIbzReportlyService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,21 +139,49 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzReportly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzReportly> create = new ArrayList<>();
+        List<IbzReportly> update = new ArrayList<>();
+        for (IbzReportly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzreportlyid()) || ObjectUtils.isEmpty(getById(et.getIbzreportlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzReportly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzReportly> create = new ArrayList<>();
+        List<IbzReportly> update = new ArrayList<>();
+        for (IbzReportly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzreportlyid()) || ObjectUtils.isEmpty(getById(et.getIbzreportlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -262,7 +293,6 @@ public class IbzReportlyServiceImpl extends ServiceImpl<IbzReportlyMapper, IbzRe
 
 
 }
-
 
 
 

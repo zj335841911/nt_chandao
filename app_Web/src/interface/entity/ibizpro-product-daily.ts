@@ -71,14 +71,6 @@ export interface IbizproProductDaily {
     product?: any;
 
     /**
-     * 产品名称
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    productname?: any;
-
-    /**
      * 日期
      *
      * @returns {*}
@@ -101,4 +93,12 @@ export interface IbizproProductDaily {
      * @memberof IbizproProductDaily
      */
     totalestimates?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    productname?: any;
 }

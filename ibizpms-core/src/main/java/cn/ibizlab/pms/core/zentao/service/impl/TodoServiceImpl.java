@@ -56,6 +56,9 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITodoResetBeginEndLogic resetbeginendLogic;
+    @Autowired
+    @Lazy
+    ITodoService proxyService;
 
     protected int batchSize = 500;
 
@@ -209,21 +212,49 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Todo> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Todo> create = new ArrayList<>();
+        List<Todo> update = new ArrayList<>();
+        for (Todo et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Todo> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Todo> create = new ArrayList<>();
+        List<Todo> update = new ArrayList<>();
+        for (Todo et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
       /**
@@ -353,7 +384,6 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
 
 }
-
 
 
 

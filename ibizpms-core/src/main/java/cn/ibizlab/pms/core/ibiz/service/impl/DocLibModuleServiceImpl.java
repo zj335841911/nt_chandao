@@ -77,6 +77,9 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDocLibModuleFavoriteLogic doclibmodulefavoriteLogic;
+    @Autowired
+    @Lazy
+    IDocLibModuleService proxyService;
 
     protected int batchSize = 500;
 
@@ -210,7 +213,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -218,7 +221,21 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Transactional
     public boolean saveBatch(Collection<DocLibModule> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<DocLibModule> create = new ArrayList<>();
+        List<DocLibModule> update = new ArrayList<>();
+        for (DocLibModule et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -226,7 +243,21 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Transactional
     public void saveBatch(List<DocLibModule> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<DocLibModule> create = new ArrayList<>();
+        List<DocLibModule> update = new ArrayList<>();
+        for (DocLibModule et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -415,7 +446,6 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
 
 }
-
 
 
 
