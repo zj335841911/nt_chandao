@@ -82,7 +82,7 @@
     <!--数据查询[ProductTeamMemberWeekly]-->
     <sql id="ProductTeamMemberWeekly" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_WEEKLYID`, t1.`IBZ_WEEKLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.mailto AS `MAILTOPK`, t1.`NEXTWEEKTASK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.reportto AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`THISWEEKTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1  
-					 WHERE 	( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'product' and t.root =#{srf.datacontext.product})   and YEARWEEK(t1.date,INTERVAL 1 DAY) = YEARWEEK(#{srf.datacontext.date},INTERVAL 1 DAY) )
+					 WHERE 	( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'product' and t.root =#{srf.datacontext.product})   and YEARWEEK(t1.date,1) = YEARWEEK(#{srf.datacontext.date},1) )
 			]]>
     </sql>
     <!--数据查询[ProjectWeekly]-->

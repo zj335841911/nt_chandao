@@ -9348,7 +9348,7 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 
 WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'product' and t.root =${srfdatacontext('product')})  
-and YEARWEEK(t1.date,INTERVAL 1 DAY) = YEARWEEK(${srfdatacontext('date')},INTERVAL 1 DAY) ) 
+and YEARWEEK(t1.date,1) = YEARWEEK(${srfdatacontext('date')},1) ) 
 
 ```
 ### 项目周报(ProjectWeekly)<div id="IbzWeekly_ProjectWeekly"></div>
