@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface IbizproProductDailyMapper extends BaseMapper<IbizproProductDaily> {
 
     Page<IbizproProductDaily> searchDefault(IPage page, @Param("srf") IbizproProductDailySearchContext context, @Param("ew") Wrapper<IbizproProductDaily> wrapper);
+    Page<IbizproProductDaily> searchProductDaily(IPage page, @Param("srf") IbizproProductDailySearchContext context, @Param("ew") Wrapper<IbizproProductDaily> wrapper);
     @Override
     IbizproProductDaily selectById(Serializable id);
     @Override

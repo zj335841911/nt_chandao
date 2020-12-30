@@ -21,6 +21,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("产品日报",null),
 					title: commonLogic.appcommonhandle("产品日报编辑视图",null),
 				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("产品日报",null),
+					title: commonLogic.appcommonhandle("产品日报表格视图",null),
+				},
 			},
 			maininfo_form: {
 				details: {
@@ -61,6 +65,18 @@ function getLocaleResourceBase(){
 					tasks: commonLogic.appcommonhandle("任务",null), 
 					ibizpro_productdailyid: commonLogic.appcommonhandle("产品日报标识",null), 
 				},
+				uiactions: {
+				},
+			},
+			main_grid: {
+				columns: {
+					ibizpro_productdailyname: commonLogic.appcommonhandle("产品日报名称",null),
+					productname: commonLogic.appcommonhandle("产品名称",null),
+					po: commonLogic.appcommonhandle("产品负责人",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					totalestimates: commonLogic.appcommonhandle("总工时",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
 				},
 			},

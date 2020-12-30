@@ -664,7 +664,8 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [产品日报](#数据查询-产品日报（ProductDaily）) | ProductDaily | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -693,6 +694,35 @@ t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
 
+```
+### 数据查询-产品日报（ProductDaily）
+#### 说明
+产品日报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PRODUCTDAILYID`,
+t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`PO`,
+t1.`PRODUCT`,
+t2.`NAME` AS `PRODUCTNAME`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+LEFT JOIN `ZT_PRODUCT` t2 ON t1.`PRODUCT` = t2.`ID`
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -727,6 +757,7 @@ FROM `T_IBIZPRO_PRODUCTDAILY` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 2 | [产品日报](#数据集合-产品日报（ProductDaily）) | ProductDaily | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -742,6 +773,20 @@ FROM `T_IBIZPRO_PRODUCTDAILY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-产品日报（ProductDaily）
+#### 说明
+产品日报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品日报（ProductDaily）](#数据查询-产品日报（ProductDaily）) |
 
 ## 数据导入
 无

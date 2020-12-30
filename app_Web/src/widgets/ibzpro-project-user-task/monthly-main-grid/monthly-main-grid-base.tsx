@@ -124,14 +124,6 @@ export class MonthlyMainGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibizpro_projectusertask_monthlymain_grid';
 
     /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof MonthlyMainGridBase
-     */
-    public isEnablePagingBar: boolean = false;
-
-    /**
      * 排序方向
      *
      * @type {string}
@@ -153,7 +145,7 @@ export class MonthlyMainGridBase extends GridControlBase {
      * @type {number}
      * @memberof MonthlyMainGridBase
      */
-    public limit: number = 100;
+    public limit: number = 10;
 
     /**
      * 所有列成员

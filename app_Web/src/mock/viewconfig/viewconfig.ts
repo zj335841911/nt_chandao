@@ -4839,6 +4839,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "UserYearWorkStatsEditView",
             "viewtag": "db750bbb894c25f38ca2741f234df3c6"
         },
+        "ibizproproductdailygridview": {
+            "title": "产品日报表格视图",
+            "caption": "产品日报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProductDailyGridView",
+            "viewtag": "dc4682bba4f9a504532ea1e10d4b11b5"
+        },
         "bugtestbugsgridview": {
             "title": "Bug表格视图(遗留的bug)",
             "caption": "Bug",

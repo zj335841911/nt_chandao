@@ -175,6 +175,28 @@ public class IbizproProductDailyResource {
                 .body(new PageImpl(ibizproproductdailyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-searchProductDaily-all') and hasPermission(#context,'pms-IbizproProductDaily-Get')")
+	@ApiOperation(value = "获取产品日报", tags = {"产品日报" } ,notes = "获取产品日报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibizproproductdailies/fetchproductdaily")
+	public ResponseEntity<List<IbizproProductDailyDTO>> fetchProductDaily(IbizproProductDailySearchContext context) {
+        Page<IbizproProductDaily> domains = ibizproproductdailyService.searchProductDaily(context) ;
+        List<IbizproProductDailyDTO> list = ibizproproductdailyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-searchProductDaily-all') and hasPermission(#context,'pms-IbizproProductDaily-Get')")
+	@ApiOperation(value = "查询产品日报", tags = {"产品日报" } ,notes = "查询产品日报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibizproproductdailies/searchproductdaily")
+	public ResponseEntity<Page<IbizproProductDailyDTO>> searchProductDaily(@RequestBody IbizproProductDailySearchContext context) {
+        Page<IbizproProductDaily> domains = ibizproproductdailyService.searchProductDaily(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibizproproductdailyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

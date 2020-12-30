@@ -68,6 +68,7 @@ hide members
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbizproProductDaily_Default))|否|&nbsp;|
+|ProductDaily|产品日报([MYSQL5](../../appendix/query_MYSQL5.md#IbizproProductDaily_ProductDaily))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbizproProductDaily_View))|否|&nbsp;|
 
 * **数据集合**
@@ -75,6 +76,7 @@ hide members
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|ProductDaily|产品日报|ProductDaily|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

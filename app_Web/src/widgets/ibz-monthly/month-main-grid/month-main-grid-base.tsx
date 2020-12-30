@@ -111,6 +111,14 @@ export class MonthMainGridBase extends GridControlBase {
     public minorSortPSDEF: string = 'date';
 
     /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MonthMainGridBase
+     */
+    public limit: number = 10;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

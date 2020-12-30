@@ -66,14 +66,14 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'date',
-        prop: 'date',
-        dataType: 'DATE',
-      },
-      {
         name: 'totalestimates',
         prop: 'totalestimates',
         dataType: 'FLOAT',
+      },
+      {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
       },
       {
         name: 'product',

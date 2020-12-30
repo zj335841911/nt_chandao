@@ -145,6 +145,7 @@ hide footbox
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_Default))|否|&nbsp;|
 |MyNotSubmit|我的周报([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_MyNotSubmit))|否|&nbsp;|
 |MyWeekly|我收到的周报([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_MyWeekly))|否|&nbsp;|
+|ProjectWeekly|项目周报([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_ProjectWeekly))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_View))|否|&nbsp;|
 
 * **数据集合**

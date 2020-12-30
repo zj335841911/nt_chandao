@@ -7617,6 +7617,24 @@ t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
 
 ```
+### 产品日报(ProductDaily)<div id="IbizproProductDaily_ProductDaily"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBIZPRO_PRODUCTDAILYID`,
+t1.`IBIZPRO_PRODUCTDAILYNAME`,
+t1.`PO`,
+t1.`PRODUCT`,
+t2.`NAME` AS `PRODUCTNAME`,
+t1.`TASKS`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+LEFT JOIN `ZT_PRODUCT` t2 ON t1.`PRODUCT` = t2.`ID`
+```
 ### 默认（全部数据）(VIEW)<div id="IbizproProductDaily_View"></div>
 ```sql
 SELECT
@@ -9300,6 +9318,10 @@ left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = '
 WHERE t1.issubmit = '1' 
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
 
+```
+### 项目周报(ProjectWeekly)<div id="IbzWeekly_ProjectWeekly"></div>
+```sql
+SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_DAILYID`, t1.`IBZ_DAILYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`TODAYTASK`, t1.`TOMORROWPLANSTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzWeekly_View"></div>
 ```sql

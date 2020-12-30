@@ -78,6 +78,15 @@ export class MainEditFormBase extends EditFormControlBase {
      */  
     public appUIService: IbizproProductWeeklyUIService = new IbizproProductWeeklyUIService(this.$store);
 
+
+    /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainEditFormBase
+     */
+    protected drCount: number = 1;
     /**
      * 表单数据对象
      *
@@ -95,8 +104,8 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         productname: null,
         po: null,
-        date: null,
         totalestimates: null,
+        date: null,
         product: null,
         tasks: null,
         ibizpro_productweeklyid: null,
@@ -138,6 +147,12 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproproductweekly.main_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '设计', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibizproproductweekly.main_form', extractMode: 'ITEM', details: [] } }),
+
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({
@@ -210,15 +225,15 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        date: new FormItemModel({
-    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        totalestimates: new FormItemModel({
+    caption: '总工时', detailType: 'FORMITEM', name: 'totalestimates', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        totalestimates: new FormItemModel({
-    caption: '总工时', detailType: 'FORMITEM', name: 'totalestimates', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

@@ -105,6 +105,15 @@ export default class IbizproProductDailyUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibizproproductdailies',
+            component: 'ibizpro-product-daily-grid-view',
+            openmode: '',
+            title: '产品日报',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

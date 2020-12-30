@@ -195,6 +195,15 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
         return new PageImpl<IbizproProductDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 产品日报
+     */
+    @Override
+    public Page<IbizproProductDaily> searchProductDaily(IbizproProductDailySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproProductDaily> pages=baseMapper.searchProductDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbizproProductDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**
