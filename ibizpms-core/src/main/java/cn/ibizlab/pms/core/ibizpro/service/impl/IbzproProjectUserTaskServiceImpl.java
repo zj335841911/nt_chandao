@@ -161,6 +161,15 @@ public class IbzproProjectUserTaskServiceImpl extends ServiceImpl<IbzproProjectU
         return new PageImpl<IbzproProjectUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目日报任务
+     */
+    @Override
+    public Page<IbzproProjectUserTask> searchProjectDailyTask(IbzproProjectUserTaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproProjectUserTask> pages=baseMapper.searchProjectDailyTask(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzproProjectUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

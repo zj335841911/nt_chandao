@@ -3639,6 +3639,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '9c16791b436de259a12aa770fc3e260b',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproProjectUserTaskEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '9c96a98b291c9cbe420f7a519091212f',
             viewmodule: 'zentao',
             viewname: 'TaskMoreTabExpView',
@@ -3665,6 +3674,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '9f849930c98aff3bbe2a464a7dead8b5',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProjectDailyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fe81fbd0978314233d70cf0219ba4890',
+                '5a8a29268a7563b62fc0160233958830',
             ],
         },
         {
@@ -4087,6 +4107,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'ad54d5021cc21a2ec7eb02ac05cf402e',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProjectDailyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9f849930c98aff3bbe2a464a7dead8b5',
             ],
         },
         {
@@ -4869,8 +4899,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a3d1a3af80fdf764f13a63f9c19934c6',
-                'a4a6e9515a944ab2976c5034fb049f63',
                 'ab7bb92108f4ae63c52d94b39affb30a',
+                'ad54d5021cc21a2ec7eb02ac05cf402e',
                 'd054969e8eb4b11e01d771b95045178c',
             ],
         },
@@ -6070,6 +6100,16 @@ export const viewstate: any = {
                 '85ee867b09a2d6303c061d91374ec975',
                 'bb8860972029d9947daa3652a4b5d291',
                 '441544d65ca067ea5ea625645b70e610',
+            ],
+        },
+        {
+            viewtag: 'fe81fbd0978314233d70cf0219ba4890',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproProjectUserTaskGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9c16791b436de259a12aa770fc3e260b',
             ],
         },
         {

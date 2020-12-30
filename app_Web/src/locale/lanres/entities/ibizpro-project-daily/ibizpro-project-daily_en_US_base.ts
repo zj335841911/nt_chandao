@@ -16,6 +16,57 @@ function getLocaleResourceBase(){
 			totalestimates: commonLogic.appcommonhandle("总工时",null),
 			pm: commonLogic.appcommonhandle("项目负责人",null),
 		},
+			views: {
+				editview: {
+					caption: commonLogic.appcommonhandle("项目日报",null),
+					title: commonLogic.appcommonhandle("项目日报编辑视图",null),
+				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("项目日报",null),
+					title: commonLogic.appcommonhandle("项目日报表格视图",null),
+				},
+			},
+			main_form: {
+				details: {
+					druipart1: commonLogic.appcommonhandle("",null), 
+					formpage1: commonLogic.appcommonhandle("基本信息",null), 
+					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+					srforikey: commonLogic.appcommonhandle("",null), 
+					srfkey: commonLogic.appcommonhandle("项目日报标识",null), 
+					srfmajortext: commonLogic.appcommonhandle("项目日报名称",null), 
+					srftempmode: commonLogic.appcommonhandle("",null), 
+					srfuf: commonLogic.appcommonhandle("",null), 
+					srfdeid: commonLogic.appcommonhandle("",null), 
+					srfsourcekey: commonLogic.appcommonhandle("",null), 
+					projectname: commonLogic.appcommonhandle("项目名称",null), 
+					pm: commonLogic.appcommonhandle("项目负责人",null), 
+					date: commonLogic.appcommonhandle("日期",null), 
+					totalestimates: commonLogic.appcommonhandle("总工时",null), 
+					project: commonLogic.appcommonhandle("项目编号",null), 
+					tasks: commonLogic.appcommonhandle("任务",null), 
+					ibizpro_projectdailyid: commonLogic.appcommonhandle("项目日报标识",null), 
+				},
+				uiactions: {
+				},
+			},
+			main_grid: {
+				columns: {
+					projectname: commonLogic.appcommonhandle("项目名称",null),
+					pm: commonLogic.appcommonhandle("项目负责人",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					totalestimates: commonLogic.appcommonhandle("总工时",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			default_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("常规条件",null), 
+				},
+				uiactions: {
+				},
+			},
 		};
 		return data;
 }

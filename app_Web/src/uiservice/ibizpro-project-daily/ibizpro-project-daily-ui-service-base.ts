@@ -96,6 +96,24 @@ export default class IbizproProjectDailyUIServiceBase extends UIService {
      * @memberof  IbizproProjectDailyUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibizproprojectdailies',
+            component: 'ibizpro-project-daily-edit-view',
+            openmode: 'DRAWER_TOP',
+            title: '项目日报',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibizproprojectdailies',
+            component: 'ibizpro-project-daily-grid-view',
+            openmode: '',
+            title: '项目日报',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

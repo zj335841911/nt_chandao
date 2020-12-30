@@ -4069,6 +4069,16 @@
         "viewtag": "9bcbf0cd15b37b97657fec9a157595fe",
         "memo": ""
     },
+    "ibzproprojectusertaskeditview": {
+        "title": "项目汇报用户任务编辑视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskEditView",
+        "viewfilename": "ibzpro-project-user-task-edit-view",
+        "viewtag": "9c16791b436de259a12aa770fc3e260b",
+        "memo": ""
+    },
     "taskmoretabexpview": {
         "title": "任务分页导航视图（更多）",
         "caption": "更多",
@@ -4127,6 +4137,16 @@
         "viewname": "TaskreportMPickupView",
         "viewfilename": "taskreport-mpickup-view",
         "viewtag": "9f39c37259c1dabb9f2e8769eea76642",
+        "memo": ""
+    },
+    "ibizproprojectdailyeditview": {
+        "title": "项目日报编辑视图",
+        "caption": "项目日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectDailyEditView",
+        "viewfilename": "ibizpro-project-daily-edit-view",
+        "viewtag": "9f849930c98aff3bbe2a464a7dead8b5",
         "memo": ""
     },
     "projectteamlistview": {
@@ -4617,6 +4637,16 @@
         "viewname": "CaseStepMainGridView9_EditMode",
         "viewfilename": "case-step-main-grid-view9-edit-mode",
         "viewtag": "ac71a1cfaecb07640c14f75b8f202b1e",
+        "memo": ""
+    },
+    "ibizproprojectdailygridview": {
+        "title": "项目日报表格视图",
+        "caption": "项目日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectDailyGridView",
+        "viewfilename": "ibizpro-project-daily-grid-view",
+        "viewtag": "ad54d5021cc21a2ec7eb02ac05cf402e",
         "memo": ""
     },
     "productsumeditview": {
@@ -6787,6 +6817,16 @@
         "viewname": "ProjectMainTabExpView",
         "viewfilename": "project-main-tab-exp-view",
         "viewtag": "fd0b8748ff96edcde009d39903a9f211",
+        "memo": ""
+    },
+    "ibzproprojectusertaskgridview": {
+        "title": "项目汇报用户任务表格视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskGridView",
+        "viewfilename": "ibzpro-project-user-task-grid-view",
+        "viewtag": "fe81fbd0978314233d70cf0219ba4890",
         "memo": ""
     },
     "ibzdailymydailygridview": {

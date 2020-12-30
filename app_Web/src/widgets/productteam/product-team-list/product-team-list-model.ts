@@ -21,6 +21,9 @@ export default class ProductTeamModel {
 				name: 'days',
 			},
 			{
+				name: 'role',
+			},
+			{
 				name: 'root',
 			},
 			{

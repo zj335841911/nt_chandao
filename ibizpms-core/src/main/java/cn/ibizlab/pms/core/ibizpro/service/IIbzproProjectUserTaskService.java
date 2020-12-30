@@ -47,6 +47,7 @@ public interface IIbzproProjectUserTaskService extends IService<IbzproProjectUse
     boolean save(IbzproProjectUserTask et);
     void saveBatch(List<IbzproProjectUserTask> list);
     Page<IbzproProjectUserTask> searchDefault(IbzproProjectUserTaskSearchContext context);
+    Page<IbzproProjectUserTask> searchProjectDailyTask(IbzproProjectUserTaskSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

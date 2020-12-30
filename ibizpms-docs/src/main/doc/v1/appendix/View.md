@@ -687,12 +687,14 @@ SRFNAVPARAM.project=%project%|
 |-|我的地盘树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|发布表格视图|DEGRIDVIEW|&nbsp;|
 |-|平台产品编辑视图|DEEDITVIEW|&nbsp;|
+|-|项目汇报用户任务编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务分页导航视图（更多）|DETABEXPVIEW|&nbsp;|
 |-|产品模块编辑视图|DEEDITVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|单位表格视图|DEGRIDVIEW|&nbsp;|
 |-|附件|DELISTVIEW9|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|任务数据多项选择视图（汇报）|DEMPICKUPVIEW|&nbsp;|
+|-|项目日报编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目团队列表视图|DELISTVIEW|&nbsp;|
 |-|用例库用例编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|组成员表格视图|DEGRIDVIEW|&nbsp;|
@@ -742,6 +744,7 @@ SRFNAVPARAM.project=%project%|
 |-|开始任务|DEOPTVIEW|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
+|-|项目日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品汇总表编辑视图|DEEDITVIEW|&nbsp;|
 |-|日报编辑视图(日历显示)|DEEDITVIEW|&nbsp;|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
@@ -959,6 +962,7 @@ SRFNAVPARAM.project=%project%|
 |-|激活|DEOPTVIEW|&nbsp;|
 |-|系统更新日志表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目|DETABEXPVIEW|&nbsp;|
+|-|项目汇报用户任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|版本分页导航视图|DETABEXPVIEW|&nbsp;|
 

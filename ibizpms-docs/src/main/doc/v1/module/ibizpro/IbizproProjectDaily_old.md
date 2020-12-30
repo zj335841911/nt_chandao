@@ -83,6 +83,7 @@ hide members
 |项目编号(PROJECT)|EQ|
 |项目名称(PROJECTNAME)|EQ|
 |项目名称(PROJECTNAME)|LIKE|
+|项目负责人(PM)|EQ|
 
 ## 导入模式
 无

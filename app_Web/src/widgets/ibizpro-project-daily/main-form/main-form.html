@@ -1,0 +1,189 @@
+<i-form
+    :model="this.data"
+    class="app-form"
+    ref="form"
+    id="ibizproprojectdaily_main"
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.projectname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="projectname"
+    :itemRules="this.rules().projectname"
+    class=""
+
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.projectname')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.projectname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-picker 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.projectname.disabled"
+    name="projectname"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
+    valueitem="project" 
+    :value="data.projectname"
+    :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+    style=""  
+    @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pm.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="pm"
+    :itemRules="this.rules().pm"
+    class=""
+
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.pm')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.pm.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.pm"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.pm.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.date.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="date"
+    :itemRules="this.rules().date"
+    class=""
+
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.date')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.date.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.totalestimates.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="totalestimates"
+    :itemRules="this.rules().totalestimates"
+    class=""
+
+    :caption="$t('entities.ibizproprojectdaily.main_form.details.totalestimates')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.totalestimates.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.totalestimates"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.totalestimates.disabled" 
+    type='number' 
+    :precision="2"
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectdaily" 
+    :parentdata='{"srfparentdename":"IBIZPRO_PROJECTDAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"tasks",DATE:"date"}'
+    :localParam ='{tasks:"tasks",date:"date"}'
+    parameterName="ibizproprojectdaily"
+    parentName="IbizproProjectDaily"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="tasks;date" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
+
+    </row>
+</i-form>

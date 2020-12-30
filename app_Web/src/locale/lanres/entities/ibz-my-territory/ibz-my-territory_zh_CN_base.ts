@@ -342,7 +342,7 @@ function getLocaleResourceBase(){
 			projectreporttabexpviewtabexppanel_tabexppanel: {
 				tabviewpanels: {
 					tabviewpanel: {
-						caption: commonLogic.appcommonhandle("日报",null),
+						caption: commonLogic.appcommonhandle("项目日报",null),
 					},
 					tabviewpanel2: {
 						caption: commonLogic.appcommonhandle("周报",null),

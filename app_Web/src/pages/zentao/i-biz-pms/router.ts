@@ -4217,6 +4217,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-story-sub-task-new-view/task-story-sub-task-new-view.vue'),
                 },
                 {
+                    path: 'ibizproprojectdailies/:ibizproprojectdaily?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibizproprojectdaily.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproprojectdailies', parameterName: 'ibizproprojectdaily' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-project-daily-edit-view/ibizpro-project-daily-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/planeditview/:planeditview?',
                     meta: {
                         caption: 'entities.story.views.planeditview.caption',
@@ -7224,6 +7238,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/sys-employee-grid-exp-view-project-member/sys-employee-grid-exp-view-project-member.vue'),
+                },
+                {
+                    path: 'ibzproprojectusertasks/:ibzproprojectusertask?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzproprojectusertask.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproprojectusertasks', parameterName: 'ibzproprojectusertask' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-project-user-task-grid-view/ibzpro-project-user-task-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/plansubgridview/:plansubgridview?',
@@ -10692,6 +10720,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/doc-lib-pickup-view/doc-lib-pickup-view.vue'),
+                },
+                {
+                    path: 'ibzproprojectusertasks/:ibzproprojectusertask?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzproprojectusertask.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproprojectusertasks', parameterName: 'ibzproprojectusertask' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-project-user-task-edit-view/ibzpro-project-user-task-edit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/maintabexpview/:maintabexpview?',
@@ -16711,6 +16753,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-my-territory-tab-exp-view/ibz-my-territory-tab-exp-view.vue'),
+                },
+                {
+                    path: 'ibizproprojectdailies/:ibizproprojectdaily?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibizproprojectdaily.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproprojectdailies', parameterName: 'ibizproprojectdaily' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-project-daily-grid-view/ibizpro-project-daily-grid-view.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/dashboardview/:dashboardview?',
