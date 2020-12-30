@@ -3,6 +3,259 @@
 项目汇报用户任务
 
 ## 接口清单
+### 新建项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertaskdto | [IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO) | 项目汇报用户任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)：项目汇报用户任务实体传输对象 |
+
+### 批量新建项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertaskdtos | List<[IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)> | 项目汇报用户任务实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 更新项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/{ibzproprojectusertask_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertask_id | Long | 项目汇报用户任务主键ID |
+| 2 | ibzproprojectusertaskdto | [IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO) | 项目汇报用户任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)：项目汇报用户任务实体传输对象 |
+
+### 批量更新项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertaskdtos | List<[IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)> | 项目汇报用户任务实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 删除项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/{ibzproprojectusertask_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertask_id | Long | 项目汇报用户任务主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量删除项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ids | List<Long> | 项目汇报用户任务主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/{ibzproprojectusertask_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertask_id | Long | 项目汇报用户任务主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)：项目汇报用户任务实体传输对象 |
+
+### 检查项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertaskdto | [IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO) | 项目汇报用户任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 保存项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertaskdto | [IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO) | 项目汇报用户任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量保存项目汇报用户任务
+#### 访问路径
+/ibzproprojectusertasks/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzproprojectusertaskdtos | List<[IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)> | 项目汇报用户任务实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取数据集
+#### 访问路径
+/ibzproprojectusertasks/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProjectUserTaskSearchContext](#IbzproProjectUserTaskSearchContext) | 项目汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)>：项目汇报用户任务实体传输对象列表 |
+
+### 查询数据集
+#### 访问路径
+/ibzproprojectusertasks/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProjectUserTaskSearchContext](#IbzproProjectUserTaskSearchContext) | 项目汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)>：项目汇报用户任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取项目日报任务
+#### 访问路径
+/ibzproprojectusertasks/fetchprojectdailytask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProjectUserTaskSearchContext](#IbzproProjectUserTaskSearchContext) | 项目汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)>：项目汇报用户任务实体传输对象列表 |
+
+### 查询项目日报任务
+#### 访问路径
+/ibzproprojectusertasks/searchprojectdailytask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProjectUserTaskSearchContext](#IbzproProjectUserTaskSearchContext) | 项目汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzproProjectUserTaskDTO](#IbzproProjectUserTaskDTO)>：项目汇报用户任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### IbzproProjectUserTaskDTO

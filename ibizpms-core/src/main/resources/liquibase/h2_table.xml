@@ -1661,7 +1661,7 @@
 
 
     <!--输出实体[IBIZPRO_PROJECTUSERTASK]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_projectusertask-24-59">
+    <changeSet author="zentao" id="tab-ibizpro_projectusertask-26-59">
         <createTable tableName="zt_taskestimate">
                 <column name="ACCOUNT" remarks="" type="VARCHAR(30)">
                 </column>
