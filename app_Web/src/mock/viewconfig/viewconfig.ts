@@ -583,6 +583,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectTestTabExpView",
             "viewtag": "19641dcdbd1f1973c9693859003e1f60"
         },
+        "ibizproprojectweeklygridview": {
+            "title": "项目周报表格视图",
+            "caption": "项目周报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProjectWeeklyGridView",
+            "viewtag": "19b354cc6d7f358e9e205a17283fda3b"
+        },
         "casereportlinkgridview": {
             "title": "测试用例表格视图（报告关联用例）",
             "caption": "关联用例",
@@ -2646,6 +2654,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseGridView9",
             "viewtag": "7f9b2e4d5b622528df75121b824b6fcc"
+        },
+        "ibizproprojectweeklyeditview": {
+            "title": "项目周报编辑视图",
+            "caption": "项目周报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProjectWeeklyEditView",
+            "viewtag": "7fa0af8cedb3e2ffaa61062c37e51a97"
         },
         "todofinishview": {
             "title": "完成",
@@ -4798,6 +4814,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryRevIewView",
             "viewtag": "df5a966e312ca9c5f5a41428bc2e2672"
+        },
+        "ibzweeklyprojectweeklygridview": {
+            "title": "周报表格视图",
+            "caption": "周报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzWeeklyProjectWeeklyGridView",
+            "viewtag": "dfd88480fb413ae524dbbee4918676cb"
         },
         "todoeditview": {
             "title": "编辑待办",

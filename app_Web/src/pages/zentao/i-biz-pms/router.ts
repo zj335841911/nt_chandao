@@ -4842,6 +4842,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view/project-grid-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/projectweeklygridview/:projectweeklygridview?',
+                    meta: {
+                        caption: 'entities.ibzweekly.views.projectweeklygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'projectweeklygridview', parameterName: 'projectweeklygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-project-weekly-grid-view/ibz-weekly-project-weekly-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/maindataeditview/:maindataeditview?',
                     meta: {
                         caption: 'entities.productplan.views.maindataeditview.caption',
@@ -5986,6 +6000,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/product-sum-edit-view/product-sum-edit-view.vue'),
+                },
+                {
+                    path: 'ibizproprojectweeklies/:ibizproprojectweekly?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibizproprojectweekly.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproprojectweeklies', parameterName: 'ibizproprojectweekly' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-project-weekly-grid-view/ibizpro-project-weekly-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/activiteview/:activiteview?',
@@ -10010,6 +10038,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-task-edit-view9-info/test-task-edit-view9-info.vue'),
+                },
+                {
+                    path: 'ibizproprojectweeklies/:ibizproprojectweekly?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibizproprojectweekly.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproprojectweeklies', parameterName: 'ibizproprojectweekly' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-project-weekly-edit-view/ibizpro-project-weekly-edit-view.vue'),
                 },
                 {
                     path: 'ibzdailies/:ibzdaily?/dailyinfocalendareditview/:dailyinfocalendareditview?',

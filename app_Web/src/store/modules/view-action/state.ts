@@ -634,6 +634,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '19b354cc6d7f358e9e205a17283fda3b',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProjectWeeklyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7fa0af8cedb3e2ffaa61062c37e51a97',
+            ],
+        },
+        {
             viewtag: '1b214bd727533f6662aa78368fb67e4b',
             viewmodule: 'zentao',
             viewname: 'CaseReportLinkGridView',
@@ -2941,6 +2951,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7fa0af8cedb3e2ffaa61062c37e51a97',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProjectWeeklyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fe81fbd0978314233d70cf0219ba4890',
+                '5a8a29268a7563b62fc0160233958830',
+                'dfd88480fb413ae524dbbee4918676cb',
+            ],
+        },
+        {
             viewtag: '807a419a917fbfdfa3378d2fac6a2785',
             viewmodule: 'zentao',
             viewname: 'TodoFinishView',
@@ -4910,7 +4932,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a3d1a3af80fdf764f13a63f9c19934c6',
-                'ab7bb92108f4ae63c52d94b39affb30a',
+                '19b354cc6d7f358e9e205a17283fda3b',
                 'ad54d5021cc21a2ec7eb02ac05cf402e',
                 'd054969e8eb4b11e01d771b95045178c',
             ],
@@ -5349,6 +5371,16 @@ export const viewstate: any = {
                 '3458603afa6fef36eda88e9f794840f5',
                 '174408669d176924efbb3227d0784e93',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'dfd88480fb413ae524dbbee4918676cb',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyProjectWeeklyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7ae5b669ec5f5284763927aee60efde1',
             ],
         },
         {

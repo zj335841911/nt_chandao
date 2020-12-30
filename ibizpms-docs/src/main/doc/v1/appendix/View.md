@@ -349,6 +349,7 @@
 |-|产品测试数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|项目实体表格视图(参与项目)|DEGRIDVIEW|&nbsp;|
 |-|项目分页导航视图（测试）|DETABEXPVIEW|&nbsp;|
+|-|项目周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例表格视图（报告关联用例）|DEGRIDVIEW|&nbsp;|
 |-|测试结果表格视图|DEGRIDVIEW9|&nbsp;|
 |-|模块维护|DETREEEXPVIEW|&nbsp;|
@@ -610,6 +611,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试版本编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|文档库树导航视图（项目下属）|DETREEEXPVIEW|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
+|-|项目周报编辑视图|DEEDITVIEW|&nbsp;|
 |-|完成|DEOPTVIEW|&nbsp;|
 |-|用例库用例步骤表格视图（主数据）|DEGRIDVIEW9|&nbsp;|
 |-|文档库分类表格视图|DEGRIDVIEW|&nbsp;|
@@ -879,6 +881,7 @@ SRFNAVPARAM.project=%project%|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
 |-|需求评审|DEOPTVIEW|&nbsp;|
+|-|周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|编辑待办|DEEDITVIEW|&nbsp;|
 |-|员工负载表表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|

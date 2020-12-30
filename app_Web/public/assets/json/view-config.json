@@ -719,6 +719,16 @@
         "viewtag": "19641dcdbd1f1973c9693859003e1f60",
         "memo": ""
     },
+    "ibizproprojectweeklygridview": {
+        "title": "项目周报表格视图",
+        "caption": "项目周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectWeeklyGridView",
+        "viewfilename": "ibizpro-project-weekly-grid-view",
+        "viewtag": "19b354cc6d7f358e9e205a17283fda3b",
+        "memo": ""
+    },
     "casereportlinkgridview": {
         "title": "测试用例表格视图（报告关联用例）",
         "caption": "关联用例",
@@ -3297,6 +3307,16 @@
         "viewname": "CaseGridView9",
         "viewfilename": "case-grid-view9",
         "viewtag": "7f9b2e4d5b622528df75121b824b6fcc",
+        "memo": ""
+    },
+    "ibizproprojectweeklyeditview": {
+        "title": "项目周报编辑视图",
+        "caption": "项目周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectWeeklyEditView",
+        "viewfilename": "ibizpro-project-weekly-edit-view",
+        "viewtag": "7fa0af8cedb3e2ffaa61062c37e51a97",
         "memo": ""
     },
     "todofinishview": {
@@ -5987,6 +6007,16 @@
         "viewname": "StoryRevIewView",
         "viewfilename": "story-rev-iew-view",
         "viewtag": "df5a966e312ca9c5f5a41428bc2e2672",
+        "memo": ""
+    },
+    "ibzweeklyprojectweeklygridview": {
+        "title": "周报表格视图",
+        "caption": "周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyProjectWeeklyGridView",
+        "viewfilename": "ibz-weekly-project-weekly-grid-view",
+        "viewtag": "dfd88480fb413ae524dbbee4918676cb",
         "memo": ""
     },
     "todoeditview": {
