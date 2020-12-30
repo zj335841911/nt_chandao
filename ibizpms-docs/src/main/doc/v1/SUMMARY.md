@@ -242,6 +242,8 @@
 
     * [系统配置表](module/ibizpro/IbzproConfig.md) 
 
+    * [产品汇报用户任务](module/ibizpro/IbzproProductUserTask.md) 
+
     * [项目汇报用户任务](module/ibizpro/IbzproProjectUserTask.md) 
 
   * [iBiz插件模块](module/ibizplugin.md) 

@@ -29,6 +29,7 @@
 | 9 | [产品周报名称](#属性-产品周报名称（IBIZPRO_PRODUCTDAILYNAME）) | IBIZPRO_PRODUCTDAILYNAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 10 | [产品周报标识](#属性-产品周报标识（IBIZPRO_PRODUCTWEEKLYID）) | IBIZPRO_PRODUCTWEEKLYID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
 | 11 | [编号](#属性-编号（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
+| 12 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
 
 ### 属性-总工时（TOTALESTIMATES）
 #### 属性说明
@@ -68,7 +69,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务（TASKS）
@@ -109,7 +110,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-产品负责人（PO）
@@ -150,7 +151,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-日期（DATE）
@@ -191,7 +192,7 @@ yyyy-MM-dd
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新时间（UPDATEDATE）
@@ -232,7 +233,7 @@ yyyy-MM-dd HH:mm:ss
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新人（UPDATEMAN）
@@ -273,7 +274,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-建立人（CREATEMAN）
@@ -314,7 +315,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-建立时间（CREATEDATE）
@@ -355,7 +356,7 @@ yyyy-MM-dd HH:mm:ss
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-产品周报名称（IBIZPRO_PRODUCTDAILYNAME）
@@ -398,7 +399,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-产品周报标识（IBIZPRO_PRODUCTWEEKLYID）
@@ -439,7 +440,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（PRODUCT）
@@ -485,6 +486,50 @@ Long
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-产品名称（PRODUCTNAME）
+#### 属性说明
+产品名称
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -498,7 +543,8 @@ Long
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [统计产品周报](#实体行为-统计产品周报（SUMPRODUCTWEEKLY）) | SUMPRODUCTWEEKLY | 用户自定义 | 后台及前台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -572,6 +618,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-统计产品周报（SUMPRODUCTWEEKLY）
+#### 说明
+统计产品周报
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -599,6 +657,8 @@ Save
 | ---- | ---- | ---- |
 | 1 | [产品周报名称（IBIZPRO_PRODUCTDAILYNAME）](#属性-产品周报名称（IBIZPRO_PRODUCTDAILYNAME）) | `%like%` |
 | 2 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
+| 3 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
+| 4 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

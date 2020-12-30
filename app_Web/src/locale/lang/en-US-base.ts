@@ -48,6 +48,7 @@ import story_en_US from '@locale/lanres/entities/story/story_en_US';
 import plantempletdetail_en_US from '@locale/lanres/entities/plan-templet-detail/plan-templet-detail_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
+import ibizpro_productweekly_en_US from '@locale/lanres/entities/ibizpro-productweekly/ibizpro-productweekly_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
 import useryearworkstats_en_US from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_en_US';
 import sysorganization_en_US from '@locale/lanres/entities/sys-organization/sys-organization_en_US';
@@ -446,6 +447,7 @@ function getAppLocale(){
             plantempletdetail: plantempletdetail_en_US(),
             todo: todo_en_US(),
             ibzlibmodule: ibzlibmodule_en_US(),
+            ibizpro_productweekly: ibizpro_productweekly_en_US(),
             subtask: subtask_en_US(),
             useryearworkstats: useryearworkstats_en_US(),
             sysorganization: sysorganization_en_US(),

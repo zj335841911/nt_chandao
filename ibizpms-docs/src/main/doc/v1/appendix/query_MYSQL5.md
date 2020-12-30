@@ -9264,6 +9264,23 @@ FROM `T_IBZPRO_CONFIG` t1
 
 ```
 
+# **产品汇报用户任务**(IBIZPRO_PRODUCTUSERTASK)
+
+### 数据查询(DEFAULT)<div id="IbzproProductUserTask_Default"></div>
+```sql
+SELECT
+t1.`ID`
+FROM `zt_taskestimate` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzproProductUserTask_View"></div>
+```sql
+SELECT
+t1.`ID`
+FROM `zt_taskestimate` t1 
+
+```
+
 # **项目汇报用户任务**(IBIZPRO_PROJECTUSERTASK)
 
 ### 数据查询(DEFAULT)<div id="IbzproProjectUserTask_Default"></div>

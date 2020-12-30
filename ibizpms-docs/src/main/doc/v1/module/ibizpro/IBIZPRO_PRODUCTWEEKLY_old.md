@@ -23,6 +23,7 @@ hide members
 |产品周报名称|IBIZPRO_PRODUCTDAILYNAME|TEXT|&nbsp;|
 |产品周报标识|IBIZPRO_PRODUCTWEEKLYID|ACID|&nbsp;|
 |编号|PRODUCT|PICKUP|&nbsp;|
+|产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -38,6 +39,7 @@ hide members
 |产品周报名称|默认规则|内容长度必须小于等于[200]|
 |产品周报标识|默认规则|默认规则|
 |编号|默认规则|默认规则|
+|产品名称|默认规则|内容长度必须小于等于[90]|
 
 ## 状态控制
 
@@ -53,6 +55,7 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|统计产品周报|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
@@ -78,6 +81,8 @@ hide members
 | --------   |------------|
 |产品周报名称(IBIZPRO_PRODUCTDAILYNAME)|LIKE|
 |编号(PRODUCT)|EQ|
+|产品名称(PRODUCTNAME)|EQ|
+|产品名称(PRODUCTNAME)|LIKE|
 
 ## 导入模式
 无

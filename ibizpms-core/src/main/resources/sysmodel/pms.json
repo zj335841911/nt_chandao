@@ -8667,6 +8667,24 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PRODUCTNAME" ,
+    "codename":"ProductName",
+    "field_logic_name":"产品名称",
+    "entity_name":"IBIZPRO_PRODUCTWEEKLY",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBIZPRO_PRODUCTWEEKLY_ZT_PRODUCT_PRODUCT",
+    "relation_codename":"Productweekly",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":90,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -16629,6 +16647,37 @@
     "data_type":"VARCHAR",
     "data_length":60,
     "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBIZPRO_PRODUCTUSERTASK",
+    "logic_name":"产品汇报用户任务",
+    "code_name":"IbzproProductUserTask",
+    "table_name":"zt_taskestimate",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"标识",
+    "entity_name":"IbzproProductUserTask",
+    "field_type":"ACID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
     "show_order":1000,
     "major_field":0
     }

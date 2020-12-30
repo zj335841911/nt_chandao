@@ -55,6 +55,7 @@ import './entity/storys/storys';
 import './entity/plan-templet-details/plan-templet-details';
 import './entity/todos/todos';
 import './entity/ibz-lib-modules/ibz-lib-modules';
+import './entity/ibizpro-productweeklys/ibizpro-productweeklys';
 import './entity/sub-tasks/sub-tasks';
 import './entity/user-year-work-statss/user-year-work-statss';
 import './entity/sys-organizations/sys-organizations';

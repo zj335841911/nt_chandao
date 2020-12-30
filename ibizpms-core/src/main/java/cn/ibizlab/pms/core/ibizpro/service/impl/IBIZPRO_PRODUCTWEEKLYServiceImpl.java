@@ -57,6 +57,7 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
     @Override
     @Transactional
     public boolean create(IBIZPRO_PRODUCTWEEKLY et) {
+        fillParentData(et);
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -67,12 +68,14 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
     @Override
     @Transactional
     public void createBatch(List<IBIZPRO_PRODUCTWEEKLY> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBIZPRO_PRODUCTWEEKLY et) {
+        fillParentData(et);
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibizpro_productweeklyid", et.getIbizproProductweeklyid()))) {
             return false;
         }
@@ -83,6 +86,7 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
     @Override
     @Transactional
     public void updateBatch(List<IBIZPRO_PRODUCTWEEKLY> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list, batchSize);
     }
 
@@ -114,6 +118,7 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
 
     @Override
     public IBIZPRO_PRODUCTWEEKLY getDraft(IBIZPRO_PRODUCTWEEKLY et) {
+        fillParentData(et);
         return et;
     }
 
@@ -121,6 +126,21 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
     public boolean checkKey(IBIZPRO_PRODUCTWEEKLY et) {
         return (!ObjectUtils.isEmpty(et.getIbizproProductweeklyid())) && (!Objects.isNull(this.getById(et.getIbizproProductweeklyid())));
     }
+    @Override
+    @Transactional
+    public IBIZPRO_PRODUCTWEEKLY sUMPRODUCTWEEKLY(IBIZPRO_PRODUCTWEEKLY et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean sUMPRODUCTWEEKLYBatch(List<IBIZPRO_PRODUCTWEEKLY> etList) {
+        for(IBIZPRO_PRODUCTWEEKLY et : etList) {
+            sUMPRODUCTWEEKLY(et);
+        }
+        return true;
+    }
+
     @Override
     @Transactional
     public boolean save(IBIZPRO_PRODUCTWEEKLY et) {
@@ -143,6 +163,7 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
     @Override
     @Transactional
     public boolean saveBatch(Collection<IBIZPRO_PRODUCTWEEKLY> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list, batchSize);
         return true;
     }
@@ -150,6 +171,7 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
     @Override
     @Transactional
     public void saveBatch(List<IBIZPRO_PRODUCTWEEKLY> list) {
+        list.forEach(item -> fillParentData(item));
         saveOrUpdateBatch(list, batchSize);
     }
 
@@ -175,6 +197,22 @@ public class IBIZPRO_PRODUCTWEEKLYServiceImpl extends ServiceImpl<IBIZPRO_PRODUC
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(IBIZPRO_PRODUCTWEEKLY et){
+        //实体关系[DER1N_IBIZPRO_PRODUCTWEEKLY_ZT_PRODUCT_PRODUCT]
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
+            cn.ibizlab.pms.core.zentao.domain.Product productweekly=et.getProductweekly();
+            if (ObjectUtils.isEmpty(productweekly)) {
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setProductweekly(majorEntity);
+                productweekly = majorEntity;
+            }
+            et.setProductname(productweekly.getName());
+        }
+    }
 
 
 

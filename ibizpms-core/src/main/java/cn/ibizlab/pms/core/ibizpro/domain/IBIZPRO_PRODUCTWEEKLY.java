@@ -129,6 +129,13 @@ public class IBIZPRO_PRODUCTWEEKLY extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
 
     /**
      * 

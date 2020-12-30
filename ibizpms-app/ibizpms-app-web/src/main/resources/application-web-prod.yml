@@ -199,6 +199,10 @@ zuul:
       path: /ibzlibmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_productweekly:
+      path: /ibizpro_productweeklies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_subtask:
       path: /subtasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
