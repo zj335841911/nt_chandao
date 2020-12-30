@@ -9270,6 +9270,8 @@ FROM `T_IBZPRO_CONFIG` t1
 ```sql
 SELECT
 t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DATE`,
 t1.`ID`
 FROM `zt_taskestimate` t1 
 
@@ -9278,6 +9280,8 @@ FROM `zt_taskestimate` t1
 ```sql
 SELECT
 t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DATE`,
 t1.`ID`
 FROM `zt_taskestimate` t1 
 

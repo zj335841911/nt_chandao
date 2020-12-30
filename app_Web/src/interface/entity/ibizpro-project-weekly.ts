@@ -117,4 +117,12 @@ export interface IbizproProjectWeekly {
      * @memberof IbizproProjectWeekly
      */
     year?: any;
+
+    /**
+     * 月
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    month?: any;
 }

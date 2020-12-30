@@ -44,10 +44,10 @@ public interface IIbizproProductWeeklyService extends IService<IbizproProductWee
     IbizproProductWeekly get(Long key);
     IbizproProductWeekly getDraft(IbizproProductWeekly et);
     boolean checkKey(IbizproProductWeekly et);
-    IbizproProductWeekly sUMPRODUCTWEEKLY(IbizproProductWeekly et);
-    boolean sUMPRODUCTWEEKLYBatch(List<IbizproProductWeekly> etList);
     boolean save(IbizproProductWeekly et);
     void saveBatch(List<IbizproProductWeekly> list);
+    IbizproProductWeekly sumProductWeekly(IbizproProductWeekly et);
+    boolean sumProductWeeklyBatch(List<IbizproProductWeekly> etList);
     Page<IbizproProductWeekly> searchDefault(IbizproProductWeeklySearchContext context);
     List<IbizproProductWeekly> selectByProduct(Long id);
     void removeByProduct(Long id);

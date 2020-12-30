@@ -1698,6 +1698,10 @@
                 </column>
                 <column name="ACCOUNT" remarks="" type="VARCHAR(30)">
                 </column>
+                <column name="DATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CONSUMED" remarks="" type="FLOAT">
+                </column>
         </createTable>
     </changeSet>
 

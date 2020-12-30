@@ -543,8 +543,8 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [统计产品周报](#实体行为-统计产品周报（SUMPRODUCTWEEKLY）) | SUMPRODUCTWEEKLY | 用户自定义 | 后台及前台 |
-| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 8 | [统计产品周报](#实体行为-统计产品周报（SumProductWeekly）) | SUMPRODUCTWEEKLY | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -618,24 +618,24 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-统计产品周报（SUMPRODUCTWEEKLY）
-#### 说明
-统计产品周报
-
-- 行为类型
-用户自定义
-
-- 行为持有者
-后台及前台
-
-#### 逻辑附加
-无
 ### 实体行为-Save（Save）
 #### 说明
 Save
 
 - 行为类型
 内置方法
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-统计产品周报（SumProductWeekly）
+#### 说明
+统计产品周报
+
+- 行为类型
+用户自定义
 
 - 行为持有者
 后台及前台

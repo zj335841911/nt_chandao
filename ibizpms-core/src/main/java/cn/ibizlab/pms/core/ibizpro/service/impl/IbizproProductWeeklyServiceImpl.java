@@ -128,21 +128,6 @@ public class IbizproProductWeeklyServiceImpl extends ServiceImpl<IbizproProductW
     }
     @Override
     @Transactional
-    public IbizproProductWeekly sUMPRODUCTWEEKLY(IbizproProductWeekly et) {
-        //自定义代码
-        return et;
-    }
-   @Override
-    @Transactional
-    public boolean sUMPRODUCTWEEKLYBatch(List<IbizproProductWeekly> etList) {
-        for(IbizproProductWeekly et : etList) {
-            sUMPRODUCTWEEKLY(et);
-        }
-        return true;
-    }
-
-    @Override
-    @Transactional
     public boolean save(IbizproProductWeekly et) {
         if (!saveOrUpdate(et)) {
             return false;
@@ -173,6 +158,21 @@ public class IbizproProductWeeklyServiceImpl extends ServiceImpl<IbizproProductW
     public void saveBatch(List<IbizproProductWeekly> list) {
         list.forEach(item -> fillParentData(item));
         saveOrUpdateBatch(list, batchSize);
+    }
+
+    @Override
+    @Transactional
+    public IbizproProductWeekly sumProductWeekly(IbizproProductWeekly et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean sumProductWeeklyBatch(List<IbizproProductWeekly> etList) {
+        for(IbizproProductWeekly et : etList) {
+            sumProductWeekly(et);
+        }
+        return true;
     }
 
 

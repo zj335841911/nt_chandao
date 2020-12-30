@@ -17,6 +17,7 @@ function getLocaleResourceBase(){
 			projectname: commonLogic.appcommonhandle("项目名称",null),
 			week: commonLogic.appcommonhandle("周",null),
 			year: commonLogic.appcommonhandle("年",null),
+			month: commonLogic.appcommonhandle("月",null),
 		},
 		};
 		return data;

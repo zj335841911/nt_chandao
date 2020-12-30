@@ -55,7 +55,7 @@ export default class IbizproProductWeeklyServiceBase extends EntityService {
     }
 
     /**
-     * SUMPRODUCTWEEKLY接口方法
+     * SumProductWeekly接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -63,7 +63,7 @@ export default class IbizproProductWeeklyServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof IbizproProductWeeklyServiceBase
      */
-    public async SUMPRODUCTWEEKLY(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async SumProductWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

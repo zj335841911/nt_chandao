@@ -16694,6 +16694,33 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DATE" ,
+    "codename":"Date",
+    "field_logic_name":"日期",
+    "entity_name":"IbzproProductUserTask",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CONSUMED" ,
+    "codename":"Consumed",
+    "field_logic_name":"总计消耗",
+    "entity_name":"IbzproProductUserTask",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"FLOAT",
+    "data_preci":2,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

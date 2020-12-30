@@ -59,6 +59,22 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
+    /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+    /**
+     * 总计消耗
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`consumed`")
+    @JSONField(name = "consumed")
+    @JsonProperty("consumed")
+    private Double consumed;
 
 
 
@@ -68,6 +84,32 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     public void setAccount(String account) {
         this.account = account;
         this.modify("account", account);
+    }
+
+    /**
+     * 设置 [日期]
+     */
+    public void setDate(Timestamp date) {
+        this.date = date;
+        this.modify("date", date);
+    }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate() {
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+    /**
+     * 设置 [总计消耗]
+     */
+    public void setConsumed(Double consumed) {
+        this.consumed = consumed;
+        this.modify("consumed", consumed);
     }
 
 

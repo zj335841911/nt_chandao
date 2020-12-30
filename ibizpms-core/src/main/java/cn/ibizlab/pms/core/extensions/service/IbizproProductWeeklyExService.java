@@ -22,14 +22,14 @@ public class IbizproProductWeeklyExService extends IbizproProductWeeklyServiceIm
     }
 
     /**
-     * [SUMPRODUCTWEEKLY:统计产品周报] 行为扩展
+     * [SumProductWeekly:统计产品周报] 行为扩展
      * @param et
      * @return
      */
     @Override
     @Transactional
-    public IbizproProductWeekly sUMPRODUCTWEEKLY(IbizproProductWeekly et) {
-        return super.sUMPRODUCTWEEKLY(et);
+    public IbizproProductWeekly sumProductWeekly(IbizproProductWeekly et) {
+        return super.sumProductWeekly(et);
     }
 }
 
