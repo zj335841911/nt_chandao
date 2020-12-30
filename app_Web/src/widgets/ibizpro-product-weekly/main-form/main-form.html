@@ -834,7 +834,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart10.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproproductweekly" 
+    :parentdata='{"srfparentdename":"IBIZPRO_PRODUCTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{DATE:"%date%",PROJECT:"%product%"}'
+    :localParam ='{project:"%product%",date:"%date%"}'
+    parameterName="ibizproproductweekly"
+    parentName="IbizproProductWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibz-weekly-product-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 

@@ -10728,6 +10728,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/productweeklygridview/:productweeklygridview?',
+                    meta: {
+                        caption: 'entities.ibzweekly.views.productweeklygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'productweeklygridview', parameterName: 'productweeklygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-product-weekly-grid-view/ibz-weekly-product-weekly-grid-view.vue'),
+                },
+                {
                     path: 'bugstats/:bugstats?/bugresolvetion/:bugresolvetion?',
                     meta: {
                         caption: 'entities.bugstats.views.bugresolvetion.caption',

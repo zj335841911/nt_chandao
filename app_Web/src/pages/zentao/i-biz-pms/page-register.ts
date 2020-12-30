@@ -298,6 +298,7 @@ export const PageComponents = {
         Vue.component('ibz-agent-main-info-edit-view', () => import('@pages/ibiz/ibz-agent-main-info-edit-view/ibz-agent-main-info-edit-view.vue'));
         Vue.component('product-sum-usr3-grid-view', () => import('@pages/ibiz/product-sum-usr3-grid-view/product-sum-usr3-grid-view.vue'));
         Vue.component('case-test-option-view', () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'));
+        Vue.component('ibz-weekly-product-weekly-grid-view', () => import('@pages/report/ibz-weekly-product-weekly-grid-view/ibz-weekly-product-weekly-grid-view.vue'));
         Vue.component('bug-stats-bugresolvetion', () => import('@pages/ibiz/bug-stats-bugresolvetion/bug-stats-bugresolvetion.vue'));
         Vue.component('bug-stats-bug-resolved-by-grid-view', () => import('@pages/ibiz/bug-stats-bug-resolved-by-grid-view/bug-stats-bug-resolved-by-grid-view.vue'));
         Vue.component('test-task-main-dashboard-view', () => import('@pages/zentao/test-task-main-dashboard-view/test-task-main-dashboard-view.vue'));

@@ -4669,6 +4669,7 @@ export const viewstate: any = {
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
                 'b0858b3700cc6146837e0f3a1bf949e9',
+                'fde813cf1679434aabed3c4a64d6f954',
             ],
         },
         {
@@ -6256,6 +6257,16 @@ export const viewstate: any = {
                 '85ee867b09a2d6303c061d91374ec975',
                 'bb8860972029d9947daa3652a4b5d291',
                 '441544d65ca067ea5ea625645b70e610',
+            ],
+        },
+        {
+            viewtag: 'fde813cf1679434aabed3c4a64d6f954',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyProductWeeklyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7ae5b669ec5f5284763927aee60efde1',
             ],
         },
         {

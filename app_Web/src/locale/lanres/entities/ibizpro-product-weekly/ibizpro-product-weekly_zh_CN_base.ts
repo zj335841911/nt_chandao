@@ -47,6 +47,7 @@ function getLocaleResourceBase(){
 					grouppanel10: commonLogic.appcommonhandle("服务",null), 
 					druipart9: commonLogic.appcommonhandle("",null), 
 					grouppanel6: commonLogic.appcommonhandle("其他",null), 
+					druipart10: commonLogic.appcommonhandle("",null), 
 					grouppanel11: commonLogic.appcommonhandle("产品成员周报",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
