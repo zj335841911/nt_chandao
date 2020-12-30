@@ -839,6 +839,75 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-group>
 
 </i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel11.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.grouppanel11"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel11.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibizproproductdaily.maininfo_form.details.grouppanel11')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="2"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel11"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart10.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproproductdaily" 
+    :parentdata='{"srfparentdename":"IBIZPRO_PRODUCTDAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{DATE:"%date%",PRODUCT:"%product%"}'
+    :localParam ='{product:"%product%",date:"%date%"}'
+    parameterName="ibizproproductdaily"
+    parentName="IbizproProductDaily"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibz-daily-product-daily-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
 
 
     </row>

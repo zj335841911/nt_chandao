@@ -4262,6 +4262,20 @@ const router = new Router({
                     component: () => import('@pages/ibizpro/ibizpro-project-daily-edit-view/ibizpro-project-daily-edit-view.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/productdailygridview/:productdailygridview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.productdailygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'productdailygridview', parameterName: 'productdailygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-product-daily-grid-view/ibz-daily-product-daily-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/planeditview/:planeditview?',
                     meta: {
                         caption: 'entities.story.views.planeditview.caption',

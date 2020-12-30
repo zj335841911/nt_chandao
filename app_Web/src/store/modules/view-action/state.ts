@@ -56,6 +56,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0178d8ab1c6cdcd8c03487a0f0cd09ec',
+            viewmodule: 'report',
+            viewname: 'IbzDailyProductDailyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ef8e8d565d141facde985ac87181e6e3',
+            ],
+        },
+        {
             viewtag: '02099c395e73d3d63cad28a5c4ce148b',
             viewmodule: 'zentao',
             viewname: 'TaskTypeTaskGroupGridView',
@@ -3452,6 +3462,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
+                '0178d8ab1c6cdcd8c03487a0f0cd09ec',
                 'f24328f024ca560f1d741035e0e2ffd8',
             ],
         },
