@@ -647,7 +647,7 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [项目日报任务](#数据查询-项目日报任务（ProjectDailyTask）) | ProjectDailyTask | 否 |
-| 3 | [项目日报任务](#数据查询-项目日报任务（ProjectMonthlyTask）) | ProjectMonthlyTask | 否 |
+| 3 | [项目月报任务](#数据查询-项目月报任务（ProjectMonthlyTask）) | ProjectMonthlyTask | 否 |
 | 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
@@ -696,9 +696,9 @@ t1.`LEFT`,
 t1.`TASK`
 FROM `zt_taskestimate` t1 where t1.date =DATE_FORMAT(${srfdatacontext('date')},'%y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
 ```
-### 数据查询-项目日报任务（ProjectMonthlyTask）
+### 数据查询-项目月报任务（ProjectMonthlyTask）
 #### 说明
-项目日报任务
+项目月报任务
 
 - 默认查询
 否
@@ -792,7 +792,7 @@ FROM `zt_taskestimate` t1
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [项目日报任务（ProjectMonthlyTask）](#数据查询-项目日报任务（ProjectMonthlyTask）) |
+| 1 | [项目月报任务（ProjectMonthlyTask）](#数据查询-项目月报任务（ProjectMonthlyTask）) |
 
 ## 数据导入
 无
