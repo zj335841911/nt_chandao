@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import cn.ibizlab.pms.core.es.dao.IbizproIndexESRepository;
 import cn.ibizlab.pms.core.es.domain.IbizproIndex;
 import cn.ibizlab.pms.core.es.service.IIbizproIndexESService;
-import cn.ibizlab.pms.core.valuerule.filter.IbizproIndexSearchContext;
+import cn.ibizlab.pms.core.ibizpro.filter.IbizproIndexSearchContext;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -49,17 +49,17 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     }
 
     @Override
-    public boolean remove(Long key) {
+    public boolean remove(Integer key) {
         repository.deleteById(key);
         return true;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<Integer> idList) {
 
     }
     @Override
-    public IbizproIndex get(Long key) {
+    public IbizproIndex get(Integer key) {
         Optional<IbizproIndex> result = repository.findById(key);
         if(!result.isPresent()){
             IbizproIndex et=new IbizproIndex();
@@ -83,3 +83,19 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
 
     }
 
+    public Page<IbizproIndex> searchDefault(IbizproIndexSearchContext context){
+        Iterable<IbizproIndex> list= repository.search(context.getEsCond());
+        List<IbizproIndex> entities = Lists.newArrayList(list);
+        return new PageImpl<IbizproIndex>(entities,context.getPageable(),entities.size());
+    }
+    public Page<IbizproIndex> searchESquery(IbizproIndexSearchContext context){
+        Iterable<IbizproIndex> list= repository.search(context.getEsCond());
+        List<IbizproIndex> entities = Lists.newArrayList(list);
+        return new PageImpl<IbizproIndex>(entities,context.getPageable(),entities.size());
+    }
+    public Page<IbizproIndex> searchIndexDER(IbizproIndexSearchContext context){
+        Iterable<IbizproIndex> list= repository.search(context.getEsCond());
+        List<IbizproIndex> entities = Lists.newArrayList(list);
+        return new PageImpl<IbizproIndex>(entities,context.getPageable(),entities.size());
+    }
+}

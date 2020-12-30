@@ -22,7 +22,7 @@ export default class IndexTypeModel {
 			{
 				name: 'srfkey',
 				prop: 'indexid',
-				dataType: 'BIGINT',
+				dataType: 'INT',
 			},
 
 			{

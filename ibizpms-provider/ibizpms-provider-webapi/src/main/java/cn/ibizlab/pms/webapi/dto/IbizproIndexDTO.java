@@ -44,8 +44,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "indexid")
     @JsonProperty("indexid")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long indexid;
+    private Integer indexid;
 
     /**
      * 属性 [INDEXNAME]
@@ -127,6 +126,15 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JsonProperty("acl")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String acl;
+
+    /**
+     * 属性 [DOCID]
+     *
+     */
+    @JSONField(name = "docid")
+    @JsonProperty("docid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String docid;
 
 
 

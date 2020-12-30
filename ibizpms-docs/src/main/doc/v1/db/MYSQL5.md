@@ -56159,7 +56159,7 @@ CREATE TABLE `zt_user`(
 | --------   |------------| :-----:   | :----: | :--------- | 
 | DELETED        | 逻辑标识  | VARCHAR      |   200   | &nbsp; |
 | INDEX_TYPE        | 类型  | VARCHAR      |   200   | &nbsp; |
-| INDEXID        | 主键  |       |   -1   | 主键&nbsp; |
+| INDEXID        | 主键  | INTEGER      |   -1   | 主键&nbsp; |
 | MDEPTID        | 部门标识  | VARCHAR      |   200   | &nbsp; |
 | COLOR        | 颜色  | VARCHAR      |   200   | &nbsp; |
 | ACLLIST        | 权限列表  | VARCHAR      |   200   | &nbsp; |

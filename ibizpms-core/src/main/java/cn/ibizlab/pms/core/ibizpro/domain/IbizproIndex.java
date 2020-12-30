@@ -57,7 +57,7 @@ public class IbizproIndex extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "indexid")
     @JsonProperty("indexid")
-    private Long indexid;
+    private Integer indexid;
     /**
      * 标题[需求、任务等]
      */
@@ -121,14 +121,17 @@ public class IbizproIndex extends EntityMP implements Serializable {
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
+    /**
+     * docid
+     */
+    @TableField(exist = false)
+    @JSONField(name = "docid")
+    @JsonProperty("docid")
+    private String docid;
 
 
 
 
-    @Override
-    public Serializable getDefaultKey(boolean gen) {
-        return IdWorker.getId();
-    }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
      * @param targetEntity 目标数据对象

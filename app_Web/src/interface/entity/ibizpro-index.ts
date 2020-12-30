@@ -93,4 +93,12 @@ export interface IbizproIndex {
      * @memberof IbizproIndex
      */
     acl?: any;
+
+    /**
+     * docid
+     *
+     * @returns {*}
+     * @memberof IbizproIndex
+     */
+    docid?: any;
 }

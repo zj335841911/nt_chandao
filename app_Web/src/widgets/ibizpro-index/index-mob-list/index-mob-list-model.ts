@@ -41,7 +41,7 @@ export default class IndexMobModel {
 			{
 				name: 'srfkey',
 				prop: 'indexid',
-				dataType: 'BIGINT',
+				dataType: 'INT',
 			},
 			{
 				name: 'srfmajortext',

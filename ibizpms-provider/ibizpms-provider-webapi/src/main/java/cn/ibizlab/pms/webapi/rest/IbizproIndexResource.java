@@ -68,7 +68,7 @@ public class IbizproIndexResource {
     @PreAuthorize("hasPermission(this.ibizproindexService.get(#ibizproindex_id),'pms-IbizproIndex-Update')")
     @ApiOperation(value = "更新索引检索", tags = {"索引检索" },  notes = "更新索引检索")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibizproindices/{ibizproindex_id}")
-    public ResponseEntity<IbizproIndexDTO> update(@PathVariable("ibizproindex_id") Long ibizproindex_id, @RequestBody IbizproIndexDTO ibizproindexdto) {
+    public ResponseEntity<IbizproIndexDTO> update(@PathVariable("ibizproindex_id") Integer ibizproindex_id, @RequestBody IbizproIndexDTO ibizproindexdto) {
 		IbizproIndex domain  = ibizproindexMapping.toDomain(ibizproindexdto);
         domain .setIndexid(ibizproindex_id);
 		ibizproindexService.update(domain );
@@ -87,14 +87,14 @@ public class IbizproIndexResource {
     @PreAuthorize("hasPermission(this.ibizproindexService.get(#ibizproindex_id),'pms-IbizproIndex-Remove')")
     @ApiOperation(value = "删除索引检索", tags = {"索引检索" },  notes = "删除索引检索")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibizproindices/{ibizproindex_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("ibizproindex_id") Long ibizproindex_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("ibizproindex_id") Integer ibizproindex_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibizproindexService.remove(ibizproindex_id));
     }
 
     @PreAuthorize("hasPermission(this.ibizproindexService.getIbizproindexByIds(#ids),'pms-IbizproIndex-Remove')")
     @ApiOperation(value = "批量删除索引检索", tags = {"索引检索" },  notes = "批量删除索引检索")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibizproindices/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Integer> ids) {
         ibizproindexService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -102,7 +102,7 @@ public class IbizproIndexResource {
     @PostAuthorize("hasPermission(this.ibizproindexMapping.toDomain(returnObject.body),'pms-IbizproIndex-Get')")
     @ApiOperation(value = "获取索引检索", tags = {"索引检索" },  notes = "获取索引检索")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproindices/{ibizproindex_id}")
-    public ResponseEntity<IbizproIndexDTO> get(@PathVariable("ibizproindex_id") Long ibizproindex_id) {
+    public ResponseEntity<IbizproIndexDTO> get(@PathVariable("ibizproindex_id") Integer ibizproindex_id) {
         IbizproIndex domain = ibizproindexService.get(ibizproindex_id);
         IbizproIndexDTO dto = ibizproindexMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -250,7 +250,7 @@ public class IbizproIndexResource {
     @PreAuthorize("hasPermission(this.ibizproindexMapping.toDomain(#ibizproindexdto),'pms-IbizproIndex-Save')")
     @ApiOperation(value = "获取索引检索", tags = {"索引检索" },  notes = "获取索引检索")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproindices/{ibizproindex_id}/es")
-    public ResponseEntity<IbizproIndexDTO> esGet(@PathVariable("ibizproindex_id") Long ibizproindex_id) {
+    public ResponseEntity<IbizproIndexDTO> esGet(@PathVariable("ibizproindex_id") Integer ibizproindex_id) {
         cn.ibizlab.pms.core.es.domain.IbizproIndex domain = esService.get(ibizproindex_id);
         IbizproIndexDTO dto = ibizproindexMapping.toDto(esMapping.toDomain(domain));
         return ResponseEntity.status(HttpStatus.OK).body(dto);

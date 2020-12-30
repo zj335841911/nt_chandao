@@ -18,7 +18,7 @@ hide members
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |类型|INDEX_TYPE|SSCODELIST|&nbsp;|
-|主键|INDEXID|BIGINT|&nbsp;|
+|主键|INDEXID|INT|&nbsp;|
 |标题[需求、任务等]|INDEXNAME|TEXT|&nbsp;|
 |逻辑标识|DELETED|YESNO|&nbsp;|
 |组织标识|ORGID|TEXT|&nbsp;|
@@ -28,6 +28,7 @@ hide members
 |项目|PROJECT|TEXT|&nbsp;|
 |权限列表|ACLLIST|TEXT|&nbsp;|
 |权限|ACL|TEXT|&nbsp;|
+|docid|DOCID|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -43,6 +44,7 @@ hide members
 |项目|默认规则|内容长度必须小于等于[200]|
 |权限列表|默认规则|内容长度必须小于等于[200]|
 |权限|默认规则|内容长度必须小于等于[200]|
+|docid|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

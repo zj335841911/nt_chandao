@@ -14,6 +14,7 @@ function getLocaleResourceBase(){
 			project: commonLogic.appcommonhandle("项目",null),
 			acllist: commonLogic.appcommonhandle("权限列表",null),
 			acl: commonLogic.appcommonhandle("权限",null),
+			docid: commonLogic.appcommonhandle("docid",null),
 		},
 			views: {
 				listview: {

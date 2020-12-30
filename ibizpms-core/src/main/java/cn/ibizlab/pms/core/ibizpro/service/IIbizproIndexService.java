@@ -39,9 +39,9 @@ public interface IIbizproIndexService extends IService<IbizproIndex> {
     void createBatch(List<IbizproIndex> list);
     boolean update(IbizproIndex et);
     void updateBatch(List<IbizproIndex> list);
-    boolean remove(Long key);
-    void removeBatch(Collection<Long> idList);
-    IbizproIndex get(Long key);
+    boolean remove(Integer key);
+    void removeBatch(Collection<Integer> idList);
+    IbizproIndex get(Integer key);
     IbizproIndex getDraft(IbizproIndex et);
     boolean checkKey(IbizproIndex et);
     boolean save(IbizproIndex et);
@@ -64,7 +64,7 @@ public interface IIbizproIndexService extends IService<IbizproIndex> {
      */
     boolean execute(String sql, Map param);
 
-    List<IbizproIndex> getIbizproindexByIds(List<Long> ids);
+    List<IbizproIndex> getIbizproindexByIds(List<Integer> ids);
     List<IbizproIndex> getIbizproindexByEntities(List<IbizproIndex> entities);
 }
 
