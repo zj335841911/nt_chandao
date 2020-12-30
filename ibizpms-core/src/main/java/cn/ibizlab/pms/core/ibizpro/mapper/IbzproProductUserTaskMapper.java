@@ -20,6 +20,8 @@ import com.alibaba.fastjson.JSONObject;
 public interface IbzproProductUserTaskMapper extends BaseMapper<IbzproProductUserTask> {
 
     Page<IbzproProductUserTask> searchDefault(IPage page, @Param("srf") IbzproProductUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProductUserTask> wrapper);
+    Page<IbzproProductUserTask> searchProductDailyUserTaskStats(IPage page, @Param("srf") IbzproProductUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProductUserTask> wrapper);
+    Page<IbzproProductUserTask> searchProductWeeklyUserTaskStats(IPage page, @Param("srf") IbzproProductUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProductUserTask> wrapper);
     @Override
     IbzproProductUserTask selectById(Serializable id);
     @Override

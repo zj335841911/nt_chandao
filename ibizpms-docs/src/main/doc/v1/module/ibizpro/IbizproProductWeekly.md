@@ -494,7 +494,7 @@ Long
 否
 
 - 属性类型
-应用界面字段[无存储]
+链接字段[来自关系实体字段]
 
 - 数据类型
 外键值文本
@@ -664,8 +664,7 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [产品周报详情](#数据查询-产品周报详情（ProductWeeklyQuery）) | ProductWeeklyQuery | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -688,41 +687,14 @@ t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`IBIZPRO_PRODUCTWEEKLYID`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTWEEKLY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
-```
-### 数据查询-产品周报详情（ProductWeeklyQuery）
-#### 说明
-产品周报详情
-
-- 默认查询
-否
-
-- 查询权限使用
-否
-
-#### SQL
-- MYSQL5
-```SQL
-select t1.*,t11.`name` as taskname,
-t11.deadline,
-t11.ESTSTARTED,
-t11.type as TASKTYPE,
-(CONCAT_WS('',case when t11.consumed = 0 or t11.consumed is null then '0' when t11.`left` = 0 or t11.`left` is null then '100' else ROUND((ROUND(t11.`consumed`/(t11.`left` + t11.consumed),2)) * 100) end ,'%')) as PROGRESSRATE,
-((case when t11.deadline is null or t11.deadline = '0000-00-00' or t11.deadline = '1970-01-01' then '' when t11.`status` in ('wait','doing') and t11.deadline <DATE_FORMAT(now(),'%Y-%m-%d') then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t11.deadline, now()),'天') else '' end))as DELAYDAYS 
-from 
-(select 
-t1.DATE,
-t1.TASK,
-t1.ACCOUNT,
-ROUND(sum(t1.CONSUMED),2) as CONSUMED,
-task as id 
-from ( SELECT t1.`ACCOUNT`, t1.`CONSUMED`, t1.`DATE`, t1.`ID`, t1.`LEFT`, t1.`TASK` FROM `zt_taskestimate` t1 where YEARWEEK(DATE_FORMAT(DATE_SUB(t1.date, INTERVAL -1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(DATE_SUB(#{srf.datacontext.date}, INTERVAL -1 DAY),'%Y-%m-%d'))
-) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -745,11 +717,13 @@ t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`IBIZPRO_PRODUCTWEEKLYID`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTWEEKLY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 

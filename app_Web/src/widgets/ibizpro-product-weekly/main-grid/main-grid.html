@@ -52,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('productname')">
-                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibizproproductweekly.main_grid.columns.productname')" :width="300"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibizproproductweekly.main_grid.columns.productname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibizproproductweekly.main_grid.columns.productname')}}

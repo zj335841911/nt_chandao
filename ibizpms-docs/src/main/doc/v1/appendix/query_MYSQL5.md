@@ -7647,31 +7647,13 @@ t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`IBIZPRO_PRODUCTWEEKLYID`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTWEEKLY` t1 
-
-```
-### 产品周报详情(ProductWeeklyQuery)<div id="IbizproProductWeekly_ProductWeeklyQuery"></div>
-```sql
-select t1.*,t11.`name` as taskname,
-t11.deadline,
-t11.ESTSTARTED,
-t11.type as TASKTYPE,
-(CONCAT_WS('',case when t11.consumed = 0 or t11.consumed is null then '0' when t11.`left` = 0 or t11.`left` is null then '100' else ROUND((ROUND(t11.`consumed`/(t11.`left` + t11.consumed),2)) * 100) end ,'%')) as PROGRESSRATE,
-((case when t11.deadline is null or t11.deadline = '0000-00-00' or t11.deadline = '1970-01-01' then '' when t11.`status` in ('wait','doing') and t11.deadline <DATE_FORMAT(now(),'%Y-%m-%d') then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t11.deadline, now()),'天') else '' end))as DELAYDAYS 
-from 
-(select 
-t1.DATE,
-t1.TASK,
-t1.ACCOUNT,
-ROUND(sum(t1.CONSUMED),2) as CONSUMED,
-task as id 
-from ( SELECT t1.`ACCOUNT`, t1.`CONSUMED`, t1.`DATE`, t1.`ID`, t1.`LEFT`, t1.`TASK` FROM `zt_taskestimate` t1 where YEARWEEK(DATE_FORMAT(DATE_SUB(t1.date, INTERVAL -1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(DATE_SUB(#{srf.datacontext.date}, INTERVAL -1 DAY),'%Y-%m-%d'))
-) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
-WHERE (find_in_set(t1.id,#{srf.datacontext.tasks})) 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbizproProductWeekly_View"></div>
@@ -7684,11 +7666,13 @@ t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`IBIZPRO_PRODUCTWEEKLYID`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTWEEKLY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 
@@ -9395,6 +9379,53 @@ t1.`ID`,
 t1.`LEFT`,
 t1.`TASK`
 FROM `zt_taskestimate` t1 
+
+```
+### 产品日报用户任务统计(ProductDailyUserTaskStats)<div id="IbzproProductUserTask_ProductDailyUserTaskStats"></div>
+```sql
+select 
+t1.*,
+t2.`name` AS taskname,
+t2.deadline,
+t2.ESTSTARTED,
+t2.type AS TASKTYPE,
+(CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND((ROUND(t2.`consumed`/( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE, 
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
+from
+(SELECT
+t1.DATE,
+t1.TASK,
+t1.ACCOUNT,
+ROUND(sum(t1.CONSUMED), 2) AS CONSUMED,
+task AS id 
+FROM
+`zt_taskestimate` t1 
+WHERE
+t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%y-%m-%d')
+GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT) t1
+left join zt_task t2 
+on t1.task = t2.id 
+where 
+FIND_IN_SET(t1.task, ${srfdatacontext('tasks')})
+```
+### 产品周报用户任务统计(ProductWeeklyUserTaskStats)<div id="IbzproProductUserTask_ProductWeeklyUserTaskStats"></div>
+```sql
+select t1.*,t11.`name` as taskname,
+t11.deadline,
+t11.ESTSTARTED,
+t11.type as TASKTYPE,
+(CONCAT_WS('',case when t11.consumed = 0 or t11.consumed is null then '0' when t11.`left` = 0 or t11.`left` is null then '100' else ROUND((ROUND(t11.`consumed`/(t11.`left` + t11.consumed),2)) * 100) end ,'%')) as PROGRESSRATE,
+((case when t11.deadline is null or t11.deadline = '0000-00-00' or t11.deadline = '1970-01-01' then '' when t11.`status` in ('wait','doing') and t11.deadline <DATE_FORMAT(now(),'%Y-%m-%d') then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t11.deadline, now()),'天') else '' end))as DELAYDAYS 
+from 
+(select 
+t1.DATE,
+t1.TASK,
+t1.ACCOUNT,
+ROUND(sum(t1.CONSUMED),2) as CONSUMED,
+task as id 
+from ( SELECT t1.`ACCOUNT`, t1.`CONSUMED`, t1.`DATE`, t1.`ID`, t1.`LEFT`, t1.`TASK` FROM `zt_taskestimate` t1 where YEARWEEK(DATE_FORMAT(DATE_SUB(t1.date, INTERVAL -1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(DATE_SUB(#{srf.datacontext.date}, INTERVAL -1 DAY),'%Y-%m-%d'))
+) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
+WHERE (find_in_set(t1.task,#{srf.datacontext.tasks})) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzproProductUserTask_View"></div>

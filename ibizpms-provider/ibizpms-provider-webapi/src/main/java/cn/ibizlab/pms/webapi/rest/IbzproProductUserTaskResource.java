@@ -157,6 +157,50 @@ public class IbzproProductUserTaskResource {
                 .body(new PageImpl(ibzproproductusertaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProductUserTask-searchProductDailyUserTaskStats-all')")
+	@ApiOperation(value = "获取产品日报用户任务统计", tags = {"产品汇报用户任务" } ,notes = "获取产品日报用户任务统计")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzproproductusertasks/fetchproductdailyusertaskstats")
+	public ResponseEntity<List<IbzproProductUserTaskDTO>> fetchProductDailyUserTaskStats(IbzproProductUserTaskSearchContext context) {
+        Page<IbzproProductUserTask> domains = ibzproproductusertaskService.searchProductDailyUserTaskStats(context) ;
+        List<IbzproProductUserTaskDTO> list = ibzproproductusertaskMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProductUserTask-searchProductDailyUserTaskStats-all')")
+	@ApiOperation(value = "查询产品日报用户任务统计", tags = {"产品汇报用户任务" } ,notes = "查询产品日报用户任务统计")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzproproductusertasks/searchproductdailyusertaskstats")
+	public ResponseEntity<Page<IbzproProductUserTaskDTO>> searchProductDailyUserTaskStats(@RequestBody IbzproProductUserTaskSearchContext context) {
+        Page<IbzproProductUserTask> domains = ibzproproductusertaskService.searchProductDailyUserTaskStats(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzproproductusertaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProductUserTask-searchProductWeeklyUserTaskStats-all')")
+	@ApiOperation(value = "获取产品周报用户任务统计", tags = {"产品汇报用户任务" } ,notes = "获取产品周报用户任务统计")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzproproductusertasks/fetchproductweeklyusertaskstats")
+	public ResponseEntity<List<IbzproProductUserTaskDTO>> fetchProductWeeklyUserTaskStats(IbzproProductUserTaskSearchContext context) {
+        Page<IbzproProductUserTask> domains = ibzproproductusertaskService.searchProductWeeklyUserTaskStats(context) ;
+        List<IbzproProductUserTaskDTO> list = ibzproproductusertaskMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProductUserTask-searchProductWeeklyUserTaskStats-all')")
+	@ApiOperation(value = "查询产品周报用户任务统计", tags = {"产品汇报用户任务" } ,notes = "查询产品周报用户任务统计")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzproproductusertasks/searchproductweeklyusertaskstats")
+	public ResponseEntity<Page<IbzproProductUserTaskDTO>> searchProductWeeklyUserTaskStats(@RequestBody IbzproProductUserTaskSearchContext context) {
+        Page<IbzproProductUserTask> domains = ibzproproductusertaskService.searchProductWeeklyUserTaskStats(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzproproductusertaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

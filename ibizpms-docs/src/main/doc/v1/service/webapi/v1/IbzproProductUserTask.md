@@ -220,6 +220,78 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzproProductUserTaskDTO](#IbzproProductUserTaskDTO)>：产品汇报用户任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品日报用户任务统计
+#### 访问路径
+/ibzproproductusertasks/fetchproductdailyusertaskstats
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProductUserTaskSearchContext](#IbzproProductUserTaskSearchContext) | 产品汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzproProductUserTaskDTO](#IbzproProductUserTaskDTO)>：产品汇报用户任务实体传输对象列表 |
+
+### 查询产品日报用户任务统计
+#### 访问路径
+/ibzproproductusertasks/searchproductdailyusertaskstats
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProductUserTaskSearchContext](#IbzproProductUserTaskSearchContext) | 产品汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzproProductUserTaskDTO](#IbzproProductUserTaskDTO)>：产品汇报用户任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取产品周报用户任务统计
+#### 访问路径
+/ibzproproductusertasks/fetchproductweeklyusertaskstats
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProductUserTaskSearchContext](#IbzproProductUserTaskSearchContext) | 产品汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzproProductUserTaskDTO](#IbzproProductUserTaskDTO)>：产品汇报用户任务实体传输对象列表 |
+
+### 查询产品周报用户任务统计
+#### 访问路径
+/ibzproproductusertasks/searchproductweeklyusertaskstats
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzproProductUserTaskSearchContext](#IbzproProductUserTaskSearchContext) | 产品汇报用户任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzproProductUserTaskDTO](#IbzproProductUserTaskDTO)>：产品汇报用户任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### IbzproProductUserTaskDTO
@@ -242,10 +314,11 @@ POST
 #### IbzproProductUserTaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | customcond | String | 允许 | 自定义查询条件 |
-| 2 | customparams | String | 允许 | 自定义查询参数 |
-| 3 | query | String | 允许 | 快速搜索 |
-| 4 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 5 | page | int | 允许 | 当前页数<br>默认值0 |
-| 6 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 7 | sort | String | 允许 | 排序 |
+| 1 | n_tasktype_eq | String | 允许 | 条件字段：tasktype<br>条件组合方式：`=` |
+| 2 | customcond | String | 允许 | 自定义查询条件 |
+| 3 | customparams | String | 允许 | 自定义查询参数 |
+| 4 | query | String | 允许 | 快速搜索 |
+| 5 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 6 | page | int | 允许 | 当前页数<br>默认值0 |
+| 7 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 8 | sort | String | 允许 | 排序 |

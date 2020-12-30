@@ -161,6 +161,24 @@ public class IbzproProductUserTaskServiceImpl extends ServiceImpl<IbzproProductU
         return new PageImpl<IbzproProductUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 产品日报用户任务统计
+     */
+    @Override
+    public Page<IbzproProductUserTask> searchProductDailyUserTaskStats(IbzproProductUserTaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproProductUserTask> pages=baseMapper.searchProductDailyUserTaskStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzproProductUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品周报用户任务统计
+     */
+    @Override
+    public Page<IbzproProductUserTask> searchProductWeeklyUserTaskStats(IbzproProductUserTaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproProductUserTask> pages=baseMapper.searchProductWeeklyUserTaskStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzproProductUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

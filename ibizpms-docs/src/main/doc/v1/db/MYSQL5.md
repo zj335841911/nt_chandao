@@ -58953,6 +58953,7 @@ CREATE TABLE `T_IBIZPRO_PRODUCTDAILY`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| PRODUCTNAME        | 产品名称  | VARCHAR      |   90   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | IBIZPRO_PRODUCTWEEKLYID        | 产品周报标识  |       |   20   | 主键&nbsp; |
 | TOTALESTIMATES        | 总工时  | DOUBLE      |   -1   | &nbsp; |

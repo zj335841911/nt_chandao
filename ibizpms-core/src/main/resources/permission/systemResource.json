@@ -1219,7 +1219,7 @@
     "dename":"IbzproProductUserTask",
     "delogicname":"产品汇报用户任务",
     "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"ProductDailyUserTaskStats" , "name":"产品日报用户任务统计"},{"id":"ProductWeeklyUserTaskStats" , "name":"产品周报用户任务统计"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
     }

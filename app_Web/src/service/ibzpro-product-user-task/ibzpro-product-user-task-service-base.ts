@@ -199,4 +199,62 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzproproductusertasks/searchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchProductDailyUserTaskStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProductUserTaskServiceBase
+     */
+    public async FetchProductDailyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzproproductusertasks/fetchproductdailyusertaskstats`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductDailyUserTaskStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProductUserTaskServiceBase
+     */
+    public async searchProductDailyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzproproductusertasks/searchproductdailyusertaskstats`,tempData,isloading);
+    }
+
+    /**
+     * FetchProductWeeklyUserTaskStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProductUserTaskServiceBase
+     */
+    public async FetchProductWeeklyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzproproductusertasks/fetchproductweeklyusertaskstats`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductWeeklyUserTaskStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProductUserTaskServiceBase
+     */
+    public async searchProductWeeklyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzproproductusertasks/searchproductweeklyusertaskstats`,tempData,isloading);
+    }
 }
