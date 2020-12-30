@@ -3,6 +3,242 @@
 项目日报
 
 ## 接口清单
+### 新建项目日报
+#### 访问路径
+/ibizproprojectdailies
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdailydto | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO) | 项目日报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO)：项目日报实体传输对象 |
+
+### 批量新建项目日报
+#### 访问路径
+/ibizproprojectdailies/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdailydtos | List<[IbizproProjectDailyDTO](#IbizproProjectDailyDTO)> | 项目日报实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 更新项目日报
+#### 访问路径
+/ibizproprojectdailies/{ibizproprojectdaily_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdaily_id | String | 项目日报主键ID |
+| 2 | ibizproprojectdailydto | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO) | 项目日报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO)：项目日报实体传输对象 |
+
+### 批量更新项目日报
+#### 访问路径
+/ibizproprojectdailies/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdailydtos | List<[IbizproProjectDailyDTO](#IbizproProjectDailyDTO)> | 项目日报实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 删除项目日报
+#### 访问路径
+/ibizproprojectdailies/{ibizproprojectdaily_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdaily_id | String | 项目日报主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量删除项目日报
+#### 访问路径
+/ibizproprojectdailies/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ids | List<String> | 项目日报主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取项目日报
+#### 访问路径
+/ibizproprojectdailies/{ibizproprojectdaily_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdaily_id | String | 项目日报主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO)：项目日报实体传输对象 |
+
+### 检查项目日报
+#### 访问路径
+/ibizproprojectdailies/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdailydto | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO) | 项目日报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 保存项目日报
+#### 访问路径
+/ibizproprojectdailies/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdailydto | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO) | 项目日报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量保存项目日报
+#### 访问路径
+/ibizproprojectdailies/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdailydtos | List<[IbizproProjectDailyDTO](#IbizproProjectDailyDTO)> | 项目日报实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 汇总项目日报
+#### 访问路径
+/ibizproprojectdailies/{ibizproprojectdaily_id}/sumprojectdaily
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectdaily_id | String | 项目日报主键ID |
+| 2 | ibizproprojectdailydto | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO) | 项目日报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectDailyDTO](#IbizproProjectDailyDTO)：项目日报实体传输对象 |
+
+### 获取数据集
+#### 访问路径
+/ibizproprojectdailies/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbizproProjectDailySearchContext](#IbizproProjectDailySearchContext) | 项目日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbizproProjectDailyDTO](#IbizproProjectDailyDTO)>：项目日报实体传输对象列表 |
+
+### 查询数据集
+#### 访问路径
+/ibizproprojectdailies/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbizproProjectDailySearchContext](#IbizproProjectDailySearchContext) | 项目日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbizproProjectDailyDTO](#IbizproProjectDailyDTO)>：项目日报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### IbizproProjectDailyDTO
