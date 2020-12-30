@@ -57,7 +57,7 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
         Date date = calendar.getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String strDate = dateFormat.format(date);
-        List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(String.format(" and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and tt.date = '%1$s')", strDate)));
+        List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(String.format(" and SUPPROREPORT = '1' and pm is not null  and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and tt.date = '%1$s')", strDate)));
         Timestamp timestamp = new Timestamp(date.getTime());
         List<IbizproProjectDaily> ibizproProjectDailies = new ArrayList<>();
         for(Project project : projectList) {
@@ -86,7 +86,7 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
      */
     public List<Task> getTaskList(Long project, String strDate) {
 
-        return iTaskService.list(new QueryWrapper<Task>().eq("project", project).last(String.format(" and SUPPROREPORT = '1' and pm is not null and EXISTS(select 1 from zt_taskestimate tt where tt.task = zt_task.id and tt.date = '%1$s')", strDate)));
+        return iTaskService.list(new QueryWrapper<Task>().eq("project", project).last(String.format("  and EXISTS(select 1 from zt_taskestimate tt where tt.task = zt_task.id and tt.date = '%1$s')", strDate)));
     }
 
     /**
