@@ -69,20 +69,6 @@ export class IbzMonthlyProjectMonthlyGridView_Base extends GridViewBase {
      */
     public appUIService: IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof IbzMonthlyProjectMonthlyGridView_Base
-	 */
-    protected customViewParams: any = {
-        'n_account_eq': {
-            isRawValue: false,
-            value: 'srfloginname',
-        }
-    };
-
     /**
      * 视图模型数据
      *
