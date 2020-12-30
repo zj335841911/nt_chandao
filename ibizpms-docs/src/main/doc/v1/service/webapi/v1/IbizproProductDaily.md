@@ -288,10 +288,10 @@ POST
 | 6 | updateman | String | 不可 | 更新人 |
 | 7 | po | String | 允许 | 产品负责人 |
 | 8 | product | Long | 允许 | 产品 |
-| 9 | productname | String | 允许 | 产品名称 |
-| 10 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 11 | tasks | String | 允许 | 任务 |
-| 12 | totalestimates | Double | 允许 | 总工时 |
+| 9 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 10 | tasks | String | 允许 | 任务 |
+| 11 | totalestimates | Double | 允许 | 总工时 |
+| 12 | productname | String | 允许 | 产品名称 |
 | 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProductDailySearchContext

@@ -51,6 +51,9 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    @Autowired
+    @Lazy
+    IEntryService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,21 +139,49 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Entry> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Entry> create = new ArrayList<>();
+        List<Entry> update = new ArrayList<>();
+        for (Entry et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Entry> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Entry> create = new ArrayList<>();
+        List<Entry> update = new ArrayList<>();
+        for (Entry et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -199,7 +230,6 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
 
 
 }
-
 
 
 

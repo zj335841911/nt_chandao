@@ -54,6 +54,9 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    @Autowired
+    @Lazy
+    IBurnService proxyService;
 
     protected int batchSize = 500;
 
@@ -159,7 +162,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -167,7 +170,21 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Transactional
     public boolean saveBatch(Collection<Burn> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Burn> create = new ArrayList<>();
+        List<Burn> update = new ArrayList<>();
+        for (Burn et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -175,7 +192,21 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Transactional
     public void saveBatch(List<Burn> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Burn> create = new ArrayList<>();
+        List<Burn> update = new ArrayList<>();
+        for (Burn et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -269,7 +300,6 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
 
 }
-
 
 
 

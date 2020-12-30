@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("NotifyServiceImpl")
 public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> implements INotifyService {
 
+    @Autowired
+    @Lazy
+    INotifyService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Notify> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Notify> create = new ArrayList<>();
+        List<Notify> update = new ArrayList<>();
+        for (Notify et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Notify> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Notify> create = new ArrayList<>();
+        List<Notify> update = new ArrayList<>();
+        for (Notify et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -196,7 +227,6 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
 
 
 }
-
 
 
 

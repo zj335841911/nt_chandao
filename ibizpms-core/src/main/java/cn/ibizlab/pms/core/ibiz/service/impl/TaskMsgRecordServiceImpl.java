@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("TaskMsgRecordServiceImpl")
 public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, TaskMsgRecord> implements ITaskMsgRecordService {
 
+    @Autowired
+    @Lazy
+    ITaskMsgRecordService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<TaskMsgRecord> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TaskMsgRecord> create = new ArrayList<>();
+        List<TaskMsgRecord> update = new ArrayList<>();
+        for (TaskMsgRecord et : list) {
+            if (ObjectUtils.isEmpty(et.getTaskmsgrecordid()) || ObjectUtils.isEmpty(getById(et.getTaskmsgrecordid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<TaskMsgRecord> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TaskMsgRecord> create = new ArrayList<>();
+        List<TaskMsgRecord> update = new ArrayList<>();
+        for (TaskMsgRecord et : list) {
+            if (ObjectUtils.isEmpty(et.getTaskmsgrecordid()) || ObjectUtils.isEmpty(getById(et.getTaskmsgrecordid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -217,7 +248,6 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
 
 
 }
-
 
 
 

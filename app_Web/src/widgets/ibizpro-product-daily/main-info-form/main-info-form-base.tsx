@@ -102,7 +102,6 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        productname: null,
         po: null,
         date: null,
         totalestimates: null,
@@ -240,13 +239,6 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({
     caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        productname: new FormItemModel({
-    caption: '产品名称', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

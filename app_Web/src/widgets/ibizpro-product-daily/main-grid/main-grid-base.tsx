@@ -111,15 +111,6 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'productname',
-            label: '产品名称',
-            langtag: 'entities.ibizproproductdaily.main_grid.columns.productname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'po',
             label: '产品负责人',
             langtag: 'entities.ibizproproductdaily.main_grid.columns.po',
@@ -248,7 +239,6 @@ export class MainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'ibizpro_productdailyname':false,
-        'productname':false,
         'po':false,
         'date':false,
         'totalestimates':false,
@@ -339,7 +329,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibizpro_productdailyname','productname','po','date','totalestimates'];
+        let allColumns:Array<any> = ['ibizpro_productdailyname','po','date','totalestimates'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -419,7 +409,6 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 ibizpro_productdailyname:'',
-                productname:'',
                 po:'',
                 date:'',
                 totalestimates:'',
@@ -448,7 +437,6 @@ export class MainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             ibizpro_productdailyname:'',
-            productname:'',
             po:'',
             date:'',
             totalestimates:'',
@@ -513,7 +501,6 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 ibizpro_productdailyname:'',
-                productname:'',
                 po:'',
                 date:'',
                 totalestimates:'',

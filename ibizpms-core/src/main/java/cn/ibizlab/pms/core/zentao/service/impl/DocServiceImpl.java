@@ -67,6 +67,9 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IDocCurUserIsFLogic curuserisfLogic;
+    @Autowired
+    @Lazy
+    IDocService proxyService;
 
     protected int batchSize = 500;
 
@@ -219,7 +222,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -227,7 +230,21 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Transactional
     public boolean saveBatch(Collection<Doc> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Doc> create = new ArrayList<>();
+        List<Doc> update = new ArrayList<>();
+        for (Doc et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -235,7 +252,21 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Transactional
     public void saveBatch(List<Doc> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Doc> create = new ArrayList<>();
+        List<Doc> update = new ArrayList<>();
+        for (Doc et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -471,7 +502,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
 
 }
-
 
 
 

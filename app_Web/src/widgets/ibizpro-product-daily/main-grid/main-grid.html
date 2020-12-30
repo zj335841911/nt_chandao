@@ -51,18 +51,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('productname')">
-                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.ibizproproductdaily.main_grid.columns.productname')" :width="250"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.ibizproproductdaily.main_grid.columns.productname')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.productname}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('po')">
                 <el-table-column show-overflow-tooltip :prop="'po'" :label="$t('entities.ibizproproductdaily.main_grid.columns.po')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

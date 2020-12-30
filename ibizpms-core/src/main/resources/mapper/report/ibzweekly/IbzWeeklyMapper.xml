@@ -44,6 +44,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProductTeamMemberWeekly]-->
+	 <select id="searchProductTeamMemberWeekly"  parameterType="cn.ibizlab.pms.core.report.filter.IbzWeeklySearchContext"  resultMap="IbzWeeklyResultMap">
+         select t1.* from (
+                <include refid="ProductTeamMemberWeekly" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ProjectWeekly]-->
 	 <select id="searchProjectWeekly"  parameterType="cn.ibizlab.pms.core.report.filter.IbzWeeklySearchContext"  resultMap="IbzWeeklyResultMap">
          select t1.* from (
@@ -68,6 +77,12 @@
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`COMMENT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_WEEKLYID`, t1.`IBZ_WEEKLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.`NEXTWEEKTASK`, t1.`PLANNEXTWEEK`, (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`, t1.`REPORTTO`, t1.`THISWEEKTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1  left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 					 WHERE 	t1.issubmit = '1'
 						 AND (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO))
+			]]>
+    </sql>
+    <!--数据查询[ProductTeamMemberWeekly]-->
+    <sql id="ProductTeamMemberWeekly" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_WEEKLYID`, t1.`IBZ_WEEKLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.mailto AS `MAILTOPK`, t1.`NEXTWEEKTASK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.reportto AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`THISWEEKTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1  
+					 WHERE 	( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'product' and t.root =#{srf.datacontext.product})   and YEARWEEK(t1.date,INTERVAL 1 DAY) = YEARWEEK(#{srf.datacontext.date},INTERVAL 1 DAY) )
 			]]>
     </sql>
     <!--数据查询[ProjectWeekly]-->

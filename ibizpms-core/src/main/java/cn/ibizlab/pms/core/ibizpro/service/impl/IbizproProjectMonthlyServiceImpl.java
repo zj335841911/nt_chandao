@@ -51,6 +51,9 @@ public class IbizproProjectMonthlyServiceImpl extends ServiceImpl<IbizproProject
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    @Autowired
+    @Lazy
+    IIbizproProjectMonthlyService proxyService;
 
     protected int batchSize = 500;
 
@@ -141,7 +144,7 @@ public class IbizproProjectMonthlyServiceImpl extends ServiceImpl<IbizproProject
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -149,7 +152,21 @@ public class IbizproProjectMonthlyServiceImpl extends ServiceImpl<IbizproProject
     @Transactional
     public boolean saveBatch(Collection<IbizproProjectMonthly> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProjectMonthly> create = new ArrayList<>();
+        List<IbizproProjectMonthly> update = new ArrayList<>();
+        for (IbizproProjectMonthly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbizproprojectmonthlyid()) || ObjectUtils.isEmpty(getById(et.getIbizproprojectmonthlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -157,7 +174,21 @@ public class IbizproProjectMonthlyServiceImpl extends ServiceImpl<IbizproProject
     @Transactional
     public void saveBatch(List<IbizproProjectMonthly> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProjectMonthly> create = new ArrayList<>();
+        List<IbizproProjectMonthly> update = new ArrayList<>();
+        for (IbizproProjectMonthly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbizproprojectmonthlyid()) || ObjectUtils.isEmpty(getById(et.getIbizproprojectmonthlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -268,7 +299,6 @@ public class IbizproProjectMonthlyServiceImpl extends ServiceImpl<IbizproProject
 
 
 }
-
 
 
 

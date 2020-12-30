@@ -57551,6 +57551,7 @@ CREATE TABLE `zt_user`(
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | PRODUCT        | 产品  |       |   8   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
+| PRODUCTNAME        | 产品名称  | VARCHAR      |   90   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | TASKS        | 任务  | VARCHAR      |   100   | &nbsp; |
 | PO        | 产品负责人  | VARCHAR      |   100   | &nbsp; |

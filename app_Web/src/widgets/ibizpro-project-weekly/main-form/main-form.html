@@ -1,6 +1,6 @@
 <i-form
     :model="this.data"
-    class="app-form"
+    class="app-form info-form-mode"
     ref="form"
     id="ibizproprojectweekly_main"
     style=""
@@ -28,7 +28,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -63,23 +63,22 @@
 >
     
 <app-picker 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.projectname.disabled"
-    name="projectname"
-    deMajorField="name"
-    deKeyField="project"
-    :service="service"
-    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-    valueitem="project" 
-    :value="data.projectname"
-    :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-    style=""  
-    @formitemvaluechange="onFormItemValueChange($event)">
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.projectname.disabled"
+  name='projectname'
+  deMajorField='name'
+  deKeyField='project'
+  valueitem='project' 
+  :value="data.projectname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'ProjectMainTabExpView', title: $t('entities.project.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 1400, height: 850, placement: '', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
 </app-picker>
 
 </app-form-item>
@@ -107,14 +106,11 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box 
-    v-model="data.pm"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.pm.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    
+<app-span name='pm' :value="data.pm" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -141,14 +137,11 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box 
-    v-model="data.week"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.week.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    
+<app-span name='week' :value="data.week" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -208,7 +201,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -219,7 +212,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -244,7 +270,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -255,7 +281,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"devel",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"devel",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -280,7 +339,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -291,7 +350,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"test",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"test",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -316,7 +408,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -327,7 +419,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"study",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"study",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -352,7 +477,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -363,7 +488,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart5.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"discuss",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"discuss",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -388,7 +546,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -399,7 +557,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart10.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"ui",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"ui",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -424,7 +615,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -435,7 +626,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart6.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"affair",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"affair",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -460,7 +684,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -471,7 +695,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart7.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"serve",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"serve",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -496,7 +753,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -507,7 +764,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart8.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"misc",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"misc",tasks:"%tasks%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibzpro-project-user-task-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -532,7 +822,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -543,7 +833,40 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-            
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart9.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibizproprojectweekly" 
+    :parentdata='{"srfparentdename":"IBZPRO_PROJECTWEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{DATE:"%date%",PROJECT:"%project%"}'
+    :localParam ='{project:"%project%",date:"%date%"}'
+    parameterName="ibizproprojectweekly"
+    parentName="IbizproProjectWeekly"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="ibz-weekly-project-weekly-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 

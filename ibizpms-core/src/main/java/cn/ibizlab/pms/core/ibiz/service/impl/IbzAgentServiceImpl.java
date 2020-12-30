@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzAgentServiceImpl")
 public class IbzAgentServiceImpl extends ServiceImpl<IbzAgentMapper, IbzAgent> implements IIbzAgentService {
 
+    @Autowired
+    @Lazy
+    IIbzAgentService proxyService;
 
     protected int batchSize = 500;
 
@@ -127,21 +130,49 @@ public class IbzAgentServiceImpl extends ServiceImpl<IbzAgentMapper, IbzAgent> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzAgent> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzAgent> create = new ArrayList<>();
+        List<IbzAgent> update = new ArrayList<>();
+        for (IbzAgent et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzagentid()) || ObjectUtils.isEmpty(getById(et.getIbzagentid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzAgent> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzAgent> create = new ArrayList<>();
+        List<IbzAgent> update = new ArrayList<>();
+        for (IbzAgent et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzagentid()) || ObjectUtils.isEmpty(getById(et.getIbzagentid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -211,7 +242,6 @@ public class IbzAgentServiceImpl extends ServiceImpl<IbzAgentMapper, IbzAgent> i
 
 
 }
-
 
 
 

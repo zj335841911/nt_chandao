@@ -1218,8 +1218,9 @@ Save
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [我的周报](#数据查询-我的周报（MyNotSubmit）) | MyNotSubmit | 否 |
 | 3 | [我收到的周报](#数据查询-我收到的周报（MyWeekly）) | MyWeekly | 否 |
-| 4 | [项目周报](#数据查询-项目周报（ProjectWeekly）) | ProjectWeekly | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 4 | [产品团队成员周报](#数据查询-产品团队成员周报（ProductTeamMemberWeekly）) | ProductTeamMemberWeekly | 否 |
+| 5 | [项目周报](#数据查询-项目周报（ProjectWeekly）) | ProjectWeekly | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1328,6 +1329,42 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-产品团队成员周报（ProductTeamMemberWeekly）
+#### 说明
+产品团队成员周报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
+t1.`NEXTWEEKTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+
+```
 ### 数据查询-项目周报（ProjectWeekly）
 #### 说明
 项目周报
@@ -1389,7 +1426,8 @@ FROM `T_IBZ_WEEKLY` t1
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我的周报](#数据集合-我的周报（MyNotSubmit）) | MyNotSubmit | 否 |
 | 3 | [我收到的周报](#数据集合-我收到的周报（MyWeekly）) | MyWeekly | 否 |
-| 4 | [项目周报](#数据集合-项目周报（ProjectWeekly）) | ProjectWeekly | 否 |
+| 4 | [产品团队成员周报](#数据集合-产品团队成员周报（ProductTeamMemberWeekly）) | ProductTeamMemberWeekly | 否 |
+| 5 | [项目周报](#数据集合-项目周报（ProjectWeekly）) | ProjectWeekly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1433,6 +1471,20 @@ FROM `T_IBZ_WEEKLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我收到的周报（MyWeekly）](#数据查询-我收到的周报（MyWeekly）) |
+### 数据集合-产品团队成员周报（ProductTeamMemberWeekly）
+#### 说明
+产品团队成员周报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品团队成员周报（ProductTeamMemberWeekly）](#数据查询-产品团队成员周报（ProductTeamMemberWeekly）) |
 ### 数据集合-项目周报（ProjectWeekly）
 #### 说明
 项目周报

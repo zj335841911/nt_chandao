@@ -4870,6 +4870,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view/project-grid-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/projectweeklygridview/:projectweeklygridview?',
+                    meta: {
+                        caption: 'entities.ibzweekly.views.projectweeklygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'projectweeklygridview', parameterName: 'projectweeklygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-project-weekly-grid-view/ibz-weekly-project-weekly-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/maindataeditview/:maindataeditview?',
                     meta: {
                         caption: 'entities.productplan.views.maindataeditview.caption',
@@ -18953,6 +18967,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-plan-edit-view/product-plan-edit-view.vue'),
+                },
+                {
+                    path: 'ibzproprojectusertasks/:ibzproprojectusertask?/projectweeklygridview/:projectweeklygridview?',
+                    meta: {
+                        caption: 'entities.ibzproprojectusertask.views.projectweeklygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproprojectusertasks', parameterName: 'ibzproprojectusertask' },
+                            { pathName: 'projectweeklygridview', parameterName: 'projectweeklygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-project-user-task-project-weekly-grid-view/ibzpro-project-user-task-project-weekly-grid-view.vue'),
                 },
                 {
                     path: 'actions/:action?/historylistview/:historylistview?',

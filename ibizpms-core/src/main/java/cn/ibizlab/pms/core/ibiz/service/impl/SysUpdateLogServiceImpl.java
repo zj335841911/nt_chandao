@@ -55,6 +55,9 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.ISysUpdateLogUpdateLastedLogic updatelastedLogic;
+    @Autowired
+    @Lazy
+    ISysUpdateLogService proxyService;
 
     protected int batchSize = 500;
 
@@ -158,21 +161,49 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<SysUpdateLog> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<SysUpdateLog> create = new ArrayList<>();
+        List<SysUpdateLog> update = new ArrayList<>();
+        for (SysUpdateLog et : list) {
+            if (ObjectUtils.isEmpty(et.getSysupdatelogid()) || ObjectUtils.isEmpty(getById(et.getSysupdatelogid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<SysUpdateLog> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<SysUpdateLog> create = new ArrayList<>();
+        List<SysUpdateLog> update = new ArrayList<>();
+        for (SysUpdateLog et : list) {
+            if (ObjectUtils.isEmpty(et.getSysupdatelogid()) || ObjectUtils.isEmpty(getById(et.getSysupdatelogid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -242,7 +273,6 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
 
 
 }
-
 
 
 

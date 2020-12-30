@@ -97,6 +97,9 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryNFavoritesLogic storynfavoritesLogic;
+    @Autowired
+    @Lazy
+    IStoryService proxyService;
 
     protected int batchSize = 500;
 
@@ -628,7 +631,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -636,7 +639,21 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Transactional
     public boolean saveBatch(Collection<Story> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Story> create = new ArrayList<>();
+        List<Story> update = new ArrayList<>();
+        for (Story et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -644,7 +661,21 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Transactional
     public void saveBatch(List<Story> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Story> create = new ArrayList<>();
+        List<Story> update = new ArrayList<>();
+        for (Story et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
       /**
@@ -1117,7 +1148,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
 
 }
-
 
 
 

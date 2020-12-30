@@ -71,6 +71,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskMobTestTaskCounterLogic mobtesttaskcounterLogic;
+    @Autowired
+    @Lazy
+    ITestTaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -214,7 +217,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -222,7 +225,21 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public boolean saveBatch(Collection<TestTask> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestTask> create = new ArrayList<>();
+        List<TestTask> update = new ArrayList<>();
+        for (TestTask et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -230,7 +247,21 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public void saveBatch(List<TestTask> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestTask> create = new ArrayList<>();
+        List<TestTask> update = new ArrayList<>();
+        for (TestTask et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -377,9 +408,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
 
-    @Autowired
-    @Lazy
-    ITestTaskService proxyService;
 
     @Value("${ibiz.syncImportLimit:1000}")
     private int syncImportLimit;
@@ -599,7 +627,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
 
 }
-
 
 
 

@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzDailyServiceImpl")
 public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> implements IIbzDailyService {
 
+    @Autowired
+    @Lazy
+    IIbzDailyService proxyService;
 
     protected int batchSize = 500;
 
@@ -212,21 +215,49 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzDaily> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzDaily> create = new ArrayList<>();
+        List<IbzDaily> update = new ArrayList<>();
+        for (IbzDaily et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzdailyid()) || ObjectUtils.isEmpty(getById(et.getIbzdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzDaily> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzDaily> create = new ArrayList<>();
+        List<IbzDaily> update = new ArrayList<>();
+        for (IbzDaily et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzdailyid()) || ObjectUtils.isEmpty(getById(et.getIbzdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -356,7 +387,6 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
 
 
 }
-
 
 
 

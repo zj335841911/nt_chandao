@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IBZProSystemServiceImpl")
 public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZProSystem> implements IIBZProSystemService {
 
+    @Autowired
+    @Lazy
+    IIBZProSystemService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IBZProSystem> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IBZProSystem> create = new ArrayList<>();
+        List<IBZProSystem> update = new ArrayList<>();
+        for (IBZProSystem et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzprosystemid()) || ObjectUtils.isEmpty(getById(et.getIbzprosystemid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IBZProSystem> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IBZProSystem> create = new ArrayList<>();
+        List<IBZProSystem> update = new ArrayList<>();
+        for (IBZProSystem et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzprosystemid()) || ObjectUtils.isEmpty(getById(et.getIbzprosystemid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -217,7 +248,6 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
 
 
 }
-
 
 
 

@@ -108,13 +108,6 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JsonProperty("product")
     private Long product;
     /**
-     * 产品名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
      * 日期
      */
     @TableField(value = "`date`")
@@ -136,6 +129,13 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JSONField(name = "totalestimates")
     @JsonProperty("totalestimates")
     private Double totalestimates;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
 
     /**
      * 产品

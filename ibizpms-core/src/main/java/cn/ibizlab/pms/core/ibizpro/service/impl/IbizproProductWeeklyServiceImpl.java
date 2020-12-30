@@ -51,6 +51,9 @@ public class IbizproProductWeeklyServiceImpl extends ServiceImpl<IbizproProductW
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    @Autowired
+    @Lazy
+    IIbizproProductWeeklyService proxyService;
 
     protected int batchSize = 500;
 
@@ -141,7 +144,7 @@ public class IbizproProductWeeklyServiceImpl extends ServiceImpl<IbizproProductW
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -149,7 +152,21 @@ public class IbizproProductWeeklyServiceImpl extends ServiceImpl<IbizproProductW
     @Transactional
     public boolean saveBatch(Collection<IbizproProductWeekly> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProductWeekly> create = new ArrayList<>();
+        List<IbizproProductWeekly> update = new ArrayList<>();
+        for (IbizproProductWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbizproProductweeklyid()) || ObjectUtils.isEmpty(getById(et.getIbizproProductweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -157,7 +174,21 @@ public class IbizproProductWeeklyServiceImpl extends ServiceImpl<IbizproProductW
     @Transactional
     public void saveBatch(List<IbizproProductWeekly> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<IbizproProductWeekly> create = new ArrayList<>();
+        List<IbizproProductWeekly> update = new ArrayList<>();
+        for (IbizproProductWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbizproProductweeklyid()) || ObjectUtils.isEmpty(getById(et.getIbizproProductweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -267,7 +298,6 @@ public class IbizproProductWeeklyServiceImpl extends ServiceImpl<IbizproProductW
 
 
 }
-
 
 
 

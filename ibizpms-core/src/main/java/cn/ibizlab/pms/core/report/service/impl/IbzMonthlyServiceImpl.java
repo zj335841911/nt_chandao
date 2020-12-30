@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzMonthlyServiceImpl")
 public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMonthly> implements IIbzMonthlyService {
 
+    @Autowired
+    @Lazy
+    IIbzMonthlyService proxyService;
 
     protected int batchSize = 500;
 
@@ -197,21 +200,49 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzMonthly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzMonthly> create = new ArrayList<>();
+        List<IbzMonthly> update = new ArrayList<>();
+        for (IbzMonthly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzmonthlyid()) || ObjectUtils.isEmpty(getById(et.getIbzmonthlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzMonthly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzMonthly> create = new ArrayList<>();
+        List<IbzMonthly> update = new ArrayList<>();
+        for (IbzMonthly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzmonthlyid()) || ObjectUtils.isEmpty(getById(et.getIbzmonthlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -341,7 +372,6 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
 
 
 }
-
 
 
 

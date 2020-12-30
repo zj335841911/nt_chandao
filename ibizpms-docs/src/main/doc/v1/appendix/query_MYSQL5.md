@@ -7511,7 +7511,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v2.`PRECONDITION` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7529,7 +7529,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v3.`DESC` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7547,7 +7547,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v4.`DESC` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7583,7 +7583,7 @@ SELECT
 ,NULL AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
-,NULL AS `INDEXDESC`
+,v6.`DESC` AS `INDEXDESC`
 ,NULL AS `COLOR`
 ,NULL AS `PROJECT`
 ,NULL AS `ACLLIST`
@@ -7610,11 +7610,13 @@ t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 ### 产品日报(ProductDaily)<div id="IbizproProductDaily_ProductDaily"></div>
@@ -7645,11 +7647,13 @@ t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
 t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
 t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBIZPRO_PRODUCTDAILY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 
@@ -9317,6 +9321,34 @@ FROM `T_IBZ_WEEKLY` t1
 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.issubmit = '1' 
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
+
+```
+### 产品团队成员周报(ProductTeamMemberWeekly)<div id="IbzWeekly_ProductTeamMemberWeekly"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
+t1.`NEXTWEEKTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'product' and t.root =${srfdatacontext('product')})  
+and YEARWEEK(t1.date,INTERVAL 1 DAY) = YEARWEEK(${srfdatacontext('date')},INTERVAL 1 DAY) ) 
 
 ```
 ### 项目周报(ProjectWeekly)<div id="IbzWeekly_ProjectWeekly"></div>

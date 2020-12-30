@@ -86,6 +86,9 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetTestReportProjectLogic gettestreportprojectLogic;
+    @Autowired
+    @Lazy
+    ITestReportService proxyService;
 
     protected int batchSize = 500;
 
@@ -217,7 +220,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -225,7 +228,21 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Transactional
     public boolean saveBatch(Collection<TestReport> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestReport> create = new ArrayList<>();
+        List<TestReport> update = new ArrayList<>();
+        for (TestReport et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -233,7 +250,21 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Transactional
     public void saveBatch(List<TestReport> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestReport> create = new ArrayList<>();
+        List<TestReport> update = new ArrayList<>();
+        for (TestReport et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -326,7 +357,6 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
 
 }
-
 
 
 

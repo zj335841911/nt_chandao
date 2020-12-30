@@ -41,51 +41,6 @@
     <row>
         <i-col
     class="form-layout-container"
-    v-show="detailsModel.productname.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="productname"
-    :itemRules="this.rules().productname"
-    class=""
-
-    :caption="$t('entities.ibizproproductdaily.maininfo_form.details.productname')"
-    uiStyle="DEFAULT"
-    :labelWidth="100"
-    :isShowCaption="true"
-    :error="detailsModel.productname.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='name'
-  deKeyField='product'
-  valueitem='product' 
-  :value="data.productname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'ProductMainTabExpView', title: $t('entities.product.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 1400, height: 850, placement: '', isRedirectView: false }" 
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
     v-show="detailsModel.grouppanel1.visible"
     :style="{}"
     
@@ -337,8 +292,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"devel",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"devel",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductdaily"
     parentName="IbizproProductDaily"  
     refviewtype="DEGRIDVIEW9" 
@@ -475,8 +430,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"study",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"study",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductdaily"
     parentName="IbizproProductDaily"  
     refviewtype="DEGRIDVIEW9" 
@@ -544,8 +499,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"discuss",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"discuss",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductdaily"
     parentName="IbizproProductDaily"  
     refviewtype="DEGRIDVIEW9" 
@@ -613,8 +568,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"ui",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"ui",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductdaily"
     parentName="IbizproProductDaily"  
     refviewtype="DEGRIDVIEW9" 
@@ -682,8 +637,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"affair",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"affair",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductdaily"
     parentName="IbizproProductDaily"  
     refviewtype="DEGRIDVIEW9" 
@@ -751,8 +706,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"serve",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"serve",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductdaily"
     parentName="IbizproProductDaily"  
     refviewtype="DEGRIDVIEW9" 
@@ -820,8 +775,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"design",DATE:"%date%"}'
-    :localParam ='{n_tasktype_eq:"design",tasks:"%tasks%",date:"%date%"}'
+    :localContext ='{TASKS:"%tasks%",N_TASKTYPE_EQ:"misc",DATE:"%date%"}'
+    :localParam ='{n_tasktype_eq:"misc",tasks:"%tasks%",date:"%date%"}'
     parameterName="ibizproproductdaily"
     parentName="IbizproProductDaily"  
     refviewtype="DEGRIDVIEW9" 

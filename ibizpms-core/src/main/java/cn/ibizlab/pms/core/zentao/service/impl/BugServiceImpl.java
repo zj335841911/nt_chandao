@@ -107,6 +107,9 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IBugUpdateStoryVersionLogic updatestoryversionLogic;
+    @Autowired
+    @Lazy
+    IBugService proxyService;
 
     protected int batchSize = 500;
 
@@ -422,7 +425,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -430,7 +433,21 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Transactional
     public boolean saveBatch(Collection<Bug> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Bug> create = new ArrayList<>();
+        List<Bug> update = new ArrayList<>();
+        for (Bug et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -438,7 +455,21 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Transactional
     public void saveBatch(List<Bug> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Bug> create = new ArrayList<>();
+        List<Bug> update = new ArrayList<>();
+        for (Bug et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
       /**
@@ -1052,7 +1083,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
 
 }
-
 
 
 

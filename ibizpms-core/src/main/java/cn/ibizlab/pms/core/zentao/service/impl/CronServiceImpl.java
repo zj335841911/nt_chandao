@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("CronServiceImpl")
 public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements ICronService {
 
+    @Autowired
+    @Lazy
+    ICronService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Cron> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Cron> create = new ArrayList<>();
+        List<Cron> update = new ArrayList<>();
+        for (Cron et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Cron> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Cron> create = new ArrayList<>();
+        List<Cron> update = new ArrayList<>();
+        for (Cron et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -196,7 +227,6 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
 
 
 }
-
 
 
 

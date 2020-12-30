@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("TaskStatsServiceImpl")
 public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats> implements ITaskStatsService {
 
+    @Autowired
+    @Lazy
+    ITaskStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<TaskStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TaskStats> create = new ArrayList<>();
+        List<TaskStats> update = new ArrayList<>();
+        for (TaskStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<TaskStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<TaskStats> create = new ArrayList<>();
+        List<TaskStats> update = new ArrayList<>();
+        for (TaskStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -214,7 +245,6 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
 
 
 }
-
 
 
 

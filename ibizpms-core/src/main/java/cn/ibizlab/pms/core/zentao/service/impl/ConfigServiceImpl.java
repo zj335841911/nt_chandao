@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("ConfigServiceImpl")
 public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> implements IConfigService {
 
+    @Autowired
+    @Lazy
+    IConfigService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Config> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Config> create = new ArrayList<>();
+        List<Config> update = new ArrayList<>();
+        for (Config et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Config> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Config> create = new ArrayList<>();
+        List<Config> update = new ArrayList<>();
+        for (Config et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -196,7 +227,6 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
 
 
 }
-
 
 
 

@@ -136,6 +136,9 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateOrder__MSDenyLogic updateorder__msdenyLogic;
+    @Autowired
+    @Lazy
+    IProjectService proxyService;
 
     protected int batchSize = 500;
 
@@ -333,7 +336,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -341,7 +344,21 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Transactional
     public boolean saveBatch(Collection<Project> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Project> create = new ArrayList<>();
+        List<Project> update = new ArrayList<>();
+        for (Project et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -349,7 +366,21 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Transactional
     public void saveBatch(List<Project> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Project> create = new ArrayList<>();
+        List<Project> update = new ArrayList<>();
+        for (Project et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
        @Override
@@ -600,7 +631,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
 
 }
-
 
 
 

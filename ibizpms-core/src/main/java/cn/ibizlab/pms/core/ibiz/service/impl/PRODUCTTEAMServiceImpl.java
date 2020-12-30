@@ -51,6 +51,9 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    @Autowired
+    @Lazy
+    IPRODUCTTEAMService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,21 +139,49 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<PRODUCTTEAM> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<PRODUCTTEAM> create = new ArrayList<>();
+        List<PRODUCTTEAM> update = new ArrayList<>();
+        for (PRODUCTTEAM et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<PRODUCTTEAM> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<PRODUCTTEAM> create = new ArrayList<>();
+        List<PRODUCTTEAM> update = new ArrayList<>();
+        for (PRODUCTTEAM et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -163,9 +194,6 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
         this.remove(new QueryWrapper<PRODUCTTEAM>().eq("root", id));
     }
 
-    @Autowired
-    @Lazy
-    IPRODUCTTEAMService proxyService;
     @Override
     public void saveByRoot(Long id, List<PRODUCTTEAM> list) {
         if (list == null) {
@@ -263,7 +291,6 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
 
 
 }
-
 
 
 

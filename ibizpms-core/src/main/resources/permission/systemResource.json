@@ -1203,7 +1203,7 @@
     "dename":"IbzWeekly",
     "delogicname":"周报",
     "sysmoudle":{"id":"REPORT","name":"汇报模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyNotSubmit" , "name":"我的周报"},{"id":"MyWeekly" , "name":"我收到的周报"},{"id":"ProjectWeekly" , "name":"项目周报"}],
+    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyNotSubmit" , "name":"我的周报"},{"id":"MyWeekly" , "name":"我收到的周报"},{"id":"ProductTeamMemberWeekly" , "name":"产品团队成员周报"},{"id":"ProjectWeekly" , "name":"项目周报"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"CreateEveryWeekReport" , "name":"定时生成每周周报" , "type":"USERCUSTOM" },{"id":"CreateGetLastWeekPlanAndWork" , "name":"获取上周周报的下周计划" , "type":"USERCUSTOM" },{"id":"EditGetLastWeekTaskAndComTask" , "name":"编辑获取上周计划完成任务和本周已完成任务" , "type":"USERCUSTOM" },{"id":"HaveRead" , "name":"已读" , "type":"USERCUSTOM" },{"id":"JugThisWeekCreateWeekly" , "name":"判断本周是否创建过周报" , "type":"USERCUSTOM" },{"id":"PushUserWeekly" , "name":"定时推送待阅提醒用户周报提交" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Submit" , "name":"提交" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }

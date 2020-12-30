@@ -2990,7 +2990,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '5a8a29268a7563b62fc0160233958830',
+                'dfd88480fb413ae524dbbee4918676cb',
+                'fd0b8748ff96edcde009d39903a9f211',
+                'dc67624c3f090fcbd2b405a393b38cd4',
             ],
         },
         {
@@ -3449,7 +3451,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6c7b582273d0726bcf77214807cfe40c',
                 'f24328f024ca560f1d741035e0e2ffd8',
             ],
         },
@@ -5433,6 +5434,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'dc67624c3f090fcbd2b405a393b38cd4',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproProjectUserTaskProjectWeeklyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                '9c16791b436de259a12aa770fc3e260b',
+            ],
+        },
+        {
             viewtag: 'de3b10b3f9f11d67c6ea3418bc77f2b3',
             viewmodule: 'zentao',
             viewname: 'BugTestBugsGridView',
@@ -5452,6 +5464,16 @@ export const viewstate: any = {
                 '3458603afa6fef36eda88e9f794840f5',
                 '174408669d176924efbb3227d0784e93',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'dfd88480fb413ae524dbbee4918676cb',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyProjectWeeklyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7ae5b669ec5f5284763927aee60efde1',
             ],
         },
         {

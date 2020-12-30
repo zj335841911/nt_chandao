@@ -68,6 +68,9 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    @Autowired
+    @Lazy
+    IModuleService proxyService;
 
     protected int batchSize = 500;
 
@@ -166,7 +169,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -174,7 +177,21 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public boolean saveBatch(Collection<Module> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Module> create = new ArrayList<>();
+        List<Module> update = new ArrayList<>();
+        for (Module et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -182,7 +199,21 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public void saveBatch(List<Module> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Module> create = new ArrayList<>();
+        List<Module> update = new ArrayList<>();
+        for (Module et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -331,7 +362,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
 }
-
 
 
 
