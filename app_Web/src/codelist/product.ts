@@ -116,6 +116,7 @@ export default class Product {
                 
                 
                 
+                
                 _items.push(itemdata);
             });
         }

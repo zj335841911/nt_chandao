@@ -641,6 +641,9 @@ hide members
 
 package iBizPro模块 {
 
+class 产品周报 {
+}
+
 class 平台产品 {
 }
 

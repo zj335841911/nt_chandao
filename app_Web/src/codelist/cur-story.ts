@@ -117,6 +117,7 @@ export default class CurStory {
                 
                 
                 
+                
                 _items.push(itemdata);
             });
         }

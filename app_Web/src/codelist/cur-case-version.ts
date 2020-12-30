@@ -117,6 +117,7 @@ export default class CurCaseVersion {
                 
                 
                 
+                
                 _items.push(itemdata);
             });
         }

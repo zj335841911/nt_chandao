@@ -216,6 +216,8 @@
 
   * [iBizPro模块](module/ibizpro.md) 
 
+    * [产品周报](module/ibizpro/IBIZPRO_PRODUCTWEEKLY.md) 
+
     * [平台产品](module/ibizpro/IBZProProduct.md) 
 
     * [需求](module/ibizpro/IBZProStory.md) 

@@ -117,6 +117,7 @@ export default class CurDocVersion {
                 
                 
                 
+                
                 _items.push(itemdata);
             });
         }

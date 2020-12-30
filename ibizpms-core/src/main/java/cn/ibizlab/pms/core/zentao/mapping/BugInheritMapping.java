@@ -14,6 +14,7 @@ public interface BugInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="steps",target = "indexdesc"),
     })
     IbizproIndex toIbizproindex(Bug minorEntity);
 
@@ -21,6 +22,7 @@ public interface BugInheritMapping {
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "title"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="indexdesc",target = "steps"),
     })
     Bug toBug(IbizproIndex majorEntity);
 

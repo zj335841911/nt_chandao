@@ -14,7 +14,7 @@ public interface StoryInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
-        @Mapping(source ="deleted",target = "deleted"),
+        @Mapping(source ="spec",target = "indexdesc"),
     })
     IbizproIndex toIbizproindex(Story minorEntity);
 
@@ -22,6 +22,7 @@ public interface StoryInheritMapping {
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "title"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="indexdesc",target = "spec"),
     })
     Story toStory(IbizproIndex majorEntity);
 

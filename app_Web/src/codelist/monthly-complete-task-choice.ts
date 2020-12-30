@@ -116,6 +116,7 @@ export default class MonthlyCompleteTaskChoice {
                 
                 
                 
+                
                 _items.push(itemdata);
             });
         }

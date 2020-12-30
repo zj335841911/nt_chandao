@@ -104,12 +104,12 @@ export class AppServiceBase {
             } else if (Environment.LoginMode.toUpperCase() === 'CAS') {
                 if (isLogin) {
                     location.href = `${Environment.CasUrl}/login?service=${encodeURIComponent(
-                        `${location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`
+                        `${location.origin}${location.pathname}/cas-login.html?RU=${encodeURIComponent(location.href)}`
                     )}`;
                 } else {
                     location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(
                         `${Environment.CasUrl}/login?service=${encodeURIComponent(
-                            `${location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`
+                            `${location.origin}${location.pathname}/cas-login.html?RU=${encodeURIComponent(location.href)}`
                         )}`
                     )}`;
                 }
