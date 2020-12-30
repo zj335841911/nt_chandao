@@ -8081,11 +8081,11 @@ t1.`TOMORROWPLANSTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
-FROM `T_IBZ_DAILY` t1
-WHERE (t1.`ISSUBMIT` = '1' 
+FROM `T_IBZ_DAILY` t1 
+where
+t1.`ISSUBMIT` = '1' 
 AND exists(select 1 from zt_team t2 where t2.account = t1.`ACCOUNT` and t2.type = 'product' and t2.root = ${srfdatacontext('product')}) 
-AND DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d'))) 
-
+AND DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d')
 ```
 ### 项目日报(ProjectDaily)<div id="IbzDaily_ProjectDaily"></div>
 ```sql
