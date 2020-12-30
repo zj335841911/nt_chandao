@@ -581,6 +581,7 @@ SRFNAVPARAM.project=%project%|
 |-|历史记录|DELISTVIEW|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|组成员表格导航视图|DEGRIDEXPVIEW|&nbsp;|
 |-|平台管理|DEGRIDVIEW|&nbsp;|
+|-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|需求表格视图|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|测试套件编辑视图|DEEDITVIEW|&nbsp;|
@@ -827,6 +828,7 @@ SRFNAVPARAM.project=%project%|
 |-|实体2编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务表格视图（子任务-更多）|DEGRIDVIEW|&nbsp;|
 |-|项目主页|APPPORTALVIEW|&nbsp;|
+|-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|用例库用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
 |-|汇报分页导航视图（我收到的）|DETABEXPVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
@@ -940,6 +942,7 @@ SRFNAVPARAM.project=%project%|
 |-|功能测试表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
+|-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
 |-|文档库分类树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|

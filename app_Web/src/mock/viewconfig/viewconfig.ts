@@ -2233,7 +2233,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzmyterritoryreporttabexpview": {
             "title": "我的地盘分页导航视图",
-            "caption": "汇报",
+            "caption": "个人",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "report",
             "viewname": "IbzMyTerritoryReportTabExpView",
@@ -2414,6 +2414,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BranchPMGridView",
             "viewtag": "776ea44ea05316c9c6cb9d5948e993f9"
+        },
+        "ibzmyterritoryallreporttabexpview": {
+            "title": "我的地盘分页导航视图",
+            "caption": "汇报",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMyTerritoryALLReportTabExpView",
+            "viewtag": "778d5d75940369d519f4dbefd22628b8"
         },
         "taskgridview9_assignedtome": {
             "title": "任务表格视图",
@@ -4383,6 +4391,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectPortalView",
             "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64"
         },
+        "ibzmyterritoryprojectreporttabexpview": {
+            "title": "我的地盘分页导航视图",
+            "caption": "项目",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMyTerritoryProjectReportTabExpView",
+            "viewtag": "cc88c07d051f15f571735ac91fd6914d"
+        },
         "ibzlibcasestepsgridview9": {
             "title": "用例库用例步骤表格视图",
             "caption": "用例库用例步骤",
@@ -5286,6 +5302,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductBugTreeExpView",
             "viewtag": "f78c94cb0a20d7f459753a4070f8f3e7"
+        },
+        "ibzmyterritoryproductreporttabexpview": {
+            "title": "我的地盘分页导航视图",
+            "caption": "产品",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMyTerritoryProductReportTabExpView",
+            "viewtag": "f79a99531fb05baea75dee5401e4b5f9"
         },
         "actionproducttrendslistview": {
             "title": "系统日志列表视图",

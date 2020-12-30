@@ -70,6 +70,10 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("我的工作",null),
 				},
 				reporttabexpview: {
+					caption: commonLogic.appcommonhandle("个人",null),
+					title: commonLogic.appcommonhandle("我的地盘分页导航视图",null),
+				},
+				allreporttabexpview: {
 					caption: commonLogic.appcommonhandle("汇报",null),
 					title: commonLogic.appcommonhandle("我的地盘分页导航视图",null),
 				},
@@ -97,6 +101,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("统计",null),
 					title: commonLogic.appcommonhandle("我的地盘分页导航视图（统计）",null),
 				},
+				projectreporttabexpview: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("我的地盘分页导航视图",null),
+				},
 				employtreeexpview: {
 					caption: commonLogic.appcommonhandle("员工负载",null),
 					title: commonLogic.appcommonhandle("我的地盘树导航视图（员工负载计）",null),
@@ -120,6 +128,10 @@ function getLocaleResourceBase(){
 				treeexpviewprojectstats: {
 					caption: commonLogic.appcommonhandle("项目汇总表",null),
 					title: commonLogic.appcommonhandle("我的地盘我的地盘实体树导航视图（项目汇总表）导航视图",null),
+				},
+				productreporttabexpview: {
+					caption: commonLogic.appcommonhandle("产品",null),
+					title: commonLogic.appcommonhandle("我的地盘分页导航视图",null),
 				},
 			},
 			main_form: {
@@ -294,7 +306,58 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			allreporttabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("个人",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("项目",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("产品",null),
+					}
+				},
+				uiactions: {
+				},
+			},
 			reporttabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("日报",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("周报",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("月报",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("汇报",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			projectreporttabexpviewtabexppanel_tabexppanel: {
+				tabviewpanels: {
+					tabviewpanel: {
+						caption: commonLogic.appcommonhandle("日报",null),
+					},
+					tabviewpanel2: {
+						caption: commonLogic.appcommonhandle("周报",null),
+					},
+					tabviewpanel3: {
+						caption: commonLogic.appcommonhandle("月报",null),
+					},
+					tabviewpanel4: {
+						caption: commonLogic.appcommonhandle("汇报",null),
+					}
+				},
+				uiactions: {
+				},
+			},
+			productreporttabexpviewtabexppanel_tabexppanel: {
 				tabviewpanels: {
 					tabviewpanel: {
 						caption: commonLogic.appcommonhandle("日报",null),
