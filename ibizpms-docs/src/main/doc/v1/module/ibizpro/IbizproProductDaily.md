@@ -311,7 +311,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -656,9 +658,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [产品日报名称（IBIZPRO_PRODUCTDAILYNAME）](#属性-产品日报名称（IBIZPRO_PRODUCTDAILYNAME）) | `%like%` |
-| 2 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
-| 3 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
-| 4 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
+| 2 | [产品负责人（PO）](#属性-产品负责人（PO）) | `=` |
+| 3 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
+| 4 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
+| 5 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

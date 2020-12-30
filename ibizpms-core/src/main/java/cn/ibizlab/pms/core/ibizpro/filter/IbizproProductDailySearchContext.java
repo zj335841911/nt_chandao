@@ -34,6 +34,13 @@ public class IbizproProductDailySearchContext extends QueryWrapperContext<Ibizpr
             this.getSearchCond().like("`ibizpro_productdailyname`", n_ibizpro_productdailyname_like);
         }
     }
+	private String n_po_eq;//[产品负责人]
+	public void setN_po_eq(String n_po_eq) {
+        this.n_po_eq = n_po_eq;
+        if(!ObjectUtils.isEmpty(this.n_po_eq)){
+            this.getSearchCond().eq("`po`", n_po_eq);
+        }
+    }
 	private Long n_product_eq;//[产品]
 	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
