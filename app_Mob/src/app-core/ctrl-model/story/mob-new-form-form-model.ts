@@ -51,6 +51,11 @@ export class MobNewFormModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'project',
+                prop: 'project',
+                dataType: 'BIGINT',
+            },
+            {
                 name: 'product',
                 prop: 'product',
                 dataType: 'PICKUP',
@@ -114,6 +119,11 @@ export class MobNewFormModel {
                 name: 'pri',
                 prop: 'pri',
                 dataType: 'NSCODELIST',
+            },
+            {
+                name: 'storypoints',
+                prop: 'storypoints',
+                dataType: 'SSCODELIST',
             },
             {
                 name: 'estimate',

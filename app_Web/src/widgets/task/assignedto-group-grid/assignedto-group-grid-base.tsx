@@ -771,7 +771,7 @@ export class AssignedtoGroupGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealNameW',
+                srfkey: 'UserRealNameUnAssignTo_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -779,7 +779,7 @@ export class AssignedtoGroupGridBase extends GridControlBase {
             },
             {
                 name: 'finishedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

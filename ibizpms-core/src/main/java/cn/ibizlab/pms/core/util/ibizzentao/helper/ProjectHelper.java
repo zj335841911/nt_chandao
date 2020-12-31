@@ -57,18 +57,30 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     @Autowired
     IProjectService projectService;
 
+    @Autowired
+    private UserHelper userHelper;
+
     String[] diffAttrs = {"desc"};
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean create(Project et) {
-        String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code})";
+        String sql = "select * from zt_project where  deleted = '0' and  (`name` = #{et.name} or `code` = #{et.code})";
         Map<String,Object> param = new HashMap<>();
         param.put(FIELD_NAME, et.getName());
         param.put(FIELD_CODE, et.getCode());
         List<JSONObject> nameList = projectService.select(sql,param);
+        JSONObject jsonObject = userHelper.getSettings();
+        String[] srfmstatus = jsonObject.getString("srfmstatus").split("_");
         if(!nameList.isEmpty() && nameList.size() > 0) {
-            throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+            if("project".equals(srfmstatus[1])) {
+                throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+            }else if("iteration".equals(srfmstatus[1])) {
+                throw new RuntimeException(String.format("[迭代名称：%1$s]或[迭代代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+            }else {
+                throw new RuntimeException(String.format("[冲刺名称：%1$s]或[冲刺代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+            }
+
         }
         JSONArray projectproducts = JSONArray.parseArray(et.getSrfarray());
         fileHelper.processImgURL(et, null, null);
@@ -87,8 +99,15 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         //DocLib
         DocLib docLib = new DocLib();
         docLib.setType(StaticDict.Action__object_type.PROJECT.getValue());
-        docLib.setProduct(et.getId());
-        docLib.setName("项目主库");
+        docLib.setProject(et.getId());
+        if("project".equals(srfmstatus[1])) {
+            docLib.setName("项目主库");
+        }else if("iteration".equals(srfmstatus[1])) {
+            docLib.setName("迭代主库");
+        }else {
+            docLib.setName("冲刺主库");
+        }
+
         docLib.setOrgid(AuthenticationUser.getAuthenticationUser().getOrgid());
         docLib.setMdeptid(AuthenticationUser.getAuthenticationUser().getMdeptid());
         docLib.setMain(StaticDict.YesNo.ITEM_1.getValue());

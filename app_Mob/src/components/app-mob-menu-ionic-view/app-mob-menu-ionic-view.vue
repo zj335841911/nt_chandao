@@ -4,7 +4,7 @@
             <ion-grid>
                 <ion-row>
                     <template v-for="item in items">
-                        <ion-col :size="size" :key="item.id">
+                        <ion-col v-if="!item.hidden" :size="size" :key="item.id">
                             <ion-tab-button @click="selectItem(item.name)" :class="item.textcls?item.textcls:''">
                                 <template v-if="item.icon != ''">
                                     <img :src="item.icon" />
@@ -19,9 +19,11 @@
                                 <template v-else>
                                     <ion-icon name="home-outline"></ion-icon>
                                 </template>
-                                <ion-label>{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
-                                <template v-if="counterdata[item.counterid]">
-                                    <ion-badge color="danger">{{counterdata[item.counterid]}}</ion-badge>
+                                <!-- badge_style是为了用户在设置了图片图标时计数器会出现样式错乱， -->
+                                <app-mob-icon v-show="false" name="badge_style" />
+                                <ion-label >{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
+                                <template v-if="counterServide">
+                                    <ion-badge color="danger" v-if="counterServide.counterData[item.counterid]">{{counterServide.counterData[item.counterid]}}</ion-badge>
                                 </template>
                             </ion-tab-button>
                         </ion-col>
@@ -84,15 +86,6 @@ export default class AppMobMenuIonicView extends Vue {
         this.select(name);
     }
 
-
-    /**
-     * 计数器数据
-     *
-     * @type {*}
-     * @memberof AppMobMenuIonicView
-     */
-    public counterdata: any = {};
-
     /**
      * vue 生命周期
      *
@@ -108,8 +101,17 @@ export default class AppMobMenuIonicView extends Vue {
      * @memberof AppMobMenuIonicView
      */
     public destroyed() {
-        this.counterdata = null;
+        if(this.counterServide){
+            this.counterServide.destroyCounter();
+        }
     }
+
+    /**
+     * 计数器
+     *
+     * @memberof AppMobMenuDefaultView
+     */
+    public counterServide:any = null;
 
     /**
      * 加载计数器数据
@@ -119,13 +121,8 @@ export default class AppMobMenuIonicView extends Vue {
      */
     public async loadCounterData(): Promise<any> {
         const counterServiceConstructor = window.counterServiceConstructor;
-        const counterServide = await counterServiceConstructor.getService(this.counterName);
-        if (counterServide) {
-            this.counterdata = counterServide.counterData;
-        }
+        this.counterServide = await counterServiceConstructor.getService(this.counterName);
     }
-
-    
 
     /**
      * 动态栅格

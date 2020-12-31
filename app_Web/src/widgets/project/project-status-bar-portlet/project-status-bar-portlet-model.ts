@@ -237,6 +237,12 @@ export default class ProjectStatusBarModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

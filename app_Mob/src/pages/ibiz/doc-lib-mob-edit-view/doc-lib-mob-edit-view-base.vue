@@ -1,22 +1,25 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'doc-lib-mob-edit-view': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
             <ion-buttons slot="end">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="checkmark-outline"> </ion-icon>
-                    
-                    </ion-button>
+                                <app-mob-button 
+                            iconName="checkmark-outline"
+                            :text="''"
+                            v-show="righttoolbarModels.tbitem1.visabled" 
+                            :disabled="righttoolbarModels.tbitem1.disabled" 
+                            @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" />
                 
                     </div>
                 </div>
@@ -24,12 +27,12 @@
         </ion-toolbar>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="DocLibMobEditView"  
+            viewName="MobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

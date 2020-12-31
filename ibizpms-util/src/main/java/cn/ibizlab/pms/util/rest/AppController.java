@@ -1,5 +1,7 @@
 package cn.ibizlab.pms.util.rest;
 
+import cn.ibizlab.pms.util.client.IPMSFeignClient;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.service.IBZConfigService;
 import com.alibaba.fastjson.JSONObject;
@@ -23,6 +25,9 @@ public class AppController {
 
     @Value("${ibiz.systemid:pms}")
 	private String systemId;
+
+	@Autowired
+	private IPMSFeignClient pmsfeignClient;
 
 
 	@Autowired
@@ -101,5 +106,12 @@ public class AppController {
 	*/
 	protected void fillAppData(JSONObject appData){
 
+		try {
+			appData.put("settings", pmsfeignClient.getSrfMStatus());
+		}catch (RuntimeException e) {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("srfmstatus", StaticDict.ConfigManagementstatus.PRODUCT_PROJECT.getValue());
+			appData.put("settings", jsonObject);
+		}
 	}
 }

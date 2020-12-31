@@ -56,6 +56,9 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITodoResetBeginEndLogic resetbeginendLogic;
+    @Autowired
+    @Lazy
+    ITodoService proxyService;
 
     protected int batchSize = 500;
 
@@ -115,26 +118,53 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Todo activate(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).activate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean activateBatch (List<Todo> etList) {
+		 for(Todo et : etList) {
+		   activate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Todo assignTo(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).assignTo(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean assignToBatch (List<Todo> etList) {
+		 for(Todo et : etList) {
+		   assignTo(et);
+		 }
+	 	 return true;
     }
 
     @Override
     public boolean checkKey(Todo et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Todo close(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).close(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean closeBatch (List<Todo> etList) {
+		 for(Todo et : etList) {
+		   close(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -143,11 +173,28 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean createCycleBatch(List<Todo> etList) {
+        for(Todo et : etList) {
+            createCycle(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Todo finish(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).finish(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean finishBatch (List<Todo> etList) {
+		 for(Todo et : etList) {
+		   finish(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -165,21 +212,49 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Todo> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Todo> create = new ArrayList<>();
+        List<Todo> update = new ArrayList<>();
+        for (Todo et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Todo> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Todo> create = new ArrayList<>();
+        List<Todo> update = new ArrayList<>();
+        for (Todo et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
       /**
@@ -196,6 +271,15 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 		}
 	  	return et;
 	}
+
+	@Override
+    @Transactional
+    public boolean sendMessageBatch (List<Todo> etList) {
+		 for(Todo et : etList) {
+		   sendMessage(et);
+		 }
+	 	 return true;
+    }
       /**
    * 发送消息前置处理逻辑。
    */
@@ -218,6 +302,15 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 	  	
 	  	return et;
 	}
+
+	@Override
+    @Transactional
+    public boolean sendMsgPreProcessBatch (List<Todo> etList) {
+		 for(Todo et : etList) {
+		   sendMsgPreProcess(et);
+		 }
+	 	 return true;
+    }
 
 
     /**

@@ -8,7 +8,28 @@
 >
     <input style="display:none;">
     <row>
-            <i-col
+    <tabs
+        :animated="false"
+        size="small"
+        name="workinfoform"
+        :value="detailsModel.form.activiedPage" 
+        @on-click="detailsModel.form.clickPage($event)"
+    >
+        <tab-pane
+            v-show="detailsModel.formpage1.visible"
+            name="formpage1"
+            :index="0"
+            tab="workinfoform"
+            class=""  
+            :label="(h) =>{
+                return h('span',{
+                    class:'caption'
+                },[
+                $t('entities.task.workinfoform_form.details.formpage1')
+                ])
+            }"
+        >
+                <i-col
     class="form-layout-container"
     v-show="detailsModel.group1.visible"
     :style="{}"
@@ -263,5 +284,61 @@
 </i-col>
 
 
+        </tab-pane> 
+        <tab-pane
+            v-show="detailsModel.formpage2.visible"
+            name="formpage2"
+            :index="1"
+            tab="workinfoform"
+            class=""  
+            :label="(h) =>{
+                return h('span',{
+                    class:'caption'
+                },[
+                $t('entities.task.workinfoform_form.details.formpage2')
+                ])
+            }"
+        >
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="task" 
+    :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        {
+            pathName: 'products',
+            parameterName: 'product',
+        },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName="task"
+    parentName="Task"  
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="bug-grid-view9-task-related" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
+
+        </tab-pane> 
+    </tabs>
     </row>
 </i-form>

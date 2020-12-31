@@ -130,6 +130,25 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUserDTO](#SysUserDTO)：系统用户实体传输对象 |
 
+### 修改密码
+#### 访问路径
+/sysusers/{sysuser_id}/changepwd
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | sysuser_id | String | 系统用户主键ID |
+| 2 | sysuserdto | [SysUserDTO](#SysUserDTO) | 系统用户实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SysUserDTO](#SysUserDTO)：系统用户实体传输对象 |
+
 ### 检查系统用户
 #### 访问路径
 /sysusers/checkkey
@@ -257,5 +276,8 @@ POST
 | 30 | memo | String | 允许 | 备注 |
 | 31 | reserver | String | 允许 | 保留 |
 | 32 | superuser | Integer | 允许 | 超级管理员 |
-| 33 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 33 | originalpassword | String | 允许 | 原密码 |
+| 34 | newpassword | String | 允许 | 新密码 |
+| 35 | repeatpassword | String | 允许 | 重复密码 |
+| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
 

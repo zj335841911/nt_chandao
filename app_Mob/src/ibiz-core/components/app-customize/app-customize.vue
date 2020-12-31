@@ -1,6 +1,6 @@
 <template>
   <ion-page :className="{ 'view-container': true, 'default-mode-view': true }">
-    <ion-header v-if="titleStatus">
+    <app-mob-header v-if="titleStatus">
       <ion-toolbar class="ionoc-view-header">
         <ion-buttons slot="start">
           <ion-button @click="closeView">
@@ -8,11 +8,11 @@
             {{$t('app.button.back')}}
           </ion-button>
         </ion-buttons>
-        <ion-title class="view-title">
-          <label class="title-label">自定义仪表盘</label>
-        </ion-title>
+        <app-mob-title>
+          <label class="title-label">{{$t('app.title.customDashboard')}}</label>
+        </app-mob-title>
       </ion-toolbar>
-    </ion-header>
+    </app-mob-header>
     <ion-content>
       <div class="drag-list">
         <div class="drag-list-item added">
@@ -20,16 +20,16 @@
           <draggable v-model="selectedData" handle=".end" :animation="200" @end="dragEnd">
             <div class="content" v-for="item in selectedData" :key="item.componentName">
               <div class="start" @click="delteItem(item.id)">
-                <ion-icon name="remove-circle-outline"></ion-icon>
+                <app-mob-icon name="remove-circle-outline"></app-mob-icon>
               </div>
               <div class="drag-list-pic"><img  :src="item.detailImage?item.detailImage:'assets/images/add-task-list-card.jpg'" alt=""></div>
               <div class="drag-list-text">
-                <div><span v-if="item.customizeTitle">{{item.customizeTitle}}</span><span v-else>{{item.portletName}}</span></div>
+                <div><span v-if="item.customizeTitle">{{item.customizeTitle}}</span><span v-else>{{$t( `app.portlets.${item.portletCodeName.toLowerCase()}.caption`)}}</span></div>
                 <div v-if="item.detailText">{{item.detailText}}</div>
                 <div v-else>暂无描述</div>
               </div>
               <div class="end">
-                <ion-icon name="drag-point"></ion-icon>
+                <app-mob-icon name="drag-point"></app-mob-icon>
               </div>
             </div>
           </draggable>
@@ -40,11 +40,11 @@
           <template v-for="item in selectData">
             <div class="content" v-if="item.componentName" :key="item.componentName">
               <div class="start" @click="addItem(item.id)">
-                <ion-icon name="add-circle-outline"></ion-icon>
+                <app-mob-icon name="add-circle-outline"></app-mob-icon>
               </div>
               <div class="drag-list-pic"><img  :src="item.detailImage?item.detailImage:'assets/images/add-task-list-card.jpg'" alt=""></div>
               <div class="drag-list-text">
-                <div>{{item.portletName}}</div>
+                <div>{{$t( `app.portlets.${item.portletCodeName.toLowerCase()}.caption`)}}</div>
                 <div v-if="item.detailText">{{item.detailText}}</div>
                 <div v-else>暂无描述</div>
               </div>

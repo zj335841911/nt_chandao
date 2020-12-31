@@ -88,7 +88,17 @@ public class SysEmployeeFallback implements SysEmployeeFeignClient {
     }
 
 
+    public Page<SysEmployee> searchProductTeamM(SysEmployeeSearchContext context) {
+        return null;
+    }
+
+
     public Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) {
+        return null;
+    }
+
+
+    public Page<SysEmployee> searchProjectTeamMProduct(SysEmployeeSearchContext context) {
         return null;
     }
 
@@ -109,6 +119,11 @@ public class SysEmployeeFallback implements SysEmployeeFeignClient {
 
 
     public Page<SysEmployee> searchProjectteamPk(SysEmployeeSearchContext context) {
+        return null;
+    }
+
+
+    public Page<SysEmployee> searchStoryProductTeamPK(SysEmployeeSearchContext context) {
         return null;
     }
 

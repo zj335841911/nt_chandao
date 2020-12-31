@@ -62,9 +62,6 @@
                       ion-icon {
                           font-size: @font-size-xs - 1;
                       }
-                      .sort-select{
-                        color: #3880ff;;
-                      }
                   }
               }
           }
@@ -77,12 +74,10 @@
       }
   }
 }
-.filter-btn{
-  position: relative;
-    top: 5px;
-}
-
 .scroll_tool{
+  position: absolute;
+  bottom: 70px;
+  right: 45px;
   .scrollToTop{
     opacity: 1;
     position: relative;
@@ -105,22 +100,6 @@
 
 
     .batch_btn{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #fff;
-        .batch_btn_content{
-          display: flex;
-          justify-self: center;
-          ion-button{
-            color: #505050;
-            --background: transparent;
-            font-size: 12px;
-            --color-activated:   #505050;
-            --background-activated: transparent;
-          }
-
-        }
         .selectal-label {
             padding-left: 15px;
             font-size: 13px;

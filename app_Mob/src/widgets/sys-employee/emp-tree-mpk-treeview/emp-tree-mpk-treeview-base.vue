@@ -11,7 +11,7 @@
         <template v-for="(item ,index) in rootNodes">
             <ion-item  :key="index" @click="click_node(item)">
                 <ion-label>{{item.text}}</ion-label>
-                <ion-icon class="tree-icon" slot="end" name="chevron-forward-outline"></ion-icon>
+                <app-mob-icon class="tree-icon" position="end" name="chevron-forward-outline"></app-mob-icon>
             </ion-item>
         </template>
        </ion-list>
@@ -66,7 +66,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SysEmployeeService from '@/app-core/service/sys-employee/sys-employee-service';
+import SysEmployeeEntityService from '@/app-core/service/sys-employee/sys-employee-service';
 import EmpTreeMpkService from '@/app-core/ctrl-service/sys-employee/emp-tree-mpk-treeview-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -176,7 +176,7 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
      * @type {SysEmployeeService}
      * @memberof EmpTreeMpk
      */
-    protected appEntityService: SysEmployeeService = new SysEmployeeService();
+    protected appEntityService: SysEmployeeEntityService = new SysEmployeeEntityService();
 
     /**
      * 界面UI服务对象
@@ -653,6 +653,9 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
                 }
                 if (Object.is('refresh_parent', action)) {
                     this.refresh_parent();
+                }
+                if (Object.is('quicksearch', action)) {
+                    this.webLoad(data);
                 }
                 if (Object.is('refresh', action)) {
                     this.selectedNodes = data;

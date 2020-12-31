@@ -28,6 +28,12 @@ export class EmpTreeMpkModel {
         name: 'usercode',
       },
       {
+        name: 'loginname',
+      },
+      {
+        name: 'password',
+      },
+      {
         name: 'domains',
       },
       {

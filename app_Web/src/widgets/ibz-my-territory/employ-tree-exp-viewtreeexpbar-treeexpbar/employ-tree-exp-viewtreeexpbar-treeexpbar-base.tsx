@@ -108,9 +108,30 @@ export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'COMPANYDYNAMICSTATS')) {
+            return {  
+                viewname: 'company-stats-company-dynamic-stats-grid-view', 
+                parentdata: {},
+                deKeyField:'companystats'
+			};
+        }
+        if (Object.is(expmode, 'TASKFINISH')) {
+            return {  
+                viewname: 'task-stats-user-finish-task-grid-view', 
+                parentdata: {},
+                deKeyField:'taskstats'
+			};
+        }
+        if (Object.is(expmode, 'BUGRESOLVED')) {
+            return {  
+                viewname: 'bug-stats-bug-resolved-by-grid-view-zu-zhi', 
+                parentdata: {},
+                deKeyField:'bugstats'
+			};
+        }
         if (Object.is(expmode, 'EMPLOYEELOAD')) {
             return {  
-                viewname: 'employeeloadgrid-view', 
+                viewname: 'emp-loyeeload-grid-view', 
                 parentdata: {},
                 deKeyField:'employeeload'
 			};

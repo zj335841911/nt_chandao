@@ -127,13 +127,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.sys_update_logname.required,
                     type: 'string',
-                    message: '所属更新 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.sys_update_logname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.sys_update_logname.required,
                     type: 'string',
-                    message: '所属更新 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.sys_update_logname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -141,13 +141,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '更新类型 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '更新类型 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -155,13 +155,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.upfeatures.required,
                     type: 'string',
-                    message: '更新功能 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.upfeatures')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.upfeatures.required,
                     type: 'string',
-                    message: '更新功能 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.upfeatures')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -169,13 +169,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.displayorder.required,
                     type: 'number',
-                    message: '展示顺序 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.displayorder')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.displayorder.required,
                     type: 'number',
-                    message: '展示顺序 值不能为空',
+                    message: `${this.$t('entities.sysupdatefeatures.main_form.details.displayorder')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

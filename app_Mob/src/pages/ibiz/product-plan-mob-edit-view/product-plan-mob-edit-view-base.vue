@@ -1,15 +1,29 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-plan-mob-edit-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
                 <view_form
             :viewState="viewState"
-            viewName="ProductPlanMobEditView"  
+            viewName="MobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -34,23 +48,29 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+                <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                class="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event)" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                <span class="btn-inner-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" 
+                    size="large"  
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" size="large">
-                    <ion-icon name="remove"></ion-icon>
-                <span class="btn-inner-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" 
+                    size="large"  
+                    iconName="remove" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
             </div>
         
@@ -383,6 +403,19 @@ export default class ProductPlanMobEditViewBase extends Vue {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof ProductPlanMobEditViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        setTimeout(() => {
+            $event.srcElement.complete();
+        }, 2000);
     }
 
     /**

@@ -65,6 +65,12 @@ export class MyWorkService extends CalendarServiceBase {
             color : 'rgba(255, 166, 0, 1)',
             textColor : '',
         },
+        'daily': {
+            itemName : '日报',
+            itemType : 'daily',
+            color : 'rgba(119, 255, 0, 1)',
+            textColor : 'rgba(0, 0, 0, 1)',
+        },
     };
 
     /**
@@ -98,6 +104,12 @@ export class MyWorkService extends CalendarServiceBase {
             await this.onBeforeAction('', context, _todo_data, isLoading);
             const _todo = await this.loadDEDataSet('FetchMyTodo', context, _todo_data, 'todo', 'todo');
             Object.assign(item, { todo: _todo });
+
+            this.model.itemType = 'daily';
+            const _daily_data = this.handleRequestData('', context, data);
+            await this.onBeforeAction('', context, _daily_data, isLoading);
+            const _daily = await this.loadDEDataSet('FetchMyAllDaily', context, _daily_data, 'daily', 'ibzdaily');
+            Object.assign(item, { daily: _daily });
         } catch (response) {
             return new HttpResponse(response.status);
         }

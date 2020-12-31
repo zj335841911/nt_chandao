@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.pri" :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Testtask__pri"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Testtask__pri"></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.name.visible"  :lg="11" :size="11" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.begin.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.begin" :context="context" :value="data.begin" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.begin" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -34,7 +34,7 @@
                 <ion-col v-show="detailsModel.end.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.end" :context="context" :value="data.end" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.end" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -43,7 +43,7 @@
                 <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :offset="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Testtask__status"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Testtask__status"></app-mob-span>
                 </div>
                 
                 
@@ -59,7 +59,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TestTaskService from '@/app-core/service/test-task/test-task-service';
+import TestTaskEntityService from '@/app-core/service/test-task/test-task-service';
 import MobService from '@/app-core/ctrl-service/test-task/mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -169,7 +169,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {TestTaskService}
      * @memberof Mob
      */
-    protected appEntityService: TestTaskService = new TestTaskService();
+    protected appEntityService: TestTaskEntityService = new TestTaskEntityService();
 
     /**
      * 界面UI服务对象

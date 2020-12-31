@@ -51,8 +51,18 @@ export class MobEditFormModel {
                 dataType: 'PICKUPTEXT',
             },
             {
+                name: 'project',
+                prop: 'project',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'product',
                 prop: 'product',
+                dataType: 'PICKUP',
+            },
+            {
+                name: 'build',
+                prop: 'build',
                 dataType: 'PICKUP',
             },
             {
@@ -103,7 +113,7 @@ export class MobEditFormModel {
             {
                 name: 'mailto',
                 prop: 'mailto',
-                dataType: 'LONGTEXT',
+                dataType: 'SMCODELIST',
             },
             {
                 name: 'mailtopk',

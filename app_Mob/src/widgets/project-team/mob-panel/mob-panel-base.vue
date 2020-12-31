@@ -14,7 +14,7 @@
                 <ion-col v-show="detailsModel.account.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -23,7 +23,7 @@
                 <ion-col v-show="detailsModel.role.visible"  :lg="4" :size="4" :offset="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.role" :context="context" :value="data.role" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.role" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -39,7 +39,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProjectTeamService from '@/app-core/service/project-team/project-team-service';
+import ProjectTeamEntityService from '@/app-core/service/project-team/project-team-service';
 import MobService from '@/app-core/ctrl-service/project-team/mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -149,7 +149,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {ProjectTeamService}
      * @memberof Mob
      */
-    protected appEntityService: ProjectTeamService = new ProjectTeamService();
+    protected appEntityService: ProjectTeamEntityService = new ProjectTeamEntityService();
 
     /**
      * 界面UI服务对象

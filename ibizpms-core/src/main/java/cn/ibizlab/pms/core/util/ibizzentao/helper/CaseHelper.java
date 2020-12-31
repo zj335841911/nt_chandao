@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -175,6 +177,38 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
 
         testTask.set(FIELD_CASES,et.get(FIELD_IDS));
         testTask.set(FIELD_VERSIONS, et.get(FIELD_VERSIONS));
+        testTaskHelper.linkCase(testTask);
+        return et ;
+    }
+
+
+    @Transactional(rollbackFor = Exception.class)
+    public Case mobLinkCase(Case et) {
+        if (et.getTask() == null) {
+            return et;
+        }
+        if (et.get(FIELD_IDS) == null) {
+            return et;
+        }
+        TestTask testTask = new TestTask();
+        testTask.setId(Long.parseLong(et.getTask().split(MULTIPLE_CHOICE)[0]));
+
+        String ids = "";
+        String version = "";
+        ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
+        for (Map data: list) {
+            if (!"".equals(ids)){
+                ids += MULTIPLE_CHOICE;
+            }
+            if (!"".equals(version)){
+                version += MULTIPLE_CHOICE;
+            }
+            ids += data.get(FIELD_ID);
+            version += data.get(FIELD_VERSION);
+        }
+
+        testTask.set(FIELD_CASES,ids);
+        testTask.set(FIELD_VERSIONS, version);
         testTaskHelper.linkCase(testTask);
         return et ;
     }

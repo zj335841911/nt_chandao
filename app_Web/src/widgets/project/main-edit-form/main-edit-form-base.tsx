@@ -99,6 +99,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         period: null,
         days: null,
         type: null,
+        supproreport: null,
         team: null,
         status: null,
         po: null,
@@ -136,13 +137,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '项目名称 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '项目名称 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -150,13 +151,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: '项目代号 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.code')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: '项目代号 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.code')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -164,13 +165,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.begin.required,
                     type: 'string',
-                    message: '起始日期 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.begin')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.begin.required,
                     type: 'string',
-                    message: '起始日期 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.begin')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -178,13 +179,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.end.required,
                     type: 'string',
-                    message: '至 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.end')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.end.required,
                     type: 'string',
-                    message: '至 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.end')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
                 {
@@ -206,13 +207,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.days.required,
                     type: 'number',
-                    message: '可用工作日 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.days')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.days.required,
                     type: 'number',
-                    message: '可用工作日 值不能为空',
+                    message: `${this.$t('entities.project.main_edit_form.details.days')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -368,6 +369,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        supproreport: new FormItemModel({
+    caption: '支持项目汇报', detailType: 'FORMITEM', name: 'supproreport', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         team: new FormItemModel({
     caption: '团队名称', detailType: 'FORMITEM', name: 'team', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -501,6 +509,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

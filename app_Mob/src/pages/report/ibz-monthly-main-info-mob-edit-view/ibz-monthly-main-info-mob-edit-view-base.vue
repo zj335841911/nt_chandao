@@ -1,15 +1,15 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-monthly-main-info-mob-edit-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="IbzMonthlyMainInfoMobEditView"  
+            viewName="MainInfoMobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -34,23 +34,29 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+                <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                class="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event)" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" 
+                    size="large"  
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event),popUpGroup()" />
                 
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobsubmit.disabled}" v-show="righttoolbarModels.deuiaction1_mobsubmit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event)" size="large">
-                    <ion-icon name="check"></ion-icon>
-                
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" 
+                    size="large"  
+                    iconName="check" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event),popUpGroup()" />
                 
             </div>
         
@@ -620,7 +626,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this.$refs.form;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];

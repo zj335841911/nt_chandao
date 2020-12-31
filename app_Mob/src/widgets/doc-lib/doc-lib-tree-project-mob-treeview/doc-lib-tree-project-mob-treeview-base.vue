@@ -12,72 +12,72 @@
             <div v-if="activeNode == 'ChildDocLibModule'">
                                     
                         <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="childdoclibmodule_cm_click({tag: 'deuiaction1'}),context_menu_click()">
-                                    <ion-icon name="star"></ion-icon>
+                                    <app-mob-icon name="star"></app-mob-icon>
                             取消收藏
                         </div>
                         
                         <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="childdoclibmodule_cm_click({tag: 'deuiaction2'}),context_menu_click()">
-                                    <ion-icon name="star-outline"></ion-icon>
+                                    <app-mob-icon name="star-outline"></app-mob-icon>
                             收藏
                         </div>
             </div>
             <div v-if="activeNode == 'DocLib'">
                                     
                         <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="doclib_cm_click({tag: 'deuiaction1'}),context_menu_click()">
-                                    <ion-icon name="star"></ion-icon>
+                                    <app-mob-icon name="star"></app-mob-icon>
                             取消收藏
                         </div>
                         
                         <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="doclib_cm_click({tag: 'deuiaction2'}),context_menu_click()">
-                                    <ion-icon name="star-outline"></ion-icon>
+                                    <app-mob-icon name="star-outline"></app-mob-icon>
                             收藏
                         </div>
             </div>
             <div v-if="activeNode == 'DocLibDoc'">
                                     
                         <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="doclibdoc_cm_click({tag: 'deuiaction1'}),context_menu_click()">
-                                    <ion-icon name="star-outline"></ion-icon>
+                                    <app-mob-icon name="star-outline"></app-mob-icon>
                             收藏
                         </div>
                         
                         <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="doclibdoc_cm_click({tag: 'deuiaction2'}),context_menu_click()">
-                                    <ion-icon name="star"></ion-icon>
+                                    <app-mob-icon name="star"></app-mob-icon>
                             取消收藏
                         </div>
             </div>
             <div v-if="activeNode == 'RootDocLibModule'">
                                     
                         <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="rootdoclibmodule_cm_click({tag: 'deuiaction1'}),context_menu_click()">
-                                    <ion-icon name="star"></ion-icon>
+                                    <app-mob-icon name="star"></app-mob-icon>
                             取消收藏
                         </div>
                         
                         <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="rootdoclibmodule_cm_click({tag: 'deuiaction2'}),context_menu_click()">
-                                    <ion-icon name="star-outline"></ion-icon>
+                                    <app-mob-icon name="star-outline"></app-mob-icon>
                             收藏
                         </div>
             </div>
             <div v-if="activeNode == 'File'">
                                     
                         <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="file_cm_click({tag: 'deuiaction2'}),context_menu_click()">
-                                    <ion-icon name="download"></ion-icon>
+                                    <app-mob-icon name="download"></app-mob-icon>
                             下载
                         </div>
                         
                         <div class="context-menu-item" name='deuiaction3' v-show="this.copyActionModel['deuiaction3'].visabled"  @click="file_cm_click({tag: 'deuiaction3'}),context_menu_click()">
-                                    <ion-icon name="remove"></ion-icon>
+                                    <app-mob-icon name="remove"></app-mob-icon>
                             删除
                         </div>
             </div>
             <div v-if="activeNode == 'ModuleDoc'">
                                     
                         <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="moduledoc_cm_click({tag: 'deuiaction1'}),context_menu_click()">
-                                    <ion-icon name="star-outline"></ion-icon>
+                                    <app-mob-icon name="star-outline"></app-mob-icon>
                             收藏
                         </div>
                         
                         <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="moduledoc_cm_click({tag: 'deuiaction2'}),context_menu_click()">
-                                    <ion-icon name="star"></ion-icon>
+                                    <app-mob-icon name="star"></app-mob-icon>
                             取消收藏
                         </div>
             </div>
@@ -91,7 +91,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import DocLibService from '@/app-core/service/doc-lib/doc-lib-service';
+import DocLibEntityService from '@/app-core/service/doc-lib/doc-lib-service';
 import DocLibTreeProjectMobService from '@/app-core/ctrl-service/doc-lib/doc-lib-tree-project-mob-treeview-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -204,7 +204,7 @@ export default class DocLibTreeProjectMobBase extends Vue implements ControlInte
      * @type {DocLibService}
      * @memberof DocLibTreeProjectMob
      */
-    protected appEntityService: DocLibService = new DocLibService();
+    protected appEntityService: DocLibEntityService = new DocLibEntityService();
 
     /**
      * 界面UI服务对象
@@ -1173,6 +1173,9 @@ export default class DocLibTreeProjectMobBase extends Vue implements ControlInte
                 }
                 if (Object.is('refresh_parent', action)) {
                     this.refresh_parent();
+                }
+                if (Object.is('quicksearch', action)) {
+                    this.webLoad(data);
                 }
                 if (Object.is('refresh', action)) {
                     this.selectedNodes = data;

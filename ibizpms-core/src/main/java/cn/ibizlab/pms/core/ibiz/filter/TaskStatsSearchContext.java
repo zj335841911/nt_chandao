@@ -48,6 +48,31 @@ public class TaskStatsSearchContext extends QueryWrapperContext<TaskStats> {
             this.getSearchCond().eq("`finishedby`", n_finishedby_eq);
         }
     }
+	private String n_dept_eq;//[部门]
+	public void setN_dept_eq(String n_dept_eq) {
+        this.n_dept_eq = n_dept_eq;
+        if(!ObjectUtils.isEmpty(this.n_dept_eq)){
+            this.getSearchCond().eq("`dept`", n_dept_eq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_end_ltandeq;//[结束]
+	public void setN_end_ltandeq(Timestamp n_end_ltandeq) {
+        this.n_end_ltandeq = n_end_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_end_ltandeq)){
+            this.getSearchCond().le("`end`", n_end_ltandeq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_begin_gtandeq;//[属性]
+	public void setN_begin_gtandeq(Timestamp n_begin_gtandeq) {
+        this.n_begin_gtandeq = n_begin_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_begin_gtandeq)){
+            this.getSearchCond().ge("`begin`", n_begin_gtandeq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

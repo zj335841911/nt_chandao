@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
-                viewName="ProductMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="ProductMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
                         <view_tabviewpanel4
                 :viewState="viewState"
-                viewName="ProductMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel4"  
@@ -36,7 +36,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel5'">
                         <view_tabviewpanel5
                 :viewState="viewState"
-                viewName="ProductMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel5"  
@@ -54,7 +54,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
+import ProductEntityService from '@/app-core/service/product/product-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/product/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -164,7 +164,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {ProductService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProductEntityService = new ProductEntityService();
 
     /**
      * 界面UI服务对象

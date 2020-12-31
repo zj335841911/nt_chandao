@@ -1,88 +1,10 @@
 <template>
     <div  class="app-mob-mdctrl action-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-            <ion-list class="items" ref="ionlist">
-                <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                    </ion-item-sliding>
-                </template>
-            </ion-list>
-            <ion-list class="items" ref="ionlist" >
-                <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                      </ion-item-sliding>
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
-                    <app-list-swipe :items="items"></app-list-swipe>
-                </template>
-                <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
-                    <li v-for="item in items" @click="goPage(item)" :key="item.srfkey" class="app-mob-mdctrl-item">
-                        <van-panel :title="item.srfmajortext ">
-                            <div class="van-cell van-panel__header" >
-                                <div class="van-cell__title time">
-                                    <div class="van-cell__label">
-                                        {{ item.starttime }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title subtitle">
-                                    <span>步骤</span>
-                                    <div class="van-cell__label">
-                                        {{ item.wfstep }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title content" >
-                                    <span>{{item.startusername}}</span>
-                                    <div class="van-cell__label">
-                                        {{ item.documentcentername }}
-                                    </div>
-                                </div>
-                            </div>
-                        </van-panel>
-                    </li>
-                </template>
-                <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-list>
-                    <div class="pickUpList">
-                    <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-radio-group>
-                    </div>
-                </template>
-            </ion-list>
+                    <app-trends-list :items="items"></app-trends-list>
              <div  v-if="items.length == 0" class="no-data">
-                <div>暂无数据</div>
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
+            <div v-show=" loadStatus && !allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          
@@ -97,7 +19,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ActionService from '@/app-core/service/action/action-service';
+import ActionEntityService from '@/app-core/service/action/action-service';
 import TrendsMobService from '@/app-core/ctrl-service/action/trends-mob-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -206,7 +128,7 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
      * @type {ActionService}
      * @memberof TrendsMob
      */
-    protected appEntityService: ActionService = new ActionService();
+    protected appEntityService: ActionEntityService = new ActionEntityService();
 
     /**
      * 界面UI服务对象
@@ -302,9 +224,9 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
-    *上级传递的选中项
-    *@type {Array}
-    *@memberof TrendsMob
+    * 上级传递的选中项
+    * @type {Array}
+    * @memberof TrendsMob
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -333,14 +255,13 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     */
     @Prop() public opendata?: Function; 
 
-
     /**
-    * 当前选中数组
+    * 加载显示状态
     *
-    * @type {array}
+    * @type {boolean}
     * @memberof TrendsMob
     */
-    public  selectdata :any = [];
+    public loadStatus: boolean = false;
 
     /**
     * 关闭行为
@@ -446,37 +367,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     */
     public radio:any = '';
 
-
-    /**
-    * 点击多选按钮触发
-    *
-    *
-    * @memberof TrendsMob
-    */
-    public change(){
-        if(this.isMutli){
-             let checkboxLists= this.items.filter((item,index)=>{
-                  if(this.checkboxList.indexOf(item.srfkey)!=-1){
-                    return true;
-                  }else{
-                    return false;
-                  }
-                })
-          this.$emit('selectchange',checkboxLists);
-        }else{
-           let radioItem = this.items.filter((item,index)=>{return item.srfkey==this.radio});
-           this.$emit('selectchange',radioItem);
-        }
-    }
-
-    /**
-    * 列表键值对
-    *
-    * @type {Map}
-    * @memberof TrendsMob
-    */
-    public listMap: any = new Map();
-
     /**
     * 分页大小
     *
@@ -541,7 +431,7 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     * @param {number}
     * @memberof TrendsMob
     */
-    public selectednumber:number =0;
+    public selectednumber:number = 0;
 
     /**
     * 搜索行为
@@ -642,7 +532,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -753,7 +642,7 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
         }
         this.items.forEach((item:any)=>{
             // 计算是否选中
-            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            let index = this.selectedArray.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
             if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
                 item.checked = true;
             }else{
@@ -770,35 +659,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     }
 
 
-
-    /**
-     * checkbox 选中回调
-     *
-     * @param {*} data
-     * @returns
-     * @memberof TrendsMob
-     */
-    public checkboxChange(data: any) {
-        let { detail } = data;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.selectednumber = 0;
-        this.items.forEach((item: any, index: number) => {
-            if (item.value) {
-                this.selectednumber++;
-            }
-            if (Object.is(item.id, value)) {
-                if (detail.checked) {
-                    this.selectdata.push(this.items[index]);
-                } else {
-                    this.selectdata.splice(this.selectdata.findIndex((i: any) => i.value === item.value), 1)
-                }
-            }
-        });
-        this.$emit('selectionchange', this.selectdata);
-    }
 
     /**
      * 下拉刷新
@@ -852,7 +712,7 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     * @memberof TrendsMob
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**
@@ -989,15 +849,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * vue 生命周期 activated
-     *
-     * @memberof TrendsMob
-     */
-    public activated() {
-        this.closeSlidings()
-    }
-
-    /**
      * 列表项左滑右滑触发行为
      *
      * @param {*} $event 点击鼠标事件
@@ -1009,24 +860,17 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        this.closeSlidings();
+        this.closeSlidings(item);
     }
 
     /**
      * 关闭列表项左滑右滑
      * @memberof Mdctrl
      */
-    public closeSlidings () {
-        let ionlist:any = this.$refs.ionlist;
-        if (ionlist && ionlist.children) {
-          ionlist.children.forEach((sliding:any) => {
-            if(typeof sliding.close === 'function'){
-              sliding.close();
-            }
-            if(typeof sliding.closeOpened === 'function'){
-            sliding.closeOpened();
-            }
-          })
+    public closeSlidings (item: any) {
+        const ele :any= this.$refs[item.srfkey];
+        if(ele[0] && this.$util.isFunction(ele[0].closeOpened)){
+            ele[0].closeOpened();
         }
     }
 
@@ -1056,26 +900,44 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
-        let count = this.selectedArray.findIndex((i) => {
-            return i.id == item.id;
+        item.checked = !item.checked
+        let count = this.selectedArray.findIndex((_item:any) => {
+            return _item.id == item.id;
         });
-        let tempFalg = false;
         if(count == -1){
-            tempFalg = true;
             this.selectedArray.push(item);
         }else{
-            this.selectedArray.splice(count,1);
+            this.selectedArray.splice(count , 1);
         }
-        this.items.forEach((_item:any,index:number)=>{
-            if(_item.id == item.id){
-                this.items[index].checked = tempFalg;
+        let _count = Object.is(this.items.length , this.selectedArray.length)? 1 : this.selectedArray.length > 0 ? 2 : 0;
+        this.$emit("checkBoxChange", _count)
+        this.$forceUpdate();
+    }
+    /** 
+     * checkbox 选中回调
+     *
+     * @memberof TrendsMob
+     */
+    public checkboxChange(data: any) {
+        let { detail } = data;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.selectednumber = 0;
+        this.items.forEach((item: any, index: number) => {
+            if (item.value) {
+                this.selectednumber++;
+            }
+            if (Object.is(item.id, value)) {
+                if (detail.checked) {
+                    this.selectedArray.push(this.items[index]);
+                } else {
+                    this.selectedArray.splice(this.selectedArray.findIndex((i: any) => i.value === item.value), 1)
+                }
             }
         });
-        if(!item.checked){
-            this.$emit("checkBoxChange",false)
-        }else if(this.selectedArray.length == this.items.length){
-            this.$emit("checkBoxChange",true)
-        }
+        this.$emit('selectionchange', this.selectedArray);
     }
 
     /**

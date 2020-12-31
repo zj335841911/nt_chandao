@@ -1,12 +1,16 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.report.service.impl.IbzMonthlyServiceImpl;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper;
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.report.domain.IbzMonthly;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
-import java.util.*;
 
 /**
  * 实体[月报] 自定义服务对象
@@ -15,6 +19,9 @@ import java.util.*;
 @Primary
 @Service("IbzMonthlyExService")
 public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
+
+    @Autowired
+    IbzMonthlyHelper ibzMonthlyHelper;
 
     @Override
     protected Class currentModelClass() {
@@ -29,7 +36,9 @@ public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
     @Override
     @Transactional
     public IbzMonthly createGetInfo(IbzMonthly et) {
-        return super.createGetInfo(et);
+        et.setDate(ZTDateUtil.now());
+        et.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
+        return ibzMonthlyHelper.getThisMonthlyCompleteTasks(ibzMonthlyHelper.getLastMonthlyPlans(et));
     }
     /**
      * [CreateUserMonthly:定时生成用户月报] 行为扩展
@@ -49,7 +58,8 @@ public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
     @Override
     @Transactional
     public IbzMonthly editGetCompleteTask(IbzMonthly et) {
-        return super.editGetCompleteTask(et);
+        CachedBeanCopier.copy(get(et.getIbzmonthlyid()), et);
+        return ibzMonthlyHelper.getThisMonthlyCompleteTasks(et);
     }
     /**
      * [HaveRead:已读] 行为扩展

@@ -1,11 +1,10 @@
 import { HttpResponse } from '@/ibiz-core/utils';
-import  RelatedStory  from '@/app-core/code-list/related-story';
 import  ProductBranch_Cache  from '@/app-core/code-list/product-branch-cache';
 import  MyPlanTask  from '@/app-core/code-list/my-plan-task';
-import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
 import  SysOperator  from '@/app-core/code-list/sys-operator';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 import  ProductBranch  from '@/app-core/code-list/product-branch';
+import  UserRealName_valueofid  from '@/app-core/code-list/user-real-name-valueofid';
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
 import  BugModule  from '@/app-core/code-list/bug-module';
 import  Role  from '@/app-core/code-list/role';
@@ -13,9 +12,17 @@ import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  ProductPlan  from '@/app-core/code-list/product-plan';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
+import  CodeList  from '@/app-core/code-list/code-list';
+import  UserRealNameTaskTeam  from '@/app-core/code-list/user-real-name-task-team';
+import  RelatedStory  from '@/app-core/code-list/related-story';
+import  UserRealName_Gird  from '@/app-core/code-list/user-real-name-gird';
+import  MonthlyCompleteTaskChoice  from '@/app-core/code-list/monthly-complete-task-choice';
+import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
+import  UserRealNameProductTeam  from '@/app-core/code-list/user-real-name-product-team';
+import  ProjectProductPlan  from '@/app-core/code-list/project-product-plan';
+import  Product  from '@/app-core/code-list/product';
 import  CurStory  from '@/app-core/code-list/cur-story';
 import  MyCompleteTask  from '@/app-core/code-list/my-complete-task';
-import  UserRealNameTaskTeam  from '@/app-core/code-list/user-real-name-task-team';
 
 /**
  * 动态代码表服务类
@@ -53,20 +60,18 @@ export class CodeListService {
      * @memberof CodeListService
      */
     protected allCodeList: any = {
-        // 关联需求（动态）
-        RelatedStory: new RelatedStory(),
         // 产品平台（动态）_缓存
         ProductBranch_Cache: new ProductBranch_Cache(),
         // 我计划参与的任务（汇报）
         MyPlanTask: new MyPlanTask(),
-        // 当前产品计划（动态）_缓存
-        CurProductPlan: new CurProductPlan(),
         // 云系统操作者
         SysOperator: new SysOperator(),
         // 用户真实名称（动态）
         UserRealName: new UserRealName(),
         // 产品平台（动态）
         ProductBranch: new ProductBranch(),
+        // 用户真实名称（值属性为主键）
+        UserRealName_valueofid: new UserRealName_valueofid(),
         // 当前产品版本（动态）
         CurProductBuild: new CurProductBuild(),
         // 所属模板（动态）
@@ -81,12 +86,28 @@ export class CodeListService {
         ProductPlan: new ProductPlan(),
         // 用户真实名称（项目团队成员）
         UserRealNameProject: new UserRealNameProject(),
+        // 周报我完成的任务(下拉框选择)
+        CodeList: new CodeList(),
+        // 用户真实名称（任务团队）
+        UserRealNameTaskTeam: new UserRealNameTaskTeam(),
+        // 关联需求（动态）
+        RelatedStory: new RelatedStory(),
+        // 用户真实名称（动态-表格）
+        UserRealName_Gird: new UserRealName_Gird(),
+        // 月报我完成的任务（下拉列表框）
+        MonthlyCompleteTaskChoice: new MonthlyCompleteTaskChoice(),
+        // 当前产品计划（动态）_缓存
+        CurProductPlan: new CurProductPlan(),
+        // 用户真实名称（动态-产品团队选择）
+        UserRealNameProductTeam: new UserRealNameProductTeam(),
+        // 项目产品计划（动态）
+        ProjectProductPlan: new ProjectProductPlan(),
+        // 产品（动态）
+        Product: new Product(),
         // 当前需求版本（动态）
         CurStory: new CurStory(),
         // 我完成的任务（汇报）
         MyCompleteTask: new MyCompleteTask(),
-        // 用户真实名称（任务团队）
-        UserRealNameTaskTeam: new UserRealNameTaskTeam(),
     };
 
     /**

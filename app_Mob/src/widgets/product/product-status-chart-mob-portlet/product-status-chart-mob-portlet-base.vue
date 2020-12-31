@@ -3,15 +3,22 @@
         <ion-list class='app-mob-portlet product-dashboard_sysportlet8 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>产品总览</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`${this.localeDeName}.views.${this.viewName.toLowerCase()}.productstatuschartmob_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
-                    <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
+                    <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <div class="edit_title_btn" :style="edit_title_btn">
+                <app-mob-button
+                    :text="$t('app.button.cancel')"
+                    @click="onConfirmClick(false)" />
+                <app-mob-button 
+                    :tetx="$t('app.button.confirm')"
+                    @click="onConfirmClick(true)" />
+            </div>
                 <view_dashboard_sysportlet8_chart
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     fetchAction="FetchDefault"
@@ -32,7 +39,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
+import ProductEntityService from '@/app-core/service/product/product-service';
 import ProductStatusChartMobService from '@/app-core/ctrl-service/product/product-status-chart-mob-portlet-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -141,7 +148,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * @type {ProductService}
      * @memberof ProductStatusChartMob
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProductEntityService = new ProductEntityService();
 
     /**
      * 界面UI服务对象
@@ -181,6 +188,13 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * @memberof MyTaskMob
      */
     @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
+     * 多语言实体名称
+     *
+     * @memberof ProductStatusChartMob
+     */
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题
@@ -369,7 +383,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return '产品总览'
+        return (this.$t(`app.views.${this.viewName.toLowerCase()}.productstatuschartmob_portlet`) as string)
     }
 
     /**

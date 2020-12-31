@@ -216,6 +216,9 @@ export default class MPickupView3pickupviewpanelModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

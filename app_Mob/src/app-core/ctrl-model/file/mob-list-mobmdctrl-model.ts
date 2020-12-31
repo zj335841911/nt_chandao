@@ -15,7 +15,14 @@ export class MobListModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'addeddate',
+				name: 'date',
+				prop: 'addeddate',
+				dataType: 'DATETIME',
+			},
+			{
+				name: 'url',
+				prop: 'id',
+				dataType: 'ACID',
 			},
 			{
 				name: 'title',
@@ -24,6 +31,8 @@ export class MobListModel {
 			},
 			{
 				name: 'size',
+				prop: 'strsize',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'strsize',

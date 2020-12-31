@@ -206,12 +206,12 @@ export default class BuildUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -265,12 +265,12 @@ export default class BuildUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]

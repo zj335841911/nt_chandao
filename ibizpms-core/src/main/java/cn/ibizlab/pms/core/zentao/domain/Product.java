@@ -392,6 +392,13 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "ibiz_id")
     @JsonProperty("ibiz_id")
     private String ibizId;
+    /**
+     * 支持产品汇报
+     */
+    @TableField(value = "`supproreport`")
+    @JSONField(name = "supproreport")
+    @JsonProperty("supproreport")
+    private String supproreport;
 
     /**
      * 产品线
@@ -401,6 +408,14 @@ public class Product extends EntityMP implements Serializable {
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Module moduleline;
 
+
+    /**
+     * 产品团队
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibiz.domain.PRODUCTTEAM> productteam;
 
 
     /**
@@ -521,6 +536,14 @@ public class Product extends EntityMP implements Serializable {
     public void setIbizId(String ibizId) {
         this.ibizId = ibizId;
         this.modify("ibiz_id", ibizId);
+    }
+
+    /**
+     * 设置 [支持产品汇报]
+     */
+    public void setSupproreport(String supproreport) {
+        this.supproreport = supproreport;
+        this.modify("supproreport", supproreport);
     }
 
 

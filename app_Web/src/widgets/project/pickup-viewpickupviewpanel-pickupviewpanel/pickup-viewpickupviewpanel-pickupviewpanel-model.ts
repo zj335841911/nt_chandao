@@ -237,6 +237,12 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

@@ -95,14 +95,6 @@ export class StoryRelatedGridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_case_storyrelated_grid';
 
     /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof StoryRelatedGridBase
-     */
-    public isEnablePagingBar: boolean = false;
-
-    /**
      * 是否禁用排序
      *
      * @type {boolean}
@@ -132,7 +124,7 @@ export class StoryRelatedGridBase extends GridControlBase {
      * @type {number}
      * @memberof StoryRelatedGridBase
      */
-    public limit: number = 500;
+    public limit: number = 10;
 
     /**
      * 所有列成员

@@ -18,6 +18,8 @@ hide members
 |用户全局名|USERNAME|TEXT|&nbsp;|
 |姓名|PERSONNAME|TEXT|&nbsp;|
 |用户工号|USERCODE|TEXT|&nbsp;|
+|登录名|LOGINNAME|TEXT|&nbsp;|
+|密码|PASSWORD|TEXT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
 |主部门|MDEPTID|PICKUP|&nbsp;|
 |主部门代码|MDEPTCODE|PICKUPDATA|&nbsp;|
@@ -51,6 +53,8 @@ hide members
 |用户全局名|默认规则|内容长度必须小于等于[100]|
 |姓名|默认规则|内容长度必须小于等于[100]|
 |用户工号|默认规则|内容长度必须小于等于[100]|
+|登录名|默认规则|内容长度必须小于等于[100]|
+|密码|默认规则|内容长度必须小于等于[100]|
 |区属|默认规则|内容长度必须小于等于[100]|
 |主部门|默认规则|内容长度必须小于等于[100]|
 |主部门代码|默认规则|内容长度必须小于等于[100]|
@@ -105,11 +109,14 @@ hide members
 |BugUser|Bug用户([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_BugUser))|否|&nbsp;|
 |ContActList|联系人用户([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ContActList))|否|&nbsp;|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_Default))|否|&nbsp;|
+|ProductTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProductTeamM))|否|&nbsp;排除当前项目已经选择的用户|
 |ProjectTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamM))|否|&nbsp;排除当前项目已经选择的用户|
+|ProjectTeamMProduct|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamMProduct))|否|&nbsp;排除当前项目已经选择的用户|
 |ProjectTeamTaskUserTemp|项目团队成员(临时)([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamTaskUserTemp))|否|&nbsp;|
 |ProjectTeamUser|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUser))|否|&nbsp;|
 |ProjectTeamUserTask|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUserTask))|否|&nbsp;|
 |ProjectteamPk|项目团队成员选择([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectteamPk))|否|&nbsp;|
+|StoryProductTeamChoice|产品团队成员选择([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_StoryProductTeamPK))|否|&nbsp;|
 |TaskMTeam|任务多人团队([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_TaskMTeam))|否|&nbsp;|
 |TASKTEAM|任务团队([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_TaskTeam))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_View))|否|&nbsp;|
@@ -121,11 +128,14 @@ hide members
 |BugUser|Bug用户|BugUser|否|&nbsp;|
 |ContActList|联系人用户|ContActList|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|ProductTeamM|项目团队管理|ProductTeamM|否|&nbsp;|
 |ProjectTeamM|项目团队管理|ProjectTeamM|否|&nbsp;|
+|ProjectTeamMProduct|项目团队管理|ProjectTeamMProduct|否|&nbsp;|
 |ProjectTeamTaskUserTemp|项目团队成员(临时)|ProjectTeamTaskUserTemp|否|&nbsp;|
 |ProjectTeamUser|项目团队成员|ProjectTeamUser|否|&nbsp;|
 |ProjectTeamUserTask|项目团队成员|ProjectTeamUserTask|否|&nbsp;|
 |ProjectteamPk|项目团队成员选择|ProjectteamPk|否|&nbsp;|
+|StoryProductTeamChoice|产品团队成员选择|StoryProductTeamChoice|否|&nbsp;|
 |TaskMTeam|任务多人团队|TaskMTeam|否|&nbsp;|
 |TASKTEAM|数据查询2|TASKTEAM|否|&nbsp;|
 

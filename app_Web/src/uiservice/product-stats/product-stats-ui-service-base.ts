@@ -96,6 +96,15 @@ export default class ProductStatsUIServiceBase extends UIService {
      * @memberof  ProductStatsUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'productstats',
+            component: 'product-stats-edit-view',
+            openmode: '',
+            title: '产品统计',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

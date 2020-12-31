@@ -36,7 +36,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.date"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -94,9 +92,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzdaily' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-my-complete-task-mob-mdview1' 
+    viewname='task-daily-done-task-mob-mdview' 
     v-show="detailsModel.druipart3.visible" 
     :caption="$t('ibzdaily.dailyinfodingding_form.details.druipart3')"  
     paramItem='ibzdaily' 
@@ -160,9 +158,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzdaily' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-my-plans-tomorrow-task-mob-mdview' 
+    viewname='task-daily-plans-task-mob-mdview' 
     v-show="detailsModel.druipart4.visible" 
     :caption="$t('ibzdaily.dailyinfodingding_form.details.druipart4')"  
     paramItem='ibzdaily' 
@@ -248,7 +246,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.reportto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -279,7 +276,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.mailto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -392,7 +388,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzDailyService from '@/app-core/service/ibz-daily/ibz-daily-service';
+import IbzDailyEntityService from '@/app-core/service/ibz-daily/ibz-daily-service';
 import DailyInfoDingDingService from '@/app-core/ctrl-service/ibz-daily/daily-info-ding-ding-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -504,7 +500,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
      * @type {IbzDailyService}
      * @memberof DailyInfoDingDing
      */
-    protected appEntityService: IbzDailyService = new IbzDailyService();
+    protected appEntityService: IbzDailyEntityService = new IbzDailyEntityService();
 
     /**
      * 界面UI服务对象
@@ -601,6 +597,14 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
      * @memberof DailyInfoDingDing
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -720,6 +724,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
         mailto: null,
         ibz_dailyid: null,
         todaytask: null,
+        tomorrowplanstask: null,
         issubmit: null,
         ibzdaily: null,
     };
@@ -907,6 +912,8 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
         ibz_dailyid: new FormItemModel({ caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         todaytask: new FormItemModel({ caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        tomorrowplanstask: new FormItemModel({ caption: '明日计划任务', detailType: 'FORMITEM', name: 'tomorrowplanstask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1129,6 +1136,18 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
     }
 
     /**
+     * 监控表单属性 tomorrowplanstask 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DailyInfoDingDing
+     */
+    @Watch('data.tomorrowplanstask')
+    onTomorrowplanstaskChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'tomorrowplanstask', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 issubmit 值
      *
      * @param {*} newVal
@@ -1205,6 +1224,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
 
 
 
+
     }
 
 
@@ -1224,7 +1244,9 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`ibzdaily.dailyinfodingding_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1451,6 +1473,9 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
      *  @memberof DailyInfoDingDing
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.ibzdaily});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1501,7 +1526,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
                 if(!Object.is(name,"IbzDaily")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzdaily){
                     this.refresh([data]);
                 }
             })
@@ -1727,6 +1752,7 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ ibzdailyname: arg.ibzdailyname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1805,10 +1831,9 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"IbzDaily",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1832,10 +1857,9 @@ export default class DailyInfoDingDingBase extends Vue implements ControlInterfa
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"IbzDaily",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

@@ -133,13 +133,13 @@ export class AssignFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.task.assignform_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.task.assignform_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -147,13 +147,13 @@ export class AssignFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.left.required,
                     type: 'number',
-                    message: '预计剩余 值不能为空',
+                    message: `${this.$t('entities.task.assignform_form.details.left')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.left.required,
                     type: 'number',
-                    message: '预计剩余 值不能为空',
+                    message: `${this.$t('entities.task.assignform_form.details.left')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
                 {

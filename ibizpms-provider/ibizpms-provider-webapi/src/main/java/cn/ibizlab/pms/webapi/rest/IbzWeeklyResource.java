@@ -131,6 +131,12 @@ public class IbzWeeklyResource {
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-CreateEveryWeekReport-all')")
+    @ApiOperation(value = "批量处理[定时生成每周周报]", tags = {"周报" },  notes = "批量处理[定时生成每周周报]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/createeveryweekreportbatch")
+    public ResponseEntity<Boolean> createEveryWeekReportBatch(@RequestBody List<IbzWeeklyDTO> ibzweeklydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklyService.createEveryWeekReportBatch(ibzweeklyMapping.toDomain(ibzweeklydtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-CreateGetLastWeekPlanAndWork-all')")
     @ApiOperation(value = "获取上周周报的下周计划", tags = {"周报" },  notes = "获取上周周报的下周计划")
@@ -141,6 +147,12 @@ public class IbzWeeklyResource {
         domain = ibzweeklyService.createGetLastWeekPlanAndWork(domain);
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-CreateGetLastWeekPlanAndWork-all')")
+    @ApiOperation(value = "批量处理[获取上周周报的下周计划]", tags = {"周报" },  notes = "批量处理[获取上周周报的下周计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/creategetlastweekplanandworkbatch")
+    public ResponseEntity<Boolean> createGetLastWeekPlanAndWorkBatch(@RequestBody List<IbzWeeklyDTO> ibzweeklydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklyService.createGetLastWeekPlanAndWorkBatch(ibzweeklyMapping.toDomain(ibzweeklydtos)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-EditGetLastWeekTaskAndComTask-all')")
@@ -153,6 +165,12 @@ public class IbzWeeklyResource {
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-EditGetLastWeekTaskAndComTask-all')")
+    @ApiOperation(value = "批量处理[编辑获取上周计划完成任务和本周已完成任务]", tags = {"周报" },  notes = "批量处理[编辑获取上周计划完成任务和本周已完成任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/editgetlastweektaskandcomtaskbatch")
+    public ResponseEntity<Boolean> editGetLastWeekTaskAndComTaskBatch(@RequestBody List<IbzWeeklyDTO> ibzweeklydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklyService.editGetLastWeekTaskAndComTaskBatch(ibzweeklyMapping.toDomain(ibzweeklydtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-HaveRead-all')")
     @ApiOperation(value = "已读", tags = {"周报" },  notes = "已读")
@@ -163,6 +181,12 @@ public class IbzWeeklyResource {
         domain = ibzweeklyService.haveRead(domain);
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-HaveRead-all')")
+    @ApiOperation(value = "批量处理[已读]", tags = {"周报" },  notes = "批量处理[已读]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/havereadbatch")
+    public ResponseEntity<Boolean> haveReadBatch(@RequestBody List<IbzWeeklyDTO> ibzweeklydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklyService.haveReadBatch(ibzweeklyMapping.toDomain(ibzweeklydtos)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-JugThisWeekCreateWeekly-all')")
@@ -175,6 +199,12 @@ public class IbzWeeklyResource {
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-JugThisWeekCreateWeekly-all')")
+    @ApiOperation(value = "批量处理[判断本周是否创建过周报]", tags = {"周报" },  notes = "批量处理[判断本周是否创建过周报]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/jugthisweekcreateweeklybatch")
+    public ResponseEntity<Boolean> jugThisWeekCreateWeeklyBatch(@RequestBody List<IbzWeeklyDTO> ibzweeklydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklyService.jugThisWeekCreateWeeklyBatch(ibzweeklyMapping.toDomain(ibzweeklydtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-PushUserWeekly-all')")
     @ApiOperation(value = "定时推送待阅提醒用户周报提交", tags = {"周报" },  notes = "定时推送待阅提醒用户周报提交")
@@ -185,6 +215,12 @@ public class IbzWeeklyResource {
         domain = ibzweeklyService.pushUserWeekly(domain);
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-PushUserWeekly-all')")
+    @ApiOperation(value = "批量处理[定时推送待阅提醒用户周报提交]", tags = {"周报" },  notes = "批量处理[定时推送待阅提醒用户周报提交]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/pushuserweeklybatch")
+    public ResponseEntity<Boolean> pushUserWeeklyBatch(@RequestBody List<IbzWeeklyDTO> ibzweeklydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklyService.pushUserWeeklyBatch(ibzweeklyMapping.toDomain(ibzweeklydtos)));
     }
 
     @PreAuthorize("hasPermission(this.ibzweeklyMapping.toDomain(#ibzweeklydto),'pms-IbzWeekly-Save')")
@@ -211,6 +247,12 @@ public class IbzWeeklyResource {
         domain = ibzweeklyService.submit(domain);
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-Submit-all')")
+    @ApiOperation(value = "批量处理[提交]", tags = {"周报" },  notes = "批量处理[提交]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/submitbatch")
+    public ResponseEntity<Boolean> submitBatch(@RequestBody List<IbzWeeklyDTO> ibzweeklydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklyService.submitBatch(ibzweeklyMapping.toDomain(ibzweeklydtos)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchDefault-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
@@ -275,6 +317,50 @@ public class IbzWeeklyResource {
     @RequestMapping(method= RequestMethod.POST , value="/ibzweeklies/searchmyweekly")
 	public ResponseEntity<Page<IbzWeeklyDTO>> searchMyWeekly(@RequestBody IbzWeeklySearchContext context) {
         Page<IbzWeekly> domains = ibzweeklyService.searchMyWeekly(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzweeklyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchProductTeamMemberWeekly-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
+	@ApiOperation(value = "获取产品团队成员周报", tags = {"周报" } ,notes = "获取产品团队成员周报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzweeklies/fetchproductteammemberweekly")
+	public ResponseEntity<List<IbzWeeklyDTO>> fetchProductTeamMemberWeekly(IbzWeeklySearchContext context) {
+        Page<IbzWeekly> domains = ibzweeklyService.searchProductTeamMemberWeekly(context) ;
+        List<IbzWeeklyDTO> list = ibzweeklyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchProductTeamMemberWeekly-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
+	@ApiOperation(value = "查询产品团队成员周报", tags = {"周报" } ,notes = "查询产品团队成员周报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzweeklies/searchproductteammemberweekly")
+	public ResponseEntity<Page<IbzWeeklyDTO>> searchProductTeamMemberWeekly(@RequestBody IbzWeeklySearchContext context) {
+        Page<IbzWeekly> domains = ibzweeklyService.searchProductTeamMemberWeekly(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzweeklyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchProjectWeekly-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
+	@ApiOperation(value = "获取项目周报", tags = {"周报" } ,notes = "获取项目周报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzweeklies/fetchprojectweekly")
+	public ResponseEntity<List<IbzWeeklyDTO>> fetchProjectWeekly(IbzWeeklySearchContext context) {
+        Page<IbzWeekly> domains = ibzweeklyService.searchProjectWeekly(context) ;
+        List<IbzWeeklyDTO> list = ibzweeklyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchProjectWeekly-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
+	@ApiOperation(value = "查询项目周报", tags = {"周报" } ,notes = "查询项目周报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzweeklies/searchprojectweekly")
+	public ResponseEntity<Page<IbzWeeklyDTO>> searchProjectWeekly(@RequestBody IbzWeeklySearchContext context) {
+        Page<IbzWeekly> domains = ibzweeklyService.searchProjectWeekly(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzweeklyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

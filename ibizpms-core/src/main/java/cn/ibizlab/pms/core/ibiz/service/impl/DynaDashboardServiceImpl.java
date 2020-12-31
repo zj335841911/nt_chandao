@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("DynaDashboardServiceImpl")
 public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, DynaDashboard> implements IDynaDashboardService {
 
+    @Autowired
+    @Lazy
+    IDynaDashboardService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<DynaDashboard> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<DynaDashboard> create = new ArrayList<>();
+        List<DynaDashboard> update = new ArrayList<>();
+        for (DynaDashboard et : list) {
+            if (ObjectUtils.isEmpty(et.getDynadashboardid()) || ObjectUtils.isEmpty(getById(et.getDynadashboardid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<DynaDashboard> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<DynaDashboard> create = new ArrayList<>();
+        List<DynaDashboard> update = new ArrayList<>();
+        for (DynaDashboard et : list) {
+            if (ObjectUtils.isEmpty(et.getDynadashboardid()) || ObjectUtils.isEmpty(getById(et.getDynadashboardid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

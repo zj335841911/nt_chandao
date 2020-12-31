@@ -2,34 +2,35 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'test-task-mob-tab-exp-view': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
 
     
                     <ion-toolbar>
-                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
+                        <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                            <ion-segment-button value="tabviewpanel" layout="icon-start">
                             <ion-badge color="danger">{{counter.counterData.casecnt?counter.counterData.casecnt:''}}</ion-badge>
                             功能测试</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
+                            <ion-segment-button value="tabviewpanel2" layout="icon-start">
                             
                             测试版本详情</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_tabexppanel
             :viewState="viewState"
-            viewName="TestTaskMobTabExpView"  
+            viewName="MobTabExpView"
             :viewparams="viewparams" 
             :context="context" 
             :activiedTabViewPanel="activiedTabViewPanel"     
@@ -352,7 +353,7 @@ export default class TestTaskMobTabExpViewBase extends Vue {
             return;
         }
         this.viewState.next({ tag: 'tabexppanel', action: 'active', data: { activeItem: value } });
-        this.setLocalStorage(value);     
+        this.setCacheTabkey(value);     
     }
 
     /**
@@ -372,11 +373,9 @@ export default class TestTaskMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */    
-    public setLocalStorage(value:any) {
-        let name:string = 'testtask';
-        let id:any = this.context.testtask;
-        let obj:any = {"name":name,"id":id,"value":value};
-        localStorage.setItem('tabKey',JSON.stringify(obj));    
+    public setCacheTabkey(value:any) {
+        const cacheTab:any = {name:'testtask',id:this.context.testtask,value:value,viewtag: this.viewtag};
+        localStorage.setItem('tabKey',JSON.stringify(cacheTab));    
     }
     /**
      * localStorage取值
@@ -385,12 +384,12 @@ export default class TestTaskMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */
-    public getLocalStorage() {
-        let key:any = localStorage.getItem('tabKey')
-        if(key){
-        let info:any = JSON.parse(key);
-        if (info.name && info.name == 'testtask' && info.id && info.id == this.context.testtask) {
-          this.activiedTabViewPanel = info.value;
+    public getCacheTabkey() {
+        const _cacheTabKey: any = localStorage.getItem('tabKey')
+        if(_cacheTabKey){
+        let cacheTabKey:any = JSON.parse(_cacheTabKey);
+        if (cacheTabKey.name && cacheTabKey.name == 'testtask' && cacheTabKey.id && cacheTabKey.id == this.context.testtask && cacheTabKey.viewtag === this.viewtag) {
+          this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel';
         }
@@ -440,7 +439,7 @@ export default class TestTaskMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.getLocalStorage();
+        this.getCacheTabkey();
 
 
     }

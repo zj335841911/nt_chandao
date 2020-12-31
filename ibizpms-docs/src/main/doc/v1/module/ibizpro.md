@@ -22,6 +22,42 @@ class 系统模板 {
 class 运行生产系统 {
 }
 
+class 索引检索 {
+}
+
+class 产品日报 {
+}
+
+class 产品月报 {
+}
+
+class 产品周报 {
+}
+
+class 项目日报 {
+}
+
+class 项目月报 {
+}
+
+class 项目周报 {
+}
+
+class 计划模板 {
+}
+
+class 计划模板详情 {
+}
+
+class 系统配置表 {
+}
+
+class 产品汇报用户任务 {
+}
+
+class 项目汇报用户任务 {
+}
+
 
 平台产品 *-- 需求模块 
 
@@ -33,6 +69,9 @@ class 运行生产系统 {
 
 
 需求模块 *-- 需求 
+
+
+计划模板 *-- 计划模板详情 
 
 
 
@@ -52,3 +91,15 @@ hide members
 |IBZPRO_STORYMODULE|[需求模块](ibizpro/IBZProStoryModule.md)|主实体|&nbsp;|
 |IBZPRO_SYSTPL|[系统模板](ibizpro/IBZProSysTpl.md)|主实体|&nbsp;|
 |IBZPRO_SYSTEM|[运行生产系统](ibizpro/IBZProSystem.md)|主实体|&nbsp;|
+|IBIZPRO_INDEX|[索引检索](ibizpro/IbizproIndex.md)|主实体|&nbsp;|
+|IBIZPRO_PRODUCTDAILY|[产品日报](ibizpro/IbizproProductDaily.md)|主实体|&nbsp;|
+|IBIZPRO_PRODUCTMONTHLY|[产品月报](ibizpro/IbizproProductMonthly.md)|主实体|&nbsp;|
+|IBIZPRO_PRODUCTWEEKLY|[产品周报](ibizpro/IbizproProductWeekly.md)|主实体|&nbsp;|
+|IBIZPRO_PROJECTDAILY|[项目日报](ibizpro/IbizproProjectDaily.md)|主实体|&nbsp;|
+|IBIZPRO_PROJECTMONTHLY|[项目月报](ibizpro/IbizproProjectMonthly.md)|主实体|&nbsp;|
+|IBZPRO_PROJECTWEEKLY|[项目周报](ibizpro/IbizproProjectWeekly.md)|主实体|&nbsp;|
+|IBZ_PLANTEMPLET|[计划模板](ibizpro/IbzPlanTemplet.md)|主实体|&nbsp;|
+|IBZ_PLANTEMPLETDETAIL|[计划模板详情](ibizpro/IbzPlanTempletDetail.md)|主实体|&nbsp;|
+|IBZPRO_CONFIG|[系统配置表](ibizpro/IbzproConfig.md)|主实体|&nbsp;|
+|IBIZPRO_PRODUCTUSERTASK|[产品汇报用户任务](ibizpro/IbzproProductUserTask.md)|主实体|&nbsp;|
+|IBIZPRO_PROJECTUSERTASK|[项目汇报用户任务](ibizpro/IbzproProjectUserTask.md)|主实体|&nbsp;|

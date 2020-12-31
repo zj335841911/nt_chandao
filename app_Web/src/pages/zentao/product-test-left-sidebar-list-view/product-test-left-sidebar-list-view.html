@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        placeholder="产品名称,编号,产品代号"
+        :placeholder="$t('entities.product.fields.name')+','+$t('entities.product.fields.id')+','+$t('entities.product.fields.code')"
         search
         @on-search="onSearch($event)"
     ></i-input>
@@ -23,7 +23,7 @@
         :newdata="newdata"
         :opendata="opendata"
         name="list"  
-        ref="list" 
+        ref="list"
         @selectionchange="list_selectionchange($event)"  
         @beforeload="list_beforeload($event)"  
         @rowdblclick="list_rowdblclick($event)"  

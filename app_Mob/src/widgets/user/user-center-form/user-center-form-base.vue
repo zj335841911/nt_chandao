@@ -33,7 +33,6 @@
     :error="detailsModel.realname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.realname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="User__gender"
     :isCache="false" 
-    v-if="data.gender"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     :error="detailsModel.address.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.address"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -148,7 +144,6 @@
     :error="detailsModel.dingding.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.dingding"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -176,7 +171,6 @@
     :error="detailsModel.phone.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.phone"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -204,7 +198,6 @@
     :error="detailsModel.mobile.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.mobile"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -235,7 +228,6 @@
     codeListType="DYNAMIC" 
     tag="Role"
     :isCache="false" 
-    v-if="data.role"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -263,7 +255,6 @@
     :error="detailsModel.qq.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.qq"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -291,7 +282,6 @@
     :error="detailsModel.weixin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.weixin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -316,7 +306,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import UserService from '@/app-core/service/user/user-service';
+import UserEntityService from '@/app-core/service/user/user-service';
 import UserCenterService from '@/app-core/ctrl-service/user/user-center-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -428,7 +418,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
      * @type {UserService}
      * @memberof UserCenter
      */
-    protected appEntityService: UserService = new UserService();
+    protected appEntityService: UserEntityService = new UserEntityService();
 
     /**
      * 界面UI服务对象
@@ -525,6 +515,14 @@ export default class UserCenterBase extends Vue implements ControlInterface {
      * @memberof UserCenter
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1108,7 +1106,9 @@ export default class UserCenterBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`user.usercenter_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1335,6 +1335,9 @@ export default class UserCenterBase extends Vue implements ControlInterface {
      *  @memberof UserCenter
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.user});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1385,7 +1388,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"User")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.user){
                     this.refresh([data]);
                 }
             })
@@ -1611,6 +1614,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ realname: arg.realname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1689,10 +1693,9 @@ export default class UserCenterBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"User",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1716,10 +1719,9 @@ export default class UserCenterBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"User",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

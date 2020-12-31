@@ -1,18 +1,5 @@
-export default {
-  fields: {
-    createman: "建立人",
-    ibzfavoritesid: "收藏标识",
-    createdate: "建立时间",
-    ibzfavoritesname: "收藏名称",
-    updateman: "更新人",
-    updatedate: "更新时间",
-    objectid: "数据对象标识",
-    account: "收藏用户",
-    type: "类型",
-  },
-	views: {
-		mobtabexpview: {
-			caption: '收藏',
-		},
-	},
-};
+import IbzFavorites_zh_CN_Base from './ibz-favorites_zh_CN_base';
+
+const IbzFavorites_zh_CN_OwnData = {};
+const targetData = Object.assign(IbzFavorites_zh_CN_Base, IbzFavorites_zh_CN_OwnData);
+export default targetData;

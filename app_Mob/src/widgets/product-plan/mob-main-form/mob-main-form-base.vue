@@ -36,9 +36,8 @@
     codeListType="DYNAMIC" 
     tag="ProductBranch_Cache"
     :isCache="false" 
-    v-if="data.branch"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
+    :navigateContext ='{ "product": "%product%" } '
+    :navigateParam ='{ "product": "%product%" } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
@@ -64,7 +63,6 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.begin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.end"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -150,96 +146,6 @@
         <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('productplan.mobmain_form.details.grouppanel1')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="1" 
-    :isInfoGroupMode="true" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='productplan' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='story-mob-mdview9' 
-    v-show="detailsModel.druipart2.visible" 
-    :caption="$t('productplan.mobmain_form.details.druipart2')"  
-    paramItem='productplan' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-        { pathName: 'products', parameterName: 'product' },
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('productplan.mobmain_form.details.grouppanel2')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="1" 
-    :isInfoGroupMode="true" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='productplan' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='bug-plan-mob-mdview9' 
-    v-show="detailsModel.druipart1.visible" 
-    :caption="$t('productplan.mobmain_form.details.druipart1')"  
-    paramItem='productplan' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdefname":"PLAN","srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN","SRFDER1NID":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN"}' 
-    :parameters="[
-        { pathName: 'products', parameterName: 'product' },
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
 
 
 
@@ -300,7 +206,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
+import ProductPlanEntityService from '@/app-core/service/product-plan/product-plan-service';
 import MobMainService from '@/app-core/ctrl-service/product-plan/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -412,7 +318,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {ProductPlanService}
      * @memberof MobMain
      */
-    protected appEntityService: ProductPlanService = new ProductPlanService();
+    protected appEntityService: ProductPlanEntityService = new ProductPlanEntityService();
 
     /**
      * 界面UI服务对象
@@ -509,6 +415,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -623,7 +537,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         end: null,
         storycnt: null,
         desc: null,
-        bugcnt: null,
         id: null,
         productplan: null,
     };
@@ -756,14 +669,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: false, isShowCaption: true, form: this })
-, 
-        grouppanel1: new FormGroupPanelModel({ caption: '关联需求详情', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
-, 
-        grouppanel2: new FormGroupPanelModel({ caption: '关联Bug详情', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
         druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel3: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
@@ -797,8 +702,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        bugcnt: new FormItemModel({ caption: 'bug数', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -961,18 +864,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 bugcnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.bugcnt')
-    onBugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'bugcnt', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1020,43 +911,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
-            let ret = false;
-            const _storycnt = this.data.storycnt;
-            if (this.$verify.testCond(_storycnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.druipart2.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
-            let ret = false;
-            const _storycnt = this.data.storycnt;
-            if (this.$verify.testCond(_storycnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.grouppanel1.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'bugcnt')) {
-            let ret = false;
-            const _bugcnt = this.data.bugcnt;
-            if (this.$verify.testCond(_bugcnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.druipart1.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'bugcnt')) {
-            let ret = false;
-            const _bugcnt = this.data.bugcnt;
-            if (this.$verify.testCond(_bugcnt, 'GT', '0')) {
-                ret = true;
-            }
-            this.detailsModel.grouppanel2.setVisible(ret);
-        }
-
-
 
 
 
@@ -1094,7 +948,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`productplan.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1321,6 +1177,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *  @memberof MobMain
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.productplan});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1371,7 +1230,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"ProductPlan")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.productplan){
                     this.refresh([data]);
                 }
             })
@@ -1584,7 +1443,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 3;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1597,6 +1456,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ title: arg.title});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1675,10 +1535,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1702,10 +1561,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("WebHookServiceImpl")
 public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> implements IWebHookService {
 
+    @Autowired
+    @Lazy
+    IWebHookService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<WebHook> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<WebHook> create = new ArrayList<>();
+        List<WebHook> update = new ArrayList<>();
+        for (WebHook et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<WebHook> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<WebHook> create = new ArrayList<>();
+        List<WebHook> update = new ArrayList<>();
+        for (WebHook et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

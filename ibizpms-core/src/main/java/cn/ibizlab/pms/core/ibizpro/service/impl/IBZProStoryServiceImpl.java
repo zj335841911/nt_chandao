@@ -54,6 +54,9 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService;
+    @Autowired
+    @Lazy
+    IIBZProStoryService proxyService;
 
     protected int batchSize = 500;
 
@@ -139,21 +142,49 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IBZProStory> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IBZProStory> create = new ArrayList<>();
+        List<IBZProStory> update = new ArrayList<>();
+        for (IBZProStory et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IBZProStory> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IBZProStory> create = new ArrayList<>();
+        List<IBZProStory> update = new ArrayList<>();
+        for (IBZProStory et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -161,6 +192,14 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     public IBZProStory syncFromIBIZ(IBZProStory et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean syncFromIBIZBatch(List<IBZProStory> etList) {
+        for(IBZProStory et : etList) {
+            syncFromIBIZ(et);
+        }
+        return true;
     }
 
 

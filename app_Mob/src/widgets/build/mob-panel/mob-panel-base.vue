@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.productname.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.productname" :context="context" :value="data.productname" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.productname" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.name.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.date.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -34,7 +34,7 @@
                 <ion-col v-show="detailsModel.builder.visible"  :lg="3" :size="3" :offset="3" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.builder" :context="context" :value="data.builder" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.builder" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -50,7 +50,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BuildService from '@/app-core/service/build/build-service';
+import BuildEntityService from '@/app-core/service/build/build-service';
 import MobService from '@/app-core/ctrl-service/build/mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -160,7 +160,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {BuildService}
      * @memberof Mob
      */
-    protected appEntityService: BuildService = new BuildService();
+    protected appEntityService: BuildEntityService = new BuildEntityService();
 
     /**
      * 界面UI服务对象

@@ -331,6 +331,7 @@ export default class ReportNewBase extends Vue implements ControlInterface {
                 this.load(data);
             });
         }
+        this.load({});
     }
 
     /**
@@ -421,11 +422,17 @@ export default class ReportNewBase extends Vue implements ControlInterface {
                 case 'AppFunc9': 
                     this.clickAppFunc9(item);
                     return;
+                case 'AppFunc13': 
+                    this.clickAppFunc13(item);
+                    return;
                 case 'AppFunc5': 
                     this.clickAppFunc5(item);
                     return;
                 case 'AppFunc12': 
                     this.clickAppFunc12(item);
+                    return;
+                case 'Reportly': 
+                    this.clickReportly(item);
                     return;
                 case 'NeedLookMonthly': 
                     this.clickNeedLookMonthly(item);
@@ -459,6 +466,27 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
             { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 周报（待阅）
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickAppFunc13(item: any = {}) {
+        let navigateParam: any = { "ibzweekly": "%srfparentkey%" } ;
+        let navigateContext: any = { "ibzweekly": "%srfparentkey%" } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);
@@ -501,6 +529,27 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'ibzreports', parameterName: 'ibzreport' },
             { pathName: 'myremobmdview', parameterName: 'myremobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 汇报
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickReportly(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+            { pathName: 'reportlymobmdview', parameterName: 'reportlymobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);
@@ -596,6 +645,9 @@ export default class ReportNewBase extends Vue implements ControlInterface {
                 if (_item.items && _item.items.length > 0) {
                     this.computedEffectiveMenus(_item.items);
                 }
+            }
+            if(Object.is(_item.id,'setting' )){
+                _item.hidden = false;
             }
         })
     }

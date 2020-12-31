@@ -275,6 +275,114 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductStatsDTO](#ProductStatsDTO)>：产品统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品质量表
+#### 访问路径
+/productstats/fetchprodctquantigird
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductStatsSearchContext](#ProductStatsSearchContext) | 产品统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductStatsDTO](#ProductStatsDTO)>：产品统计实体传输对象列表 |
+
+### 查询产品质量表
+#### 访问路径
+/productstats/searchprodctquantigird
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductStatsSearchContext](#ProductStatsSearchContext) | 产品统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductStatsDTO](#ProductStatsDTO)>：产品统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取产品投入表
+#### 访问路径
+/productstats/fetchproductinputtable
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductStatsSearchContext](#ProductStatsSearchContext) | 产品统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductStatsDTO](#ProductStatsDTO)>：产品统计实体传输对象列表 |
+
+### 查询产品投入表
+#### 访问路径
+/productstats/searchproductinputtable
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductStatsSearchContext](#ProductStatsSearchContext) | 产品统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductStatsDTO](#ProductStatsDTO)>：产品统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取产品完成统计表
+#### 访问路径
+/productstats/fetchproductcompletionstatistics
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductStatsSearchContext](#ProductStatsSearchContext) | 产品统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductStatsDTO](#ProductStatsDTO)>：产品统计实体传输对象列表 |
+
+### 查询产品完成统计表
+#### 访问路径
+/productstats/searchproductcompletionstatistics
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductStatsSearchContext](#ProductStatsSearchContext) | 产品统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductStatsDTO](#ProductStatsDTO)>：产品统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### ProductStatsDTO
@@ -311,7 +419,13 @@ POST
 | 29 | type | String | 允许 | 产品类型 |
 | 30 | order1 | Integer | 允许 | 产品排序 |
 | 31 | istop | Integer | 允许 | 是否置顶 |
-| 32 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 32 | finishedstorycnt | Integer | 允许 | 已完成的需求数 |
+| 33 | resolvedbugcnt | Integer | 允许 | 解决Bug数 |
+| 34 | importantbugcnt | Integer | 允许 | 重要的Bug数 |
+| 35 | bugstory | Integer | 允许 | 需求所提bug数 |
+| 36 | importantbugpercent | String | 允许 | 严重bug比 |
+| 37 | haveconsumed | Double | 允许 | 已消耗工时 |
+| 38 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

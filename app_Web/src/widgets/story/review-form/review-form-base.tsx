@@ -105,12 +105,14 @@ export class ReviewEditFormBase extends EditFormControlBase {
         title: null,
         revieweddate: null,
         result: null,
+        assessresult: null,
         pri: null,
         storypoints: null,
         estimate: null,
         preversion: null,
         closedreason: null,
         assignedto: null,
+        status: null,
         version: null,
         reviewedby: null,
         comment: null,
@@ -138,13 +140,27 @@ export class ReviewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.result.required,
                     type: 'string',
-                    message: '评审结果 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.result')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.result.required,
                     type: 'string',
-                    message: '评审结果 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.result')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
+        ],
+            assessresult: [
+                {
+                    required: this.detailsModel.assessresult.required,
+                    type: 'string',
+                    message: `${this.$t('entities.story.review_form.details.assessresult')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.assessresult.required,
+                    type: 'string',
+                    message: `${this.$t('entities.story.review_form.details.assessresult')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -152,13 +168,13 @@ export class ReviewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.preversion.required,
                     type: 'number',
-                    message: '之前版本 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.preversion')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.preversion.required,
                     type: 'number',
-                    message: '之前版本 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.preversion')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -166,13 +182,13 @@ export class ReviewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.closedreason.required,
                     type: 'string',
-                    message: '拒绝原因 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.closedreason')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.closedreason.required,
                     type: 'string',
-                    message: '拒绝原因 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.closedreason')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -180,13 +196,13 @@ export class ReviewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -194,13 +210,13 @@ export class ReviewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.reviewedby.required,
                     type: 'string',
-                    message: '由谁评审 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.reviewedby')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.reviewedby.required,
                     type: 'string',
-                    message: '由谁评审 值不能为空',
+                    message: `${this.$t('entities.story.review_form.details.reviewedby')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -337,7 +353,14 @@ export class ReviewEditFormBase extends EditFormControlBase {
 }),
 
         result: new FormItemModel({
-    caption: '评审结果', detailType: 'FORMITEM', name: 'result', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '评审结果', detailType: 'FORMITEM', name: 'result', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        assessresult: new FormItemModel({
+    caption: '评审结果', detailType: 'FORMITEM', name: 'assessresult', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
     required:true,
     disabled: false,
     enableCond: 3,
@@ -381,6 +404,13 @@ export class ReviewEditFormBase extends EditFormControlBase {
         assignedto: new FormItemModel({
     caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:true,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        status: new FormItemModel({
+    caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
     disabled: false,
     enableCond: 3,
 }),
@@ -462,6 +492,39 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = true;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'NOTEQ', 'changed')) {
+                ret = false;
+            }
+            this.detailsModel.result.required = ret;
+        }
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'EQ', 'changed')) {
+                ret = true;
+            }
+            this.detailsModel.result.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = true;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'NOTEQ', 'draft')) {
+                ret = false;
+            }
+            this.detailsModel.assessresult.required = ret;
+        }
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'EQ', 'draft')) {
+                ret = true;
+            }
+            this.detailsModel.assessresult.setVisible(ret);
+        }
 
 
 
@@ -470,7 +533,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             let ret = true;
             const _result = this.data.result;
             const _version = this.data.version;
-            if (this.$verify.testCond(_result, 'NOTEQ', 'revert') && this.$verify.testCond(_version, 'GT', '1')) {
+            if (this.$verify.testCond(_result, 'NOTEQ', 'revert') || this.$verify.testCond(_version, 'EQ', '1')) {
                 ret = false;
             }
             this.detailsModel.preversion.required = ret;
@@ -492,6 +555,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.closedreason.required = ret;
         }
+
 
 
 

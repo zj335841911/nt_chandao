@@ -104,6 +104,9 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkSuiteCasesLogic unlinksuitecasesLogic;
+    @Autowired
+    @Lazy
+    ICaseService proxyService;
 
     protected int batchSize = 500;
 
@@ -179,16 +182,34 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public boolean checkKey(Case et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Case confirmChange(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).confirmChange(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean confirmChangeBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   confirmChange(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Case confirmstorychange(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).confirmstorychange(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean confirmstorychangeBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   confirmstorychange(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -197,6 +218,14 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean getByTestTaskBatch(List<Case> etList) {
+        for(Case et : etList) {
+            getByTestTask(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
@@ -204,17 +233,58 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean getTestTaskCntRunBatch(List<Case> etList) {
+        for(Case et : etList) {
+            getTestTaskCntRun(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Case linkCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).linkCase(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean linkCaseBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   linkCase(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
+    @Transactional
+    public Case mobLinkCase(Case et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).mobLinkCase(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean mobLinkCaseBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   mobLinkCase(et);
+		 }
+	 	 return true;
+    }
+
+       @Override
     @Transactional
     public Case runCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).runCase(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean runCaseBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   runCase(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -239,7 +309,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -247,7 +317,21 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Transactional
     public boolean saveBatch(Collection<Case> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Case> create = new ArrayList<>();
+        List<Case> update = new ArrayList<>();
+        for (Case et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -255,13 +339,36 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Transactional
     public void saveBatch(List<Case> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Case> create = new ArrayList<>();
+        List<Case> update = new ArrayList<>();
+        for (Case et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public Case testRunCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).testRunCase(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean testRunCaseBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   testRunCase(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -271,16 +378,34 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
          return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Case testsuitelinkCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).testsuitelinkCase(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean testsuitelinkCaseBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   testsuitelinkCase(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Case unlinkCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).unlinkCase(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean unlinkCaseBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   unlinkCase(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -290,10 +415,19 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
          return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Case unlinkSuiteCase(Case et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).unlinkSuiteCase(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean unlinkSuiteCaseBatch (List<Case> etList) {
+		 for(Case et : etList) {
+		   unlinkSuiteCase(et);
+		 }
+	 	 return true;
     }
 
     @Override

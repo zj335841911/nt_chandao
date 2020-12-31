@@ -211,6 +211,30 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[管理现状]
+     */
+    @Getter
+    public enum ConfigManagementstatus {
+        PRODUCT_PROJECT("product_project","产品 - 项目"),
+        PRODUCT_ITERATION("product_iteration","产品 - 迭代"),
+        PROJECT_ITERATION("project_iteration","项目 - 迭代"),
+        PRODUCT_SPRINT("product_sprint","产品 - 冲刺"),
+        PROJECT_SPRINT("project_sprint","项目 - 冲刺");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigManagementstatus(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
 
 
     /**
@@ -349,6 +373,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -633,6 +658,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -1444,7 +1470,8 @@ public class StaticDict {
         WEBHOOK("webhook","Webhook"),
         DAILY("daily","日报"),
         WEEKLY("weekly","周报"),
-        MONTHLY("monthly","月报");
+        MONTHLY("monthly","月报"),
+        REPORTLY("reportly","汇报");
 
         private String value;
         private String text;
@@ -1530,6 +1557,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[配置分组]
+     */
+    @Getter
+    public enum ConfigGroup {
+        GROUP("GROUP","分组"),
+        ITEM("ITEM","配置项");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[需求状态]
      */
     @Getter
@@ -1546,6 +1594,28 @@ public class StaticDict {
         private String emptyText="";
 
         Story__status(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[需求评审结果（草稿）]
+     */
+    @Getter
+    public enum Story__review_result_draft {
+        PASS("pass","确认通过"),
+        CLARIFY("clarify","有待明确"),
+        REJECT("reject","拒绝");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Story__review_result_draft(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1591,6 +1661,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
 
@@ -1653,8 +1724,7 @@ public class StaticDict {
         CUSTOM("custom","自定义"),
         BUG("bug","Bug"),
         TASK("task","项目任务"),
-        STORY("story","项目需求"),
-        CYCLE("cycle","周期");
+        STORY("story","项目需求");
 
         private String value;
         private String text;
@@ -1805,6 +1875,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -3072,13 +3143,15 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[团队类型]
      */
     @Getter
     public enum Team__type {
         PROJECT("project","项目团队"),
-        TASK("task","任务团队");
+        TASK("task","任务团队"),
+        PRODUCT("product","产品团队");
 
         private String value;
         private String text;
@@ -3255,6 +3328,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[Bug解决方案]
      */
@@ -3336,6 +3410,32 @@ public class StaticDict {
 
 
     /**
+     * 代码表[全文检索类型]
+     */
+    @Getter
+    public enum IndexType {
+        BUG("bug","Bug"),
+        PRODUCT("product","产品"),
+        TASK("task","任务"),
+        CASE("case","功能测试"),
+        DOC("doc","文档"),
+        STORY("story","需求"),
+        PROJECT("project","项目");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        IndexType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[附件对象类型]
      */
     @Getter
@@ -3365,7 +3465,8 @@ public class StaticDict {
         WEBHOOK("webhook","Webhook"),
         DAILY("daily","日报"),
         WEEKLY("weekly","周报"),
-        MONTHLY("monthly","月报");
+        MONTHLY("monthly","月报"),
+        REPORTLY("reportly","汇报");
 
         private String value;
         private String text;
@@ -3684,6 +3785,28 @@ public class StaticDict {
         }
     }
 
+
+
+    /**
+     * 代码表[计划模板类型]
+     */
+    @Getter
+    public enum PlantempletType {
+        STEP("step","计划"),
+        GROUP("group","父计划"),
+        ITEM("item","子计划");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        PlantempletType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
     /**
@@ -4261,6 +4384,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
 
@@ -5055,13 +5179,35 @@ public class StaticDict {
 
 
     /**
+     * 代码表[计划模板权限]
+     */
+    @Getter
+    public enum PlanAcl {
+        OPEN("open","公开"),
+        PRIVATE("private","私有");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        PlanAcl(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[汇报类型]
      */
     @Getter
     public enum ReportType {
         WEEKLY("weekly","周报"),
         DAILY("daily","日报"),
-        MONTHLY("monthly","月报");
+        MONTHLY("monthly","月报"),
+        REPORTLY("reportly","汇报");
 
         private String value;
         private String text;
@@ -5074,6 +5220,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -5672,6 +5819,7 @@ public class StaticDict {
 
 
 
+
     /**
      * 代码表[项目状态(wait=doing)]
      */
@@ -6025,6 +6173,7 @@ public class StaticDict {
 
 
 
+
     /**
      * 代码表[Bug类型]
      */
@@ -6221,6 +6370,30 @@ public class StaticDict {
 
 
     /**
+     * 代码表[配置范围]
+     */
+    @Getter
+    public enum ConfigScope {
+        SYS("sys","全局"),
+        ORG("org","当前组织"),
+        DEPT1("dept1","当前部门（含子部门）"),
+        DEPT2("dept2","当前部门（不含子部门）"),
+        USER("user","个人");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigScope(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[是否（数值）]
      */
     @Getter
@@ -6270,7 +6443,7 @@ public class StaticDict {
     @Getter
     public enum StoryPoints {
         ITEM_0("0","0"),
-        ITEM_05("0.5","1/2"),
+        ITEM_05("0.5","0.5"),
         ITEM_1("1","1"),
         ITEM_2("2","2"),
         ITEM_3("3","3"),

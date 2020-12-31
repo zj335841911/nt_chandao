@@ -130,11 +130,11 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @memberof ProductPlanMainDataEditView
      */
     public toolBarModels: any = {
-        deuiaction1_newsubplancz: { name: 'deuiaction1_newsubplancz', caption: '子计划', 'isShowCaption': false, 'isShowIcon': true, tooltip: '子计划', iconcls: 'fa fa-sitemap', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CHILD_BUT', uiaction: { tag: 'NewSubPlanCz', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_newsubplancz: { name: 'deuiaction1_newsubplancz', caption: 'entities.productplan.maindataeditviewtoolbar_toolbar.deuiaction1_newsubplancz.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.productplan.maindataeditviewtoolbar_toolbar.deuiaction1_newsubplancz.tip', iconcls: 'fa fa-sitemap', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CHILD_BUT', uiaction: { tag: 'NewSubPlanCz', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', 'isShowCaption': false, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: 'entities.productplan.maindataeditviewtoolbar_toolbar.deuiaction1_mainedit.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.productplan.maindataeditviewtoolbar_toolbar.deuiaction1_mainedit.tip', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction1_deletecz: { name: 'deuiaction1_deletecz', caption: '删除', 'isShowCaption': false, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'DeleteCz', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_deletecz: { name: 'deuiaction1_deletecz', caption: 'entities.productplan.maindataeditviewtoolbar_toolbar.deuiaction1_deletecz.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.productplan.maindataeditviewtoolbar_toolbar.deuiaction1_deletecz.tip', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'DeleteCz', target: 'SINGLEKEY', class: '' } },
 
     };
 

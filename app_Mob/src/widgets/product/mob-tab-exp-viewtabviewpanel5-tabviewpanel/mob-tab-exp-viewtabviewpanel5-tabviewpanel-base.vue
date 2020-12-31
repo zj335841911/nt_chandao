@@ -17,7 +17,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
+import ProductEntityService from '@/app-core/service/product/product-service';
 import MobTabExpViewtabviewpanel5Service from '@/app-core/ctrl-service/product/mob-tab-exp-viewtabviewpanel5-tabviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -126,7 +126,7 @@ export default class MobTabExpViewtabviewpanel5Base extends Vue implements Contr
      * @type {ProductService}
      * @memberof MobTabExpViewtabviewpanel5
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProductEntityService = new ProductEntityService();
 
     /**
      * 界面UI服务对象

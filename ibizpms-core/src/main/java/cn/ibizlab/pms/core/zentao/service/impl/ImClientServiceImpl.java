@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("ImClientServiceImpl")
 public class ImClientServiceImpl extends ServiceImpl<ImClientMapper, ImClient> implements IImClientService {
 
+    @Autowired
+    @Lazy
+    IImClientService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class ImClientServiceImpl extends ServiceImpl<ImClientMapper, ImClient> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ImClient> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ImClient> create = new ArrayList<>();
+        List<ImClient> update = new ArrayList<>();
+        for (ImClient et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ImClient> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ImClient> create = new ArrayList<>();
+        List<ImClient> update = new ArrayList<>();
+        for (ImClient et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

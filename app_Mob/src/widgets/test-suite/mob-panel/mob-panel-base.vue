@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.name.visible"  :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.addedby.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.addedby" :context="context" :value="data.addedby" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.addedby" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.addeddate.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.addeddate" :context="context" :value="data.addeddate" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.addeddate" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -41,7 +41,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
+import TestSuiteEntityService from '@/app-core/service/test-suite/test-suite-service';
 import MobService from '@/app-core/ctrl-service/test-suite/mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -151,7 +151,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {TestSuiteService}
      * @memberof Mob
      */
-    protected appEntityService: TestSuiteService = new TestSuiteService();
+    protected appEntityService: TestSuiteEntityService = new TestSuiteEntityService();
 
     /**
      * 界面UI服务对象

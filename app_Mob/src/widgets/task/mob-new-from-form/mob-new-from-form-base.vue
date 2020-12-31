@@ -288,13 +288,15 @@
     :disabled="detailsModel.name.disabled"
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.name"
-    unit=""
-    :disabled="detailsModel.name.disabled" 
-    @change="($event)=>this.data.name = $event" />
+        <app-mob-color-picker
+    v-model="data.name"  
+    @enter="onEnter($event)"
+    :data="data"
+    :disabled="detailsModel.name.disabled"
+    :formState="formState"
+    color="color"
+    @colorChange="(val) => {onFormItemValueChange(val)}">
+</app-mob-color-picker>
 </app-form-item>
 
 
@@ -475,7 +477,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TaskEntityService from '@/app-core/service/task/task-service';
 import MobNewFromService from '@/app-core/ctrl-service/task/mob-new-from-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -587,7 +589,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @type {TaskService}
      * @memberof MobNewFrom
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TaskEntityService = new TaskEntityService();
 
     /**
      * 界面UI服务对象
@@ -684,6 +686,14 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -805,6 +815,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         story: null,
         storyname: null,
         name: null,
+        color: null,
         pri: null,
         estimate: null,
         eststarted: null,
@@ -856,20 +867,20 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         projectname: [
-            { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         type: [
-            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         assignedto: [
-            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         name: [
-            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
         ],
         estimate: [
@@ -1067,6 +1078,8 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        color: new FormItemModel({ caption: '任务名称color', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1327,6 +1340,18 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 color 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.color')
+    onColorChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'color', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 pri 值
      *
      * @param {*} newVal
@@ -1522,6 +1547,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
@@ -1556,7 +1582,9 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`task.mobnewfrom_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1783,6 +1811,9 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      *  @memberof MobNewFrom
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.task});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1833,7 +1864,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Task")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.task){
                     this.refresh([data]);
                 }
             })
@@ -2059,6 +2090,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -2137,10 +2169,9 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -2164,10 +2195,9 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

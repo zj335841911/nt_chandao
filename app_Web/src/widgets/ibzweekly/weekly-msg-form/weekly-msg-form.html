@@ -438,8 +438,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{thisweektask:"%thisweektask%"}'
+    :localContext ='{DATE:"%date%"}'
+    :localParam ='{date:"%date%",thisweektask:"%thisweektask%"}'
     parameterName="ibzweekly"
     parentName="IBZWEEKLY"  
     refviewtype="DEGRIDVIEW9" 
@@ -518,7 +518,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     refviewtype="DEGRIDVIEW9" 
     refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname="task-zs-grid-view9-week" 
+    viewname="task-zs-grid-view9-week-next-week-plan" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

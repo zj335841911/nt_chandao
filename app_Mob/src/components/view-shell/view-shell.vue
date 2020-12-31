@@ -1,9 +1,9 @@
 <template>
-    <transition name="fade">
+    <!-- <transition name="fade"> -->
         <app-keep-alive :routerList="getRouterList">
             <router-view :key="this.$route.fullPath"></router-view>
         </app-keep-alive>
-    </transition>
+    <!-- </transition> -->
 
 </template>
 
@@ -48,6 +48,9 @@ export default class ViewShell extends Vue {
     public created() {
         this.parseViewParam();
         this.$viewTool.setIndexViewParam(this.context);
+        import('@/locale/lang/zh-CN').then((res:any) =>{
+            this.$i18n.mergeLocaleMessage('ZH-CN',res.default);
+        })
     }
 
     /**

@@ -16,5 +16,31 @@ export const UserComponent = {
         v.component('app-tree-word',() => import('@/ibiz-core/components/app-tree-word/app-tree-word.vue'));
         // 汇报列表组件
         v.component('app-report-list',() => import('@/ibiz-core/components/app-report-list/app-report-list.vue'));
+        // 全部动态列表组件
+        v.component('app-trends-list',() => import('@/ibiz-core/components/app-trends-list/app-trends-list.vue'));
+        // 任务列表组件
+        v.component('app-task-list',() => import('@/ibiz-core/components/app-task-list/app-task-list.vue'));
+        // 需求列表组件
+        v.component('app-story-list',() => import('@/ibiz-core/components/app-story-list/app-story-list.vue'));
+        //bug列表组件
+        v.component('app-bug-list',() => import('@/ibiz-core/components/app-bug-list/app-bug-list.vue'));
+        // 项目团队列表组件
+        v.component('app-projectteam-list',() => import('@/ibiz-core/components/app-projectteam-list/app-projectteam-list.vue'));
+        // 测试用例列表组件
+        v.component('app-case-list',() => import('@/ibiz-core/components/app-case-list/app-case-list.vue'));
+        // 用户头
+        v.component('app-user-header',() => import('@/ibiz-core/components/user-header/user-header.vue'));
+        // 自定义图片上传组件
+        v.component('app-mob-picture-pms',() => import('@/ibiz-core/components/app-mob-picture-pms/app-mob-picture-pms.vue'));
+        // 任务团队列表组件
+        v.component('app-taskteam-list',() => import('@/ibiz-core/components/app-taskteam-list/app-taskteam-list.vue'));
+        // 图片截取
+        v.component('app-img-cropper',() => import('@/ibiz-core/components/app-img-cropper/app-img-cropper.vue'));
+        // 复合表单项--动态选择
+        v.component('app-mob-select-dynamic',() => import('@/ibiz-core/components/app-mob-select-dynamic/app-mob-select-dynamic.vue'));
+        // 复合表单项插件
+        v.component('comb-form-item',() => import('@/ibiz-core/components/comb-form-item/comb-form-item.vue'));
+        // 文本框颜色选择
+        v.component('app-mob-color-picker',() => import('@/ibiz-core/components/app-mob-color-picker/app-mob-color-picker.vue'));
     }
 };

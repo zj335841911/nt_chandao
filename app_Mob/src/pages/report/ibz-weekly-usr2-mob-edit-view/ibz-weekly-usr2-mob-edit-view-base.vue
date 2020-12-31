@@ -1,15 +1,15 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-weekly-usr2-mob-edit-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="IbzWeeklyUsr2MobEditView"  
+            viewName="Usr2MobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -34,23 +34,29 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+                <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                class="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1.disabled" 
+                    size="large"  
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" />
                 
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
-                    <ion-icon name="git-commit"></ion-icon>
-                
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction2.disabled" 
+                    size="large"  
+                    iconName="check" 
+                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" />
                 
             </div>
         
@@ -200,7 +206,7 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzweekly%' };
 
     /**
      * 视图模型数据
@@ -298,9 +304,9 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
     * @memberof IbzWeeklyUsr2MobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
 
-            deuiaction2: { name: 'deuiaction2', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
+            deuiaction2: { name: 'deuiaction2', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
 
     };
 

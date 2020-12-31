@@ -344,4 +344,33 @@ export default class ProductSumServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productsums/searchproductstorycntandplancnt`,tempData,isloading);
     }
+
+    /**
+     * FetchProductSumBugType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async FetchProductSumBugType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productsums/fetchproductsumbugtype`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductSumBugType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchProductSumBugType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchproductsumbugtype`,tempData,isloading);
+    }
 }

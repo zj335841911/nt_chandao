@@ -46,6 +46,12 @@ public class UAARelatedRest {
         return null;
     }
 
+    @Deprecated
+    @GetMapping(value = "/getsrfmstatus")
+    public JSONObject getSettings() {
+        return userHelper.getSettings();
+    }
+
     /**
      * 从UAA用户账号获取对应的【ZT】用户信息
      *

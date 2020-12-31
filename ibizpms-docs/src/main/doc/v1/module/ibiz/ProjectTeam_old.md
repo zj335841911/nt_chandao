@@ -59,10 +59,20 @@ hide members
 | 行为    | 类型    |  说明  |
 | --------   |------------| ----- | 
 |Create|内置方法|&nbsp;|
+|CreateTemp|内置方法|&nbsp;|
+|CreateTempMajor|内置方法|&nbsp;|
 |Update|内置方法|&nbsp;|
+|UpdateTemp|内置方法|&nbsp;|
+|UpdateTempMajor|内置方法|&nbsp;|
 |Remove|内置方法|&nbsp;|
+|RemoveTemp|内置方法|&nbsp;|
+|RemoveTempMajor|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
+|GetTemp|内置方法|&nbsp;|
+|GetTempMajor|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
+|GetDraftTemp|内置方法|&nbsp;|
+|GetDraftTempMajor|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |获取成员角色|用户自定义|&nbsp;根据成员获取成员的角色信息|
 |Save|内置方法|&nbsp;|

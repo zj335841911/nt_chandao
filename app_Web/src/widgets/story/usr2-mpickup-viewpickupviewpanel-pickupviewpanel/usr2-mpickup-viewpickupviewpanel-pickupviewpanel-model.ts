@@ -216,6 +216,9 @@ export default class Usr2MPickupViewpickupviewpanelModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

@@ -173,4 +173,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     endstr?: any;
+
+    /**
+     * 计划模板
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    plantemplet?: any;
 }

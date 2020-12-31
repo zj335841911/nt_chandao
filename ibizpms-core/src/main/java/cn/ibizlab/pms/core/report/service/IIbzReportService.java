@@ -28,7 +28,7 @@ public interface IIbzReportService extends IService<IbzReport> {
     /**
      * 业务实体显示文本名称
      */
-    final static String OBJECT_TEXT_NAME = "汇报";
+    final static String OBJECT_TEXT_NAME = "汇报汇总";
 
     /**
      * 业务实体资源路径名

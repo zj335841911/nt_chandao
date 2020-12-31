@@ -9,7 +9,7 @@
                         <ion-col v-show="detailsModel.date1.visible"  :lg="8" :size="8" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
@@ -18,7 +18,7 @@
                         <ion-col v-show="detailsModel.actor.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.actor" :context="context" :value="data.actor" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.actor" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
@@ -31,7 +31,7 @@
                         <ion-col v-show="detailsModel.actions.visible"  :lg="7" :size="7" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.actions" :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
                         </div>
                         
                         
@@ -40,7 +40,7 @@
                         <ion-col v-show="detailsModel.objecttype.visible"  :lg="5" :size="5" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.objecttype" :context="context" :value="data.objecttype" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__object_type"></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.objecttype" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__object_type"></app-mob-span>
                         </div>
                         
                         
@@ -58,7 +58,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ActionService from '@/app-core/service/action/action-service';
+import ActionEntityService from '@/app-core/service/action/action-service';
 import Mob_6080Service from '@/app-core/ctrl-service/action/mob-6080-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -168,7 +168,7 @@ export default class Mob_6080Base extends Vue implements ControlInterface {
      * @type {ActionService}
      * @memberof Mob_6080
      */
-    protected appEntityService: ActionService = new ActionService();
+    protected appEntityService: ActionEntityService = new ActionEntityService();
 
     /**
      * 界面UI服务对象

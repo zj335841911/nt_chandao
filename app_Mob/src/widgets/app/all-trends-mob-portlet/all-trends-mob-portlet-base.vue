@@ -3,12 +3,19 @@
         <ion-list class='app-mob-portlet action-dashboard_sysportlet7 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>动态</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`${this.localeDeName}.views.${this.viewName.toLowerCase()}.alltrendsmob_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
-                    <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
+                    <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <div class="edit_title_btn" :style="edit_title_btn">
+                <app-mob-button
+                    :text="$t('app.button.cancel')"
+                    @click="onConfirmClick(false)" />
+                <app-mob-button 
+                    :tetx="$t('app.button.confirm')"
+                    @click="onConfirmClick(true)" />
+            </div>
             <action-allmob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :isPortalView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></action-allmob-mdview9>
         </ion-list>
         <van-action-sheet v-model="selectStatus" get-container="#app" :actions="actionBarModelData" cancel-text="取消" close-on-click-action @select="actionBarClick" @cancel="onCancel" />
@@ -22,7 +29,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ActionService from '@/app-core/service/action/action-service';
+import ActionEntityService from '@/app-core/service/action/action-service';
 import AllTrendsMobService from '@/app-core/ctrl-service/action/all-trends-mob-portlet-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -131,7 +138,7 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @type {ActionService}
      * @memberof AllTrendsMob
      */
-    protected appEntityService: ActionService = new ActionService();
+    protected appEntityService: ActionEntityService = new ActionEntityService();
 
     /**
      * 界面UI服务对象
@@ -141,6 +148,37 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      */  
     public deUIService:ActionUIService = new ActionUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof Dashboard_sysportlet7Base
+     */
+    protected async dashboard_sysportlet7_u598b386_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('action_ui_action');
+        if (curUIService) {
+            curUIService.Action_more(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -171,6 +209,13 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @memberof MyTaskMob
      */
     @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
+     * 多语言实体名称
+     *
+     * @memberof AllTrendsMob
+     */
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题
@@ -204,6 +249,10 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @memberof AllTrendsMob
      */
     protected actionBarModelData: any[] = [
+        {
+            viewlogicname: "dashboard_sysportlet7_u598b386_click",
+            name: "更多",
+        }
     ];
 
     /**
@@ -214,6 +263,9 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @memberof AllTrendsMob
      */
     protected handleItemClick($event: any) {
+        if (Object.is($event, 'dashboard_sysportlet7_u598b386_click')) {
+            this.dashboard_sysportlet7_u598b386_click(null);
+        }
     }
 
     /**
@@ -359,7 +411,7 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return '动态'
+        return (this.$t(`app.views.${this.viewName.toLowerCase()}.alltrendsmob_portlet`) as string)
     }
 
     /**

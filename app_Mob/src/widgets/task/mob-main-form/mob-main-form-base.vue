@@ -33,7 +33,6 @@
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.projectname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -61,7 +60,6 @@
     :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.modulename"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -89,7 +87,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     codeListType="STATIC" 
     tag="Task__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -151,7 +147,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -179,7 +174,6 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.assigneddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -255,7 +249,6 @@
     codeListType="STATIC" 
     tag="Task__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -286,7 +279,6 @@
     codeListType="STATIC" 
     tag="Task__pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -314,7 +306,6 @@
     :error="detailsModel.estimate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.estimate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -342,7 +333,6 @@
     :error="detailsModel.consumed.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.consumed"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -370,7 +360,6 @@
     :error="detailsModel.left.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.left"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -398,7 +387,6 @@
     :error="detailsModel.eststarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.eststarted"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -426,7 +414,6 @@
     :error="detailsModel.realstarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.realstarted"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -454,7 +441,6 @@
     :error="detailsModel.deadline.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.deadline"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -483,9 +469,8 @@
     :isEmptyCaption="false">
         <app-mob-span  
     codeListType="DYNAMIC" 
-    tag="UserRealName"
+    tag="UserRealName_Gird"
     :isCache="false" 
-    v-if="data.finishedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -516,7 +501,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.closedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -544,7 +528,6 @@
     :error="detailsModel.closeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.closeddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -575,7 +558,6 @@
     codeListType="STATIC" 
     tag="Task__closed_reason"
     :isCache="false" 
-    v-if="data.closedreason"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -709,7 +691,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TaskEntityService from '@/app-core/service/task/task-service';
 import MobMainService from '@/app-core/ctrl-service/task/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -821,7 +803,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {TaskService}
      * @memberof MobMain
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TaskEntityService = new TaskEntityService();
 
     /**
      * 界面UI服务对象
@@ -918,6 +900,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1775,7 +1765,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`task.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -2002,6 +1994,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *  @memberof MobMain
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.task});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -2052,7 +2047,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Task")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.task){
                     this.refresh([data]);
                 }
             })
@@ -2278,6 +2273,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -2356,10 +2352,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -2383,10 +2378,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

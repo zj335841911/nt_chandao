@@ -944,6 +944,7 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      */
     public onSearch(query: string){
         const node = this.currentNode;
+        this.curPage = 1;
         this.load(node);
     }
 
@@ -1120,7 +1121,7 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
             await this.getNodeState(item);
             this.$forceUpdate();
         }
-        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        let el: any = this.$el.getElementsByClassName('chart-item-operate')[index];
         if (el) {
             el.style.display = 'block'; 
         }
@@ -1133,7 +1134,7 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      * @memberof RootDoclibProjectTreeVeiwBase
      */
     public hideToolBar(index: number){
-        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        let el: any = this.$el.getElementsByClassName('chart-item-operate')[index];
         if (el) {
             el.style.display = 'none'; 
         }

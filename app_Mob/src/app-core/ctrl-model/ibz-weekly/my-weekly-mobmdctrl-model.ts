@@ -30,9 +30,9 @@ export class MyWeeklyModel {
 				name: 'ibz_weeklyid',
 			},
 			{
-				name: 'plannextweek',
+				name: 'planstomorrow',
 				prop: 'plannextweek',
-				dataType: 'SMCODELIST',
+				dataType: 'HTMLTEXT',
 			},
 			{
 				name: 'ibz_weeklyname',
@@ -41,7 +41,7 @@ export class MyWeeklyModel {
 				name: 'submittime',
 			},
 			{
-				name: 'workthisweek',
+				name: 'worktoday',
 				prop: 'workthisweek',
 				dataType: 'HTMLTEXT',
 			},

@@ -266,6 +266,62 @@
 </app-form-item>
 
 
+
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品',localetag: 'project.fields.products', prop: 'products', unique: true },{ name: '关联产品平台集合',localetag: 'project.fields.branchs', prop: 'branchs', hidden: true },{ name: '关联计划',localetag: 'project.fields.plans', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
+   <template slot="products" slot-scope="{item}">
+	<app-form-item  name='products' labelPos="LEFT" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="false" >
+         <app-mob-select-dynamic
+            v-model="item.products" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+				 :navigateContext="{}"
+            :navigateParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :disabled="detailsModel.formitemex1.disabled" 
+            valueType="string"
+            tag='Product' 
+            codelistType='DYNAMIC'
+            placeholder="">
+         </app-mob-select-dynamic>
+		</app-form-item>
+         <app-form-item  labelPos="LEFT"   name='branchs' uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="false" >
+<app-mob-select-dynamic
+   v-model="item.branchs" 
+   :data="{...data, ...item}" 
+   :context="context"
+   :viewparams="viewparams"
+	:navigateContext="{}"
+   :navigateParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+   :disabled="detailsModel.formitemex1.disabled" 
+   valueType="string"
+   tag='ProductBranch' 
+   codelistType='DYNAMIC'
+   placeholder="">
+</app-mob-select-dynamic>
+</app-form-item>
+
+   </template>
+   <template slot="plans" slot-scope="{item}">
+	<app-form-item  name='plans' labelPos="LEFT" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="false" >
+         <app-mob-select-dynamic
+            v-model="item.plans" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+				 :navigateContext="{}"
+            :navigateParam="{products: '%products%',srfarray: '%srfarray%',branchs: '%branchs%',plans: '%plans%',}"
+            :disabled="detailsModel.formitemex1.disabled" 
+            valueType="string"
+            tag='ProductPlan' 
+            codelistType='DYNAMIC'
+            placeholder="">
+         </app-mob-select-dynamic>
+		</app-form-item>
+   </template>
+</comb-form-item>
+
+
+
     
 </app-form-group>
 
@@ -336,7 +392,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProjectService from '@/app-core/service/project/project-service';
+import ProjectEntityService from '@/app-core/service/project/project-service';
 import MobNewFormService from '@/app-core/ctrl-service/project/mob-new-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -448,7 +504,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @type {ProjectService}
      * @memberof MobNewForm
      */
-    protected appEntityService: ProjectService = new ProjectService();
+    protected appEntityService: ProjectEntityService = new ProjectEntityService();
 
     /**
      * 界面UI服务对象
@@ -545,6 +601,14 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -661,6 +725,11 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         days: null,
         team: null,
         type: null,
+        products: null,
+        srfarray: null,
+        branchs: null,
+        plans: null,
+        formitemex1: null,
         desc: null,
         acl: null,
         id: null,
@@ -707,25 +776,25 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         name: [
-            { required: true, type: 'string', message: '项目名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '项目名称 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         code: [
-            { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         begin: [
-            { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '开始时间 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         end: [
-            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast}}
         ],
         days: [
-            { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'change' },
-            { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
+            { required: true, type: 'number', message: 'required', trigger: 'change' },
+            { required: true, type: 'number', message: 'required', trigger: 'blur' },
         ],
     }
 
@@ -874,6 +943,16 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         team: new FormItemModel({ caption: '团队名称', detailType: 'FORMITEM', name: 'team', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '项目类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        products: new FormItemModel({ caption: '关联产品', detailType: 'FORMITEM', name: 'products', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        srfarray: new FormItemModel({ caption: '关联数据数组', detailType: 'FORMITEM', name: 'srfarray', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        branchs: new FormItemModel({ caption: '关联产品平台集合', detailType: 'FORMITEM', name: 'branchs', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        plans: new FormItemModel({ caption: '关联计划', detailType: 'FORMITEM', name: 'plans', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '项目描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1064,6 +1143,66 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 products 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.products')
+    onProductsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'products', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 srfarray 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.srfarray')
+    onSrfarrayChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'srfarray', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branchs 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.branchs')
+    onBranchsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branchs', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 plans 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.plans')
+    onPlansChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'plans', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.formitemex1')
+    onFormitemex1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 desc 值
      *
      * @param {*} newVal
@@ -1117,6 +1256,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         if (Object.is(name, 'begin')) {
             this.onFormItemValueChange({ name: 'days', value: null });
         }
+        if (Object.is(name, 'products')) {
+            this.onFormItemValueChange({ name: 'plans', value: null });
+        }
     }
 
     /**
@@ -1144,6 +1286,11 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
 
 
 
@@ -1199,7 +1346,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`project.mobnewform_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1426,6 +1575,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *  @memberof MobNewForm
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.project});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1476,7 +1628,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Project")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.project){
                     this.refresh([data]);
                 }
             })
@@ -1702,6 +1854,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1780,10 +1933,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1807,10 +1959,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

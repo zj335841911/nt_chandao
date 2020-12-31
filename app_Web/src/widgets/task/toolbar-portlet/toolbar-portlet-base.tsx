@@ -102,6 +102,34 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet2_u0bc2895_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_confirmStoryChangeCz(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet2_uc67fdb2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -509,6 +537,7 @@ export class ToolbarPortletBase extends MainControlBase {
      */
     public uiactionModel: any = {
         exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        confirmstorychangecz: {name: 'confirmstorychangecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', uiaction: { tag: 'confirmStoryChangeCz', target: 'SINGLEKEY' } },
         newsubtaskdash: {name: 'newsubtaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', uiaction: { tag: 'NewSubTaskDash', target: 'SINGLEKEY' } },
         assigntaskdash: {name: 'assigntaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskDash', target: 'SINGLEKEY' } },
         checkforwarddash: {name: 'checkforwarddash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_FORWARD_BUT', uiaction: { tag: 'checkForwardDash', target: 'SINGLEKEY' } },
@@ -537,6 +566,16 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
+        visible:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet2_u0bc2895_click",
+        text: "确认",
+        iconcls: "fa fa-search",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TASK_XQCHANGE_BUT',
+        actiontarget:'SINGLEKEY',
         visible:true,
         disabled:false
         },
@@ -680,6 +719,9 @@ export class ToolbarPortletBase extends MainControlBase {
     public handleItemClick($event:any){
         if(Object.is($event,'dashboard_sysportlet2_udf09ee0_click')){
             this.dashboard_sysportlet2_udf09ee0_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_u0bc2895_click')){
+            this.dashboard_sysportlet2_u0bc2895_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_uc67fdb2_click')){
             this.dashboard_sysportlet2_uc67fdb2_click(null);
@@ -844,6 +886,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @memberof ToolbarBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

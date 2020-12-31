@@ -102,6 +102,34 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u74aaa3d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_BatchBreakdowntasks(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_ucdf692f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -131,6 +159,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', target: 'SINGLEKEY'},
+        BatchBreakdowntasks: { name: 'BatchBreakdowntasks',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', target: 'SINGLEKEY'},
         ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
     };
 
@@ -313,7 +342,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @type {boolean}
      * @memberof ProjectStoryGridBase
      */
-    protected isDeExport: boolean = true;
+    protected isDeExport: boolean = false;
 
     /**
      * 所有导出列成员
@@ -437,7 +466,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             },
             {
                 name: 'openedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -445,7 +474,7 @@ export class ProjectStoryGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealNameProductTeam',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -491,6 +520,9 @@ export class ProjectStoryGridBase extends GridControlBase {
         $event.stopPropagation();
         if(Object.is('Breakdowntasks', tag)) {
             this.grid_uagridcolumn1_u44590b9_click(row, tag, $event);
+        }
+        if(Object.is('BatchBreakdowntasks', tag)) {
+            this.grid_uagridcolumn1_u74aaa3d_click(row, tag, $event);
         }
         if(Object.is('ProjectUnlinkStory', tag)) {
             this.grid_uagridcolumn1_ucdf692f_click(row, tag, $event);
@@ -577,12 +609,93 @@ export class ProjectStoryGridBase extends GridControlBase {
                 }
             }, 300);
             // 
+            this.addMore();
         }).catch((response: any) => {
             if (response && response.status === 401) {
                 return;
             }
             this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
         });
+    }
+
+    /**
+    * 添加更多行
+    * 
+    * @memberof ProjectStoryBase
+    */
+    public addMore(){
+        if(this.items.length > 0){
+            this.items.forEach((item: any) => {
+                if(item.hasOwnProperty('items') && item.items && item.items.length == 20){
+                    const moreitem: any = {
+                        children: true,
+                        parent: item.id,
+                        id: this.$util.createUUID(),                
+                        pri: '',
+                        title: '',
+                        plan: '',
+                        openedby: '',
+                        assignedto: '',
+                        estimate: '',
+                        status: '',
+                        stage: '',
+                        Breakdowntasks:{
+                            visabled: false
+                        },
+                        BatchBreakdowntasks:{
+                            visabled: false
+                        },
+                        ProjectUnlinkStory:{
+                            visabled: false
+                        },
+                    }
+                    item.items.push(moreitem);
+                }
+            })
+        }
+    }
+
+    /**
+    * 合并更多行
+    * 
+    * @param {{ row, column, rowIndex, columnIndex }} row 行数据 column 列数据 rowIndex 行索引 columnIndex 列索引
+    * @memberof ProjectStoryBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        if(row && row.children) {
+            if(columnIndex == this.allColumns.length) {
+                return [1, this.allColumns.length+1];
+            } else {
+                return [0,0];
+            }
+        }
+    }
+
+    /**
+     * 获取对应行class
+     *
+     * @param {{ row: any, rowIndex: number }} args row 行数据，rowIndex 行索引
+     * @returns {string}
+     * @memberof ProjectStoryGridBase
+     */
+    public getRowClassName(args: { row: any; rowIndex: number }): string {
+        if(args.row.children){
+            return 'grid-selected-row grid-more-row';
+        }else{
+            let isSelected = this.selections.some((item: any) => {
+                return Object.is(item[this.appDeName], args.row[this.appDeName]);
+            });
+            return isSelected ? 'grid-selected-row' : '';
+        }
+    }
+
+    /**
+     * 加载更多
+     *  
+     * @param data
+     * @memberof ProjectStoryGridBase
+     */
+    public loadMore(data: any){
     }
 
     /**
@@ -601,5 +714,119 @@ export class ProjectStoryGridBase extends GridControlBase {
                 this.setActionState(data);
             })
         }
+    }
+
+    /**
+     * 数据导出
+     *
+     * @param {*} [data={}]
+     * @returns {void}
+     * @memberof ProjectStoryGridBase
+     */
+    public exportExcel(data: any = {}): void {
+        // 导出Excel
+        const doExport = async (_data: any) => {
+            const tHeader: Array<any> = [];
+            const filterVal: Array<any> = [];
+            (this.isDeExport ? this.allExportColumns : this.allColumns).forEach((item: any) => {
+                item.show && item.label ? tHeader.push(this.$t(item.langtag)) : '';
+                item.show && item.name ? filterVal.push(item.name) : '';
+            });
+            const data = await this.formatExcelData(filterVal, _data);
+            this.$export.exportExcel().then((excel: any) => {
+                excel.export_json_to_excel({
+                    header: tHeader, //表头 必填
+                    data, //具体数据 必填
+                    filename: this.appDeLogicName + (this.$t('app.gridpage.grid') as string), //非必填
+                    autoWidth: true, //非必填
+                    bookType: 'xlsx', //非必填
+                });
+            });
+        };
+        const page: any = {};
+        // 设置page，size
+        if (Object.is(data.type, 'maxRowCount')) {
+            Object.assign(page, { page: 0, size: data.maxRowCount });
+        } else if (Object.is(data.type, 'activatedPage')) {
+            if (this.isDeExport) {
+                Object.assign(page, { page: this.curPage - 1, size: this.limit });
+            } else {
+                try {
+                    const datas = [...this.items];
+                    let exportData: Array<any> = [];
+                    datas.forEach((data: any) => {
+                        exportData.push(data);
+                        if(data.hasOwnProperty('items') && data.items && data.items instanceof Array){
+                            data.items.forEach((item: any) => {
+                                exportData.push(item);
+                            });
+                        }
+                    });
+                    doExport(JSON.parse(JSON.stringify(exportData)));
+                } catch (error) {
+                    console.error(error);
+                }
+                return;
+            }
+        }
+        // 设置排序
+        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + ',' + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        const arg: any = {};
+        Object.assign(arg, page);
+        // 获取query,搜索表单，viewparams等父数据
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
+        let post: any;
+        if (this.isDeExport) {
+            post = this.service.searchDEExportData(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
+        } else {
+            post = this.service.search(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
+        }
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                this.$Notice.error({
+                    title: '',
+                    desc: (this.$t('app.gridpage.exportFail') as string) + ',' + response.info,
+                });
+                return;
+            }
+            try {
+                const datas = [...response.data];
+                let exportData: Array<any> = [];
+                datas.forEach((data: any) => {
+                    exportData.push(data);
+                    if(data.hasOwnProperty('items') && data.items && data.items instanceof Array){
+                        data.items.forEach((item: any) => {
+                            exportData.push(item);
+                        });
+                    }
+                });
+                doExport(JSON.parse(JSON.stringify(exportData)));
+            } catch (error) {
+                console.error(error);
+            }
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: '', desc: this.$t('app.gridpage.exportFail') as string });
+        });
     }
 }

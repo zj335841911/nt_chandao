@@ -668,8 +668,8 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext='{ SRFSESSIONKEY:"%srfsessionkey%", PROJECT:"%project%", MULTIPLE:"0" }' 
-    :localParam='{ project:"%project%", srfsessionkey:"%srfsessionkey%", multiple:"0" }' 
+    :localContext='{ SRFSESSIONKEY:"%srfsessionkey%", PROJECT:"%project%", MULTIPLE:"%multiple%" }' 
+    :localParam='{ project:"%project%", srfsessionkey:"%srfsessionkey%", multiple:"%multiple%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
     tag="TaskTeamUserTemp"
@@ -1293,7 +1293,7 @@
     :localParam='{ }' 
     :disabled="detailsModel.finishedby.disabled"
     valueType="string"
-    tag="UserRealName"
+    tag="UserRealName_Gird"
     codelistType="DYNAMIC"
     placeholder="请选择..."
 

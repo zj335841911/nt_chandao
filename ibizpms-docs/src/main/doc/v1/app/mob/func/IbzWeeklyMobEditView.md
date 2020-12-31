@@ -1,4 +1,4 @@
-# 周报(新建)
+# 周报（待阅）
 
 周报移动端编辑视图(IbzWeeklyMobEditView)
 
@@ -6,7 +6,7 @@
 
 digraph IbzWeeklyMobEditView {
 
-label="周报(新建)";    
+label="周报（待阅）";    
 
 #rankdir=LR;
 
@@ -19,7 +19,7 @@ own [shape=none, margin=0,size="6,6", label=<
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
 </TR>
 <TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">周报(新建)<BR/><BR/></TD>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">周报（待阅）<BR/><BR/></TD>
 </TR>
 </TABLE>
 >];
@@ -31,14 +31,54 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
+编辑<BR/>
+提交<BR/>
 <BR/></TD>
 </TR>
 </TABLE>
 >];
 
 
+mobEdit1 [shape=none, margin=0, label=<
+<TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
+<TR>
+<TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
+</TR>
+<TR>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">编辑<BR/><BR/></TD>
+</TR>
+</TABLE>
+>];
+
+
+
+MobSubmit [shape=none, margin=0, label=<
+<TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
+<TR>
+<TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">L</TD>
+</TR>
+<TR>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">提交<BR/><BR/></TD>
+</TR>
+</TABLE>
+>];
+
+
+
 start -> own ;
 own -> part [style=dashed,arrowhead=diamond,label="<包含>"] ;
+
+
+part -> mobEdit1 [style=dashed,label=<编辑<BR/>(迁移/popup)>];
+
+mobEdit1 -> end ;
+
+
+
+part -> MobSubmit [style=dashed,label=<提交>];
+
+MobSubmit -> end ;
+
 
 
 }

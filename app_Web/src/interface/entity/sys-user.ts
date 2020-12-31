@@ -261,4 +261,28 @@ export interface SysUser {
      * @memberof SysUser
      */
     superuser?: any;
+
+    /**
+     * 原密码
+     *
+     * @returns {*}
+     * @memberof SysUser
+     */
+    originalpassword?: any;
+
+    /**
+     * 新密码
+     *
+     * @returns {*}
+     * @memberof SysUser
+     */
+    newpassword?: any;
+
+    /**
+     * 重复密码
+     *
+     * @returns {*}
+     * @memberof SysUser
+     */
+    repeatpassword?: any;
 }

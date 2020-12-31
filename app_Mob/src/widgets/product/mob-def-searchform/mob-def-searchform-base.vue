@@ -121,14 +121,13 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
+import ProductEntityService from '@/app-core/service/product/product-service';
 import MobDefService from '@/app-core/ctrl-service/product/mob-def-searchform-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -136,6 +135,7 @@ import ProductUIService from '@/ui-service/product/product-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
@@ -239,7 +239,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @type {ProductService}
      * @memberof MobDef
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProductEntityService = new ProductEntityService();
 
     /**
      * 界面UI服务对象
@@ -336,6 +336,14 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -384,6 +392,16 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formState: Subject<any> = new Subject();
+
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobDefBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 忽略表单项值变化
@@ -459,36 +477,100 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected saveState:any ;
 
     /**
+      * 异常信息缓存
+      *
+      * @type {any}
+      * @memberof MobDef
+      */
+    public errorCache :any = {};
+
+    /**
      * 属性值规则
      *
      * @type {*}
      * @memberof MobDef
      */
     protected rules: any = {
-        n_name_like: [
-            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
-        ],
-        n_status_eq: [
-            { type: 'string', message: '状态 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '状态 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '状态 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '状态 值不能为空', trigger: 'blur' },
-        ],
-        n_type_eq: [
-            { type: 'string', message: '产品类型 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '产品类型 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'blur' },
-        ],
-        n_linename_like: [
-            { type: 'string', message: '产品线 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '产品线 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '产品线 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品线 值不能为空', trigger: 'blur' },
-        ],
+    }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MobDefBase
+     */
+    public deRules:any = {
+    };
+
+    /**
+     * 校验属性值规则
+     *
+     * @public
+     * @param {{ name: string }} { name }
+     * @memberof MobNewFormBase
+     */
+    public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
+        let falg:any = {infoMessage:""};
+        if(!rule[name]){
+            return falg;
+        }
+        let opValue = op == 'AND'? true :false;
+        let startOp = (val:boolean)=>{
+            if(falg.isPast){
+                if(opValue){
+                    falg.isPast = falg && val;
+                }else{
+                    falg.isPast = falg || val;
+                }
+            }else{
+                falg.isPast = val;
+            }
+        }
+        rule[name].forEach((item:any) => {
+            let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
+            // 常规规则
+            if(item.type == 'SIMPLE'){
+                startOp(!this.$verify.checkFieldSimpleRule(dataValue,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.data,item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+                this.errorCache[item.deName] = item.ruleInfo;
+            }
+            // 数值范围
+            if(item.type == 'VALUERANGE2'){
+                startOp( !this.$verify.checkFieldValueRangeRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 正则式
+            if (item.type == "REGEX") {
+                startOp(!this.$verify.checkFieldRegExRule(dataValue,item.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 长度
+            if (item.type == "STRINGLENGTH") {
+                startOp(!this.$verify.checkFieldStringLengthRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+                this.errorCache[item.deName] = item.ruleInfo;
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 系统值规则
+            if(item.type == "SYSVALUERULE") {
+                startOp(!this.$verify.checkFieldSysValueRule(dataValue,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
+                falg.infoMessage = item.ruleInfo;
+            }
+            // 分组
+            if(item.type == 'GROUP'){
+                falg = this.verifyDeRules('group',item)
+                if(item.isNotMode){
+                   falg.isPast = !falg.isPast;
+                }
+            }
+            
+        });
+        if(!falg.hasOwnProperty("isPast")){
+            falg.isPast = true;
+        }
+        return falg;
     }
 
     /**
@@ -592,7 +674,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @memberof MobDef
      */
-    private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+    private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
 
 
@@ -600,6 +682,54 @@ export default class MobDefBase extends Vue implements ControlInterface {
 
 
     }
+
+
+    /**
+     * 表单项校验逻辑
+     *
+     * @public
+     * @param name 属性名
+     * @memberof Main2Base
+     */
+    public validItem(property:string, data:any):Promise<any>{
+        return new Promise((resolve, reject) => {
+            if(!property || !this.rules[property]){
+                resolve(true);
+            }
+            Util.validateItem(property,data,this.rules[property]).then(()=>{
+                this.detailsModel[property].setError("");
+                resolve(true);
+            }).catch(({ errors, fields }) => {
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`project.mobnewform_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
+                resolve(false);
+            });
+        });
+    }
+
+    /**
+     * 校验全部
+     *
+     * @public
+     * @param {{ filter: string}} { filter}
+     * @returns {void}
+     * @memberof MobDef
+     */
+    public async validAll(filter:string = "defult") {
+        let validateState = true;
+        let filterProperty = ""
+        if(filter === 'new'){
+            filterProperty= 'id'
+        }
+        for (let item of Object.keys(this.rules)) {
+            if(!await this.validItem(item,this.data[item]) && item != filterProperty){
+                validateState = false;
+            }
+        }
+        return validateState
+    }
+
 
     /**
      * 表单值变化
@@ -613,6 +743,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
         if (this.ignorefieldvaluechange) {
             return;
         }
+        this.validItem(name,this.data[name]);
         this.resetFormData({ name: name, newVal: newVal, oldVal: oldVal });
         this.formLogic({ name: name, newVal: newVal, oldVal: oldVal });
         this.dataChang.next(JSON.stringify(this.data));
@@ -648,6 +779,9 @@ export default class MobDefBase extends Vue implements ControlInterface {
         });
         if(Object.is(action,'loadDraft')){
             this.createDefault();
+        }
+        if(Object.is(action,'load')){
+            this.updateDefault();
         }
         this.$nextTick(function () {
             this.ignorefieldvaluechange = false;
@@ -715,23 +849,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
                 formItem.setError(error.message);
             });
         });
-    }
-
-    /**
-     * 表单校验状态
-     *
-     * @returns {boolean} 
-     * @memberof MobDef
-     */
-    protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', 'n_status_eq_item', 'n_type_eq_item', 'n_linename_like_item', ];
-        let falg = true;
-        refArr.forEach((item: any) => {
-            if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {
-                falg = false;
-            }
-        });
-        return falg;
     }
 
     /**
@@ -809,6 +926,9 @@ export default class MobDefBase extends Vue implements ControlInterface {
      *  @memberof MobDef
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.product});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -852,6 +972,16 @@ export default class MobDefBase extends Vue implements ControlInterface {
                     this.autoSave();
                 }
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Product")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.product){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -874,6 +1004,9 @@ export default class MobDefBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1001,7 +1134,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected async autoSave(opt: any = {}): Promise<any> {
-        if (!this.formValidateStatus()) {
+        if (!await this.validAll()) {
             return Promise.reject();
         }
         const arg: any = { ...opt };
@@ -1046,13 +1179,15 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
         opt.saveEmit = opt.saveEmit === undefined ? true : false;
-        if (!this.formValidateStatus()) {
-            this.$notice.error('值规则校验异常');
-            return Promise.reject();
-        }
+
         const arg: any = { ...opt };
         const data = this.getValues();
         Object.assign(arg, data);
+        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        if (this.data.srfuf =='1'? !await this.validAll():!await this.validAll('new')) {
+            this.$notice.error('值规则校验异常');
+            return Promise.reject();
+        }
         if (isStateNext) {
             this.drcounter = 0;
             if (this.drcounter !== 0) {
@@ -1061,12 +1196,13 @@ export default class MobDefBase extends Vue implements ControlInterface {
                 return Promise.reject();
             }
         }
-        const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
+        
         if (!action) {
             let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1269,6 +1405,13 @@ export default class MobDefBase extends Vue implements ControlInterface {
     public createDefault(){                    
     }
 
+    /**
+     * 更新默认值
+     * @memberof MobDefBase
+     */
+    public updateDefault(){                    
+    }
+
 
     /**
      * 搜索
@@ -1287,7 +1430,26 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected onReset() {
         this.loadDraft();
     }
-    
+
+    /**
+     * 计算表单按钮权限状态
+     *
+     * @param {*} [data] 传入数据
+     * @memberof EditorsBase
+     */
+    public computeButtonState(data:any){
+        let targetData:any = this.transformData(data);
+        if(this.detailsModel && Object.keys(this.detailsModel).length >0){
+            Object.keys(this.detailsModel).forEach((name:any) =>{
+                if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType,"BUTTON")){
+                    let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
+                    this.$viewTool.calcActionItemAuthState(targetData,[tempUIAction],this.globaluiservice);
+                    this.detailsModel[name].visible = tempUIAction.visabled;
+                    this.detailsModel[name].disabled = tempUIAction.disabled;
+                }
+            })
+        }
+    }
 }
 </script>
 

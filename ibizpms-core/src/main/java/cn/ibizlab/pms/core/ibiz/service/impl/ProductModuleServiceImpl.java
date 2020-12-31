@@ -64,6 +64,9 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProductModuleRemoveModuleLogic removemoduleLogic;
+    @Autowired
+    @Lazy
+    IProductModuleService proxyService;
 
     protected int batchSize = 500;
 
@@ -170,7 +173,7 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -178,7 +181,21 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Transactional
     public boolean saveBatch(Collection<ProductModule> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductModule> create = new ArrayList<>();
+        List<ProductModule> update = new ArrayList<>();
+        for (ProductModule et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -186,7 +203,21 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Transactional
     public void saveBatch(List<ProductModule> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductModule> create = new ArrayList<>();
+        List<ProductModule> update = new ArrayList<>();
+        for (ProductModule et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -194,6 +225,14 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     public ProductModule syncFromIBIZ(ProductModule et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean syncFromIBIZBatch(List<ProductModule> etList) {
+        for(ProductModule et : etList) {
+            syncFromIBIZ(et);
+        }
+        return true;
     }
 
 

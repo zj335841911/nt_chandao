@@ -12,6 +12,7 @@ import GroupStepTable from './components/group-step-table/group-step-table.vue'
 import RichTextEditor from './components/rich-text-editor/rich-text-editor.vue'
 import DropDownListExtend from './components/dropdown-list-extend/dropdown-list-extend.vue'
 import CombFormItem from './components/comb-form-item/comb-form-item.vue'
+import FullTextSearch from './components/full-text-search/full-text-search.vue'
 
 // 注册Vue插件
 export const iBizProjectCore = {
@@ -30,5 +31,6 @@ export const iBizProjectCore = {
         v.component('rich-text-editor',RichTextEditor);
         v.component('dropdown-list-extend',DropDownListExtend);
         v.component('comb-form-item',CombFormItem);
+        v.component('full-text-search',FullTextSearch);
     }
 };

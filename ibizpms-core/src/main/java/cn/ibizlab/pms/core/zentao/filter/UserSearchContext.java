@@ -27,6 +27,20 @@ import cn.ibizlab.pms.core.zentao.domain.User;
 @Data
 public class UserSearchContext extends QueryWrapperContext<User> {
 
+	private String n_account_in;//[账户]
+	public void setN_account_in(String n_account_in) {
+        this.n_account_in = n_account_in;
+        if(!ObjectUtils.isEmpty(this.n_account_in)){
+			this.getSearchCond().in("`account`",this.n_account_in.split(";"));
+        }
+    }
+	private String n_account_notin;//[账户]
+	public void setN_account_notin(String n_account_notin) {
+        this.n_account_notin = n_account_notin;
+        if(!ObjectUtils.isEmpty(this.n_account_notin)){
+			this.getSearchCond().notIn("`account`",this.n_account_notin.split(";"));
+        }
+    }
 	private String n_realname_like;//[真实姓名]
 	public void setN_realname_like(String n_realname_like) {
         this.n_realname_like = n_realname_like;

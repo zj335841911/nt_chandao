@@ -123,9 +123,9 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @memberof TaskKanbanView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction3_create: { name: 'deuiaction3_create', caption: 'entities.task.kanbanviewtoolbar_toolbar.deuiaction3_create.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.task.kanbanviewtoolbar_toolbar.deuiaction3_create.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.task.kanbanviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.task.kanbanviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -395,48 +395,7 @@ export class TaskKanbanViewBase extends KanBanViewBase {
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
         let localViewParam:any =null;
-        const data: any = {};
-        if(args[0].srfsourcekey){
-            data.srfsourcekey = args[0].srfsourcekey;
-        }
-        if(fullargs && (fullargs as any).copymode) {
-            Object.assign(data, { copymode: (fullargs as any).copymode });
-        }
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        delete tempContext.task;
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        if(tempContext.story && true){
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-        ];
-        const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
-        }
-        const view: any = {
-            viewname: 'task-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.task.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 
 
@@ -482,8 +441,8 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         }
         const view: any = {
             viewname: 'task-main-dashboard-view', 
-            height: 0, 
-            width: 1360,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.task.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };

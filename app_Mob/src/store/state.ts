@@ -18,5 +18,8 @@ export const rootstate: any = {
     selectTextAlign:'',
     selectNaviStyle:'',
     popupStatus:true,
-    searchformStatus:false
+    searchformStatus:false,
+    orgDataMap:{},
+    depDataMap:{},
+    departmentPersonnel:[],
 }

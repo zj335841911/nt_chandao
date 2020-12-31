@@ -126,13 +126,13 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
      * @memberof StoryMainGridView_ByModule
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.story.maingridview_bymoduletoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.story.maingridview_bymoduletoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.story.maingridview_bymoduletoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.story.maingridview_bymoduletoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction3: { name: 'deuiaction3', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: 'entities.story.maingridview_bymoduletoolbar_toolbar.deuiaction3.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.story.maingridview_bymoduletoolbar_toolbar.deuiaction3.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 
@@ -457,8 +457,8 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
         }
         const view: any = {
             viewname: 'story-main-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.story.views.mainview.title'),
             placement: 'DRAWER_TOP',
         };
@@ -539,6 +539,14 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
     public isEnableQuickGroup: boolean = true;
 
     /**
+     * 快速分组代码表标识
+     *
+     * @type {boolean}
+     * @memberof StoryMainGridView_ByModuleBase
+     */
+    public quickGroupCodelistTag: string = "";
+
+    /**
      * 加载快速分组模型
      *
      * @protected
@@ -546,6 +554,7 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'Story__quickpacket', codelistType: 'STATIC' };
+        this.quickGroupCodelistTag = quickGroupCodeList.tag ? quickGroupCodeList.tag : "";
         if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

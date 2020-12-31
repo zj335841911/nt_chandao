@@ -95,6 +95,7 @@ export class AddCommentEditFormBase extends EditFormControlBase {
         objecttype: null,
         objectid: null,
         comment: null,
+        files: null,
         noticeusers: null,
         id: null,
         action: null,
@@ -204,6 +205,13 @@ export class AddCommentEditFormBase extends EditFormControlBase {
 
         comment: new FormItemModel({
     caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        files: new FormItemModel({
+    caption: '文件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

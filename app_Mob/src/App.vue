@@ -1,11 +1,6 @@
 <template>
 	<ion-app id="app" :class="[themeClass,alignClass,navigationClass]" class="ios ion-page hydrated">
-		        <keep-alive>
-            <router-view v-if="$route.meta.keepAlive"></router-view>
-        </keep-alive>
-        <transition :name="fold" >
-            <router-view v-if="!$route.meta.keepAlive"></router-view>
-        </transition>
+		          <router-view></router-view>
 	</ion-app>
 </template>
 

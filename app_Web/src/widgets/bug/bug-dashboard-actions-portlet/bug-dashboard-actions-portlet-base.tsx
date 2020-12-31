@@ -676,6 +676,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @memberof BugDashboardActionsBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

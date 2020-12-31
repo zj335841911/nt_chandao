@@ -142,32 +142,23 @@
     v-show="detailsModel.branch.visible" 
     :itemRules="this.rules.branch" 
     :caption="$t('bug.mobmaindataedit_form.details.branch')"  
-    :labelWidth="1"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.branch.disabled"
     :error="detailsModel.branch.error" 
-    :isEmptyCaption="true">
-        <app-mob-select-drop-down 
-    name='branch' 
-    deMajorField='name'
-    deKeyField='id'
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="ProductBranch"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.branch.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.branch"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.branch.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'branch', interfaceName: 'FetchDefault'}"
-    :value="data.branch" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.branch = $event">
-</app-mob-select-drop-down>
+    @change="($event)=>this.data.branch = $event" />
 </app-form-item>
 
 
@@ -805,7 +796,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.openedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -1142,7 +1132,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
+import BugEntityService from '@/app-core/service/bug/bug-service';
 import MobMainDataEditService from '@/app-core/ctrl-service/bug/mob-main-data-edit-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -1254,7 +1244,7 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
      * @type {BugService}
      * @memberof MobMainDataEdit
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: BugEntityService = new BugEntityService();
 
     /**
      * 界面UI服务对象
@@ -1351,6 +1341,14 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
      * @memberof MobMainDataEdit
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1542,12 +1540,12 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
      */
     protected rules: any = {
         title: [
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         openedbuild: [
-            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
     }
 
@@ -1680,7 +1678,7 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
 , 
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branch: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -2455,7 +2453,9 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`bug.mobmaindataedit_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -2682,6 +2682,9 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
      *  @memberof MobMainDataEdit
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.bug});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -2732,7 +2735,7 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
                 if(!Object.is(name,"Bug")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.bug){
                     this.refresh([data]);
                 }
             })
@@ -2958,6 +2961,7 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ title: arg.title});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -3036,10 +3040,9 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -3063,10 +3066,9 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

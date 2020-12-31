@@ -597,6 +597,14 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "mdeptid")
     @JsonProperty("mdeptid")
     private String mdeptid;
+    /**
+     * 支持项目汇报
+     */
+    @DEField(defaultValue = "1")
+    @TableField(value = "`supproreport`")
+    @JSONField(name = "supproreport")
+    @JsonProperty("supproreport")
+    private String supproreport;
 
     /**
      * 
@@ -870,6 +878,14 @@ public class Project extends EntityMP implements Serializable {
     public void setParent(Long parent) {
         this.parent = parent;
         this.modify("parent", parent);
+    }
+
+    /**
+     * 设置 [支持项目汇报]
+     */
+    public void setSupproreport(String supproreport) {
+        this.supproreport = supproreport;
+        this.modify("supproreport", supproreport);
     }
 
 

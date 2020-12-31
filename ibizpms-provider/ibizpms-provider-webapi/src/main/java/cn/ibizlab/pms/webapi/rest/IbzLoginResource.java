@@ -57,6 +57,12 @@ public class IbzLoginResource {
         ibzlogindto = ibzloginMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzlogindto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbiLogin-GetUser-all')")
+    @ApiOperation(value = "批量处理[获取ZT账户登录信息]", tags = {"实体" },  notes = "批量处理[获取ZT账户登录信息]")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzlogins/{ibzlogin_id}/getuserbatch")
+    public ResponseEntity<Boolean> getUserBatch(@RequestBody List<IbzLoginDTO> ibzlogindtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibiloginService.getUserBatch(ibzloginMapping.toDomain(ibzlogindtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbiLogin-Ztlogin-all')")
     @ApiOperation(value = "ZT登录", tags = {"实体" },  notes = "ZT登录")
@@ -67,6 +73,12 @@ public class IbzLoginResource {
         domain = ibiloginService.ztlogin(domain);
         ibzlogindto = ibzloginMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzlogindto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbiLogin-Ztlogin-all')")
+    @ApiOperation(value = "批量处理[ZT登录]", tags = {"实体" },  notes = "批量处理[ZT登录]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzlogins/{ibzlogin_id}/ztloginbatch")
+    public ResponseEntity<Boolean> ztloginBatch(@RequestBody List<IbzLoginDTO> ibzlogindtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibiloginService.ztloginBatch(ibzloginMapping.toDomain(ibzlogindtos)));
     }
 
 

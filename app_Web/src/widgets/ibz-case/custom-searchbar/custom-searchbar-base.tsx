@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'lasteditedby': {
             label: '最后修改者',
+            localetag: 'entities.ibzcase.fields.lasteditedby',
             name: 'lasteditedby',
             prop: 'lasteditedby',
             mode: 'EQ',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'libnameeq': {
             label: '用例库',
+            localetag: 'entities.ibzcase.fields.libname',
             name: 'libnameeq',
             prop: 'libname',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'libnamelike': {
             label: '用例库',
+            localetag: 'entities.ibzcase.fields.libname',
             name: 'libnamelike',
             prop: 'libname',
             mode: 'LIKE',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'modulenameeq': {
             label: '所属模块',
+            localetag: 'entities.ibzcase.fields.modulename',
             name: 'modulenameeq',
             prop: 'modulename',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'modulenamelike': {
             label: '所属模块',
+            localetag: 'entities.ibzcase.fields.modulename',
             name: 'modulenamelike',
             prop: 'modulename',
             mode: 'LIKE',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'openedbyeq': {
             label: '由谁创建',
+            localetag: 'entities.ibzcase.fields.openedby',
             name: 'openedbyeq',
             prop: 'openedby',
             mode: 'EQ',
@@ -128,6 +134,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'prieq': {
             label: '优先级',
+            localetag: 'entities.ibzcase.fields.pri',
             name: 'prieq',
             prop: 'pri',
             mode: 'EQ',
@@ -135,6 +142,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'statuseq': {
             label: '状态',
+            localetag: 'entities.ibzcase.fields.status',
             name: 'statuseq',
             prop: 'status',
             mode: 'EQ',
@@ -142,6 +150,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'titlelike': {
             label: '用例标题',
+            localetag: 'entities.ibzcase.fields.title',
             name: 'titlelike',
             prop: 'title',
             mode: 'LIKE',
@@ -149,6 +158,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'typeeq': {
             label: '用例类型',
+            localetag: 'entities.ibzcase.fields.type',
             name: 'typeeq',
             prop: 'type',
             mode: 'EQ',

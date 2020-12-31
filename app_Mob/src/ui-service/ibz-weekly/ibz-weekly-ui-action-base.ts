@@ -90,12 +90,17 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzWeeklyUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobeditviewcreate',srfappde:'ibzweeklies'});
         this.allViewMap.set(':',{viewname:'usr2mobtabexpview',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'mobeditviewmainmytijiao',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'usr2mobtabexpviewmytijiao',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'usr2mobtabexpviewmyreceived',srfappde:'ibzweeklies'});
         this.allViewMap.set(':',{viewname:'usr2mobmdview',srfappde:'ibzweeklies'});
         this.allViewMap.set(':',{viewname:'usr2mobeditview',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'ibzweeklies'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzweeklies'});
         this.allViewMap.set(':',{viewname:'mobmdview',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'mobeditview',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'mobeditviewmian',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'mobeditviewmainreceived',srfappde:'ibzweeklies'});
     }
 
     /**
@@ -154,7 +159,7 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'mobeditviewmian', parameterName: 'mobeditviewmian' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -194,7 +199,7 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'mobeditviewcreate', parameterName: 'mobeditviewcreate' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

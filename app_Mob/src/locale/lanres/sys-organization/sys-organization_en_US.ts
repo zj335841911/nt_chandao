@@ -1,16 +1,5 @@
-export default {
-  fields: {
-    orgId: "The workflow start node was not found",
-    orgCode: "Updated By",
-    orgName: "名称",
-    parentOrgId: "上级单位",
-    shortName: "Cancel",
-    orgLevel: "单位级别",
-    showOrder: "Audit",
-    parentOrgName: "上级单位",
-    domains: "区属",
-    enable: "the workflow instance current processing step is invalid",
-    createDate: "Print",
-    updateDate: "Actor",
-  },
-};
+import SysOrganization_en_US_Base from './sys-organization_en_US_base';
+
+const SysOrganization_en_US_OwnData = {};
+const targetData = Object.assign(SysOrganization_en_US_Base, SysOrganization_en_US_OwnData);
+export default targetData;

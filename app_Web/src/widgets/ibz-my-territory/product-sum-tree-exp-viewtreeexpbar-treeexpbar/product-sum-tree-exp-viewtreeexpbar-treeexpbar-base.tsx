@@ -108,6 +108,13 @@ export class ProductSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCon
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'PRODUCTBUGTYPESUM')) {
+            return {  
+                viewname: 'product-sum-product-bug-type-sum-usr4-grid-view', 
+                parentdata: {},
+                deKeyField:'productsum'
+			};
+        }
         if (Object.is(expmode, 'PRODUCTSTORYSUM')) {
             return {  
                 viewname: 'product-sum-story-sum-grid-view', 
@@ -122,11 +129,32 @@ export class ProductSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCon
                 deKeyField:'productsum'
 			};
         }
+        if (Object.is(expmode, 'PRODUCTINPUTTABLE')) {
+            return {  
+                viewname: 'product-stats-grid-view-producnt-input-table', 
+                parentdata: {},
+                deKeyField:'productstats'
+			};
+        }
         if (Object.is(expmode, 'STORYHOURSSUM')) {
             return {  
                 viewname: 'product-sum-story-hours-sum-grid-view', 
                 parentdata: {},
                 deKeyField:'productsum'
+			};
+        }
+        if (Object.is(expmode, 'PRODUCTCOMPLETETABLE')) {
+            return {  
+                viewname: 'product-stats-usr2-grid-view-product-complete', 
+                parentdata: {},
+                deKeyField:'productstats'
+			};
+        }
+        if (Object.is(expmode, 'PRODUCTQUANTITY')) {
+            return {  
+                viewname: 'product-stats-grid-view', 
+                parentdata: {},
+                deKeyField:'productstats'
 			};
         }
         return null;

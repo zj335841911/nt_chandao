@@ -29,6 +29,16 @@
         "viewtag": "00ac056d598228619b6c0dbfcd603e4c",
         "memo": ""
     },
+    "productstatseditview": {
+        "title": "产品统计编辑视图",
+        "caption": "产品统计",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsEditView",
+        "viewfilename": "product-stats-edit-view",
+        "viewtag": "00ad158575544b05271d9502c47918a8",
+        "memo": ""
+    },
     "productmodulegridviewbranch": {
         "title": "产品模块表格视图",
         "caption": "需求模块",
@@ -47,6 +57,16 @@
         "viewname": "BugStatsEditView",
         "viewfilename": "bug-stats-edit-view",
         "viewtag": "0174d3383dadc0878991e5c90bd5eaa3",
+        "memo": ""
+    },
+    "ibzdailyproductdailygridview": {
+        "title": "日报表格视图",
+        "caption": "日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyProductDailyGridView",
+        "viewfilename": "ibz-daily-product-daily-grid-view",
+        "viewtag": "0178d8ab1c6cdcd8c03487a0f0cd09ec",
         "memo": ""
     },
     "tasktypetaskgroupgridview": {
@@ -119,6 +139,16 @@
         "viewtag": "0568d197dda832ceb89ad0442ab9f230",
         "memo": ""
     },
+    "sysposteditview": {
+        "title": "岗位编辑视图",
+        "caption": "岗位",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysPostEditView",
+        "viewfilename": "sys-post-edit-view",
+        "viewtag": "0600af11d605ca19d8b36466f9312338",
+        "memo": ""
+    },
     "projectstorymeditview9": {
         "title": "项目多表单编辑视图（需求相关）",
         "caption": "需求相关",
@@ -147,6 +177,16 @@
         "viewname": "ProjectStatsALLGridView",
         "viewfilename": "project-stats-allgrid-view",
         "viewtag": "06ac640ed0240503d1d42ecd9a090787",
+        "memo": ""
+    },
+    "ibzplantempletdetailgridview9": {
+        "title": "计划模板详情表格视图",
+        "caption": "计划模板详情",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzPlanTempletDetailGridView9",
+        "viewfilename": "ibz-plan-templet-detail-grid-view9",
+        "viewtag": "06f1f232ce217863bf45ddc1b727d0a8",
         "memo": ""
     },
     "bugplansubgridview": {
@@ -319,6 +359,16 @@
         "viewtag": "0c0709bca7ef7c8bf0b359158b8a3cf3",
         "memo": ""
     },
+    "ibzplantempleteditview": {
+        "title": "产品计划模板编辑视图",
+        "caption": "计划模板",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzPlanTempletEditView",
+        "viewfilename": "ibz-plan-templet-edit-view",
+        "viewtag": "0c85027ec13bfdd00f46a4b2ec6f7430",
+        "memo": ""
+    },
     "testsuiteeditview9": {
         "title": "测试套件编辑视图",
         "caption": "测试套件",
@@ -389,6 +439,16 @@
         "viewtag": "0f44800c5178aa53932ef08d0fc88590",
         "memo": ""
     },
+    "sysdepartmentgridexpview": {
+        "title": "部门表格导航视图",
+        "caption": "部门",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysDepartmentGridExpView",
+        "viewfilename": "sys-department-grid-exp-view",
+        "viewtag": "0fe6eb98e96dec0acb915184960ffbeb",
+        "memo": ""
+    },
     "projecttasktreeexpview": {
         "title": "项目任务导航视图",
         "caption": "项目",
@@ -399,6 +459,16 @@
         "viewtag": "103bc77ad54de2476db1d4e9c788cd4e",
         "memo": ""
     },
+    "ibizproindexlistview": {
+        "title": "索引检索列表视图",
+        "caption": "索引检索",
+        "viewtype": "DELISTVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproIndexListView",
+        "viewfilename": "ibizpro-index-list-view",
+        "viewtag": "10aa6afcd73e77c44c698319a1b4edcd",
+        "memo": ""
+    },
     "todobaseeditview9": {
         "title": "待办事宜表编辑视图",
         "caption": "基本信息",
@@ -407,6 +477,16 @@
         "viewname": "TodoBaseEditView9",
         "viewfilename": "todo-base-edit-view9",
         "viewtag": "10ec8362fe511f35dcf896a048770011",
+        "memo": ""
+    },
+    "ibzreportlymyreceivedreportlydetaileditview": {
+        "title": "汇报编辑视图",
+        "caption": "汇报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyMyReceivedReportlyDetailEditView",
+        "viewfilename": "ibz-reportly-my-received-reportly-detail-edit-view",
+        "viewtag": "116ed64d7e34ab79dea49d712c451872",
         "memo": ""
     },
     "bugmaineditview": {
@@ -447,6 +527,16 @@
         "viewname": "TestResultMEditView9",
         "viewfilename": "test-result-medit-view9",
         "viewtag": "136cd30bd141450ecd9e7791215733e6",
+        "memo": ""
+    },
+    "systeammembergridexpviewteam": {
+        "title": "组成员表格导航视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberGridExpViewTeam",
+        "viewfilename": "sys-team-member-grid-exp-view-team",
+        "viewtag": "137cbf2ebd888dcdd6eff40271481f04",
         "memo": ""
     },
     "productstatsallgridview": {
@@ -539,6 +629,16 @@
         "viewtag": "15ba586aa7dcfe6e62e768dd06f77415",
         "memo": ""
     },
+    "productsumproductbugtypesumusr4gridview": {
+        "title": "产品Bug类型统计表格视图",
+        "caption": "产品汇总表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumProductBugTypeSumUsr4GridView",
+        "viewfilename": "product-sum-product-bug-type-sum-usr4-grid-view",
+        "viewtag": "15e5bef05cc545e3f705eeed95ac8dc1",
+        "memo": ""
+    },
     "deptpickupview": {
         "title": "部门数据选择视图",
         "caption": "部门",
@@ -547,6 +647,16 @@
         "viewname": "DeptPickupView",
         "viewfilename": "dept-pickup-view",
         "viewtag": "16b54862dad958907853dc7eb084a0c0",
+        "memo": ""
+    },
+    "projectstatsprojectstorystagestatusgridview": {
+        "title": "项目统计表格视图",
+        "caption": "项目需求阶段统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectStoryStageStatusGridView",
+        "viewfilename": "project-stats-project-story-stage-status-grid-view",
+        "viewtag": "16ddc45f2ef8c888e3143d72c076b457",
         "memo": ""
     },
     "productplansubplancreateview": {
@@ -617,6 +727,16 @@
         "viewname": "ProjectTestTabExpView",
         "viewfilename": "project-test-tab-exp-view",
         "viewtag": "19641dcdbd1f1973c9693859003e1f60",
+        "memo": ""
+    },
+    "ibizproprojectweeklygridview": {
+        "title": "项目周报表格视图",
+        "caption": "项目周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectWeeklyGridView",
+        "viewfilename": "ibizpro-project-weekly-grid-view",
+        "viewtag": "19b354cc6d7f358e9e205a17283fda3b",
         "memo": ""
     },
     "casereportlinkgridview": {
@@ -699,6 +819,16 @@
         "viewtag": "1d697dd8e47a4781be8f690bcc5f7800",
         "memo": ""
     },
+    "productteamusr2gridview": {
+        "title": "产品团队表格视图",
+        "caption": "产品团队",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "PRODUCTTEAMUsr2GridView",
+        "viewfilename": "productteamusr2-grid-view",
+        "viewtag": "1e6b69882f24208b7dfbd472051137e4",
+        "memo": ""
+    },
     "bugpickupgridview": {
         "title": "bug选择表格视图",
         "caption": "Bug",
@@ -758,6 +888,16 @@
         "viewfilename": "story-main-view9-related",
         "viewtag": "1f87f07919b8496e5bf832f95686fada",
         "memo": ""
+    },
+    "taskstorysubtasknewview": {
+        "title": "需求批量分解",
+        "caption": "需求批量分解",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskStorySubTaskNewView",
+        "viewfilename": "task-story-sub-task-new-view",
+        "viewtag": "1fb2e83b5cac45eddd44adf32ad9da14",
+        "memo": "SRFNAVCTX.project=%project% SRFNAVPARAM.project=%project%"
     },
     "testtaskmyygridview": {
         "title": "测试单表格视图",
@@ -819,6 +959,16 @@
         "viewtag": "22dcf6656e1b870d0427a450cdbd7d20",
         "memo": ""
     },
+    "taskzsgridview9weeknextweekplan": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "report",
+        "viewname": "TaskZsGridView9WeekNextWeekPlan",
+        "viewfilename": "task-zs-grid-view9-week-next-week-plan",
+        "viewtag": "230bcf0d1c95c90d4985fcf6e6e3e261",
+        "memo": ""
+    },
     "projectteammaingridview": {
         "title": "项目团队表格视图",
         "caption": "项目团队",
@@ -869,6 +1019,16 @@
         "viewtag": "240ec4bdf10888613e1601f420ad730f",
         "memo": ""
     },
+    "projectstatsprojectbugtypesumusr2gridview": {
+        "title": "项目bug类型统计表格视图",
+        "caption": "项目统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectBugTypeSumUsr2GridView",
+        "viewfilename": "project-stats-project-bug-type-sum-usr2-grid-view",
+        "viewtag": "24148503ec2063b36eab0deebf4bcfd1",
+        "memo": ""
+    },
     "storympickupview3": {
         "title": "关联需求",
         "caption": "关联需求",
@@ -887,6 +1047,16 @@
         "viewname": "TaskMainMyGridView",
         "viewfilename": "task-main-my-grid-view",
         "viewtag": "24a03de02dc02b92a3c228b944e78ed9",
+        "memo": ""
+    },
+    "productteameditview": {
+        "title": "产品团队编辑视图",
+        "caption": "产品团队",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "PRODUCTTEAMEditView",
+        "viewfilename": "productteamedit-view",
+        "viewtag": "24bd71cafa4143c58de671b37ce80b56",
         "memo": ""
     },
     "ibzprojectmembereditview9": {
@@ -909,6 +1079,16 @@
         "viewtag": "25452e386e72c70f03641cc650c1b979",
         "memo": ""
     },
+    "ibzproprojectusertaskmonthlygridview": {
+        "title": "项目汇报用户任务表格视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskMonthlyGridView",
+        "viewfilename": "ibzpro-project-user-task-monthly-grid-view",
+        "viewtag": "254a74c1b8fa2b5d73daaa74d0af5a7b",
+        "memo": ""
+    },
     "moduleeditview": {
         "title": "模块",
         "caption": "模块",
@@ -927,6 +1107,16 @@
         "viewname": "TestResultTestTaskMEditView9",
         "viewfilename": "test-result-test-task-medit-view9",
         "viewtag": "27374a7bc38f2581e433db58d85e14e4",
+        "memo": ""
+    },
+    "taskmonthlycompletezsgridview": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "TaskMonthlyCompleteZsGridView",
+        "viewfilename": "task-monthly-complete-zs-grid-view",
+        "viewtag": "277d3227691197cf610211b0051693e4",
         "memo": ""
     },
     "caseoptionview": {
@@ -959,6 +1149,16 @@
         "viewtag": "2889bd5a8f15aadc0f60686124720c0d",
         "memo": ""
     },
+    "sysemployeeeditviewbasicinfo": {
+        "title": "人员编辑视图",
+        "caption": "人员",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeEditViewBasicInfo",
+        "viewfilename": "sys-employee-edit-view-basic-info",
+        "viewtag": "28c5418b1ed607876fc4c920195f717d",
+        "memo": ""
+    },
     "ibzcaseopencaseview": {
         "title": "用例库用例数据看板视图",
         "caption": "测试用例",
@@ -987,6 +1187,26 @@
         "viewname": "ProductStatsTestEditView9",
         "viewfilename": "product-stats-test-edit-view9",
         "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df",
+        "memo": ""
+    },
+    "ibzagentcreateeditview": {
+        "title": "代理编辑视图",
+        "caption": "代理编辑视图",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentCreateEditView",
+        "viewfilename": "ibz-agent-create-edit-view",
+        "viewtag": "2b5c1c3213fbe9290285fe76805d426b",
+        "memo": ""
+    },
+    "ibzreportlycalendareditview": {
+        "title": "汇报编辑视图",
+        "caption": "汇报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyCalendarEditView",
+        "viewfilename": "ibz-reportly-calendar-edit-view",
+        "viewtag": "2c91cdea9417e94544a5d73ac68cd78d",
         "memo": ""
     },
     "todomaindashboardview_link": {
@@ -1087,6 +1307,26 @@
         "viewname": "TestTaskMyDGridView",
         "viewfilename": "test-task-my-dgrid-view",
         "viewtag": "30c07c840301a6ba07383d123bf9bba1",
+        "memo": ""
+    },
+    "ibzdailyprojectdailygridview": {
+        "title": "日报表格视图",
+        "caption": "日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyProjectDailyGridView",
+        "viewfilename": "ibz-daily-project-daily-grid-view",
+        "viewtag": "3121f3e1c04527b61ae43ff50166870d",
+        "memo": ""
+    },
+    "ibizproindexindexpickupview": {
+        "title": "索引检索数据选择视图",
+        "caption": "索引检索",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproIndexIndexPickupView",
+        "viewfilename": "ibizpro-index-index-pickup-view",
+        "viewtag": "31dc3f821fafa9e92cc28d217373a67b",
         "memo": ""
     },
     "taskmaininfoview9": {
@@ -1247,6 +1487,16 @@
         "viewname": "IbzMyTerritoryEditView",
         "viewfilename": "ibz-my-territory-edit-view",
         "viewtag": "39e5daf0dbfad3f76c5fa2625383d402",
+        "memo": ""
+    },
+    "ibzreportlyreportlydetaileditview": {
+        "title": "汇报编辑视图",
+        "caption": "汇报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyReportlyDetailEditView",
+        "viewfilename": "ibz-reportly-reportly-detail-edit-view",
+        "viewtag": "3a81cfd739313c5e2fa5a4ada539abed",
         "memo": ""
     },
     "tasktodoeditview": {
@@ -1449,6 +1699,16 @@
         "viewtag": "42aa867a5dbd04d53462fa69b0e43296",
         "memo": ""
     },
+    "sysemployeeusr3gridview": {
+        "title": "人员表格视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeUsr3GridView",
+        "viewfilename": "sys-employee-usr3-grid-view",
+        "viewtag": "42ce56d703f9d063d6c1524bb7a559de",
+        "memo": ""
+    },
     "todoassigntoview": {
         "title": "指派表单视图",
         "caption": "指派给",
@@ -1457,6 +1717,26 @@
         "viewname": "TodoAssignToView",
         "viewfilename": "todo-assign-to-view",
         "viewtag": "43582fa5b922cb77d0b1e704a7b6e5c3",
+        "memo": ""
+    },
+    "ibizproprojectmonthlyeditview": {
+        "title": "项目月报编辑视图",
+        "caption": "项目月报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectMonthlyEditView",
+        "viewfilename": "ibizpro-project-monthly-edit-view",
+        "viewtag": "436294cf39a8a5ad49acd7e4501e7e2d",
+        "memo": ""
+    },
+    "productstatsgridviewproducntinputtable": {
+        "title": "产品统计表格视图",
+        "caption": "产品统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsGridViewProducntInputTable",
+        "viewfilename": "product-stats-grid-view-producnt-input-table",
+        "viewtag": "438cf5075b908617ca9d1bcf357a5b3e",
         "memo": ""
     },
     "testrunmeditview9": {
@@ -1549,6 +1829,16 @@
         "viewtag": "454743e1c8070362a873d0d4fe35740b",
         "memo": ""
     },
+    "productstatsusr2gridviewproductcomplete": {
+        "title": "产品统计表格视图",
+        "caption": "产品统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsUsr2GridViewPRoductComplete",
+        "viewfilename": "product-stats-usr2-grid-view-product-complete",
+        "viewtag": "456a90200a66a37616388b42a254eb67",
+        "memo": ""
+    },
     "storypickupgridview3": {
         "title": "需求",
         "caption": "需求",
@@ -1568,6 +1858,16 @@
         "viewfilename": "bug-edit-view",
         "viewtag": "46517a803b2470cd0bef27aeda0dbcaf",
         "memo": "临时充当主信息展示页面"
+    },
+    "sysemployeeusr2gridview": {
+        "title": "人员表格视图人员实体表格视图(组织下所有人员)",
+        "caption": "人员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeUsr2GridView",
+        "viewfilename": "sys-employee-usr2-grid-view",
+        "viewtag": "465f1d3489621f94a90490faa3e0ea0f",
+        "memo": ""
     },
     "ibzproproductgridview": {
         "title": "平台产品表格视图",
@@ -1669,6 +1969,16 @@
         "viewtag": "4b01c8ae7e7e23b9c67dbca2ee90e41b",
         "memo": ""
     },
+    "usercontactgridexpview": {
+        "title": "用户联系方式表格导航视图",
+        "caption": "用户联系方式",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserContactGridExpView",
+        "viewfilename": "user-contact-grid-exp-view",
+        "viewtag": "4b2fac9ffaccd974c1ba4c24508197af",
+        "memo": ""
+    },
     "storygridview9_assignedtome": {
         "title": "需求表格视图",
         "caption": "需求",
@@ -1699,6 +2009,16 @@
         "viewtag": "4b8db6d139edb8adadbef2f0c0b3350a",
         "memo": ""
     },
+    "sysemployeepickupgridview": {
+        "title": "人员选择表格视图",
+        "caption": "人员",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeePickupGridView",
+        "viewfilename": "sys-employee-pickup-grid-view",
+        "viewtag": "4c55a1137e524e7e18d34f7619f4efb6",
+        "memo": ""
+    },
     "companydeptusertreeexpview": {
         "title": "组织部门人员树导航视图",
         "caption": "公司",
@@ -1717,6 +2037,16 @@
         "viewname": "TestTaskEditView_commitTest",
         "viewfilename": "test-task-edit-view-commit-test",
         "viewtag": "4d32793fc57ec1ae930a18608526d00e",
+        "memo": ""
+    },
+    "ibzmyterritorylistview9personinfo": {
+        "title": "我的工作",
+        "caption": "我的工作",
+        "viewtype": "DELISTVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryListView9PersonInfo",
+        "viewfilename": "ibz-my-territory-list-view9-person-info",
+        "viewtag": "4d673563cfae3bd7ff908401e877f4bc",
         "memo": ""
     },
     "docmyfavouritepartgridview": {
@@ -1959,6 +2289,16 @@
         "viewtag": "575fecad655143bbd28f17c581725a4e",
         "memo": ""
     },
+    "sysemployeeeditview": {
+        "title": "人员编辑视图",
+        "caption": "人员",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeEditView",
+        "viewfilename": "sys-employee-edit-view",
+        "viewtag": "57a23ead04eda866c6326f0705f595e3",
+        "memo": ""
+    },
     "userpickupview": {
         "title": "用户数据选择视图",
         "caption": "用户",
@@ -2019,6 +2359,16 @@
         "viewtag": "599bad7e939d0de2523f0fcf4444f8c7",
         "memo": ""
     },
+    "companystatscompanydynamicstatsgridview": {
+        "title": "公司动态汇总表格视图",
+        "caption": "公司动态统计表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "CompanyStatsCompanyDynamicStatsGridView",
+        "viewfilename": "company-stats-company-dynamic-stats-grid-view",
+        "viewtag": "59c85c1053657b4fea02d5bd53e305d8",
+        "memo": ""
+    },
     "bugstorytobugeditview": {
         "title": "Bug",
         "caption": "Bug",
@@ -2037,6 +2387,16 @@
         "viewname": "ProjectPickupView",
         "viewfilename": "project-pickup-view",
         "viewtag": "5a8a29268a7563b62fc0160233958830",
+        "memo": ""
+    },
+    "productteamproductteamlistview": {
+        "title": "产品团队列表视图",
+        "caption": "产品团队",
+        "viewtype": "DELISTVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "PRODUCTTEAMProductTeamListView",
+        "viewfilename": "productteamproduct-team-list-view",
+        "viewtag": "5adaf4d29de51f3f4c304ef50908925e",
         "memo": ""
     },
     "storybuildsubgridview": {
@@ -2119,6 +2479,16 @@
         "viewtag": "5d468f620cc30181773d875b3bb8be6e",
         "memo": ""
     },
+    "ibzplantempletgridview": {
+        "title": "产品计划模板表格视图",
+        "caption": "计划模板",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzPlanTempletGridView",
+        "viewfilename": "ibz-plan-templet-grid-view",
+        "viewtag": "5df2233b712eaa394f21be39b5807181",
+        "memo": ""
+    },
     "bugstatsproductbugresolutiongridview": {
         "title": "Bug统计表格视图",
         "caption": "产品Bug解决方案汇总",
@@ -2147,6 +2517,16 @@
         "viewname": "TaskWorkHoursView",
         "viewfilename": "task-work-hours-view",
         "viewtag": "5f063c226812206f8262566387a0b6a5",
+        "memo": ""
+    },
+    "systeampickupview": {
+        "title": "组数据选择视图",
+        "caption": "组",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamPickupView",
+        "viewfilename": "sys-team-pickup-view",
+        "viewtag": "5f7840c73c7dd18acccfaa5bb67468aa",
         "memo": ""
     },
     "taskpickupview": {
@@ -2219,6 +2599,16 @@
         "viewtag": "645efdb73a5b13723410903dff447667",
         "memo": ""
     },
+    "systeammembereditview": {
+        "title": "组成员编辑视图",
+        "caption": "组成员",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberEditView",
+        "viewfilename": "sys-team-member-edit-view",
+        "viewtag": "647cee7cf9c101876645c1c5bcec3602",
+        "memo": ""
+    },
     "buildoptionview": {
         "title": "版本选项操作视图",
         "caption": "版本",
@@ -2267,6 +2657,16 @@
         "viewname": "IBIZProTagEditView",
         "viewfilename": "ibizpro-tag-edit-view",
         "viewtag": "66ea594caa3b4caf0a9e6944eec6d80c",
+        "memo": ""
+    },
+    "sysemployeempickupview": {
+        "title": "人员数据多项选择视图",
+        "caption": "人员",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeMPickupView",
+        "viewfilename": "sys-employee-mpickup-view",
+        "viewtag": "684bbae57d8a66a95fc8808db8d08382",
         "memo": ""
     },
     "doclibproducttreeview": {
@@ -2329,6 +2729,16 @@
         "viewtag": "6a667f9ae1a5096ceac93a16d1586978",
         "memo": ""
     },
+    "projectgridexpview": {
+        "title": "项目表格导航视图",
+        "caption": "项目",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectGridExpView",
+        "viewfilename": "project-grid-exp-view",
+        "viewtag": "6ad2193a7e06957b40700d3f23ea6f6f",
+        "memo": ""
+    },
     "taskzsgridview9week": {
         "title": "任务表格视图（展示）",
         "caption": "展示",
@@ -2360,7 +2770,7 @@
         "memo": ""
     },
     "ibzdailymaineditview": {
-        "title": "日报编辑视图（主数据）",
+        "title": "日报编辑视图（编辑）",
         "caption": "日报",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "report",
@@ -2389,6 +2799,16 @@
         "viewtag": "6ca0081833718834ca4bbd9ebbf1ccce",
         "memo": ""
     },
+    "ibzmonthlyprojectmonthlygridview_": {
+        "title": "月报表格视图",
+        "caption": "月报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyProjectMonthlyGridView_",
+        "viewfilename": "ibz-monthly-project-monthly-grid-view-",
+        "viewtag": "6cd2dae78bcd850a9e861a24f0a96bb4",
+        "memo": ""
+    },
     "storysubgridview": {
         "title": "需求细分",
         "caption": "需求细分",
@@ -2409,9 +2829,19 @@
         "viewtag": "6d466e003e0479fb8b1a16e49b889dc1",
         "memo": ""
     },
+    "projectstatsprojectinputstatsgridview": {
+        "title": "项目统计表格视图",
+        "caption": "项目投入统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectInputStatsGridView",
+        "viewfilename": "project-stats-project-input-stats-grid-view",
+        "viewtag": "6dee43bf4f06e90abee66563c398806a",
+        "memo": ""
+    },
     "ibzmyterritoryreporttabexpview": {
         "title": "我的地盘分页导航视图",
-        "caption": "汇报",
+        "caption": "个人",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "report",
         "viewname": "IbzMyTerritoryReportTabExpView",
@@ -2539,6 +2969,16 @@
         "viewtag": "73fbcf0e3685096f63587bcff234f958",
         "memo": ""
     },
+    "sysemployeegridexpview": {
+        "title": "人员表格导航视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeGridExpView",
+        "viewfilename": "sys-employee-grid-exp-view",
+        "viewtag": "745687df2b5a067c15598debbcba1fe2",
+        "memo": ""
+    },
     "ibzdailymymaineditview": {
         "title": "日报编辑视图（主数据）",
         "caption": "日报",
@@ -2557,6 +2997,16 @@
         "viewname": "CaseCurSuitGridView",
         "viewfilename": "case-cur-suit-grid-view",
         "viewtag": "74e206764fd747fa31467bd5a9f371df",
+        "memo": ""
+    },
+    "ibzagentmaininfoeditview": {
+        "title": "代理编辑视图",
+        "caption": "代理",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentMainInfoEditView",
+        "viewfilename": "ibz-agent-main-info-edit-view",
+        "viewtag": "74e4f28ec8dc97e87f8de6255b2fd4b8",
         "memo": ""
     },
     "ibzprostoryeditview": {
@@ -2599,6 +3049,16 @@
         "viewtag": "770a170098d148e438a7666b248e6519",
         "memo": "视图参数从上下文中获取对应的对象类型"
     },
+    "systeammembergridexpview": {
+        "title": "组成员表格导航视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberGridExpView",
+        "viewfilename": "sys-team-member-grid-exp-view",
+        "viewtag": "771b6fe41dab6d75ea3127f8408461e8",
+        "memo": ""
+    },
     "branchpmgridview": {
         "title": "平台管理",
         "caption": "平台管理",
@@ -2607,6 +3067,16 @@
         "viewname": "BranchPMGridView",
         "viewfilename": "branch-pmgrid-view",
         "viewtag": "776ea44ea05316c9c6cb9d5948e993f9",
+        "memo": ""
+    },
+    "ibzmyterritoryallreporttabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "汇报",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMyTerritoryALLReportTabExpView",
+        "viewfilename": "ibz-my-territory-allreport-tab-exp-view",
+        "viewtag": "778d5d75940369d519f4dbefd22628b8",
         "memo": ""
     },
     "taskgridview9_assignedtome": {
@@ -2739,6 +3209,16 @@
         "viewtag": "7c7a1fdf074c475a128c920a952762fa",
         "memo": ""
     },
+    "systeammembergridview": {
+        "title": "组成员表格视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberGridView",
+        "viewfilename": "sys-team-member-grid-view",
+        "viewtag": "7c8043b1ffa43efe3285268a70f0d97e",
+        "memo": ""
+    },
     "productgridview": {
         "title": "所有产品",
         "caption": "所有产品",
@@ -2809,6 +3289,16 @@
         "viewtag": "7ee436604d479bd0ba014e136c1b8f6f",
         "memo": ""
     },
+    "taskstatsuserfinishtaskgridview": {
+        "title": "任务统计表格视图",
+        "caption": "用户完成任务汇总",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "TaskStatsUserFinishTaskGridView",
+        "viewfilename": "task-stats-user-finish-task-grid-view",
+        "viewtag": "7ef19995ea97ed70642551457b6e9ac4",
+        "memo": ""
+    },
     "docliblibtabexpview": {
         "title": "文档库分页导航视图（文档）",
         "caption": "文档库主页",
@@ -2857,6 +3347,16 @@
         "viewname": "CaseGridView9",
         "viewfilename": "case-grid-view9",
         "viewtag": "7f9b2e4d5b622528df75121b824b6fcc",
+        "memo": ""
+    },
+    "ibizproprojectweeklyeditview": {
+        "title": "项目周报编辑视图",
+        "caption": "项目周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectWeeklyEditView",
+        "viewfilename": "ibizpro-project-weekly-edit-view",
+        "viewtag": "7fa0af8cedb3e2ffaa61062c37e51a97",
         "memo": ""
     },
     "todofinishview": {
@@ -3039,6 +3539,16 @@
         "viewtag": "861a7b35cdff8ff000b5f90a9a4a12e9",
         "memo": ""
     },
+    "ibzplantempletoptionview": {
+        "title": "产品计划模板选项操作视图",
+        "caption": "计划模板",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzPlanTempletOptionView",
+        "viewfilename": "ibz-plan-templet-option-view",
+        "viewtag": "86c8826366681d0e9ed5d6c3fc9908fd",
+        "memo": ""
+    },
     "caseprojectreportlinkgridview": {
         "title": "测试用例表格视图（报告关联用例）",
         "caption": "关联用例",
@@ -3119,6 +3629,16 @@
         "viewtag": "8af65044ab1633eb5b68d99478e9350f",
         "memo": "版本-----已解决的Bug---关联bug—打开表格视图进行Bug批量关联（设置为已解决）"
     },
+    "sysemployeeusr3gridviewuserconcat": {
+        "title": "人员表格视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeUsr3GridViewUserConcat",
+        "viewfilename": "sys-employee-usr3-grid-view-user-concat",
+        "viewtag": "8b1be3cc2e5253c0ea5bcb16b1d02f6e",
+        "memo": ""
+    },
     "taskestimategridview9": {
         "title": "任务预计表格视图",
         "caption": "工时",
@@ -3147,6 +3667,16 @@
         "viewname": "ProductStatsGridView9",
         "viewfilename": "product-stats-grid-view9",
         "viewtag": "8c3d000c53ed0d5490a133f568d98097",
+        "memo": ""
+    },
+    "ibzreportlymyreceivedgridview": {
+        "title": "汇报表格视图",
+        "caption": "汇报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyMyReceivedGridView",
+        "viewfilename": "ibz-reportly-my-received-grid-view",
+        "viewtag": "8c6a61cf0b90e7424f8a758dee6643c3",
         "memo": ""
     },
     "bugmaindashboardview_link": {
@@ -3191,7 +3721,7 @@
     },
     "ibzmonthlymonthlymainmsgeditview": {
         "title": "月报编辑视图",
-        "caption": "月报实体编辑视图",
+        "caption": "月报",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "report",
         "viewname": "IbzMonthlyMonthlyMainMsgEditView",
@@ -3279,6 +3809,16 @@
         "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53",
         "memo": ""
     },
+    "buggridview9_taskrelated": {
+        "title": "相关Bug",
+        "caption": "相关Bug",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugGridView9_TaskRelated",
+        "viewfilename": "bug-grid-view9-task-related",
+        "viewtag": "8f563f093547b26f56125b59d03786e8",
+        "memo": ""
+    },
     "storyplaneditview": {
         "title": "需求",
         "caption": "需求",
@@ -3297,6 +3837,16 @@
         "viewname": "DocLibByProductTreeExpView",
         "viewfilename": "doc-lib-by-product-tree-exp-view",
         "viewtag": "905ab75396c304821d250f18e2fd6571",
+        "memo": ""
+    },
+    "ibizproproductdailyeditview": {
+        "title": "产品日报编辑视图",
+        "caption": "产品日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductDailyEditView",
+        "viewfilename": "ibizpro-product-daily-edit-view",
+        "viewtag": "906a337ba9df8cccc8e6f49564ac5360",
         "memo": ""
     },
     "caserunresultchartview9": {
@@ -3337,6 +3887,16 @@
         "viewname": "IBIZProKeywordGridView",
         "viewfilename": "ibizpro-keyword-grid-view",
         "viewtag": "910a15d245455b5b6c4dc58fd36aa315",
+        "memo": ""
+    },
+    "ibizproindexindexpickupdataview": {
+        "title": "索引检索索引关系选择数据视图",
+        "caption": "索引检索",
+        "viewtype": "DEINDEXPICKUPDATAVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproIndexIndexPickupDataView",
+        "viewfilename": "ibizpro-index-index-pickup-data-view",
+        "viewtag": "92269965704a55f1342317470d86e5e3",
         "memo": ""
     },
     "todotodocreateview": {
@@ -3398,6 +3958,16 @@
         "viewfilename": "story-grid-view9-sub-story",
         "viewtag": "956ad42e59e60cd8b49e7035147e25cf",
         "memo": "视图参数中指定了过滤条件"
+    },
+    "ibzagentmaingridview": {
+        "title": "代理表格视图",
+        "caption": "代理",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzAgentMainGridView",
+        "viewfilename": "ibz-agent-main-grid-view",
+        "viewtag": "95b5793bf8fc4bcf4cee37dcef6627cc",
+        "memo": ""
     },
     "storymaingridview_bymodule": {
         "title": "story表格视图",
@@ -3489,6 +4059,16 @@
         "viewtag": "983aa1b77ca021f30978523ddef010a0",
         "memo": ""
     },
+    "systeameditview": {
+        "title": "组编辑视图",
+        "caption": "组",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamEditView",
+        "viewfilename": "sys-team-edit-view",
+        "viewtag": "984a70c0b86ca38a96f77ba1c851530f",
+        "memo": ""
+    },
     "productliferoadmaplistview9": {
         "title": "路线图",
         "caption": "产品生命周期",
@@ -3569,6 +4149,16 @@
         "viewtag": "9bcbf0cd15b37b97657fec9a157595fe",
         "memo": ""
     },
+    "ibzproprojectusertaskeditview": {
+        "title": "项目汇报用户任务编辑视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskEditView",
+        "viewfilename": "ibzpro-project-user-task-edit-view",
+        "viewtag": "9c16791b436de259a12aa770fc3e260b",
+        "memo": ""
+    },
     "taskmoretabexpview": {
         "title": "任务分页导航视图（更多）",
         "caption": "更多",
@@ -3599,6 +4189,16 @@
         "viewtag": "9ddace1c12afee8da3f0254a05ba141a",
         "memo": ""
     },
+    "sysorganizationgridview": {
+        "title": "单位表格视图",
+        "caption": "单位",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysOrganizationGridView",
+        "viewfilename": "sys-organization-grid-view",
+        "viewtag": "9e0b0ea115e5d917abdf0fa7513a84cf",
+        "memo": ""
+    },
     "filelistview9": {
         "title": "附件",
         "caption": "附件",
@@ -3617,6 +4217,16 @@
         "viewname": "TaskreportMPickupView",
         "viewfilename": "taskreport-mpickup-view",
         "viewtag": "9f39c37259c1dabb9f2e8769eea76642",
+        "memo": ""
+    },
+    "ibizproprojectdailyeditview": {
+        "title": "项目日报编辑视图",
+        "caption": "项目日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectDailyEditView",
+        "viewfilename": "ibizpro-project-daily-edit-view",
+        "viewtag": "9f849930c98aff3bbe2a464a7dead8b5",
         "memo": ""
     },
     "projectteamlistview": {
@@ -3639,6 +4249,16 @@
         "viewtag": "a0a25524d16a413d7e020c0af2cc9c9b",
         "memo": ""
     },
+    "systeammemberusr2gridview": {
+        "title": "组成员表格视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberUsr2GridView",
+        "viewfilename": "sys-team-member-usr2-grid-view",
+        "viewtag": "a0e1f55e52d3167ad1815ac7076cdc45",
+        "memo": ""
+    },
     "storygridview9_related": {
         "title": "相关需求",
         "caption": "相关需求",
@@ -3648,6 +4268,16 @@
         "viewfilename": "story-grid-view9-related",
         "viewtag": "a0f93007d7102bd236dc8f50ac4042ea",
         "memo": "视图参数中指定了过滤条件"
+    },
+    "sysemployeegridview": {
+        "title": "人员表格视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeGridView",
+        "viewfilename": "sys-employee-grid-view",
+        "viewtag": "a179e654136386b3f2fe76b869dae394",
+        "memo": ""
     },
     "taskchartview9": {
         "title": "任务图表视图",
@@ -3679,6 +4309,16 @@
         "viewtag": "a300309f336ad917bb9fae375cd5620a",
         "memo": ""
     },
+    "systeammemberusr2gridviewpostmembers": {
+        "title": "组成员表格视图",
+        "caption": "组成员",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamMemberUsr2GridViewPostMembers",
+        "viewfilename": "sys-team-member-usr2-grid-view-post-members",
+        "viewtag": "a34f1835a2bc3fef24cf0c7be698e4cf",
+        "memo": ""
+    },
     "testsuitegridview": {
         "title": "测试套件表格视图",
         "caption": "测试套件",
@@ -3687,6 +4327,16 @@
         "viewname": "TestSuiteGridView",
         "viewfilename": "test-suite-grid-view",
         "viewtag": "a3bd82ec712d2e3ad12e716655e960fc",
+        "memo": ""
+    },
+    "ibzreportlymaingridview": {
+        "title": "汇报表格视图",
+        "caption": "汇报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyMainGridView",
+        "viewfilename": "ibz-reportly-main-grid-view",
+        "viewtag": "a3d1a3af80fdf764f13a63f9c19934c6",
         "memo": ""
     },
     "bugeditview_4791": {
@@ -3819,6 +4469,26 @@
         "viewtag": "a567636558c349902507ef69b9c510e5",
         "memo": ""
     },
+    "ibzproconfiggridview": {
+        "title": "系统配置表表格视图",
+        "caption": "系统配置表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproConfigGridView",
+        "viewfilename": "ibzpro-config-grid-view",
+        "viewtag": "a5b6a193363e3516bf0ce46577a7721c",
+        "memo": ""
+    },
+    "projectstatsusr2gridviewtasktypecount": {
+        "title": "项目统计表格视图（任务状态统计）",
+        "caption": "任务类型统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectStatsUsr2GridViewTaskTypeCount",
+        "viewfilename": "project-stats-usr2-grid-view-task-type-count",
+        "viewtag": "a638e2a7d3b05b2f279ad28d14f5a85f",
+        "memo": ""
+    },
     "casestepcarryouteditmode": {
         "title": "用例步骤",
         "caption": "用例步骤",
@@ -3847,6 +4517,16 @@
         "viewname": "BuildMainView",
         "viewfilename": "build-main-view",
         "viewtag": "a6d8bd7fa388f638832b33dddaa6df86",
+        "memo": ""
+    },
+    "sysemployeedashboardview": {
+        "title": "人员数据看板视图",
+        "caption": "人员",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeDashboardView",
+        "viewfilename": "sys-employee-dashboard-view",
+        "viewtag": "a6e3310693a8abeade4e5d1f928ab1f6",
         "memo": ""
     },
     "storympickupview2": {
@@ -3949,6 +4629,16 @@
         "viewtag": "aae1ade339fe6a2ebe367489f6393db1",
         "memo": ""
     },
+    "sysorganizationgridexpview": {
+        "title": "单位表格导航视图",
+        "caption": "单位",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysOrganizationGridExpView",
+        "viewfilename": "sys-organization-grid-exp-view",
+        "viewtag": "ab41bca19c2aa7340fc8ba21788ab56d",
+        "memo": ""
+    },
     "ibzcaseeditview": {
         "title": "用例库用例编辑视图",
         "caption": "测试用例",
@@ -3957,6 +4647,16 @@
         "viewname": "IbzCaseEditView",
         "viewfilename": "ibz-case-edit-view",
         "viewtag": "ab45ff5d2250ad8a5d88f39cc26b7646",
+        "memo": ""
+    },
+    "projectstatsprojectqualityusr2gridview": {
+        "title": "项目质量表",
+        "caption": "项目质量表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectQualityUsr2GridView",
+        "viewfilename": "project-stats-project-quality-usr2-grid-view",
+        "viewtag": "ab5df14b40f3a74e59053c76e1f48744",
         "memo": ""
     },
     "ibzweeklyusr2gridview": {
@@ -4019,6 +4719,16 @@
         "viewtag": "ac71a1cfaecb07640c14f75b8f202b1e",
         "memo": ""
     },
+    "ibizproprojectdailygridview": {
+        "title": "项目日报表格视图",
+        "caption": "项目日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectDailyGridView",
+        "viewfilename": "ibizpro-project-daily-grid-view",
+        "viewtag": "ad54d5021cc21a2ec7eb02ac05cf402e",
+        "memo": ""
+    },
     "productsumeditview": {
         "title": "产品汇总表编辑视图",
         "caption": "产品汇总表",
@@ -4029,6 +4739,16 @@
         "viewtag": "ada719b0d8722509d22b4b72bbb8cf26",
         "memo": ""
     },
+    "ibzdailydailyinfocalendareditview": {
+        "title": "日报编辑视图(日历显示)",
+        "caption": "日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyDailyInfoCalendarEditView",
+        "viewfilename": "ibz-daily-daily-info-calendar-edit-view",
+        "viewtag": "adae3758bed4c09c5e283b69603ba8e7",
+        "memo": ""
+    },
     "bugstatsproductbugstatusgridview": {
         "title": "Bug统计表格视图",
         "caption": "产品Bug状态汇总",
@@ -4037,6 +4757,16 @@
         "viewname": "BugStatsProductBugStatusGridView",
         "viewfilename": "bug-stats-product-bug-status-grid-view",
         "viewtag": "ae715fb0beead59fd6157e0ef163a4bb",
+        "memo": ""
+    },
+    "syspostgridexpview": {
+        "title": "岗位表格导航视图",
+        "caption": "岗位",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysPostGridExpView",
+        "viewfilename": "sys-post-grid-exp-view",
+        "viewtag": "ae72600793a079e5946b182321ddede9",
         "memo": ""
     },
     "actionaddcommenthistorylistview": {
@@ -4069,6 +4799,16 @@
         "viewtag": "b03bf2445d2e295fccbb6280b2601248",
         "memo": ""
     },
+    "ibzproproductusertaskproductpartgridviewproductweekly": {
+        "title": "产品汇报用户任务表格视图",
+        "caption": "产品日报",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProductUserTaskProductPartGridViewProductWeekly",
+        "viewfilename": "ibzpro-product-user-task-product-part-grid-view-product-weekly",
+        "viewtag": "b0858b3700cc6146837e0f3a1bf949e9",
+        "memo": ""
+    },
     "casemainmynewgridview": {
         "title": "功能测试",
         "caption": "功能测试",
@@ -4077,6 +4817,16 @@
         "viewname": "CaseMainMyNewGridView",
         "viewfilename": "case-main-my-new-grid-view",
         "viewtag": "b137ebd68f63e15d9233d1092e565d15",
+        "memo": ""
+    },
+    "projectstatsprojectstorystatusstatsgridview": {
+        "title": "项目统计表格视图",
+        "caption": "项目需求状态统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectStoryStatusStatsGridView",
+        "viewfilename": "project-stats-project-story-status-stats-grid-view",
+        "viewtag": "b322707640e730a3acf826dd40e5eed1",
         "memo": ""
     },
     "companyeditview": {
@@ -4147,6 +4897,16 @@
         "viewname": "DocMyMoreGridView",
         "viewfilename": "doc-my-more-grid-view",
         "viewtag": "b593c09602d9483d53b1f725395030a6",
+        "memo": ""
+    },
+    "ibizproprojectmonthlygridview": {
+        "title": "项目月报表格视图",
+        "caption": "项目月报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProjectMonthlyGridView",
+        "viewfilename": "ibizpro-project-monthly-grid-view",
+        "viewtag": "b5d03d55fc9bec6dfce016fad04ace8b",
         "memo": ""
     },
     "productdashboardinfomainview9": {
@@ -4229,6 +4989,16 @@
         "viewtag": "b90624360f51aadfbfaa92d563dc1410",
         "memo": ""
     },
+    "ibizproproductmonthlyeditview": {
+        "title": "产品月报编辑视图",
+        "caption": "产品月报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductMonthlyEditView",
+        "viewfilename": "ibizpro-product-monthly-edit-view",
+        "viewtag": "b909c3bd793876e1c94b86171604b366",
+        "memo": ""
+    },
     "productplanmaindataeditview": {
         "title": "产品计划编辑视图",
         "caption": "产品计划",
@@ -4279,6 +5049,26 @@
         "viewtag": "ba3ac5351ca273bb889ffcb52ec7217b",
         "memo": ""
     },
+    "sysorganizationusr2gridview": {
+        "title": "单位单位实体表格视图(通讯录所有组织)",
+        "caption": "单位",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysOrganizationUsr2GridView",
+        "viewfilename": "sys-organization-usr2-grid-view",
+        "viewtag": "ba70cc2003a4d984ccab95ba36a4a632",
+        "memo": ""
+    },
+    "syspostusr2gridview": {
+        "title": "岗位表格视图",
+        "caption": "岗位",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysPostUsr2GridView",
+        "viewfilename": "sys-post-usr2-grid-view",
+        "viewtag": "ba8bd2f4b2dcf0500c9dcd985c531d68",
+        "memo": ""
+    },
     "taskcalendareditview": {
         "title": "任务编辑视图（日历航显示）",
         "caption": "日历航显示",
@@ -4317,6 +5107,16 @@
         "viewname": "ProjectModuleTreeExpView",
         "viewfilename": "project-module-tree-exp-view",
         "viewtag": "bb8860972029d9947daa3652a4b5d291",
+        "memo": ""
+    },
+    "casestatstestcasestatsgridview": {
+        "title": "测试用例统计表格视图",
+        "caption": "用例统计表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "CaseStatsTestCaseStatsGridView",
+        "viewfilename": "case-stats-test-case-stats-grid-view",
+        "viewtag": "bc06c199f827cebb36cfd2a5128e1bca",
         "memo": ""
     },
     "productmaindashboardview": {
@@ -4409,16 +5209,6 @@
         "viewtag": "bef7c08b651990569cd09ce805ebcfe3",
         "memo": ""
     },
-    "taskusr2gridview": {
-        "title": "任务表格视图",
-        "caption": "任务",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "zentao",
-        "viewname": "TaskUsr2GridView",
-        "viewfilename": "task-usr2-grid-view",
-        "viewtag": "bf911962d0a1ec51e903e512c2700650",
-        "memo": ""
-    },
     "fileproductgridview": {
         "title": "file表格视图",
         "caption": "附件",
@@ -4437,6 +5227,16 @@
         "viewname": "ProductMainView_Edit",
         "viewfilename": "product-main-view-edit",
         "viewtag": "c02574075c8c15c67231cd71be040763",
+        "memo": ""
+    },
+    "ibzproproductusertaskproductmonthlypartgridview": {
+        "title": "产品汇报用户任务表格视图",
+        "caption": "产品日报",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProductUserTaskProductMonthlyPartGridView",
+        "viewfilename": "ibzpro-product-user-task-product-monthly-part-grid-view",
+        "viewtag": "c081204d4555873a491a8034c6c44316",
         "memo": ""
     },
     "bugresolveview": {
@@ -4459,6 +5259,16 @@
         "viewtag": "c21e2ccc8e950461985b171f047bde56",
         "memo": ""
     },
+    "ibizproproductweeklyeditview": {
+        "title": "产品周报编辑视图",
+        "caption": "产品周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductWeeklyEditView",
+        "viewfilename": "ibizpro-product-weekly-edit-view",
+        "viewtag": "c2466369bc195c738c016c59f423713a",
+        "memo": ""
+    },
     "testsuitemaindashboardview": {
         "title": "测试套件数据看板视图",
         "caption": "测试套件",
@@ -4467,6 +5277,16 @@
         "viewname": "TestSuiteMainDashboardView",
         "viewfilename": "test-suite-main-dashboard-view",
         "viewtag": "c2e4200fb7c9760b4931b43561289980",
+        "memo": ""
+    },
+    "sysuserchangepasswordeditview": {
+        "title": "系统用户编辑视图",
+        "caption": "修改密码",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "uaa",
+        "viewname": "SysUserChangePasswordEditView",
+        "viewfilename": "sys-user-change-password-edit-view",
+        "viewtag": "c3e6eea97c71f24dcf4115546b5ec769",
         "memo": ""
     },
     "todogridview9": {
@@ -4529,6 +5349,16 @@
         "viewtag": "c539f1585371e9943b90177eaef08b6b",
         "memo": ""
     },
+    "productstatsgridview": {
+        "title": "产品统计表格视图",
+        "caption": "产品统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsGridView",
+        "viewfilename": "product-stats-grid-view",
+        "viewtag": "c53ef5993dc196b00f0cfdc21d6dd3a8",
+        "memo": ""
+    },
     "ibzlibmoduleeditview": {
         "title": "用例库模块编辑视图",
         "caption": "用例库模块",
@@ -4557,6 +5387,16 @@
         "viewname": "CaseGridView9_MeCretae",
         "viewfilename": "case-grid-view9-me-cretae",
         "viewtag": "c5b7fb7289325c348ca867eb86185986",
+        "memo": ""
+    },
+    "taskdailycompletezsgridview": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "report",
+        "viewname": "TaskDailyCompleteZsGridView",
+        "viewfilename": "task-daily-complete-zs-grid-view",
+        "viewtag": "c5bd098c86809d2a2934bdf16b3d25f7",
         "memo": ""
     },
     "ibzlibmodulegridview": {
@@ -4617,6 +5457,16 @@
         "viewname": "IbzMyTerritoryStatsTabExpView",
         "viewfilename": "ibz-my-territory-stats-tab-exp-view",
         "viewtag": "c8171c13c1ba215f65c8587df1d98ba5",
+        "memo": ""
+    },
+    "systeamgridexpview": {
+        "title": "组表格导航视图",
+        "caption": "组",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamGridExpView",
+        "viewfilename": "sys-team-grid-exp-view",
+        "viewtag": "c826223fec105532e5a0f8a2ad49ee4a",
         "memo": ""
     },
     "bugresolvechartview": {
@@ -4689,6 +5539,26 @@
         "viewtag": "c9c2b18a9b5b1e628179f9ab99ffe23a",
         "memo": "临时充当主信息展示页面"
     },
+    "systeamusr2gridview": {
+        "title": "组表格视图",
+        "caption": "组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamUsr2GridView",
+        "viewfilename": "sys-team-usr2-grid-view",
+        "viewtag": "c9f2cd9496fa701c375279c93e1487fd",
+        "memo": ""
+    },
+    "sysemployeegridexpviewprojectmember": {
+        "title": "人员表格导航视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeGridExpViewProjectMember",
+        "viewfilename": "sys-employee-grid-exp-view-project-member",
+        "viewtag": "ca485afa013ed409b2274ed390ae7db0",
+        "memo": ""
+    },
     "testtaskcloseoptionview": {
         "title": "关闭",
         "caption": "关闭",
@@ -4749,6 +5619,16 @@
         "viewtag": "cc0f54a8db5b9c161ec9f3d6b86e2a27",
         "memo": ""
     },
+    "taskchildmoregridview": {
+        "title": "任务表格视图（子任务-更多）",
+        "caption": "子任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskChildMoreGridView",
+        "viewfilename": "task-child-more-grid-view",
+        "viewtag": "cc1f1d0cc16dddbdb7e9f9fd9aa443fa",
+        "memo": ""
+    },
     "projectportalview": {
         "title": "项目主页",
         "caption": "项目主页",
@@ -4757,6 +5637,16 @@
         "viewname": "ProjectPortalView",
         "viewfilename": "project-portal-view",
         "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64",
+        "memo": ""
+    },
+    "ibzmyterritoryprojectreporttabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "项目",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMyTerritoryProjectReportTabExpView",
+        "viewfilename": "ibz-my-territory-project-report-tab-exp-view",
+        "viewtag": "cc88c07d051f15f571735ac91fd6914d",
         "memo": ""
     },
     "ibzlibcasestepsgridview9": {
@@ -4919,6 +5809,16 @@
         "viewtag": "D1283E46-401A-4CFD-A7A1-BF5B90197463",
         "memo": ""
     },
+    "sysemployeetreeexpview": {
+        "title": "人员树导航视图",
+        "caption": "人员",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysEmployeeTreeExpView",
+        "viewfilename": "sys-employee-tree-exp-view",
+        "viewtag": "d1c2669aa1d4bc3973882f4cbb3a9539",
+        "memo": ""
+    },
     "ibzcasedashboardview": {
         "title": "用例库用例数据看板视图",
         "caption": "测试用例",
@@ -5009,6 +5909,16 @@
         "viewtag": "d5171a52df7b22d69c6a5ca34699233a",
         "memo": "临时充当主信息展示页面"
     },
+    "bugstatsbugresolvedbygridviewzuzhi": {
+        "title": "Bug统计表格视图（Bug完成表）",
+        "caption": "Bug完成表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsBugResolvedByGridViewZuZhi",
+        "viewfilename": "bug-stats-bug-resolved-by-grid-view-zu-zhi",
+        "viewtag": "d5d237bd6a57b89a912bcff2a13f1ff4",
+        "memo": ""
+    },
     "ibzmonthlymyreceivededitview": {
         "title": "月报编辑视图",
         "caption": "月报实体编辑视图",
@@ -5047,6 +5957,16 @@
         "viewname": "TaskreportPickupGridView",
         "viewfilename": "taskreport-pickup-grid-view",
         "viewtag": "d7b7fadc3c6a2da9c7a4319c40fd0e7c",
+        "memo": ""
+    },
+    "ibizproindexredirectview": {
+        "title": "索引检索数据重定向视图",
+        "caption": "索引检索",
+        "viewtype": "DEREDIRECTVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproIndexRedirectView",
+        "viewfilename": "ibizpro-index-redirect-view",
+        "viewtag": "d7dd357c2488e9f3440971b4407d52a1",
         "memo": ""
     },
     "companymainview9": {
@@ -5119,6 +6039,16 @@
         "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2",
         "memo": ""
     },
+    "projectstatsprojectprogressusr2gridview": {
+        "title": "项目进度表格视图",
+        "caption": "项目统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsProjectProgressUsr2GridView",
+        "viewfilename": "project-stats-project-progress-usr2-grid-view",
+        "viewtag": "dabb076d51462709eafcea3fed743469",
+        "memo": ""
+    },
     "bugtotalopenedchartview": {
         "title": "Bug图表视图（累计创建Bug）",
         "caption": "累计创建Bug",
@@ -5137,6 +6067,26 @@
         "viewname": "UserYearWorkStatsEditView",
         "viewfilename": "user-year-work-stats-edit-view",
         "viewtag": "db750bbb894c25f38ca2741f234df3c6",
+        "memo": ""
+    },
+    "ibizproproductdailygridview": {
+        "title": "产品日报表格视图",
+        "caption": "产品日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductDailyGridView",
+        "viewfilename": "ibizpro-product-daily-grid-view",
+        "viewtag": "dc4682bba4f9a504532ea1e10d4b11b5",
+        "memo": ""
+    },
+    "ibzproprojectusertaskprojectweeklygridview": {
+        "title": "项目汇报用户任务表格视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskProjectWeeklyGridView",
+        "viewfilename": "ibzpro-project-user-task-project-weekly-grid-view",
+        "viewtag": "dc67624c3f090fcbd2b405a393b38cd4",
         "memo": ""
     },
     "bugtestbugsgridview": {
@@ -5179,6 +6129,16 @@
         "viewtag": "df5a966e312ca9c5f5a41428bc2e2672",
         "memo": ""
     },
+    "ibzweeklyprojectweeklygridview": {
+        "title": "周报表格视图",
+        "caption": "周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyProjectWeeklyGridView",
+        "viewfilename": "ibz-weekly-project-weekly-grid-view",
+        "viewtag": "dfd88480fb413ae524dbbee4918676cb",
+        "memo": ""
+    },
     "todoeditview": {
         "title": "编辑待办",
         "caption": "待办",
@@ -5194,8 +6154,8 @@
         "caption": "员工负载表",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",
-        "viewname": "EMPLOYEELOADGridView",
-        "viewfilename": "employeeloadgrid-view",
+        "viewname": "EmpLoyeeloadGridView",
+        "viewfilename": "emp-loyeeload-grid-view",
         "viewtag": "e008123fe4c3014fac07b33dd79f6b13",
         "memo": ""
     },
@@ -5299,6 +6259,26 @@
         "viewtag": "e444135470a806822b9b950e15c42a3e",
         "memo": ""
     },
+    "ibizproproductweeklyusr2gridview": {
+        "title": "产品周报表格视图",
+        "caption": "产品周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductWeeklyUsr2GridView",
+        "viewfilename": "ibizpro-product-weekly-usr2-grid-view",
+        "viewtag": "e49ea1cccee579b8b15d125583fa6fff",
+        "memo": ""
+    },
+    "productplanoptionview": {
+        "title": "导入计划模板",
+        "caption": "导入计划模板",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductPlanOptionView",
+        "viewfilename": "product-plan-option-view",
+        "viewtag": "e4e450c40addd5d706151ea60dbe7826",
+        "memo": ""
+    },
     "bugcalendareditview": {
         "title": "Bug编辑视图（日历导航）",
         "caption": "日历导航",
@@ -5329,6 +6309,16 @@
         "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd",
         "memo": ""
     },
+    "systeampickupgridview": {
+        "title": "组选择表格视图",
+        "caption": "组",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamPickupGridView",
+        "viewfilename": "sys-team-pickup-grid-view",
+        "viewtag": "e5b14957778e46c8fe25aee22fe0fba8",
+        "memo": ""
+    },
     "ibizprotaggridview": {
         "title": "标签表格视图",
         "caption": "标签",
@@ -5337,6 +6327,16 @@
         "viewname": "IBIZProTagGridView",
         "viewfilename": "ibizpro-tag-grid-view",
         "viewtag": "e5e537e1d8092dbfa419c892762f34fe",
+        "memo": ""
+    },
+    "sysorganizationeditview": {
+        "title": "单位编辑视图",
+        "caption": "单位",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysOrganizationEditView",
+        "viewfilename": "sys-organization-edit-view",
+        "viewtag": "e61e97fc70324fe8b112aa7759a3b7b0",
         "memo": ""
     },
     "deptpickupgridview": {
@@ -5389,6 +6389,26 @@
         "viewtag": "e6ab4e1e69f78d8a87d57c7d99420245",
         "memo": ""
     },
+    "usercontactusr2gridview": {
+        "title": "用户联系方式表格视图",
+        "caption": "用户联系方式",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserContactUsr2GridView",
+        "viewfilename": "user-contact-usr2-grid-view",
+        "viewtag": "e6f937afe3371083ae7dda1d58c85ed7",
+        "memo": ""
+    },
+    "ibzmonthlyproductmonthlygridview": {
+        "title": "月报表格视图",
+        "caption": "月报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyProductMonthlyGridView",
+        "viewfilename": "ibz-monthly-product-monthly-grid-view",
+        "viewtag": "e7567732197819965d948300d5a90d8c",
+        "memo": ""
+    },
     "sysupdateloginfoeditview": {
         "title": "系统更新日志编辑视图",
         "caption": "更新日志",
@@ -5409,6 +6429,16 @@
         "viewtag": "e842d6d727d88c2c78b59c033fa27f34",
         "memo": ""
     },
+    "sysemployeegridexpviewdept": {
+        "title": "人员表格导航视图",
+        "caption": "人员",
+        "viewtype": "DEGRIDEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeeGridExpViewDept",
+        "viewfilename": "sys-employee-grid-exp-view-dept",
+        "viewtag": "e843bd954ebbd93fa06a419e07c838e3",
+        "memo": ""
+    },
     "testtaskeditview_edit": {
         "title": "测试单编辑视图",
         "caption": "测试版本",
@@ -5427,6 +6457,16 @@
         "viewname": "BugAssingToView",
         "viewfilename": "bug-assing-to-view",
         "viewtag": "e897cf80a700c92025004c4696d9ae10",
+        "memo": ""
+    },
+    "sysemployeepickupview": {
+        "title": "人员数据选择视图",
+        "caption": "人员",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "SysEmployeePickupView",
+        "viewfilename": "sys-employee-pickup-view",
+        "viewtag": "e8988cc597d1c970f738b9a8719e02c7",
         "memo": ""
     },
     "projectstatsgridview9": {
@@ -5529,6 +6569,16 @@
         "viewtag": "eb90b28adca9e482854d0d6bf05e1303",
         "memo": ""
     },
+    "projectgridviewemp": {
+        "title": "项目",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectGridViewEMp",
+        "viewfilename": "project-grid-view-emp",
+        "viewtag": "ebdc0496f66718b66a8ae0ea440d0356",
+        "memo": ""
+    },
     "tododashboardview": {
         "title": "待办事宜表数据看板视图",
         "caption": "待办",
@@ -5569,6 +6619,26 @@
         "viewtag": "ec9a5987de12c718961f243f4034efea",
         "memo": ""
     },
+    "ibzproconfigeditview": {
+        "title": "系统配置表编辑视图",
+        "caption": "系统配置表",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproConfigEditView",
+        "viewfilename": "ibzpro-config-edit-view",
+        "viewtag": "ecbb62865a85af39d70c88ebecc95d99",
+        "memo": ""
+    },
+    "taskstoryneweditview": {
+        "title": "任务编辑视图",
+        "caption": "任务",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskStoryNewEditView",
+        "viewfilename": "task-story-new-edit-view",
+        "viewtag": "ecbf5b4a77da69166a45c1ad211d047a",
+        "memo": ""
+    },
     "releasequickcreateview": {
         "title": "发布编辑视图",
         "caption": "发布",
@@ -5587,6 +6657,16 @@
         "viewname": "ProjectEditView_Suspend",
         "viewfilename": "project-edit-view-suspend",
         "viewtag": "edd664c8fc682d166b3a027dd08bbd8b",
+        "memo": ""
+    },
+    "ibzreportlycreateeditview": {
+        "title": "汇报编辑视图",
+        "caption": "汇报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportlyCreateEditView",
+        "viewfilename": "ibz-reportly-create-edit-view",
+        "viewtag": "eddd83b7db9892757420e886810dbfba",
         "memo": ""
     },
     "projectdashboardinfoview": {
@@ -5649,6 +6729,16 @@
         "viewtag": "f1e935bce2146c2c75597dcee9ee4412",
         "memo": ""
     },
+    "ibzproproductusertaskproductdailypartgridview": {
+        "title": "产品汇报用户任务表格视图",
+        "caption": "产品日报",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProductUserTaskProductDailyPartGridView",
+        "viewfilename": "ibzpro-product-user-task-product-daily-part-grid-view",
+        "viewtag": "f24328f024ca560f1d741035e0e2ffd8",
+        "memo": ""
+    },
     "taskforwardview": {
         "title": "转交任务",
         "caption": "转交任务",
@@ -5667,6 +6757,16 @@
         "viewname": "SysUpdateLogEditView",
         "viewfilename": "sys-update-log-edit-view",
         "viewtag": "f2dfdf637fb965a83519ac280de3e97c",
+        "memo": ""
+    },
+    "systeamgridview": {
+        "title": "组表格视图",
+        "caption": "组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ou",
+        "viewname": "SysTeamGridView",
+        "viewfilename": "sys-team-grid-view",
+        "viewtag": "f326bbe78ccb89a4fceca8db2f842a1e",
         "memo": ""
     },
     "testreporteditview": {
@@ -5719,6 +6819,16 @@
         "viewtag": "f63aae9bc8cfe29654439743b465a942",
         "memo": ""
     },
+    "ibizproproductmonthlygridview": {
+        "title": "产品月报表格视图",
+        "caption": "产品月报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductMonthlyGridView",
+        "viewfilename": "ibizpro-product-monthly-grid-view",
+        "viewtag": "f6f162dba81a1d3d0875a78185218436",
+        "memo": ""
+    },
     "productsumusr3gridview": {
         "title": "产品汇总表表格视图",
         "caption": "产品汇总表",
@@ -5737,6 +6847,16 @@
         "viewname": "ProductBugTreeExpView",
         "viewfilename": "product-bug-tree-exp-view",
         "viewtag": "f78c94cb0a20d7f459753a4070f8f3e7",
+        "memo": ""
+    },
+    "ibzmyterritoryproductreporttabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "产品",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMyTerritoryProductReportTabExpView",
+        "viewfilename": "ibz-my-territory-product-report-tab-exp-view",
+        "viewtag": "f79a99531fb05baea75dee5401e4b5f9",
         "memo": ""
     },
     "actionproducttrendslistview": {
@@ -5897,6 +7017,26 @@
         "viewname": "ProjectMainTabExpView",
         "viewfilename": "project-main-tab-exp-view",
         "viewtag": "fd0b8748ff96edcde009d39903a9f211",
+        "memo": ""
+    },
+    "ibzweeklyproductweeklygridview": {
+        "title": "周报表格视图",
+        "caption": "周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyProductWeeklyGridView",
+        "viewfilename": "ibz-weekly-product-weekly-grid-view",
+        "viewtag": "fde813cf1679434aabed3c4a64d6f954",
+        "memo": ""
+    },
+    "ibzproprojectusertaskgridview": {
+        "title": "项目汇报用户任务表格视图",
+        "caption": "项目汇报用户任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProjectUserTaskGridView",
+        "viewfilename": "ibzpro-project-user-task-grid-view",
+        "viewtag": "fe81fbd0978314233d70cf0219ba4890",
         "memo": ""
     },
     "ibzdailymydailygridview": {

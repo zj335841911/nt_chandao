@@ -1,24 +1,25 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-weekly-mob-edit-view': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="IbzWeeklyMobEditView"  
+            viewName="MobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -27,7 +28,7 @@
             updateAction="Update"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="Get"
+            loadAction="HaveRead"
             createAction="Create"
             WFSubmitAction=""
             WFStartAction=""
@@ -43,17 +44,34 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
-                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                
-                </ion-button>
+                <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                class="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit1.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit1.visabled">
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1_mobedit1.disabled" 
+                    size="large"  
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobedit1' }, $event),popUpGroup()" />
                 
             </div>
         
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobsubmit.disabled}" v-show="righttoolbarModels.deuiaction1_mobsubmit.visabled">
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" 
+                    size="large"  
+                    iconName="check" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event),popUpGroup()" />
+                
             </div>
+        
+                </div>
+            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -141,7 +159,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzWeeklyMobEditViewBase
 	 */
-	protected viewtag: string = 'df36c08961d3d1737f2f8d55a53fa46c';
+	protected viewtag: string = 'bb9616d1f1ed5c36e119f071e98b637b';
 
     /**
      * 视图上下文
@@ -189,7 +207,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'srfparentkey': '%ibzweekly%' };
 
     /**
      * 视图导航参数
@@ -198,7 +216,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzweekly%' };
 
     /**
      * 视图模型数据
@@ -296,7 +314,9 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     * @memberof IbzWeeklyMobEditView
     */
     public righttoolbarModels: any = {
-            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
+            deuiaction1_mobedit1: { name: 'deuiaction1_mobedit1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobsubmit: { name: 'deuiaction1_mobsubmit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
 
     };
 
@@ -587,8 +607,11 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @memberof IbzWeeklyMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem1')) {
-            this.righttoolbar_tbitem1_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_mobedit1')) {
+            this.righttoolbar_deuiaction1_mobedit1_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobsubmit')) {
+            this.righttoolbar_deuiaction1_mobsubmit_click($event, '', $event2);
         }
     }
 
@@ -603,7 +626,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof IbzWeeklyMobEditViewBase
      */
-    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction1_mobedit1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -619,7 +642,42 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
+        const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
+        if (curUIService) {
+            curUIService.IbzWeekly_mobEdit1(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobsubmit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
+        if (curUIService) {
+            curUIService.IbzWeekly_MobSubmit(datas, contextJO, paramJO, $event, xData, this);
+        }
     }
 
     /**

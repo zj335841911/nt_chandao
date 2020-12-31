@@ -119,13 +119,45 @@ export class MdServiceBase extends ControlServiceBase {
                 if (!val) {
                     val = tempData.hasOwnProperty(dataitem.name) ? tempData[dataitem.name] : null;
                 }
-                if(action != 'Remove'){
+                if (action != 'Remove') {
                     tempData[dataitem.name] = val;
                 }
             });
             Object.assign(result, { records: tempData });
         }
         return result;
+    }
+
+    /**
+     * 处理请求多数据
+     *
+     * @protected
+     * @param {string} action 行为 
+     * @param {*} [context={}] 上下文参数
+     * @param {*} [data={}] 数据
+     * @returns {*}
+     * @memberof ControlServiceBase
+     */
+    public handleRequestDatas(context: any = {}, data: any = {}): any {
+        if (!this.model || !Util.isFunction(this.model.getDataItems)) {
+            return data;
+        }
+        const dataItems: any[] = this.model.getDataItems();
+        const tempData: any = data;
+        for (let index = 0; index < tempData.length; index++) {
+            const item = tempData[index];
+            let _item: any = {};
+            for (let index = 0; index < dataItems.length; index++) {
+                const dataitem = dataItems[index];
+                let val = item.hasOwnProperty(dataitem.prop) ? item[dataitem.prop] : null;
+                if (!val) {
+                    val = item.hasOwnProperty(dataitem.name) ? item[dataitem.name] : null;
+                }
+                _item[dataitem.name] = val;
+            }
+            tempData[index] = _item;
+        }
+        return data;
     }
 
 }

@@ -57,6 +57,9 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
+    @Autowired
+    @Lazy
+    ITestRunService proxyService;
 
     protected int batchSize = 500;
 
@@ -147,7 +150,7 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -155,7 +158,21 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     @Transactional
     public boolean saveBatch(Collection<TestRun> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestRun> create = new ArrayList<>();
+        List<TestRun> update = new ArrayList<>();
+        for (TestRun et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -163,7 +180,21 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     @Transactional
     public void saveBatch(List<TestRun> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestRun> create = new ArrayList<>();
+        List<TestRun> update = new ArrayList<>();
+        for (TestRun et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

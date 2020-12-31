@@ -1,14 +1,15 @@
 <template>
-
         <ion-row  class="app-form-group" >
         <ion-item-divider v-if="isShowCaption" :style="{minHeight:caption?'':'10px'}"  @click="clickCollapse">
             <ion-label>
-                <span :class="titleClass" class="group-title"><ion-icon class="group-title-icon" v-if="iconName" :name="iconName"></ion-icon>{{caption}}</span>
+                <span :class="titleClass" class="group-title">
+                    <app-mob-icon class="group-title-icon" v-if="iconName" :name="iconName"></app-mob-icon>
+                {{caption}}</span>
             </ion-label>
-            <ion-icon v-show="titleBarCloseMode !== 0" class="group-collapse" :name="collapseContant ? 'chevron-back-outline' : 'chevron-down-outline'"></ion-icon>
+            <app-mob-icon v-show="titleBarCloseMode !== 0" class="group-collapse" :name="collapseContant ? 'chevron-back-outline' : 'chevron-down-outline'"></app-mob-icon>
             <div :class="{'actiongroup':true,'closemode':titleBarCloseMode !== 0}" v-show="isHaveUiActionGroup">
               <div class="groupbox" v-for="item in uiActionGroup.details" :key="item.index" @click="doUIAction($event,item.name)">
-                <ion-icon :name="item.icon" v-show="item.isShowIcon && item.visabled"/>
+                <app-mob-icon :name="item.icon" v-show="item.isShowIcon && item.visabled"/>
                 <van-button plain type="info" v-show="item.isShowCaption && item.visabled">{{item.caption}}</van-button>
               </div>  
             </div>

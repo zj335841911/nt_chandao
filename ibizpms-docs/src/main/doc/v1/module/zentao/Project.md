@@ -10,22 +10,25 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
-| 2 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
-| 3 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
-| 4 | [项目团队（IBZ_PROJECTTEAM）](../ibiz/ProjectTeam) | 嵌套操作 |
-| 5 | [系统日志（ZT_ACTION）](../zentao/Action) | （默认） |
-| 6 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
-| 7 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
-| 8 | [burn（ZT_BURN）](../zentao/Burn) | （默认） |
-| 9 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
-| 10 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
-| 11 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
-| 12 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
-| 13 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
-| 14 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
-| 15 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
-| 16 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
+| 1 | [项目日报（IBIZPRO_PROJECTDAILY）](../ibizpro/IbizproProjectDaily) | （默认） |
+| 2 | [项目月报（IBIZPRO_PROJECTMONTHLY）](../ibizpro/IbizproProjectMonthly) | （默认） |
+| 3 | [项目周报（IBZPRO_PROJECTWEEKLY）](../ibizpro/IbizproProjectWeekly) | （默认） |
+| 4 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
+| 5 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
+| 6 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
+| 7 | [项目团队（IBZ_PROJECTTEAM）](../ibiz/ProjectTeam) | 嵌套操作 |
+| 8 | [系统日志（ZT_ACTION）](../zentao/Action) | （默认） |
+| 9 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 10 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
+| 11 | [burn（ZT_BURN）](../zentao/Burn) | （默认） |
+| 12 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
+| 13 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
+| 14 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
+| 15 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
+| 16 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
+| 17 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
+| 18 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
+| 19 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
@@ -109,6 +112,8 @@
 | 72 | [文档数量](#属性-文档数量（DOCLIBCNT）) | DOCLIBCNT | 整型 | 否 | 是 | 是 |
 | 73 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
 | 74 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
+| 75 | [项目团队成员](#属性-项目团队成员（PROJECTTEAMS）) | PROJECTTEAMS | 一对多关系数据集合 | 否 | 是 | 是 |
+| 76 | [支持项目汇报](#属性-支持项目汇报（SUPPROREPORT）) | SUPPROREPORT | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-当前系统版本（OPENEDVERSION）
 #### 属性说明
@@ -3275,6 +3280,93 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-项目团队成员（PROJECTTEAMS）
+#### 属性说明
+项目团队成员
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+一对多关系数据集合
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-支持项目汇报（SUPPROREPORT）
+#### 属性说明
+支持项目汇报
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 1 |
+
+- 取值范围/公式
+参照数据字典【[是否（YesNo）](../../codelist/YesNo)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [项目状态](#属性-项目状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -3561,30 +3653,40 @@ String
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
-| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
-| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
-| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
-| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
-| 6 | [激活](#实体行为-激活（Activate）) | Activate | 用户自定义 | 后台及前台 |
-| 7 | [批量解除关联需求](#实体行为-批量解除关联需求（BatchUnlinkStory）) | BatchUnlinkStory | 用户自定义 | 后台及前台 |
-| 8 | [取消置顶](#实体行为-取消置顶（CancelProjectTop）) | CancelProjectTop | 实体处理逻辑 | 后台 |
-| 9 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 10 | [关闭](#实体行为-关闭（Close）) | Close | 用户自定义 | 后台及前台 |
-| 11 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
-| 12 | [团队管理](#实体行为-团队管理（ManageMembers）) | ManageMembers | 用户自定义 | 后台及前台 |
-| 13 | [移动端项目计数器](#实体行为-移动端项目计数器（MobProjectCount）) | MobProjectCount | 实体处理逻辑 | 后台 |
-| 14 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
-| 15 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
-| 16 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
-| 17 | [退出](#实体行为-退出（ReturnEdit）) | ReturnEdit | 用户自定义 | 前台 |
-| 18 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 19 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
-| 20 | [挂起](#实体行为-挂起（Suspend）) | Suspend | 用户自定义 | 后台及前台 |
-| 21 | [移除成员](#实体行为-移除成员（UnlinkMember）) | UnlinkMember | 用户自定义 | 后台及前台 |
-| 22 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
-| 23 | [根据结束日期更新可用工作日](#实体行为-根据结束日期更新可用工作日（UpdateCycle）) | UpdateCycle | 用户自定义 | 前台 |
-| 24 | [排序](#实体行为-排序（UpdateOrder）) | UpdateOrder | 用户自定义 | 后台及前台 |
-| 25 | [更新项目周期及可用工作日](#实体行为-更新项目周期及可用工作日（UpdateProjectCycle）) | UpdateProjectCycle | 用户自定义 | 前台 |
+| 2 | [CreateTemp](#实体行为-CreateTemp（CreateTemp）) | CreateTemp | 内置方法 | 前台 |
+| 3 | [CreateTempMajor](#实体行为-CreateTempMajor（CreateTempMajor）) | CreateTempMajor | 内置方法 | 前台 |
+| 4 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 5 | [UpdateTemp](#实体行为-UpdateTemp（UpdateTemp）) | UpdateTemp | 内置方法 | 前台 |
+| 6 | [UpdateTempMajor](#实体行为-UpdateTempMajor（UpdateTempMajor）) | UpdateTempMajor | 内置方法 | 前台 |
+| 7 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 8 | [RemoveTemp](#实体行为-RemoveTemp（RemoveTemp）) | RemoveTemp | 内置方法 | 前台 |
+| 9 | [RemoveTempMajor](#实体行为-RemoveTempMajor（RemoveTempMajor）) | RemoveTempMajor | 内置方法 | 前台 |
+| 10 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 11 | [GetTemp](#实体行为-GetTemp（GetTemp）) | GetTemp | 内置方法 | 前台 |
+| 12 | [GetTempMajor](#实体行为-GetTempMajor（GetTempMajor）) | GetTempMajor | 内置方法 | 前台 |
+| 13 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 14 | [GetDraftTemp](#实体行为-GetDraftTemp（GetDraftTemp）) | GetDraftTemp | 内置方法 | 前台 |
+| 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
+| 16 | [激活](#实体行为-激活（Activate）) | Activate | 用户自定义 | 后台及前台 |
+| 17 | [批量解除关联需求](#实体行为-批量解除关联需求（BatchUnlinkStory）) | BatchUnlinkStory | 用户自定义 | 后台及前台 |
+| 18 | [取消置顶](#实体行为-取消置顶（CancelProjectTop）) | CancelProjectTop | 实体处理逻辑 | 后台 |
+| 19 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 20 | [关闭](#实体行为-关闭（Close）) | Close | 用户自定义 | 后台及前台 |
+| 21 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
+| 22 | [团队管理](#实体行为-团队管理（ManageMembers）) | ManageMembers | 用户自定义 | 后台及前台 |
+| 23 | [移动端项目计数器](#实体行为-移动端项目计数器（MobProjectCount）) | MobProjectCount | 实体处理逻辑 | 后台 |
+| 24 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
+| 25 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
+| 26 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
+| 27 | [退出](#实体行为-退出（ReturnEdit）) | ReturnEdit | 用户自定义 | 前台 |
+| 28 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 29 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
+| 30 | [挂起](#实体行为-挂起（Suspend）) | Suspend | 用户自定义 | 后台及前台 |
+| 31 | [移除成员](#实体行为-移除成员（UnlinkMember）) | UnlinkMember | 用户自定义 | 后台及前台 |
+| 32 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
+| 33 | [根据结束日期更新可用工作日](#实体行为-根据结束日期更新可用工作日（UpdateCycle）) | UpdateCycle | 用户自定义 | 前台 |
+| 34 | [排序](#实体行为-排序（UpdateOrder）) | UpdateOrder | 用户自定义 | 后台及前台 |
+| 35 | [更新项目周期及可用工作日](#实体行为-更新项目周期及可用工作日（UpdateProjectCycle）) | UpdateProjectCycle | 用户自定义 | 前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -3595,6 +3697,30 @@ Create
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-CreateTemp（CreateTemp）
+#### 说明
+CreateTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-CreateTempMajor（CreateTempMajor）
+#### 说明
+CreateTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
 
 #### 逻辑附加
 无
@@ -3612,6 +3738,34 @@ Update
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[Update]主状态拒绝逻辑<br>（Update__MSDeny）](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | 检查 | 是 |  |
+### 实体行为-UpdateTemp（UpdateTemp）
+#### 说明
+UpdateTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [行为[UpdateTemp]主状态拒绝逻辑<br>（UpdateTemp__MSDeny）](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | 检查 | 是 |  |
+### 实体行为-UpdateTempMajor（UpdateTempMajor）
+#### 说明
+UpdateTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [行为[UpdateTempMajor]主状态拒绝逻辑<br>（UpdateTempMajor__MSDeny）](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -3626,6 +3780,34 @@ Remove
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[Remove]主状态拒绝逻辑<br>（Remove__MSDeny）](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | 检查 | 是 |  |
+### 实体行为-RemoveTemp（RemoveTemp）
+#### 说明
+RemoveTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [行为[RemoveTemp]主状态拒绝逻辑<br>（RemoveTemp__MSDeny）](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | 检查 | 是 |  |
+### 实体行为-RemoveTempMajor（RemoveTempMajor）
+#### 说明
+RemoveTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [行为[RemoveTempMajor]主状态拒绝逻辑<br>（RemoveTempMajor__MSDeny）](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -3640,6 +3822,30 @@ Get
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | [获取项目产品计划<br>（getProjectProductPlan）](#逻辑处理-获取项目产品计划（getProjectProductPlan）) | 执行之后 | 是 |  |
+### 实体行为-GetTemp（GetTemp）
+#### 说明
+GetTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-GetTempMajor（GetTempMajor）
+#### 说明
+GetTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -3649,6 +3855,30 @@ GetDraft
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-GetDraftTemp（GetDraftTemp）
+#### 说明
+GetDraftTemp
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
+### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
+#### 说明
+GetDraftTempMajor
+
+- 行为类型
+内置方法
+
+- 行为持有者
+前台
 
 #### 逻辑附加
 无
@@ -3908,10 +4138,14 @@ Save
 | 4 | [置顶](#逻辑处理-置顶（ProjectTop）) | ProjectTop | 后台 |
 | 5 | [获取项目产品计划](#逻辑处理-获取项目产品计划（getProjectProductPlan）) | getProjectProductPlan | 后台 |
 | 6 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
-| 7 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
-| 8 | [行为[UpdateCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateCycle]主状态拒绝逻辑（UpdateCycle__MSDeny）) | UpdateCycle__MSDeny | 后台 |
-| 9 | [行为[UpdateOrder]主状态拒绝逻辑](#逻辑处理-行为[UpdateOrder]主状态拒绝逻辑（UpdateOrder__MSDeny）) | UpdateOrder__MSDeny | 后台 |
-| 10 | [行为[UpdateProjectCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateProjectCycle]主状态拒绝逻辑（UpdateProjectCycle__MSDeny）) | UpdateProjectCycle__MSDeny | 后台 |
+| 7 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
+| 8 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
+| 9 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
+| 10 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
+| 11 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
+| 12 | [行为[UpdateCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateCycle]主状态拒绝逻辑（UpdateCycle__MSDeny）) | UpdateCycle__MSDeny | 后台 |
+| 13 | [行为[UpdateOrder]主状态拒绝逻辑](#逻辑处理-行为[UpdateOrder]主状态拒绝逻辑（UpdateOrder__MSDeny）) | UpdateOrder__MSDeny | 后台 |
+| 14 | [行为[UpdateProjectCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateProjectCycle]主状态拒绝逻辑（UpdateProjectCycle__MSDeny）) | UpdateProjectCycle__MSDeny | 后台 |
 
 ### 逻辑处理-取消置顶（CancelProjectTop）
 #### 说明
@@ -4007,6 +4241,48 @@ Save
 | 6 | 状态[已挂起_未置顶]拒绝[Update]操作 | DenyBysuspended_0 | 抛出异常 |
 | 7 | 状态[进行中_已置顶]拒绝[Update]操作 | DenyBydoing_1 | 抛出异常 |
 | 8 | 状态[已关闭_已置顶]拒绝[Update]操作 | DenyByclosed_1 | 抛出异常 |
+### 逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）
+#### 说明
+行为[UpdateTemp]主状态拒绝逻辑
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 状态[已挂起_已置顶]拒绝[UpdateTemp]操作 | DenyBysuspended_1 | 抛出异常 |
+| 3 | 状态[进行中_未置顶]拒绝[UpdateTemp]操作 | DenyBydoing_0 | 抛出异常 |
+| 4 | 状态[已挂起_未置顶]拒绝[UpdateTemp]操作 | DenyBysuspended_0 | 抛出异常 |
+| 5 | 状态[进行中_已置顶]拒绝[UpdateTemp]操作 | DenyBydoing_1 | 抛出异常 |
+| 6 | 状态[未开始_未置顶]拒绝[UpdateTemp]操作 | DenyBywait_0 | 抛出异常 |
+| 7 | 获取数据 | Get | 实体行为 |
+| 8 | 状态[未开始_已置顶]拒绝[UpdateTemp]操作 | DenyBywait_1 | 抛出异常 |
+| 9 | 状态[已关闭_未置顶]拒绝[UpdateTemp]操作 | DenyByclosed_0 | 抛出异常 |
+| 10 | 准备临时参数 | PrepareTemp | 准备参数 |
+| 11 | 状态[已关闭_已置顶]拒绝[UpdateTemp]操作 | DenyByclosed_1 | 抛出异常 |
+### 逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）
+#### 说明
+行为[UpdateTempMajor]主状态拒绝逻辑
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 准备临时参数 | PrepareTemp | 准备参数 |
+| 2 | 开始 | Begin | 开始 |
+| 3 | 状态[未开始_未置顶]拒绝[UpdateTempMajor]操作 | DenyBywait_0 | 抛出异常 |
+| 4 | 状态[进行中_未置顶]拒绝[UpdateTempMajor]操作 | DenyBydoing_0 | 抛出异常 |
+| 5 | 状态[未开始_已置顶]拒绝[UpdateTempMajor]操作 | DenyBywait_1 | 抛出异常 |
+| 6 | 状态[进行中_已置顶]拒绝[UpdateTempMajor]操作 | DenyBydoing_1 | 抛出异常 |
+| 7 | 状态[已关闭_已置顶]拒绝[UpdateTempMajor]操作 | DenyByclosed_1 | 抛出异常 |
+| 8 | 状态[已关闭_未置顶]拒绝[UpdateTempMajor]操作 | DenyByclosed_0 | 抛出异常 |
+| 9 | 状态[已挂起_已置顶]拒绝[UpdateTempMajor]操作 | DenyBysuspended_1 | 抛出异常 |
+| 10 | 状态[已挂起_未置顶]拒绝[UpdateTempMajor]操作 | DenyBysuspended_0 | 抛出异常 |
+| 11 | 获取数据 | Get | 实体行为 |
 ### 逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）
 #### 说明
 行为[Remove]主状态拒绝逻辑
@@ -4024,6 +4300,48 @@ Save
 | 5 | 开始 | Begin | 开始 |
 | 6 | 状态[已关闭_已置顶]拒绝[Remove]操作 | DenyByclosed_1 | 抛出异常 |
 | 7 | 状态[进行中_已置顶]拒绝[Remove]操作 | DenyBydoing_1 | 抛出异常 |
+### 逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）
+#### 说明
+行为[RemoveTemp]主状态拒绝逻辑
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 获取数据 | Get | 实体行为 |
+| 2 | 状态[未开始_未置顶]拒绝[RemoveTemp]操作 | DenyBywait_0 | 抛出异常 |
+| 3 | 状态[未开始_已置顶]拒绝[RemoveTemp]操作 | DenyBywait_1 | 抛出异常 |
+| 4 | 开始 | Begin | 开始 |
+| 5 | 准备临时参数 | PrepareTemp | 准备参数 |
+| 6 | 状态[已关闭_已置顶]拒绝[RemoveTemp]操作 | DenyByclosed_1 | 抛出异常 |
+| 7 | 状态[已关闭_未置顶]拒绝[RemoveTemp]操作 | DenyByclosed_0 | 抛出异常 |
+| 8 | 状态[进行中_已置顶]拒绝[RemoveTemp]操作 | DenyBydoing_1 | 抛出异常 |
+| 9 | 状态[已挂起_未置顶]拒绝[RemoveTemp]操作 | DenyBysuspended_0 | 抛出异常 |
+| 10 | 状态[已挂起_已置顶]拒绝[RemoveTemp]操作 | DenyBysuspended_1 | 抛出异常 |
+| 11 | 状态[进行中_未置顶]拒绝[RemoveTemp]操作 | DenyBydoing_0 | 抛出异常 |
+### 逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）
+#### 说明
+行为[RemoveTempMajor]主状态拒绝逻辑
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 状态[已挂起_已置顶]拒绝[RemoveTempMajor]操作 | DenyBysuspended_1 | 抛出异常 |
+| 2 | 准备临时参数 | PrepareTemp | 准备参数 |
+| 3 | 状态[进行中_未置顶]拒绝[RemoveTempMajor]操作 | DenyBydoing_0 | 抛出异常 |
+| 4 | 获取数据 | Get | 实体行为 |
+| 5 | 状态[已关闭_已置顶]拒绝[RemoveTempMajor]操作 | DenyByclosed_1 | 抛出异常 |
+| 6 | 状态[未开始_未置顶]拒绝[RemoveTempMajor]操作 | DenyBywait_0 | 抛出异常 |
+| 7 | 状态[已关闭_未置顶]拒绝[RemoveTempMajor]操作 | DenyByclosed_0 | 抛出异常 |
+| 8 | 状态[未开始_已置顶]拒绝[RemoveTempMajor]操作 | DenyBywait_1 | 抛出异常 |
+| 9 | 状态[已挂起_未置顶]拒绝[RemoveTempMajor]操作 | DenyBysuspended_0 | 抛出异常 |
+| 10 | 开始 | Begin | 开始 |
+| 11 | 状态[进行中_已置顶]拒绝[RemoveTempMajor]操作 | DenyBydoing_1 | 抛出异常 |
 ### 逻辑处理-行为[UpdateCycle]主状态拒绝逻辑（UpdateCycle__MSDeny）
 #### 说明
 行为[UpdateCycle]主状态拒绝逻辑
@@ -4120,6 +4438,7 @@ Save
 | 19 | [项目团队成员（ACCOUNT）](#属性-项目团队成员（ACCOUNT）) | `=` |
 | 20 | [选择部门（DEPT）](#属性-选择部门（DEPT）) | `=` |
 | 21 | [复制团队（MANAGEMEMBERS）](#属性-复制团队（MANAGEMEMBERS）) | `=` |
+| 22 | [支持项目汇报（SUPPROREPORT）](#属性-支持项目汇报（SUPPROREPORT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -4184,6 +4503,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
@@ -4245,6 +4565,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
@@ -4417,6 +4738,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
@@ -4858,6 +5180,7 @@ t1.`STATGE`,
 t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
 t1.`TEAM`,
 (SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,

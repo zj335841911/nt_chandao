@@ -47,6 +47,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('ibzmyterritory', () => import('@/app-core/auth-service/ibz-my-territory/ibz-my-territory-auth-service'));
         this.allService.set('case', () => import('@/app-core/auth-service/case/case-auth-service'));
         this.allService.set('testmodule', () => import('@/app-core/auth-service/test-module/test-module-auth-service'));
+        this.allService.set('ibzprojectteam', () => import('@/app-core/auth-service/ibzprojectteam/ibzprojectteam-auth-service'));
         this.allService.set('doclibmodule', () => import('@/app-core/auth-service/doc-lib-module/doc-lib-module-auth-service'));
         this.allService.set('sysupdatefeatures', () => import('@/app-core/auth-service/sys-update-features/sys-update-features-auth-service'));
         this.allService.set('doccontent', () => import('@/app-core/auth-service/doc-content/doc-content-auth-service'));
@@ -62,6 +63,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('systeam', () => import('@/app-core/auth-service/sys-team/sys-team-auth-service'));
         this.allService.set('bug', () => import('@/app-core/auth-service/bug/bug-auth-service'));
         this.allService.set('projectmodule', () => import('@/app-core/auth-service/project-module/project-module-auth-service'));
+        this.allService.set('ibzreportly', () => import('@/app-core/auth-service/ibz-reportly/ibz-reportly-auth-service'));
         this.allService.set('productstats', () => import('@/app-core/auth-service/product-stats/product-stats-auth-service'));
         this.allService.set('testtask', () => import('@/app-core/auth-service/test-task/test-task-auth-service'));
         this.allService.set('testsuite', () => import('@/app-core/auth-service/test-suite/test-suite-auth-service'));

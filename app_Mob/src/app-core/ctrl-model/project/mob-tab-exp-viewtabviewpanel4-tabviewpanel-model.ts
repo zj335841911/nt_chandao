@@ -237,6 +237,12 @@ export class MobTabExpViewtabviewpanel4Model {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

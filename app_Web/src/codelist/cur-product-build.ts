@@ -117,6 +117,7 @@ export default class CurProductBuild {
                 
                 
                 
+                
                 _items.push(itemdata);
             });
         }

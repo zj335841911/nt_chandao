@@ -67,6 +67,9 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IDocCurUserIsFLogic curuserisfLogic;
+    @Autowired
+    @Lazy
+    IDocService proxyService;
 
     protected int batchSize = 500;
 
@@ -131,6 +134,14 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean byVersionUpdateContextBatch(List<Doc> etList) {
+        for(Doc et : etList) {
+            byVersionUpdateContext(et);
+        }
+        return true;
+    }
 
     @Override
     public boolean checkKey(Doc et) {
@@ -142,12 +153,28 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean collectBatch(List<Doc> etList) {
+        for(Doc et : etList) {
+            collect(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
     public Doc getDocStatus(Doc et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean getDocStatusBatch(List<Doc> etList) {
+        for(Doc et : etList) {
+            getDocStatus(et);
+        }
+        return true;
     }
 
     @Override
@@ -156,12 +183,28 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean onlyCollectDocBatch(List<Doc> etList) {
+        for(Doc et : etList) {
+            onlyCollectDoc(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
     public Doc onlyUnCollectDoc(Doc et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean onlyUnCollectDocBatch(List<Doc> etList) {
+        for(Doc et : etList) {
+            onlyUnCollectDoc(et);
+        }
+        return true;
     }
 
     @Override
@@ -179,7 +222,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -187,7 +230,21 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Transactional
     public boolean saveBatch(Collection<Doc> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Doc> create = new ArrayList<>();
+        List<Doc> update = new ArrayList<>();
+        for (Doc et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -195,7 +252,21 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Transactional
     public void saveBatch(List<Doc> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Doc> create = new ArrayList<>();
+        List<Doc> update = new ArrayList<>();
+        for (Doc et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -203,6 +274,14 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     public Doc unCollect(Doc et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean unCollectBatch(List<Doc> etList) {
+        for(Doc et : etList) {
+            unCollect(et);
+        }
+        return true;
     }
 
 

@@ -94,9 +94,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'mycompletetaskmobmdviewweekly',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'weeklyplanstaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'stopmoboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'monthlymycompletetaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'dailydonetaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'activemobtask',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'cancelmoboptionview',srfappde:'tasks'});
@@ -105,14 +107,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'tasks'});
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'startmoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlyplanstaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'dailyplanstaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'commoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlydonetaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview1',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'monthlymyplanstaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gsmoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'weeklylydonetaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'mycompletetaskmobmdviewnextplanweekly',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'tasks'});
@@ -339,18 +345,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -409,7 +415,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('工时成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -519,18 +524,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -579,18 +584,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -654,7 +659,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('继续成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -710,18 +714,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -785,7 +789,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('完成成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -851,7 +854,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('暂停成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -917,7 +919,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('开始成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
@@ -973,18 +974,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1095,18 +1096,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1155,18 +1156,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1220,18 +1221,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1342,18 +1343,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1407,18 +1408,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1464,18 +1465,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1526,18 +1527,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -1586,18 +1587,18 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]

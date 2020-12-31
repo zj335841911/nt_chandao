@@ -130,11 +130,11 @@ export class ProductModuleGridViewBase extends GridViewBase {
      * @memberof ProductModuleGridView
      */
     public toolBarModels: any = {
-        deuiaction1_syncfromibiz: { name: 'deuiaction1_syncfromibiz', caption: '同步', 'isShowCaption': true, 'isShowIcon': true, tooltip: '同步', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SyncFromIBIZ', target: 'NONE', class: '' } },
+        deuiaction1_syncfromibiz: { name: 'deuiaction1_syncfromibiz', caption: 'entities.productmodule.gridviewtoolbar_toolbar.deuiaction1_syncfromibiz.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.productmodule.gridviewtoolbar_toolbar.deuiaction1_syncfromibiz.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SyncFromIBIZ', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'NewRow', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.productmodule.gridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.productmodule.gridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveRow', target: '', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: 'entities.productmodule.gridviewtoolbar_toolbar.deuiaction3.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.productmodule.gridviewtoolbar_toolbar.deuiaction3.tip', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 

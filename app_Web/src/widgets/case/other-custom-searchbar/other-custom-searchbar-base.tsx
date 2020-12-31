@@ -86,6 +86,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'titlelike': {
             label: '用例标题',
+            localetag: 'entities.case.fields.title',
             name: 'titlelike',
             prop: 'title',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'typeeq': {
             label: '用例类型',
+            localetag: 'entities.case.fields.type',
             name: 'typeeq',
             prop: 'type',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'prieq': {
             label: '优先级',
+            localetag: 'entities.case.fields.pri',
             name: 'prieq',
             prop: 'pri',
             mode: 'EQ',
@@ -107,6 +110,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'status1eq': {
             label: '用例状态',
+            localetag: 'entities.case.fields.status1',
             name: 'status1eq',
             prop: 'status1',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'assignedtoeq': {
             label: '指派给',
+            localetag: 'entities.case.fields.assignedto',
             name: 'assignedtoeq',
             prop: 'assignedto',
             mode: 'EQ',
@@ -121,6 +126,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'brancheq': {
             label: '平台/分支',
+            localetag: 'entities.case.fields.branch',
             name: 'brancheq',
             prop: 'branch',
             mode: 'EQ',
@@ -128,6 +134,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'coloreq': {
             label: '标题颜色',
+            localetag: 'entities.case.fields.color',
             name: 'coloreq',
             prop: 'color',
             mode: 'EQ',
@@ -135,6 +142,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'frameeq': {
             label: '工具/框架',
+            localetag: 'entities.case.fields.frame',
             name: 'frameeq',
             prop: 'frame',
             mode: 'EQ',
@@ -142,6 +150,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'frequencyeq': {
             label: 'frequency',
+            localetag: 'entities.case.fields.frequency',
             name: 'frequencyeq',
             prop: 'frequency',
             mode: 'EQ',
@@ -149,6 +158,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'frombugeq': {
             label: '来源Bug',
+            localetag: 'entities.case.fields.frombug',
             name: 'frombugeq',
             prop: 'frombug',
             mode: 'EQ',
@@ -156,6 +166,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'fromcaseideq': {
             label: '来源用例',
+            localetag: 'entities.case.fields.fromcaseid',
             name: 'fromcaseideq',
             prop: 'fromcaseid',
             mode: 'EQ',
@@ -163,6 +174,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'lastrunnereq': {
             label: '执行人',
+            localetag: 'entities.case.fields.lastrunner',
             name: 'lastrunnereq',
             prop: 'lastrunner',
             mode: 'EQ',
@@ -170,6 +182,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'lastrunresult1eq': {
             label: '测试用例结果',
+            localetag: 'entities.case.fields.lastrunresult1',
             name: 'lastrunresult1eq',
             prop: 'lastrunresult1',
             mode: 'EQ',
@@ -177,6 +190,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'libnameeq': {
             label: '用例库',
+            localetag: 'entities.case.fields.libname',
             name: 'libnameeq',
             prop: 'libname',
             mode: 'EQ',
@@ -184,6 +198,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'libnamelike': {
             label: '用例库',
+            localetag: 'entities.case.fields.libname',
             name: 'libnamelike',
             prop: 'libname',
             mode: 'LIKE',
@@ -191,6 +206,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'modulenameeq': {
             label: '模块名称',
+            localetag: 'entities.case.fields.modulename',
             name: 'modulenameeq',
             prop: 'modulename',
             mode: 'EQ',
@@ -198,6 +214,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'modulenamelike': {
             label: '模块名称',
+            localetag: 'entities.case.fields.modulename',
             name: 'modulenamelike',
             prop: 'modulename',
             mode: 'LIKE',
@@ -205,6 +222,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'openedbyeq': {
             label: '由谁创建',
+            localetag: 'entities.case.fields.openedby',
             name: 'openedbyeq',
             prop: 'openedby',
             mode: 'EQ',
@@ -212,6 +230,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'productnameeq': {
             label: '产品名称',
+            localetag: 'entities.case.fields.productname',
             name: 'productnameeq',
             prop: 'productname',
             mode: 'EQ',
@@ -219,6 +238,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'productnamelike': {
             label: '产品名称',
+            localetag: 'entities.case.fields.productname',
             name: 'productnamelike',
             prop: 'productname',
             mode: 'LIKE',
@@ -226,6 +246,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'storynameeq': {
             label: '需求名称',
+            localetag: 'entities.case.fields.storyname',
             name: 'storynameeq',
             prop: 'storyname',
             mode: 'EQ',
@@ -233,6 +254,7 @@ export class OtherCustomSearchbarBase extends MainControlBase {
         },
         'storynamelike': {
             label: '需求名称',
+            localetag: 'entities.case.fields.storyname',
             name: 'storynamelike',
             prop: 'storyname',
             mode: 'LIKE',

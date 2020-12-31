@@ -345,7 +345,10 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `in(...)` |
+| 2 | `notin(...)` |
 
 #### 关系属性
 无
@@ -1490,11 +1493,13 @@ Save
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [真实姓名（REALNAME）](#属性-真实姓名（REALNAME）) | `%like%` |
-| 2 | [所属部门（DEPT）](#属性-所属部门（DEPT）) | `=` |
-| 3 | [职位（ROLE）](#属性-职位（ROLE）) | `=` |
-| 4 | [clientStatus（CLIENTSTATUS）](#属性-clientStatus（CLIENTSTATUS）) | `=` |
-| 5 | [性别（GENDER）](#属性-性别（GENDER）) | `=` |
+| 1 | [账户（ACCOUNT）](#属性-账户（ACCOUNT）) | `in(...)` |
+| 2 | [账户（ACCOUNT）](#属性-账户（ACCOUNT）) | `notin(...)` |
+| 3 | [真实姓名（REALNAME）](#属性-真实姓名（REALNAME）) | `%like%` |
+| 4 | [所属部门（DEPT）](#属性-所属部门（DEPT）) | `=` |
+| 5 | [职位（ROLE）](#属性-职位（ROLE）) | `=` |
+| 6 | [clientStatus（CLIENTSTATUS）](#属性-clientStatus（CLIENTSTATUS）) | `=` |
+| 7 | [性别（GENDER）](#属性-性别（GENDER）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

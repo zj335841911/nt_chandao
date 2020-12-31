@@ -145,6 +145,12 @@ public class IBZProStoryResource {
         ibzprostorydto = ibzprostoryMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzprostorydto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-SyncFromIBIZ-all')")
+    @ApiOperation(value = "批量处理[同步Ibz平台需求]", tags = {"需求" },  notes = "批量处理[同步Ibz平台需求]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostories/{ibzprostory_id}/syncfromibizbatch")
+    public ResponseEntity<Boolean> syncFromIBIZBatch(@RequestBody List<IBZProStoryDTO> ibzprostorydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibzprostoryService.syncFromIBIZBatch(ibzprostoryMapping.toDomain(ibzprostorydtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"需求" } ,notes = "获取数据集")

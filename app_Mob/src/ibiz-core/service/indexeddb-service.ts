@@ -27,7 +27,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         if (IndexedDBService.instance) {
             return IndexedDBService.instance;
         }
-        super('Dec 6, 2020');
+        super('2020-12-31');
     }
 
     /**
@@ -70,6 +70,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'ibzmyterritory', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'case', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'testmodule', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzprojectteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'doclibmodule', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysupdatefeatures', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'doccontent', keyPath: 'srfsessionkey' });
@@ -85,6 +86,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'systeam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'bug', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectmodule', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzreportly', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productstats', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'testtask', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'testsuite', keyPath: 'srfsessionkey' });

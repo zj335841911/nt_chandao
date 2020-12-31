@@ -138,13 +138,13 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '需求名称 值不能为空',
+                    message: `${this.$t('entities.story.bugtostory_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '需求名称 值不能为空',
+                    message: `${this.$t('entities.story.bugtostory_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

@@ -48,11 +48,14 @@ public interface ISysEmployeeService {
     Page<SysEmployee> searchBugUser(SysEmployeeSearchContext context);
     Page<SysEmployee> searchContActList(SysEmployeeSearchContext context);
     Page<SysEmployee> searchDefault(SysEmployeeSearchContext context);
+    Page<SysEmployee> searchProductTeamM(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context);
+    Page<SysEmployee> searchProjectTeamMProduct(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamTaskUserTemp(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamUserTask(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectteamPk(SysEmployeeSearchContext context);
+    Page<SysEmployee> searchStoryProductTeamPK(SysEmployeeSearchContext context);
     Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context);
     Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context);
     List<SysEmployee> selectByMdeptid(String deptid);

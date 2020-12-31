@@ -669,6 +669,15 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String mdeptid;
 
+    /**
+     * 属性 [SUPPROREPORT]
+     *
+     */
+    @JSONField(name = "supproreport")
+    @JsonProperty("supproreport")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String supproreport;
+
 
     /**
      * 设置 [OPENEDVERSION]
@@ -886,6 +895,21 @@ public class ProjectDTO extends DTOBase implements Serializable {
         this.modify("parent",parent);
     }
 
+    /**
+     * 设置 [SUPPROREPORT]
+     */
+    public void setSupproreport(String  supproreport){
+        this.supproreport = supproreport ;
+        this.modify("supproreport",supproreport);
+    }
+
+
+    /**
+     *  [IBZ_PROJECTTEAMNEST]
+     */
+    @JsonProperty("ibzprojectteams")
+    @JSONField(name = "ibzprojectteams")
+	private List<IBZPROJECTTEAMDTO> projectteam ;
 
 }
 

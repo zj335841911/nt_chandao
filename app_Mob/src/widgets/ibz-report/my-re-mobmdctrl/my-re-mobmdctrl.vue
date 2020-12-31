@@ -27,6 +27,9 @@ export default class MyRe extends MyReBase {
         if(Object.is(item.type,'weekly')){
             this.mdctrl_click('uc168ebb',item)
         }
+        if(Object.is(item.type,'reportly')){
+            this.mdctrl_click('u266c08f',item)
+        }
     }
 
     /**
@@ -49,7 +52,10 @@ export default class MyRe extends MyReBase {
         if (Object.is(tag, 'ub3137fd')) {
             this.mdctrl_ub3137fd_click();
         }
-        this.closeSlidings();
+        if (Object.is(tag, 'u266c08f')) {
+            this.mdctrl_u266c08f_click();
+        }
+        this.closeSlidings(item);
     }
 
     /**

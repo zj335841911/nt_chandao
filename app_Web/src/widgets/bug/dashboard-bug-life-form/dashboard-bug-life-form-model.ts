@@ -71,6 +71,16 @@ export default class DashboardBugLifeModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'resolvedby',
         prop: 'resolvedby',
         dataType: 'SSCODELIST',

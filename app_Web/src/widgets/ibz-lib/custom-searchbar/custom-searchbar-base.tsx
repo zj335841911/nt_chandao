@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'namelike': {
             label: '名称',
+            localetag: 'entities.ibzlib.fields.name',
             name: 'namelike',
             prop: 'name',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'typeeq': {
             label: '类型',
+            localetag: 'entities.ibzlib.fields.type',
             name: 'typeeq',
             prop: 'type',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'addedbyeq': {
             label: '由谁创建',
+            localetag: 'entities.ibzlib.fields.addedby',
             name: 'addedbyeq',
             prop: 'addedby',
             mode: 'EQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'lasteditedbyeq': {
             label: '最后编辑人',
+            localetag: 'entities.ibzlib.fields.lasteditedby',
             name: 'lasteditedbyeq',
             prop: 'lasteditedby',
             mode: 'EQ',

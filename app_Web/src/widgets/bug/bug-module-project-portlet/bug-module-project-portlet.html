@@ -2,7 +2,7 @@
     <p class="portlet-title">
         <span>
             
-            Bug模块分布
+            {{ $t('entities.bug.bugmodule_project_portlet.bugmodule_project.title') }}
         </span>
     </p>
     <div class="portlet-with-title">
@@ -14,7 +14,7 @@
           fetchAction="FetchBuildProduceBugModule_Project"
           :showBusyIndicator="true" 
           name="dashboard_BugModuleProject_chart"  
-          ref="dashboard_BugModuleProject_chart" 
+          ref="dashboard_BugModuleProject_chart"
           @closeview="closeView($event)">
       </view_dashboard_BugModuleProject_chart>
     </div>

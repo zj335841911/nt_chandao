@@ -1,7 +1,7 @@
 <template>
   <div class="app-mob-rich-text-editor" @click="open">
     <div class="rich-text-editor-info" v-html="reValue"></div>
-    <ion-icon class="app-mob-rich-text-editor-icon" v-if="!reValue && !isInfoFormMode" name="options-outline" @click.stop="open"></ion-icon>
+    <app-mob-icon class="app-mob-rich-text-editor-icon" v-if="!reValue && !isInfoFormMode" name="options-outline" @onClick="open"></app-mob-icon>
   </div>
 </template>
 <script lang = 'ts'>

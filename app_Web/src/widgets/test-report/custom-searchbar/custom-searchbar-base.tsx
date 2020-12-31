@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'titlelike': {
             label: '标题',
+            localetag: 'entities.testreport.fields.title',
             name: 'titlelike',
             prop: 'title',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'objecttypeeq': {
             label: '对象类型',
+            localetag: 'entities.testreport.fields.objecttype',
             name: 'objecttypeeq',
             prop: 'objecttype',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnameeq': {
             label: '所属产品',
+            localetag: 'entities.testreport.fields.productname',
             name: 'productnameeq',
             prop: 'productname',
             mode: 'EQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'productnamelike': {
             label: '所属产品',
+            localetag: 'entities.testreport.fields.productname',
             name: 'productnamelike',
             prop: 'productname',
             mode: 'LIKE',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'projectnameeq': {
             label: '所属项目',
+            localetag: 'entities.testreport.fields.projectname',
             name: 'projectnameeq',
             prop: 'projectname',
             mode: 'EQ',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'projectnamelike': {
             label: '所属项目',
+            localetag: 'entities.testreport.fields.projectname',
             name: 'projectnamelike',
             prop: 'projectname',
             mode: 'LIKE',

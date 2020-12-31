@@ -51,6 +51,9 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.ISysUpdateLogService sysupdatelogService;
+    @Autowired
+    @Lazy
+    ISysUpdateFeaturesService proxyService;
 
     protected int batchSize = 500;
 
@@ -141,7 +144,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -149,7 +152,21 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean saveBatch(Collection<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<SysUpdateFeatures> create = new ArrayList<>();
+        List<SysUpdateFeatures> update = new ArrayList<>();
+        for (SysUpdateFeatures et : list) {
+            if (ObjectUtils.isEmpty(et.getSysupdatefeaturesid()) || ObjectUtils.isEmpty(getById(et.getSysupdatefeaturesid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -157,7 +174,21 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public void saveBatch(List<SysUpdateFeatures> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<SysUpdateFeatures> create = new ArrayList<>();
+        List<SysUpdateFeatures> update = new ArrayList<>();
+        for (SysUpdateFeatures et : list) {
+            if (ObjectUtils.isEmpty(et.getSysupdatefeaturesid()) || ObjectUtils.isEmpty(getById(et.getSysupdatefeaturesid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

@@ -3,15 +3,22 @@
         <ion-list class='app-mob-portlet  '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>图片滑动</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`app.views.${this.viewName.toLowerCase()}.imgswipestylemenu_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
-                    <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
+                    <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <div class="edit_title_btn" :style="edit_title_btn">
+                <app-mob-button
+                    :text="$t('app.button.cancel')"
+                    @click="onConfirmClick(false)" />
+                <app-mob-button 
+                    :tetx="$t('app.button.confirm')"
+                    @click="onConfirmClick(true)" />
+            </div>
                 <view_db_appmenu1_appmenu
     :viewState="viewState"
-    viewName="AppPortalView"  
+    viewName="AppPortalView"
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
@@ -150,6 +157,13 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
      * @memberof MyTaskMob
      */
     @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
+     * 多语言实体名称
+     *
+     * @memberof ImgswipeStyleMenu
+     */
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题
@@ -338,7 +352,7 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return '图片滑动'
+        return (this.$t(`app.views.${this.viewName.toLowerCase()}.imgswipestylemenu_portlet`) as string)
     }
 
     /**

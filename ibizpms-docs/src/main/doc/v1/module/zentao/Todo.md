@@ -35,7 +35,7 @@
 | 17 | [指派日期](#属性-指派日期（ASSIGNEDDATE）) | ASSIGNEDDATE | 日期型 | 否 | 否 | 是 |
 | 18 | [优先级](#属性-优先级（PRI）) | PRI | 整型 | 否 | 否 | 是 |
 | 19 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
-| 20 | [私人事务](#属性-私人事务（PRIVATE）) | PRIVATE | 单项选择(数值) | 否 | 否 | 是 |
+| 20 | [私人事务](#属性-私人事务（PRIVATE）) | PRIVATE | 多项选择(文本值) | 否 | 否 | 是 |
 | 21 | [config](#属性-config（CONFIG）) | CONFIG | 文本，可指定长度 | 否 | 否 | 是 |
 | 22 | [间隔天数](#属性-间隔天数（CONFIG_DAY）) | CONFIG_DAY | 整型 | 否 | 否 | 是 |
 | 23 | [提前](#属性-提前（CONFIG_BEFOREDAYS）) | CONFIG_BEFOREDAYS | 整型 | 否 | 否 | 是 |
@@ -816,10 +816,10 @@ yyyy-MM-dd
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-单项选择(数值)
+多项选择(文本值)
 
 - Java类型
-Integer
+String
 
 - 是否允许为空
 是
@@ -831,7 +831,7 @@ Integer
 | 值 | 0 |
 
 - 取值范围/公式
-参照数据字典【[是否（数值）（YesNo2）](../../codelist/YesNo2)】
+参照数据字典【[私人事务选择（Private_choose）](../../codelist/Private_choose)】
 
 - 数据格式
 无

@@ -55,6 +55,9 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetProjectDaysLogic getprojectdaysLogic;
+    @Autowired
+    @Lazy
+    IProjectTeamService proxyService;
 
     protected int batchSize = 500;
 
@@ -132,6 +135,14 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean getUserRoleBatch(List<ProjectTeam> etList) {
+        for(ProjectTeam et : etList) {
+            getUserRole(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
@@ -148,21 +159,49 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProjectTeam> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProjectTeam> create = new ArrayList<>();
+        List<ProjectTeam> update = new ArrayList<>();
+        for (ProjectTeam et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProjectTeam> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProjectTeam> create = new ArrayList<>();
+        List<ProjectTeam> update = new ArrayList<>();
+        for (ProjectTeam et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -175,9 +214,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         this.remove(new QueryWrapper<ProjectTeam>().eq("root", id));
     }
 
-    @Autowired
-    @Lazy
-    IProjectTeamService proxyService;
     @Override
     public void saveByRoot(Long id, List<ProjectTeam> list) {
         if (list == null) {

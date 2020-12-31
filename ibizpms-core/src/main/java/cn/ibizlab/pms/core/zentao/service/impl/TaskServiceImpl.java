@@ -103,6 +103,9 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateStoryVersion__MSDenyLogic updatestoryversion__msdenyLogic;
+    @Autowired
+    @Lazy
+    ITaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -164,62 +167,143 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Task activate(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).activate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean activateBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   activate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task assignTo(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).assignTo(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean assignToBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   assignTo(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task cancel(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).cancel(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean cancelBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   cancel(et);
+		 }
+	 	 return true;
     }
 
     @Override
     public boolean checkKey(Task et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Task close(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).close(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean closeBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   close(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task confirmStoryChange(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).confirmStoryChange(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean confirmStoryChangeBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   confirmStoryChange(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task deleteEstimate(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).deleteEstimate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean deleteEstimateBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   deleteEstimate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task editEstimate(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).editEstimate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean editEstimateBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   editEstimate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task finish(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).finish(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean finishBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   finish(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task getNextTeamUser(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).getNextTeamUser(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean getNextTeamUserBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   getNextTeamUser(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -228,12 +312,28 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean getTeamUserLeftActivityBatch(List<Task> etList) {
+        for(Task et : etList) {
+            getTeamUserLeftActivity(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
     public Task getTeamUserLeftStart(Task et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean getTeamUserLeftStartBatch(List<Task> etList) {
+        for(Task et : etList) {
+            getTeamUserLeftStart(et);
+        }
+        return true;
     }
 
     @Override
@@ -243,28 +343,64 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
          return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Task otherUpdate(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).otherUpdate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean otherUpdateBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   otherUpdate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task pause(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).pause(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean pauseBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   pause(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task recordEstimate(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).recordEstimate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean recordEstimateBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   recordEstimate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Task restart(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).restart(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean restartBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   restart(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -282,7 +418,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -290,7 +426,21 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public boolean saveBatch(Collection<Task> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Task> create = new ArrayList<>();
+        List<Task> update = new ArrayList<>();
+        for (Task et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -298,7 +448,21 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public void saveBatch(List<Task> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Task> create = new ArrayList<>();
+        List<Task> update = new ArrayList<>();
+        for (Task et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
       /**
@@ -315,6 +479,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 		}
 	  	return et;
 	}
+
+	@Override
+    @Transactional
+    public boolean sendMessageBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   sendMessage(et);
+		 }
+	 	 return true;
+    }
       /**
    * 发送消息前置处理逻辑。
    */
@@ -337,10 +510,28 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 	  	
 	  	return et;
 	}
-        @Override
+
+	@Override
+    @Transactional
+    public boolean sendMsgPreProcessBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   sendMsgPreProcess(et);
+		 }
+	 	 return true;
+    }
+       @Override
     @Transactional
     public Task start(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).start(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean startBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   start(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -355,6 +546,14 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     public Task taskForward(Task et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean taskForwardBatch(List<Task> etList) {
+        for(Task et : etList) {
+            taskForward(et);
+        }
+        return true;
     }
 
     @Override
@@ -500,6 +699,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     /**
+     * 查询集合 我代理的任务
+     */
+    @Override
+    public Page<Task> searchMyAgentTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyAgentTask(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 我完成的任务（汇报）
      */
     @Override
@@ -523,6 +731,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     public Page<Task> searchMyCompleteTaskMobMonthly(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMobMonthly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我完成的任务（月报展示）
+     */
+    @Override
+    public Page<Task> searchMyCompleteTaskMonthlyZS(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMonthlyZS(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -572,6 +789,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     /**
+     * 查询集合 移动端下周计划参与(汇报)
+     */
+    @Override
+    public Page<Task> searchNextWeekCompleteTaskMobZS(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekCompleteTaskMobZS(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 本周完成的任务(汇报)
      */
     @Override
@@ -608,11 +834,38 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     /**
+     * 查询集合 我本月完成的任务（下拉列表框）
+     */
+    @Override
+    public Page<Task> searchThisMonthCompleteTaskChoice(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisMonthCompleteTaskChoice(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 本周完成的任务(汇报)
      */
     @Override
     public Page<Task> searchThisWeekCompleteTask(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTask(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 本周已完成任务(下拉框选择)
+     */
+    @Override
+    public Page<Task> searchThisWeekCompleteTaskChoice(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskChoice(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 移动端本周已完成任务(汇报)
+     */
+    @Override
+    public Page<Task> searchThisWeekCompleteTaskMobZS(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskMobZS(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

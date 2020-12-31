@@ -731,6 +731,8 @@ export class ProductStoryKanBanKanbanBase extends MainControlBase {
                 return {
                     viewname: 'story-main-view',
                     title: this.$t('entities.story.views.mainview.title'),
+                    width: 1400,
+                    height: 850,
                     placement:'DRAWER_TOP'
                 };
             default:

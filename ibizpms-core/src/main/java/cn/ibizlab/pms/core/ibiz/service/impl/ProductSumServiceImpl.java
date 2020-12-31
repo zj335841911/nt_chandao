@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("ProductSumServiceImpl")
 public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, ProductSum> implements IProductSumService {
 
+    @Autowired
+    @Lazy
+    IProductSumService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProductSum> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductSum> create = new ArrayList<>();
+        List<ProductSum> update = new ArrayList<>();
+        for (ProductSum et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProductSum> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductSum> create = new ArrayList<>();
+        List<ProductSum> update = new ArrayList<>();
+        for (ProductSum et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -203,6 +234,15 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
     @Override
     public Page<ProductSum> searchProductStorycntAndPlancnt(ProductSumSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductStorycntAndPlancnt(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品Bug类型统计
+     */
+    @Override
+    public Page<ProductSum> searchProductSumBugType(ProductSumSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductSumBugType(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

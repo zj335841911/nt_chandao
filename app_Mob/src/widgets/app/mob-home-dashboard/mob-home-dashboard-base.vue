@@ -1,10 +1,10 @@
 <template>
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
-        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
+        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<app-mob-icon name="settings-outline"></app-mob-icon></div>
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet1
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet1"  
@@ -15,7 +15,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet2
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet2"  
@@ -26,7 +26,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet3
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet3"  
@@ -37,7 +37,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet5
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet5"  
@@ -48,7 +48,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet4
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet4"  
@@ -59,7 +59,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet6
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet6"  
@@ -70,7 +70,7 @@
             <ion-card class="dashboard-item view"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet7
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet7"  
@@ -81,7 +81,7 @@
             <ion-card class="dashboard-item chart"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet8
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet8"  
@@ -92,7 +92,7 @@
             <ion-card class="dashboard-item chart"  v-if="!isEnableCustomized">
             <view_dashboard_sysportlet9
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="MobDashboardView"
     :viewparams="viewparams" 
     :context="context" 
     name="dashboard_sysportlet9"  
@@ -102,7 +102,7 @@
             </ion-card>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item userCustomize ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
+                    <component :is="item.componentName" :viewName="viewName" localeDeName="ibzmyterritory"   :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
                 </ion-card>
             </template>
     </ion-grid>
@@ -114,7 +114,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+import IbzMyTerritoryEntityService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
 import MobHomeService from '@/app-core/ctrl-service/ibz-my-territory/mob-home-dashboard-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -223,7 +223,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
      * @type {IbzMyTerritoryService}
      * @memberof MobHome
      */
-    protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+    protected appEntityService: IbzMyTerritoryEntityService = new IbzMyTerritoryEntityService();
 
     /**
      * 界面UI服务对象
@@ -265,7 +265,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
     public getDatas(): any[] {
         return [];
     }
-
+    
     /**
      * modleId
      *

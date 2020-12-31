@@ -3,10 +3,10 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzDailymainEditViewBase } from './ibz-dailymain-edit-view-base';
-import view_form from '@widgets/ibz-daily/daily-edit-form/daily-edit-form.vue';
+import view_form from '@widgets/ibz-daily/edit-daily-edit-form-form/edit-daily-edit-form-form.vue';
 
 /**
- * 日报编辑视图（主数据）视图
+ * 日报编辑视图（编辑）视图
  *
  * @export
  * @class IbzDailymainEditView

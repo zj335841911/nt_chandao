@@ -1,9 +1,9 @@
 <template>
-<div class="view-container app-mob-pickup-mdview case-usr2-mob-pickup-mdview">
-    <div class="view-content">
+<ion-page class="view-container app-mob-pickup-mdview case-usr2-mob-pickup-mdview">
+    <ion-content class="view-content" :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
         <view_mdctrl
     :viewState="viewState"
-    viewName="CaseUsr2MobPickupMDView"  
+    viewName="Usr2MobPickupMDView"
     :viewparams="viewparams" 
     :context="context" 
     viewType="DEMOBPICKUPMDVIEW"
@@ -26,8 +26,8 @@
     @load="mdctrl_load($event)"  
     @closeview="closeView($event)">
 </view_mdctrl>
-    </div>
-</div>
+    </ion-content>
+</ion-page>
 </template>
 
 <script lang='ts'>
@@ -160,7 +160,7 @@ export default class CaseUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobPickupMDViewBase
      */
-    protected navContext: any = { 'task': '%testtask%' };
+    protected navContext: any = { 'task': '%task%' };
 
     /**
      * 视图导航参数
@@ -169,7 +169,7 @@ export default class CaseUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobPickupMDViewBase
      */
-    protected navParam: any = { 'task': '%testtask%' };
+    protected navParam: any = { 'task': '%task%' };
 
     /**
      * 视图模型数据
@@ -566,6 +566,70 @@ export default class CaseUsr2MobPickupMDViewBase extends Vue {
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
+    /**
+     * onScroll滚动事件
+     *
+     * @memberof CaseUsr2MobPickupMDViewBase
+     */
+    public async onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+                    let ionScroll :any= this.$refs.ionScroll;
+        if(ionScroll){
+            let ele =  await ionScroll.getScrollElement();
+            if(ele){
+                let scrollTop = ele.scrollTop;
+                let clientHeight = ele.clientHeight;
+                let scrollHeight = ele.scrollHeight;
+                if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                    let mdctrl:any = this.$refs.mdctrl; 
+                    if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
+                        mdctrl.loadBottom();
+                    }           
+                }
+            }
+        }
+
+    }
+
+    /**
+     * onScroll滚动结束事件
+     *
+     * @memberof CaseUsr2MobPickupMDViewBase
+     */
+    public onScrollEnd(){
+        this.isScrollStop = true;
+    }
+
+    /**
+     * 返回顶部
+     *
+     * @memberof CaseUsr2MobPickupMDViewBase
+     */
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
+        }
+    }
+
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof CaseUsr2MobPickupMDViewBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof CaseUsr2MobPickupMDViewBase
+     */
+    public isScrollStop = true;
 
 
    /**

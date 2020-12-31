@@ -3,7 +3,7 @@
     <div class="view-content">
         <view_tree
     :viewState="viewState"
-    viewName="SysEmployeeMobPickupTreeView"  
+    viewName="MobPickupTreeView"
     :viewparams="viewparams" 
     :context="context" 
     :isOptional="false"
@@ -584,7 +584,7 @@ export default class SysEmployeeMobPickupTreeViewBase extends Vue {
      */
     public quickSearch(value:any){
         this.query = value;
-        this.viewState.next({tag:'mdctrl',action:'quicksearch',data: value});
+        this.viewState.next({tag:'tree',action:'quicksearch',data: value});
     }
 
     /**

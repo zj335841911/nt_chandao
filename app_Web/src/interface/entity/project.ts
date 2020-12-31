@@ -597,4 +597,20 @@ export interface Project {
      * @memberof Project
      */
     mdeptid?: any;
+
+    /**
+     * 项目团队成员
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    projectteams?: any;
+
+    /**
+     * 支持项目汇报
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    supproreport?: any;
 }

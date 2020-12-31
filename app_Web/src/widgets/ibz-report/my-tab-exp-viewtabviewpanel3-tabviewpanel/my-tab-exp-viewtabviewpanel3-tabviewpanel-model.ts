@@ -87,6 +87,9 @@ export default class MyTabExpViewtabviewpanel3Model {
       {
         name: 'submittime',
       },
+      {
+        name: 'reportlycnt',
+      },
     ]
   }
 

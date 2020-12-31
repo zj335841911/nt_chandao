@@ -1,65 +1,73 @@
 <template>
   <ion-page :className="{ 'view-container': true,'app-setting': true}">
-    <ion-header v-if="titleStatus">
-      <ion-toolbar class="ionoc-view-header">
-        <ion-title class="view-title">
-          <label class="title-label">设置</label>
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
     <div class="content">
       <ion-list class="content-list content-list-top">
         <template v-for="item in data.top">
-          <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
-            <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.showtext}}</div>
-              <ion-icon
-                v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
-                name="chevron-forward-outline"
-              ></ion-icon>
-              <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
-              <div
-                v-if="item.name == 'accountInformation'"
-                class="content-list-item-content-text"
-              >{{srfloginname}}</div>
-            </div>
-          </ion-item>
+            <template v-if="!item.component">
+                <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
+                    <div class="content-list-item-content">
+                    <div class="content-list-item-content-text">{{item.showtext}}</div>
+                    <app-mob-icon
+                        v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
+                        name="chevron-forward-outline"
+                    ></app-mob-icon>
+                    <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
+                    <div
+                        v-if="item.name == 'accountInformation'"
+                        class="content-list-item-content-text"
+                    >{{srfloginname}}</div>
+                    </div>
+                </ion-item>
+            </template>
+            <template v-else>
+                <component :key="item.name" :is="item.component"></component>
+            </template>
         </template>
       </ion-list>
       <ion-list class="content-list content-list-center">
         <template v-for="item in data.center">
-          <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
-            <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.showtext}}</div>
-              <ion-icon
-                v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
-                name="chevron-forward-outline"
-              ></ion-icon>
-              <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
-              <div
-                v-if="item.name == 'accountInformation'"
-                class="content-list-item-content-text"
-              >{{srfloginname}}</div>
-            </div>
-          </ion-item>
+            <template v-if="!item.component">
+                <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
+                    <div class="content-list-item-content">
+                    <div class="content-list-item-content-text">{{item.showtext}}</div>
+                    <app-mob-icon
+                        v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
+                        name="chevron-forward-outline"
+                    ></app-mob-icon>
+                    <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
+                    <div
+                        v-if="item.name == 'accountInformation'"
+                        class="content-list-item-content-text"
+                    >{{srfloginname}}</div>
+                    </div>
+                </ion-item>
+            </template>
+            <template v-else>
+                <component :key="item.name" :is="item.component"></component>
+            </template>
         </template>
       </ion-list>
       <ion-list class="content-list content-list-bottom">
         <template v-for="item in data.bottom">
-          <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
-            <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.showtext}}</div>
-              <ion-icon
-                v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
-                name="chevron-forward-outline"
-              ></ion-icon>
-              <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
-              <div
-                v-if="item.name == 'accountInformation'"
-                class="content-list-item-content-text"
-              >{{srfloginname}}</div>
-            </div>
-          </ion-item>
+            <template v-if="!item.component">
+                <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
+                    <div class="content-list-item-content">
+                    <div class="content-list-item-content-text">{{item.showtext}}</div>
+                    <app-mob-icon
+                        v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
+                        name="chevron-forward-outline"
+                    ></app-mob-icon>
+                    <app-mob-select-theme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-theme>
+                    <div
+                        v-if="item.name == 'accountInformation'"
+                        class="content-list-item-content-text"
+                    >{{srfloginname}}</div>
+                    </div>
+                </ion-item>
+            </template>
+            <template v-else>
+                <component :key="item.name" :is="item.component"></component>
+            </template>
         </template>
       </ion-list>
     </div>

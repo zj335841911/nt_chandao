@@ -14,9 +14,11 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.internal.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
+import org.springframework.util.DigestUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -39,8 +41,25 @@ public class UAAPipeResource {
     @Autowired
     private AuthTokenUtil jwtTokenUtil;
 
+    @Value("${ibiz.auth.pwencrymode:0}")
+    private int pwencrymode;
+
+    @Value("${ibiz.auth.ladp:false}")
+    private boolean ladp;
+
+
     @PostMapping("/v7/login")
     public AuthenticationInfo login(@Validated @RequestBody AuthorizationLogin authenticationLogin) {
+        if(!ladp) {
+            String pwd = authenticationLogin.getPassword();
+            authenticationLogin.getLoginname();
+            if (pwencrymode == 1) {
+                pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
+            } else if (pwencrymode == 2) {
+                pwd = DigestUtils.md5DigestAsHex(String.format("%1$s||%2$s", authenticationLogin.getUsername(), pwd).getBytes());
+            }
+            authenticationLogin.setPassword(pwd);
+        }
         AuthenticationInfo info = uaaFeignClient.v7Login(authenticationLogin);
 
         if (info == null) {
@@ -56,6 +75,31 @@ public class UAAPipeResource {
 
         log.info("登录成功！");
         return info;
+    }
+
+    @PostMapping("/v7/changepwd")
+    public Boolean changepwd(@Validated @RequestBody JSONObject jsonObject) {
+        if (!ladp) {
+            // 加密原密码和新密码
+            String oldPwd = jsonObject.getString("oldPwd");
+            String newPwd = jsonObject.getString("newPwd");
+
+            if (pwencrymode == 1) {
+                oldPwd = DigestUtils.md5DigestAsHex(oldPwd.getBytes());
+                newPwd = DigestUtils.md5DigestAsHex(newPwd.getBytes());
+            } else if (pwencrymode == 2) {
+                String userName = AuthenticationUser.getAuthenticationUser().getUsername();
+                oldPwd = DigestUtils.md5DigestAsHex(String.format("%1$s||%2$s", userName, oldPwd).getBytes());
+                newPwd = DigestUtils.md5DigestAsHex(String.format("%1$s||%2$s", userName, newPwd).getBytes());
+            }
+
+            jsonObject.put("oldPwd", oldPwd);
+            jsonObject.put("newPwd", newPwd);
+        }
+
+        // 调用uaa的接口更改密码
+        uaaFeignClient.changepwd(jsonObject);
+        return true;
     }
 
     @GetMapping(value = {"/uaa/open/dingtalk/access_token"})
@@ -111,7 +155,7 @@ public class UAAPipeResource {
         user2.setPermissionList(null);
 
 //        ztLogin(user.getLoginname(),token);
-        // 记录登陆日志
+        //        // 记录登陆日志
         recordLoginLog(user.getUsername());
 
         // 返回 token

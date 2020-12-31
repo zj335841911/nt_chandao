@@ -121,13 +121,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '模板标题 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '模板标题 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -135,13 +135,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '类型 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '类型 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -149,13 +149,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.content.required,
                     type: 'string',
-                    message: '模板 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.content')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.content.required,
                     type: 'string',
-                    message: '模板 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.content')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -163,13 +163,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.public.required,
                     type: 'string',
-                    message: '公开 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.public')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.public.required,
                     type: 'string',
-                    message: '公开 值不能为空',
+                    message: `${this.$t('entities.usertpl.main_form.details.public')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

@@ -140,11 +140,11 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      * @memberof CaseCurTestTaskGridView
      */
     public toolBarModels: any = {
-        deuiaction1_linkcasec: { name: 'deuiaction1_linkcasec', caption: '关联用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联用例', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'LinkCaseC', target: 'NONE', class: '' } },
+        deuiaction1_linkcasec: { name: 'deuiaction1_linkcasec', caption: 'entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction1_linkcasec.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction1_linkcasec.tip', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'LinkCaseC', target: 'NONE', class: '' } },
 
-        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction7: { name: 'deuiaction7', caption: 'entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction7.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction7.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
-        deuiaction3_togglefilter: { name: 'deuiaction3_togglefilter', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction3_togglefilter: { name: 'deuiaction3_togglefilter', caption: 'entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction3_togglefilter.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction3_togglefilter.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 
@@ -470,8 +470,8 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
         }
         const view: any = {
             viewname: 'case-main-dashboard-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.case.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };
@@ -524,6 +524,14 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
     public isEnableQuickGroup: boolean = true;
 
     /**
+     * 快速分组代码表标识
+     *
+     * @type {boolean}
+     * @memberof CaseCurTestTaskGridViewBase
+     */
+    public quickGroupCodelistTag: string = "";
+
+    /**
      * 加载快速分组模型
      *
      * @protected
@@ -531,6 +539,7 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'CaseTestTaskQuickpachet', codelistType: 'STATIC' };
+        this.quickGroupCodelistTag = quickGroupCodeList.tag ? quickGroupCodeList.tag : "";
         if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

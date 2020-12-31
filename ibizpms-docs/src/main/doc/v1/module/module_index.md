@@ -20,6 +20,12 @@ package iBiz增强模块 {
 class Bug统计 {
 }
 
+class 测试用例统计 {
+}
+
+class 公司动态汇总 {
+}
+
 class 文档库分类 {
 }
 
@@ -33,6 +39,9 @@ class 文档 {
 }
 
 class 实体 {
+}
+
+class 代理 {
 }
 
 class 测试用例 {
@@ -60,6 +69,9 @@ class 项目相关成员 {
 }
 
 class 置顶 {
+}
+
+class 产品团队 {
 }
 
 class 产品生命周期 {
@@ -644,6 +656,42 @@ class 系统模板 {
 class 运行生产系统 {
 }
 
+class 索引检索 {
+}
+
+class 产品日报 {
+}
+
+class 产品月报 {
+}
+
+class 产品周报 {
+}
+
+class 项目日报 {
+}
+
+class 项目月报 {
+}
+
+class 项目周报 {
+}
+
+class 计划模板 {
+}
+
+class 计划模板详情 {
+}
+
+class 系统配置表 {
+}
+
+class 产品汇报用户任务 {
+}
+
+class 项目汇报用户任务 {
+}
+
 
 平台产品 *-- 需求模块 
 
@@ -655,6 +703,9 @@ class 运行生产系统 {
 
 
 需求模块 *-- 需求 
+
+
+计划模板 *-- 计划模板详情 
 
 
 
@@ -698,10 +749,13 @@ class 日报 {
 class 月报 {
 }
 
-class 汇报 {
+class 汇报汇总 {
 }
 
 class 汇报角色配置 {
+}
+
+class 汇报 {
 }
 
 class 周报 {

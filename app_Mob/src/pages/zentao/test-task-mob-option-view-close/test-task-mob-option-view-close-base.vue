@@ -2,15 +2,15 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'test-task-mob-option-view-close': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="TestTaskMobOptionViewClose"  
+            viewName="MobOptionViewClose"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -34,8 +34,15 @@
     </ion-content>
     <ion-footer class="view-footer">
         <div class="option-view-btnbox">
-  <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
-  <ion-button class="option-btn success" @click="save">保存</ion-button> 
+  <app-mob-button 
+      class="option-btn medium" 
+      color="medium" 
+      :text="$t('app.button.cancel')"
+      @click="back" />
+  <app-mob-button 
+      class="option-btn success" 
+      :text="$t('app.button.confirm')"
+      @click="save" />
 </div>
 
     </ion-footer>

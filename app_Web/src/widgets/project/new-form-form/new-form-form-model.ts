@@ -91,6 +91,11 @@ export default class NewFormModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'supproreport',
+        prop: 'supproreport',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'srfarray',
         prop: 'srfarray',
         dataType: 'TEXT',

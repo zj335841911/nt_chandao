@@ -156,6 +156,9 @@ export default class TestTabExpViewtabviewpanel7Model {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

@@ -39,6 +39,9 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
     @Autowired
     IProductService productService;
 
+    @Autowired
+    private UserHelper userHelper;
+
     String[] diffAttrs = {"desc"};
 
     @Override
@@ -46,13 +49,20 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
     public boolean create(Product et) {
 
         // 校验产品名称和产品代号
-        String sql = "select * from zt_product where `name` = #{et.name} or `code` = #{et.code}";
+        String sql = "select * from zt_product where deleted = '0' and (`name` = #{et.name} or `code` = #{et.code})";
         Map<String,Object> param = new HashMap<>();
         param.put(FIELD_NAME, et.getName());
         param.put(FIELD_CODE, et.getCode());
         List<JSONObject> nameList = productService.select(sql,param);
+        JSONObject jsonObject = userHelper.getSettings();
+        String[] srfmstatus = jsonObject.getString("srfmstatus").split("_");
         if(!nameList.isEmpty() && nameList.size() > 0) {
-            throw new RuntimeException(String.format("[产品名称：%1$s]或[产品代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+            if("project".equals(srfmstatus[0])) {
+                throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+            }else {
+                throw new RuntimeException(String.format("[产品名称：%1$s]或[产品代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+            }
+
         }
         fileHelper.processImgURL(et, null, null);
         if (!this.retBool(this.baseMapper.insert(et))) {
@@ -70,7 +80,12 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         docLib.setOrgid(AuthenticationUser.getAuthenticationUser().getOrgid());
         docLib.setMdeptid(AuthenticationUser.getAuthenticationUser().getMdeptid());
         docLib.setProduct(et.getId());
-        docLib.setName("产品主库");
+        if("project".equals(srfmstatus[0])) {
+            docLib.setName("项目主库");
+        }else {
+            docLib.setName("产品主库");
+        }
+
         docLib.setMain(StaticDict.YesNo.ITEM_1.getValue());
         docLib.setAcl(StaticDict.Doclib__acl.DEFAULT.getValue());
         docLibHelper.create(docLib);

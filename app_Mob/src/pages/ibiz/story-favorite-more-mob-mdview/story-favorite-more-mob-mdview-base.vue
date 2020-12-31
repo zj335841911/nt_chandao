@@ -1,31 +1,32 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'story-favorite-more-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
-    viewName="StoryFavoriteMoreMobMDView"  
+    viewName="FavoriteMoreMobMDView"
     :viewparams="viewparams" 
     :context="context" 
      
@@ -48,8 +49,19 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+            <app-mob-button 
+            class="search-btn-item"
+            :text="$t('app.searchForm.searchButton.reset')" 
+            color="light" 
+            shape="round" 
+            size="small"
+            @click="onReset" />
+            <app-mob-button 
+            class="search-btn-item" 
+            shape="round" 
+            size="small" 
+            :text="$t('app.searchForm.searchButton.search')" 
+            @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>
@@ -57,7 +69,7 @@
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="StoryFavoriteMoreMobMDView"  
+            viewName="FavoriteMoreMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"
@@ -85,6 +97,9 @@
     </ion-content>
     <ion-footer class="view-footer">
         
+    <div class="scroll_tool">
+        <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+    </div>
     </ion-footer>
 </ion-page>
 </template>
@@ -581,7 +596,7 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -620,17 +635,17 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
-        let context = { ...this.context, ...contextJO };
+        let _context = { ...this.context, ...contextJO };
         if (args.length > 0) {
-            Object.assign(context, args[0]);
+            Object.assign(_context, args[0]);
         }
         let response: any = null;
         let panelNavParam = { } ;
         let panelNavContext = { } ;
         //导航参数处理
-        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -640,7 +655,7 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
@@ -774,7 +789,9 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

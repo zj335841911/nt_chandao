@@ -66,25 +66,6 @@
         }
     }
 }
-.fab_container{
-  width: 60px;
-  position: absolute;
-  bottom: 4px;
-  right: 16px;
-  ion-button {
-    width: 60px;
-    height: 60px;
-    position: relative;
-    padding: 0;
-    --border-radius:50% ;
-    --padding-bottom:0;
-    --padding-end:0;
-    --padding-start:0;
-    --padding-top:0;
-  }
-  .btn-out-text {
-    display:none;
-  }
   .popup {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -94,20 +75,6 @@
       display: flex;
       align-content: flex-start;
       flex-wrap: wrap;
-      .sub-item {
-        margin-top: 10px;
-        box-sizing: border-box;
-        flex: 0 0 25%;
-        height: 100px;
-        display: flex;
-        color: black;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        ion-button {
-          color: white !important;
-          border: 0 !important;
-        }
         .btn-inner-text {
           display:none;
         }
@@ -119,9 +86,7 @@
       .disabled {
         color: #a8a8a8;
       }
-    }
   }
-}
 
 .toolbar_group_right{
   position: absolute;
@@ -141,18 +106,12 @@ ion-backdrop {
 .ionlist{
   border-radius: @toolbar-group-border-radius;
 }
-.group_ion-icon{
-  margin-right: 10px;
-}
 .footer_group {
   position: absolute;
   z-index: 99;
   bottom: 67px;
   width: 40%;
   right: 20px;
-}
-.app-quick-toolbar{
-  text-align: center;
 }
 .bottom_button{
   position: relative;
@@ -200,9 +159,6 @@ ion-backdrop {
                       ion-icon {
                           font-size: @font-size-xs - 1;
                       }
-                      .sort-select{
-                        color: #3880ff;;
-                      }
                   }
               }
           }
@@ -215,12 +171,10 @@ ion-backdrop {
       }
   }
 }
-.filter-btn{
-  position: relative;
-    top: 5px;
-}
-
 .scroll_tool{
+  position: absolute;
+  bottom: 70px;
+  right: 45px;
   .scrollToTop{
     opacity: 1;
     position: relative;
@@ -243,22 +197,6 @@ ion-backdrop {
 
 
     .batch_btn{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #fff;
-        .batch_btn_content{
-          display: flex;
-          justify-self: center;
-          ion-button{
-            color: #505050;
-            --background: transparent;
-            font-size: 12px;
-            --color-activated:   #505050;
-            --background-activated: transparent;
-          }
-
-        }
         .selectal-label {
             padding-left: 15px;
             font-size: 13px;

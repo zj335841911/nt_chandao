@@ -245,48 +245,7 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
         let localViewParam:any =null;
-        const data: any = {};
-        if(args[0].srfsourcekey){
-            data.srfsourcekey = args[0].srfsourcekey;
-        }
-        if(fullargs && (fullargs as any).copymode) {
-            Object.assign(data, { copymode: (fullargs as any).copymode });
-        }
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        delete tempContext.task;
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        if(tempContext.story && true){
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-        ];
-        const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
-        }
-        const view: any = {
-            viewname: 'task-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.task.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 
 
@@ -332,8 +291,8 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
         }
         const view: any = {
             viewname: 'task-main-dashboard-view', 
-            height: 0, 
-            width: 1360,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.task.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };

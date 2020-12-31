@@ -317,16 +317,6 @@ export class MainInfoEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 新建默认值
-     * @memberof MainInfoEditFormBase
-     */
-    public createDefault() {                    
-        if (this.data.hasOwnProperty('date')) {
-            this.data['date'] = this.$util.dateFormat(new Date());
-        }
-    }
-
-    /**
      * 面板数据变化处理事件
      * @param {any} item 当前数据
      * @param {any} $event 面板事件数据

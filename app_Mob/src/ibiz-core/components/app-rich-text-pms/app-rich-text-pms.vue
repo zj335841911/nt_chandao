@@ -239,10 +239,12 @@ export default class AppRichTextEditor extends Vue {
    */
   public onClickOk(): void {
     if (this.resFile) {
+      let temp = this.resFile.imgsrc;
       this.backEndValue = this.resFile.imgsrc.replace(
         this.resFile.url,
         "{" + this.resFile.id + this.resFile.ext + "}"
       );
+      this.backEndValue = this.resloutValue.replace(temp,this.backEndValue)
       this.$emit("close", [
         { frontEnd: this.resloutValue, backEnd: this.backEndValue, noticeusers:this.account },
       ]);

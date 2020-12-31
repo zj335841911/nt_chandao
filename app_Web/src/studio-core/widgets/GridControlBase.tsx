@@ -591,6 +591,8 @@ export class GridControlBase extends MDControlBase {
         const page: any = {};
         if (this.isEnablePagingBar) {
             Object.assign(page, { page: this.curPage - 1, size: this.limit });
+        } else {
+            Object.assign(page, { size: this.limit });
         }
         // 设置排序
         if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
@@ -868,7 +870,7 @@ export class GridControlBase extends MDControlBase {
                 excel.export_json_to_excel({
                     header: tHeader, //表头 必填
                     data, //具体数据 必填
-                    filename: this.appDeLogicName + (this.$t('app.gridpage.grid') as string), //非必填
+                    filename: (this.$t('entities.'+this.appDeName+'.appdename') as string) + (this.$t('app.gridpage.grid') as string), //非必填
                     autoWidth: true, //非必填
                     bookType: 'xlsx', //非必填
                 });

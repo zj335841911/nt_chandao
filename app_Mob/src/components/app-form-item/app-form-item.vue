@@ -185,7 +185,7 @@ export default class AppFormItem extends Vue {
     get classes(): string[] {
         return [
             'app-form-item',
-            Object.is(this.labelPos, 'TOP') ? 'app-form-item-label-top item-label-floating' : '', this.required ? 'app-form-item-label-required' : 'app-form-item-label-notRequired', this.itemValue ? "item-has-value" : "", 'sc-ion-label-ios-h', 'sc-ion-label-ios-s ', 'ios', ' hydrated'
+            Object.is(this.labelPos, 'TOP') ? 'app-form-item-label-top item-label-floating' : '', this.required ? 'app-form-item-label-required' : 'app-form-item-label-notRequired', this.itemValue!= null && this.itemValue !=undefined ? "item-has-value" : "", 'sc-ion-label-ios-h', 'sc-ion-label-ios-s ', 'ios', ' hydrated'
         ];
     }
 

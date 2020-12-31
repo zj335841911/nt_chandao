@@ -1,14 +1,8 @@
-export default {
-  fields: {
-    userroleid: "用户角色关系标识",
-    roleid: "角色标识",
-    rolename: "角色名称",
-    userid: "用户标识",
-    personname: "用户名称",
-    loginname: "登录名",
-    orgname: "单位",
-    mdeptname: "主部门",
-    createdate: "建立时间",
-    updatedate: "更新时间",
-  },
-};
+import SysUserRole_zh_CN_Base from './sys-user-role_zh_CN_base';
+
+function getLocaleResource(){
+    const SysUserRole_zh_CN_OwnData = {};
+    const targetData = Object.assign(SysUserRole_zh_CN_Base(), SysUserRole_zh_CN_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

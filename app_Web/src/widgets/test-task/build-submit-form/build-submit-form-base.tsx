@@ -132,13 +132,13 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.buildname.required,
                     type: 'string',
-                    message: '版本 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.buildname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.buildname.required,
                     type: 'string',
-                    message: '版本 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.buildname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -146,13 +146,13 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.begin.required,
                     type: 'string',
-                    message: '开始日期 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.begin')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.begin.required,
                     type: 'string',
-                    message: '开始日期 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.begin')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -160,13 +160,13 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.end.required,
                     type: 'string',
-                    message: '结束日期 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.end')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.end.required,
                     type: 'string',
-                    message: '结束日期 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.end')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -174,13 +174,13 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '名称 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '名称 值不能为空',
+                    message: `${this.$t('entities.testtask.buildsubmit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

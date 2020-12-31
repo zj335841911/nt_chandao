@@ -45,9 +45,11 @@ public interface ITeamService extends IService<Team> {
     Team getDraft(Team et);
     boolean checkKey(Team et);
     Team managePorjectMembers(Team et);
+    boolean managePorjectMembersBatch(List<Team> etList);
     boolean save(Team et);
     void saveBatch(List<Team> list);
     Team unlinkPorjectMember(Team et);
+    boolean unlinkPorjectMemberBatch(List<Team> etList);
     Page<Team> searchDefault(TeamSearchContext context);
     /**
      * 自定义查询SQL

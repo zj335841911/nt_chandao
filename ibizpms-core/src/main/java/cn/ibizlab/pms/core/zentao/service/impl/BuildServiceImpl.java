@@ -67,6 +67,9 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IBuildMobProjectBuildCounterLogic mobprojectbuildcounterLogic;
+    @Autowired
+    @Lazy
+    IBuildService proxyService;
 
     protected int batchSize = 500;
 
@@ -127,10 +130,19 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public boolean checkKey(Build et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Build linkStory(Build et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BuildHelper.class).linkStory(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean linkStoryBatch (List<Build> etList) {
+		 for(Build et : etList) {
+		   linkStory(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -145,6 +157,14 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public Build oneClickRelease(Build et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean oneClickReleaseBatch(List<Build> etList) {
+        for(Build et : etList) {
+            oneClickRelease(et);
+        }
+        return true;
     }
 
     @Override
@@ -162,7 +182,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -170,7 +190,21 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Transactional
     public boolean saveBatch(Collection<Build> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Build> create = new ArrayList<>();
+        List<Build> update = new ArrayList<>();
+        for (Build et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -178,7 +212,21 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Transactional
     public void saveBatch(List<Build> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Build> create = new ArrayList<>();
+        List<Build> update = new ArrayList<>();
+        for (Build et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

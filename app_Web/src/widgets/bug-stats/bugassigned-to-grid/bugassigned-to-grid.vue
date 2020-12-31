@@ -18,13 +18,13 @@
                 <template v-if="!isSingleSelect">
                     <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
                 </template>
-                <template>
-                    <el-table-column show-overflow-tooltip prop="group" label="分组" :min-width="80">
-                        <template v-slot="{row,column,$index}">
-                            <span>{{ row.group }}</span>
-                        </template>
-                    </el-table-column>
-                </template>
+<!--                <template>-->
+<!--                    <el-table-column show-overflow-tooltip prop="group" label="分组" :min-width="80">-->
+<!--                        <template v-slot="{row,column,$index}">-->
+<!--                            <span>{{ row.group }}</span>-->
+<!--                        </template>-->
+<!--                    </el-table-column>-->
+<!--                </template>-->
                 <template v-if="getColumnState('assignedto')">
                     <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.bugstats.bugassignedto_grid.columns.assignedto')" :width="200"  :align="'center'">
                         <template slot="header">

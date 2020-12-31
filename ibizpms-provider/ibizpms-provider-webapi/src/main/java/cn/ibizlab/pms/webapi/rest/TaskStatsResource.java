@@ -157,6 +157,28 @@ public class TaskStatsResource {
                 .body(new PageImpl(taskstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-searchTaskFinishHuiZong-all')")
+	@ApiOperation(value = "获取任务完成汇总表", tags = {"任务统计" } ,notes = "获取任务完成汇总表")
+    @RequestMapping(method= RequestMethod.GET , value="/taskstats/fetchtaskfinishhuizong")
+	public ResponseEntity<List<TaskStatsDTO>> fetchTaskFinishHuiZong(TaskStatsSearchContext context) {
+        Page<TaskStats> domains = taskstatsService.searchTaskFinishHuiZong(context) ;
+        List<TaskStatsDTO> list = taskstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-searchTaskFinishHuiZong-all')")
+	@ApiOperation(value = "查询任务完成汇总表", tags = {"任务统计" } ,notes = "查询任务完成汇总表")
+    @RequestMapping(method= RequestMethod.POST , value="/taskstats/searchtaskfinishhuizong")
+	public ResponseEntity<Page<TaskStatsDTO>> searchTaskFinishHuiZong(@RequestBody TaskStatsSearchContext context) {
+        Page<TaskStats> domains = taskstatsService.searchTaskFinishHuiZong(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-searchUserFinishTaskSum-all')")
 	@ApiOperation(value = "获取用户完成任务统计", tags = {"任务统计" } ,notes = "获取用户完成任务统计")
     @RequestMapping(method= RequestMethod.GET , value="/taskstats/fetchuserfinishtasksum")

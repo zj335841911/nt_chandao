@@ -107,6 +107,28 @@ export class MyWorkModel {
                         },
                     ];
                 break;
+            case "daily":
+                dataItems = 
+                    [
+                        ...dataItems,
+                        {
+                            name: 'ibzdaily',
+                            prop: 'ibzdailyid'
+                        },
+                        {
+                            name: 'title',
+                            prop: 'ibzdailyname'
+                        },
+                        {
+                            name:'start',
+                            prop:'n_date_gtandeq'
+                        },
+                        {
+                            name:'end',
+                            prop:'n_date_ltandeq'
+                        },
+                    ];
+                break;
         }
         return dataItems;
 	}

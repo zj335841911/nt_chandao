@@ -119,13 +119,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '用例标题 值不能为空',
+                    message: `${this.$t('entities.case.main_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '用例标题 值不能为空',
+                    message: `${this.$t('entities.case.main_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

@@ -36,7 +36,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.date"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -94,9 +92,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzmonthly' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-monthly-my-complete-task-mob-mdview' 
+    viewname='task-monthly-done-task-mob-mdview' 
     v-show="detailsModel.druipart3.visible" 
     :caption="$t('ibzmonthly.monthlyinfodingding_form.details.druipart3')"  
     paramItem='ibzmonthly' 
@@ -160,9 +158,9 @@
 <app-form-druipart
     class='' 
     parameterName='ibzmonthly' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-monthly-my-plans-task-mob-mdview' 
+    viewname='task-monthly-plans-task-mob-mdview' 
     v-show="detailsModel.druipart4.visible" 
     :caption="$t('ibzmonthly.monthlyinfodingding_form.details.druipart4')"  
     paramItem='ibzmonthly' 
@@ -248,7 +246,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.reportto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -279,7 +276,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.mailto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -343,7 +339,7 @@
     v-show="detailsModel.grouppanel2.visible" 
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
     :caption="$t('ibzmonthly.monthlyinfodingding_form.details.grouppanel2')" 
-    :isShowCaption="false" 
+    :isShowCaption="true" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
@@ -392,7 +388,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import IbzMonthlyEntityService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
 import MonthlyInfoDingDingService from '@/app-core/ctrl-service/ibz-monthly/monthly-info-ding-ding-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -504,7 +500,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
      * @type {IbzMonthlyService}
      * @memberof MonthlyInfoDingDing
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzMonthlyEntityService = new IbzMonthlyEntityService();
 
     /**
      * 界面UI服务对象
@@ -601,6 +597,14 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
      * @memberof MonthlyInfoDingDing
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -859,7 +863,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
 , 
         druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel4: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
+        grouppanel4: new FormGroupPanelModel({ caption: '计划参与', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
 , 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
@@ -867,7 +871,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
 , 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '操作记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '月报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.monthlyinfodingding_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1240,7 +1244,9 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`ibzmonthly.monthlyinfodingding_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1467,6 +1473,9 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
      *  @memberof MonthlyInfoDingDing
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.ibzmonthly});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1517,7 +1526,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
                 if(!Object.is(name,"IbzMonthly")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzmonthly){
                     this.refresh([data]);
                 }
             })
@@ -1743,6 +1752,7 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ ibzmonthlyname: arg.ibzmonthlyname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1821,10 +1831,9 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"IbzMonthly",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1848,10 +1857,9 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"IbzMonthly",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }
@@ -1995,9 +2003,6 @@ export default class MonthlyInfoDingDingBase extends Vue implements ControlInter
      * @memberof MonthlyInfoDingDing
      */
     public createDefault(){                    
-            if (this.data.hasOwnProperty('date')) {
-                    this.data['date'] = this.$util.dateFormat(new Date());
-            }
     }
 
         /**

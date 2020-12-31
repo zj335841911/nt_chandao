@@ -141,6 +141,12 @@ public class ProductResource {
         productdto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
+    @ApiOperation(value = "批量处理[关闭]", tags = {"产品" },  notes = "批量处理[关闭]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/closebatch")
+    public ResponseEntity<Boolean> closeBatch(@RequestBody List<ProductDTO> productdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(productService.closeBatch(productMapping.toDomain(productdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductCounter-all')")
     @ApiOperation(value = "产品移动端计数器方法", tags = {"产品" },  notes = "产品移动端计数器方法")
@@ -340,6 +346,28 @@ public class ProductResource {
     @RequestMapping(method= RequestMethod.POST , value="/products/searchproductpm")
 	public ResponseEntity<Page<ProductDTO>> searchProductPM(@RequestBody ProductSearchContext context) {
         Page<Product> domains = productService.searchProductPM(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductTeam-all') and hasPermission(#context,'pms-Product-Get')")
+	@ApiOperation(value = "获取产品团队", tags = {"产品" } ,notes = "获取产品团队")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchproductteam")
+	public ResponseEntity<List<ProductDTO>> fetchProductTeam(ProductSearchContext context) {
+        Page<Product> domains = productService.searchProductTeam(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductTeam-all') and hasPermission(#context,'pms-Product-Get')")
+	@ApiOperation(value = "查询产品团队", tags = {"产品" } ,notes = "查询产品团队")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchproductteam")
+	public ResponseEntity<Page<ProductDTO>> searchProductTeam(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchProductTeam(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

@@ -1,11 +1,11 @@
 <template>
     <div class="html-outer">
-        <div class="html-container"  v-html="rHtml" ref="outer" @click="handleClick"></div>
+        <div class="html-container" v-html="rHtml" ref="outer" @click="handleClick"></div>
         <div  class="src-canvas">
             <el-image-viewer 
                 v-if="showModal"
-                :on-close="()=>{showModal=false}"
-                :url-list="srcList" />
+                :on-close="()=>{ showModal = false }"
+                :url-list="viewerList" />
         </div>
         
     </div>
@@ -53,20 +53,12 @@ export default class HtmlContainer extends Vue {
     public showModal: boolean = false;
 
     /**
-     * 模态框图片路径
-     *
-     * @type string
+     * 图片地址列表
+     * 
+     * @type Array
      * @memberof HtmlContainer
      */
-    public modalSrc: string = '';
-
-    /**
-     * 模态框图片alt
-     *
-     * @type string
-     * @memberof HtmlContainer
-     */
-    public modalAlt: string = '';
+    public srcList: Array<any> = [];
 
     /**
      * 模态框图片地址列表
@@ -74,7 +66,7 @@ export default class HtmlContainer extends Vue {
      * @type Array
      * @memberof HtmlContainer
      */
-    public srcList: Array<any> = [];
+    public viewerList: Array<any> = [];
 
     /**
      * 监控html变化
@@ -112,7 +104,7 @@ export default class HtmlContainer extends Vue {
                     this.srcList.push(src);
                 }
             })
-        }             
+        }    
     }
 
     /**
@@ -123,12 +115,22 @@ export default class HtmlContainer extends Vue {
     public handleClick($event: any) {
         let img: any = $event.target;
         if (img && Object.is('IMG', img.tagName)) {
-            this.modalSrc = img.getAttribute('src');
-            this.modalAlt = img.alt;
             this.showModal = true;
+            let curSrc:any = img.getAttribute('src');
+            if(this.srcList){
+                let curIndex:any = this.srcList.findIndex((item)=>{ return item == curSrc });           
+                let beforeList: Array<any>= [];
+                for(let i=0;i<curIndex;i++){
+                    beforeList.push(this.srcList[i]);
+                }
+                let afterList: Array<any>= [];
+                for(let i=curIndex;i<this.srcList.length;i++){
+                    afterList.push(this.srcList[i]);
+                }
+                this.viewerList = afterList.concat(beforeList);
+            }
         }
     }
-
 }
 </script>
 
@@ -150,5 +152,4 @@ export default class HtmlContainer extends Vue {
 .el-image-viewer__mask{
     opacity: 0.9;
 }
-
 </style>

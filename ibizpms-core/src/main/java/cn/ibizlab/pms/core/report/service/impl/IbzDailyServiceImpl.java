@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzDailyServiceImpl")
 public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> implements IIbzDailyService {
 
+    @Autowired
+    @Lazy
+    IIbzDailyService proxyService;
 
     protected int batchSize = 500;
 
@@ -107,10 +110,19 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     public boolean checkKey(IbzDaily et) {
         return (!ObjectUtils.isEmpty(et.getIbzdailyid())) && (!Objects.isNull(this.getById(et.getIbzdailyid())));
     }
-        @Override
+       @Override
     @Transactional
     public IbzDaily createUserDaily(IbzDaily et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).createUserDaily(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean createUserDailyBatch (List<IbzDaily> etList) {
+		 for(IbzDaily et : etList) {
+		   createUserDaily(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -119,6 +131,14 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean getYeaterdayDailyPlansTaskEditBatch(List<IbzDaily> etList) {
+        for(IbzDaily et : etList) {
+            getYeaterdayDailyPlansTaskEdit(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
@@ -126,11 +146,28 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean getYesterdayDailyPlansTaskBatch(List<IbzDaily> etList) {
+        for(IbzDaily et : etList) {
+            getYesterdayDailyPlansTask(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzDaily haveRead(IbzDaily et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).haveRead(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean haveReadBatch (List<IbzDaily> etList) {
+		 for(IbzDaily et : etList) {
+		   haveRead(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -139,11 +176,28 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean linkCompleteTaskBatch(List<IbzDaily> etList) {
+        for(IbzDaily et : etList) {
+            linkCompleteTask(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzDaily pushUserDaily(IbzDaily et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).pushUserDaily(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean pushUserDailyBatch (List<IbzDaily> etList) {
+		 for(IbzDaily et : etList) {
+		   pushUserDaily(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -161,27 +215,64 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzDaily> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzDaily> create = new ArrayList<>();
+        List<IbzDaily> update = new ArrayList<>();
+        for (IbzDaily et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzdailyid()) || ObjectUtils.isEmpty(getById(et.getIbzdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzDaily> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzDaily> create = new ArrayList<>();
+        List<IbzDaily> update = new ArrayList<>();
+        for (IbzDaily et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzdailyid()) || ObjectUtils.isEmpty(getById(et.getIbzdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public IbzDaily submit(IbzDaily et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).submit(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean submitBatch (List<IbzDaily> etList) {
+		 for(IbzDaily et : etList) {
+		   submit(et);
+		 }
+	 	 return true;
     }
 
 
@@ -192,6 +283,15 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     @Override
     public Page<IbzDaily> searchDefault(IbzDailySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的日报（已提交和未提交）
+     */
+    @Override
+    public Page<IbzDaily> searchMyAllDaily(IbzDailySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchMyAllDaily(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -219,6 +319,24 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     @Override
     public Page<IbzDaily> searchMySubmitDaily(IbzDailySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchMySubmitDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品日报
+     */
+    @Override
+    public Page<IbzDaily> searchProductDaily(IbzDailySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchProductDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目日报
+     */
+    @Override
+    public Page<IbzDaily> searchProjectDaily(IbzDailySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchProjectDaily(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

@@ -96,6 +96,11 @@ export class MobMainModel {
                 dataType: 'NSCODELIST',
             },
             {
+                name: 'storypoints',
+                prop: 'storypoints',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'status',
                 prop: 'status',
                 dataType: 'SSCODELIST',

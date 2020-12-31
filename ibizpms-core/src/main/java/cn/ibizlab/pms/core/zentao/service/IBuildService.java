@@ -45,8 +45,10 @@ public interface IBuildService extends IService<Build> {
     Build getDraft(Build et);
     boolean checkKey(Build et);
     Build linkStory(Build et);
+    boolean linkStoryBatch(List<Build> etList);
     Build mobProjectBuildCounter(Build et);
     Build oneClickRelease(Build et);
+    boolean oneClickReleaseBatch(List<Build> etList);
     boolean save(Build et);
     void saveBatch(List<Build> list);
     Page<Build> searchBugProductBuild(BuildSearchContext context);

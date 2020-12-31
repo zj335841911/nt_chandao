@@ -2,6 +2,7 @@
     <template slot="quickGroupSearch">
         <app-quick-group
             :items="quickGroupModel"
+            :tag="quickGroupCodelistTag"
             
             @valuechange="quickGroupValueChange($event)"
         ></app-quick-group>
@@ -18,7 +19,7 @@
         :newdata="newdata"
         :opendata="opendata"
         name="list"  
-        ref="list" 
+        ref="list"
         @selectionchange="list_selectionchange($event)"  
         @beforeload="list_beforeload($event)"  
         @rowdblclick="list_rowdblclick($event)"  

@@ -1,14 +1,8 @@
-export default {
-  fields: {
-    userroleid: "The major data entity cannot be found",
-    roleid: "角色标识",
-    rolename: "角色名称",
-    userid: "用户标识",
-    personname: "用户名称",
-    loginname: "登录名",
-    orgname: "单位",
-    mdeptname: "主部门",
-    createdate: ">",
-    updatedate: "Upload",
-  },
-};
+import SysUserRole_en_US_Base from './sys-user-role_en_US_base';
+
+function getLocaleResource(){
+    const SysUserRole_en_US_OwnData = {};
+    const targetData = Object.assign(SysUserRole_en_US_Base(), SysUserRole_en_US_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

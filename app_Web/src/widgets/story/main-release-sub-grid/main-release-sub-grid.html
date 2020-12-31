@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.main_releasesub_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.main_releasesub_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.story.main_releasesub_grid.columns.pri')}}
@@ -60,7 +60,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                                  <span><app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :localParam="{product: '%product%'}" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false}" valueitem="srfkey">
+                                  <span><app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :localParam="{product: '%product%'}" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 850,width: 1400,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false}" valueitem="srfkey">
             <span :style="{'color':row.color}">{{row.title}}</span>
             </app-column-link>
             </span>
@@ -89,7 +89,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>

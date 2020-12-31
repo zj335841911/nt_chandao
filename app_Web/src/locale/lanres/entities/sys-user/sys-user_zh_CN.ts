@@ -1,36 +1,8 @@
-export default {
-  fields: {
-    userid: "用户标识",
-    username: "用户全局名",
-    personname: "用户姓名",
-    password: "密码",
-    usercode: "用户工号",
-    loginname: "登录名",
-    domains: "区属",
-    mdeptid: "主部门",
-    mdeptcode: "主部门代码",
-    mdeptname: "主部门名称",
-    bcode: "业务编码",
-    postid: "岗位标识",
-    postcode: "岗位代码",
-    postname: "岗位名称",
-    orgid: "单位",
-    orgcode: "单位代码",
-    orgname: "单位名称",
-    nickname: "昵称别名",
-    sex: "性别",
-    birthday: "出生日期",
-    certcode: "证件号码",
-    phone: "联系方式",
-    email: "邮件",
-    avatar: "社交账号",
-    addr: "地址",
-    usericon: "照片",
-    theme: "样式",
-    lang: "语言",
-    fontsize: "字号",
-    memo: "备注",
-    reserver: "保留",
-    superuser: "超级管理员",
-  },
-};
+import SysUser_zh_CN_Base from './sys-user_zh_CN_base';
+
+function getLocaleResource(){
+    const SysUser_zh_CN_OwnData = {};
+    const targetData = Object.assign(SysUser_zh_CN_Base(), SysUser_zh_CN_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

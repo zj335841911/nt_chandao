@@ -177,5 +177,25 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
         this.engine.onCtrlEvent('dashboard', 'load', $event);
     }
 
+    /** 
+     * 数据看板部件刷新状态
+     * 
+     * @type {boolean}
+     * @memberof IbzLibOpenLibViewBase
+     */
+    public state: boolean = true;
+
+    /** 
+     * 刷新
+     * 
+     * @memberof IbzLibOpenLibViewBase
+     */
+    public refresh(args: any){
+        this.state = false;
+        setTimeout(() => {
+            this.state = true;
+            this.loadModel();
+        }, 0);
+    }
 
 }

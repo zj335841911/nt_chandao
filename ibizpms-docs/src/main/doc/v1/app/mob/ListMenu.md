@@ -22,7 +22,7 @@
 | 菜单项      |  功能  |
 | --------   |   ----  |
 |电脑|-|
-|个人信息|[查看功能](func/UserUserCenterMobEditView.md)|
+|个人信息|[查看功能](func/SysEmployeeLoginMobEditView.md)|
 |手机|-|
 |杯子|-|
 |用户|-|

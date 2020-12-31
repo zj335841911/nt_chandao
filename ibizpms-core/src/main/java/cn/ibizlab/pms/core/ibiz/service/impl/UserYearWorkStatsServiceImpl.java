@@ -68,6 +68,9 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsUpdateInfoLogic updateinfoLogic;
+    @Autowired
+    @Lazy
+    IUserYearWorkStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -166,6 +169,14 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         getinfoLogic.execute(et);
         return et;
     }
+   @Override
+    @Transactional
+    public boolean getUserYearActionBatch(List<UserYearWorkStats> etList) {
+        for(UserYearWorkStats et : etList) {
+            getUserYearAction(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
@@ -182,21 +193,49 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<UserYearWorkStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<UserYearWorkStats> create = new ArrayList<>();
+        List<UserYearWorkStats> update = new ArrayList<>();
+        for (UserYearWorkStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<UserYearWorkStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<UserYearWorkStats> create = new ArrayList<>();
+        List<UserYearWorkStats> update = new ArrayList<>();
+        for (UserYearWorkStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -205,6 +244,14 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         //自定义代码
         updateinfoLogic.execute(et);
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean updateTitleByYearBatch(List<UserYearWorkStats> etList) {
+        for(UserYearWorkStats et : etList) {
+            updateTitleByYear(et);
+        }
+        return true;
     }
 
 

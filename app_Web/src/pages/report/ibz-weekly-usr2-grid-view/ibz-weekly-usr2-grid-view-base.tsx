@@ -126,11 +126,11 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
      * @memberof IbzWeeklyUsr2GridView
      */
     public toolBarModels: any = {
-        deuiaction1_createeveryweekreport: { name: 'deuiaction1_createeveryweekreport', caption: '生成周报', 'isShowCaption': true, 'isShowIcon': true, tooltip: '生成周报', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'createEveryWeekReport', target: 'NONE', class: '' } },
+        deuiaction1_createeveryweekreport: { name: 'deuiaction1_createeveryweekreport', caption: 'entities.ibzweekly.usr2gridviewtoolbar_toolbar.deuiaction1_createeveryweekreport.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibzweekly.usr2gridviewtoolbar_toolbar.deuiaction1_createeveryweekreport.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'createEveryWeekReport', target: 'NONE', class: '' } },
 
-        deuiaction2_create: { name: 'deuiaction2_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'create', target: 'NONE', class: '' } },
+        deuiaction2_create: { name: 'deuiaction2_create', caption: 'entities.ibzweekly.usr2gridviewtoolbar_toolbar.deuiaction2_create.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibzweekly.usr2gridviewtoolbar_toolbar.deuiaction2_create.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'create', target: 'NONE', class: '' } },
 
-        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction7: { name: 'deuiaction7', caption: 'entities.ibzweekly.usr2gridviewtoolbar_toolbar.deuiaction7.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibzweekly.usr2gridviewtoolbar_toolbar.deuiaction7.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 

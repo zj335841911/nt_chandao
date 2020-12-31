@@ -136,10 +136,14 @@ export default class AppReportList extends Vue {
      */
     public getUserReIconUrl(id: string): string {
         let index = this.userData.findIndex((item:any) => { return item.value == id });
-        if(!this.userData[index].icon || !this.userData[index].icon[0]){
+        if(index === -1){
             return '';
         }
-        return `${this.imageUrl}/${this.userData[index].icon[0].id}`
+        if(this.userData[index].icon || this.userData[index].icon[0]){
+            let icon = JSON.parse(this.userData[index].icon)
+            return `${this.imageUrl}/${icon[0].id}`
+        }
+        return '';
     }
 
     /**
@@ -162,6 +166,14 @@ export default class AppReportList extends Vue {
         temp.sort(function(now:any, next:any) {
             return  new Date(next.date).getTime() - new Date(now.date).getTime();
         });
+        for (let index = 0; index < temp.length; index++) {
+            const element = temp[index];
+            element.items.sort(function(now:any, next:any) {
+                if(next.submittime){
+                    return next.submittime.replace(":","") - now.submittime.replace(":","");
+                }
+            });
+        }
         return temp;
     }
 

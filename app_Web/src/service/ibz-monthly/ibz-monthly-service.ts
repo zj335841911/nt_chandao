@@ -22,5 +22,20 @@ export default class IbzMonthlyService extends IbzMonthlyServiceBase {
         super(opts);
     }
 
+    /**
+     * CreateGetInfo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async CreateGetInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {ibzmonthlyid:0};
+        Object.assign(data,masterData);
+        let res:any = Http.getInstance().post(`/ibzmonthlies/0/creategetinfo`,data,isloading);
+        return res;
+    }
 
 }

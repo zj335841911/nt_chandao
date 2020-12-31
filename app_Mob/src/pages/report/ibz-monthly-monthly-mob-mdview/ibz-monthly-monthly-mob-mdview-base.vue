@@ -1,20 +1,21 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'ibz-monthly-monthly-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
         <ion-refresher 
@@ -33,7 +34,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="IbzMonthlyMonthlyMobMDView"  
+            viewName="MonthlyMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"
@@ -60,22 +61,23 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!isChoose" class = "fab_container">
-            <div class="scroll_tool">
-                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
-            </div>
-            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
+                <div :id="viewtag+'_bottom_button'" v-show="!isChoose" class = "fab_container" :style="button_style">
+            <div  class="bottom_button" >
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="plus"></ion-icon>
-                
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1.disabled" 
+                    size="large"  
+                    iconName="plus" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" />
                 
             </div>
         
             </div>
         </div>
         
+    <div class="scroll_tool">
+        <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+    </div>
     </ion-footer>
 </ion-page>
 </template>
@@ -642,7 +644,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this.$refs.mdctrl;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];
@@ -712,21 +714,21 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
-        let context = { ...this.context, ...contextJO };
+        let _context = { ...this.context, ...contextJO };
         if (args.length > 0) {
-            Object.assign(context, args[0]);
+            Object.assign(_context, args[0]);
         }
         let response: any = null;
         let panelNavParam = { } ;
         let panelNavContext = { } ;
         //导航参数处理
-        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
             { pathName: 'maininfomobtabexpview', parameterName: 'maininfomobtabexpview' },
         ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
@@ -860,7 +862,9 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

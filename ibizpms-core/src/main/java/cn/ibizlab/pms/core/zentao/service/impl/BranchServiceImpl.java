@@ -78,6 +78,9 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    @Autowired
+    @Lazy
+    IBranchService proxyService;
 
     protected int batchSize = 500;
 
@@ -164,27 +167,64 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Branch> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Branch> create = new ArrayList<>();
+        List<Branch> update = new ArrayList<>();
+        for (Branch et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Branch> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Branch> create = new ArrayList<>();
+        List<Branch> update = new ArrayList<>();
+        for (Branch et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public Branch sort(Branch et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BranchHelper.class).sort(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean sortBatch (List<Branch> etList) {
+		 for(Branch et : etList) {
+		   sort(et);
+		 }
+	 	 return true;
     }
 
 

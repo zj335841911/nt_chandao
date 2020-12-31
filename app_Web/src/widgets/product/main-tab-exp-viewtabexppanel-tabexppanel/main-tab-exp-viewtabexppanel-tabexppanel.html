@@ -20,7 +20,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '概况'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -55,7 +55,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '需求'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel2.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -90,7 +90,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '看板'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel11.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -125,7 +125,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '计划'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel3.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -160,7 +160,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '发布'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel4.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -195,7 +195,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '路线图'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel9.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -230,7 +230,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '项目'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel5.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -265,7 +265,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '平台'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel8.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -300,7 +300,7 @@
                             'margin-right' : '2px'
                         }
                     }),
-                    h('span', '动态'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel7.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -329,7 +329,7 @@
             v-if="authResourceObject['tabviewpanel6'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '模块'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel6.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -358,7 +358,7 @@
             v-if="authResourceObject['tabviewpanel10'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '文档'),
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel10.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -378,6 +378,35 @@
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel10>
+        </tab-pane>
+        <tab-pane
+            :index="11"
+            name="tabviewpanel12"
+            tab="maintabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel12'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', $t('entities.product.maintabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel12.caption')),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel12 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel12"
+    name="tabviewpanel12"  
+    ref="tabviewpanel12"
+    :expActive="activatedTabViewPanel === 'tabviewpanel12'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel12>
         </tab-pane>
     </tabs>
 </div>

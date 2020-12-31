@@ -134,9 +134,9 @@ export class BugUsr2GridViewBase extends GridViewBase {
      * @memberof BugUsr2GridView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', uiaction: { tag: 'buildlinkbugs', target: 'MULTIKEY', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.bug.usr2gridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.usr2gridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', uiaction: { tag: 'buildlinkbugs', target: 'MULTIKEY', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.bug.usr2gridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.usr2gridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 

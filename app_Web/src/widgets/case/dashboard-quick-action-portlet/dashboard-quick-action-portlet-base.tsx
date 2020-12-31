@@ -528,6 +528,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @memberof DashboardQuickActionBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

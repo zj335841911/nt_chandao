@@ -43,6 +43,10 @@ zuul:
       path: /files/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_agent:
+      path: /ibzagents/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibzpro_storymodule:
       path: /ibzprostorymodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -95,12 +99,20 @@ zuul:
       path: /storyspecs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_post:
+      path: /sysposts/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
+      stripPrefix: false
     zt_usertpl:
       path: /usertpls/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_taskstats:
       path: /taskstats/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibzpro_projectweekly:
+      path: /ibizproprojectweeklies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_favorites:
@@ -131,6 +143,10 @@ zuul:
       path: /bugstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_index:
+      path: /ibizproindices/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_group:
       path: /groups/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -155,6 +171,10 @@ zuul:
       path: /companies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_team:
+      path: /systeams/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
+      stripPrefix: false
     ibz_casestep:
       path: /ibzcasesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -167,12 +187,20 @@ zuul:
       path: /stories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibzplantempletdetail:
+      path: /plantempletdetails/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_todo:
       path: /todos/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_libmodule:
       path: /ibzlibmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibizpro_productweekly:
+      path: /ibizproproductweeklies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_subtask:
@@ -182,6 +210,10 @@ zuul:
     ibz_useryearworkstats:
       path: /useryearworkstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    sys_org:
+      path: /sysorganizations/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
       stripPrefix: false
     ibizpro_plugin:
       path: /ibizproplugins/**
@@ -195,8 +227,16 @@ zuul:
       path: /projects/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_reportly:
+      path: /ibzreportlies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_history:
       path: /histories/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibizpro_projectmonthly:
+      path: /ibizproprojectmonthlies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_user:
@@ -207,6 +247,10 @@ zuul:
       path: /doclibs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_companystats:
+      path: /companystats/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_productmodule:
       path: /productmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -215,8 +259,20 @@ zuul:
       path: /modules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_productteam:
+      path: /productteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_testmodule:
       path: /testmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibizpro_projectdaily:
+      path: /ibizproprojectdailies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_plantemplet:
+      path: /ibzplantemplets/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     sys_user_role:
@@ -239,6 +295,10 @@ zuul:
       path: /usercontacts/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_productdaily:
+      path: /ibizproproductdailies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     sys_role:
       path: /sysroles/**
       serviceId: ${ibiz.ref.service.ibzuaa-api:ibzuaa-api}
@@ -251,12 +311,24 @@ zuul:
       path: /builds/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_productmonthly:
+      path: /ibizproproductmonthlies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_testresult:
       path: /testresults/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_testsuite:
       path: /testsuites/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_plantempletdetail:
+      path: /ibzplantempletdetails/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibzpro_config:
+      path: /ibzproconfigs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibzpro_story:
@@ -331,12 +403,24 @@ zuul:
       path: /pssysapps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_projectusertask:
+      path: /ibzproprojectusertasks/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_case:
       path: /ibzcases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_teammember:
+      path: /systeammembers/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
+      stripPrefix: false
     pssystemdbcfg:
       path: /pssystemdbcfgs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibizpro_productusertask:
+      path: /ibzproproductusertasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     sys_update_features:
@@ -345,6 +429,10 @@ zuul:
       stripPrefix: false
     zt_release:
       path: /releases/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_casestats:
+      path: /casestats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     dynadashboard:

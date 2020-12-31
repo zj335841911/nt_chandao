@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.pri.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.pri" :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__pri"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.pri" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__pri"></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.title.visible"  :lg="11" :size="11" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.title" :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -46,7 +46,7 @@
                 <ion-col v-show="detailsModel.assignedto.visible"  :lg="4" :size="4" :sm="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.assignedto" :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.assignedto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
                 </div>
                 
                 
@@ -55,7 +55,7 @@
                 <ion-col v-show="detailsModel.status.visible"  :lg="3" :size="3" :sm="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.status" :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__status"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.status" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__status"></app-mob-span>
                 </div>
                 
                 
@@ -64,7 +64,7 @@
                 <ion-col v-show="detailsModel.stage.visible"  :lg="3" :size="3" :sm="4" :offset="1" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.stage" :context="context" :value="data.stage" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__stage"></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.stage" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Story__stage"></app-mob-span>
                 </div>
                 
                 
@@ -89,7 +89,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import MobService from '@/app-core/ctrl-service/story/mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -199,7 +199,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {StoryService}
      * @memberof Mob
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象

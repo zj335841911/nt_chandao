@@ -823,7 +823,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             },
             {
                 name: 'openedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -831,7 +831,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealNameProductTeam',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

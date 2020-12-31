@@ -2,6 +2,7 @@
     <template slot="quickGroupSearch">
         <app-quick-group
             :items="quickGroupModel"
+            :tag="quickGroupCodelistTag"
             
             @valuechange="quickGroupValueChange($event)"
         ></app-quick-group>
@@ -17,7 +18,7 @@
     loadAction="FilterGet"
 @valuechange="quickFormValueChange"
     name="quicksearchform"  
-    ref="quicksearchform" 
+    ref="quicksearchform"
     @closeview="closeView($event)">
 </view_quicksearchform>
     </template>
@@ -31,7 +32,7 @@
         fetchAction="FetchESTIMATEANDLEFT"
         :showBusyIndicator="true" 
         name="chart"  
-        ref="chart" 
+        ref="chart"
         @beforeload="chart_beforeload($event)"  
         @load="chart_load($event)"  
         @closeview="closeView($event)">

@@ -237,6 +237,12 @@ export default class DashBoradInfoViewModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

@@ -13,7 +13,7 @@ export default class MyCompleteTask {
      * @type boolean
      * @memberof MyCompleteTask
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间
@@ -37,7 +37,7 @@ export default class MyCompleteTask {
      * @type any
      * @memberof MyCompleteTask
      */
-    public cacheTimeout:any = 600;
+    public cacheTimeout:any = -1;
 
     /**
      * 代码表模型对象

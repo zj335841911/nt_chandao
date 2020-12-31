@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskZsGridView9WeekBase } from './task-zs-grid-view9-week-base';
-import view_grid from '@widgets/task/report-main-zs-grid/report-main-zs-grid.vue';
+import view_grid from '@widgets/task/complete-report-main-zs-grid/complete-report-main-zs-grid.vue';
 
 /**
  * 任务表格视图（展示）视图

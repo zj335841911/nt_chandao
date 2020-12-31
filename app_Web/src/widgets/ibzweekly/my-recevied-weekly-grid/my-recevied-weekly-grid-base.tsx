@@ -131,6 +131,22 @@ export class MyReceviedWeeklyGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_weekly_myreceviedweekly_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MyReceviedWeeklyGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MyReceviedWeeklyGridBase
+     */
+    public minorSortPSDEF: string = 'date';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -369,7 +385,7 @@ export class MyReceviedWeeklyGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'account',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -377,7 +393,7 @@ export class MyReceviedWeeklyGridBase extends GridControlBase {
             },
             {
                 name: 'reportto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

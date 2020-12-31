@@ -81,6 +81,7 @@ export class MobNewFormService extends FormServiceBase {
      */
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
+            Object.assign(response.data, { 'project': 'project' });
             Object.assign(response.data, { 'neednotreview': '1' });
         }
     }

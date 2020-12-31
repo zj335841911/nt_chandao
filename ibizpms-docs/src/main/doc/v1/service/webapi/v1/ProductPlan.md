@@ -186,6 +186,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 导入计划模板
+#### 访问路径
+/productplans/{productplan_id}/importplantemplet
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
 ### 关联Bug
 #### 访问路径
 /productplans/{productplan_id}/linkbug
@@ -690,6 +709,26 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 导入计划模板
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/importplantemplet
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
 ### 关联Bug
 #### 访问路径
 /products/{product_id}/productplans/{productplan_id}/linkbug
@@ -1044,7 +1083,8 @@ POST
 | 19 | estimatecnt | Integer | 允许 | 工时数 |
 | 20 | beginstr | String | 允许 | 开始日期 |
 | 21 | endstr | String | 允许 | 结束日期 |
-| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 22 | plantemplet | String | 允许 | 计划模板 |
+| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductPlanSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -1060,10 +1100,11 @@ POST
 | 9 | n_future_eq | String | 允许 | 条件字段：future<br>条件组合方式：`=` |
 | 10 | n_delta_eq | String | 允许 | 条件字段：delta<br>条件组合方式：`=` |
 | 11 | n_isexpired_eq | String | 允许 | 条件字段：isexpired<br>条件组合方式：`=` |
-| 12 | customcond | String | 允许 | 自定义查询条件 |
-| 13 | customparams | String | 允许 | 自定义查询参数 |
-| 14 | query | String | 允许 | 快速搜索 |
-| 15 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 16 | page | int | 允许 | 当前页数<br>默认值0 |
-| 17 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 18 | sort | String | 允许 | 排序 |
+| 12 | n_plantemplet_eq | String | 允许 | 条件字段：plantemplet<br>条件组合方式：`=` |
+| 13 | customcond | String | 允许 | 自定义查询条件 |
+| 14 | customparams | String | 允许 | 自定义查询参数 |
+| 15 | query | String | 允许 | 快速搜索 |
+| 16 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 17 | page | int | 允许 | 当前页数<br>默认值0 |
+| 18 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 19 | sort | String | 允许 | 排序 |

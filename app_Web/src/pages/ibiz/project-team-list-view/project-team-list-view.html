@@ -11,7 +11,7 @@
         clearable
         
         v-model="query"
-        placeholder="用户"
+        :placeholder="$t('entities.projectteam.fields.account')"
         search
         @on-search="onSearch($event)"
     ></i-input>
@@ -28,7 +28,7 @@
         fetchAction="FetchTaskCntEstimateConsumedLeft"
         :showBusyIndicator="true"
         name="list"  
-        ref="list" 
+        ref="list"
         @selectionchange="list_selectionchange($event)"  
         @beforeload="list_beforeload($event)"  
         @rowdblclick="list_rowdblclick($event)"  

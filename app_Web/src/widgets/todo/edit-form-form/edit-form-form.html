@@ -762,20 +762,19 @@
     labelPos="LEFT"
 >
     
-<app-checkbox-list 
-  v-model="data.private" 
+<app-radio-group 
+  v-model="data.private"
   :data="data" 
   :context="context"
-  :viewparams="viewparams" 
-  :disabled="detailsModel.private.disabled" 
+  :viewparams="viewparams"   
+  :disabled="detailsModel.private.disabled"  
+  name="private" 
   :localContext ='{ }' 
   :localParam ='{ }' 
-  tag='Private_choose' 
+  tag='YesNo' 
   codelistType='STATIC' 
-  mode=""
-  name="private" 
   style="">
-</app-checkbox-list>
+</app-radio-group>
 
 </app-form-item>
 

@@ -15,6 +15,7 @@ Bug *-- 任务
 项目 *-- 任务 
 需求 *-- 任务 
 任务 *-- 任务 
+索引检索 <|-- 任务 
 hide members
 {% endplantuml %}
 
@@ -1285,19 +1286,25 @@ hide footbox
 |CurFinishTask|用户年度完成任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_CurFinishTask))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Task_Default))|否|&nbsp;|
 |DefaultRow|DefaultRow([MYSQL5](../../appendix/query_MYSQL5.md#Task_DefaultRow))|否|&nbsp;|
+|MyAgentTask|我代理的任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyAgentTask))|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTask))|否|&nbsp;|
 |MyCompleteTaskMob|已完成任务（移动端）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMob))|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobMonthly))|否|&nbsp;|
+|MyCompleteTaskMonthlyZS|我完成的任务（月报展示）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMonthlyZS))|否|&nbsp;|
 |MyCompleteTaskZS|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskZS))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyFavorites))|否|&nbsp;|
 |MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyPlansTaskMobMonthly))|否|&nbsp;|
 |MyTomorrowPlanTask|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTask))|否|&nbsp;|
 |MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTaskMobDaily))|否|&nbsp;|
-|NextWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekCompleteTaskZS))|否|&nbsp;|
+|NextWeekCompleteTaskMobZS|移动端下周计划参与(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekCompleteTaskMobZS))|否|&nbsp;|
+|NextWeekCompleteTaskZS|下周计划完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekCompleteTaskZS))|否|&nbsp;|
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekPlanCompleteTask))|否|&nbsp;|
 |ProjectTask|项目任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ProjectTask))|否|&nbsp;|
 |RootTask|根任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_RootTask))|否|&nbsp;|
+|ThisMonthCompleteTaskChoice|我本月完成的任务（下拉列表框）([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisMonthCompleteTaskChoice))|否|&nbsp;|
 |ThisWeekCompleteTask|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTask))|否|&nbsp;|
+|ThisWeekCompleteTaskChoice|本周已完成任务(下拉框选择)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskChoice))|否|&nbsp;|
+|ThisWeekCompleteTaskMobZS|移动端本周已完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskMobZS))|否|&nbsp;|
 |ThisWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskZS))|否|&nbsp;|
 |TodoListTask|todo任务列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|
 |TypeGroup|任务类型分组([MYSQL5](../../appendix/query_MYSQL5.md#Task_TypeGroup))|否|&nbsp;|
@@ -1316,19 +1323,25 @@ hide footbox
 |CurFinishTask|用户年度完成任务|CurFinishTask|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DefaultRow|DefaultRow|DefaultRow|否|&nbsp;|
+|MyAgentTask|我代理的任务|MyAgentTask|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）|MyCompleteTask|否|&nbsp;|
 |MyCompleteTaskMobDaily|我完成的任务（移动端日报）|MyCompleteTaskMob|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）|MyCompleteTaskMobMonthly|否|&nbsp;|
+|MyCompleteTaskMonthlyZS|我完成的任务（月报展示）|MyCompleteTaskMonthlyZS|否|&nbsp;|
 |MyCompleteTaskZS|我完成的任务（汇报）|MyCompleteTaskZS|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
 |MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）|MyPlansTaskMobMonthly|否|&nbsp;|
 |MyTomorrowPlanTask|我计划参与的任务（汇报）|MyTomorrowPlanTask|否|&nbsp;|
 |MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）|MyTomorrowPlanTaskMobDaily|否|&nbsp;|
+|NextWeekCompleteTaskMobZS|移动端下周计划参与(汇报)|NextWeekCompleteTaskMobZS|否|&nbsp;|
 |NextWeekCompleteTaskZS|本周完成的任务(汇报)|NextWeekCompleteTaskZS|否|&nbsp;|
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)|NextWeekPlanCompleteTask|否|&nbsp;|
 |ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
+|ThisMonthCompleteTaskChoice|我本月完成的任务（下拉列表框）|ThisMonthCompleteTaskChoice|否|&nbsp;|
 |ThisWeekCompleteTask|本周完成的任务(汇报)|ThisWeekCompleteTask|否|&nbsp;|
+|ThisWeekCompleteTaskChoice|本周已完成任务(下拉框选择)|ThisWeekCompleteTaskChoice|否|&nbsp;|
+|ThisWeekCompleteTaskMobZS|移动端本周已完成任务(汇报)|ThisWeekCompleteTaskMobZS|否|&nbsp;|
 |ThisWeekCompleteTaskZS|本周完成的任务(汇报)|ThisWeekCompleteTaskZS|否|&nbsp;|
 |TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|
 |TypeGroup|任务类型分组|TypeGroup|否|&nbsp;|

@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.name.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.name" :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.name" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -34,7 +34,7 @@
                         <ion-col v-show="detailsModel.buildname.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.buildname" :context="context" :value="data.buildname" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.buildname" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
@@ -43,7 +43,7 @@
                         <ion-col v-show="detailsModel.date.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-span  :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
                         </div>
                         
                         
@@ -84,7 +84,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ReleaseService from '@/app-core/service/release/release-service';
+import ReleaseEntityService from '@/app-core/service/release/release-service';
 import MobService from '@/app-core/ctrl-service/release/mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -194,7 +194,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {ReleaseService}
      * @memberof Mob
      */
-    protected appEntityService: ReleaseService = new ReleaseService();
+    protected appEntityService: ReleaseEntityService = new ReleaseEntityService();
 
     /**
      * 界面UI服务对象

@@ -1,14 +1,5 @@
-export default {
-  fields: {
-    teammemberid: "组成员标识",
-    teamname: "组名称",
-    postname: "岗位",
-    domains: "区属",
-    userid: "用户标识",
-    teamid: "组标识",
-    postid: "岗位标识",
-    personname: "姓名",
-    username: "账号",
-    usericon: "头像",
-  },
-};
+import SysTeamMember_zh_CN_Base from './sys-team-member_zh_CN_base';
+
+const SysTeamMember_zh_CN_OwnData = {};
+const targetData = Object.assign(SysTeamMember_zh_CN_Base, SysTeamMember_zh_CN_OwnData);
+export default targetData;

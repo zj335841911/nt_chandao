@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("RepoBranchServiceImpl")
 public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBranch> implements IRepoBranchService {
 
+    @Autowired
+    @Lazy
+    IRepoBranchService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<RepoBranch> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<RepoBranch> create = new ArrayList<>();
+        List<RepoBranch> update = new ArrayList<>();
+        for (RepoBranch et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<RepoBranch> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<RepoBranch> create = new ArrayList<>();
+        List<RepoBranch> update = new ArrayList<>();
+        for (RepoBranch et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

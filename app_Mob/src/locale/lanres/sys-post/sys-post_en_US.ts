@@ -1,9 +1,5 @@
-export default {
-  fields: {
-    postId: "岗位标识",
-    postCode: "岗位编码",
-    postName: "岗位名称",
-    domains: "区属",
-    memo: "备注",
-  },
-};
+import SysPost_en_US_Base from './sys-post_en_US_base';
+
+const SysPost_en_US_OwnData = {};
+const targetData = Object.assign(SysPost_en_US_Base, SysPost_en_US_OwnData);
+export default targetData;

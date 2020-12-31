@@ -51,7 +51,7 @@ public class FeignRequestInterceptor implements RequestInterceptor {
         }else {
             String token = "";
             try {
-                if(!"/v7/login".equals(requestTemplate.url())) {
+                if(!"/v7/login".equals(requestTemplate.url()) && !"/syspssystems/save".equals(requestTemplate.url())) {
                     AuthenticationInfo info = jobUserHelper.getJobUser();
                     token = info.getToken();
                 }
@@ -59,7 +59,7 @@ public class FeignRequestInterceptor implements RequestInterceptor {
                 // 清除缓存
                 jobUserHelper.resetJobUser();
 
-                if(!"/v7/login".equals(requestTemplate.url())) {
+                if(!"/v7/login".equals(requestTemplate.url()) && !"/syspssystems/save".equals(requestTemplate.url())) {
                     AuthenticationInfo info = jobUserHelper.getJobUser();
                     token = info.getToken();
                 }

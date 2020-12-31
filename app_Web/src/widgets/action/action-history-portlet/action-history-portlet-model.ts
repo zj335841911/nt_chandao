@@ -84,6 +84,9 @@ export default class ActionHistoryModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

@@ -1,15 +1,8 @@
-export default {
-  fields: {
-    diff: "不同",
-    field: "字段",
-    ibiznew: "新值",
-    old: "旧值",
-    id: "id",
-    action: "关联日志",
-  },
-	default_list: {
-		nodata: "",
-		uiactions: {
-		},
-	},
-};
+import History_zh_CN_Base from './history_zh_CN_base';
+
+function getLocaleResource(){
+    const History_zh_CN_OwnData = {};
+    const targetData = Object.assign(History_zh_CN_Base(), History_zh_CN_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

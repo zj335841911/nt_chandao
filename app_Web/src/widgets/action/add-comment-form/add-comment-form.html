@@ -80,6 +80,43 @@
 </app-form-item>
 
 </i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.files.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="files"
+    :itemRules="this.rules().files"
+    class=""
+
+    :caption="$t('entities.action.addcomment_form.details.files')"
+    uiStyle="DEFAULT"
+    :labelWidth="0"
+    :isShowCaption="false"
+    :error="detailsModel.files.error"
+    :isEmptyCaption="false"
+    labelPos="NONE"
+>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"%objecttype%",objectid: "0"}'
+    :exportparams='{objecttype:"%objecttype%",objectid: "0"}'
+    style="overflow: auto;"
+></app-file-upload>
+</app-form-item>
+
+</i-col>
     
     </row>
 </app-form-group>

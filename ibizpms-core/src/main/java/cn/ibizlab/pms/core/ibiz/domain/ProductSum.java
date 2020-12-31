@@ -275,6 +275,76 @@ public class ProductSum extends EntityMP implements Serializable {
     @JSONField(name = "totalhours")
     @JsonProperty("totalhours")
     private Integer totalhours;
+    /**
+     * 代码错误
+     */
+    @TableField(exist = false)
+    @JSONField(name = "codeerror")
+    @JsonProperty("codeerror")
+    private Integer codeerror;
+    /**
+     * 配置相关
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config")
+    @JsonProperty("config")
+    private Integer config;
+    /**
+     * 安装部署
+     */
+    @TableField(exist = false)
+    @JSONField(name = "install")
+    @JsonProperty("install")
+    private Integer install;
+    /**
+     * 安全相关
+     */
+    @TableField(exist = false)
+    @JSONField(name = "security")
+    @JsonProperty("security")
+    private Integer security;
+    /**
+     * 性能问题
+     */
+    @TableField(exist = false)
+    @JSONField(name = "performance")
+    @JsonProperty("performance")
+    private Integer performance;
+    /**
+     * 标准规范
+     */
+    @TableField(exist = false)
+    @JSONField(name = "standard")
+    @JsonProperty("standard")
+    private Integer standard;
+    /**
+     * 测试脚本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "automation")
+    @JsonProperty("automation")
+    private Integer automation;
+    /**
+     * 设计缺陷
+     */
+    @TableField(exist = false)
+    @JSONField(name = "designdefect")
+    @JsonProperty("designdefect")
+    private Integer designdefect;
+    /**
+     * 其他
+     */
+    @TableField(exist = false)
+    @JSONField(name = "others")
+    @JsonProperty("others")
+    private Integer others;
+    /**
+     * bug总计
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugsum")
+    @JsonProperty("bugsum")
+    private Integer bugsum;
 
 
 

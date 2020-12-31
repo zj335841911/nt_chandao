@@ -144,10 +144,10 @@ export class CasesuiteLinkCaseGridViewBase extends GridViewBase {
      * @memberof CasesuiteLinkCaseGridView
      */
     public toolBarModels: any = {
-        deuiaction1_suitelinkcase: { name: 'deuiaction1_suitelinkcase', caption: '保存', 'isShowCaption': false, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', uiaction: { tag: 'suitelinkCase', target: 'MULTIKEY', class: '' } },
+        deuiaction1_suitelinkcase: { name: 'deuiaction1_suitelinkcase', caption: 'entities.case.suitelinkcasegridviewtoolbar_toolbar.deuiaction1_suitelinkcase.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.case.suitelinkcasegridviewtoolbar_toolbar.deuiaction1_suitelinkcase.tip', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', uiaction: { tag: 'suitelinkCase', target: 'MULTIKEY', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction2_togglefilter: { name: 'deuiaction2_togglefilter', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction2_togglefilter: { name: 'deuiaction2_togglefilter', caption: 'entities.case.suitelinkcasegridviewtoolbar_toolbar.deuiaction2_togglefilter.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.case.suitelinkcasegridviewtoolbar_toolbar.deuiaction2_togglefilter.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 

@@ -46,6 +46,7 @@ public interface IProductService extends IService<Product> {
     Product cancelProductTop(Product et);
     boolean checkKey(Product et);
     Product close(Product et);
+    boolean closeBatch(List<Product> etList);
     Product mobProductCounter(Product et);
     Product mobProductTestCounter(Product et);
     Product productTop(Product et);
@@ -58,6 +59,7 @@ public interface IProductService extends IService<Product> {
     Page<Product> searchCurUer(ProductSearchContext context);
     Page<Product> searchDefault(ProductSearchContext context);
     Page<Product> searchProductPM(ProductSearchContext context);
+    Page<Product> searchProductTeam(ProductSearchContext context);
     Page<Product> searchStoryCurProject(ProductSearchContext context);
     List<Product> selectByLine(Long id);
     void removeByLine(Long id);

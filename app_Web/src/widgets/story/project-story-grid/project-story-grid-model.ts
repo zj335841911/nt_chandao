@@ -166,6 +166,11 @@ export default class ProjectStoryModel {
           dataType: 'ACID',
         },
         {
+          name: 'project',
+          prop: 'project',
+          dataType: 'BIGINT',
+        },
+        {
           name: 'assignedto',
           prop: 'assignedto',
           dataType: 'TEXT',

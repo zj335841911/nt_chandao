@@ -273,9 +273,9 @@ export class EditFormControlBase extends FormControlBase {
         if (Object.is(action, 'load')) {
             this.updateDefault();
         }
-        this.$nextTick(() => {
+        // this.$nextTick(() => {
             this.ignorefieldvaluechange = false;
-        });
+        // });
     }
 
     /**

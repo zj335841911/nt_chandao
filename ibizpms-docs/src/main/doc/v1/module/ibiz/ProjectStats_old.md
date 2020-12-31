@@ -42,6 +42,52 @@
 |未开始任务数|WAITTASKCNT|INT|&nbsp;|
 |进行中任务数|DOINGTASKCNT|INT|&nbsp;|
 |已完成任务数|DONETASKCNT|INT|&nbsp;|
+|设计类型任务|DESIGNTASKCNT|INT|&nbsp;|
+|讨论类型任务|DISCUSSTASKCNT|INT|&nbsp;|
+|研究类型任务|STUDYTASKCNT|INT|&nbsp;|
+|界面类型任务|UITASKCNT|INT|&nbsp;|
+|测试类型任务|TESTTASKCNT|INT|&nbsp;|
+|服务类型任务|SERVETASKCNT|INT|&nbsp;|
+|开发类型任务|DEVELTASKCNT|INT|&nbsp;|
+|其他类型任务|MISCTASKCNT|INT|&nbsp;|
+|事务类型任务|AFFAIRTASKCNT|INT|&nbsp;|
+|完成需求数|COMPLETESTORYCNT|INT|&nbsp;|
+|完成任务数|COMPLETETASKCNT|INT|&nbsp;|
+|Bug/完成需求|BUGSTORY|INT|&nbsp;|
+|Bug/完成任务|BUGTASK|INT|&nbsp;|
+|重要Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
+|严重Bug比率|SERIOUSBUGPROPORTION|TEXT|&nbsp;|
+|代码错误|CODEERROR|INT|&nbsp;|
+|配置相关|CONFIG|INT|&nbsp;|
+|安装部署|INSTALL|INT|&nbsp;|
+|安全相关|SECURITY|INT|&nbsp;|
+|性能问题|PERFORMANCE|INT|&nbsp;|
+|标准规范|STANDARD|INT|&nbsp;|
+|测试脚本|AUTOMATION|INT|&nbsp;|
+|人数|MEMBERCNT|INT|&nbsp;|
+|设计缺陷|DESIGNDEFECT|INT|&nbsp;|
+|其他|OTHERS|INT|&nbsp;|
+|项目消耗总工时|PROJECTTOTALCONSUMED|FLOAT|&nbsp;|
+|工期|TIMESCALE|TEXT|&nbsp;|
+|剩余需求数|LEFTSTORYCNT|INT|&nbsp;|
+|空需求|EMPTYSTORY|INT|&nbsp;|
+|草稿需求|DRAFTSTORY|INT|&nbsp;|
+|激活需求|ACTIVESTORY|INT|&nbsp;|
+|已关闭需求|CLOSEDSTORY|INT|&nbsp;|
+|已变更需求|CHANGEDSTORY|INT|&nbsp;|
+|空阶段需求数|EMPTYSTAGESTORYCNT|INT|&nbsp;|
+|未开始阶段需求数|WAITSTAGESTORYCNT|INT|&nbsp;|
+|已计划阶段需求数|PLANNEDSTAGESTORYCNT|INT|&nbsp;|
+|已立项阶段需求数|PROJECTEDSTAGESTORYCNT|INT|&nbsp;|
+|研发中阶段需求数|DEVELOPINGSTAGESTORYCNT|INT|&nbsp;|
+|研发完毕阶段需求数|DEVELOPEDSTAGESTORYCNT|INT|&nbsp;|
+|测试中阶段需求数|TESTINGSTAGESTORYCNT|INT|&nbsp;|
+|测试完毕阶段需求数|TESTEDSTAGESTORYCNT|INT|&nbsp;|
+|已验收阶段需求数|VERIFIEDSTAGESTORYCNT|INT|&nbsp;|
+|已发布阶段需求数|RELEASEDSTAGESTORYCNT|INT|&nbsp;|
+|已关闭阶段需求数|CLOSEDSTAGESTORYCNT|INT|&nbsp;|
+|进度|PROGRESS|TEXT|&nbsp;|
+|开始时间|BEGIN|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -79,6 +125,52 @@
 |未开始任务数|默认规则|默认规则|
 |进行中任务数|默认规则|默认规则|
 |已完成任务数|默认规则|默认规则|
+|设计类型任务|默认规则|默认规则|
+|讨论类型任务|默认规则|默认规则|
+|研究类型任务|默认规则|默认规则|
+|界面类型任务|默认规则|默认规则|
+|测试类型任务|默认规则|默认规则|
+|服务类型任务|默认规则|默认规则|
+|开发类型任务|默认规则|默认规则|
+|其他类型任务|默认规则|默认规则|
+|事务类型任务|默认规则|默认规则|
+|完成需求数|默认规则|默认规则|
+|完成任务数|默认规则|默认规则|
+|Bug/完成需求|默认规则|默认规则|
+|Bug/完成任务|默认规则|默认规则|
+|重要Bug数|默认规则|默认规则|
+|严重Bug比率|默认规则|内容长度必须小于等于[200]|
+|代码错误|默认规则|默认规则|
+|配置相关|默认规则|默认规则|
+|安装部署|默认规则|默认规则|
+|安全相关|默认规则|默认规则|
+|性能问题|默认规则|默认规则|
+|标准规范|默认规则|默认规则|
+|测试脚本|默认规则|默认规则|
+|人数|默认规则|默认规则|
+|设计缺陷|默认规则|默认规则|
+|其他|默认规则|默认规则|
+|项目消耗总工时|默认规则|默认规则|
+|工期|默认规则|内容长度必须小于等于[100]|
+|剩余需求数|默认规则|默认规则|
+|空需求|默认规则|默认规则|
+|草稿需求|默认规则|默认规则|
+|激活需求|默认规则|默认规则|
+|已关闭需求|默认规则|默认规则|
+|已变更需求|默认规则|默认规则|
+|空阶段需求数|默认规则|默认规则|
+|未开始阶段需求数|默认规则|默认规则|
+|已计划阶段需求数|默认规则|默认规则|
+|已立项阶段需求数|默认规则|默认规则|
+|研发中阶段需求数|默认规则|默认规则|
+|研发完毕阶段需求数|默认规则|默认规则|
+|测试中阶段需求数|默认规则|默认规则|
+|测试完毕阶段需求数|默认规则|默认规则|
+|已验收阶段需求数|默认规则|默认规则|
+|已发布阶段需求数|默认规则|默认规则|
+|已关闭阶段需求数|默认规则|默认规则|
+|进度|默认规则|内容长度必须小于等于[100]|
+|开始时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -94,10 +186,25 @@
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|项目质量表聚合逻辑|实体处理逻辑|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 项目质量表聚合逻辑 (ProjectQualitySum)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+项目统计 -> 项目统计: 获取聚合数
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|获取聚合数 |
+<center>项目质量表聚合逻辑</center>
 
 ## 查询集合
 
@@ -107,7 +214,14 @@
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_Default))|否|&nbsp;|
 |NOOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_NoOpenProduct))|否|&nbsp;|
+|ProjectBugType|项目bug类型([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectBugType))|否|&nbsp;|
+|ProjectInputStats|项目投入统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectInputStats))|否|&nbsp;|
+|ProjectProgress|项目进度([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectProgress))|否|&nbsp;|
+|ProjectQuality|项目质量表查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectQuality))|否|&nbsp;|
+|ProjectStoryStageStats|项目需求阶段统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectStoryStageStats))|否|&nbsp;|
+|ProjectStoryStatusStats|项目需求状态统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectStoryStatusStats))|否|&nbsp;|
 |ProjectTaskCountByTaskStatus|项目任务统计(任务状态)([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectTaskCountByTaskStatus))|否|&nbsp;|
+|ProjectTaskCountByType|项目任务类型统计([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_ProjectTaskCountByType))|否|&nbsp;|
 |TASKTIME|任务工时消耗剩余查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_TaskTime))|否|&nbsp;该查询主要供统计图表使用|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_View))|否|&nbsp;|
 
@@ -117,19 +231,32 @@
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |NOOpenProduct|未关闭产品|NOOpenProduct|否|&nbsp;|
+|ProjectBugType|项目bug类型统计|ProjectBugType|否|&nbsp;|
+|ProjectInputStats|项目投入统计|ProjectInputStats|否|&nbsp;|
+|ProjectProgress|项目进度|ProjectProgress|否|&nbsp;|
+|ProjectQuality|项目质量|ProjectQuality|否|&nbsp;|
+|ProjectStoryStageStats|项目需求阶段统计|ProjectStoryStageStats|否|&nbsp;|
+|ProjectStoryStatusStats|项目需求状态统计|ProjectStoryStatusStats|否|&nbsp;|
 |ProjectTaskCountByTaskStatus|项目任务统计(任务状态)|ProjectTaskCountByTaskStatus|否|&nbsp;|
+|ProjectTaskCountByType|项目任务类型统计|ProjectTaskCountByType|否|&nbsp;|
 |TASKTIME|任务工时消耗剩余查询|TASKTIME|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
 |项目名称(NAME)|LIKE|
+|截止日期(END)|LTANDEQ|
 |状态(STATUS)|EQ|
 |状态(STATUS)|NOTEQ|
+|开始时间(BEGIN)|GTANDEQ|
 
 ## 导入模式
 无
 
 
 ## 导出模式
-无
+* 项目任务类型统计-数据导出
+
+|项目名称|设计|开发|测试|研究|讨论|界面|事务|服务|其他|总计|
+| :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| - | - | - | - | - | - | - | - | - | - | - |

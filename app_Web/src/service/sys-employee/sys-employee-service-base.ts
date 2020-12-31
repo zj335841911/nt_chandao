@@ -259,6 +259,35 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * FetchProductTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProductTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchproductteamm`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProductTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchproductteamm`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamM接口方法
      *
      * @param {*} [context={}]
@@ -285,6 +314,35 @@ export default class SysEmployeeServiceBase extends EntityService {
     public async searchProjectTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/sysemployees/searchprojectteamm`,tempData,isloading);
+    }
+
+    /**
+     * FetchProjectTeamMProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProjectTeamMProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteammproduct`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectTeamMProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProjectTeamMProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchprojectteammproduct`,tempData,isloading);
     }
 
     /**
@@ -401,6 +459,35 @@ export default class SysEmployeeServiceBase extends EntityService {
     public async searchProjectteamPk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/sysemployees/searchprojectteampk`,tempData,isloading);
+    }
+
+    /**
+     * FetchStoryProductTeamPK接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchStoryProductTeamPK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchstoryproductteampk`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchStoryProductTeamPK接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchStoryProductTeamPK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchstoryproductteampk`,tempData,isloading);
     }
 
     /**

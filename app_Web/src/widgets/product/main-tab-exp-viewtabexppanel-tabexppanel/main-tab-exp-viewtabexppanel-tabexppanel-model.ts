@@ -156,6 +156,9 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

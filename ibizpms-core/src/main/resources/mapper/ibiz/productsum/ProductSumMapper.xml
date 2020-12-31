@@ -70,6 +70,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProductSumBugType]-->
+	 <select id="searchProductSumBugType"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProductSumSearchContext"  resultMap="ProductSumResultMap">
+         select t1.* from (
+                <include refid="ProductSumBugType" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ select t1.*  from(select  t1.id,t1.`NAME`,t1.po,t1.PLAN, case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end as `begin`,case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end as `end`, 	sum( IF ( t1.`status` = 'draft', t1.rowcnt, 0 ) ) AS WAITSTORYCNT, 	SUM( IF ( t1.`status` = 'active', t1.rowcnt, 0 ) ) AS ACTIVESTORYCNT, 	SUM( IF ( t1.`status` = 'changed', t1.rowcnt, 0 ) ) AS CHANGEDSTORYCNT, 	SUM( IF ( t1.`status` = 'closed', t1.rowcnt, 0 ) ) AS CLOSEDSTORYCNT, 	sum( IF ( t1.`deleted` = '0',  t1.rowcnt, 0) ) AS STORYCNT  FROM 	( 	SELECT 		1 AS rowcnt, 	t41.id as plan, 		t31.`NAME` AS `NAME`, 		t31.id AS id, 		t1.`status`, 		t31.po, 		t41.`begin`, 		t41.`end` , 		t1.deleted 	FROM 		zt_product t31 		LEFT JOIN ZT_PRODUCTPLAN t41 ON t41.PRODUCT = t31.ID 		LEFT JOIN  `zt_story` t1  ON t41.id = t1.plan  where t31.deleted = '0' and  ( 			( ( t31.`status` = 'normal' ) OR ( t31.`status` = 'closed' AND #{srf.datacontext.closed} = '1' ) )  			and ( t41.id is null or 				( t41.`end` >= now( ) )  				OR ( t41.`end` <= now( ) AND #{srf.datacontext.expired} = '1' )  			)  		) ) t1 GROUP BY t1.id,t1.`NAME`,t1.po,t1.PLAN,t1.`begin`,t1.`end`) t1
@@ -98,6 +107,11 @@
     <!--数据查询[ProductStorySum]-->
     <sql id="ProductStorySum" databaseId="mysql">
 		<![CDATA[ select t1.`id`, t1.`name`, t1.`po`,  sum( IF ( t1.`stage` = 'closed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `CLOSEDSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'released' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `RELEASEDSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'verified' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `VERIFIEDSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'tested' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `TESTEDSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'testing' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `TESTINGSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'developed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `DEVELOPEDSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'developing' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `DEVELOPINGSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'projected' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `PROJECTEDSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'planed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `PLANEDSTAGESTORYCNT`,  sum( IF ( t1.`stage` = 'wait' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `WAITSTAGESTORYCNT`,  sum( IF ( t1.`deleted` = '0' and t1.`parent` <> -1, t1.`rowcnt`, 0 ) ) AS `STORYCNT`  from (select t1.`id`, t1.`name`, t1.`po`, t1.`status`, t2.`parent`, t2.`stage`, t2.`deleted`, 1 as `rowcnt` from zt_product t1 left join zt_story t2 on t1.`id` = t2.`product` where t1.`deleted` = '0') t1  where t1.`status` = 'normal' or (t1.`status` = 'closed' and #{srf.datacontext.closed} = '1') group by t1.`id`
+			]]>
+    </sql>
+    <!--数据查询[ProductSumBugType]-->
+    <sql id="ProductSumBugType" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.*, 	SUM( 	IFNULL(t1.codeerror,0)  + IFNULL(t1.config,0) + IFNULL(t1.designdefect,0) +IFNULL(t1.standard,0)  + IFNULL(t1.performance,0) + IFNULL(t1.others,0) +IFNULL(t1.INSTALL,0)  + IFNULL(t1.automation,0) +IFNULL(t1.SECURITY ,0) 	) AS bugsum  FROM 	( SELECT 	t1.id, 	t1.NAME, 	t1.po, 	sum( IF ( t1.type = 'codeerror' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'codeerror', 	sum( IF ( t1.type = 'config' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'config', 	sum( IF ( t1.type = 'designdefect' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'designdefect', 	sum( IF ( t1.type = 'standard' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'standard', 	sum( IF ( t1.type = 'performance' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'performance', 	sum( IF ( t1.type = 'others' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'others', 	sum( IF ( t1.type = 'install' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'install', 	sum( IF ( t1.type = 'automation' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'automation', 	sum( IF ( t1.type = 'security' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'security'  FROM 	( SELECT 	t1.`id`, 	t1.`name`, 	t1.`po`, 	t1.`status`, 	t2.`type`, 	t2.`title`, 	t2.`deleted`, 	1 AS `rowcnt`  FROM 	zt_product t1 	LEFT JOIN zt_bug t2 ON t1.`id` = t2.`product`  WHERE 	t1.`deleted` = '0'  	) t1  WHERE 	t1.`status` = 'normal'  	OR ( t1.`status` = 'closed' AND #{srf.datacontext.closed} = '1' )  GROUP BY 	t1.id  	) t1  GROUP BY 	t1.id
 			]]>
     </sql>
     <!--数据查询[View]-->

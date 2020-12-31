@@ -1,10 +1,10 @@
 <template>
     <ion-grid class="app-mob-dashboard  ">
-        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
+        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<app-mob-icon name="settings-outline"></app-mob-icon></div>
             <ion-card class="dashboard-item appmenu"  v-if="!isEnableCustomized">
             <view_db_appmenu1
     :viewState="viewState"
-    viewName="AppPortalView2"  
+    viewName="AppPortalView2"
     :viewparams="viewparams" 
     :context="context" 
     name="db_appmenu1"  
@@ -15,7 +15,7 @@
             <ion-card class="dashboard-item appmenu"  v-if="!isEnableCustomized">
             <view_db_appmenu2
     :viewState="viewState"
-    viewName="AppPortalView2"  
+    viewName="AppPortalView2"
     :viewparams="viewparams" 
     :context="context" 
     name="db_appmenu2"  
@@ -25,7 +25,7 @@
             </ion-card>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item userCustomize ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
+                    <component :is="item.componentName" :viewName="viewName" localeDeName=""   :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
                 </ion-card>
             </template>
     </ion-grid>
@@ -157,7 +157,7 @@ export default class AppPortalView2_dbBase extends Vue implements ControlInterfa
     public getDatas(): any[] {
         return [];
     }
-
+    
     /**
      * modleId
      *

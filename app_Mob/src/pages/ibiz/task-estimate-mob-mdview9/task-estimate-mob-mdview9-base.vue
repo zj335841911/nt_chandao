@@ -8,7 +8,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TaskEstimateMobMDView9"  
+            viewName="MobMDView9"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"
@@ -644,7 +644,9 @@ export default class TaskEstimateMobMDView9Base extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

@@ -400,6 +400,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductSumDTO](#ProductSumDTO)>：产品汇总表实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品Bug类型统计
+#### 访问路径
+/productsums/fetchproductsumbugtype
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductSumSearchContext](#ProductSumSearchContext) | 产品汇总表查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductSumDTO](#ProductSumDTO)>：产品汇总表实体传输对象列表 |
+
+### 查询产品Bug类型统计
+#### 访问路径
+/productsums/searchproductsumbugtype
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductSumSearchContext](#ProductSumSearchContext) | 产品汇总表查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductSumDTO](#ProductSumDTO)>：产品汇总表实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### ProductSumDTO
@@ -438,7 +474,17 @@ POST
 | 31 | projectedstagestoryhours | Integer | 允许 | 已立项阶段需求工时 |
 | 32 | planedstagestoryhours | Integer | 允许 | 已计划阶段需求工时 |
 | 33 | totalhours | Integer | 允许 | 总工时 |
-| 34 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 34 | codeerror | Integer | 允许 | 代码错误 |
+| 35 | config | Integer | 允许 | 配置相关 |
+| 36 | install | Integer | 允许 | 安装部署 |
+| 37 | security | Integer | 允许 | 安全相关 |
+| 38 | performance | Integer | 允许 | 性能问题 |
+| 39 | standard | Integer | 允许 | 标准规范 |
+| 40 | automation | Integer | 允许 | 测试脚本 |
+| 41 | designdefect | Integer | 允许 | 设计缺陷 |
+| 42 | others | Integer | 允许 | 其他 |
+| 43 | bugsum | Integer | 允许 | bug总计 |
+| 44 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSumSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

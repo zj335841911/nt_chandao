@@ -2,28 +2,28 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'ibz-my-territory-daily-mob-tab-exp-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
                     <ion-toolbar>
-                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel3">
+                        <ion-segment :scrollable="true" :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                            <ion-segment-button value="tabviewpanel3" layout="icon-start">
                             
                             明日计划及计划参与</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel">
+                            <ion-segment-button value="tabviewpanel" layout="icon-start">
                             
                             日报</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
+                            <ion-segment-button value="tabviewpanel2" layout="icon-start">
                             
                             完成任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_tabexppanel
             :viewState="viewState"
-            viewName="IbzMyTerritoryDailyMobTabExpView"  
+            viewName="DailyMobTabExpView"
             :viewparams="viewparams" 
             :context="context" 
             :activiedTabViewPanel="activiedTabViewPanel"     
@@ -347,7 +347,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
             return;
         }
         this.viewState.next({ tag: 'tabexppanel', action: 'active', data: { activeItem: value } });
-        this.setLocalStorage(value);     
+        this.setCacheTabkey(value);     
     }
 
     /**
@@ -367,11 +367,9 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */    
-    public setLocalStorage(value:any) {
-        let name:string = 'ibzmyterritory';
-        let id:any = this.context.ibzmyterritory;
-        let obj:any = {"name":name,"id":id,"value":value};
-        localStorage.setItem('tabKey',JSON.stringify(obj));    
+    public setCacheTabkey(value:any) {
+        const cacheTab:any = {name:'ibzmyterritory',id:this.context.ibzmyterritory,value:value,viewtag: this.viewtag};
+        localStorage.setItem('tabKey',JSON.stringify(cacheTab));    
     }
     /**
      * localStorage取值
@@ -380,12 +378,12 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
      * @returns {void}
      * @memberof MOBORDERMobTabExpViewBase
      */
-    public getLocalStorage() {
-        let key:any = localStorage.getItem('tabKey')
-        if(key){
-        let info:any = JSON.parse(key);
-        if (info.name && info.name == 'ibzmyterritory' && info.id && info.id == this.context.ibzmyterritory) {
-          this.activiedTabViewPanel = info.value;
+    public getCacheTabkey() {
+        const _cacheTabKey: any = localStorage.getItem('tabKey')
+        if(_cacheTabKey){
+        let cacheTabKey:any = JSON.parse(_cacheTabKey);
+        if (cacheTabKey.name && cacheTabKey.name == 'ibzmyterritory' && cacheTabKey.id && cacheTabKey.id == this.context.ibzmyterritory && cacheTabKey.viewtag === this.viewtag) {
+          this.activiedTabViewPanel = cacheTabKey.value;
         } else { 
           this.activiedTabViewPanel = 'tabviewpanel3';
         }
@@ -435,7 +433,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.getLocalStorage();
+        this.getCacheTabkey();
 
 
     }

@@ -381,4 +381,12 @@ export interface Product {
      * @memberof Product
      */
     ibiz_id?: any;
+
+    /**
+     * 支持产品汇报
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    supproreport?: any;
 }

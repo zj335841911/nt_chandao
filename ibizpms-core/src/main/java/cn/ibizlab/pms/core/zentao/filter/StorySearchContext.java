@@ -321,6 +321,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("`storypoints`", n_storypoints_eq);
         }
     }
+	private String n_assessresult_eq;//[评审结果]
+	public void setN_assessresult_eq(String n_assessresult_eq) {
+        this.n_assessresult_eq = n_assessresult_eq;
+        if(!ObjectUtils.isEmpty(this.n_assessresult_eq)){
+            this.getSearchCond().eq("`assessresult`", n_assessresult_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

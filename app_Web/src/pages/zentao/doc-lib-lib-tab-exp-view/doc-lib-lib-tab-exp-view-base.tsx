@@ -105,17 +105,17 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
     public toolBarModels: any = {
         items1: { name: 'items1', caption: '快速访问', disabled: false, type: 'ITEMS', visible: true, dataaccaction: '',
     model: {
-        deuiaction1: { name: 'deuiaction1', caption: '最近更新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '最近更新', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RecentUpdateQuickAccess', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction1.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RecentUpdateQuickAccess', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '我的文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '我的文档', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyDocQuickAccess', target: 'NONE', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction2.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyDocQuickAccess', target: 'NONE', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '我的收藏', 'isShowCaption': true, 'isShowIcon': true, tooltip: '我的收藏', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavouriteQuickAccess', target: 'NONE', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction3.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction3.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavouriteQuickAccess', target: 'NONE', class: '' } },
 
     }
 }, 
-        deuiaction4: { name: 'deuiaction4', caption: '创建文档库', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档库', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction4.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction6: { name: 'deuiaction6', caption: '创建文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
+        deuiaction6: { name: 'deuiaction6', caption: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction6.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.doclib.libtabexpviewtoolbar_toolbar.deuiaction6.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
 
     };
 

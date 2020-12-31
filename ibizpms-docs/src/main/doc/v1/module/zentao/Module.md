@@ -10,11 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
-| 2 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
-| 3 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
-| 4 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
-| 5 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
+| 1 | [测试用例统计（IBZ_CASESTATS）](../ibiz/CaseStats) | （默认） |
+| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 4 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
+| 5 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 6 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
@@ -947,82 +948,49 @@ SELECT
 		'/',
 	CASE
 			
-			WHEN (
+			WHEN t1.parent > 0 THEN
+			(
 			SELECT
 				GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
 			FROM
 				zt_module tt 
 			WHERE
-				FIND_IN_SET( tt.id, t1.path ) 
-				AND tt.type = 'story' 
-			GROUP BY
-				tt.root 
-				LIMIT 0,
-				1 
-				) IS NOT NULL THEN
-				(
-				SELECT
-					GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-				FROM
-					zt_module tt 
-				WHERE
-					FIND_IN_SET( tt.id, t1.path ) 
-					AND tt.type = 'story' 
-				GROUP BY
-					tt.root 
-					LIMIT 0,
-					1 
-				) ELSE t1.`name` 
-			END 
-			) AS `NAME`,
-			(
-				CONCAT_ws(
-					'',
-				CASE
-						
-						WHEN (
-						SELECT
-							GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
-						FROM
-							zt_module tt 
-						WHERE
-							FIND_IN_SET( tt.id, t1.path ) 
-							AND tt.type = 'story' 
-						GROUP BY
-							tt.root 
-							LIMIT 0,
-							1 
-							) IS NOT NULL THEN
-							(
-							SELECT
-								GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
-							FROM
-								zt_module tt 
-							WHERE
-								FIND_IN_SET( tt.id, t1.path ) 
-								AND tt.type = 'story' 
-							GROUP BY
-								tt.root 
-								LIMIT 0,
-								1 
-							) ELSE t1.`ORDER` 
-						END 
-						)) AS ORDERPK,
-					t1.`ORDER`,
-					t1.`OWNER`,
-				CASE
-						
-						WHEN t1.`PARENT` = 0 THEN
-						NULL ELSE t1.parent 
-					END AS parent,
-					t11.`NAME` AS `PARENTNAME`,
-					t1.`PATH`,
-					t1.`ROOT`,
-					t1.`SHORT`,
-					t1.`TYPE` 
-				FROM
-				`zt_module` t1
-	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
+				tt.type = 'story' 
+				AND FIND_IN_SET( tt.id, t1.path ) 
+			) ELSE t1.`name` 
+		END 
+		) AS `NAME`,
+		(
+			CONCAT_ws(
+				'',
+			CASE
+					
+					WHEN t1.parent > 0 THEN
+					(
+					SELECT
+						GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+					FROM
+						zt_module tt 
+					WHERE
+						tt.type = 'story' 
+					AND FIND_IN_SET( tt.id, t1.path )) ELSE t1.`ORDER` 
+				END 
+				)) AS ORDERPK,
+			t1.`ORDER`,
+			t1.`OWNER`,
+		CASE
+				
+				WHEN t1.`PARENT` = 0 THEN
+				NULL ELSE t1.parent 
+			END AS parent,
+			t11.`NAME` AS `PARENTNAME`,
+			t1.`PATH`,
+			t1.`ROOT`,
+			t1.`SHORT`,
+			t1.`TYPE` 
+		FROM
+			`zt_module` t1
+			LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 ```
 ### 数据查询-数据查询（BugModuleCodeList）
 #### 说明

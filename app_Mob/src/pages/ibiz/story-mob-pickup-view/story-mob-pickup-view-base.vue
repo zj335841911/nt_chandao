@@ -1,19 +1,19 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupview': true, 'story-mob-pickup-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="StoryMobPickupView"  
+            viewName="MobPickupView"
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"
@@ -28,8 +28,16 @@
     <ion-footer class="view-footer">
         <ion-toolbar style="text-align: center;">
     <div class="mobpickupview_button">
-      <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
-      <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
+      <app-mob-button 
+          class="pick-btn" 
+          color="medium"
+          :text="$t('app.button.cancel')"
+          @click="onClickCancel"/>
+      <app-mob-button 
+          class="pick-btn" 
+          :text="$t('app.button.confirm')"
+          :disabled="viewSelections.length === 0" 
+          @click="onClickOk" />
     </div>
 </ion-toolbar>
 

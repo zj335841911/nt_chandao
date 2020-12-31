@@ -301,12 +301,20 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @memberof BugGridView9_AssignedToMe
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = null;
-        const localViewParam: any =null;
+        const localContext: any = {PTOJECT:"%project%",PRODUCT:"%product%"};
+        const localViewParam: any ={product:"%product%",project:"%project%"};
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
             Object.assign(tempContext,args[0]);
+        }
+        if(localContext && Object.keys(localContext).length >0){
+            let _context:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localContext);
+            Object.assign(tempContext,_context);
+        }
+        if(localViewParam && Object.keys(localViewParam).length >0){
+            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
+            Object.assign(data,_param);
         }
         let deResParameters: any[] = [];
         if(tempContext.product && true){
@@ -332,8 +340,8 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
         }
         const view: any = {
             viewname: 'bug-main-dashboard-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.bug.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };

@@ -6,7 +6,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TaskFavoriteMobMDView9"  
+            viewName="FavoriteMobMDView9"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"
@@ -520,18 +520,18 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -570,28 +570,28 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
-        let context = { ...this.context, ...contextJO };
+        let _context = { ...this.context, ...contextJO };
         if (args.length > 0) {
-            Object.assign(context, args[0]);
+            Object.assign(_context, args[0]);
         }
         let response: any = null;
         let panelNavParam = { } ;
         let panelNavContext = { } ;
         //导航参数处理
-        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
@@ -601,7 +601,7 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
@@ -735,7 +735,9 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

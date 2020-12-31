@@ -120,13 +120,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.report_role.required,
                     type: 'string',
-                    message: '角色 值不能为空',
+                    message: `${this.$t('entities.ibzreportroleconfig.main_form.details.report_role')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.report_role.required,
                     type: 'string',
-                    message: '角色 值不能为空',
+                    message: `${this.$t('entities.ibzreportroleconfig.main_form.details.report_role')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

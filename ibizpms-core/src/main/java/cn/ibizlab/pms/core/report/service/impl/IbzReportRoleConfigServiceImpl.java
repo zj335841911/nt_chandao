@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzReportRoleConfigServiceImpl")
 public class IbzReportRoleConfigServiceImpl extends ServiceImpl<IbzReportRoleConfigMapper, IbzReportRoleConfig> implements IIbzReportRoleConfigService {
 
+    @Autowired
+    @Lazy
+    IIbzReportRoleConfigService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class IbzReportRoleConfigServiceImpl extends ServiceImpl<IbzReportRoleCon
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzReportRoleConfig> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzReportRoleConfig> create = new ArrayList<>();
+        List<IbzReportRoleConfig> update = new ArrayList<>();
+        for (IbzReportRoleConfig et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzreportroleconfigid()) || ObjectUtils.isEmpty(getById(et.getIbzreportroleconfigid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzReportRoleConfig> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzReportRoleConfig> create = new ArrayList<>();
+        List<IbzReportRoleConfig> update = new ArrayList<>();
+        for (IbzReportRoleConfig et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzreportroleconfigid()) || ObjectUtils.isEmpty(getById(et.getIbzreportroleconfigid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

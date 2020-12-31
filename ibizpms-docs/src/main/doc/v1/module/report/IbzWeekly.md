@@ -27,10 +27,10 @@
 | 9 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 否 | 是 |
 | 10 | [是否提交](#属性-是否提交（ISSUBMIT）) | ISSUBMIT | 单项选择(文本值) | 否 | 否 | 是 |
 | 11 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
-| 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
+| 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 13 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 14 | [本周工作](#属性-本周工作（WORKTHISWEEK）) | WORKTHISWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
-| 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | 多项选择(文本值) | 否 | 否 | 是 |
+| 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 16 | [本周完成任务](#属性-本周完成任务（THISWEEKTASK）) | THISWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 17 | [下周计划任务](#属性-下周计划任务（NEXTWEEKTASK）) | NEXTWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 18 | [更新人名称](#属性-更新人名称（UPDATEMANNAME）) | UPDATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
@@ -326,7 +326,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+参照数据字典【[用户真实名称（动态-表格）（UserRealName_Gird）](../../codelist/UserRealName_Gird)】
 
 - 数据格式
 无
@@ -439,7 +439,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+参照数据字典【[用户真实名称（动态-表格）（UserRealName_Gird）](../../codelist/UserRealName_Gird)】
 
 - 数据格式
 无
@@ -466,7 +466,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-文本，可指定长度
+HTML文本，没有长度限制
 
 - Java类型
 String
@@ -577,7 +577,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-多项选择(文本值)
+HTML文本，没有长度限制
 
 - Java类型
 String
@@ -589,7 +589,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[我计划参与的任务（汇报）（MyPlanTask）](../../codelist/MyPlanTask)】
+无
 
 - 数据格式
 无
@@ -626,7 +626,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[我完成的任务（汇报）（MyCompleteTask）](../../codelist/MyCompleteTask)】
+参照数据字典【[周报我完成的任务(下拉框选择)（CodeList）](../../codelist/CodeList)】
 
 - 数据格式
 无
@@ -1218,7 +1218,9 @@ Save
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [我的周报](#数据查询-我的周报（MyNotSubmit）) | MyNotSubmit | 否 |
 | 3 | [我收到的周报](#数据查询-我收到的周报（MyWeekly）) | MyWeekly | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 4 | [产品团队成员周报](#数据查询-产品团队成员周报（ProductTeamMemberWeekly）) | ProductTeamMemberWeekly | 否 |
+| 5 | [项目周报](#数据查询-项目周报（ProjectWeekly）) | ProjectWeekly | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1235,7 +1237,6 @@ Save
 ```SQL
 SELECT
 t1.`ACCOUNT`,
-t1.`COMMENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`CREATEMANNAME`,
@@ -1246,7 +1247,6 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.mailto AS `MAILTOPK`,
 t1.`NEXTWEEKTASK`,
-t1.`PLANNEXTWEEK`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
 t1.reportto AS `REPORTTOPK`,
@@ -1329,6 +1329,57 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-产品团队成员周报（ProductTeamMemberWeekly）
+#### 说明
+产品团队成员周报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
+t1.`NEXTWEEKTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+
+```
+### 数据查询-项目周报（ProjectWeekly）
+#### 说明
+项目周报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_WEEKLYID`, t1.`IBZ_WEEKLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`THISWEEKTASK`, t1.`NEXTWEEKTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1375,6 +1426,8 @@ FROM `T_IBZ_WEEKLY` t1
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我的周报](#数据集合-我的周报（MyNotSubmit）) | MyNotSubmit | 否 |
 | 3 | [我收到的周报](#数据集合-我收到的周报（MyWeekly）) | MyWeekly | 否 |
+| 4 | [产品团队成员周报](#数据集合-产品团队成员周报（ProductTeamMemberWeekly）) | ProductTeamMemberWeekly | 否 |
+| 5 | [项目周报](#数据集合-项目周报（ProjectWeekly）) | ProjectWeekly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1418,6 +1471,34 @@ FROM `T_IBZ_WEEKLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我收到的周报（MyWeekly）](#数据查询-我收到的周报（MyWeekly）) |
+### 数据集合-产品团队成员周报（ProductTeamMemberWeekly）
+#### 说明
+产品团队成员周报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品团队成员周报（ProductTeamMemberWeekly）](#数据查询-产品团队成员周报（ProductTeamMemberWeekly）) |
+### 数据集合-项目周报（ProjectWeekly）
+#### 说明
+项目周报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目周报（ProjectWeekly）](#数据查询-项目周报（ProjectWeekly）) |
 
 ## 数据导入
 无

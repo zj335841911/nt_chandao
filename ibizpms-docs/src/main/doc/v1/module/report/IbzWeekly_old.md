@@ -20,10 +20,10 @@
 |附件|FILES|TEXT|&nbsp;|
 |是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
 |汇报给|REPORTTO|SSCODELIST|&nbsp;|
-|其他事项|COMMENT|TEXT|&nbsp;|
+|其他事项|COMMENT|HTMLTEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
 |本周工作|WORKTHISWEEK|HTMLTEXT|&nbsp;|
-|下周计划|PLANNEXTWEEK|SMCODELIST|&nbsp;|
+|下周计划|PLANNEXTWEEK|HTMLTEXT|&nbsp;|
 |本周完成任务|THISWEEKTASK|SMCODELIST|&nbsp;|
 |下周计划任务|NEXTWEEKTASK|SMCODELIST|&nbsp;|
 |更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
@@ -47,10 +47,10 @@
 |附件|默认规则|内容长度必须小于等于[100]|
 |是否提交|默认规则|内容长度必须小于等于[60]|
 |汇报给|默认规则|内容长度必须小于等于[60]|
-|其他事项|默认规则|内容长度必须小于等于[100]|
+|其他事项|默认规则|内容长度必须小于等于[1048576]|
 |日期|默认规则|默认规则|
 |本周工作|默认规则|内容长度必须小于等于[1048576]|
-|下周计划|默认规则|内容长度必须小于等于[4000]|
+|下周计划|默认规则|内容长度必须小于等于[1048576]|
 |本周完成任务|默认规则|内容长度必须小于等于[100]|
 |下周计划任务|默认规则|内容长度必须小于等于[100]|
 |更新人名称|默认规则|内容长度必须小于等于[60]|
@@ -145,6 +145,8 @@ hide footbox
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_Default))|否|&nbsp;|
 |MyNotSubmit|我的周报([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_MyNotSubmit))|否|&nbsp;|
 |MyWeekly|我收到的周报([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_MyWeekly))|否|&nbsp;|
+|ProductTeamMemberWeekly|产品团队成员周报([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_ProductTeamMemberWeekly))|否|&nbsp;|
+|ProjectWeekly|项目周报([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_ProjectWeekly))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzWeekly_View))|否|&nbsp;|
 
 * **数据集合**
@@ -154,6 +156,8 @@ hide footbox
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |MyNotSubmit|我的周报|MyNotSubmit|否|&nbsp;|
 |MyWeekly|我收到的周报|MyWeekly|否|&nbsp;|
+|ProductTeamMemberWeekly|产品团队成员周报|ProductTeamMemberWeekly|否|&nbsp;|
+|ProjectWeekly|项目周报|ProjectWeekly|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

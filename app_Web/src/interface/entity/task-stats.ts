@@ -77,4 +77,124 @@ export interface TaskStats {
      * @memberof TaskStats
      */
     taskefficient?: any;
+
+    /**
+     * 任务编号
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskid?: any;
+
+    /**
+     * 任务名称
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskname?: any;
+
+    /**
+     * 任务优先级
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskpri?: any;
+
+    /**
+     * 任务预计消耗
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskestimate?: any;
+
+    /**
+     * 任务实际开始时间
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskrealstart?: any;
+
+    /**
+     * 任务截至日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskdeadline?: any;
+
+    /**
+     * 任务实际完成日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskfinisheddate?: any;
+
+    /**
+     * 任务延期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskdelay?: any;
+
+    /**
+     * 任务预计开始日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskeststarted?: any;
+
+    /**
+     * 总任务数
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskcnt?: any;
+
+    /**
+     * 项目总消耗
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    projectconsumed?: any;
+
+    /**
+     * 用户总消耗
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    userconsumed?: any;
+
+    /**
+     * 部门
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    dept?: any;
+
+    /**
+     * 结束
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    end?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    begin?: any;
 }

@@ -42,7 +42,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 
 /**
- * 实体[汇报] 服务对象接口实现
+ * 实体[汇报汇总] 服务对象接口实现
  */
 @Slf4j
 @Service("IbzReportServiceImpl")
@@ -56,6 +56,9 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.report.service.logic.IIbzReportReportIReceivedLogic reportireceivedLogic;
+    @Autowired
+    @Lazy
+    IIbzReportService proxyService;
 
     protected int batchSize = 500;
 
@@ -155,21 +158,49 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzReport> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzReport> create = new ArrayList<>();
+        List<IbzReport> update = new ArrayList<>();
+        for (IbzReport et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzdailyid()) || ObjectUtils.isEmpty(getById(et.getIbzdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzReport> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzReport> create = new ArrayList<>();
+        List<IbzReport> update = new ArrayList<>();
+        for (IbzReport et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzdailyid()) || ObjectUtils.isEmpty(getById(et.getIbzdailyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

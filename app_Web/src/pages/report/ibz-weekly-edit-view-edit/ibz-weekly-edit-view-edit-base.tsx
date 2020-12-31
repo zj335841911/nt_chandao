@@ -112,9 +112,7 @@ export class IbzWeeklyEditViewEditBase extends EditViewBase {
      * @memberof IbzWeeklyEditViewEdit
      */
     public toolBarModels: any = {
-        deuiaction3_submit: { name: 'deuiaction3_submit', caption: '提交', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提交', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'submit', target: 'SINGLEKEY', class: '' } },
-
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.ibzweekly.editviewedittoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibzweekly.editviewedittoolbar_toolbar.deuiaction1.tip', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -184,9 +182,6 @@ export class IbzWeeklyEditViewEditBase extends EditViewBase {
      * @memberof IbzWeeklyEditViewEditBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_submit')) {
-            this.toolbar_deuiaction3_submit_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
         }
@@ -223,35 +218,6 @@ export class IbzWeeklyEditViewEditBase extends EditViewBase {
      */
     public form_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'load', $event);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction3_submit_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:IBZWEEKLYUIService  = new IBZWEEKLYUIService();
-        curUIService.IbzWeekly_submit(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
     }
 
     /**

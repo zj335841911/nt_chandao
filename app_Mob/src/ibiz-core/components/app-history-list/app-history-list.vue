@@ -1,58 +1,29 @@
 <template>
   <div class="container">
     <div  class="onecontent" ref="onecontent">   
-      <div v-for="(item,index2) in items" :key="item.id" class="oneitem" ref="oneitem">
-            <template v-if="index2 < 3 || isShow">
-                <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div v-if="item.item.length > 0" class="footer">
-              <div v-for="(detail,index) in item.item" :key="index">
-                <span>{{$t('by')}} </span>
-                <strong v-if="isGetUser">{{item.actorText}}</strong> 
-                {{item.method}} 
-                <span v-if="item.actions !== 'closed'">
-                  <span v-if="item.actions !=='suspended'">
-                    <span v-if="item.actions !=='delayed'">
-                    <strong>{{detail.file}} </strong>
-                    </span>
-                  </span>
-                  <span v-if="item.actions == 'delayed'">
-                  </span>
-                  <span v-if="item.actions == 'commented' ">
-                    <strong v-html="item.comment" class="comment"></strong>
-                  </span>
-                  <span v-if="item.actions == 'edited' ">
-                    <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span>
-                  </span>
-                  <span v-if="item.actions == 'activated'">
-                    <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span> 
-                  </span>
-                </span>
-              </div>
-            </div>
-            <div v-else class="footer">
-              <span>{{$t('by')}} </span>
-                <strong v-if="isGetUser">{{item.actorText}}</strong> 
-                {{item.method}} 
-                <span v-if="item.actions !== 'closed'">
-                  <span v-if="item.actions !=='suspended'">
-                    <span v-if="item.actions !=='delayed'">
-                    <strong>{{item.file}} </strong>
-                    </span>
-                  </span>
-                  <span v-if="item.actions == 'delayed'">
-                  </span>
-                  <span v-if="item.actions == 'commented' ">
-                    <strong v-html="item.comment" class="comment"></strong>
-                  </span>
-                  <span v-if="item.actions == 'edited' ">
-                    <span v-if="detail.old">{{$t('oldvalue')}}</span> <span v-html="detail.old"></span>,<span v-if="detail.ibiznew">{{$t('newvalue')}}</span> <span v-html="detail.ibiznew"></span>
-                  </span>
-                  <span v-if="item.actions == 'activated'">
-                    <span v-if="detail.old">{{$t('oldvalue')}}</span> <span v-html="detail.old"></span>,<span v-if="detail.ibiznew">{{$t('newvalue')}}</span> <span v-html="detail.ibiznew"></span> 
-                  </span>
-                </span>
-            </div>
-            </template>
+      <div v-for="(item,index) in items" :key="item.id" class="oneitem" ref="oneitem" >
+        <template v-if="index < 3  || isShow">
+              <div class="header"><span>{{item.date}}</span><span>{{item.method}}</span></div>
+              <template>
+                  <div  class="footer" >                
+                    <span>{{$t('by')}} </span>
+                    <strong >{{item.actorText}}</strong> 
+                    {{item.method}} 
+                  <div class="info">
+                    <template v-for="_item in item.item">
+                      <span v-if="!(item.actions == 'recordestimate' || item.actions == 'delayed' )" :key="_item.id" class="info_item"> 
+                        修改了<strong >{{_item.fieldText}}</strong >
+                        <span v-if="_item.old"> {{$t('oldvalue')}} </span>
+                        <span v-html="_item.old"></span>,
+                        <span v-if="_item.ibiznew"> {{$t('newvalue')}} </span>
+                        <span v-html="_item.ibiznew"></span>
+                      </span>
+                    </template>
+                    <span v-if="item.comment" v-html="item.comment"></span>
+                  </div>
+                  </div>
+              </template>
+        </template>
       </div>
     </div>
     <div class="loadMorebutton" v-if="items.length > 3" ref="loadMore">
@@ -67,7 +38,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { CodeListService } from "@/ibiz-core";
-
+import { Environment } from '@/environments/environment';
 
 @Component({
     components: {},
@@ -89,6 +60,7 @@ import { CodeListService } from "@/ibiz-core";
     }
 })
 export default class APPHistoryList extends Vue {
+
     /**
      * 代码表服务对象
      *
@@ -104,28 +76,14 @@ export default class APPHistoryList extends Vue {
      * @type {Array}
      * @memberof APPHistoryList
      */
-    @Prop() public items?: Array<any>;
-
-    public listItems: Array<any> = [];
+    @Prop() public items?: any;
 
     /**
-     * 传入数据itemNameDetail
+     * 下载文件路径
      *
-     * @type {any}
-     * @memberof APPHistoryList
+     * @memberof AppMobFileUpload
      */
-    @Prop() public itemNameDetail?: any;
-
-    /**
-     * 监听itemNameDetail
-     *
-     * @returns {void}
-     * @memberof APPHistoryList
-     */
-    @Watch('itemNameDetail')
-    itemNameDetailChange() {
-        this.handler();
-    }
+    public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
 
     /**
      * 监听items
@@ -140,21 +98,7 @@ export default class APPHistoryList extends Vue {
         } else {
             this.text = '暂无更多记录';
         }
-        this.handler();
-    }
-
-    /**
-     * 获取代码表
-     *
-     * @returns {void}
-     * @memberof APPHistoryList
-     */
-    public getCodeList(tag: string, type: string, value: any) {
-        if (type == 'STATIC') {
-            let infos: any = this.$store.getters.getCodeListItems(tag);
-            let info: any = infos.find((v: any) => v.value == value);
-            return info;
-        }
+        this.inint();
     }
 
     /**
@@ -164,40 +108,47 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     public handler() {
-        if (this.items) {
-            this.items.forEach((v: any) => {
-                let file: string = "";
-                let method: string = "";
-                if (v.actions) {
-                    let info: any = this.getCodeList(this.codeListStandard.actions.tag, 'STATIC', v.actions);
-                    v.method = info.text;
-                    method = info.text;
-                    if (v.actions === 'closed') {
-                        v.item.length = 1;
-                    }
-                }
-                if (v.item.length > 0) {
-                    v.item.forEach((i: any) => {
-                        i.file = (this.$t(v.objecttype + '.fields.' + i.field.toLowerCase()) as string);
-                        v.old = i.old;
-                        v.new = i.ibiznew;
-                    });
-                }
-            })
-            this.setUerReName();
-        }
+          for (let index = 0; index < this.items.length; index++) {
+            const item = this.items[index];
+            item.actorText = this.getUserReName(item.actor);
+            if (item.actions)item.method = this.getActionName(item.actions);
+            if(item.comment)item.comment = this.parseImgUrl(item.comment);
+            if (item.item.length > 0) {
+              for (let index = 0; index < item.item.length; index++) {
+                  const _item = item.item[index];
+                  _item.ibiznew = this.parseImgUrl(_item.ibiznew);
+                  _item.old = this.parseImgUrl(_item.old);
+                  _item.fieldText = (this.$t(item.objecttype + '.fields.' + _item.field.toLowerCase()) as string);
+                  if(_item.field.indexOf('time') != -1 || _item.field.indexOf('date') != -1){
+                    _item.old = _item.old.substring(0,19);
+                    _item.ibiznew = _item.ibiznew.substring(0,19);
+                  }
+              }
+            }
+          }
+          console.log(this.items);
+          
+          this.$forceUpdate();
     }
 
     /**
-     * 设置用户真实姓名
+     * 图片解析
+     *
+     * @type {String}
+     * @memberof APPHistoryList
      */
-    public setUerReName() {
-        if (this.items) {
-            for (let index = 0; index < this.items.length; index++) {
-                this.items[index].actorText = this.getUserReName(this.items[index].actor);
-            }
-        }
+    public parseImgUrl(html:any){
+      let that :any = this;
+       let parsehtml = html.replace(/<img [^>]*src=['"]\{([^\}'"]+)[^>]*>/gi,  (match:any, capture:any) =>{
+          let parseUrl = "";
+          if(match.indexOf('{') && match.indexOf('}')){
+            parseUrl = `${that.downloadUrl}/${capture.split('.')[0]}`;
+          }
+           return `<img src="${parseUrl?parseUrl:capture}"/>`
+        });
+        return parsehtml
     }
+
     /**
      * 按钮文本
      *
@@ -215,80 +166,6 @@ export default class APPHistoryList extends Vue {
     public isShow: boolean = false;
 
     /**
-     * 是否获取用户数据
-     *
-     * @returns {void}
-     * @memberof APPHistoryList
-     */
-    public isGetUser = false;
-
-    /**
-     * 用户数据
-     *
-     * @returns {void}
-     * @memberof APPHistoryList
-     */
-    public userData: any[] = [];
-    @Watch('userData')
-    onUserDataChange(newData: any, oldData: any) {
-        if (newData.length > 0) {
-            this.isGetUser = true;
-        }
-        this.handler();
-    }
-
-    /**
-     * 获取用户真实姓名
-     *
-     * @returns {void}
-     * @memberof APPHistoryList
-     */
-    public getUserReName(id: string): string {
-        let index = this.userData.findIndex((item) => { return item.value == id })
-        return index > -1 ? this.userData[index].label : "";
-    }
-
-    /**
-     * 代码表规范
-     *
-     * @memberof APPHistoryList
-     */
-    public codeListStandard: any = {
-        "actions": {
-            type: "static",
-            tag: "Action__type"
-        },
-        "old": {
-            type: "static",
-            tag: "Product__status"
-        }
-    }
-
-    /**
-     * 初始个数
-     *
-     * @type {Number}
-     * @memberof APPHistoryList
-     */
-    public num: number = 3;
-
-    /**
-     * 初始高度
-     *
-     * @type {Number}
-     * @memberof APPHistoryList
-     */
-    public startHeig: number = 0;
-
-    /**
-     * 终止高度
-     *
-     * @type {Number}
-     * @memberof APPHistoryList
-     */
-    public endHeig: number = 0;
-
-    /**
      * 点击展开
      *
      * @returns {void}
@@ -300,35 +177,52 @@ export default class APPHistoryList extends Vue {
     }
 
     /**
-     * 生命周期created
+     * 操作名称数据
      *
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public created() {
-        this.handler();
-        this.getUserData();
-    }
+    public actionData :any = [];
 
     /**
-     * 获取用户数据
+     * 用户数据
      *
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public async getUserData() {
-        this.userData = await this.codeListService.getItems("UserRealName");
-    }
-
-  
+    public userData: any[] = [];
 
     /**
-     * 生命周期mounted
+     * 获取操作名称
      *
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public mounted() {
+    public getActionName(id: string) {
+        let index = this.actionData.findIndex((item:any) => { return item.value == id })
+        return index > -1 ? this.actionData[index].label : "";
+    }
+    
+
+    /**
+     * 获取用户真实姓名
+     *
+     * @returns {void}
+     * @memberof APPHistoryList
+     */
+    public getUserReName(id: string): string {
+        let index = this.userData.findIndex((item) => { return item.value == id })
+        return index > -1 ? this.userData[index].label : id;
+    }
+
+    public inint(){
+        this.codeListService.getStaticItems('Action__type').then((_res:any)=>{
+            this.actionData = _res;
+            this.codeListService.getItems("UserRealName").then((res:any)=>{
+              this.userData = res;
+              this.handler();
+            });
+        });
     }
 
 }

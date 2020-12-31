@@ -53,6 +53,9 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    @Autowired
+    @Lazy
+    ICaseStepService proxyService;
 
     protected int batchSize = 500;
 
@@ -146,7 +149,7 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -154,7 +157,21 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     @Transactional
     public boolean saveBatch(Collection<CaseStep> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<CaseStep> create = new ArrayList<>();
+        List<CaseStep> update = new ArrayList<>();
+        for (CaseStep et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -162,7 +179,21 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     @Transactional
     public void saveBatch(List<CaseStep> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<CaseStep> create = new ArrayList<>();
+        List<CaseStep> update = new ArrayList<>();
+        for (CaseStep et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -175,9 +206,6 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         this.remove(new QueryWrapper<CaseStep>().eq("case", id));
     }
 
-    @Autowired
-    @Lazy
-    ICaseStepService proxyService;
     @Override
     public void saveByIbizcase(Long id, List<CaseStep> list) {
         if (list == null) {

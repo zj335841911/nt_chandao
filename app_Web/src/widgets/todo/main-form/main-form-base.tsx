@@ -139,13 +139,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.task.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.task')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.task.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.task')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -153,13 +153,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.story.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.story')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.story.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.story')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -167,13 +167,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.bug.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.bug')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.bug.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.bug')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -181,13 +181,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '待办名称 值不能为空',
+                    message: `${this.$t('entities.todo.main_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

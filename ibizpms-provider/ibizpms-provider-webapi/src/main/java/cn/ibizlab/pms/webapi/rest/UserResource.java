@@ -156,6 +156,12 @@ public class UserResource {
         userdto = userMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(userdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-SyncAccount-all')")
+    @ApiOperation(value = "批量处理[同步账号]", tags = {"用户" },  notes = "批量处理[同步账号]")
+	@RequestMapping(method = RequestMethod.POST, value = "/users/{user_id}/syncaccountbatch")
+    public ResponseEntity<Boolean> syncAccountBatch(@RequestBody List<UserDTO> userdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.syncAccountBatch(userMapping.toDomain(userdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchBugUser-all')")
 	@ApiOperation(value = "获取Bug用户", tags = {"用户" } ,notes = "获取Bug用户")

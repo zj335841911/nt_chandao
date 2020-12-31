@@ -1,12 +1,8 @@
-export default {
-  fields: {
-    files: "附件",
-    id: "编号",
-    content: "文档正文",
-    type: "文档类型",
-    title: "文档标题",
-    version: "版本号",
-    digest: "文档摘要",
-    doc: "文档",
-  },
-};
+import DocContent_en_US_Base from './doc-content_en_US_base';
+
+function getLocaleResource(){
+    const DocContent_en_US_OwnData = {};
+    const targetData = Object.assign(DocContent_en_US_Base(), DocContent_en_US_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

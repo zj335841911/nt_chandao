@@ -17,6 +17,7 @@
             </el-col>
             <el-col :span="rowPreview && files.length > 0 ? 12 : 24" class="upload-col">
                 <el-upload
+                    :class="isUploading ? 'is-uploading': ''"
                     :disabled="disabled"
                     :file-list="files"
                     :action="uploadUrl"
@@ -30,7 +31,7 @@
                     :show-file-list="!rowPreview"
                 >
                     <el-button v-if="!isdrag" size="small" icon="el-icon-upload" :disabled="disabled || isUploading">{{
-                        this.$t('app.fileUpload.caption')
+                        isUploading?this.$t('app.fileUpload.uploading'):this.$t('app.fileUpload.caption') 
                     }}</el-button>
                     <i v-if="isdrag" class="el-icon-upload"></i>
                     <div v-if="isdrag" class="el-upload__text" v-html="$t('components.appFileUpload.uploadText')"></div>
@@ -445,6 +446,7 @@ export default class AppFileUpload extends Vue {
      * @memberof AppFileUpload
      */
     public onError(error: any, file: any, fileList: any) {
+        this.isUploading = false;
         this.$Notice.error({ title: this.$t('components.appFileUpload.uploadError') as any });
     }
 
@@ -466,6 +468,7 @@ export default class AppFileUpload extends Vue {
         if (arr.length == 0) {
             this.dialogVisible = false;
         }
+        this.isUploading = false;
         this.$emit('formitemvaluechange', { name: this.name, value: value });
     }
 

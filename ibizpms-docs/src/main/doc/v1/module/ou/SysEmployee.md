@@ -25,31 +25,33 @@
 | 2 | [用户全局名](#属性-用户全局名（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 3 | [姓名](#属性-姓名（PERSONNAME）) | PERSONNAME | 文本，可指定长度 | 否 | 否 | 否 |
 | 4 | [用户工号](#属性-用户工号（USERCODE）) | USERCODE | 文本，可指定长度 | 否 | 否 | 否 |
-| 5 | [区属](#属性-区属（DOMAINS）) | DOMAINS | 文本，可指定长度 | 否 | 否 | 是 |
-| 6 | [主部门](#属性-主部门（MDEPTID）) | MDEPTID | 外键值 | 否 | 是 | 是 |
-| 7 | [主部门代码](#属性-主部门代码（MDEPTCODE）) | MDEPTCODE | 外键值附加数据 | 否 | 是 | 是 |
-| 8 | [主部门名称](#属性-主部门名称（MDEPTNAME）) | MDEPTNAME | 外键值文本 | 否 | 是 | 是 |
-| 9 | [业务编码](#属性-业务编码（BCODE）) | BCODE | 文本，可指定长度 | 否 | 是 | 是 |
-| 10 | [单位](#属性-单位（ORGID）) | ORGID | 外键值 | 否 | 是 | 是 |
-| 11 | [单位代码](#属性-单位代码（ORGCODE）) | ORGCODE | 外键值附加数据 | 否 | 是 | 是 |
-| 12 | [单位名称](#属性-单位名称（ORGNAME）) | ORGNAME | 外键值文本 | 否 | 是 | 是 |
-| 13 | [昵称别名](#属性-昵称别名（NICKNAME）) | NICKNAME | 文本，可指定长度 | 否 | 是 | 是 |
-| 14 | [性别](#属性-性别（SEX）) | SEX | 单项选择(文本值) | 否 | 是 | 是 |
-| 15 | [联系方式](#属性-联系方式（PHONE）) | PHONE | 文本，可指定长度 | 否 | 是 | 是 |
-| 16 | [邮件](#属性-邮件（EMAIL）) | EMAIL | 文本，可指定长度 | 否 | 是 | 是 |
-| 17 | [社交账号](#属性-社交账号（AVATAR）) | AVATAR | 文本，可指定长度 | 否 | 是 | 是 |
-| 18 | [地址](#属性-地址（ADDR）) | ADDR | 文本，可指定长度 | 否 | 是 | 是 |
-| 19 | [照片](#属性-照片（USERICON）) | USERICON | 文本，可指定长度 | 否 | 是 | 是 |
-| 20 | [ip地址](#属性-ip地址（IPADDR）) | IPADDR | 文本，可指定长度 | 否 | 是 | 是 |
-| 21 | [语言](#属性-语言（LANG）) | LANG | 文本，可指定长度 | 否 | 是 | 是 |
-| 22 | [备注](#属性-备注（MEMO）) | MEMO | 文本，可指定长度 | 否 | 是 | 是 |
-| 23 | [保留](#属性-保留（RESERVER）) | RESERVER | 文本，可指定长度 | 否 | 是 | 是 |
-| 24 | [排序](#属性-排序（SHOWORDER）) | SHOWORDER | 整型 | 否 | 是 | 是 |
-| 25 | [逻辑有效](#属性-逻辑有效（ENABLE）) | ENABLE | 是否逻辑 | 否 | 是 | 是 |
-| 26 | [创建时间](#属性-创建时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 是 | 是 |
-| 27 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
-| 28 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
-| 29 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 是 | 否 |
+| 5 | [登录名](#属性-登录名（LOGINNAME）) | LOGINNAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 6 | [密码](#属性-密码（PASSWORD）) | PASSWORD | 文本，可指定长度 | 否 | 否 | 否 |
+| 7 | [区属](#属性-区属（DOMAINS）) | DOMAINS | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [主部门](#属性-主部门（MDEPTID）) | MDEPTID | 外键值 | 否 | 是 | 是 |
+| 9 | [主部门代码](#属性-主部门代码（MDEPTCODE）) | MDEPTCODE | 外键值附加数据 | 否 | 是 | 是 |
+| 10 | [主部门名称](#属性-主部门名称（MDEPTNAME）) | MDEPTNAME | 外键值文本 | 否 | 是 | 是 |
+| 11 | [业务编码](#属性-业务编码（BCODE）) | BCODE | 文本，可指定长度 | 否 | 是 | 是 |
+| 12 | [单位](#属性-单位（ORGID）) | ORGID | 外键值 | 否 | 是 | 是 |
+| 13 | [单位代码](#属性-单位代码（ORGCODE）) | ORGCODE | 外键值附加数据 | 否 | 是 | 是 |
+| 14 | [单位名称](#属性-单位名称（ORGNAME）) | ORGNAME | 外键值文本 | 否 | 是 | 是 |
+| 15 | [昵称别名](#属性-昵称别名（NICKNAME）) | NICKNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 16 | [性别](#属性-性别（SEX）) | SEX | 单项选择(文本值) | 否 | 是 | 是 |
+| 17 | [联系方式](#属性-联系方式（PHONE）) | PHONE | 文本，可指定长度 | 否 | 是 | 是 |
+| 18 | [邮件](#属性-邮件（EMAIL）) | EMAIL | 文本，可指定长度 | 否 | 是 | 是 |
+| 19 | [社交账号](#属性-社交账号（AVATAR）) | AVATAR | 文本，可指定长度 | 否 | 是 | 是 |
+| 20 | [地址](#属性-地址（ADDR）) | ADDR | 文本，可指定长度 | 否 | 是 | 是 |
+| 21 | [照片](#属性-照片（USERICON）) | USERICON | 文本，可指定长度 | 否 | 是 | 是 |
+| 22 | [ip地址](#属性-ip地址（IPADDR）) | IPADDR | 文本，可指定长度 | 否 | 是 | 是 |
+| 23 | [语言](#属性-语言（LANG）) | LANG | 文本，可指定长度 | 否 | 是 | 是 |
+| 24 | [备注](#属性-备注（MEMO）) | MEMO | 文本，可指定长度 | 否 | 是 | 是 |
+| 25 | [保留](#属性-保留（RESERVER）) | RESERVER | 文本，可指定长度 | 否 | 是 | 是 |
+| 26 | [排序](#属性-排序（SHOWORDER）) | SHOWORDER | 整型 | 否 | 是 | 是 |
+| 27 | [逻辑有效](#属性-逻辑有效（ENABLE）) | ENABLE | 是否逻辑 | 否 | 是 | 是 |
+| 28 | [创建时间](#属性-创建时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 是 | 是 |
+| 29 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
+| 30 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 是 | 否 |
+| 31 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 是 | 否 |
 
 ### 属性-用户标识（USERID）
 #### 属性说明
@@ -184,6 +186,88 @@ String
 ### 属性-用户工号（USERCODE）
 #### 属性说明
 用户工号
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+否
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-登录名（LOGINNAME）
+#### 属性说明
+登录名
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+否
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-密码（PASSWORD）
+#### 属性说明
+密码
 
 - 是否是主键
 否
@@ -1390,14 +1474,17 @@ Save
 | 1 | [Bug用户](#数据查询-Bug用户（BugUser）) | BugUser | 否 |
 | 2 | [联系人用户](#数据查询-联系人用户（ContActList）) | ContActList | 否 |
 | 3 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 4 | [项目团队管理](#数据查询-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
-| 5 | [项目团队成员(临时)](#数据查询-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
-| 6 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 7 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
-| 8 | [项目团队成员选择](#数据查询-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 9 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
-| 10 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
-| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 4 | [项目团队管理](#数据查询-项目团队管理（ProductTeamM）) | ProductTeamM | 否 |
+| 5 | [项目团队管理](#数据查询-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
+| 6 | [项目团队管理](#数据查询-项目团队管理（ProjectTeamMProduct）) | ProjectTeamMProduct | 否 |
+| 7 | [项目团队成员(临时)](#数据查询-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
+| 8 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
+| 9 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
+| 10 | [项目团队成员选择](#数据查询-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
+| 11 | [产品团队成员选择](#数据查询-产品团队成员选择（StoryProductTeamPK）) | StoryProductTeamPK | 否 |
+| 12 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
+| 13 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
+| 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug用户（BugUser）
 #### 说明
@@ -1438,6 +1525,7 @@ t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`LOGINNAME`,
 t1.`MDEPTCODE`,
 t1.`MDEPTID`,
 t1.`MDEPTNAME`,
@@ -1446,6 +1534,7 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1484,6 +1573,7 @@ t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`LOGINNAME`,
 t1.`MDEPTCODE`,
 t1.`MDEPTID`,
 t1.`MDEPTNAME`,
@@ -1492,6 +1582,55 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `T_IBZEMP` t1 
+
+```
+### 数据查询-项目团队管理（ProductTeamM）
+#### 说明
+排除当前项目已经选择的用户
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`ENABLE`,
+t1.`IPADDR`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1530,6 +1669,7 @@ t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`LOGINNAME`,
 t1.`MDEPTCODE`,
 t1.`MDEPTID`,
 t1.`MDEPTNAME`,
@@ -1538,6 +1678,55 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `T_IBZEMP` t1 
+
+```
+### 数据查询-项目团队管理（ProjectTeamMProduct）
+#### 说明
+排除当前项目已经选择的用户
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`ENABLE`,
+t1.`IPADDR`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1621,6 +1810,7 @@ t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`LOGINNAME`,
 t1.`MDEPTCODE`,
 t1.`MDEPTID`,
 t1.`MDEPTNAME`,
@@ -1629,6 +1819,55 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `T_IBZEMP` t1 
+
+```
+### 数据查询-产品团队成员选择（StoryProductTeamPK）
+#### 说明
+产品团队成员选择
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`ENABLE`,
+t1.`IPADDR`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1697,6 +1936,7 @@ t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`LOGINNAME`,
 t1.`MDEPTCODE`,
 t1.`MDEPTID`,
 t1.`MDEPTNAME`,
@@ -1705,6 +1945,7 @@ t1.`NICKNAME`,
 t1.`ORGCODE`,
 t1.`ORGID`,
 t1.`ORGNAME`,
+t1.`PASSWORD`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
@@ -1726,13 +1967,16 @@ FROM `T_IBZEMP` t1
 | 1 | [Bug用户](#数据集合-Bug用户（BugUser）) | BugUser | 否 |
 | 2 | [联系人用户](#数据集合-联系人用户（ContActList）) | ContActList | 否 |
 | 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 4 | [项目团队管理](#数据集合-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
-| 5 | [项目团队成员(临时)](#数据集合-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
-| 6 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 7 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
-| 8 | [项目团队成员选择](#数据集合-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 9 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
-| 10 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
+| 4 | [项目团队管理](#数据集合-项目团队管理（ProductTeamM）) | ProductTeamM | 否 |
+| 5 | [项目团队管理](#数据集合-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
+| 6 | [项目团队管理](#数据集合-项目团队管理（ProjectTeamMProduct）) | ProjectTeamMProduct | 否 |
+| 7 | [项目团队成员(临时)](#数据集合-项目团队成员(临时)（ProjectTeamTaskUserTemp）) | ProjectTeamTaskUserTemp | 否 |
+| 8 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
+| 9 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
+| 10 | [项目团队成员选择](#数据集合-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
+| 11 | [产品团队成员选择](#数据集合-产品团队成员选择（StoryProductTeamPK）) | StoryProductTeamPK | 否 |
+| 12 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
+| 13 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
 
 ### 数据集合-Bug用户（BugUser）
 #### 说明
@@ -1776,6 +2020,20 @@ Bug用户
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-项目团队管理（ProductTeamM）
+#### 说明
+项目团队管理
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目团队管理（ProductTeamM）](#数据查询-项目团队管理（ProductTeamM）) |
 ### 数据集合-项目团队管理（ProjectTeamM）
 #### 说明
 项目团队管理
@@ -1790,6 +2048,20 @@ Bug用户
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目团队管理（ProjectTeamM）](#数据查询-项目团队管理（ProjectTeamM）) |
+### 数据集合-项目团队管理（ProjectTeamMProduct）
+#### 说明
+项目团队管理
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目团队管理（ProjectTeamMProduct）](#数据查询-项目团队管理（ProjectTeamMProduct）) |
 ### 数据集合-项目团队成员(临时)（ProjectTeamTaskUserTemp）
 #### 说明
 项目团队成员(临时)
@@ -1846,6 +2118,20 @@ Bug用户
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目团队成员选择（ProjectteamPk）](#数据查询-项目团队成员选择（ProjectteamPk）) |
+### 数据集合-产品团队成员选择（StoryProductTeamPK）
+#### 说明
+产品团队成员选择
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品团队成员选择（StoryProductTeamPK）](#数据查询-产品团队成员选择（StoryProductTeamPK）) |
 ### 数据集合-任务多人团队（TaskMTeam）
 #### 说明
 任务多人团队

@@ -28,6 +28,12 @@ export class UserTreeMobMPickupViewpickupviewpanelModel {
         name: 'usercode',
       },
       {
+        name: 'loginname',
+      },
+      {
+        name: 'password',
+      },
+      {
         name: 'domains',
       },
       {

@@ -84,6 +84,9 @@ export default class ProjectTrendsTimelineModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

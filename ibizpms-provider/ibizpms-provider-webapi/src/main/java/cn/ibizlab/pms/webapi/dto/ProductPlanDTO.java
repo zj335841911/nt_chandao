@@ -216,6 +216,15 @@ public class ProductPlanDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String endstr;
 
+    /**
+     * 属性 [PLANTEMPLET]
+     *
+     */
+    @JSONField(name = "plantemplet")
+    @JsonProperty("plantemplet")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String plantemplet;
+
 
     /**
      * 设置 [TITLE]

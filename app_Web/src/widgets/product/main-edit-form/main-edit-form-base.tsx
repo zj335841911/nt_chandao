@@ -129,6 +129,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         rd: null,
         type: null,
         status: null,
+        supproreport: null,
         desc: null,
         acl: null,
         id: null,
@@ -155,13 +156,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '产品名称 值不能为空',
+                    message: `${this.$t('entities.product.main_edit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '产品名称 值不能为空',
+                    message: `${this.$t('entities.product.main_edit_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -169,13 +170,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: '产品代号 值不能为空',
+                    message: `${this.$t('entities.product.main_edit_form.details.code')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.code.required,
                     type: 'string',
-                    message: '产品代号 值不能为空',
+                    message: `${this.$t('entities.product.main_edit_form.details.code')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -328,6 +329,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
 
         status: new FormItemModel({
     caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        supproreport: new FormItemModel({
+    caption: '支持产品汇报', detailType: 'FORMITEM', name: 'supproreport', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

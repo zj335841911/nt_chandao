@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
-                viewName="IbzWeeklyUsr2MobTabExpView"  
+                viewName="Usr2MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="IbzWeeklyUsr2MobTabExpView"  
+                viewName="Usr2MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
                         <view_tabviewpanel3
                 :viewState="viewState"
-                viewName="IbzWeeklyUsr2MobTabExpView"  
+                viewName="Usr2MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel3"  
@@ -43,7 +43,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzWeeklyService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
+import IbzWeeklyEntityService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
 import Usr2MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-weekly/usr2-mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -152,7 +152,7 @@ export default class Usr2MobTabExpViewtabexppanelBase extends Vue implements Con
      * @type {IbzWeeklyService}
      * @memberof Usr2MobTabExpViewtabexppanel
      */
-    protected appEntityService: IbzWeeklyService = new IbzWeeklyService();
+    protected appEntityService: IbzWeeklyEntityService = new IbzWeeklyEntityService();
 
     /**
      * 界面UI服务对象

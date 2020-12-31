@@ -182,7 +182,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 >
     
 <app-span name='openedbuild' :value="data.openedbuild" dataType="SMCODELIST"     :precision="0"
-tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+tag='CurProductBuild' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ bugproject:"%project%", bugproduct:"%product%" }'    style=""
 >  
 </app-span>
 
@@ -661,7 +661,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
   valueitem='case' 
   :value="data.casename"  
   editortype="linkonly" 
-  :linkview="{ viewname: 'CaseMainDashboardView', title: $t('entities.case.views.maindashboardview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'cases', parameterName: 'case' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 0, height: 0, placement: 'DRAWER_TOP', isRedirectView: false }" 
+  :linkview="{ viewname: 'CaseMainDashboardView', title: $t('entities.case.views.maindashboardview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'cases', parameterName: 'case' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 1400, height: 850, placement: 'DRAWER_TOP', isRedirectView: false }" 
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>

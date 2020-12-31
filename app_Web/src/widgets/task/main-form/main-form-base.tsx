@@ -150,13 +150,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.projectname.required,
                     type: 'string',
-                    message: '所属项目 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.projectname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.projectname.required,
                     type: 'string',
-                    message: '所属项目 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.projectname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -164,13 +164,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '任务类型 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '任务类型 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -178,13 +178,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.assignedto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.assignedto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -192,13 +192,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '任务名称 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '任务名称 值不能为空',
+                    message: `${this.$t('entities.task.main_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -584,6 +584,16 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('story')) {
             this.data['story'] = this.viewparams['story'];
+        }
+    }
+
+    /**
+     * 更新默认值
+     * @memberof MainEditFormBase
+     */
+    public updateDefault() {                    
+        if (this.data.hasOwnProperty('allmodules') && !this.data.allmodules) {
+            this.data['allmodules'] = '1';
         }
     }
 

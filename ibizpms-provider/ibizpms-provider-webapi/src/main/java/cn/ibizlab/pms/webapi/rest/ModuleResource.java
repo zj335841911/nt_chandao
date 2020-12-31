@@ -130,6 +130,12 @@ public class ModuleResource {
         moduledto = moduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(moduledto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Fix-all')")
+    @ApiOperation(value = "批量处理[重建模块路径]", tags = {"模块" },  notes = "批量处理[重建模块路径]")
+	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fixbatch")
+    public ResponseEntity<Boolean> fixBatch(@RequestBody List<ModuleDTO> moduledtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(moduleService.fixBatch(moduleMapping.toDomain(moduledtos)));
+    }
 
     @PreAuthorize("hasPermission(this.moduleMapping.toDomain(#moduledto),'pms-Module-Save')")
     @ApiOperation(value = "保存模块", tags = {"模块" },  notes = "保存模块")

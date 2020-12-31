@@ -42,30 +42,6 @@
 </app-form-item>
 
 
-
-<app-form-item 
-    name='multiple' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="multiple_item"  
-    :itemValue="this.data.multiple" 
-    v-show="detailsModel.multiple.visible" 
-    :itemRules="this.rules.multiple" 
-    :caption="$t('task.mobmainedit_form.details.multiple')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.multiple.disabled"
-    :error="detailsModel.multiple.error" 
-    :isEmptyCaption="false">
-        <app-mob-switch 
-    class="app-form-item-switch" 
-    :value="data.multiple"  
-    :disabled="detailsModel.multiple.disabled"
-    @change="($event)=>this.data.multiple = $event" />
-</app-form-item>
-
-
     
 </app-form-group>
 
@@ -301,7 +277,7 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealNameTaskTeam"
+    tag="UserRealNameProject"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
@@ -312,6 +288,30 @@
     :navigateContext ='{ "project": "%project%", "multiple": "0" } '
     :navigateParam ='{ "project": "%project%", "multiple": "0" } '
     @change="($event)=>this.data.assignedto = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='multiple' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="multiple_item"  
+    :itemValue="this.data.multiple" 
+    v-show="detailsModel.multiple.visible" 
+    :itemRules="this.rules.multiple" 
+    :caption="$t('task.mobmainedit_form.details.multiple')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.multiple.disabled"
+    :error="detailsModel.multiple.error" 
+    :isEmptyCaption="false">
+        <app-mob-switch 
+    class="app-form-item-switch" 
+    :value="data.multiple"  
+    :disabled="detailsModel.multiple.disabled"
+    @change="($event)=>this.data.multiple = $event" />
 </app-form-item>
 
 
@@ -334,9 +334,9 @@
 <app-form-druipart
     class='' 
     parameterName='task' 
-    refviewtype='DEMOBMDVIEW9'  
+    refviewtype='DEMOBMEDITVIEW9'  
     refreshitems='' 
-    viewname='task-team-mob-mdview9' 
+    viewname='task-team-mob-medit-view9' 
     v-show="detailsModel.druipart2.visible" 
     :caption="$t('task.mobmainedit_form.details.druipart2')"  
     paramItem='task' 
@@ -346,7 +346,7 @@
     :parameters="[
         { pathName: 'tasks', parameterName: 'task' },
     ]" 
-    tempMode='0'
+    tempMode='2'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -727,7 +727,7 @@
     :error="detailsModel.finishedby.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealName"
+    tag="UserRealName_Gird"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.finishedby.disabled" 
@@ -1084,7 +1084,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TaskEntityService from '@/app-core/service/task/task-service';
 import MobMainEditService from '@/app-core/ctrl-service/task/mob-main-edit-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -1196,7 +1196,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      * @type {TaskService}
      * @memberof MobMainEdit
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TaskEntityService = new TaskEntityService();
 
     /**
      * 界面UI服务对象
@@ -1293,6 +1293,14 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      * @memberof MobMainEdit
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1404,7 +1412,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         id: null,
         name: null,
-        multiple: null,
         projectname: null,
         project: null,
         module: null,
@@ -1416,6 +1423,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         parent: null,
         assignedto: null,
         storyversion: null,
+        multiple: null,
         type: null,
         status: null,
         pri: null,
@@ -1482,13 +1490,17 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         name: [
-            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
         ],
+        assignedto: [
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
+        ],
         type: [
-            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         deadline: [
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast}}
@@ -1626,7 +1638,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel8: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: false, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1668,8 +1680,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1691,6 +1701,8 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         storyversion: new FormItemModel({ caption: '需求版本', detailType: 'FORMITEM', name: 'storyversion', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1861,18 +1873,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 multiple 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainEdit
-     */
-    @Watch('data.multiple')
-    onMultipleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 projectname 值
      *
      * @param {*} newVal
@@ -2002,6 +2002,18 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     @Watch('data.storyversion')
     onStoryversionChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'storyversion', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -2289,6 +2301,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      * @memberof MobMainEdit
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'multiple')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
     }
 
     /**
@@ -2317,6 +2332,14 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.druipart2.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
@@ -2346,15 +2369,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'parent')) {
-            let ret = false;
-            const _parent = this.data.parent;
-            if (this.$verify.testCond(_parent, 'EQ', '0') || this.$verify.testCond(_parent, 'ISNULL', '')) {
-                ret = true;
-            }
-            this.detailsModel.multiple.setVisible(ret);
-        }
-
 
 
 
@@ -2373,7 +2387,37 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         }
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = true;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = false;
+            }
+            this.rules.assignedto.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.assignedto.setDisabled(!ret);
+        }
 
+
+        if (Object.is(name, '') || Object.is(name, 'parent')) {
+            let ret = false;
+            const _parent = this.data.parent;
+            if (this.$verify.testCond(_parent, 'EQ', '0') || this.$verify.testCond(_parent, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.multiple.setVisible(ret);
+        }
 
 
 
@@ -2448,7 +2492,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`task.mobmainedit_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -2675,6 +2721,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      *  @memberof MobMainEdit
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.task});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -2725,7 +2774,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Task")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.task){
                     this.refresh([data]);
                 }
             })
@@ -2951,6 +3000,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -3029,10 +3079,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -3056,10 +3105,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

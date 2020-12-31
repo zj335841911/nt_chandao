@@ -1,15 +1,8 @@
-export default {
-  fields: {
-    diff: "不同",
-    field: "字段",
-    ibiznew: "新值",
-    old: "旧值",
-    id: "id",
-    action: "关联日志",
-  },
-	default_list: {
-		nodata: "",
-		uiactions: {
-		},
-	},
-};
+import History_en_US_Base from './history_en_US_base';
+
+function getLocaleResource(){
+    const History_en_US_OwnData = {};
+    const targetData = Object.assign(History_en_US_Base(), History_en_US_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

@@ -789,7 +789,7 @@ export class TypeTaskGroupGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealNameW',
+                srfkey: 'UserRealNameUnAssignTo_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -797,7 +797,7 @@ export class TypeTaskGroupGridBase extends GridControlBase {
             },
             {
                 name: 'finishedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -820,7 +820,7 @@ export class TypeTaskGroupGridBase extends GridControlBase {
             sums[index] = (this.$t('app.gridpage.sum') as string);
             return;
           }
-          if(index === (columns.length - 1)){
+          if(column.columnKey && Object.is(column.columnKey,'uagridcolumn1')){
             sums[index] = '';
             return;
           }

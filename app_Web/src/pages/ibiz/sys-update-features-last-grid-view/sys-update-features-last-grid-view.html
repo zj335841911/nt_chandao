@@ -7,7 +7,7 @@
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"
-        placeholder="系统更新功能名称"
+        :placeholder="$t('entities.sysupdatefeatures.fields.sysupdatefeaturesname')"
         search
         @on-search="onSearch($event)"
     ></i-input>
@@ -22,7 +22,7 @@
             loadAction="FilterGet"
         
             name="searchform"  
-            ref="searchform" 
+            ref="searchform"
             @save="searchform_save($event)"  
             @search="searchform_search($event)"  
             @load="searchform_load($event)"  
@@ -48,7 +48,7 @@
         :newdata="newdata.bind(_self)"
         :opendata="opendata.bind(_self)"
         name="grid"  
-        ref="grid" 
+        ref="grid"
         @selectionchange="grid_selectionchange($event)"  
         @beforeload="grid_beforeload($event)"  
         @rowdblclick="grid_rowdblclick($event)"  

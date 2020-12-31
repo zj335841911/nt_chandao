@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
                         <view_tabviewpanel3
                 :viewState="viewState"
-                viewName="IbzMyTerritoryDailyMobTabExpView"  
+                viewName="DailyMobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel3"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
-                viewName="IbzMyTerritoryDailyMobTabExpView"  
+                viewName="DailyMobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="IbzMyTerritoryDailyMobTabExpView"  
+                viewName="DailyMobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
@@ -43,7 +43,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+import IbzMyTerritoryEntityService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
 import DailyMobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-my-territory/daily-mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -152,7 +152,7 @@ export default class DailyMobTabExpViewtabexppanelBase extends Vue implements Co
      * @type {IbzMyTerritoryService}
      * @memberof DailyMobTabExpViewtabexppanel
      */
-    protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+    protected appEntityService: IbzMyTerritoryEntityService = new IbzMyTerritoryEntityService();
 
     /**
      * 界面UI服务对象

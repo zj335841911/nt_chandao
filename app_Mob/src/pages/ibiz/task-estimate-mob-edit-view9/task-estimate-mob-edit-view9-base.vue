@@ -2,7 +2,7 @@
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview9': true, 'task-estimate-mob-edit-view9': true }">
     <template slot="header">
         <ion-toolbar>
-            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
+            <app-mob-title v-if="showTitle">{{$t(model.srfCaption)}}</app-mob-title>
         </ion-toolbar>
     </template>
 
@@ -11,7 +11,7 @@
     <template slot="content">
                 <view_form
             :viewState="viewState"
-            viewName="TaskEstimateMobEditView9"  
+            viewName="MobEditView9"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 

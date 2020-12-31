@@ -4,6 +4,7 @@
             :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
             @sort-change="onSortChange($event)"  
             :border="isDragendCol"
+            :class="true && items.length > 0 ? 'total-row-table' : ''"
             :show-summary="true && items.length > 0"
             :summary-method="getSummaries"
             :span-method="arraySpanMethod.bind(_self)"
@@ -76,7 +77,7 @@
                             :context="JSON.parse(JSON.stringify(context))"
                             :viewparams="JSON.parse(JSON.stringify(viewparams))"
                             :data="row"
-                            :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                            :linkview="{viewname: 'task-main-dashboard-view', height: 850,width: 1400,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'stories', parameterName: 'story' },
             ]
             ,parameters: [
@@ -115,7 +116,7 @@
                     <template v-slot="{row,column,$index}">
                         <template >
                                 <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
-            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameUnAssignTo_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                                 </a>
                         </template>
                     </template>
@@ -130,7 +131,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.finishedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.finishedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -155,19 +156,19 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.consumed"></app-format-data>
+                            <app-format-data dataType="FLOAT" precision="2" :data="row.consumed"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('left')">
-                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.storytaskgroup_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.storytaskgroup_grid.columns.left')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.task.storytaskgroup_grid.columns.left')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.left"></app-format-data>
+                            <app-format-data dataType="FLOAT" precision="2" :data="row.left"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
@@ -184,7 +185,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.storytaskgroup_grid.columns.uagridcolumn1')" :width="240"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.storytaskgroup_grid.columns.uagridcolumn1')" :width="280"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.task.storytaskgroup_grid.columns.uagridcolumn1')}}

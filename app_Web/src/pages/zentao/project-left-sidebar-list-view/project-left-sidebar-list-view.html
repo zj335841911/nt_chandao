@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        placeholder="项目编号,项目名称,项目代号"
+        :placeholder="$t('entities.project.fields.id')+','+$t('entities.project.fields.name')+','+$t('entities.project.fields.code')"
         search
         @on-search="onSearch($event)"
     ></i-input>
@@ -23,7 +23,7 @@
         :newdata="newdata"
         :opendata="opendata"
         name="list"  
-        ref="list" 
+        ref="list"
         @selectionchange="list_selectionchange($event)"  
         @beforeload="list_beforeload($event)"  
         @rowdblclick="list_rowdblclick($event)"  

@@ -111,13 +111,14 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
     }
 
 
+
     /**
      * 搜索字段名称
      * 
      * @type {(string)}
      * @memberof ListExpViewlistexpbarBase
      */
-    public placeholder="产品名称，编号，产品代号";
+    public placeholder = (this.$t('entities.product.fields.name') as string)+"，"+(this.$t('entities.product.fields.id') as string)+"，"+(this.$t('entities.product.fields.code') as string);
 
     /**
      * 呈现模式，可选值：horizontal或者vertical

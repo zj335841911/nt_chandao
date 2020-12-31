@@ -96,6 +96,8 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
         openedby: null,
         openeddate: null,
         openedbuild: null,
+        project: null,
+        product: null,
         resolvedby: null,
         resolveddate: null,
         delayresolve: null,
@@ -236,6 +238,20 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
     required:false,
     disabled: false,
     enableCond: 0,
+}),
+
+        project: new FormItemModel({
+    caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        product: new FormItemModel({
+    caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
 }),
 
         resolvedby: new FormItemModel({
@@ -384,6 +400,8 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.openeddate.setVisible(ret);
         }
+
+
 
 
 

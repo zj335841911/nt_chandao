@@ -1,15 +1,15 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-mob-edit-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="ProductMobEditView"  
+            viewName="MobEditView"
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -34,23 +34,31 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+                <div :id="viewtag+'_bottom_button'"  class = "fab_container" :style="button_style">
+            <app-mob-button  
+                v-if="getToolBarLimit" 
+                iconName="chevron-up-circle-outline" 
+                class="app-view-toolbar-button" 
+                @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                 
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                <span class="btn-inner-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1.disabled" 
+                    size="large"  
+                    iconName="" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
             </div>
         
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
-                <span class="btn-inner-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
-                </ion-button>
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction2.disabled" 
+                    size="large"  
+                    iconName="" 
+                    @click="righttoolbar_click({ tag: 'deuiaction2' }, $event),popUpGroup()" />
                 <span class="btn-out-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
             </div>
         

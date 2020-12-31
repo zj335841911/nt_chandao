@@ -126,13 +126,13 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.productname.required,
                     type: 'string',
-                    message: '产品 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.productname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.productname.required,
                     type: 'string',
-                    message: '产品 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.productname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -140,13 +140,13 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '名称编号 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '名称编号 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -154,13 +154,13 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.builder.required,
                     type: 'string',
-                    message: '构建者 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.builder')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.builder.required,
                     type: 'string',
-                    message: '构建者 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.builder')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -168,13 +168,13 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.date.required,
                     type: 'string',
-                    message: '打包日期 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.date')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.date.required,
                     type: 'string',
-                    message: '打包日期 值不能为空',
+                    message: `${this.$t('entities.build.quickcreate_form.details.date')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

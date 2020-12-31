@@ -94,24 +94,6 @@ export default class GlobalUiServiceBase extends UIActionBase {
     }
 
     /**
-     * 返回
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName]
-     * @returns {Promise<any>}
-     * @memberof 
-     */
-    public async Exit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        container.closeView(args);
-    }
-
-
-    /**
      * 新建
      *
      * @param {any[]} args 数据

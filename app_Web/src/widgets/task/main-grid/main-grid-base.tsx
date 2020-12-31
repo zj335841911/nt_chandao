@@ -67,6 +67,48 @@ export class MainGridBase extends GridControlBase {
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
+     * grid_quicktoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+    public grid_quicktoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.grid_quicktoolbar_deuiaction1_click(null, 'grid_quicktoolbar', $event2);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_ChildMore(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -438,6 +480,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        ChildMore: { name: 'ChildMore',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         TaskToBug: { name: 'TaskToBug',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', target: 'SINGLEKEY'},
         confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY'},
         MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY'},
@@ -479,6 +522,18 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainGridBase
      */
     public minorSortPSDEF: string = 'statusorder';
+
+        /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof TaskMainGridView
+     */
+    public maingridviewgrid_quicktoolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.task.maingridviewgrid_quicktoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.task.maingridviewgrid_quicktoolbar_toolbar.deuiaction1.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ChildMore', target: 'SINGLEKEY', class: '' } },
+
+    };
+
 
     /**
      * 所有列成员
@@ -652,7 +707,7 @@ export class MainGridBase extends GridControlBase {
      * @type {boolean}
      * @memberof MainGridBase
      */
-    protected isDeExport: boolean = true;
+    protected isDeExport: boolean = false;
 
     /**
      * 所有导出列成员
@@ -798,7 +853,7 @@ export class MainGridBase extends GridControlBase {
             },
             {
                 name: 'finishedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -818,6 +873,9 @@ export class MainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('ChildMore', tag)) {
+            this.grid_quicktoolbar_deuiaction1_click(row, tag, $event);
+        }
         if(Object.is('TaskToBug', tag)) {
             this.grid_uagridcolumn1_u228da18_click(row, tag, $event);
         }
@@ -936,12 +994,122 @@ export class MainGridBase extends GridControlBase {
                 }
             }, 300);
             // 
+            this.addMore();
         }).catch((response: any) => {
             if (response && response.status === 401) {
                 return;
             }
             this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
         });
+    }
+
+    /**
+    * 添加更多行
+    * 
+    * @memberof MainBase
+    */
+    public addMore(){
+        if(this.items.length > 0){
+            this.items.forEach((item: any) => {
+                if(item.hasOwnProperty('items') && item.items && item.items.length == 20){
+                    const moreitem: any = {
+                        children: true,
+                        toolcaption: '更多',
+                        tooltip: '更多',
+                        tag: 'deuiaction1',
+                        parent: item.id,
+                        id: this.$util.createUUID(),                
+                        pri: '',
+                        name: '',
+                        status1: '',
+                        deadline: '',
+                        assignedto: '',
+                        finishedby: '',
+                        estimate: '',
+                        consumed: '',
+                        left: '',
+                        progressrate: '',
+                        TaskToBug:{
+                            visabled: false
+                        },
+                        confirmStoryChange:{
+                            visabled: false
+                        },
+                        MStartTaskDash1:{
+                            visabled: false
+                        },
+                        CloseTask:{
+                            visabled: false
+                        },
+                        done:{
+                            visabled: false
+                        },
+                        MainEdit:{
+                            visabled: false
+                        },
+                        NewSubTask:{
+                            visabled: false
+                        },
+                        Copy:{
+                            visabled: false
+                        },
+                        TaskFavorites:{
+                            visabled: false
+                        },
+                        TaskNFavorites:{
+                            visabled: false
+                        },
+                    }
+                    item.items.push(moreitem);
+                }
+            })
+        }
+    }
+
+    /**
+    * 合并更多行
+    * 
+    * @param {{ row, column, rowIndex, columnIndex }} row 行数据 column 列数据 rowIndex 行索引 columnIndex 列索引
+    * @memberof MainBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        if(row && row.children) {
+            if(columnIndex == this.allColumns.length) {
+                return [1, this.allColumns.length+1];
+            } else {
+                return [0,0];
+            }
+        }
+    }
+
+    /**
+     * 获取对应行class
+     *
+     * @param {{ row: any, rowIndex: number }} args row 行数据，rowIndex 行索引
+     * @returns {string}
+     * @memberof MainGridBase
+     */
+    public getRowClassName(args: { row: any; rowIndex: number }): string {
+        if(args.row.children){
+            return 'grid-selected-row grid-more-row';
+        }else{
+            let isSelected = this.selections.some((item: any) => {
+                return Object.is(item[this.appDeName], args.row[this.appDeName]);
+            });
+            return isSelected ? 'grid-selected-row' : '';
+        }
+    }
+
+    /**
+     * 加载更多
+     *  
+     * @param data
+     * @memberof MainGridBase
+     */
+    public loadMore(data: any){
+        if (Object.is(data.tag, 'deuiaction1')) {
+            this.grid_quicktoolbar_deuiaction1_click(data, 'grid_quicktoolbar', null);
+        }
     }
 
     /**
@@ -960,5 +1128,119 @@ export class MainGridBase extends GridControlBase {
                 this.setActionState(data);
             })
         }
+    }
+
+    /**
+     * 数据导出
+     *
+     * @param {*} [data={}]
+     * @returns {void}
+     * @memberof MainGridBase
+     */
+    public exportExcel(data: any = {}): void {
+        // 导出Excel
+        const doExport = async (_data: any) => {
+            const tHeader: Array<any> = [];
+            const filterVal: Array<any> = [];
+            (this.isDeExport ? this.allExportColumns : this.allColumns).forEach((item: any) => {
+                item.show && item.label ? tHeader.push(this.$t(item.langtag)) : '';
+                item.show && item.name ? filterVal.push(item.name) : '';
+            });
+            const data = await this.formatExcelData(filterVal, _data);
+            this.$export.exportExcel().then((excel: any) => {
+                excel.export_json_to_excel({
+                    header: tHeader, //表头 必填
+                    data, //具体数据 必填
+                    filename: this.appDeLogicName + (this.$t('app.gridpage.grid') as string), //非必填
+                    autoWidth: true, //非必填
+                    bookType: 'xlsx', //非必填
+                });
+            });
+        };
+        const page: any = {};
+        // 设置page，size
+        if (Object.is(data.type, 'maxRowCount')) {
+            Object.assign(page, { page: 0, size: data.maxRowCount });
+        } else if (Object.is(data.type, 'activatedPage')) {
+            if (this.isDeExport) {
+                Object.assign(page, { page: this.curPage - 1, size: this.limit });
+            } else {
+                try {
+                    const datas = [...this.items];
+                    let exportData: Array<any> = [];
+                    datas.forEach((data: any) => {
+                        exportData.push(data);
+                        if(data.hasOwnProperty('items') && data.items && data.items instanceof Array){
+                            data.items.forEach((item: any) => {
+                                exportData.push(item);
+                            });
+                        }
+                    });
+                    doExport(JSON.parse(JSON.stringify(exportData)));
+                } catch (error) {
+                    console.error(error);
+                }
+                return;
+            }
+        }
+        // 设置排序
+        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + ',' + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        const arg: any = {};
+        Object.assign(arg, page);
+        // 获取query,搜索表单，viewparams等父数据
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
+        let post: any;
+        if (this.isDeExport) {
+            post = this.service.searchDEExportData(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
+        } else {
+            post = this.service.search(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
+        }
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                this.$Notice.error({
+                    title: '',
+                    desc: (this.$t('app.gridpage.exportFail') as string) + ',' + response.info,
+                });
+                return;
+            }
+            try {
+                const datas = [...response.data];
+                let exportData: Array<any> = [];
+                datas.forEach((data: any) => {
+                    exportData.push(data);
+                    if(data.hasOwnProperty('items') && data.items && data.items instanceof Array){
+                        data.items.forEach((item: any) => {
+                            exportData.push(item);
+                        });
+                    }
+                });
+                doExport(JSON.parse(JSON.stringify(exportData)));
+            } catch (error) {
+                console.error(error);
+            }
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: '', desc: this.$t('app.gridpage.exportFail') as string });
+        });
     }
 }

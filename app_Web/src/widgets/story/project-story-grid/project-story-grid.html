@@ -4,6 +4,7 @@
         :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
         @sort-change="onSortChange($event)"  
         :border="isDragendCol"
+        :span-method="arraySpanMethod.bind(_self)"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
         :cell-class-name="getCellClassName.bind(_self)"
@@ -20,8 +21,6 @@
         ref='multipleTable' :data="items" :show-header="!isHideHeader">
             <template slot="empty">
                 无数据 
-                <span class="quick-toolbar">
-                </span>
             </template>
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
@@ -39,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.projectstory_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.projectstory_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.story.projectstory_grid.columns.pri')}}
@@ -65,7 +64,7 @@
                             :context="JSON.parse(JSON.stringify(context))"
                             :viewparams="JSON.parse(JSON.stringify(viewparams))"
                             :data="row"
-                            :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                            :linkview="{viewname: 'story-main-view', height: 850,width: 1400,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
@@ -102,7 +101,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -116,7 +115,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameUnAssignTo_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -169,9 +168,19 @@
                        </span>
                     </template>
                     <template slot-scope="scope">
-                        <div style="text-align: center;">
+                        <template v-if="scope.row.children">
+                            <span>
+                                <a :title="scope.row.tooltip" @click="loadMore(scope.row)">{{ scope.row.toolcaption }}</a>
+                            </span>
+                        </template>
+                        <div v-else style="text-align: center;">
                             <a v-show="scope.row.Breakdowntasks.visible" :disabled="scope.row.Breakdowntasks.disabled" @click="uiAction(scope.row, 'Breakdowntasks', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_breakdowntasks')">
                                 <i class="fa fa-plus"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.BatchBreakdowntasks.visible" type="vertical"></divider>
+                            <a v-show="scope.row.BatchBreakdowntasks.visible" :disabled="scope.row.BatchBreakdowntasks.disabled" @click="uiAction(scope.row, 'BatchBreakdowntasks', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_batchbreakdowntasks')">
+                                <i class="fa fa-plus-square-o"></i>
                                 
                             </a>
                             <divider v-show="scope.row.ProjectUnlinkStory.visible" type="vertical"></divider>

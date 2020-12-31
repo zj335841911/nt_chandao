@@ -61,6 +61,11 @@ export class CompleteFormMobModel {
                 dataType: 'PICKUP',
             },
             {
+                name: 'myconsumed',
+                prop: 'myconsumed',
+                dataType: 'FLOAT',
+            },
+            {
                 name: 'consumed',
                 prop: 'consumed',
                 dataType: 'FLOAT',

@@ -27,26 +27,6 @@ export default class ReportMainZSModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPDATA',
-        },
-        {
-          name: 'projectname',
-          prop: 'projectname',
-          dataType: 'PICKUPTEXT',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
@@ -55,26 +35,6 @@ export default class ReportMainZSModel {
           name: 'status1',
           prop: 'status1',
           dataType: 'SSCODELIST',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'finishedby',
-          prop: 'finishedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'FLOAT',
         },
         {
           name: 'left',
@@ -105,6 +65,11 @@ export default class ReportMainZSModel {
           name: 'srfmstag',
         },
         {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',
@@ -121,9 +86,24 @@ export default class ReportMainZSModel {
           dataType: 'ACID',
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
         },
         {
           name: 'isfavorites',
@@ -131,9 +111,19 @@ export default class ReportMainZSModel {
           dataType: 'TEXT',
         },
         {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPDATA',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'finishedby',
+          prop: 'finishedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'status',
@@ -146,9 +136,19 @@ export default class ReportMainZSModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
         },
         {
           name: 'color',

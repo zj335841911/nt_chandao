@@ -47,27 +47,27 @@
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='productname'
+        <app-mob-select-drop-down 
+    name='productname' 
     deMajorField='name'
-    deKeyField='product'
+    deKeyField='id'
     valueitem='product' 
-    style=""  
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
+    :navigateContext ='{ "srfparentkey": "%project%" } '
+    :navigateParam ='{ "srfparentkey": "%project%" } '
     :viewparams="viewparams"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
     :itemParam='{ }' 
     :disabled="detailsModel.productname.disabled"
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchCurProject'}"
     :value="data.productname" 
-    :pickupView="{ viewname: 'product-mob-pickup-view', title: '产品移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.productname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -286,7 +286,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BuildService from '@/app-core/service/build/build-service';
+import BuildEntityService from '@/app-core/service/build/build-service';
 import MobNewFormService from '@/app-core/ctrl-service/build/mob-new-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -398,7 +398,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @type {BuildService}
      * @memberof MobNewForm
      */
-    protected appEntityService: BuildService = new BuildService();
+    protected appEntityService: BuildEntityService = new BuildEntityService();
 
     /**
      * 界面UI服务对象
@@ -495,6 +495,14 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -657,21 +665,17 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     protected rules: any = {
-        product: [
-            { required: true, type: 'number', message: '产品 值不能为空', trigger: 'change' },
-            { required: true, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
-        ],
         productname: [
-            { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         name: [
-            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         date: [
-            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
     }
 
@@ -1113,7 +1117,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`build.mobnewform_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1340,6 +1346,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *  @memberof MobNewForm
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.build});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1390,7 +1399,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Build")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.build){
                     this.refresh([data]);
                 }
             })
@@ -1616,6 +1625,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1694,10 +1704,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1721,10 +1730,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

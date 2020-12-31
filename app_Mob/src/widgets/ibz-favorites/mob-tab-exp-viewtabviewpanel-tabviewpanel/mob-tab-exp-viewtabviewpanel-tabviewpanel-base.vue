@@ -17,7 +17,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzFavoritesService from '@/app-core/service/ibz-favorites/ibz-favorites-service';
+import IbzFavoritesEntityService from '@/app-core/service/ibz-favorites/ibz-favorites-service';
 import MobTabExpViewtabviewpanelService from '@/app-core/ctrl-service/ibz-favorites/mob-tab-exp-viewtabviewpanel-tabviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -126,7 +126,7 @@ export default class MobTabExpViewtabviewpanelBase extends Vue implements Contro
      * @type {IbzFavoritesService}
      * @memberof MobTabExpViewtabviewpanel
      */
-    protected appEntityService: IbzFavoritesService = new IbzFavoritesService();
+    protected appEntityService: IbzFavoritesEntityService = new IbzFavoritesEntityService();
 
     /**
      * 界面UI服务对象

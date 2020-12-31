@@ -21,6 +21,7 @@ public interface BugStatsMapper extends BaseMapper<BugStats> {
 
     Page<BugStats> searchBugCountInResolution(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     Page<BugStats> searchBugResolvedBy(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
+    Page<BugStats> searchBugResolvedGird(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     Page<BugStats> searchBugassignedTo(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     Page<BugStats> searchDefault(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     Page<BugStats> searchProductBugResolutionStats(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);

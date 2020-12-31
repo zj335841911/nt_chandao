@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="IbzMonthlyMainInfoMobTabExpView"  
+                viewName="MainInfoMobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
-                viewName="IbzMonthlyMainInfoMobTabExpView"  
+                viewName="MainInfoMobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
                         <view_tabviewpanel3
                 :viewState="viewState"
-                viewName="IbzMonthlyMainInfoMobTabExpView"  
+                viewName="MainInfoMobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel3"  
@@ -43,7 +43,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import IbzMonthlyEntityService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
 import MainInfoMobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-monthly/main-info-mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -152,7 +152,7 @@ export default class MainInfoMobTabExpViewtabexppanelBase extends Vue implements
      * @type {IbzMonthlyService}
      * @memberof MainInfoMobTabExpViewtabexppanel
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzMonthlyEntityService = new IbzMonthlyEntityService();
 
     /**
      * 界面UI服务对象

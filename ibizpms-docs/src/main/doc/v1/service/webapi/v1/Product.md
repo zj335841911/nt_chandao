@@ -531,6 +531,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductDTO](#ProductDTO)>：产品实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品团队
+#### 访问路径
+/products/fetchproductteam
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductSearchContext](#ProductSearchContext) | 产品查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductDTO](#ProductDTO)>：产品实体传输对象列表 |
+
+### 查询产品团队
+#### 访问路径
+/products/searchproductteam
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductSearchContext](#ProductSearchContext) | 产品查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductDTO](#ProductDTO)>：产品实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取当前项目
 #### 访问路径
 /products/fetchstorycurproject
@@ -619,7 +655,8 @@ POST
 | 45 | orgid | String | 允许 | 组织标识 |
 | 46 | mdeptid | String | 允许 | 部门标识 |
 | 47 | ibiz_id | String | 允许 | IBIZ标识 |
-| 48 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 48 | supproreport | String | 允许 | 支持产品汇报 |
+| 49 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

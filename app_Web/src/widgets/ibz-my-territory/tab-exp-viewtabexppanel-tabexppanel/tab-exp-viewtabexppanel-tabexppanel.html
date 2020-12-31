@@ -14,7 +14,7 @@
             v-if="authResourceObject['tabviewpanel'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '首页'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -43,7 +43,7 @@
             v-if="authResourceObject['tabviewpanel10'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '日历'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel10.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -72,7 +72,7 @@
             v-if="authResourceObject['tabviewpanel3'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '日程'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel3.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -101,7 +101,7 @@
             v-if="authResourceObject['tabviewpanel4'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '任务'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel4.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -130,7 +130,7 @@
             v-if="authResourceObject['tabviewpanel5'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', 'BUG'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel5.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -159,7 +159,7 @@
             v-if="authResourceObject['tabviewpanel6'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '测试'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel6.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -188,7 +188,7 @@
             v-if="authResourceObject['tabviewpanel2'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '需求'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel2.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -217,7 +217,7 @@
             v-if="authResourceObject['tabviewpanel7'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '项目'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel7.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -246,7 +246,7 @@
             v-if="authResourceObject['tabviewpanel9'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '动态'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel9.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -269,13 +269,42 @@
         </tab-pane>
         <tab-pane
             :index="9"
+            name="tabviewpanel14"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel14'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel14.caption')),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel14 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel14"
+    name="tabviewpanel14"  
+    ref="tabviewpanel14"
+    :expActive="activatedTabViewPanel === 'tabviewpanel14'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel14>
+        </tab-pane>
+        <tab-pane
+            :index="10"
             name="tabviewpanel8"
             tab="tabexpviewtabexppanel"
             class=""
             v-if="authResourceObject['tabviewpanel8'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '联系人'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel8.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -297,14 +326,14 @@
 </view_tabviewpanel8>
         </tab-pane>
         <tab-pane
-            :index="10"
+            :index="11"
             name="tabviewpanel11"
             tab="tabexpviewtabexppanel"
             class=""
             v-if="authResourceObject['tabviewpanel11'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '模板'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel11.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -326,14 +355,14 @@
 </view_tabviewpanel11>
         </tab-pane>
         <tab-pane
-            :index="11"
+            :index="12"
             name="tabviewpanel12"
             tab="tabexpviewtabexppanel"
             class=""
             v-if="authResourceObject['tabviewpanel12'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '汇报'),
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel12.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -353,6 +382,35 @@
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel12>
+        </tab-pane>
+        <tab-pane
+            :index="13"
+            name="tabviewpanel15"
+            tab="tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel15'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', $t('entities.ibzmyterritory.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel15.caption')),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel15 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel15"
+    name="tabviewpanel15"  
+    ref="tabviewpanel15"
+    :expActive="activatedTabViewPanel === 'tabviewpanel15'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel15>
         </tab-pane>
     </tabs>
 </div>

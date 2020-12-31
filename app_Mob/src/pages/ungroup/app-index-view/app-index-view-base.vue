@@ -3,7 +3,7 @@
 <div class="indexView">
     <view_appmenu
     :viewState="viewState"
-    viewName="AppIndexView"  
+    viewName="AppIndexView"
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
@@ -296,6 +296,9 @@ export default class AppIndexViewBase extends Vue {
         this.setViewTitleStatus();
 
         localStorage.setItem('lanArray',JSON.stringify(["ZH-CN","EN-US"]));
+        import('@/locale/lang/zh-CN').then((res:any) =>{
+            this.$i18n.setLocaleMessage('ZH-CN',res.default);
+        })
 
     }
 

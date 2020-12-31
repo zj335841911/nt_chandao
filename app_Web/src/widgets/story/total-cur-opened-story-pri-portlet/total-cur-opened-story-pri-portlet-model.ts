@@ -216,6 +216,9 @@ export default class TotalCurOpenedStoryPriModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

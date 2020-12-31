@@ -64,6 +64,15 @@ export default class EmployEeloadService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
+     * bug解决汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmployEeloadService
+     */
+	public TREENODE_BUGRESOLVED: string = 'BugResolved';
+
+    /**
      * 员工负载表节点分隔符号
      *
      * @public
@@ -80,6 +89,24 @@ export default class EmployEeloadService extends ControlService {
      * @memberof EmployEeloadService
      */
 	public TREENODE_ROOT: string = 'ROOT';
+
+    /**
+     * 公司动态汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmployEeloadService
+     */
+	public TREENODE_COMPANYDYNAMICSTATS: string = 'CompanyDynamicStats';
+
+    /**
+     * 任务完成汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmployEeloadService
+     */
+	public TREENODE_TASKFINISH: string = 'TaskFinish';
 
     /**
      * 获取节点数据
@@ -155,6 +182,10 @@ export default class EmployEeloadService extends ControlService {
             }
         }
 
+        if (Object.is(strNodeType, this.TREENODE_BUGRESOLVED)) {
+            await this.fillBugresolvedNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_EMPLOYEELOAD)) {
             await this.fillEmployeeloadNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -163,8 +194,75 @@ export default class EmployEeloadService extends ControlService {
             await this.fillRootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_COMPANYDYNAMICSTATS)) {
+            await this.fillCompanydynamicstatsNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_TASKFINISH)) {
+            await this.fillTaskfinishNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
+
+    /**
+     * 填充 树视图节点[bug解决汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadService
+     */
+    @Errorlog
+    public fillBugresolvedNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.employeeload_treeview.nodes.bugresolved') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugResolved';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[bug解决汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadService
+     */
+    @Errorlog
+    public async fillBugresolvedNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
 
     /**
      * 填充 树视图节点[员工负载表]
@@ -284,12 +382,160 @@ export default class EmployEeloadService extends ControlService {
             let EmployeeloadRsNavParams:any = {};
             let EmployeeloadRsParams:any = {};
 			await this.fillEmployeeloadNodes(context, filter, list ,EmployeeloadRsNavContext,EmployeeloadRsNavParams,EmployeeloadRsParams);
+			// 填充公司动态汇总表
+            let CompanydynamicstatsRsNavContext:any = {};
+            let CompanydynamicstatsRsNavParams:any = {};
+            let CompanydynamicstatsRsParams:any = {};
+			await this.fillCompanydynamicstatsNodes(context, filter, list ,CompanydynamicstatsRsNavContext,CompanydynamicstatsRsNavParams,CompanydynamicstatsRsParams);
+			// 填充任务完成汇总表
+            let TaskfinishRsNavContext:any = {};
+            let TaskfinishRsNavParams:any = {};
+            let TaskfinishRsParams:any = {};
+			await this.fillTaskfinishNodes(context, filter, list ,TaskfinishRsNavContext,TaskfinishRsNavParams,TaskfinishRsParams);
+			// 填充bug解决汇总表
+            let BugresolvedRsNavContext:any = {};
+            let BugresolvedRsNavParams:any = {};
+            let BugresolvedRsParams:any = {};
+			await this.fillBugresolvedNodes(context, filter, list ,BugresolvedRsNavContext,BugresolvedRsNavParams,BugresolvedRsParams);
 		} else {
 			// 填充员工负载表
             let EmployeeloadRsNavContext:any = {};
             let EmployeeloadRsNavParams:any = {};
             let EmployeeloadRsParams:any = {};
 			await this.fillEmployeeloadNodes(context, filter, list ,EmployeeloadRsNavContext,EmployeeloadRsNavParams,EmployeeloadRsParams);
+			// 填充公司动态汇总表
+            let CompanydynamicstatsRsNavContext:any = {};
+            let CompanydynamicstatsRsNavParams:any = {};
+            let CompanydynamicstatsRsParams:any = {};
+			await this.fillCompanydynamicstatsNodes(context, filter, list ,CompanydynamicstatsRsNavContext,CompanydynamicstatsRsNavParams,CompanydynamicstatsRsParams);
+			// 填充任务完成汇总表
+            let TaskfinishRsNavContext:any = {};
+            let TaskfinishRsNavParams:any = {};
+            let TaskfinishRsParams:any = {};
+			await this.fillTaskfinishNodes(context, filter, list ,TaskfinishRsNavContext,TaskfinishRsNavParams,TaskfinishRsParams);
+			// 填充bug解决汇总表
+            let BugresolvedRsNavContext:any = {};
+            let BugresolvedRsNavParams:any = {};
+            let BugresolvedRsParams:any = {};
+			await this.fillBugresolvedNodes(context, filter, list ,BugresolvedRsNavContext,BugresolvedRsNavParams,BugresolvedRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[公司动态汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadService
+     */
+    @Errorlog
+    public fillCompanydynamicstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.employeeload_treeview.nodes.companydynamicstats') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'CompanyDynamicStats';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[公司动态汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadService
+     */
+    @Errorlog
+    public async fillCompanydynamicstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[任务完成汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadService
+     */
+    @Errorlog
+    public fillTaskfinishNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.employeeload_treeview.nodes.taskfinish') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'TaskFinish';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[任务完成汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadService
+     */
+    @Errorlog
+    public async fillTaskfinishNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
 		}
 	}
 

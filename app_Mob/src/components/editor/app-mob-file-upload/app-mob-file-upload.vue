@@ -3,7 +3,7 @@
         <ion-item-group v-if="files.length > 0">
         <ion-item v-for="file in files" :key="file.id">
             <ion-label><a class="file" @click="onDownload(file)">{{file.name}}</a></ion-label>
-            <ion-icon name="close-outline" @click="onDelete(file, null)"></ion-icon>
+            <app-mob-icon name="close-outline" @onClick="onDelete(file, null)"></app-mob-icon>
         </ion-item>
         </ion-item-group>
         <ion-row >
@@ -19,7 +19,7 @@
                 <ion-icon slot="start" name="image-outline"></ion-icon>
                 {{$t('uploadtext')}}
             </ion-button> -->
-            <ion-icon  name="add-outline" style="    font-size: 20px;"></ion-icon>
+            <app-mob-icon  name="add-outline" style="font-size: 20px;"></app-mob-icon>
         </van-uploader>
         </ion-row>
     </div>

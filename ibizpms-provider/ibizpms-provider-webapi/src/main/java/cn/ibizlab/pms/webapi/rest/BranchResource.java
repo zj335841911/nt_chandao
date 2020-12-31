@@ -145,6 +145,12 @@ public class BranchResource {
         branchdto = branchMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(branchdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
+    @ApiOperation(value = "批量处理[排序]", tags = {"产品的分支和平台信息" },  notes = "批量处理[排序]")
+	@RequestMapping(method = RequestMethod.POST, value = "/branches/{branch_id}/sortbatch")
+    public ResponseEntity<Boolean> sortBatch(@RequestBody List<BranchDTO> branchdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(branchService.sortBatch(branchMapping.toDomain(branchdtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "获取CurProduct")
@@ -307,7 +313,11 @@ public class BranchResource {
         branchdto = branchMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(branchdto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品产品的分支和平台信息]", tags = {"产品的分支和平台信息" },  notes = "批量处理[根据产品产品的分支和平台信息]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/{branch_id}/sortbatch")
+    public ResponseEntity<Boolean> sortByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BranchDTO> branchdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(branchService.sortBatch(branchMapping.toDomain(branchdtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取CurProduct")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchcurproduct")

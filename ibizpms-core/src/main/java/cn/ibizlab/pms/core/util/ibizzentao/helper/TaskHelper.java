@@ -584,7 +584,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     } else if (!flag1) {
                         currentTask.setStatus(StaticDict.Task__status.DONE.getValue());
                         currentTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
-                        currentTask.setFinisheddate(now);
+                        currentTask.setFinisheddate(currentTask.getFinisheddate() == null ? ZTDateUtil.now() : currentTask.getFinisheddate());
                     }
                 }
                 if (!old.getAssignedto().equals(currentTask.getAssignedto()) || currentTask.getStatus().equals(StaticDict.Task__status.DONE.getValue())) {
@@ -726,19 +726,20 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             return;
         }
 
-        String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'", et.getId());
-        List<JSONObject> list = taskService.select(sql, null);
+//        String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'", et.getId());
+        List<Task> list = this.list(new QueryWrapper<Task>().eq("parent",et.getId()).ne("status","cancel").eq("deleted","0"));
+//        List<JSONObject> list = taskService.select(sql, null);
         if (list.size() == 0) {
             return;
         }
         double estimate = 0;
         double consumed = 0;
         double left = 0;
-        for (JSONObject task1 : list) {
-            estimate += task1.getDoubleValue(FIELD_ESTIMATE);
-            consumed += task1.getDoubleValue(StaticDict.ProjectTimeType.CONSUMED.getValue());
-            if (!StaticDict.Task__status.CLOSED.getValue().equals(task1.getString(FIELD_STATUS))) {
-                left += task1.getDoubleValue(StaticDict.ProjectTimeType.LEFT.getValue());
+        for (Task task1 : list) {
+            estimate += task1.getEstimate();
+            consumed += task1.getConsumed();
+            if (!StaticDict.Task__status.CLOSED.getValue().equals(task1.getStatus())) {
+                left += task1.getLeft();
             }
         }
         Task task = new Task();
@@ -1252,7 +1253,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (teams.size() == 0) {
             newTask.setLeft(0d);
             newTask.setStatus(StaticDict.Task__status.DONE.getValue());
-            newTask.setFinisheddate(ZTDateUtil.now());
+            newTask.setFinisheddate(et.getFinisheddate() == null ? ZTDateUtil.now() : et.getFinisheddate());
             newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
             consumed = et.getConsumed() - old.getConsumed();
             if (consumed < 0) {
@@ -1305,6 +1306,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     teamHelper.internalUpdate(team);
                 }
             }
+            newTask.setFinisheddate(et.getFinisheddate());
             computeHours4Multiple(old, newTask, null, false);
         }
 
@@ -1528,7 +1530,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         task.setId(et.getId());
         task.setStoryversion(storyService.get(et.getStory()).getVersion());
         this.internalUpdate(task);
-        actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.CONFIRMED.getValue(), "", "", "", true);
+        actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.CONFIRMED.getValue(), "", "", null, true);
         return et;
     }
 

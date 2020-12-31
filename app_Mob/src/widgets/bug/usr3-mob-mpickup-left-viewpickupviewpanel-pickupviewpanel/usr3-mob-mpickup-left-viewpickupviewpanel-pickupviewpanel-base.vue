@@ -25,7 +25,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
+import BugEntityService from '@/app-core/service/bug/bug-service';
 import Usr3MobMPickupLeftViewpickupviewpanelService from '@/app-core/ctrl-service/bug/usr3-mob-mpickup-left-viewpickupviewpanel-pickupviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -134,7 +134,7 @@ export default class Usr3MobMPickupLeftViewpickupviewpanelBase extends Vue imple
      * @type {BugService}
      * @memberof Usr3MobMPickupLeftViewpickupviewpanel
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: BugEntityService = new BugEntityService();
 
     /**
      * 界面UI服务对象

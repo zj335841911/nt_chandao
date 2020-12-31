@@ -201,6 +201,35 @@ export default class TaskStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchTaskFinishHuiZong接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskStatsServiceBase
+     */
+    public async FetchTaskFinishHuiZong(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskstats/fetchtaskfinishhuizong`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchTaskFinishHuiZong接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskStatsServiceBase
+     */
+    public async searchTaskFinishHuiZong(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskstats/searchtaskfinishhuizong`,tempData,isloading);
+    }
+
+    /**
      * FetchUserFinishTaskSum接口方法
      *
      * @param {*} [context={}]

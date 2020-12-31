@@ -216,6 +216,9 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

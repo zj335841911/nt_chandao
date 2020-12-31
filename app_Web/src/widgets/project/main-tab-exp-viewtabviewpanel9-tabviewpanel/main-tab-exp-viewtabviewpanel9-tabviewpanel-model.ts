@@ -237,6 +237,12 @@ export default class MainTabExpViewtabviewpanel9Model {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'projectteams',
+      },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

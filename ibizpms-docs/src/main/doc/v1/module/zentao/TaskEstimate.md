@@ -648,8 +648,7 @@ t1.`DATE`,
 t1.`date` AS `DATES`,
 t1.`ID`,
 t1.`LEFT`,
-t1.`TASK`, 
-t1.`WORK` 
+t1.`TASK`
 FROM `zt_taskestimate` t1 
 
 ```

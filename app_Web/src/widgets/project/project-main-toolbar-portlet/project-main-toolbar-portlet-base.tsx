@@ -491,6 +491,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @memberof ProjectMainToolbarBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

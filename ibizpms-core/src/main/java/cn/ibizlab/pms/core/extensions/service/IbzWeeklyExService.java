@@ -153,8 +153,10 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
         //获取上周的周报
         List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",AuthenticationUser.getAuthenticationUser().getUsername()).last(" and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())-1")); //YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d'))
         if (list.size() != 0){
-            String[] lastWeekPlanTask = list.get(list.size()-1).getNextweektask().split(","); //上周计划参与任务
-            taskIdSet.addAll(Arrays.asList(lastWeekPlanTask));
+            if (list.get(list.size()-1).getNextweektask() != null){
+                String[] lastWeekPlanTask = list.get(list.size()-1).getNextweektask().split(","); //上周计划参与任务
+                taskIdSet.addAll(Arrays.asList(lastWeekPlanTask));
+            }
             lastWeekNextWeekPlan = list.get(list.size()-1).getPlannextweek();
         }
         if (taskIdSet.size() != 0){
@@ -173,7 +175,7 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
     public IbzWeekly editGetLastWeekTaskAndComTask(IbzWeekly et){
         Set<String> taskIdSet = new HashSet<>();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()),et);
-        String tasksId = "";
+        //String tasksId = "";
         if (et.getThisweektask() != null){
             taskIdSet.addAll(Arrays.asList(et.getThisweektask().split(","))); //将周报的已有的完成任务添加到集合，
         }
@@ -184,7 +186,7 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
 //            }
 //        }
         //查询本周我完成的任务
-        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().eq("deleted","0").eq("finishedBy",et.getAccount()).last("and YEARWEEK(date_format(DATE_SUB( finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now()) "));
+        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().eq("deleted","0").eq("finishedBy",et.getAccount()).last("and YEARWEEK(date_format(DATE_SUB( finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK('"+et.getDate()+"') "));
         for (Task t : tasks) {
             taskIdSet.add(t.getId().toString());
         }
@@ -193,5 +195,8 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
         }
         return et;
     }
+
+
+
 }
 

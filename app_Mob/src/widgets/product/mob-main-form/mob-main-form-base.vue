@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="Product__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -95,7 +93,6 @@
     codeListType="STATIC" 
     tag="Product__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -126,7 +123,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.po"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -157,7 +153,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.qd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -188,7 +183,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.rd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -216,7 +210,6 @@
     :error="detailsModel.productplancnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.productplancnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -244,7 +237,6 @@
     :error="detailsModel.activestorycnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.activestorycnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -272,7 +264,6 @@
     :error="detailsModel.buildcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.buildcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -300,7 +291,6 @@
     :error="detailsModel.relatedbugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.relatedbugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -328,7 +318,6 @@
     :error="detailsModel.unconfirmbugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.unconfirmbugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -356,7 +345,6 @@
     :error="detailsModel.activebugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.activebugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -384,7 +372,6 @@
     :error="detailsModel.notclosedbugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.notclosedbugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -412,7 +399,6 @@
     :error="detailsModel.casecnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.casecnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -502,7 +488,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
+import ProductEntityService from '@/app-core/service/product/product-service';
 import MobMainService from '@/app-core/ctrl-service/product/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -614,7 +600,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {ProductService}
      * @memberof MobMain
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProductEntityService = new ProductEntityService();
 
     /**
      * 界面UI服务对象
@@ -711,6 +697,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1380,7 +1374,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`product.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1607,6 +1603,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *  @memberof MobMain
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.product});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1657,7 +1656,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Product")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.product){
                     this.refresh([data]);
                 }
             })
@@ -1883,6 +1882,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1961,10 +1961,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Product",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1988,10 +1987,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Product",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

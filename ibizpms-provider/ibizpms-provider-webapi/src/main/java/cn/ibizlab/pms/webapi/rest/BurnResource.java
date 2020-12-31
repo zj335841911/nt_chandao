@@ -130,6 +130,12 @@ public class BurnResource {
         burndto = burnMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(burndto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ComputeBurn-all')")
+    @ApiOperation(value = "批量处理[更新燃尽图]", tags = {"burn" },  notes = "批量处理[更新燃尽图]")
+	@RequestMapping(method = RequestMethod.POST, value = "/burns/{burn_id}/computeburnbatch")
+    public ResponseEntity<Boolean> computeBurnBatch(@RequestBody List<BurnDTO> burndtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(burnService.computeBurnBatch(burnMapping.toDomain(burndtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Save-all')")
     @ApiOperation(value = "保存burn", tags = {"burn" },  notes = "保存burn")
@@ -286,7 +292,11 @@ public class BurnResource {
         burndto = burnMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(burndto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目burn]", tags = {"burn" },  notes = "批量处理[根据项目burn]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/{burn_id}/computeburnbatch")
+    public ResponseEntity<Boolean> computeBurnByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BurnDTO> burndtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(burnService.computeBurnBatch(burnMapping.toDomain(burndtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Save-all')")
     @ApiOperation(value = "根据项目保存burn", tags = {"burn" },  notes = "根据项目保存burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/save")

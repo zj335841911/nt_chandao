@@ -49,6 +49,13 @@ import org.springframework.util.StringUtils;
 public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, ProjectStats> implements IProjectStatsService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectStatsProjectQualitySumLogic projectqualitysumLogic;
+    @Autowired
+    @Lazy
+    IProjectStatsService proxyService;
+
     protected int batchSize = 500;
 
     @Override
@@ -120,6 +127,13 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     }
     @Override
     @Transactional
+    public ProjectStats projectQualitySum(ProjectStats et) {
+        projectqualitysumLogic.execute(et);
+         return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(ProjectStats et) {
         if (!saveOrUpdate(et)) {
             return false;
@@ -133,21 +147,49 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProjectStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProjectStats> create = new ArrayList<>();
+        List<ProjectStats> update = new ArrayList<>();
+        for (ProjectStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProjectStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProjectStats> create = new ArrayList<>();
+        List<ProjectStats> update = new ArrayList<>();
+        for (ProjectStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -171,11 +213,74 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     }
 
     /**
+     * 查询集合 项目bug类型统计
+     */
+    @Override
+    public Page<ProjectStats> searchProjectBugType(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectBugType(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目投入统计
+     */
+    @Override
+    public Page<ProjectStats> searchProjectInputStats(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectInputStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目进度
+     */
+    @Override
+    public Page<ProjectStats> searchProjectProgress(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectProgress(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目质量
+     */
+    @Override
+    public Page<ProjectStats> searchProjectQuality(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectQuality(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目需求阶段统计
+     */
+    @Override
+    public Page<ProjectStats> searchProjectStoryStageStats(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectStoryStageStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目需求状态统计
+     */
+    @Override
+    public Page<ProjectStats> searchProjectStoryStatusStats(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectStoryStatusStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 项目任务统计(任务状态)
      */
     @Override
     public Page<ProjectStats> searchProjectTaskCountByTaskStatus(ProjectStatsSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectTaskCountByTaskStatus(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目任务类型统计
+     */
+    @Override
+    public Page<ProjectStats> searchProjectTaskCountByType(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectTaskCountByType(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

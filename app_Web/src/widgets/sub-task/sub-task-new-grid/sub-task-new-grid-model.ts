@@ -63,6 +63,12 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
           name: 'desc',
           prop: 'desc',
           dataType: 'LONGTEXT',
@@ -126,14 +132,14 @@ export default class SubTaskNewModel {
           dataType: 'TEXT',
         },
         {
-          name: 'story',
-          prop: 'story',
+          name: 'project',
+          prop: 'project',
           dataType: 'PICKUP',
           isEditable:true
         },
         {
-          name: 'project',
-          prop: 'project',
+          name: 'story',
+          prop: 'story',
           dataType: 'PICKUP',
           isEditable:true
         },

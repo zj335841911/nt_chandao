@@ -1,23 +1,8 @@
-export default {
-  fields: {
-    deptid: "decimal",
-    deptcode: "Cancel",
-    deptname: "{0}/P",
-    orgid: "单位",
-    parentdeptid: "上级部门",
-    shortname: "Others",
-    deptlevel: "部门级别",
-    domains: "区属",
-    showorder: "Audit",
-    bcode: "Condition",
-    leaderid: "分管领导标识",
-    leadername: "分管领导",
-    orgname: "单位",
-    parentdeptname: "上级部门",
-    createdate: "建立时间",
-    enable: "逻辑有效标志",
-    createman: "建立人",
-    updateman: "更新人",
-    updatedate: "更新时间",
-  },
-};
+import SysDepartment_en_US_Base from './sys-department_en_US_base';
+
+function getLocaleResource(){
+    const SysDepartment_en_US_OwnData = {};
+    const targetData = Object.assign(SysDepartment_en_US_Base(), SysDepartment_en_US_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

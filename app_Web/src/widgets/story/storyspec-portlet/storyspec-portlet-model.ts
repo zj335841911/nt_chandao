@@ -216,6 +216,9 @@ export default class StoryspecModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

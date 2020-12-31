@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbiLoginServiceImpl")
 public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> implements IIbiLoginService {
 
+    @Autowired
+    @Lazy
+    IIbiLoginService proxyService;
 
     protected int batchSize = 500;
 
@@ -56,11 +59,25 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
         //自定义代码
         return et;
     }
+   @Override
+    public boolean getUserBatch(List<IbiLogin> etList) {
+        for(IbiLogin et : etList) {
+            getUser(et);
+        }
+        return true;
+    }
 
     @Override
     public IbiLogin ztlogin(IbiLogin et) {
         //自定义代码
         return et;
+    }
+   @Override
+    public boolean ztloginBatch(List<IbiLogin> etList) {
+        for(IbiLogin et : etList) {
+            ztlogin(et);
+        }
+        return true;
     }
 
 

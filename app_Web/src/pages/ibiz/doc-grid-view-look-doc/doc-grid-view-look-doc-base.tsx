@@ -152,9 +152,9 @@ export class DocGridViewLookDocBase extends GridViewBase {
      * @memberof DocGridViewLookDoc
      */
     public toolBarModels: any = {
-        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction7: { name: 'deuiaction7', caption: 'entities.doc.gridviewlookdoctoolbar_toolbar.deuiaction7.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.doc.gridviewlookdoctoolbar_toolbar.deuiaction7.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
-        deuiaction3_togglefilter: { name: 'deuiaction3_togglefilter', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction3_togglefilter: { name: 'deuiaction3_togglefilter', caption: 'entities.doc.gridviewlookdoctoolbar_toolbar.deuiaction3_togglefilter.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.doc.gridviewlookdoctoolbar_toolbar.deuiaction3_togglefilter.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 
@@ -438,8 +438,8 @@ export class DocGridViewLookDocBase extends GridViewBase {
         }
         const view: any = {
             viewname: 'doc-dashboard-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.doc.views.dashboardview.title'),
             placement: 'DRAWER_TOP',
         };

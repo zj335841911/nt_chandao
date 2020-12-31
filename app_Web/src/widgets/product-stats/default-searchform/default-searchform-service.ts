@@ -293,20 +293,7 @@ export default class DefaultService extends ControlService {
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         return new Promise((resolve: any, reject: any) => {
-            let result: Promise<any>;
-            const _appEntityService: any = this.appEntityService;
-            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
-                result = _appEntityService[action](Context,Data, isloading);
-            } else {
-                result = this.appEntityService.GetDraft(Context,Data, isloading);
-            }
-            result.then((response) => {
-                this.setRemoteCopyData(response);
-                this.handleResponse(action, response, true);
-                resolve(response);
-            }).catch(response => {
-                reject(response);
-            });
+            resolve({ status: 200, data: {} });
         });
     }
 

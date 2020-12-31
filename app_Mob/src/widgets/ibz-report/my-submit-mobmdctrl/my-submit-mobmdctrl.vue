@@ -25,6 +25,9 @@ export default class MySubmit extends MySubmitBase {
         if(Object.is(item.type,'weekly')){
             this.mdctrl_click('u11525d3',item)
         }
+        if(Object.is(item.type,'reportly')){
+            this.mdctrl_click('u5cb5aa3',item)
+        }
     }
 
     /**
@@ -47,7 +50,10 @@ export default class MySubmit extends MySubmitBase {
         if (Object.is(tag, 'u151f646')) {
             this.mdctrl_u151f646_click();
         }
-        this.closeSlidings();
+        if (Object.is(tag, 'u5cb5aa3')) {
+            this.mdctrl_u5cb5aa3_click();
+        }
+        this.closeSlidings(item);
     }
 
 }

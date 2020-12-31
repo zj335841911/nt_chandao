@@ -1,11 +1,11 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoblistview': true, 'story-mob-list-view': true }">
     
-    <ion-header>
+    <app-mob-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
-    </ion-header>
+    </app-mob-header>
 
     <ion-content >
                 <div>列表视图已废弃，请选择多数据视图</div>
@@ -415,7 +415,7 @@ export default class StoryMobListViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -454,17 +454,17 @@ export default class StoryMobListViewBase extends Vue {
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
-        let context = { ...this.context, ...contextJO };
+        let _context = { ...this.context, ...contextJO };
         if (args.length > 0) {
-            Object.assign(context, args[0]);
+            Object.assign(_context, args[0]);
         }
         let response: any = null;
         let panelNavParam = { } ;
         let panelNavContext = { } ;
         //导航参数处理
-        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -474,7 +474,7 @@ export default class StoryMobListViewBase extends Vue {
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {

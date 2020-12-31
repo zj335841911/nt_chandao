@@ -36,4 +36,12 @@ public interface IPMSFeignClient {
      */
     @PostMapping(value = "/recordloginlog")
     Boolean recordLoginLog(@RequestParam("username") String username);
+
+    /**
+     *  获取管理模式
+     *
+     * @return
+     */
+    @GetMapping(value = "/getsrfmstatus")
+    JSONObject getSrfMStatus();
 }

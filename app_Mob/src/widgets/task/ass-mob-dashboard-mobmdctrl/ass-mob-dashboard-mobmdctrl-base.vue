@@ -5,12 +5,12 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u967149a', item)"><ion-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></ion-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ud84a685', item)"><ion-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></ion-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7b20a3e', item)"><ion-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></ion-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e7b363', item)"><ion-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></ion-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><app-mob-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></app-mob-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><app-mob-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></app-mob-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u967149a', item)"><app-mob-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></app-mob-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ud84a685', item)"><app-mob-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></app-mob-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7b20a3e', item)"><app-mob-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></app-mob-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e7b363', item)"><app-mob-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></app-mob-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -31,12 +31,12 @@
                           </template>
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u967149a', item)"><ion-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></ion-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ud84a685', item)"><ion-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></ion-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7b20a3e', item)"><ion-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></ion-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e7b363', item)"><ion-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></ion-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><app-mob-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></app-mob-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><app-mob-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></app-mob-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u967149a', item)"><app-mob-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></app-mob-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ud84a685', item)"><app-mob-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></app-mob-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7b20a3e', item)"><app-mob-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></app-mob-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e7b363', item)"><app-mob-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></app-mob-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -109,15 +109,17 @@
                 <div>暂无数据</div>
                               <div class="app-toolbar-container ">
                 <div class="app-quick-toolbar toolbar-left-bottons">
-                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                    <ion-icon class="ibiz-button-icon" name="more"> </ion-icon>
-                
-                </ion-button>
+                            <app-mob-button 
+                        iconName="more"
+                        :text="''"
+                        v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" 
+                        :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" 
+                        @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" />
             
                 </div>
             </div>
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
+            <div v-show=" loadStatus && !allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          
@@ -132,7 +134,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TaskEntityService from '@/app-core/service/task/task-service';
 import AssMobDASHBOARDService from '@/app-core/ctrl-service/task/ass-mob-dashboard-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -241,7 +243,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @type {TaskService}
      * @memberof AssMobDASHBOARD
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TaskEntityService = new TaskEntityService();
 
     /**
      * 界面UI服务对象
@@ -568,9 +570,9 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
-    *上级传递的选中项
-    *@type {Array}
-    *@memberof AssMobDASHBOARD
+    * 上级传递的选中项
+    * @type {Array}
+    * @memberof AssMobDASHBOARD
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -599,14 +601,13 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     */
     @Prop() public opendata?: Function; 
 
-
     /**
-    * 当前选中数组
+    * 加载显示状态
     *
-    * @type {array}
+    * @type {boolean}
     * @memberof AssMobDASHBOARD
     */
-    public  selectdata :any = [];
+    public loadStatus: boolean = false;
 
     /**
     * 关闭行为
@@ -734,37 +735,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     */
     public radio:any = '';
 
-
-    /**
-    * 点击多选按钮触发
-    *
-    *
-    * @memberof AssMobDASHBOARD
-    */
-    public change(){
-        if(this.isMutli){
-             let checkboxLists= this.items.filter((item,index)=>{
-                  if(this.checkboxList.indexOf(item.srfkey)!=-1){
-                    return true;
-                  }else{
-                    return false;
-                  }
-                })
-          this.$emit('selectchange',checkboxLists);
-        }else{
-           let radioItem = this.items.filter((item,index)=>{return item.srfkey==this.radio});
-           this.$emit('selectchange',radioItem);
-        }
-    }
-
-    /**
-    * 列表键值对
-    *
-    * @type {Map}
-    * @memberof AssMobDASHBOARD
-    */
-    public listMap: any = new Map();
-
     /**
     * 分页大小
     *
@@ -829,7 +799,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @param {number}
     * @memberof AssMobDASHBOARD
     */
-    public selectednumber:number =0;
+    public selectednumber:number = 0;
 
     /**
     * 搜索行为
@@ -930,7 +900,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -1055,7 +1024,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         }
         this.items.forEach((item:any)=>{
             // 计算是否选中
-            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            let index = this.selectedArray.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
             if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
                 item.checked = true;
             }else{
@@ -1096,35 +1065,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
           }
         })
       })
-    }
-
-    /**
-     * checkbox 选中回调
-     *
-     * @param {*} data
-     * @returns
-     * @memberof AssMobDASHBOARD
-     */
-    public checkboxChange(data: any) {
-        let { detail } = data;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.selectednumber = 0;
-        this.items.forEach((item: any, index: number) => {
-            if (item.value) {
-                this.selectednumber++;
-            }
-            if (Object.is(item.id, value)) {
-                if (detail.checked) {
-                    this.selectdata.push(this.items[index]);
-                } else {
-                    this.selectdata.splice(this.selectdata.findIndex((i: any) => i.value === item.value), 1)
-                }
-            }
-        });
-        this.$emit('selectionchange', this.selectdata);
     }
 
     /**
@@ -1179,7 +1119,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @memberof AssMobDASHBOARD
     */
     public getDatas(): any[] {
-      return this.selectedArray;
+      return this.service.handleRequestDatas(this.context,this.selectedArray);
     }
 
     /**
@@ -1316,15 +1256,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     }
 
     /**
-     * vue 生命周期 activated
-     *
-     * @memberof AssMobDASHBOARD
-     */
-    public activated() {
-        this.closeSlidings()
-    }
-
-    /**
      * 列表项左滑右滑触发行为
      *
      * @param {*} $event 点击鼠标事件
@@ -1354,24 +1285,17 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         if (Object.is(tag, 'u7e7b363')) {
             this.mdctrl_u7e7b363_click();
         }
-        this.closeSlidings();
+        this.closeSlidings(item);
     }
 
     /**
      * 关闭列表项左滑右滑
      * @memberof Mdctrl
      */
-    public closeSlidings () {
-        let ionlist:any = this.$refs.ionlist;
-        if (ionlist && ionlist.children) {
-          ionlist.children.forEach((sliding:any) => {
-            if(typeof sliding.close === 'function'){
-              sliding.close();
-            }
-            if(typeof sliding.closeOpened === 'function'){
-            sliding.closeOpened();
-            }
-          })
+    public closeSlidings (item: any) {
+        const ele :any= this.$refs[item.srfkey];
+        if(ele[0] && this.$util.isFunction(ele[0].closeOpened)){
+            ele[0].closeOpened();
         }
     }
 
@@ -1401,26 +1325,44 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @memberof Mdctrl
      */
     public checkboxSelect(item:any){
-        let count = this.selectedArray.findIndex((i) => {
-            return i.id == item.id;
+        item.checked = !item.checked
+        let count = this.selectedArray.findIndex((_item:any) => {
+            return _item.id == item.id;
         });
-        let tempFalg = false;
         if(count == -1){
-            tempFalg = true;
             this.selectedArray.push(item);
         }else{
-            this.selectedArray.splice(count,1);
+            this.selectedArray.splice(count , 1);
         }
-        this.items.forEach((_item:any,index:number)=>{
-            if(_item.id == item.id){
-                this.items[index].checked = tempFalg;
+        let _count = Object.is(this.items.length , this.selectedArray.length)? 1 : this.selectedArray.length > 0 ? 2 : 0;
+        this.$emit("checkBoxChange", _count)
+        this.$forceUpdate();
+    }
+    /** 
+     * checkbox 选中回调
+     *
+     * @memberof AssMobDASHBOARD
+     */
+    public checkboxChange(data: any) {
+        let { detail } = data;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.selectednumber = 0;
+        this.items.forEach((item: any, index: number) => {
+            if (item.value) {
+                this.selectednumber++;
+            }
+            if (Object.is(item.id, value)) {
+                if (detail.checked) {
+                    this.selectedArray.push(this.items[index]);
+                } else {
+                    this.selectedArray.splice(this.selectedArray.findIndex((i: any) => i.value === item.value), 1)
+                }
             }
         });
-        if(!item.checked){
-            this.$emit("checkBoxChange",false)
-        }else if(this.selectedArray.length == this.items.length){
-            this.$emit("checkBoxChange",true)
-        }
+        this.$emit('selectionchange', this.selectedArray);
     }
 
     /**

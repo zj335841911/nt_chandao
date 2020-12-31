@@ -86,6 +86,11 @@ export default class Main_EditModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'supproreport',
+        prop: 'supproreport',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'team',
         prop: 'team',
         dataType: 'TEXT',

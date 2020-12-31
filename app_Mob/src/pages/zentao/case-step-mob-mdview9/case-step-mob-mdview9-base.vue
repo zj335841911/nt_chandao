@@ -2,7 +2,7 @@
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'case-step-mob-mdview9': true }">
     <template slot="header">
         <ion-toolbar>
-            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
+            <app-mob-title v-if="showTitle">{{$t(model.srfCaption)}}</app-mob-title>
         </ion-toolbar>
     </template>
 
@@ -11,7 +11,7 @@
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="CaseStepMobMDView9"  
+            viewName="MobMDView9"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW9"
@@ -647,7 +647,9 @@ export default class CaseStepMobMDView9Base extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

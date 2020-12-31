@@ -38,12 +38,23 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '045b5e072197debea88d4ff0ee811056',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditViewCreate',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b39f9237d088a6173a2d1889f2eaa562',
+            ],
+        },
+        {
             viewtag: '053879e9b47bc845598b68abbdbb2e0a',
             viewmodule: 'ibiz',
             viewname: 'IbzMyTerritoryMobCalendarView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '5cf685aa2765b112906a6b8ed57cdfc1',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
                 '69a540ab88c1edd1da7f89cebe5f4588',
                 'e848fcc53d765ca86681f329895f792c',
@@ -163,6 +174,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'b39f9237d088a6173a2d1889f2eaa562',
             ],
         },
         {
@@ -192,14 +204,15 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '97630768e30593ab04f3d7dc263796cb',
                 '36115bf8c98ba37034812624719bb492',
                 '86fe20f86bf10c309e08f52cf7259b9d',
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
+                'b9d4a770b4877d79ee5b05d449d2a488',
                 'D3037883-E4BF-4F1D-86D1-E9965B6315D4',
                 'c4c92d03808b0d9d6cbe4e1f943e6033',
                 '214508ca1f0caa399539566a9a8b90cc',
-                'fc2f8f2e45b4fb4f22e7e77d4e57a16c',
             ],
         },
         {
@@ -299,8 +312,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '2fbad11497e0fa5fbb9e5cc3db6029ff',
-                'd37be393a71ef140b65a9b75e0a2658e',
+                '7a2ab181ea826d269085a914d23cd49e',
+                '54b430d78e300148f0d06da1cf52a94b',
+                '6b3a86f189808eac904d838523fea64f',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'b52bf86837838dcfd5b787fad0350f22',
             ],
@@ -354,6 +368,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1ebb516d2e6c68b53804ade8a64813cd',
+            viewmodule: 'report',
+            viewname: 'TaskWeeklyPlansTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '206584f40a0caade6c253a360fad96c1',
             viewmodule: 'ibiz',
             viewname: 'BugRMobOptionView',
@@ -400,10 +424,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'e903ad26a5f15974177800895703623c',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+                '61b07d6ba0ff1c6a96f09f0fcbb4cda7',
                 'b52bf86837838dcfd5b787fad0350f22',
-                '9e582670d841ba6cfb310f7e56ab1784',
+                '5ba351223bef6ac16f4bd017528da530',
+                '3011ba0f68b10e1cbb68a70fb77e646d',
             ],
         },
         {
@@ -432,6 +457,22 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+                '04397afc992f5947c2d1b4250af66e37',
+                '5de478b9876d5aa79de141207737d7fc',
+                '81aa541d8518eab302ea934bb0706c0e',
+            ],
+        },
+        {
+            viewtag: '26c517c1103ef90cfe64c59190017447',
+            viewmodule: 'ibiz',
+            viewname: 'StoryEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0a443f2f0f9dfa28a081d87d16655d27',
+                '61b907edfc7822d020b6b2c2246ee8e0',
+                'b39f9237d088a6173a2d1889f2eaa562',
+                'eef4931ab99bfda807489700470bad47',
             ],
         },
         {
@@ -560,6 +601,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3011ba0f68b10e1cbb68a70fb77e646d',
+            viewmodule: 'report',
+            viewname: 'TaskDailyDoneTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '3019f338b834faf1931f62e00d4ef414',
             viewmodule: 'ibiz',
             viewname: 'CaseMobMDView',
@@ -567,6 +618,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a5df58fce83822477d21fefa32f84741',
+                '81d5a05b5c2b0be229fa0cc9a6eadf06',
                 '0e2762177f3bf384b00d863798bd744c',
             ],
         },
@@ -581,14 +633,25 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '30e7ae4599fb98a1ecf705b32e4a349c',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyReportlyMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a2ae9ac11aa48db204b35705bf573ebd',
+                'db8c84773e393175d84b15d23715c412',
+            ],
+        },
+        {
             viewtag: '31c08ada7e3c3bc55c550b01fd8422c6',
             viewmodule: 'ibiz',
             viewname: 'TaskEditMobEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'b33e569c1f501174e55e46274bf76406',
                 'fff6b013908d42dfb7dc46a67e7467b9',
-                'e7bc340642f7bc0346a1f220d1523954',
                 '5384573c08c076ea5d17a07231e3247c',
                 'b1c76392040ff2e9ed2e3ae2b0260602',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
@@ -625,9 +688,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a2ae9ac11aa48db204b35705bf573ebd',
                 '5cf685aa2765b112906a6b8ed57cdfc1',
-                'b6ecf21481870e7c0b0f9397897bbadb',
                 '7ef67652765553e5d81c39ae576780a8',
+                '8cbcf5204d650b152d4c8ff4980f78e8',
             ],
         },
         {
@@ -638,6 +702,36 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e0f6c020d2e54dd5f8afc20f50a8482d',
+            ],
+        },
+        {
+            viewtag: '38d2759bd079de102a083b27eef703c6',
+            viewmodule: 'zentao',
+            viewname: 'ActionMoreMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '3920e1cc69e58ef6c1952f7e7e843b60',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMyReceivedMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
+            viewtag: '3b0bbcbce04a67e3f6fbb0209518bc10',
+            viewmodule: 'zentao',
+            viewname: 'ProjectTeamProjectTeamMobMEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '86e2021c8b8622f5936942427ca7f18b',
             ],
         },
         {
@@ -686,6 +780,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+                '04397afc992f5947c2d1b4250af66e37',
+                '5de478b9876d5aa79de141207737d7fc',
+                '81aa541d8518eab302ea934bb0706c0e',
             ],
         },
         {
@@ -887,6 +984,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '54b430d78e300148f0d06da1cf52a94b',
+            viewmodule: 'report',
+            viewname: 'TaskMonthlyPlansTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '55804d2c14c94aaab24b2ad0d4db08d8',
             viewmodule: 'ibiz',
             viewname: 'StoryLogMobMDView9',
@@ -962,9 +1069,20 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6ad6f55033b261e9bd02720faf229274',
+                'e7da074448e10578fc11e0e5e3e8e155',
                 '908ae7b1662bbb3715e3adbc6836353b',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'c59d172c10262a98d4ec06d5e90157e4',
+            ],
+        },
+        {
+            viewtag: '5ba351223bef6ac16f4bd017528da530',
+            viewmodule: 'report',
+            viewname: 'TaskDailyPlansTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {
@@ -1010,6 +1128,15 @@ export const viewstate: any = {
             refviews: [
                 '6e91454cb4217d3aa1260161a539c803',
                 'c55172fa3818041e87a38262949c0c96',
+            ],
+        },
+        {
+            viewtag: '5de478b9876d5aa79de141207737d7fc',
+            viewmodule: 'zentao',
+            viewname: 'StoryMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1217,18 +1344,19 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'f007d26d7f0f56600e074c77d4f0b4ab',
                 '74324efc79a8f2da4cc5bccb10015ab5',
                 '1a957197655fae1ce44ceccda6f65852',
                 'cb96d02b067621654223b228ad3960ef',
                 '61673d1a86a046c9ff672f16ab4b7ce7',
-                '8f9ac36ca6d8fab08991612000a92a82',
                 '62196028f5dcb2261905206f6bf86ec6',
                 '178e7f1dff030873132eca2bda9461a2',
-                'c52c57693a3e848c0274a08033492394',
                 'dc64d438e2778b16e0996277b8feabce',
-                '49404878ffb7be86806c53121c642722',
+                'f007d26d7f0f56600e074c77d4f0b4ab',
+                '8f9ac36ca6d8fab08991612000a92a82',
+                'c52c57693a3e848c0274a08033492394',
                 '62bf2b41c1c5e5c96fcdcf923f53898d',
+                '49404878ffb7be86806c53121c642722',
+                '38d2759bd079de102a083b27eef703c6',
             ],
         },
         {
@@ -1310,6 +1438,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7a2ab181ea826d269085a914d23cd49e',
+            viewmodule: 'report',
+            viewname: 'TaskMonthlyDoneTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '7cd2b519699b48228f6e321b3ec5987d',
             viewmodule: 'report',
             viewname: 'IbzDailyDailyCompleteTaskMobMDView',
@@ -1341,9 +1479,40 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8143fb83617574eebbaa7f0819539924',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditViewMainMyTijiao',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df36c08961d3d1737f2f8d55a53fa46c',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
+            viewtag: '81aa541d8518eab302ea934bb0706c0e',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr3MobMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '92bead85a453146078e920330be49623',
+            ],
+        },
+        {
             viewtag: '81d40495e3ca8e2b6530decbba345dca',
             viewmodule: 'ibiz',
             viewname: 'ProductPlanNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '81d5a05b5c2b0be229fa0cc9a6eadf06',
+            viewmodule: 'zentao',
+            viewname: 'CaseCreateCaseMobEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1381,6 +1550,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a7f7ac4849d3c395bc27d5c368a56b50',
+            ],
+        },
+        {
+            viewtag: '86e2021c8b8622f5936942427ca7f18b',
+            viewmodule: 'zentao',
+            viewname: 'ProjectTeamProjectTeamMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1424,6 +1602,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '8cbcf5204d650b152d4c8ff4980f78e8',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2MobTabExpViewMyTiJiao',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'dca81c1a74e59de75d199229ca890abb',
+                '8143fb83617574eebbaa7f0819539924',
+                '1bd9873e7212574f35571116edb7da0b',
             ],
         },
         {
@@ -1477,6 +1667,27 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '9235135a1631832f2d1374311581cbef',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2MobTabExpViewMyReceived',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'dca81c1a74e59de75d199229ca890abb',
+                'fbca44c9e6b602b694348be947f36525',
+                '1bd9873e7212574f35571116edb7da0b',
+            ],
+        },
+        {
+            viewtag: '92bead85a453146078e920330be49623',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr3MobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1543,6 +1754,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '97630768e30593ab04f3d7dc263796cb',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeheadPortraitMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '97ddcfc796631c43a9e55b48ab3253c2',
             viewmodule: 'ibiz',
             viewname: 'SysUpdateFeaturesMobMDView9',
@@ -1559,8 +1779,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bb9616d1f1ed5c36e119f071e98b637b',
                 '339eb0f210b333b047528dcd30df2dde',
                 'df36c08961d3d1737f2f8d55a53fa46c',
+                '045b5e072197debea88d4ff0ee811056',
             ],
         },
         {
@@ -1655,6 +1877,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a2ae9ac11aa48db204b35705bf573ebd',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyMainInfoMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+                'db8c84773e393175d84b15d23715c412',
             ],
         },
         {
@@ -1858,6 +2092,7 @@ export const viewstate: any = {
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
                 'cacf8bf823f555d6b1952c3aeddf8223',
                 '04397afc992f5947c2d1b4250af66e37',
+                '26c517c1103ef90cfe64c59190017447',
             ],
         },
         {
@@ -1882,16 +2117,6 @@ export const viewstate: any = {
                 'df36c08961d3d1737f2f8d55a53fa46c',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'b52bf86837838dcfd5b787fad0350f22',
-            ],
-        },
-        {
-            viewtag: 'b6ecf21481870e7c0b0f9397897bbadb',
-            viewmodule: 'report',
-            viewname: 'IbzWeeklyMobTabExpView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'c18e8afb20aa65bc1b26322170cfd189',
             ],
         },
         {
@@ -1922,6 +2147,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b9d4a770b4877d79ee5b05d449d2a488',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeLoginMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'bb00037ee518e24c062310bc79031627',
             viewmodule: 'report',
             viewname: 'IbzMonthlyMyReceivedMobMDView',
@@ -1929,6 +2163,20 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '1a98f1c22b636e6c2d860064aada120e',
+            ],
+        },
+        {
+            viewtag: 'bb9616d1f1ed5c36e119f071e98b637b',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df36c08961d3d1737f2f8d55a53fa46c',
+                '1ebb516d2e6c68b53804ade8a64813cd',
+                'da2e1d94069e11c5bdcc6142606100b2',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
             ],
         },
         {
@@ -1947,6 +2195,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bb9616d1f1ed5c36e119f071e98b637b',
             ],
         },
         {
@@ -2103,6 +2352,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd07ba02c63fe9e8d03ed3802ae9abcb0',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanUsr2MobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'd096e8789265e730da5eefa1423479dc',
             viewmodule: 'ibiz',
             viewname: 'StoryMobEditView',
@@ -2113,9 +2371,9 @@ export const viewstate: any = {
                 '6530030850ee815ed2c26f0be4f53bad',
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
                 'cacf8bf823f555d6b1952c3aeddf8223',
-                '04397afc992f5947c2d1b4250af66e37',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'eef4931ab99bfda807489700470bad47',
+                '26c517c1103ef90cfe64c59190017447',
                 'b52bf86837838dcfd5b787fad0350f22',
             ],
         },
@@ -2146,6 +2404,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bb9616d1f1ed5c36e119f071e98b637b',
+                '30e7ae4599fb98a1ecf705b32e4a349c',
                 'f49dfaced3944c1bc17f64253fcc95a0',
                 '18b9f914b5fa7aa6e485660e3e5f2aaa',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
@@ -2231,12 +2491,32 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'da2e1d94069e11c5bdcc6142606100b2',
+            viewmodule: 'report',
+            viewname: 'TaskWeeklylyDoneTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: 'db4ed15665047c5e87c912301467ff83',
             viewmodule: 'ibiz',
             viewname: 'ReleaseMobPickupMDView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'db8c84773e393175d84b15d23715c412',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyCreateMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b39f9237d088a6173a2d1889f2eaa562',
             ],
         },
         {
@@ -2280,7 +2560,7 @@ export const viewstate: any = {
         {
             viewtag: 'df36c08961d3d1737f2f8d55a53fa46c',
             viewmodule: 'report',
-            viewname: 'IbzWeeklyMobEditView',
+            viewname: 'IbzWeeklyMobEditViewMian',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -2316,14 +2596,25 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e1db10fc06a638e6943a54a5380a6641',
+            viewmodule: 'report',
+            viewname: 'IbzReportlyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
             viewtag: 'E34EC471-1197-49DF-8C6C-79E175C2FC0E',
             viewmodule: 'Ungroup',
             viewname: 'AppPortalView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'b9d4a770b4877d79ee5b05d449d2a488',
                 '0741315806513b247c661851d7746f51',
-                'fc2f8f2e45b4fb4f22e7e77d4e57a16c',
                 '5040c252f88202ad31af8159bc03524a',
                 'b5a98ab9e5bc86d5b61c77273225f276',
             ],
@@ -2394,6 +2685,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'e7da074448e10578fc11e0e5e3e8e155',
+            viewmodule: 'zentao',
+            viewname: 'ProjectProjectTeamManageMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3b0bbcbce04a67e3f6fbb0209518bc10',
             ],
         },
         {
@@ -2505,6 +2806,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f04572d16a18f7a597843a128db20fb0',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMyReceivedMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2fbad11497e0fa5fbb9e5cc3db6029ff',
+                '3920e1cc69e58ef6c1952f7e7e843b60',
+                'd37be393a71ef140b65a9b75e0a2658e',
+            ],
+        },
+        {
             viewtag: 'f1a8132f2473391e383ec58c657e4e2f',
             viewmodule: 'ibiz',
             viewname: 'ProductPlanEditMobEditView',
@@ -2551,8 +2864,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6e4746425c0ac72e63db9efe5e592d40',
-                'b6ecf21481870e7c0b0f9397897bbadb',
-                '7ef67652765553e5d81c39ae576780a8',
+                '9235135a1631832f2d1374311581cbef',
+                'f04572d16a18f7a597843a128db20fb0',
+                'e1db10fc06a638e6943a54a5380a6641',
             ],
         },
         {
@@ -2572,10 +2886,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '1820afe6869fbb5e9b01ce076933efca',
                 'f1a8132f2473391e383ec58c657e4e2f',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
-                '15c27e8cd95482a59fd899c6841e3ec4',
             ],
         },
         {
@@ -2598,6 +2910,18 @@ export const viewstate: any = {
             refviews: [
                 'b3cea9761156b75453811e307c3ac47f',
                 '69a540ab88c1edd1da7f89cebe5f4588',
+            ],
+        },
+        {
+            viewtag: 'fbca44c9e6b602b694348be947f36525',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditViewMainReceived',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df36c08961d3d1737f2f8d55a53fa46c',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
             ],
         },
         {

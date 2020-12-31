@@ -4,6 +4,7 @@
         :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
         @sort-change="onSortChange($event)"  
         :border="isDragendCol"
+        :span-method="arraySpanMethod.bind(_self)"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
         :cell-class-name="getCellClassName.bind(_self)"
@@ -20,8 +21,6 @@
         ref='multipleTable' :data="items" :show-header="!isHideHeader">
             <template slot="empty">
                 无数据 
-                <span class="quick-toolbar">
-                </span>
             </template>
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
@@ -39,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.main_grid.columns.pri')" :width="60"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.main_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.pri')}}
@@ -133,7 +132,6 @@
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="110"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                           <i class="fa fa-hand-o-right"></i>
                         {{$t('entities.task.main_grid.columns.assignedto')}}
                        </span>
                     </template>
@@ -145,7 +143,7 @@
                     <app-user-span
                             :value="row.assignedto"
                             :context="JSON.parse(JSON.stringify(context))"
-                            tag="UserRealNameW"
+                            tag="UserRealNameUnAssignTo_Gird"
                             codelistType="DYNAMIC"
                             renderMode="STR"
                             valueSeparator=","
@@ -160,7 +158,7 @@
                     <app-user-span
                             :value="row.assignedto"
                             :context="JSON.parse(JSON.stringify(context))"
-                            tag="UserRealNameW"
+                            tag="UserRealNameUnAssignTo_Gird"
                             codelistType="DYNAMIC"
                             renderMode="STR"
                             valueSeparator=","
@@ -182,7 +180,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.finishedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.finishedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -207,19 +205,19 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.consumed"></app-format-data>
+                            <app-format-data dataType="FLOAT" precision="2" :data="row.consumed"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('left')">
-                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.main_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.main_grid.columns.left')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.left')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.left"></app-format-data>
+                            <app-format-data dataType="FLOAT" precision="2" :data="row.left"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
@@ -243,7 +241,12 @@
                        </span>
                     </template>
                     <template slot-scope="scope">
-                        <div style="text-align: center;">
+                        <template v-if="scope.row.children">
+                            <span>
+                                <a :title="scope.row.tooltip" @click="loadMore(scope.row)">{{ scope.row.toolcaption }}</a>
+                            </span>
+                        </template>
+                        <div v-else style="text-align: center;">
                             <a v-show="scope.row.TaskToBug.visible" :disabled="scope.row.TaskToBug.disabled" @click="uiAction(scope.row, 'TaskToBug', $event)" :title="$t('entities.task.main_grid.uiactions.task_tasktobug')">
                                 <i class="fa fa-bug"></i>
                                 

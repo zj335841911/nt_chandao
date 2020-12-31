@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("GroupServiceImpl")
 public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements IGroupService {
 
+    @Autowired
+    @Lazy
+    IGroupService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Group> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Group> create = new ArrayList<>();
+        List<Group> update = new ArrayList<>();
+        for (Group et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Group> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Group> create = new ArrayList<>();
+        List<Group> update = new ArrayList<>();
+        for (Group et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

@@ -50,6 +50,15 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbizproProjectDailyService ibizproprojectdailyService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbizproProjectMonthlyService ibizproprojectmonthlyService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbizproProjectWeeklyService ibizproprojectweeklyService;
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IBugStatsService bugstatsService;
     @Autowired
     @Lazy
@@ -127,6 +136,9 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateOrder__MSDenyLogic updateorder__msdenyLogic;
+    @Autowired
+    @Lazy
+    IProjectService proxyService;
 
     protected int batchSize = 500;
 
@@ -187,16 +199,34 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Project activate(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).activate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean activateBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   activate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Project batchUnlinkStory(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).batchUnlinkStory(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean batchUnlinkStoryBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   batchUnlinkStory(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -210,22 +240,49 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     public boolean checkKey(Project et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Project close(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).close(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean closeBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   close(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Project linkStory(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).linkStory(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean linkStoryBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   linkStory(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Project manageMembers(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).manageMembers(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean manageMembersBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   manageMembers(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -249,10 +306,19 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
          return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public Project putoff(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).putoff(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean putoffBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   putoff(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -270,7 +336,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -278,7 +344,21 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Transactional
     public boolean saveBatch(Collection<Project> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Project> create = new ArrayList<>();
+        List<Project> update = new ArrayList<>();
+        for (Project et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -286,37 +366,96 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Transactional
     public void saveBatch(List<Project> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Project> create = new ArrayList<>();
+        List<Project> update = new ArrayList<>();
+        for (Project et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public Project start(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).start(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean startBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   start(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Project suspend(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).suspend(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean suspendBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   suspend(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Project unlinkMember(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).unlinkMember(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean unlinkMemberBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   unlinkMember(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Project unlinkStory(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).unlinkStory(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean unlinkStoryBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   unlinkStory(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public Project updateOrder(Project et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).updateOrder(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean updateOrderBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   updateOrder(et);
+		 }
+	 	 return true;
     }
 
 

@@ -331,6 +331,7 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
                 this.load(data);
             });
         }
+        this.load({});
     }
 
     /**
@@ -452,6 +453,9 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
                 if (_item.items && _item.items.length > 0) {
                     this.computedEffectiveMenus(_item.items);
                 }
+            }
+            if(Object.is(_item.id,'setting' )){
+                _item.hidden = false;
             }
         })
     }

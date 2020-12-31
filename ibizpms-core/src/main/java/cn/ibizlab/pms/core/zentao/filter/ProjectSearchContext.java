@@ -174,6 +174,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("`managemembers`", n_managemembers_eq);
         }
     }
+	private String n_supproreport_eq;//[支持项目汇报]
+	public void setN_supproreport_eq(String n_supproreport_eq) {
+        this.n_supproreport_eq = n_supproreport_eq;
+        if(!ObjectUtils.isEmpty(this.n_supproreport_eq)){
+            this.getSearchCond().eq("`supproreport`", n_supproreport_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

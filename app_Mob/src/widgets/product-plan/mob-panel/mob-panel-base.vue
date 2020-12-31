@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.title.visible"  :lg="12" :size="12" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.title" :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.title" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -16,7 +16,7 @@
                 <ion-col v-show="detailsModel.begin.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.begin" :context="context" :value="data.begin" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.begin" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -25,7 +25,7 @@
                 <ion-col v-show="detailsModel.end.visible"  :lg="4" :size="4" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.end" :context="context" :value="data.end" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.end" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -34,7 +34,7 @@
                 <ion-col v-show="detailsModel.storycnt.visible"  :lg="6" :size="6" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.storycnt" :context="context" :value="data.storycnt" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.storycnt" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -43,7 +43,7 @@
                 <ion-col v-show="detailsModel.bugcnt.visible"  :lg="2" :size="2" :offset="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.bugcnt" :context="context" :value="data.bugcnt" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.bugcnt" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -59,7 +59,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
+import ProductPlanEntityService from '@/app-core/service/product-plan/product-plan-service';
 import MobService from '@/app-core/ctrl-service/product-plan/mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -169,7 +169,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @type {ProductPlanService}
      * @memberof Mob
      */
-    protected appEntityService: ProductPlanService = new ProductPlanService();
+    protected appEntityService: ProductPlanEntityService = new ProductPlanEntityService();
 
     /**
      * 界面UI服务对象

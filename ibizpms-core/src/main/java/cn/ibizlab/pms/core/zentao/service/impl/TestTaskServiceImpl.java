@@ -71,6 +71,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskMobTestTaskCounterLogic mobtesttaskcounterLogic;
+    @Autowired
+    @Lazy
+    ITestTaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -128,32 +131,68 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public TestTask activate(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).activate(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean activateBatch (List<TestTask> etList) {
+		 for(TestTask et : etList) {
+		   activate(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public TestTask block(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).block(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean blockBatch (List<TestTask> etList) {
+		 for(TestTask et : etList) {
+		   block(et);
+		 }
+	 	 return true;
     }
 
     @Override
     public boolean checkKey(TestTask et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public TestTask close(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).close(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean closeBatch (List<TestTask> etList) {
+		 for(TestTask et : etList) {
+		   close(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public TestTask linkCase(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).linkCase(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean linkCaseBatch (List<TestTask> etList) {
+		 for(TestTask et : etList) {
+		   linkCase(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -178,7 +217,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -186,7 +225,21 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public boolean saveBatch(Collection<TestTask> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestTask> create = new ArrayList<>();
+        List<TestTask> update = new ArrayList<>();
+        for (TestTask et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -194,19 +247,51 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public void saveBatch(List<TestTask> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<TestTask> create = new ArrayList<>();
+        List<TestTask> update = new ArrayList<>();
+        for (TestTask et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public TestTask start(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).start(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean startBatch (List<TestTask> etList) {
+		 for(TestTask et : etList) {
+		   start(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public TestTask unlinkCase(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).unlinkCase(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean unlinkCaseBatch (List<TestTask> etList) {
+		 for(TestTask et : etList) {
+		   unlinkCase(et);
+		 }
+	 	 return true;
     }
 
 
@@ -323,9 +408,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
 
-    @Autowired
-    @Lazy
-    ITestTaskService proxyService;
 
     @Value("${ibiz.syncImportLimit:1000}")
     private int syncImportLimit;

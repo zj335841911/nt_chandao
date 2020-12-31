@@ -3,7 +3,7 @@
 <div class="app-medit-view-panel">
     <div v-for="item in items" :key="item.id" class="app-medit-view-panel-card">
         <ion-card>
-          <div class="meditviewpanel_delete_icon_container" ><ion-icon @click="deleteItem(item)" class="meditviewpanel_delete_icon" name="close-circle-outline"></ion-icon></div>
+          <div class="meditviewpanel_delete_icon_container" ><app-mob-icon @onClick="deleteItem(item)" class="meditviewpanel_delete_icon right-common-icon" name="close-circle-outline"></app-mob-icon></div>
           <ion-card-content>
             <task-team-mob-edit-view9 
               class="viewcontainer2"
@@ -20,7 +20,7 @@
           </ion-card-content>
         </ion-card>
     </div>
-    <div @click="handleAdd" class="meditviewpanel_add_btn"><ion-icon name="add"></ion-icon></div>
+    <div @click="handleAdd" class="meditviewpanel_add_btn"><app-mob-icon name="add"></app-mob-icon></div>
 </div>
 </div>
 </template>
@@ -31,7 +31,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbztaskteamService from '@/app-core/service/ibztaskteam/ibztaskteam-service';
+import IbztaskteamEntityService from '@/app-core/service/ibztaskteam/ibztaskteam-service';
 import MainService from '@/app-core/ctrl-service/ibztaskteam/main-multieditviewpanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -140,7 +140,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @type {IbztaskteamService}
      * @memberof Main
      */
-    protected appEntityService: IbztaskteamService = new IbztaskteamService();
+    protected appEntityService: IbztaskteamEntityService = new IbztaskteamEntityService();
 
     /**
      * 界面UI服务对象

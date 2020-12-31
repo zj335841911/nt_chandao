@@ -64,6 +64,9 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IDocLibCurUserIsFLogic curuserisfLogic;
+    @Autowired
+    @Lazy
+    IDocLibService proxyService;
 
     protected int batchSize = 500;
 
@@ -132,6 +135,14 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean collectBatch(List<DocLib> etList) {
+        for(DocLib et : etList) {
+            collect(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
@@ -148,7 +159,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -156,7 +167,21 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Transactional
     public boolean saveBatch(Collection<DocLib> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<DocLib> create = new ArrayList<>();
+        List<DocLib> update = new ArrayList<>();
+        for (DocLib et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -164,7 +189,21 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Transactional
     public void saveBatch(List<DocLib> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<DocLib> create = new ArrayList<>();
+        List<DocLib> update = new ArrayList<>();
+        for (DocLib et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
     @Override
@@ -172,6 +211,14 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     public DocLib unCollect(DocLib et) {
         //自定义代码
         return et;
+    }
+   @Override
+    @Transactional
+    public boolean unCollectBatch(List<DocLib> etList) {
+        for(DocLib et : etList) {
+            unCollect(et);
+        }
+        return true;
     }
 
 

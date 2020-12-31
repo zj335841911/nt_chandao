@@ -345,6 +345,37 @@
 
 
 <app-form-item 
+    name='storypoints' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="storypoints_item"  
+    :itemValue="this.data.storypoints" 
+    v-show="detailsModel.storypoints.visible" 
+    :itemRules="this.rules.storypoints" 
+    :caption="$t('story.mobnewform_form.details.storypoints')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.storypoints.disabled"
+    :error="detailsModel.storypoints.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="StoryPoints"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.storypoints.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.storypoints"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.storypoints = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
     name='estimate' 
     class='' 
     uiStyle="DEFAULT"  
@@ -487,7 +518,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import MobNewFormService from '@/app-core/ctrl-service/story/mob-new-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -599,7 +630,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @type {StoryService}
      * @memberof MobNewForm
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象
@@ -696,6 +727,14 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -805,6 +844,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        project: null,
         product: null,
         module: null,
         prodoctname: null,
@@ -818,6 +858,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         neednotreview: null,
         title: null,
         pri: null,
+        storypoints: null,
         estimate: null,
         spec: null,
         verify: null,
@@ -869,8 +910,8 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         title: [
-            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
     }
 
@@ -981,6 +1022,8 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        project: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1006,6 +1049,8 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        storypoints: new FormItemModel({ caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         estimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1119,6 +1164,18 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'srfsourcekey', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 project 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1275,6 +1332,18 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     @Watch('data.pri')
     onPriChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 storypoints 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.storypoints')
+    onStorypointsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'storypoints', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1442,6 +1511,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
             let ret = false;
             const _neednotreview = this.data.neednotreview;
@@ -1450,6 +1520,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             }
             this.detailsModel.assignedtopk.setDisabled(!ret);
         }
+
 
 
 
@@ -1481,7 +1552,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`story.mobnewform_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1708,6 +1781,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      *  @memberof MobNewForm
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.story});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1758,7 +1834,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Story")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.story){
                     this.refresh([data]);
                 }
             })
@@ -1984,6 +2060,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ title: arg.title});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -2062,10 +2139,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -2089,10 +2165,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }
@@ -2236,6 +2311,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     public createDefault(){                    
+            if (this.data.hasOwnProperty('project')) {
+                    this.data['project'] = this.viewparams['project'];
+            }
     }
 
         /**

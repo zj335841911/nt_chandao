@@ -1,7 +1,7 @@
 
-# 实体-汇报(IBZ_REPORT)
+# 实体-汇报汇总(IBZ_REPORT)
 ## 实体说明
-汇报
+汇报汇总
 
 ## 所属模块
 [汇报模块](../report)
@@ -40,6 +40,7 @@
 | 22 | [未读日报数](#属性-未读日报数（DAILYCNT）) | DAILYCNT | 整型 | 否 | 否 | 是 |
 | 23 | [未读月报数](#属性-未读月报数（MONTHLYCNT）) | MONTHLYCNT | 整型 | 否 | 否 | 是 |
 | 24 | [提交时间](#属性-提交时间（SUBMITTIME）) | SUBMITTIME | 文本，可指定长度 | 否 | 否 | 是 |
+| 25 | [未读汇报数](#属性-未读汇报数（REPORTLYCNT）) | REPORTLYCNT | 整型 | 否 | 否 | 是 |
 
 ### 属性-更新时间（UPDATEDATE）
 #### 属性说明
@@ -947,13 +948,51 @@ String
 #### 关系属性
 无
 
+### 属性-未读汇报数（REPORTLYCNT）
+#### 属性说明
+未读汇报数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 | 序号 | 状态名称 | [类型](#属性-类型（TYPE）)<br>（TYPE） | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [日报](#业务状态-日报（daily）) | daily |  |  | 否 |
 | 2 | [月报](#业务状态-月报（monthly）) | monthly |  |  | 否 |
-| 3 | [周报](#业务状态-周报（weekly）) | weekly |  |  | 否 |
+| 3 | [汇报](#业务状态-汇报（reportly）) | reportly |  |  | 否 |
+| 4 | [周报](#业务状态-周报（weekly）) | weekly |  |  | 否 |
 ### 业务状态-日报（daily）
 #### 状态说明
 日报
@@ -981,7 +1020,8 @@ String
 | 序号 | 操作权限 |
 | ---- | ---- |
 | 1 | [周报](#操作权限-周报（WEEKLY）)<br>（WEEKLY） |
-| 2 | [月报](#操作权限-月报（MONTHLY）)<br>（MONTHLY） |
+| 2 | [汇报](#操作权限-汇报（REPORTLY）)<br>（REPORTLY） |
+| 3 | [月报](#操作权限-月报（MONTHLY）)<br>（MONTHLY） |
 ### 业务状态-月报（monthly）
 #### 状态说明
 月报
@@ -1008,8 +1048,38 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [日报](#操作权限-日报（DAILY）)<br>（DAILY） |
+| 1 | [汇报](#操作权限-汇报（REPORTLY）)<br>（REPORTLY） |
+| 2 | [日报](#操作权限-日报（DAILY）)<br>（DAILY） |
+| 3 | [周报](#操作权限-周报（WEEKLY）)<br>（WEEKLY） |
+### 业务状态-汇报（reportly）
+#### 状态说明
+汇报
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [类型](#属性-类型（TYPE）)<br>（TYPE） | reportly |
+
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [月报](#操作权限-月报（MONTHLY）)<br>（MONTHLY） |
 | 2 | [周报](#操作权限-周报（WEEKLY）)<br>（WEEKLY） |
+| 3 | [日报](#操作权限-日报（DAILY）)<br>（DAILY） |
 ### 业务状态-周报（weekly）
 #### 状态说明
 周报
@@ -1037,7 +1107,8 @@ String
 | 序号 | 操作权限 |
 | ---- | ---- |
 | 1 | [日报](#操作权限-日报（DAILY）)<br>（DAILY） |
-| 2 | [月报](#操作权限-月报（MONTHLY）)<br>（MONTHLY） |
+| 2 | [汇报](#操作权限-汇报（REPORTLY）)<br>（REPORTLY） |
+| 3 | [月报](#操作权限-月报（MONTHLY）)<br>（MONTHLY） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
@@ -1177,8 +1248,12 @@ Save
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
 | ---- | ---- | ---- | ---- |
-| 1 | 统计我未提交的日报数 | Rawsqlcall1 | 直接SQL调用 |
-| 2 | 开始 | Begin | 开始 |
+| 1 | 统计我未提交的汇报数 | Rawsqlcall4 | 直接SQL调用 |
+| 2 | 统计我收到的（未读） | MyUnReadCnt | 直接SQL调用 |
+| 3 | 统计我未提交的月报 | Rawsqlcall3 | 直接SQL调用 |
+| 4 | 统计我未提交的日报数 | Rawsqlcall1 | 直接SQL调用 |
+| 5 | 统计我未提交的周报 | Rawsqlcall2 | 直接SQL调用 |
+| 6 | 开始 | Begin | 开始 |
 ### 逻辑处理-我收到的汇报（计数器）（ReportIReceived）
 #### 说明
 我收到的汇报（计数器）
@@ -1191,8 +1266,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | 获取未读周报 | Rawsqlcall3 | 直接SQL调用 |
 | 2 | 统计我收到的日报数 | Rawsqlcall1 | 直接SQL调用 |
-| 3 | 统计我收到的月报数 | Rawsqlcall2 | 直接SQL调用 |
+| 3 | 统计我收到的月报数（未读） | Rawsqlcall2 | 直接SQL调用 |
 | 4 | 开始 | Begin | 开始 |
+| 5 | 统计我收到的汇报数（未读） | Rawsqlcall4 | 直接SQL调用 |
 
 ## 实体搜索
 ### 快速搜索项
@@ -1268,7 +1344,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -1293,7 +1369,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 '1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -1304,6 +1380,31 @@ t1.`COMMENT`,
 CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+null as `CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_REPORTLYID` AS IBZ_DAILYID,
+t1.`IBZ_REPORTLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+null AS TODAYTASK,
+null AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+null as `UPDATEMANNAME`,
+CONCAT_WS('','工作内容：',case when t1.CONTENT is null then '无' else t1.CONTENT end)  as WORKTODAY,
+null as `COMMENT`,
+null as PLANSTOMORROW,
+'reportly' as type 
+FROM `T_IBZ_REPORTLY` t1
 where t1.ISSUBMIT = '1'
 ) t1
 ```
@@ -1391,7 +1492,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
 t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -1401,7 +1502,8 @@ CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else
 t1.`COMMENT`,
 CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
 'weekly' as type 
-FROM `T_IBZ_WEEKLY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+FROM `T_IBZ_WEEKLY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 UNION
 SELECT
@@ -1416,7 +1518,7 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 (case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
-DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
 t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
@@ -1427,7 +1529,33 @@ t1.`COMMENT`,
 CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
-left join zt_action t11 on t11.objectID = t1.IBZ_MONTHLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+left join zt_action t11 on t11.objectID = t1.IBZ_MONTHLYID and t11.objectType = 'monthly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+where t1.ISSUBMIT = '1'
+UNION 
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+null as `CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_REPORTLYID` as IBZ_DAILYID,
+t1.`IBZ_REPORTLYNAME` as IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+null as TODAYTASK,
+null as TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+null as `UPDATEMANNAME`,
+CONCAT_WS('','工作内容：',case when t1.CONTENT is null then '无' else t1.CONTENT end) as WORKTODAY,
+null as `COMMENT`,
+null as PLANSTOMORROW,
+'reportly' as type 
+FROM `T_IBZ_REPORTLY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_REPORTLYID and t11.objectType = 'reportly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 ) t1
 ```

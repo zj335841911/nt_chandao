@@ -95,7 +95,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         ibz_weeklyname: null,
         date: null,
-        thisweektask1: null,
+        thisweektask: null,
         workthisweek: null,
         nextweektask: null,
         plannextweek: null,
@@ -129,13 +129,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.workthisweek.required,
                     type: 'string',
-                    message: '本周工作 值不能为空',
+                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.workthisweek.required,
                     type: 'string',
-                    message: '本周工作 值不能为空',
+                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -143,13 +143,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.reportto.required,
                     type: 'string',
-                    message: '汇报给 值不能为空',
+                    message: `${this.$t('entities.ibzweekly.main_form.details.reportto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.reportto.required,
                     type: 'string',
-                    message: '汇报给 值不能为空',
+                    message: `${this.$t('entities.ibzweekly.main_form.details.reportto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -244,8 +244,8 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        thisweektask1: new FormItemModel({
-    caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        thisweektask: new FormItemModel({
+    caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

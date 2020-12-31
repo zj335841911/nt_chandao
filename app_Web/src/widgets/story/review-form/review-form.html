@@ -171,6 +171,47 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.assessresult.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="assessresult"
+    :itemRules="this.rules().assessresult"
+    class=""
+
+    :caption="$t('entities.story.review_form.details.assessresult')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.assessresult.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.assessresult"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.assessresult.disabled"
+    valueType="string"
+    tag="Story__review_result_draft"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.grouppanel2.visible"
     :style="{}"
     
@@ -472,7 +513,7 @@
     :localParam='{ }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag="UserRealName"
+    tag="UserRealNameProductTeam"
     codelistType="DYNAMIC"
     placeholder="请选择..."
 

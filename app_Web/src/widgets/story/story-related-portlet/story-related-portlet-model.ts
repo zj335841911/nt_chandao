@@ -216,6 +216,9 @@ export default class StoryRelatedModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

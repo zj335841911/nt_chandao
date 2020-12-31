@@ -45,17 +45,26 @@ public interface IIbzWeeklyService extends IService<IbzWeekly> {
     IbzWeekly getDraft(IbzWeekly et);
     boolean checkKey(IbzWeekly et);
     IbzWeekly createEveryWeekReport(IbzWeekly et);
+    boolean createEveryWeekReportBatch(List<IbzWeekly> etList);
     IbzWeekly createGetLastWeekPlanAndWork(IbzWeekly et);
+    boolean createGetLastWeekPlanAndWorkBatch(List<IbzWeekly> etList);
     IbzWeekly editGetLastWeekTaskAndComTask(IbzWeekly et);
+    boolean editGetLastWeekTaskAndComTaskBatch(List<IbzWeekly> etList);
     IbzWeekly haveRead(IbzWeekly et);
+    boolean haveReadBatch(List<IbzWeekly> etList);
     IbzWeekly jugThisWeekCreateWeekly(IbzWeekly et);
+    boolean jugThisWeekCreateWeeklyBatch(List<IbzWeekly> etList);
     IbzWeekly pushUserWeekly(IbzWeekly et);
+    boolean pushUserWeeklyBatch(List<IbzWeekly> etList);
     boolean save(IbzWeekly et);
     void saveBatch(List<IbzWeekly> list);
     IbzWeekly submit(IbzWeekly et);
+    boolean submitBatch(List<IbzWeekly> etList);
     Page<IbzWeekly> searchDefault(IbzWeeklySearchContext context);
     Page<IbzWeekly> searchMyNotSubmit(IbzWeeklySearchContext context);
     Page<IbzWeekly> searchMyWeekly(IbzWeeklySearchContext context);
+    Page<IbzWeekly> searchProductTeamMemberWeekly(IbzWeeklySearchContext context);
+    Page<IbzWeekly> searchProjectWeekly(IbzWeeklySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

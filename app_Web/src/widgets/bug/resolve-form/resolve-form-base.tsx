@@ -137,13 +137,13 @@ export class ResolveEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.resolution.required,
                     type: 'string',
-                    message: '解决方案 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.resolution')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.resolution.required,
                     type: 'string',
-                    message: '解决方案 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.resolution')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -151,13 +151,13 @@ export class ResolveEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.resolvedbuild.required,
                     type: 'string',
-                    message: '解决版本 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.resolvedbuild')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.resolvedbuild.required,
                     type: 'string',
-                    message: '解决版本 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.resolvedbuild')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -165,13 +165,13 @@ export class ResolveEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.buildproject.required,
                     type: 'string',
-                    message: '解决版本/所属项目 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.buildproject')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.buildproject.required,
                     type: 'string',
-                    message: '解决版本/所属项目 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.buildproject')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -179,13 +179,13 @@ export class ResolveEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.buildname.required,
                     type: 'string',
-                    message: ' 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.buildname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.buildname.required,
                     type: 'string',
-                    message: ' 值不能为空',
+                    message: `${this.$t('entities.bug.resolve_form.details.buildname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

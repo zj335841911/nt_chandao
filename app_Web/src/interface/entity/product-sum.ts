@@ -269,4 +269,84 @@ export interface ProductSum {
      * @memberof ProductSum
      */
     totalhours?: any;
+
+    /**
+     * 代码错误
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    codeerror?: any;
+
+    /**
+     * 配置相关
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    config?: any;
+
+    /**
+     * 安装部署
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    install?: any;
+
+    /**
+     * 安全相关
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    security?: any;
+
+    /**
+     * 性能问题
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    performance?: any;
+
+    /**
+     * 标准规范
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    standard?: any;
+
+    /**
+     * 测试脚本
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    automation?: any;
+
+    /**
+     * 设计缺陷
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    designdefect?: any;
+
+    /**
+     * 其他
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    others?: any;
+
+    /**
+     * bug总计
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    bugsum?: any;
 }

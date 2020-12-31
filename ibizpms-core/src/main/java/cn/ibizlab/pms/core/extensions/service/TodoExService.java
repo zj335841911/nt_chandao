@@ -57,7 +57,6 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
-    @SendMessage
     public Todo activate(Todo et) {
         return super.activate(et);
     }
@@ -68,7 +67,6 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
-    @SendMessage
     public Todo assignTo(Todo et) {
         return super.assignTo(et);
     }
@@ -79,7 +77,6 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
-    @SendMessage
     public Todo close(Todo et) {
         return super.close(et);
     }
@@ -90,7 +87,6 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
-    @SendMessage
     public Todo finish(Todo et) {
         return super.finish(et);
     }
@@ -105,7 +101,7 @@ public class TodoExService extends TodoServiceImpl {
         }
         else{
 
-            if(et.getType() != null && StaticDict.Type.CYCLE.getValue().equals(et.getType()) && et.getConfig() != null && !"".equals(et.getConfig())) {
+            if(et.getType() != null && StaticDict.TypeAll.CYCLE.getValue().equals(et.getType()) && et.getConfig() != null && !"".equals(et.getConfig())) {
                 JSONObject jsonObject = JSONObject.parseObject(et.getConfig());
                 et.setConfigType(jsonObject.getString("type"));
                 et.setConfigBeforedays(jsonObject.getInteger("beforeDays"));

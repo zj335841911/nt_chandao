@@ -153,6 +153,22 @@ export class MainGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_daily_main_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'date';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -381,7 +397,7 @@ export class MainGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'account',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -389,7 +405,7 @@ export class MainGridBase extends GridControlBase {
             },
             {
                 name: 'reportto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

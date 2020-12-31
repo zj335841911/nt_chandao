@@ -1,26 +1,32 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'build-mob-mpickup-view': true }">
     
-    <ion-header>
+    <app-mob-header>
 
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
-    <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
+    <app-mob-button 
+      class="filter-btn" 
+      size="small" 
+      slot="end"  
+      text="过滤"
+      :iconName="filter-outline"
+      @click="openSearchform" />
   </ion-toolbar>
 
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
-    viewName="BuildMobMPickupView"  
+    viewName="MobMPickupView"
     :viewparams="viewparams" 
     :context="context" 
      
@@ -41,8 +47,19 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+            <app-mob-button 
+            class="search-btn-item"
+            :text="$t('app.searchForm.searchButton.reset')" 
+            color="light" 
+            shape="round" 
+            size="small"
+            @click="onReset" />
+            <app-mob-button 
+            class="search-btn-item" 
+            shape="round" 
+            size="small" 
+            :text="$t('app.searchForm.searchButton.search')" 
+            @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>
@@ -50,7 +67,7 @@
     <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
-            viewName="BuildMobMPickupView"  
+            viewName="MobMPickupView"
             :viewparams="viewparams" 
             :context="context" 
             :isSingleSelect="isSingleSelect"
@@ -65,8 +82,12 @@
     <ion-footer class="view-footer">
         <div class="mpicker_buttons">
     <div class="demobmpickupview_button">
-      <div class="selectedCount"  >已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
-      <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
+      <div class="selectedCount"  >已选择：{{viewSelections.length}}<app-mob-icon name="chevron-up-outline"></app-mob-icon></div>
+      <app-mob-button 
+          class="pick-btn" 
+          :text="$t('app.button.confirm')"
+          :disabled="viewSelections.length === 0" 
+          @click="onClickOk"/>
     </div>
 </div>
 

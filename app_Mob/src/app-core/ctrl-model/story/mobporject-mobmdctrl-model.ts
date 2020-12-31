@@ -15,16 +15,28 @@ export class MOBPorjectModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'id',
+			},
+			{
 				name: 'status',
 			},
 			{
 				name: 'stage',
 			},
 			{
+				name: 'isleaf',
+			},
+			{
 				name: 'pri',
 			},
 			{
 				name: 'isfavorites',
+			},
+			{
+				name: 'color',
+			},
+			{
+				name: 'parent',
 			},
 			{
 				name: 'title',
@@ -45,11 +57,6 @@ export class MOBPorjectModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'parent',
-				prop: 'parent',
 				dataType: 'PICKUP',
 			},
 			{

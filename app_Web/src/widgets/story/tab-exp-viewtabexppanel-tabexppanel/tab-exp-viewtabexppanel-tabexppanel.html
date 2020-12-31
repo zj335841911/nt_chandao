@@ -14,7 +14,7 @@
             v-if="authResourceObject['tabviewpanel'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '所有需求'),
+                    h('span', $t('entities.story.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -43,7 +43,7 @@
             v-if="authResourceObject['tabviewpanel2'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '未关闭'),
+                    h('span', $t('entities.story.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel2.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -72,7 +72,7 @@
             v-if="authResourceObject['tabviewpanel3'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '看板'),
+                    h('span', $t('entities.story.tabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel3.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,

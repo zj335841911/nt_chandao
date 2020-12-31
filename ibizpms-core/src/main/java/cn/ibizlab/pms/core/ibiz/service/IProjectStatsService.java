@@ -44,11 +44,19 @@ public interface IProjectStatsService extends IService<ProjectStats> {
     ProjectStats get(Long key);
     ProjectStats getDraft(ProjectStats et);
     boolean checkKey(ProjectStats et);
+    ProjectStats projectQualitySum(ProjectStats et);
     boolean save(ProjectStats et);
     void saveBatch(List<ProjectStats> list);
     Page<ProjectStats> searchDefault(ProjectStatsSearchContext context);
     Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectBugType(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectInputStats(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectProgress(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectQuality(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectStoryStageStats(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectStoryStatusStats(ProjectStatsSearchContext context);
     Page<ProjectStats> searchProjectTaskCountByTaskStatus(ProjectStatsSearchContext context);
+    Page<ProjectStats> searchProjectTaskCountByType(ProjectStatsSearchContext context);
     Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context);
     /**
      * 自定义查询SQL

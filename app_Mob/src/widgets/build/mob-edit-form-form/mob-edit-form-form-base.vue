@@ -51,7 +51,7 @@
     name='productname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -286,7 +286,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BuildService from '@/app-core/service/build/build-service';
+import BuildEntityService from '@/app-core/service/build/build-service';
 import MobEditFormService from '@/app-core/ctrl-service/build/mob-edit-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -398,7 +398,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      * @type {BuildService}
      * @memberof MobEditForm
      */
-    protected appEntityService: BuildService = new BuildService();
+    protected appEntityService: BuildEntityService = new BuildEntityService();
 
     /**
      * 界面UI服务对象
@@ -495,6 +495,14 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      * @memberof MobEditForm
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -613,6 +621,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         files: null,
         desc: null,
         id: null,
+        product: null,
         builder: null,
         build: null,
     };
@@ -657,16 +666,16 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         productname: [
-            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         name: [
-            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         date: [
-            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
     }
 
@@ -796,6 +805,8 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         builder: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1006,6 +1017,18 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 builder 值
      *
      * @param {*} newVal
@@ -1074,6 +1097,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
 
@@ -1093,7 +1117,9 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`build.mobeditform_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1320,6 +1346,9 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      *  @memberof MobEditForm
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.build});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1370,7 +1399,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Build")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.build){
                     this.refresh([data]);
                 }
             })
@@ -1596,6 +1625,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1674,10 +1704,9 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1701,10 +1730,9 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

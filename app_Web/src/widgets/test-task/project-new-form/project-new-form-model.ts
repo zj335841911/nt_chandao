@@ -118,7 +118,7 @@ export default class ProjectNewModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'mailtoconact',

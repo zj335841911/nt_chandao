@@ -331,6 +331,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                 this.load(data);
             });
         }
+        this.load({});
     }
 
     /**
@@ -432,6 +433,9 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                     return;
                 case 'AppFunc4': 
                     this.clickAppFunc4(item);
+                    return;
+                case 'AppFunc14': 
+                    this.clickAppFunc14(item);
                     return;
                 case 'AppFunc': 
                     this.clickAppFunc(item);
@@ -536,6 +540,27 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     }
     
     /**
+     * 用户头像编辑
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected clickAppFunc14(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+            { pathName: 'headportraitmobeditview', parameterName: 'headportraitmobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
      * 个人中心
      *
      * @param {*} [item={}]
@@ -549,8 +574,8 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         let param = { ..._param };
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'users', parameterName: 'user' },
-            { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
+            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+            { pathName: 'loginmobeditview', parameterName: 'loginmobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);
@@ -646,6 +671,9 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                 if (_item.items && _item.items.length > 0) {
                     this.computedEffectiveMenus(_item.items);
                 }
+            }
+            if(Object.is(_item.id,'setting' )){
+                _item.hidden = false;
             }
         })
     }

@@ -485,7 +485,7 @@ POST
 | 17 | assigneddate | Timestamp | 允许 | 指派日期<br>时间格式：yyyy-MM-dd |
 | 18 | pri | Integer | 允许 | 优先级 |
 | 19 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 20 | ibizprivate | Integer | 允许 | 私人事务 |
+| 20 | ibizprivate | String | 允许 | 私人事务 |
 | 21 | config | String | 允许 | config |
 | 22 | config_day | Integer | 允许 | 间隔天数 |
 | 23 | config_beforedays | Integer | 允许 | 提前 |
@@ -518,7 +518,7 @@ POST
 | 11 | n_date_gtandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
 | 12 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
 | 13 | n_date_noteq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`!=`或者`<>`<br>时间格式：yyyy-MM-dd |
-| 14 | n_private_eq | Integer | 允许 | 条件字段：private<br>条件组合方式：`=` |
+| 14 | n_private_eq | String | 允许 | 条件字段：private<br>条件组合方式：`=` |
 | 15 | n_config_type_eq | String | 允许 | 条件字段：config_type<br>条件组合方式：`=` |
 | 16 | customcond | String | 允许 | 自定义查询条件 |
 | 17 | customparams | String | 允许 | 自定义查询参数 |

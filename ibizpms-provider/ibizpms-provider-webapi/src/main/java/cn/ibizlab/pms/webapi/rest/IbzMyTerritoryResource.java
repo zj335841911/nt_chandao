@@ -231,6 +231,28 @@ public class IbzMyTerritoryResource {
                 .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchPersonInfo-all')")
+	@ApiOperation(value = "获取个人信息-个人贡献", tags = {"我的地盘" } ,notes = "获取个人信息-个人贡献")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchpersoninfo")
+	public ResponseEntity<List<IbzMyTerritoryDTO>> fetchPersonInfo(IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchPersonInfo(context) ;
+        List<IbzMyTerritoryDTO> list = ibzmyterritoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchPersonInfo-all')")
+	@ApiOperation(value = "查询个人信息-个人贡献", tags = {"我的地盘" } ,notes = "查询个人信息-个人贡献")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmyterritories/searchpersoninfo")
+	public ResponseEntity<Page<IbzMyTerritoryDTO>> searchPersonInfo(@RequestBody IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchPersonInfo(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchWelcome-all')")
 	@ApiOperation(value = "获取欢迎", tags = {"我的地盘" } ,notes = "获取欢迎")
     @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchwelcome")

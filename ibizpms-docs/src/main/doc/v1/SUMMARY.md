@@ -8,6 +8,10 @@
 
     * [Bug统计](module/ibiz/BugStats.md) 
 
+    * [测试用例统计](module/ibiz/CaseStats.md) 
+
+    * [公司动态汇总](module/ibiz/CompanyStats.md) 
+
     * [文档库分类](module/ibiz/DocLibModule.md) 
 
     * [动态数据看板](module/ibiz/DynaDashboard.md) 
@@ -17,6 +21,8 @@
     * [文档](module/ibiz/IBzDoc.md) 
 
     * [实体](module/ibiz/IbiLogin.md) 
+
+    * [代理](module/ibiz/IbzAgent.md) 
 
     * [测试用例](module/ibiz/IbzCase.md) 
 
@@ -35,6 +41,8 @@
     * [项目相关成员](module/ibiz/IbzProjectMember.md) 
 
     * [置顶](module/ibiz/IbzTop.md) 
+
+    * [产品团队](module/ibiz/PRODUCTTEAM.md) 
 
     * [产品生命周期](module/ibiz/ProductLife.md) 
 
@@ -218,6 +226,30 @@
 
     * [运行生产系统](module/ibizpro/IBZProSystem.md) 
 
+    * [索引检索](module/ibizpro/IbizproIndex.md) 
+
+    * [产品日报](module/ibizpro/IbizproProductDaily.md) 
+
+    * [产品月报](module/ibizpro/IbizproProductMonthly.md) 
+
+    * [产品周报](module/ibizpro/IbizproProductWeekly.md) 
+
+    * [项目日报](module/ibizpro/IbizproProjectDaily.md) 
+
+    * [项目月报](module/ibizpro/IbizproProjectMonthly.md) 
+
+    * [项目周报](module/ibizpro/IbizproProjectWeekly.md) 
+
+    * [计划模板](module/ibizpro/IbzPlanTemplet.md) 
+
+    * [计划模板详情](module/ibizpro/IbzPlanTempletDetail.md) 
+
+    * [系统配置表](module/ibizpro/IbzproConfig.md) 
+
+    * [产品汇报用户任务](module/ibizpro/IbzproProductUserTask.md) 
+
+    * [项目汇报用户任务](module/ibizpro/IbzproProjectUserTask.md) 
+
   * [iBiz插件模块](module/ibizplugin.md) 
 
     * [关键字](module/ibizplugin/IBIZProKeyword.md) 
@@ -234,9 +266,11 @@
 
     * [月报](module/report/IbzMonthly.md) 
 
-    * [汇报](module/report/IbzReport.md) 
+    * [汇报汇总](module/report/IbzReport.md) 
 
     * [汇报角色配置](module/report/IbzReportRoleConfig.md) 
+
+    * [汇报](module/report/IbzReportly.md) 
 
     * [周报](module/report/IbzWeekly.md) 
 
@@ -342,10 +376,12 @@
       * [日报（新建）](app/Mob/func/IbzDailyMyMobMDView.md)
       * [月报（新建）](app/Mob/func/IbzMonthlyCreateMobEditView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
-      * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
+      * [个人中心](app/Mob/func/SysEmployeeLoginMobEditView.md)
       * [汇报（我提交的）](app/Mob/func/IbzReportMobMDView.md)
+      * [汇报](app/Mob/func/IbzReportlyReportlyMobMDView.md)
       * [日报（我收到的）](app/Mob/func/IbzDailyReportReceivedMobMDView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)
+      * [用户头像编辑](app/Mob/func/SysEmployeeheadPortraitMobEditView.md)
       * [我的地盘](app/Mob/func/AppPortalView2.md)
       * [人员登录地图](app/Mob/func/ActionMobMapView.md)
       * [我的需求](app/Mob/func/StoryMobMDView.md)
@@ -360,6 +396,7 @@
       * [我的周报](app/Mob/func/IbzWeeklyUsr2MobMDView.md)
       * [日报（我提交的）](app/Mob/func/IbzDailyDailyReportSubmitMobMDView.md)
       * [月报（我收到的）](app/Mob/func/IbzMonthlyMyReceivedMobMDView.md)
+      * [周报（待阅）](app/Mob/func/IbzWeeklyMobEditView.md)
 
   * [iBiz软件生产管理](app/Web/app_index.md) 
 
@@ -382,9 +419,13 @@
       * [我的地盘](app/Web/func/IbzMyTerritoryTabExpView.md)
       * [task主数据视图（链接）](app/Web/func/Taskmaindashboardview_link.md)
       * [todo主数据视图（链接）](app/Web/func/Todomaindashboardview_link.md)
+      * [人员树导航视图](app/Web/func/SysEmployeeTreeExpView.md)
+      * [全文检索](app/Web/func/IbizproIndexListView.md)
+      * [系统配置](app/Web/func/IbzproConfigGridView.md)
       * [用户管理](app/Web/func/UserTreeExpView.md)
       * [系统更新日志](app/Web/func/SysUpdateLogGridView.md)
       * [打开项目表格视图](app/Web/func/ProjectGridView.md)
+      * [计划模板](app/Web/func/IbzPlanTempletGridView.md)
       * [PRO产品](app/Web/func/ProductWizardView.md)
       * [插件管理](app/Web/func/IbzMyTerritoryUsr3TabExpView.md)
       * [测试边栏](app/Web/func/ProductTestLeftSidebarListView.md)

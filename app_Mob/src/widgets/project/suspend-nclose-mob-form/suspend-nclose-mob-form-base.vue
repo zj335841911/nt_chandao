@@ -131,7 +131,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProjectService from '@/app-core/service/project/project-service';
+import ProjectEntityService from '@/app-core/service/project/project-service';
 import SuspendNCloseMobService from '@/app-core/ctrl-service/project/suspend-nclose-mob-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -243,7 +243,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
      * @type {ProjectService}
      * @memberof SuspendNCloseMob
      */
-    protected appEntityService: ProjectService = new ProjectService();
+    protected appEntityService: ProjectEntityService = new ProjectEntityService();
 
     /**
      * 界面UI服务对象
@@ -340,6 +340,14 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
      * @memberof SuspendNCloseMob
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -801,7 +809,9 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`project.suspendnclosemob_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1028,6 +1038,9 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
      *  @memberof SuspendNCloseMob
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.project});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1078,7 +1091,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
                 if(!Object.is(name,"Project")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.project){
                     this.refresh([data]);
                 }
             })
@@ -1304,6 +1317,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1382,10 +1396,9 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1409,10 +1422,9 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

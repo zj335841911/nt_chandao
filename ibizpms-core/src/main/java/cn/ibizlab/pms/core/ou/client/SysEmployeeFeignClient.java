@@ -82,8 +82,18 @@ public interface SysEmployeeFeignClient {
 
 
 
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchproductteamm")
+    Page<SysEmployee> searchProductTeamM(@RequestBody SysEmployeeSearchContext context);
+
+
+
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteamm")
     Page<SysEmployee> searchProjectTeamM(@RequestBody SysEmployeeSearchContext context);
+
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteammproduct")
+    Page<SysEmployee> searchProjectTeamMProduct(@RequestBody SysEmployeeSearchContext context);
 
 
 
@@ -104,6 +114,11 @@ public interface SysEmployeeFeignClient {
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteampk")
     Page<SysEmployee> searchProjectteamPk(@RequestBody SysEmployeeSearchContext context);
+
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchstoryproductteampk")
+    Page<SysEmployee> searchStoryProductTeamPK(@RequestBody SysEmployeeSearchContext context);
 
 
 

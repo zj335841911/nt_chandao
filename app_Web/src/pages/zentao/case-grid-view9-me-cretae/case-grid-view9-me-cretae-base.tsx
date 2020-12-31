@@ -316,8 +316,8 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
         }
         const view: any = {
             viewname: 'case-main-dashboard-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.case.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };

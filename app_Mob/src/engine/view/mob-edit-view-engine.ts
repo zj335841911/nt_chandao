@@ -108,7 +108,7 @@ export default class MobEditViewEngine extends ViewEngine {
         let viewdata: any = this.view.model;
         let index: number = viewdata.srfCaption.indexOf("-");
         if (viewdata) {
-            if (!isCreate) {
+            if (!isCreate && this.form) {
                 this.view.model.srfCaption = `${this.view.$t(viewdata.srfCaption)}-${this.form.data.srfmajortext}`;
                 this.view.initNavCaption();
             }

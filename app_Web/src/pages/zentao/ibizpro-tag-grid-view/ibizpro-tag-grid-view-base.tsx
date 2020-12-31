@@ -104,31 +104,31 @@ export class IBIZProTagGridViewBase extends GridViewBase {
      * @memberof IBIZProTagGridView
      */
     public toolBarModels: any = {
-        tbitem3: { name: 'tbitem3', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
+        tbitem3: { name: 'tbitem3', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem3.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem3.tip', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
 
-        tbitem4: { name: 'tbitem4', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
+        tbitem4: { name: 'tbitem4', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem4.tip', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
 
-        tbitem6: { name: 'tbitem6', caption: '拷贝', 'isShowCaption': true, 'isShowIcon': true, tooltip: '拷贝', iconcls: 'fa fa-copy', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'Copy', target: 'SINGLEKEY', class: '' } },
+        tbitem6: { name: 'tbitem6', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem6.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem6.tip', iconcls: 'fa fa-copy', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'Copy', target: 'SINGLEKEY', class: '' } },
 
         tbitem7: {  name: 'tbitem7', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        tbitem8: { name: 'tbitem8', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
+        tbitem8: { name: 'tbitem8', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem8.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem8.tip', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
 
         tbitem9: {  name: 'tbitem9', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        tbitem13: { name: 'tbitem13', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        tbitem13: { name: 'tbitem13', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem13.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem13.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
         tbitem10: {  name: 'tbitem10', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
         tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visible: true, dataaccaction: '',
     model: {
-        tbitem21: { name: 'tbitem21', caption: '导出数据模型', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出数据模型', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportModel', target: '', class: '' } },
+        tbitem21: { name: 'tbitem21', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem21.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem21.tip', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportModel', target: '', class: '' } },
 
-        tbitem23: { name: 'tbitem23', caption: '数据导入', 'isShowCaption': true, 'isShowIcon': true, tooltip: '数据导入', iconcls: 'fa fa-upload', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Import', target: '', class: '' } },
+        tbitem23: { name: 'tbitem23', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem23.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem23.tip', iconcls: 'fa fa-upload', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Import', target: '', class: '' } },
 
     }
 }, 
         tbitem17: {  name: 'tbitem17', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        tbitem19: { name: 'tbitem19', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        tbitem19: { name: 'tbitem19', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem19.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem19.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
-        tbitem18: { name: 'tbitem18', caption: '帮助', 'isShowCaption': true, 'isShowIcon': true, tooltip: '帮助', iconcls: 'fa fa-question', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Help', target: '', class: '' } },
+        tbitem18: { name: 'tbitem18', caption: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem18.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizprotag.gridviewtoolbar_toolbar.tbitem18.tip', iconcls: 'fa fa-question', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Help', target: '', class: '' } },
 
     };
 

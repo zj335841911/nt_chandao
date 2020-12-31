@@ -216,6 +216,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

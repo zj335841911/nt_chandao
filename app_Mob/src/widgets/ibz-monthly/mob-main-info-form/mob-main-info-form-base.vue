@@ -36,7 +36,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.date"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -158,7 +156,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.reportto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -189,7 +186,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.mailto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -253,7 +249,7 @@
     v-show="detailsModel.grouppanel2.visible" 
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
     :caption="$t('ibzmonthly.mobmaininfo_form.details.grouppanel2')" 
-    :isShowCaption="false" 
+    :isShowCaption="true" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
@@ -302,7 +298,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import IbzMonthlyEntityService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
 import MobMainInfoService from '@/app-core/ctrl-service/ibz-monthly/mob-main-info-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -414,7 +410,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      * @type {IbzMonthlyService}
      * @memberof MobMainInfo
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzMonthlyEntityService = new IbzMonthlyEntityService();
 
     /**
      * 界面UI服务对象
@@ -511,6 +507,14 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      * @memberof MobMainInfo
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -621,6 +625,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         account: null,
+        createmanname: null,
         ibzmonthlyname: null,
         date: null,
         workthismonth: null,
@@ -769,7 +774,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
 , 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.mobmaininfo_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '操作记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.mobmaininfo_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '月报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzmonthly.mobmaininfo_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -792,6 +797,8 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         account: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+, 
+        createmanname: new FormItemModel({ caption: '建立人名称', detailType: 'FORMITEM', name: 'createmanname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibzmonthlyname: new FormItemModel({ caption: '月报名称', detailType: 'FORMITEM', name: 'ibzmonthlyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -923,6 +930,18 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
     @Watch('data.account')
     onAccountChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 createmanname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainInfo
+     */
+    @Watch('data.createmanname')
+    onCreatemannameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'createmanname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1119,6 +1138,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
 
@@ -1138,7 +1158,9 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`ibzmonthly.mobmaininfo_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1365,6 +1387,9 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      *  @memberof MobMainInfo
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.ibzmonthly});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1415,7 +1440,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"IbzMonthly")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzmonthly){
                     this.refresh([data]);
                 }
             })
@@ -1641,6 +1666,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ ibzmonthlyname: arg.ibzmonthlyname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1719,10 +1745,9 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"IbzMonthly",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1746,10 +1771,9 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"IbzMonthly",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }
@@ -1893,9 +1917,6 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
      * @memberof MobMainInfo
      */
     public createDefault(){                    
-            if (this.data.hasOwnProperty('date')) {
-                    this.data['date'] = this.$util.dateFormat(new Date());
-            }
     }
 
         /**

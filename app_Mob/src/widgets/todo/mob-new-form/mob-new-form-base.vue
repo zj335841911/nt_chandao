@@ -178,11 +178,12 @@
     :isEmptyCaption="false">
         <app-mob-radio-list 
     style="width: 100%;" 
-        type="static" 
-    tag="YesNo2"
+    type="static" 
+    tag="YesNo"
     :value="data.private"  
     :disabled="detailsModel.private.disabled" 
     @change="($event)=>this.data.private = $event"/>
+
 </app-form-item>
 
 
@@ -207,6 +208,368 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='status' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="status_item"  
+    :itemValue="this.data.status" 
+    v-show="detailsModel.status.visible" 
+    :itemRules="this.rules.status" 
+    :caption="$t('todo.mobnew_form.details.status')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.status.disabled"
+    :error="detailsModel.status.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-personnel
+  name="status"
+  :value='data.status'
+  valueitem=""
+  url="/sysorganizations/{deptId}/sysemployees/picker"
+  
+  :multiple="false"
+  filter="srforgid"
+  :fillmap="{'id':'','label':'status'}"
+  :disabled="detailsModel.status.disabled"
+  :data="data"
+  :context="context"
+    tag='Todo__status' codelistType='STATIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-department-personnel>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem7' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem7_item"  
+    :itemValue="this.data.formitem7" 
+    v-show="detailsModel.formitem7.visible" 
+    :itemRules="this.rules.formitem7" 
+    :caption="$t('todo.mobnew_form.details.formitem7')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem7.disabled"
+    :error="detailsModel.formitem7.error" 
+    :isEmptyCaption="false">
+        <app-mob-color-picker
+    v-model="data.formitem7"  
+    @enter="onEnter($event)"
+    :data="data"
+    :disabled="detailsModel.formitem7.disabled"
+    :formState="formState"
+    color=""
+    @colorChange="(val) => {onFormItemValueChange(val)}">
+</app-mob-color-picker>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem_item"  
+    :itemValue="this.data.formitem" 
+    v-show="detailsModel.formitem.visible" 
+    :itemRules="this.rules.formitem" 
+    :caption="$t('todo.mobnew_form.details.formitem')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem.disabled"
+    :error="detailsModel.formitem.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'formitem'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='assignedtopk' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedtopk_item"  
+    :itemValue="this.data.assignedtopk" 
+    v-show="detailsModel.assignedtopk.visible" 
+    :itemRules="this.rules.assignedtopk" 
+    :caption="$t('todo.mobnew_form.details.assignedtopk')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedtopk.disabled"
+    :error="detailsModel.assignedtopk.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-select :data="data" :disabled="detailsModel.assignedtopk.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'assignedtopk'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem2' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem2_item"  
+    :itemValue="this.data.formitem2" 
+    v-show="detailsModel.formitem2.visible" 
+    :itemRules="this.rules.formitem2" 
+    :caption="$t('todo.mobnew_form.details.formitem2')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem2.disabled"
+    :error="detailsModel.formitem2.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem2.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'formitem2'}" :multiple="true" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem1' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem1_item"  
+    :itemValue="this.data.formitem1" 
+    v-show="detailsModel.formitem1.visible" 
+    :itemRules="this.rules.formitem1" 
+    :caption="$t('todo.mobnew_form.details.formitem1')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem1.disabled"
+    :error="detailsModel.formitem1.error" 
+    :isEmptyCaption="false">
+        <app-mob-department-select :data="data" :disabled="detailsModel.formitem1.disabled" :context="JSON.parse(JSON.stringify(context))" url="/sysorganizations/${orgid}/sysdepartments/picker" filter="srforgid"  :fillMap="{'id':'formitem5','label':'formitem1'}" :multiple="false" style="" @select-change="onFormItemValueChange" ></app-mob-department-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='account' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="account_item"  
+    :itemValue="this.data.account" 
+    v-show="detailsModel.account.visible" 
+    :itemRules="this.rules.account" 
+    :caption="$t('todo.mobnew_form.details.account')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.account.disabled"
+    :error="detailsModel.account.error" 
+    :isEmptyCaption="false">
+        <app-mob-group-select
+  name="account"
+  :value='data.account'
+  valueitem="desc"
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  
+  :multiple="false"
+  filter="srforgid"
+  :fillmap="{'id':'desc','label':'account'}"
+  :disabled="detailsModel.account.disabled"
+  :data="data"
+  :context="context"
+    tag='UserRealName' codelistType='DYNAMIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='assignedby' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedby_item"  
+    :itemValue="this.data.assignedby" 
+    v-show="detailsModel.assignedby.visible" 
+    :itemRules="this.rules.assignedby" 
+    :caption="$t('todo.mobnew_form.details.assignedby')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedby.disabled"
+    :error="detailsModel.assignedby.error" 
+    :isEmptyCaption="false">
+        <app-mob-group-select
+  name="assignedby"
+  :value='data.assignedby'
+  valueitem="desc"
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  
+  :multiple="true"
+  filter="srforgid"
+  :fillmap="{'id':'desc','label':'assignedby'}"
+  :disabled="detailsModel.assignedby.disabled"
+  :data="data"
+  :context="context"
+    tag='UserRealName' codelistType='DYNAMIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='assigneddate' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assigneddate_item"  
+    :itemValue="this.data.assigneddate" 
+    v-show="detailsModel.assigneddate.visible" 
+    :itemRules="this.rules.assigneddate" 
+    :caption="$t('todo.mobnew_form.details.assigneddate')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assigneddate.disabled"
+    :error="detailsModel.assigneddate.error" 
+    :isEmptyCaption="false">
+        <app-mob-group-select
+  name="assigneddate"
+  :value='data.assigneddate'
+  valueitem="desc"
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  treeurl="/sysorganizations/${orgid}/suborg/picker"
+  :multiple="false"
+  filter="srforgid"
+  :fillmap="{'id':'desc','label':'assigneddate'}"
+  :disabled="detailsModel.assigneddate.disabled"
+  :data="data"
+  :context="context"
+  
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='noticeusers' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="noticeusers_item"  
+    :itemValue="this.data.noticeusers" 
+    v-show="detailsModel.noticeusers.visible" 
+    :itemRules="this.rules.noticeusers" 
+    :caption="$t('todo.mobnew_form.details.noticeusers')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.noticeusers.disabled"
+    :error="detailsModel.noticeusers.error" 
+    :isEmptyCaption="false">
+        <app-mob-group-select
+  name="noticeusers"
+  :value='data.noticeusers'
+  valueitem="desc"
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  treeurl="/sysorganizations/${orgid}/suborg/picker"
+  :multiple="true"
+  filter="srforgid"
+  :fillmap="{'id':'desc','label':'noticeusers'}"
+  :disabled="detailsModel.noticeusers.disabled"
+  :data="data"
+  :context="context"
+  
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem3' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem3_item"  
+    :itemValue="this.data.formitem3" 
+    v-show="detailsModel.formitem3.visible" 
+    :itemRules="this.rules.formitem3" 
+    :caption="$t('todo.mobnew_form.details.formitem3')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem3.disabled"
+    :error="detailsModel.formitem3.error" 
+    :isEmptyCaption="false">
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem3.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem3'}" url="/sysorganizations/${orgid}/suborg/picker" filter="srforgid" :multiple="false" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem4' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem4_item"  
+    :itemValue="this.data.formitem4" 
+    v-show="detailsModel.formitem4.visible" 
+    :itemRules="this.rules.formitem4" 
+    :caption="$t('todo.mobnew_form.details.formitem4')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem4.disabled"
+    :error="detailsModel.formitem4.error" 
+    :isEmptyCaption="false">
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem4.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem4'}" url="/sysorganizations/${orgid}/suborg/picker" filter="srforgid" :multiple="true" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem5' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem5_item"  
+    :itemValue="this.data.formitem5" 
+    v-show="detailsModel.formitem5.visible" 
+    :itemRules="this.rules.formitem5" 
+    :caption="$t('todo.mobnew_form.details.formitem5')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem5.disabled"
+    :error="detailsModel.formitem5.error" 
+    :isEmptyCaption="false">
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem5.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem5'}" url="/sysorganizations/alls/suborg/picker" filter="srforgid" :multiple="false" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='formitem6' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="formitem6_item"  
+    :itemValue="this.data.formitem6" 
+    v-show="detailsModel.formitem6.visible" 
+    :itemRules="this.rules.formitem6" 
+    :caption="$t('todo.mobnew_form.details.formitem6')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.formitem6.disabled"
+    :error="detailsModel.formitem6.error" 
+    :isEmptyCaption="false">
+        <app-mob-org-select :data="data" :disabled="detailsModel.formitem6.disabled" :context="JSON.parse(JSON.stringify(context))" :fillMap="{'id':'desc','label':'formitem6'}" url="/sysorganizations/alls/suborg/picker" filter="srforgid" :multiple="true" style="" @select-change="onFormItemValueChange"   tag='UserRealName_valueofid' codelistType='DYNAMIC'></app-mob-org-select>
+</app-form-item>
+
+
     
 </app-form-group>
 
@@ -221,7 +584,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TodoService from '@/app-core/service/todo/todo-service';
+import TodoEntityService from '@/app-core/service/todo/todo-service';
 import MobNewService from '@/app-core/ctrl-service/todo/mob-new-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -333,7 +696,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @type {TodoService}
      * @memberof MobNew
      */
-    protected appEntityService: TodoService = new TodoService();
+    protected appEntityService: TodoEntityService = new TodoEntityService();
 
     /**
      * 界面UI服务对象
@@ -430,6 +793,14 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @memberof MobNew
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -544,8 +915,28 @@ export default class MobNewBase extends Vue implements ControlInterface {
         begin: null,
         end: null,
         type: null,
+        bug: null,
+        idvalue: null,
+        task: null,
+        config_type: null,
+        cycle: null,
+        story: null,
         private: null,
         desc: null,
+        status: null,
+        formitem7: null,
+        formitem: null,
+        assignedtopk: null,
+        formitem2: null,
+        formitem1: null,
+        account: null,
+        assignedby: null,
+        assigneddate: null,
+        noticeusers: null,
+        formitem3: null,
+        formitem4: null,
+        formitem5: null,
+        formitem6: null,
         id: null,
         todo: null,
     };
@@ -708,9 +1099,49 @@ export default class MobNewBase extends Vue implements ControlInterface {
 , 
         type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        bug: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'bug', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        idvalue: new FormItemModel({ caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        task: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        config_type: new FormItemModel({ caption: '周期类型', detailType: 'FORMITEM', name: 'config_type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        cycle: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'cycle', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        story: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         private: new FormItemModel({ caption: '私人事务', detailType: 'FORMITEM', name: 'private', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        status: new FormItemModel({ caption: '人员', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem7: new FormItemModel({ caption: '颜色选择', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem: new FormItemModel({ caption: '【多选】部门（指定单位及其下级单位的所有部门多选)', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedtopk: new FormItemModel({ caption: '【单选】部门（指定单位及其下级单位的所有部门）', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem2: new FormItemModel({ caption: '【多选】部门（指定单位内的部门多选）', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem1: new FormItemModel({ caption: '【单选】部门（指定单位内的部门单选）', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        account: new FormItemModel({ caption: '【单选】指定单位内人员', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedby: new FormItemModel({ caption: '【多选】指定单位内人员', detailType: 'FORMITEM', name: 'assignedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assigneddate: new FormItemModel({ caption: '【单选】指定单位及下级人员', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        noticeusers: new FormItemModel({ caption: '【多选】指定单位及下级人员', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem3: new FormItemModel({ caption: '【单选】单位（仅含指定单位及其下级单位单选）', detailType: 'FORMITEM', name: 'formitem3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem4: new FormItemModel({ caption: '【多选】单位（仅含指定单位及其下级单位多选）', detailType: 'FORMITEM', name: 'formitem4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem5: new FormItemModel({ caption: '【单选】单位（全部单位单选）', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem6: new FormItemModel({ caption: '【多选】单位（全部单位多选）', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -873,6 +1304,78 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 bug 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.bug')
+    onBugChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'bug', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 idvalue 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.idvalue')
+    onIdvalueChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'idvalue', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 task 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.task')
+    onTaskChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'task', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 config_type 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.config_type')
+    onConfig_typeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'config_type', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 cycle 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.cycle')
+    onCycleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'cycle', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 story 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.story')
+    onStoryChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 private 值
      *
      * @param {*} newVal
@@ -894,6 +1397,174 @@ export default class MobNewBase extends Vue implements ControlInterface {
     @Watch('data.desc')
     onDescChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem7 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem7')
+    onFormitem7Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem7', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem')
+    onFormitemChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.assignedtopk')
+    onAssignedtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem2 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem2')
+    onFormitem2Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem2', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem1')
+    onFormitem1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 account 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.account')
+    onAccountChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.assignedby')
+    onAssignedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assigneddate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.assigneddate')
+    onAssigneddateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assigneddate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem3 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem3')
+    onFormitem3Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem3', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem4 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem4')
+    onFormitem4Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem4', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem5 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem5')
+    onFormitem5Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem5', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem6 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.formitem6')
+    onFormitem6Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem6', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -953,6 +1624,34 @@ export default class MobNewBase extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = false;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'EQ', 'custom')) {
+                ret = true;
+            }
+            this.detailsModel.name.setDisabled(!ret);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -981,7 +1680,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`todo.mobnew_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1208,6 +1909,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
      *  @memberof MobNew
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.todo});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1258,7 +1962,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Todo")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.todo){
                     this.refresh([data]);
                 }
             })
@@ -1484,6 +2188,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1562,10 +2267,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1589,10 +2293,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

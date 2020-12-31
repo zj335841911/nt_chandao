@@ -33,7 +33,6 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="Testcase__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -95,7 +93,6 @@
     codeListType="STATIC" 
     tag="Testcase__stage"
     :isCache="false" 
-    v-if="data.stage"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -123,7 +120,6 @@
     :error="detailsModel.precondition.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.precondition"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -154,7 +150,6 @@
     codeListType="DYNAMIC" 
     tag="CurCaseVersion"
     :isCache="false" 
-    v-if="data.version"
     :navigateContext ='{ "case": "%id%" } '
     :navigateParam ='{ "case": "%id%" } ' 
     :data="data"
@@ -166,11 +161,26 @@
 
 
 
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('case.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="false" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
 <app-form-druipart
     class='' 
     parameterName='case' 
     refviewtype='DEMOBMDVIEW9'  
-    refreshitems='version' 
+    refreshitems='' 
     viewname='case-step-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
     :caption="$t('case.mobmain_form.details.druipart1')"  
@@ -191,6 +201,10 @@
     @drdatasaved="drdatasaved($event)"/>
 
 
+    
+</app-form-group>
+
+
 
 <app-form-item 
     name='keywords' 
@@ -208,7 +222,6 @@
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.keywords"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -225,11 +238,11 @@
     layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('case.mobmain_form.details.grouppanel1')" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('case.mobmain_form.details.grouppanel2')" 
     :isShowCaption="true" 
-    :titleBarCloseMode="1" 
+    :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
@@ -277,7 +290,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import CaseService from '@/app-core/service/case/case-service';
+import CaseEntityService from '@/app-core/service/case/case-service';
 import MobMainService from '@/app-core/ctrl-service/case/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -389,7 +402,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {CaseService}
      * @memberof MobMain
      */
-    protected appEntityService: CaseService = new CaseService();
+    protected appEntityService: CaseEntityService = new CaseEntityService();
 
     /**
      * 界面UI服务对象
@@ -486,6 +499,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -735,9 +756,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
+        grouppanel1: new FormGroupPanelModel({ caption: '用例步骤', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1011,6 +1034,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
 
@@ -1030,7 +1054,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`case.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1257,6 +1283,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *  @memberof MobMain
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.case});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1307,7 +1336,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Case")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.case){
                     this.refresh([data]);
                 }
             })
@@ -1533,6 +1562,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ title: arg.title});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1611,10 +1641,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Case",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1638,10 +1667,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Case",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

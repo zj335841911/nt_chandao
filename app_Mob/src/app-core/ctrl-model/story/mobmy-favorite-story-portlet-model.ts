@@ -216,6 +216,9 @@ export class MOBMyFavoriteStoryModel {
       {
         name: 'storypoints',
       },
+      {
+        name: 'assessresult',
+      },
     ]
   }
 

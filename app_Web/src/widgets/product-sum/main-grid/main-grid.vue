@@ -37,7 +37,7 @@
                         </template>
                         <template v-slot="{row}">
                             <template >
-                <codelist :value="row.po" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                <codelist :value="row.po" tag='UserRealName_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                             </template>
                         </template>
                     </el-table-column>

@@ -1,13 +1,15 @@
 <template>
     <div :class="editorClass">
         <textarea :id="id"></textarea>
-        <div class="select-person" :style="[personPosi,{visibility: showSelect}]">
+        <div :style="[personPosi,{visibility: showSelect,position: 'absolute',width: '120px'}]">
             <Input search size="small" class="person-search" v-model="personSearchText" @on-change="personSearch" :element-id="'person-search'+id" style="padding-bottom: 6px;"/>
-            <ul class="person-wrap">
-                <li :class="['row',item.selectState ? 'selectRow': '']" v-for="(item,index) in items" :key="index" @click="selectPerson(item)" @mouseover="onMousevoer(index)">
-                    {{item.text}}
-                </li>
-            </ul>
+            <div class="select-person">
+                <ul class="person-wrap">
+                    <li :class="['row',item.selectState ? 'selectRow': '']" v-for="(item,index) in items" :key="index" @click="selectPerson(item)" @mouseover="onMousevoer(index)">
+                        {{item.text}}
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -594,8 +596,8 @@ export default class AppRichTextEditor extends Vue {
         //默认位置
         let left:number = 30;
         let top:number = 120;
-        left = elePos.x-8+left;
-        top = elePos.y-16+top;
+        left = elePos.x-3+left;
+        top = elePos.y-41+top;
         //计算偏移位置超出编辑区域时的位置
         if(elePos.x+childW > parentW){
             left = left - childW;
@@ -922,7 +924,7 @@ export default class AppRichTextEditor extends Vue {
     min-width: 300px !important;
 }
 .select-person{
-    max-width: 120px;
+    width: 120px;
     max-height: 150px;
     position: absolute;
     padding: 10px;

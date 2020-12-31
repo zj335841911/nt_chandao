@@ -5,7 +5,7 @@
  */
 const path = require('path');
 const os = require('os');
-
+const Timestamp = new Date().getTime();
 function resolve(dir) {
     return path.join(__dirname, dir);
 }
@@ -65,6 +65,13 @@ module.exports = {
     },
     configureWebpack: config => {
         let ForkTsCheckerPlugin; 
+        Object.assign(config, {
+            output: {
+                ...config.output,
+                filename: `js/[name].${Timestamp}.js`,
+                chunkFilename: `js/[name].${Timestamp}.js`
+            },
+        });
         if (config.plugins.length > 0) {
             ForkTsCheckerPlugin = config.plugins.find(element =>{
                 return  element.workersNumber && element.memoryLimit;

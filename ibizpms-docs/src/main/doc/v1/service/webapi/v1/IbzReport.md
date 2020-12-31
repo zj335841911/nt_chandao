@@ -1,9 +1,9 @@
 # 服务接口-IBZ_REPORT
 ## 接口说明
-汇报
+汇报汇总
 
 ## 接口清单
-### 新建汇报
+### 新建汇报汇总
 #### 访问路径
 /ibzreports
 
@@ -13,15 +13,15 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报实体传输对象 |
+| 1 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报汇总实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报实体传输对象 |
+| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报汇总实体传输对象 |
 
-### 批量新建汇报
+### 批量新建汇报汇总
 #### 访问路径
 /ibzreports/batch
 
@@ -31,7 +31,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreportdtos | List<[IbzReportDTO](#IbzReportDTO)> | 汇报实体传输对象列表 |
+| 1 | ibzreportdtos | List<[IbzReportDTO](#IbzReportDTO)> | 汇报汇总实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -39,7 +39,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 更新汇报
+### 更新汇报汇总
 #### 访问路径
 /ibzreports/{ibzreport_id}
 
@@ -49,16 +49,16 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreport_id | Long | 汇报主键ID |
-| 2 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报实体传输对象 |
+| 1 | ibzreport_id | Long | 汇报汇总主键ID |
+| 2 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报汇总实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报实体传输对象 |
+| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报汇总实体传输对象 |
 
-### 批量更新汇报
+### 批量更新汇报汇总
 #### 访问路径
 /ibzreports/batch
 
@@ -68,7 +68,7 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreportdtos | List<[IbzReportDTO](#IbzReportDTO)> | 汇报实体传输对象列表 |
+| 1 | ibzreportdtos | List<[IbzReportDTO](#IbzReportDTO)> | 汇报汇总实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -76,7 +76,7 @@ PUT
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 删除汇报
+### 删除汇报汇总
 #### 访问路径
 /ibzreports/{ibzreport_id}
 
@@ -86,7 +86,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreport_id | Long | 汇报主键ID |
+| 1 | ibzreport_id | Long | 汇报汇总主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -94,7 +94,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量删除汇报
+### 批量删除汇报汇总
 #### 访问路径
 /ibzreports/batch
 
@@ -104,7 +104,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ids | List<Long> | 汇报主键ID列表 |
+| 1 | ids | List<Long> | 汇报汇总主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -112,7 +112,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 获取汇报
+### 获取汇报汇总
 #### 访问路径
 /ibzreports/{ibzreport_id}
 
@@ -122,15 +122,15 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreport_id | Long | 汇报主键ID |
+| 1 | ibzreport_id | Long | 汇报汇总主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报实体传输对象 |
+| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报汇总实体传输对象 |
 
-### 检查汇报
+### 检查汇报汇总
 #### 访问路径
 /ibzreports/checkkey
 
@@ -140,7 +140,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报实体传输对象 |
+| 1 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报汇总实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -158,14 +158,14 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreport_id | Long | 汇报主键ID |
-| 2 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报实体传输对象 |
+| 1 | ibzreport_id | Long | 汇报汇总主键ID |
+| 2 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报汇总实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报实体传输对象 |
+| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报汇总实体传输对象 |
 
 ### 我收到的汇报（计数器）
 #### 访问路径
@@ -177,16 +177,16 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreport_id | Long | 汇报主键ID |
-| 2 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报实体传输对象 |
+| 1 | ibzreport_id | Long | 汇报汇总主键ID |
+| 2 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报汇总实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报实体传输对象 |
+| 返回类型 | [IbzReportDTO](#IbzReportDTO)：汇报汇总实体传输对象 |
 
-### 保存汇报
+### 保存汇报汇总
 #### 访问路径
 /ibzreports/save
 
@@ -196,7 +196,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报实体传输对象 |
+| 1 | ibzreportdto | [IbzReportDTO](#IbzReportDTO) | 汇报汇总实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -204,7 +204,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量保存汇报
+### 批量保存汇报汇总
 #### 访问路径
 /ibzreports/savebatch
 
@@ -214,7 +214,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibzreportdtos | List<[IbzReportDTO](#IbzReportDTO)> | 汇报实体传输对象列表 |
+| 1 | ibzreportdtos | List<[IbzReportDTO](#IbzReportDTO)> | 汇报汇总实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -232,13 +232,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报查询条件对象 |
+| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报汇总查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[IbzReportDTO](#IbzReportDTO)>：汇报实体传输对象列表 |
+| 返回类型 | List<[IbzReportDTO](#IbzReportDTO)>：汇报汇总实体传输对象列表 |
 
 ### 查询汇报汇总
 #### 访问路径
@@ -250,13 +250,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报查询条件对象 |
+| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报汇总查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[IbzReportDTO](#IbzReportDTO)>：汇报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[IbzReportDTO](#IbzReportDTO)>：汇报汇总实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ### 获取数据集
 #### 访问路径
@@ -268,13 +268,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报查询条件对象 |
+| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报汇总查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[IbzReportDTO](#IbzReportDTO)>：汇报实体传输对象列表 |
+| 返回类型 | List<[IbzReportDTO](#IbzReportDTO)>：汇报汇总实体传输对象列表 |
 
 ### 查询数据集
 #### 访问路径
@@ -286,13 +286,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报查询条件对象 |
+| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报汇总查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[IbzReportDTO](#IbzReportDTO)>：汇报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[IbzReportDTO](#IbzReportDTO)>：汇报汇总实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ### 获取汇报汇总（我收到的）
 #### 访问路径
@@ -304,13 +304,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报查询条件对象 |
+| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报汇总查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[IbzReportDTO](#IbzReportDTO)>：汇报实体传输对象列表 |
+| 返回类型 | List<[IbzReportDTO](#IbzReportDTO)>：汇报汇总实体传输对象列表 |
 
 ### 查询汇报汇总（我收到的）
 #### 访问路径
@@ -322,13 +322,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报查询条件对象 |
+| 1 | context | [IbzReportSearchContext](#IbzReportSearchContext) | 汇报汇总查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[IbzReportDTO](#IbzReportDTO)>：汇报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[IbzReportDTO](#IbzReportDTO)>：汇报汇总实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ## 附录
 ### 数据类型说明
@@ -359,7 +359,8 @@ POST
 | 22 | dailycnt | Integer | 允许 | 未读日报数 |
 | 23 | monthlycnt | Integer | 允许 | 未读月报数 |
 | 24 | submittime | String | 允许 | 提交时间 |
-| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 25 | reportlycnt | Integer | 允许 | 未读汇报数 |
+| 26 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

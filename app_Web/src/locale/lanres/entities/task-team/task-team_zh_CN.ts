@@ -1,36 +1,8 @@
-export default {
-  fields: {
-    role: "角色",
-    root: "编号",
-    limited: "受限用户",
-    total: "总计可用",
-    username: "用户",
-    order: "排序",
-    days: "可用工日",
-    type: "团队类型",
-    estimate: "最初预计",
-    account: "用户",
-    consumed: "总计消耗",
-    id: "编号",
-    join: "加盟日",
-    hours: "可用工时/天",
-    left: "预计剩余",
-  },
-	views: {
-		gridview9_look: {
-			caption: "团队",
-      		title: "团队",
-		},
-	},
-	main_grid: {
-		nodata: "",
-		columns: {
-			account: "团队",
-			estimate: "最初预计",
-			consumed: "总计消耗",
-			left: "预计剩余",
-		},
-		uiactions: {
-		},
-	},
-};
+import TaskTeam_zh_CN_Base from './task-team_zh_CN_base';
+
+function getLocaleResource(){
+    const TaskTeam_zh_CN_OwnData = {};
+    const targetData = Object.assign(TaskTeam_zh_CN_Base(), TaskTeam_zh_CN_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

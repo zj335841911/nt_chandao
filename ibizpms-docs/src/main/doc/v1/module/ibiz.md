@@ -10,6 +10,12 @@ package iBiz增强模块 {
 class Bug统计 {
 }
 
+class 测试用例统计 {
+}
+
+class 公司动态汇总 {
+}
+
 class 文档库分类 {
 }
 
@@ -23,6 +29,9 @@ class 文档 {
 }
 
 class 实体 {
+}
+
+class 代理 {
 }
 
 class 测试用例 {
@@ -50,6 +59,9 @@ class 项目相关成员 {
 }
 
 class 置顶 {
+}
+
+class 产品团队 {
 }
 
 class 产品生命周期 {
@@ -144,11 +156,14 @@ hide members
 | 实体编号    |    实体名称    |  实体类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |IBZ_BUGSTATS|[Bug统计](ibiz/BugStats.md)|主实体|&nbsp;|
+|IBZ_CASESTATS|[测试用例统计](ibiz/CaseStats.md)|主实体|&nbsp;|
+|IBZ_COMPANYSTATS|[公司动态汇总](ibiz/CompanyStats.md)|主实体|&nbsp;|
 |IBZ_DOCLIBMODULE|[文档库分类](ibiz/DocLibModule.md)|主实体|&nbsp;|
 |DYNADASHBOARD|[动态数据看板](ibiz/DynaDashboard.md)|主实体|&nbsp;|
 |IBZ_EMPLOYEELOAD|[员工负载表](ibiz/EmpLoyeeload.md)|主实体|&nbsp;|
 |IBZ_DOC|[文档](ibiz/IBzDoc.md)|主实体|&nbsp;|
 |IBZ_LOGIN|[实体](ibiz/IbiLogin.md)|主实体|&nbsp;|
+|IBZ_AGENT|[代理](ibiz/IbzAgent.md)|主实体|&nbsp;|
 |IBZ_CASE|[测试用例](ibiz/IbzCase.md)|主实体|&nbsp;|
 |IBZ_FAVORITES|[收藏](ibiz/IbzFavorites.md)|主实体|&nbsp;|
 |IBZ_LIB|[用例库](ibiz/IbzLib.md)|主实体|&nbsp;|
@@ -158,6 +173,7 @@ hide members
 |IBZ_MYTERRITORY|[我的地盘](ibiz/IbzMyTerritory.md)|主实体|&nbsp;|
 |IBZ_PROJECTMEMBER|[项目相关成员](ibiz/IbzProjectMember.md)|主实体|&nbsp;|
 |IBZ_TOP|[置顶](ibiz/IbzTop.md)|主实体|&nbsp;|
+|IBZ_PRODUCTTEAM|[产品团队](ibiz/PRODUCTTEAM.md)|主实体|&nbsp;|
 |IBZ_PRODUCTLIFE|[产品生命周期](ibiz/ProductLife.md)|主实体|&nbsp;|
 |IBZ_PRODUCTLINE|[产品线](ibiz/ProductLine.md)|主实体|&nbsp;|
 |IBZ_PRODUCTMODULE|[需求模块](ibiz/ProductModule.md)|主实体|&nbsp;产品需求模块|

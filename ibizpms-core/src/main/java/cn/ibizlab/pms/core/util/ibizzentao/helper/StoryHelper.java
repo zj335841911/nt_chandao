@@ -104,6 +104,12 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         storySpec.setTitle(et.getTitle());//将需求的需求名称给到需求描述对象的“需求名称”字段
         storySpec.setSpec(et.getSpec());//将需求的需求描述给到需求描述对象的“需求描述”字段    可同上合并
         storySpec.setVerify(et.getVerify());//将需求的验收标准给到需求描述对象的“验收标准”字段  可同上合并
+        long projectId = 0L;//create之前拿出project属性，否则创建之后，project属性会置空
+        boolean flag = (et.getProject() != null && et.getProject() != 0L);
+        if (flag){
+            projectId = et.getProject();
+            et.setStatus(StaticDict.Story__status.ACTIVE.getValue());
+        }
         super.create(et);//调用父类的create（）
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.STORY.getValue(), files, String.valueOf(et.getVersion()));//更新附件
         fileHelper.saveUpload(StaticDict.Action__object_type.STORY.getValue(), et.getId(), "", "", "");
@@ -114,10 +120,10 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         storySpecHelper.create(storySpec);
 
         //如果需求的项目不为null 并且不为0 并且 所处阶段不为草稿状态
-        if (et.getProject() != null && et.getProject() != 0L && StringUtils.compare(et.getStage(), StaticDict.Story__status.DRAFT.getValue()) != 0) {
+        if (flag && StringUtils.compare(et.getStage(), StaticDict.Story__status.DRAFT.getValue()) != 0) {
             //projectstroy 项目中需要做的需求
             ProjectStory projectStory = new ProjectStory();
-            projectStory.setProject(et.getProject());//将需求的项目内容给到projectstroy的“项目”字段
+            projectStory.setProject(projectId);//将需求的项目内容给到projectstroy的“项目”字段
             projectStory.setProduct(et.getProduct());//将需求的所属产品给到projectstroy的“所属产品”字段
             projectStory.setStory(et.getId());//将需求的编号值给到projectstroy的“需求”字段
             projectStory.setOrder(1);//设置排序
@@ -529,7 +535,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     @Transactional(rollbackFor = Exception.class)
     public Story review(Story et) {
         String comment = et.getComment() == null ? "" : et.getComment();
-        String result = et.getResult();
+        String result = et.getResult() == null ? et.getAssessresult() : et.getResult();
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 

@@ -284,7 +284,7 @@ export default class MainInfoService extends ControlService {
      */
     @Errorlog
     public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -315,7 +315,7 @@ export default class MainInfoService extends ControlService {
      */
     @Errorlog
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
-        const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
         //仿真主键数据
         const PrimaryKey = Util.createUUID();
         Data.id = PrimaryKey;

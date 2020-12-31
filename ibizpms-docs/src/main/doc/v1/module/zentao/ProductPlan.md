@@ -45,6 +45,7 @@
 | 19 | [工时数](#属性-工时数（ESTIMATECNT）) | ESTIMATECNT | 整型 | 否 | 是 | 是 |
 | 20 | [开始日期](#属性-开始日期（BEGINSTR）) | BEGINSTR | 文本，可指定长度 | 否 | 是 | 是 |
 | 21 | [结束日期](#属性-结束日期（ENDSTR）) | ENDSTR | 文本，可指定长度 | 否 | 是 | 是 |
+| 22 | [计划模板](#属性-计划模板（PLANTEMPLET）) | PLANTEMPLET | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-名称（TITLE）
 #### 属性说明
@@ -960,6 +961,49 @@ String
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-计划模板（PLANTEMPLET）
+#### 属性说明
+计划模板
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[计划模板（PlanTemplet）](../../codelist/PlanTemplet)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [状态](#属性-状态（STATUSS）)<br>（STATUSS） | 默认 |
@@ -1058,12 +1102,13 @@ String
 | 7 | [批量解除关联需求](#实体行为-批量解除关联需求（BatchUnlinkStory）) | BatchUnlinkStory | 用户自定义 | 后台及前台 |
 | 8 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 9 | [计算计划结束时间](#实体行为-计算计划结束时间（GetPlanEnd）) | GetPlanEnd | 用户自定义 | 前台 |
-| 10 | [关联Bug](#实体行为-关联Bug（LinkBug）) | LinkBug | 用户自定义 | 后台及前台 |
-| 11 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
-| 12 | [移动端产品计划计数器](#实体行为-移动端产品计划计数器（MobProductPlanCounter）) | MobProductPlanCounter | 实体处理逻辑 | 后台 |
-| 13 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 14 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
-| 15 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
+| 10 | [导入计划模板](#实体行为-导入计划模板（ImportPlanTemplet）) | ImportPlanTemplet | 用户自定义 | 后台及前台 |
+| 11 | [关联Bug](#实体行为-关联Bug（LinkBug）) | LinkBug | 用户自定义 | 后台及前台 |
+| 12 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
+| 13 | [移动端产品计划计数器](#实体行为-移动端产品计划计数器（MobProductPlanCounter）) | MobProductPlanCounter | 实体处理逻辑 | 后台 |
+| 14 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 15 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
+| 16 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1174,6 +1219,18 @@ CheckKey
 
 - 行为持有者
 前台
+
+#### 逻辑附加
+无
+### 实体行为-导入计划模板（ImportPlanTemplet）
+#### 说明
+导入计划模板
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
 
 #### 逻辑附加
 无
@@ -1315,6 +1372,7 @@ Save
 | 9 | [待定（FUTURE）](#属性-待定（FUTURE）) | `=` |
 | 10 | [周期（DELTA）](#属性-周期（DELTA）) | `=` |
 | 11 | [是否过期（ISEXPIRED）](#属性-是否过期（ISEXPIRED）) | `=` |
+| 12 | [计划模板（PLANTEMPLET）](#属性-计划模板（PLANTEMPLET）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

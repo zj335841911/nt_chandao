@@ -139,6 +139,10 @@ zuul:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_projectteamnest:
+      path: /ibzprojectteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_doclibmodule:
       path: /doclibmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -197,6 +201,10 @@ zuul:
       stripPrefix: false
     ibz_projectmodule:
       path: /projectmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_reportly:
+      path: /ibzreportlies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_productstats:

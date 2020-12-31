@@ -52,6 +52,9 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProductStatsGetCurUserBugCntLogic getcuruserbugcntLogic;
+    @Autowired
+    @Lazy
+    IProductStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -147,21 +150,49 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProductStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductStats> create = new ArrayList<>();
+        List<ProductStats> update = new ArrayList<>();
+        for (ProductStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProductStats> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductStats> create = new ArrayList<>();
+        List<ProductStats> update = new ArrayList<>();
+        for (ProductStats et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -181,6 +212,33 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     @Override
     public Page<ProductStats> searchNoOpenProduct(ProductStatsSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchNoOpenProduct(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品质量表
+     */
+    @Override
+    public Page<ProductStats> searchProdctQuantiGird(ProductStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchProdctQuantiGird(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品投入表
+     */
+    @Override
+    public Page<ProductStats> searchProductInputTable(ProductStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchProductInputTable(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品完成统计表
+     */
+    @Override
+    public Page<ProductStats> searchProductcompletionstatistics(ProductStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductStats> pages=baseMapper.searchProductcompletionstatistics(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

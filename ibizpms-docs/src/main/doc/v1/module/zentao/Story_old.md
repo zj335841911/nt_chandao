@@ -20,6 +20,7 @@ Bug *-- 需求
 产品 *-- 需求 
 需求 *-- 需求 
 需求 *-- 需求 
+索引检索 <|-- 需求 
 hide members
 {% endplantuml %}
 
@@ -94,6 +95,7 @@ hide members
 |来源对象标识|IBIZ_SOURCEID|TEXT|&nbsp;|
 |来源对象名称|IBIZ_SOURCENAME|TEXT|&nbsp;|
 |故事点|STORYPOINTS|SSCODELIST|&nbsp;|
+|评审结果|ASSESSRESULT|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -165,6 +167,7 @@ hide members
 |来源对象标识|默认规则|内容长度必须小于等于[100]|
 |来源对象名称|默认规则|内容长度必须小于等于[100]|
 |故事点|默认规则|内容长度必须小于等于[60]|
+|评审结果|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -496,6 +499,7 @@ hide footbox
 |平台/分支(BRANCHNAME)|LIKE|
 |之前的版本(PREVERSION)|EQ|
 |故事点(STORYPOINTS)|EQ|
+|评审结果(ASSESSRESULT)|EQ|
 
 ## 导入模式
 无

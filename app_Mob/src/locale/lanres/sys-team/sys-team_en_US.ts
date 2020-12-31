@@ -1,8 +1,5 @@
-export default {
-  fields: {
-    teamId: "组标识",
-    teamName: "组名称",
-    memo: "备注",
-    domains: "区属",
-  },
-};
+import SysTeam_en_US_Base from './sys-team_en_US_base';
+
+const SysTeam_en_US_OwnData = {};
+const targetData = Object.assign(SysTeam_en_US_Base, SysTeam_en_US_OwnData);
+export default targetData;

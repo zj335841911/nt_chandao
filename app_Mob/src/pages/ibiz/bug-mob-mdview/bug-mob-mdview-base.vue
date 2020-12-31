@@ -1,7 +1,7 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'bug-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     <app-quick-group-tab
@@ -17,8 +17,8 @@
                             <div class="view-tool-sorts-item">
                                 <span :class="{text:true,active:hasColor}" @click="onSort('PRI')">优先级</span>
                                 <span class="sort-icon" @click="onSort('PRI')">
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></ion-icon>
-                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></ion-icon>
+                                    <app-mob-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></app-mob-icon>
+                                    <app-mob-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></app-mob-icon>
                                 </span>
                             </div>
                         </div>
@@ -29,18 +29,18 @@
                     <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
             </div>
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
-    viewName="BugMobMDView"  
+    viewName="MobMDView"
     :viewparams="viewparams" 
     :context="context" 
      
@@ -63,8 +63,19 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+            <app-mob-button 
+            class="search-btn-item"
+            :text="$t('app.searchForm.searchButton.reset')" 
+            color="light" 
+            shape="round" 
+            size="small"
+            @click="onReset" />
+            <app-mob-button 
+            class="search-btn-item" 
+            shape="round" 
+            size="small" 
+            :text="$t('app.searchForm.searchButton.search')" 
+            @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>
@@ -86,7 +97,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="BugMobMDView"  
+            viewName="MobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"
@@ -115,6 +126,9 @@
     </ion-content>
     <ion-footer class="view-footer">
         
+    <div class="scroll_tool">
+        <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+    </div>
     </ion-footer>
 </ion-page>
 </template>
@@ -659,23 +673,23 @@ export default class BugMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -714,33 +728,33 @@ export default class BugMobMDViewBase extends Vue {
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
-        let context = { ...this.context, ...contextJO };
+        let _context = { ...this.context, ...contextJO };
         if (args.length > 0) {
-            Object.assign(context, args[0]);
+            Object.assign(_context, args[0]);
         }
         let response: any = null;
         let panelNavParam = { } ;
         let panelNavContext = { } ;
         //导航参数处理
-        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
+        if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.project && true) {
+        if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
             ]
         }
-        if (context.story && true) {
+        if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -750,7 +764,7 @@ export default class BugMobMDViewBase extends Vue {
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
@@ -884,7 +898,9 @@ export default class BugMobMDViewBase extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

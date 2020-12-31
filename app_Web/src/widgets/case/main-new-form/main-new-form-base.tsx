@@ -140,13 +140,13 @@ export class MainNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '用例类型 值不能为空',
+                    message: `${this.$t('entities.case.mainnew_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.type.required,
                     type: 'string',
-                    message: '用例类型 值不能为空',
+                    message: `${this.$t('entities.case.mainnew_form.details.type')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -154,13 +154,13 @@ export class MainNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '用例标题 值不能为空',
+                    message: `${this.$t('entities.case.mainnew_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: '用例标题 值不能为空',
+                    message: `${this.$t('entities.case.mainnew_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

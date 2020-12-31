@@ -516,6 +516,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
      */
     public onSearch(query: string){
         const node = this.currentNode;
+        this.curPage = 1;
         this.load(node);
     }
 
@@ -692,7 +693,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
             await this.getNodeState(item);
             this.$forceUpdate();
         }
-        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        let el: any = this.$el.getElementsByClassName('chart-item-operate')[index];
         if (el) {
             el.style.display = 'block'; 
         }
@@ -705,7 +706,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
      * @memberof MoreMyDocTreeBase
      */
     public hideToolBar(index: number){
-        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        let el: any = this.$el.getElementsByClassName('chart-item-operate')[index];
         if (el) {
             el.style.display = 'none'; 
         }

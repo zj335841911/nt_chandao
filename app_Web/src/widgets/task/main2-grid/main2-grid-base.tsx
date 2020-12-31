@@ -305,14 +305,6 @@ export class Main2GridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_task_main2_grid';
 
     /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof Main2GridBase
-     */
-    public isEnablePagingBar: boolean = false;
-
-    /**
      * 排序方向
      *
      * @type {string}
@@ -737,7 +729,7 @@ export class Main2GridBase extends GridControlBase {
             },
             {
                 name: 'finishedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

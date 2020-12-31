@@ -342,8 +342,8 @@ export class BugGridView9_StoryRelatedBase extends GridView9Base {
         }
         const view: any = {
             viewname: 'bug-main-dashboard-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.bug.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };

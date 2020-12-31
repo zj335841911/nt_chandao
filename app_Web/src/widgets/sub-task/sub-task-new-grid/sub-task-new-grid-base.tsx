@@ -188,6 +188,15 @@ export class SubTaskNewGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'deadline',
+            label: '截止日期',
+            langtag: 'entities.subtask.subtasknew_grid.columns.deadline',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: true,
+            enableCond: 3 ,
+        },
+        {
             name: 'desc',
             label: '任务描述',
             langtag: 'entities.subtask.subtasknew_grid.columns.desc',
@@ -231,6 +240,7 @@ export class SubTaskNewGridBase extends GridControlBase {
           allmodules: new FormItemModel(),
           eststarted: new FormItemModel(),
           left: new FormItemModel(),
+          deadline: new FormItemModel(),
         }
     }
 
@@ -363,6 +373,10 @@ export class SubTaskNewGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
         ],
+        deadline: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'blur' },
+        ],
     }
     }
 
@@ -401,6 +415,7 @@ export class SubTaskNewGridBase extends GridControlBase {
         'type':true,
         'assignedto':true,
         'eststarted':true,
+        'deadline':true,
         'desc':true,
         'pri':true,
     };
@@ -506,6 +521,9 @@ export class SubTaskNewGridBase extends GridControlBase {
      * @memberof SubTaskNewBase
      */
     public createDefault(row: any){                    
+        if (row.hasOwnProperty('module')) {
+            row['module'] = this.viewparams['module'];
+        }
         if (row.hasOwnProperty('isleaf')) {
             row['isleaf'] = '1';
         }
@@ -535,7 +553,7 @@ export class SubTaskNewGridBase extends GridControlBase {
     * @memberof SubTaskNewBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['modulename','storyname','name','type','assignedto','eststarted','desc','pri'];
+        let allColumns:Array<any> = ['modulename','storyname','name','type','assignedto','eststarted','deadline','desc','pri'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -620,6 +638,7 @@ export class SubTaskNewGridBase extends GridControlBase {
                 type:'',
                 assignedto:'',
                 eststarted:'',
+                deadline:'',
                 desc:'',
                 pri:'',
                 children: children
@@ -652,6 +671,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             type:'',
             assignedto:'',
             eststarted:'',
+            deadline:'',
             desc:'',
             pri:'',
             children: child
@@ -720,6 +740,7 @@ export class SubTaskNewGridBase extends GridControlBase {
                 type:'',
                 assignedto:'',
                 eststarted:'',
+                deadline:'',
                 desc:'',
                 pri:'',
                 children: children,

@@ -668,6 +668,94 @@ mock.onGet(new RegExp(/^\/ibzweeklies\/fetchmyweekly(\?[\w-./?%&=,]*)*$/)).reply
     console.groupEnd();
     return [status, records ?  records : []];
 });
+    
+// FetchProductTeamMemberWeekly
+mock.onGet(new RegExp(/^\/ibzweeklies\/fetchproductteammemberweekly$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: FetchProductTeamMemberWeekly");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProductTeamMemberWeekly
+mock.onGet(new RegExp(/^\/ibzweeklies\/fetchproductteammemberweekly(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: FetchProductTeamMemberWeekly");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchProjectWeekly
+mock.onGet(new RegExp(/^\/ibzweeklies\/fetchprojectweekly$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: FetchProjectWeekly");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectWeekly
+mock.onGet(new RegExp(/^\/ibzweeklies\/fetchprojectweekly(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: FetchProjectWeekly");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
 // URI参数传递情况未实现
 // URI参数传递情况未实现
 // URI参数传递情况未实现

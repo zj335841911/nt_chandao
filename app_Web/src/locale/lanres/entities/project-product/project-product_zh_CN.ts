@@ -1,32 +1,8 @@
-export default {
-  fields: {
-    id: "虚拟主键",
-    productname: "产品",
-    projectname: "项目",
-    planname: "计划名称",
-    product: "产品",
-    plan: "产品计划",
-    branch: "平台/分支",
-    project: "项目",
-  },
-	views: {
-		planlistview9: {
-			caption: "关联计划",
-      		title: "项目产品列表视图",
-		},
-		listview9: {
-			caption: "关联产品",
-      		title: "项目产品列表视图",
-		},
-	},
-	plan_list: {
-		nodata: "",
-		uiactions: {
-		},
-	},
-	default_list: {
-		nodata: "",
-		uiactions: {
-		},
-	},
-};
+import ProjectProduct_zh_CN_Base from './project-product_zh_CN_base';
+
+function getLocaleResource(){
+    const ProjectProduct_zh_CN_OwnData = {};
+    const targetData = Object.assign(ProjectProduct_zh_CN_Base(), ProjectProduct_zh_CN_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

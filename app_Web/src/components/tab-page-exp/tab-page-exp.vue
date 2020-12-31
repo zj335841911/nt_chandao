@@ -17,13 +17,13 @@
                             @on-close="onClose(item)"
                         >
                             <div class="tag-text">
-                                <div :title="item.caption" class="tag-caption-content">
+                                <div :title="item.info ? ($t(item.caption) + item.info) : $t(item.caption)" class="tag-caption-content">
                                     <i
                                         v-if="item.meta.iconCls && !Object.is(item.meta.iconCls, '')"
                                         :class="item.meta.iconCls"
                                     ></i>
                                     <img v-else :src="item.meta.imgPath" class="text-icon" />
-                                    &nbsp;{{ item.caption }}
+                                    &nbsp;{{ item.info ? ($t(item.caption) + item.info) : $t(item.caption) }}
                                 </div>
                             </div>
                         </Tag>
@@ -65,6 +65,27 @@ export default class TabPageExp extends Vue {
         { text: 'app.tabpage.closeall', value: 'closeAll' },
         { text: 'app.tabpage.closeother', value: 'closeOther' },
     ];
+
+    /**
+     * 当前激活菜单项
+     *
+     * @type {*}
+     * @memberof TabPageExp
+     */
+    @Prop() public activeItem: any;
+
+    /**
+     * 监听激活菜单项变化
+     *
+     * @param newVal 当前激活菜单项
+     * @memberof TabPageExp
+     */
+    @Watch('activeItem')
+    public onActiveItemChange(newVal: any) {
+        if(newVal) {
+            this.changeTabHistory(newVal);
+        }
+    }
 
     @Watch('$route')
     public onRouteChange(newVal: any) {
@@ -194,6 +215,7 @@ export default class TabPageExp extends Vue {
             if (Object.is(page.fullPath, this.$route.fullPath)) {
                 return;
             }
+            this.updateSortIndex(page);
             this.$router.push({ path: page.path, params: page.params, query: page.query });
         } else {
             const path: string | null = window.sessionStorage.getItem(Environment.AppName);
@@ -206,6 +228,72 @@ export default class TabPageExp extends Vue {
     }
 
     /**
+     * 更新排序值
+     *
+     * @returns
+     * @memberof TabPageExp
+     */
+    public updateSortIndex(page: any) {
+        const pages: any[] = this.appService.navHistory.historyList;
+        if(pages.length > 0) {
+            pages.forEach((item: any) => {
+                if(Object.is(item.to.fullPath, page.fullPath)) {
+                    this.appService.navHistory.updateSortIndex(item);
+                }
+            })
+        }
+    }
+
+    /**
+     * 激活菜单项变化时更改分页栏路由
+     *
+     * @returns
+     * @memberof TabPageExp
+     */
+    public changeTabHistory(menu: any) {
+        let menuTitle: string = '';
+        if(!menu.hidden && menu.isActivated) {
+            menuTitle = menu.text ? menu.text : (menu.tooltip ? menu.tooltip : '');
+        }
+        let pages: any[] = this.appService.navHistory.historyList;
+        let groups: Array<any> = this.handleTabPagesGroup(pages);
+        if(groups.length === 0) {
+            return;
+        }
+        groups.forEach((group: any) => {
+            if(Object.is(group.caption, menuTitle) && group.items && group.items.length > 0) {
+                let goTab: any = group.items.sort((val1: any, val2: any) => {
+                    return val2.sortIndex - val1.sortIndex;
+                })[0];
+                this.$router.push({ path: goTab.to.fullPath, params: goTab.to.params, query: goTab.to.query });
+            }
+        })
+    }
+
+    /**
+     * 对所有打开的路由记录缓存进行分组
+     *
+     * @returns
+     * @memberof TabPageExp
+     */
+    public handleTabPagesGroup(pages: any) {
+        if(pages.length === 0) {
+            return [];
+        }
+        let groups: Array<any> = [];
+        pages.forEach((item: any) => {
+            const caption: any = item.caption.split(' - ')[0];
+            const tempArr: Array<any> = groups.filter((group: any) => { return Object.is(group.caption, caption); });
+            if(tempArr.length === 0){
+                groups.push({ caption: caption, items: [item] });
+            } else {
+                tempArr[0].items.push(item);
+            }
+        })
+        return groups;
+    }
+
+    /**
      * 移动至指定页面标签
      *
      * @param {*} page
@@ -215,13 +303,13 @@ export default class TabPageExp extends Vue {
         const pages: any[] = this.appService.navHistory.historyList;
         let leftWidth: number = 0;
         this.$nextTick(() => {
-            pages.forEach((page, index) => {
+            pages.forEach((_page, index) => {
                 const tag: any = this.$refs.tagElement;
                 if (!tag) {
                     return;
                 }
                 const el = tag[index].$el;
-                if (Object.is(page.fullPath, page.fullPath)) {
+                if (Object.is(_page.fullPath, page.fullPath)) {
                     this.setLeft(el, leftWidth);
                 } else {
                     leftWidth += el.offsetWidth;

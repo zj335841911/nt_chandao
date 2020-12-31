@@ -33,7 +33,6 @@
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.productname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="DYNAMIC" 
     tag="ProductBranch"
     :isCache="false" 
-    v-if="data.branch"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.modulename1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.modulename1"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -120,7 +117,6 @@
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.projectname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -151,9 +147,8 @@
     codeListType="DYNAMIC" 
     tag="CurProductBuild"
     :isCache="false" 
-    v-if="data.openedbuild"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
+    :navigateContext ='{ "bugproduct": "%product%", "bugproject": "%project%" } '
+    :navigateParam ='{ "bugproject": "%project%", "bugproduct": "%product%" } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
@@ -179,7 +174,6 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -210,7 +204,6 @@
     codeListType="STATIC" 
     tag="Bug__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -241,7 +234,6 @@
     codeListType="STATIC" 
     tag="Bug__severity"
     :isCache="false" 
-    v-if="data.severity"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -272,7 +264,6 @@
     codeListType="STATIC" 
     tag="Bug__pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -303,7 +294,6 @@
     codeListType="STATIC" 
     tag="Bug__os"
     :isCache="false" 
-    v-if="data.os"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -334,7 +324,6 @@
     codeListType="STATIC" 
     tag="Bug__browser"
     :isCache="false" 
-    v-if="data.browser"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -362,7 +351,6 @@
     :error="detailsModel.deadline.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.deadline"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -390,7 +378,6 @@
     :error="detailsModel.repotype.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.repotype"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -421,7 +408,6 @@
     codeListType="STATIC" 
     tag="Bug__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -452,7 +438,6 @@
     codeListType="STATIC" 
     tag="Bug__resolution"
     :isCache="false" 
-    v-if="data.resolution"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -480,7 +465,6 @@
     :error="detailsModel.resolveddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.resolveddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -511,7 +495,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.resolvedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -645,7 +628,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
+import BugEntityService from '@/app-core/service/bug/bug-service';
 import MobMainService from '@/app-core/ctrl-service/bug/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -757,7 +740,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {BugService}
      * @memberof MobMain
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: BugEntityService = new BugEntityService();
 
     /**
      * 界面UI服务对象
@@ -854,6 +837,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1625,7 +1616,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`bug.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1852,6 +1845,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *  @memberof MobMain
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.bug});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1902,7 +1898,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Bug")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.bug){
                     this.refresh([data]);
                 }
             })
@@ -2128,6 +2124,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ title: arg.title});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -2206,10 +2203,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -2233,10 +2229,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

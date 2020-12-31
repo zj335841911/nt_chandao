@@ -122,13 +122,13 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.assignto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.todo.assigntoform_form.details.assignto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.assignto.required,
                     type: 'string',
-                    message: '指派给 值不能为空',
+                    message: `${this.$t('entities.todo.assigntoform_form.details.assignto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

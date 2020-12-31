@@ -84,6 +84,9 @@ export default class ProductTrendsTimelineModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

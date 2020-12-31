@@ -2,7 +2,7 @@
     <p class="portlet-title">
         <span>
             
-            Bug类型分布
+            {{ $t('entities.bug.bugtype_portlet.bugtype.title') }}
         </span>
     </p>
     <div class="portlet-with-title">
@@ -14,7 +14,7 @@
           fetchAction="FetchBuildProduceBug"
           :showBusyIndicator="true" 
           name="dashboard_sysportlet10_chart"  
-          ref="dashboard_sysportlet10_chart" 
+          ref="dashboard_sysportlet10_chart"
           @closeview="closeView($event)">
       </view_dashboard_sysportlet10_chart>
     </div>

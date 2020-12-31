@@ -103,6 +103,14 @@ export class AppNavHistoryBase {
     public indexMeta: any = null;
 
     /**
+     * 分页切换历史记录排序值（最大值表示离当前最近的路由）
+     *
+     * @type {*}
+     * @memberof AppNavHistoryBase
+     */
+    public static sortIndex: number = 0;
+
+    /**
      * Creates an instance of AppNavHistoryBase.
      *
      * @memberof AppNavHistoryBase
@@ -226,10 +234,23 @@ export class AppNavHistoryBase {
                 meta: JSON.parse(JSON.stringify(to.meta)),
                 tag: '',
                 context: {},
+                sortIndex: AppNavHistoryBase.sortIndex++
             };
             const { caption, info } = item.meta;
-            item.caption = i18n.t(caption) + (info ? ' - ' + info : '');
+            item.caption = caption;
+            item.info = info ? ' - ' + info : '';
             this.historyList.push(item);
+        }
+    }
+
+    /**
+     * 修改当前项排序值（记录上一分页项）
+     * 
+     * @param item 
+     */
+    public updateSortIndex(item: any) {
+        if(item) {
+            item.sortIndex = ++AppNavHistoryBase.sortIndex;
         }
     }
 

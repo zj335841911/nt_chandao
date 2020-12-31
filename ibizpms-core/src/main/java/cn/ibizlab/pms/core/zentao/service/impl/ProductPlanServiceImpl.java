@@ -74,6 +74,9 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanMobProductPlanCounterLogic mobproductplancounterLogic;
+    @Autowired
+    @Lazy
+    IProductPlanService proxyService;
 
     protected int batchSize = 500;
 
@@ -134,32 +137,83 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         return et;
     }
 
-        @Override
+       @Override
     @Transactional
     public ProductPlan batchUnlinkBug(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).batchUnlinkBug(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean batchUnlinkBugBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   batchUnlinkBug(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public ProductPlan batchUnlinkStory(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).batchUnlinkStory(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean batchUnlinkStoryBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   batchUnlinkStory(et);
+		 }
+	 	 return true;
     }
 
     @Override
     public boolean checkKey(ProductPlan et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+    @Override
+    @Transactional
+    public ProductPlan importPlanTemplet(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean importPlanTempletBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            importPlanTemplet(et);
+        }
+        return true;
+    }
+
+       @Override
     @Transactional
     public ProductPlan linkBug(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).linkBug(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean linkBugBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   linkBug(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public ProductPlan linkStory(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).linkStory(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean linkStoryBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   linkStory(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -184,7 +238,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -192,7 +246,21 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Transactional
     public boolean saveBatch(Collection<ProductPlan> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductPlan> create = new ArrayList<>();
+        List<ProductPlan> update = new ArrayList<>();
+        for (ProductPlan et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -200,19 +268,51 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Transactional
     public void saveBatch(List<ProductPlan> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<ProductPlan> create = new ArrayList<>();
+        List<ProductPlan> update = new ArrayList<>();
+        for (ProductPlan et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public ProductPlan unlinkBug(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).unlinkBug(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean unlinkBugBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   unlinkBug(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public ProductPlan unlinkStory(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).unlinkStory(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean unlinkStoryBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   unlinkStory(et);
+		 }
+	 	 return true;
     }
 
 

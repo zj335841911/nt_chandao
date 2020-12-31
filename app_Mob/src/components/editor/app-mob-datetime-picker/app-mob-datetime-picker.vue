@@ -1,6 +1,6 @@
 <template>
   <div class="app-mobile-datetime-picker">
-    <ion-icon v-if="curValue" name="close-outline" @click="clear"></ion-icon>
+    <app-mob-icon v-if="curValue" name="close-outline" @onClick="clear"></app-mob-icon>
     <ion-datetime
       :max="max"
       :min="min"

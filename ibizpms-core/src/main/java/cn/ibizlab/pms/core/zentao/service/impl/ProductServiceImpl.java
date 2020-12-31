@@ -50,10 +50,25 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbizproProductDailyService ibizproproductdailyService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbizproProductMonthlyService ibizproproductmonthlyService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIbizproProductWeeklyService ibizproproductweeklyService;
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IBugStatsService bugstatsService;
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.ICaseStatsService casestatsService;
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IProductModuleService productmoduleService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.IPRODUCTTEAMService productteamService;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.ITestModuleService testmoduleService;
@@ -129,6 +144,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductProductTopLogic producttopLogic;
+    @Autowired
+    @Lazy
+    IProductService proxyService;
 
     protected int batchSize = 500;
 
@@ -175,6 +193,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             et.setId(key);
         }
         else {
+            et.setProductteam(productteamService.selectByRoot(key));
         }
         return et;
     }
@@ -196,10 +215,19 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public boolean checkKey(Product et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-        @Override
+       @Override
     @Transactional
     public Product close(Product et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductHelper.class).close(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean closeBatch (List<Product> etList) {
+		 for(Product et : etList) {
+		   close(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -238,7 +266,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
@@ -246,7 +274,21 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Transactional
     public boolean saveBatch(Collection<Product> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Product> create = new ArrayList<>();
+        List<Product> update = new ArrayList<>();
+        for (Product et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
@@ -254,7 +296,21 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Transactional
     public void saveBatch(List<Product> list) {
         list.forEach(item -> fillParentData(item));
-        saveOrUpdateBatch(list, batchSize);
+        List<Product> create = new ArrayList<>();
+        List<Product> update = new ArrayList<>();
+        for (Product et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -328,6 +384,15 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     public Page<Product> searchProductPM(ProductSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Product> pages=baseMapper.searchProductPM(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Product>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品团队
+     */
+    @Override
+    public Page<Product> searchProductTeam(ProductSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Product> pages=baseMapper.searchProductTeam(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Product>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

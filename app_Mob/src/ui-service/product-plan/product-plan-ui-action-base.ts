@@ -93,6 +93,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'productplans'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'productplans'});
         this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'productplans'});
+        this.allViewMap.set(':',{viewname:'usr2mobpickupmdview',srfappde:'productplans'});
         this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'productplans'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'productplans'});
     }
@@ -211,7 +212,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -265,7 +266,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
-        if (context.product && true) {
+        if ((context as any).product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]

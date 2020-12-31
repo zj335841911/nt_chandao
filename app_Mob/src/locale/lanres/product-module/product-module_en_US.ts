@@ -1,29 +1,5 @@
-export default {
-  fields: {
-    path: "path",
-    deleted: "逻辑删除标志",
-    name: "名称",
-    branch: "branch",
-    iBizShort: "简称",
-    order: "排序值",
-    grade: "grade",
-    type: "类型（story）",
-    owner: "owner",
-    isLeaf: "叶子模块",
-    id: "id",
-    collector: "collector",
-    root: "产品",
-    parent: "id",
-    rootName: "所属产品",
-    parentName: "上级模块",
-    orderpk: "数据选择排序",
-  },
-	views: {
-		mobpickupview: {
-			caption: '需求模块',
-		},
-		mobpickupmdview: {
-			caption: '需求模块',
-		},
-	},
-};
+import ProductModule_en_US_Base from './product-module_en_US_base';
+
+const ProductModule_en_US_OwnData = {};
+const targetData = Object.assign(ProductModule_en_US_Base, ProductModule_en_US_OwnData);
+export default targetData;

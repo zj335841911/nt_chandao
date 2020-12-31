@@ -114,6 +114,23 @@ public class SysUserResource {
         return ResponseEntity.status(HttpStatus.OK).body(sysuserMapping.toDto(sysuserService.getDraft(new SysUser())));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysUser-ChangePwd-all')")
+    @ApiOperation(value = "修改密码", tags = {"系统用户" },  notes = "修改密码")
+	@RequestMapping(method = RequestMethod.POST, value = "/sysusers/{sysuser_id}/changepwd")
+    public ResponseEntity<SysUserDTO> changePwd(@PathVariable("sysuser_id") String sysuser_id, @RequestBody SysUserDTO sysuserdto) {
+        SysUser domain = sysuserMapping.toDomain(sysuserdto);
+        domain.setUserid(sysuser_id);
+        domain = sysuserService.changePwd(domain);
+        sysuserdto = sysuserMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysuserdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysUser-ChangePwd-all')")
+    @ApiOperation(value = "批量处理[修改密码]", tags = {"系统用户" },  notes = "批量处理[修改密码]")
+	@RequestMapping(method = RequestMethod.POST, value = "/sysusers/{sysuser_id}/changepwdbatch")
+    public ResponseEntity<Boolean> changePwdBatch(@RequestBody List<SysUserDTO> sysuserdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(sysuserService.changePwdBatch(sysuserMapping.toDomain(sysuserdtos)));
+    }
+
     @ApiOperation(value = "检查系统用户", tags = {"系统用户" },  notes = "检查系统用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysusers/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody SysUserDTO sysuserdto) {

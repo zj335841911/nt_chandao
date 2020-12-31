@@ -78,6 +78,9 @@ export class MobModel {
       {
         name: 'endstr',
       },
+      {
+        name: 'plantemplet',
+      },
     ]
   }
 

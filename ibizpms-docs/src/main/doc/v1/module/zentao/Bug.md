@@ -4531,7 +4531,8 @@ Save
 | 27 | [发布关联Bug（未解决）](#数据查询-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
 | 28 | [版本关联bug(遗留得bug)](#数据查询-版本关联bug(遗留得bug)（SelectBugByBuild）) | SelectBugByBuild | 否 |
 | 29 | [查询遗留得bug(项目)](#数据查询-查询遗留得bug(项目)（SelectBugsByProject）) | SelectBugsByProject | 否 |
-| 30 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 30 | [任务相关bug](#数据查询-任务相关bug（TaskBug）) | TaskBug | 否 |
+| 31 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我Bug（AssignedToMyBug）
 #### 说明
@@ -7095,6 +7096,63 @@ LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID
 INNER JOIN (select tt.id from zt_build tt where tt.deleted = '0' and tt.id in (
 	select t1.build from zt_testtask t1 where FIND_IN_SET(t1.id, (select tasks from zt_testreport where id = #{srf.datacontext.srfparentkey} )))) t71 on FIND_IN_SET(t71.id,t1.openedBuild)
 ```
+### 数据查询-任务相关bug（TaskBug）
+#### 说明
+任务相关bug
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.id,
+	t1.product,
+	t1.branch,
+	t1.module,
+	t1.project,
+	t1.title,
+        t1.task,
+	t1.keywords,
+	t1.pri,
+	t1.type,
+	t1.status,
+	t1.subStatus,
+	t1.mailto,
+	t1.openedBy,
+	t1.openedDate,
+	t1.assignedTo,
+	t1.assignedDate,
+	t1.resolvedBy,
+	t1.resolvedDate,
+	t1.lastEditedBy,
+	t1.lastEditedDate,
+	t31.`NAME` AS `PRODOCTNAME`,
+	t51.`NAME` AS `PROJECTNAME`,
+	(
+SELECT
+	( CASE WHEN COUNT( t.IBZ_FAVORITESID ) > 0 THEN 1 ELSE 0 END ) AS ISFAVORITES 
+FROM
+	T_IBZ_FAVORITES t 
+WHERE
+	t.TYPE = 'task' 
+	AND t.ACCOUNT = #{srf.sessioncontext.srfloginname} 
+	AND t.OBJECTID = t1.id 
+	) AS `ISFAVORITES`
+	
+FROM
+	zt_bug t1	
+        LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID
+	LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID
+	LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
+	LEFT JOIN zt_project t51 ON t1.PROJECT = t51.ID
+  	
+
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -7220,6 +7278,7 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 | 27 | [发布可关联的bug（遗留）](#数据集合-发布可关联的bug（遗留）（ReleaseLinkableLeftBug）) | ReleaseLinkableLeftBug | 否 |
 | 28 | [发布可关联的bug（已解决）](#数据集合-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）) | ReleaseLinkableResolvedBug | 否 |
 | 29 | [发布关联Bug（未解决）](#数据集合-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
+| 30 | [任务相关bug](#数据集合-任务相关bug（TaskRelatedBug）) | TaskRelatedBug | 否 |
 
 ### 数据集合-指派给我Bug（AssignedToMyBug）
 #### 说明
@@ -7627,6 +7686,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [发布关联Bug（未解决）（ReportBugs）](#数据查询-发布关联Bug（未解决）（ReportBugs）) |
+### 数据集合-任务相关bug（TaskRelatedBug）
+#### 说明
+任务相关bug
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [任务相关bug（TaskBug）](#数据查询-任务相关bug（TaskBug）) |
 
 ## 数据导入
 无
@@ -7660,6 +7733,6 @@ DEFAULT
 | 10 | 修改日期 | [修改日期（LASTEDITEDDATE）](#属性-修改日期（LASTEDITEDDATE）) |  |
 | 11 | 激活日期 | [激活日期（ACTIVATEDDATE）](#属性-激活日期（ACTIVATEDDATE）) |  |
 | 12 | 是否收藏 | [是否收藏（ISFAVORITES）](#属性-是否收藏（ISFAVORITES）) |  |
-| 13 | 所属产品 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) |  |
+| 13 | 产品 | [产品（PRODUCTNAME）](#属性-产品（PRODUCTNAME）) |  |
 | 14 | 项目 | [项目（PROJECTNAME）](#属性-项目（PROJECTNAME）) |  |
 

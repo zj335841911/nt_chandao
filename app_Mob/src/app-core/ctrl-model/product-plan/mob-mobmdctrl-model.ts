@@ -68,11 +68,6 @@ export class MobModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'n_delta_eq',
-                prop: 'n_delta_eq', 
-                dataType: 'SSCODELIST',
-            },
-            {
                 name: 'n_begin_gtandeq',
                 prop: 'n_begin_gtandeq', 
                 dataType: 'DATE',

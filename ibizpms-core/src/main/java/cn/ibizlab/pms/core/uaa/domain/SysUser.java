@@ -262,6 +262,27 @@ public class SysUser extends EntityClient implements Serializable {
     @JsonProperty("superuser")
     private Integer superuser;
 
+    /**
+     * 原密码
+     */
+    @JSONField(name = "originalpassword")
+    @JsonProperty("originalpassword")
+    private String originalpassword;
+
+    /**
+     * 新密码
+     */
+    @JSONField(name = "newpassword")
+    @JsonProperty("newpassword")
+    private String newpassword;
+
+    /**
+     * 重复密码
+     */
+    @JSONField(name = "repeatpassword")
+    @JsonProperty("repeatpassword")
+    private String repeatpassword;
+
 
 
 

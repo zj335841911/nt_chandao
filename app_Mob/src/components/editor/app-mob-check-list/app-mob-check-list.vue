@@ -1,6 +1,6 @@
 <template>
   <div class="app-mobile-check-list">
-    <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
+    <div class="cancel-icon" v-if="curValue"><app-mob-icon name="close-circle-outline" @onClick="clear"></app-mob-icon></div>
     <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
     <ion-select  ref="checkList" @ionChange="change" multiple="true" @click="load" :ok-text="$t('app.button.confirm')" :cancel-text="$t('app.button.cancel')" @ionCancel="cancel">
       <ion-select-option v-for="option of options" :key="option.value" :value="option.value">{{option.text}}
@@ -157,8 +157,29 @@
      */
     public async load(): Promise<any> {
       this.$store.commit('setSelectStatus',false);
+      const _this: any= this;
+      const back:Function =(response:any)=>{
+            _this.options = response
+            if (_this.isCache) {
+                _this.isCached = true;
+            }
+            if (_this.value) {
+              const select:any = _this.$refs.checkList;
+              if(_this.value && this.$util.isFunction(_this.value.split)){
+                let arr = (_this.value as string).split(',')
+                select.value = arr;
+              }else{
+                select.value = (_this.value as string);
+              }
+            }
+            _this.$forceUpdate();
+      }
       if (this.tag && this.type) {
         if (Object.is(this.type, "static")) {
+          let response: any = await this.codeListService.getStaticItems(this.tag);
+          if (response) {
+            back(response);
+          }
           return;
         }
         // 处理导航参数、上下文参数
@@ -169,15 +190,7 @@
         }
         let response: any = await this.codeListService.getItems(this.tag,  param.context, param.param);
         if (response) {
-            this.options = response
-            if (this.isCache) {
-                this.isCached = true;
-            }
-            if (this.value) {
-              const select:any = this.$refs.checkList;
-              let arr = this.value.split(',')
-              select.value = arr;
-            }
+            back(response);
         } else {
             this.options = [];
         }

@@ -24,7 +24,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('projectname')">
-                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.projectname')" :min-width="180"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.projectname')" :min-width="230"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.projectname')}}
@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('finishedby')">
-                <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.finishedby')" :width="150"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.finishedby')" :width="230"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.finishedby')}}
@@ -44,13 +44,13 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.finishedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.finishedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalestimate')">
-                <el-table-column show-overflow-tooltip :prop="'totalestimate'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalestimate')" :width="150"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'totalestimate'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalestimate')" :width="230"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.totalestimate')}}
@@ -62,7 +62,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalconsumed')">
-                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalconsumed')" :width="150"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalconsumed')" :width="230"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.totalconsumed')}}
@@ -74,7 +74,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskefficient')">
-                <el-table-column show-overflow-tooltip :prop="'taskefficient'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.taskefficient')" :width="150"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'taskefficient'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.taskefficient')" :width="230"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.taskefficient')}}

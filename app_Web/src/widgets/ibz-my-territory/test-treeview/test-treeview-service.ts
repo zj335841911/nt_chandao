@@ -118,6 +118,15 @@ export default class TestService extends ControlService {
 	public TREENODE_ROOT: string = 'ROOT';
 
     /**
+     * 用例统计表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_TESTCASESTATS: string = 'TestCaseStats';
+
+    /**
      * 获取节点数据
      *
      * @param {string} action
@@ -213,6 +222,10 @@ export default class TestService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_TESTCASESTATS)) {
+            await this.fillTestcasestatsNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
@@ -592,6 +605,11 @@ export default class TestService extends ControlService {
             let ProductbugresolutionstatsRsNavParams:any = {};
             let ProductbugresolutionstatsRsParams:any = {};
 			await this.fillProductbugresolutionstatsNodes(context, filter, list ,ProductbugresolutionstatsRsNavContext,ProductbugresolutionstatsRsNavParams,ProductbugresolutionstatsRsParams);
+			// 填充用例统计表
+            let TestcasestatsRsNavContext:any = {};
+            let TestcasestatsRsNavParams:any = {};
+            let TestcasestatsRsParams:any = {};
+			await this.fillTestcasestatsNodes(context, filter, list ,TestcasestatsRsNavContext,TestcasestatsRsNavParams,TestcasestatsRsParams);
 		} else {
 			// 填充Bug创建表
             let BugopenendbyRsNavContext:any = {};
@@ -618,6 +636,70 @@ export default class TestService extends ControlService {
             let ProductbugresolutionstatsRsNavParams:any = {};
             let ProductbugresolutionstatsRsParams:any = {};
 			await this.fillProductbugresolutionstatsNodes(context, filter, list ,ProductbugresolutionstatsRsNavContext,ProductbugresolutionstatsRsNavParams,ProductbugresolutionstatsRsParams);
+			// 填充用例统计表
+            let TestcasestatsRsNavContext:any = {};
+            let TestcasestatsRsNavParams:any = {};
+            let TestcasestatsRsParams:any = {};
+			await this.fillTestcasestatsNodes(context, filter, list ,TestcasestatsRsNavContext,TestcasestatsRsNavParams,TestcasestatsRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[用例统计表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public fillTestcasestatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.testcasestats') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'TestCaseStats';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[用例统计表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public async fillTestcasestatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
 		}
 	}
 

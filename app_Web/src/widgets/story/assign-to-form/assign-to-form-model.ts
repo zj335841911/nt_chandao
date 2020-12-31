@@ -56,6 +56,11 @@ export default class AssignToModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'assignedto',
         prop: 'assignedto',
         dataType: 'TEXT',

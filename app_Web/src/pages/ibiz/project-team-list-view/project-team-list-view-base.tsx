@@ -108,9 +108,9 @@ export class ProjectTeamListViewBase extends ListViewBase {
      * @memberof ProjectTeamListView
      */
     public toolBarModels: any = {
-        deuiaction3_managermember: { name: 'deuiaction3_managermember', caption: '团队管理', 'isShowCaption': true, 'isShowIcon': true, tooltip: '团队管理', iconcls: 'fa fa-users', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJT_TM_BUT', uiaction: { tag: 'ManagerMember', target: 'NONE', class: '' } },
+        deuiaction3_managermember: { name: 'deuiaction3_managermember', caption: 'entities.projectteam.listviewtoolbar_toolbar.deuiaction3_managermember.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.projectteam.listviewtoolbar_toolbar.deuiaction3_managermember.tip', iconcls: 'fa fa-users', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJT_TM_BUT', uiaction: { tag: 'ManagerMember', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.projectteam.listviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.projectteam.listviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 

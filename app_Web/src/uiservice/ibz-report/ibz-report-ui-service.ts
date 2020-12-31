@@ -1,7 +1,7 @@
 import IbzReportUIServiceBase from './ibz-report-ui-service-base';
 
 /**
- * 汇报UI服务对象
+ * 汇报汇总UI服务对象
  *
  * @export
  * @class IbzReportUIService

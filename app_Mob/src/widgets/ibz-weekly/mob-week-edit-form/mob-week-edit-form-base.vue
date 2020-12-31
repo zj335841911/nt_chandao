@@ -34,14 +34,14 @@
     :isEmptyCaption="false">
         <app-mob-check-list 
     type="dynamic"  
-    tag="MyCompleteTask"
+    tag="CodeList"
     :disabled="detailsModel.thisweektask.disabled" 
     :data="data"
     :context="context"
     :viewparams="viewparams"
     :value="data.thisweektask"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "date": "%date%" } '
+    :navigateParam ='{ "date": "%date%" } '
     @change="($event)=>this.data.thisweektask = $event"/>
 </app-form-item>
 
@@ -62,7 +62,7 @@
     :disabled="detailsModel.workthisweek.disabled"
     :error="detailsModel.workthisweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.workthisweek" @change="(val) =>{this.data.workthisweek =val}" :disabled="detailsModel.workthisweek.disabled" :data="JSON.stringify(this.data)"  name="workthisweek" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -113,7 +113,7 @@
     :disabled="detailsModel.plannextweek.disabled"
     :error="detailsModel.plannextweek.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.plannextweek" @change="(val) =>{this.data.plannextweek =val}" :disabled="detailsModel.plannextweek.disabled" :data="JSON.stringify(this.data)"  name="plannextweek" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -134,7 +134,7 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"weekly",version:"editor"}' :exportparams='{objecttype:"weekly",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -259,7 +259,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzWeeklyService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
+import IbzWeeklyEntityService from '@/app-core/service/ibz-weekly/ibz-weekly-service';
 import MobWeekEditService from '@/app-core/ctrl-service/ibz-weekly/mob-week-edit-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -371,7 +371,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      * @type {IbzWeeklyService}
      * @memberof MobWeekEdit
      */
-    protected appEntityService: IbzWeeklyService = new IbzWeeklyService();
+    protected appEntityService: IbzWeeklyEntityService = new IbzWeeklyEntityService();
 
     /**
      * 界面UI服务对象
@@ -468,6 +468,14 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      * @memberof MobWeekEdit
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -634,16 +642,20 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         workthisweek: [
-            { required: true, type: 'string', message: '本周工作 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '本周工作 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         plannextweek: [
-            { required: true, type: 'string', message: '下周计划 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '下周计划 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
         reportto: [
-            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
+        ],
+        reporttopk: [
+            { required: true, type: 'string', message: 'required', trigger: 'change' },
+            { required: true, type: 'string', message: 'required', trigger: 'blur' },
         ],
     }
 
@@ -1127,7 +1139,9 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`ibzweekly.mobweekedit_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1354,6 +1368,9 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      *  @memberof MobWeekEdit
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.ibzweekly});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1404,7 +1421,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"IbzWeekly")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.ibzweekly){
                     this.refresh([data]);
                 }
             })
@@ -1630,6 +1647,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ ibzweeklyname: arg.ibzweeklyname});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1708,10 +1726,9 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"IbzWeekly",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1735,10 +1752,9 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"IbzWeekly",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

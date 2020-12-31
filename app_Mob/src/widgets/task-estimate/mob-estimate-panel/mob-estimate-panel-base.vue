@@ -7,7 +7,7 @@
                 <ion-col v-show="detailsModel.date.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -23,7 +23,7 @@
                 <ion-col v-show="detailsModel.consumed.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.consumed" :context="context" :value="data.consumed" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.consumed" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -39,7 +39,7 @@
                 <ion-col v-show="detailsModel.left.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.left" :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -55,7 +55,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-service';
+import TaskEstimateEntityService from '@/app-core/service/task-estimate/task-estimate-service';
 import MobEstimateService from '@/app-core/ctrl-service/task-estimate/mob-estimate-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -165,7 +165,7 @@ export default class MobEstimateBase extends Vue implements ControlInterface {
      * @type {TaskEstimateService}
      * @memberof MobEstimate
      */
-    protected appEntityService: TaskEstimateService = new TaskEstimateService();
+    protected appEntityService: TaskEstimateEntityService = new TaskEstimateEntityService();
 
     /**
      * 界面UI服务对象

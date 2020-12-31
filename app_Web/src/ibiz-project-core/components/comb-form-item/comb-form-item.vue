@@ -1,7 +1,7 @@
 <template>
     <div v-if="formItems"  class="comb-form-item">
         <template v-for="(item, i) of formItems">
-            <app-form-item v-if="!item.hidden" :key="i" :name='item.prop' :caption="item.name" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :isEmptyCaption="false" labelPos="LEFT">
+            <app-form-item v-if="!item.hidden" :key="i" :name='item.prop' :caption="$t(item.localetag)" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :isEmptyCaption="false" labelPos="LEFT">
                 <template v-for="(val, n) of valItems">
                     <div class="comb-item" :key="n">
                         <slot :name="item.prop" :item="val"></slot>

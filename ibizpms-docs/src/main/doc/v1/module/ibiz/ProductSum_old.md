@@ -42,6 +42,16 @@
 |已立项阶段需求工时|PROJECTEDSTAGESTORYHOURS|INT|&nbsp;|
 |已计划阶段需求工时|PLANEDSTAGESTORYHOURS|INT|&nbsp;|
 |总工时|TOTALHOURS|INT|&nbsp;|
+|代码错误|CODEERROR|INT|&nbsp;|
+|配置相关|CONFIG|INT|&nbsp;|
+|安装部署|INSTALL|INT|&nbsp;|
+|安全相关|SECURITY|INT|&nbsp;|
+|性能问题|PERFORMANCE|INT|&nbsp;|
+|标准规范|STANDARD|INT|&nbsp;|
+|测试脚本|AUTOMATION|INT|&nbsp;|
+|设计缺陷|DESIGNDEFECT|INT|&nbsp;|
+|其他|OTHERS|INT|&nbsp;|
+|bug总计|BUGSUM|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -79,6 +89,16 @@
 |已立项阶段需求工时|默认规则|默认规则|
 |已计划阶段需求工时|默认规则|默认规则|
 |总工时|默认规则|默认规则|
+|代码错误|默认规则|默认规则|
+|配置相关|默认规则|默认规则|
+|安装部署|默认规则|默认规则|
+|安全相关|默认规则|默认规则|
+|性能问题|默认规则|默认规则|
+|标准规范|默认规则|默认规则|
+|测试脚本|默认规则|默认规则|
+|设计缺陷|默认规则|默认规则|
+|其他|默认规则|默认规则|
+|bug总计|默认规则|默认规则|
 
 ## 状态控制
 
@@ -111,6 +131,7 @@
 |ProductPlancntAndStorycnt_PO|产品计划数和需求数_产品经理([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductPlancntAndStorycnt_PO))|否|&nbsp;|
 |ProductStoryHoursSum|产品需求工时汇总([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductStoryHoursSum))|否|&nbsp;|
 |ProductStorySum|产品需求汇总查询([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductStorySum))|否|&nbsp;|
+|ProductSumBugType|产品Bug类型统计([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductSumBugType))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_View))|否|&nbsp;|
 
 * **数据集合**
@@ -123,6 +144,7 @@
 |ProductStoryHoursSum|产品需求工时汇总|ProductStoryHoursSum|否|&nbsp;|
 |ProductStorySum|产品需求汇总查询|ProductStorySum|否|&nbsp;|
 |ProductStorycntAndPlancnt|产品计划数和需求数|ProductPlancntAndStorycnt_PO|否|&nbsp;|
+|ProductSumBugType|产品Bug类型统计|ProductSumBugType|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

@@ -4,7 +4,7 @@
         <div>
                         <view_meditviewpanel
                 :viewState="viewState"
-                viewName="TaskEstimateMobMEditView9"  
+                viewName="MobMEditView9"
                 :viewparams="viewparams" 
                 :context="context" 
                 :showBusyIndicator="true" 

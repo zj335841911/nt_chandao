@@ -126,8 +126,8 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
             this.getSearchCond().ne("`date`", n_date_noteq);
         }
     }
-	private Integer n_private_eq;//[私人事务]
-	public void setN_private_eq(Integer n_private_eq) {
+	private String n_private_eq;//[私人事务]
+	public void setN_private_eq(String n_private_eq) {
         this.n_private_eq = n_private_eq;
         if(!ObjectUtils.isEmpty(this.n_private_eq)){
             this.getSearchCond().eq("`private`", n_private_eq);

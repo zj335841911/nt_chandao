@@ -238,8 +238,28 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
      * 查询集合 项目团队管理
      */
     @Override
+    public Page<SysEmployee> searchProductTeamM(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProductTeamM(context);
+        return sysEmployees;
+    }
+
+
+    /**
+     * 查询集合 项目团队管理
+     */
+    @Override
     public Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) {
         Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectTeamM(context);
+        return sysEmployees;
+    }
+
+
+    /**
+     * 查询集合 项目团队管理
+     */
+    @Override
+    public Page<SysEmployee> searchProjectTeamMProduct(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectTeamMProduct(context);
         return sysEmployees;
     }
 
@@ -280,6 +300,16 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     @Override
     public Page<SysEmployee> searchProjectteamPk(SysEmployeeSearchContext context) {
         Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectteamPk(context);
+        return sysEmployees;
+    }
+
+
+    /**
+     * 查询集合 产品团队成员选择
+     */
+    @Override
+    public Page<SysEmployee> searchStoryProductTeamPK(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchStoryProductTeamPK(context);
         return sysEmployees;
     }
 

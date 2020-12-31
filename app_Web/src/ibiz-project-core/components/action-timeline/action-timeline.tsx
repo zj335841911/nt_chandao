@@ -142,7 +142,7 @@ export class ActionTimeline extends Vue {
                 }
                 const data2 = this.actionObjectType.find(code => Object.is(code.value, item.objecttype));
                 if (data2) {
-                    item.objectTypeText = data2.text;
+                    item.objectTypeText = "codelist.Action__object_type." + data2.value;
                 }
                 //根据列数据模型处理列表项代码表
                 this.listItemCodelist(item);
@@ -219,7 +219,7 @@ export class ActionTimeline extends Vue {
                     {item.dateText}
                 </div>
                 <div class="timeline-content">
-                    {item.data.actor}&nbsp;{item.data.actionText}&nbsp;{item.data.objectTypeText}
+                    {item.data.actor}&nbsp;{item.data.actionText}&nbsp;{item.data.objectTypeText ? this.$t(item.data.objectTypeText) : ""}
                 </div>
             </li>;
         })}</ul>;

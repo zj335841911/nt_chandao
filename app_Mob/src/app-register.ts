@@ -4,6 +4,7 @@ import { IonPage } from './components/ion-page/ion-page';
 import { AppEmbedView } from './components/app-embed-view/app-embed-view';
 
 import AppKeepAlive from './components/app-keep-alive/app-keep-alive.vue';
+import AppMobFileList from './components/app-mob-file-list/app-mob-file-list.vue';
 
 /**
  * Vue插件
@@ -116,7 +117,6 @@ export const AppComponents = {
 
         //界面行为操作栏
         v.component('app-actionbar',() => import('@/components/app-actionbar/app-actionbar.vue'));
-
         // 路由缓存
         v.component('app-keep-alive', AppKeepAlive);
         v.component('app-list-index',() => import('@/components/app-list-index/app-list-index.vue'));
@@ -148,5 +148,27 @@ export const AppComponents = {
         v.component('app-select-tree-list',() => import('@/components/app-select-tree-list/app-select-tree-list.vue'));
         // 上下文菜单
         v.component('app-mob-context-menu',() => import('@/components/app-mob-context-menu/app-mob-context-menu.vue'));
+        // 单位选择器
+        v.component('app-mob-org-select',() => import('@/components/app-mob-org-select/app-mob-org-select.vue'));
+        // 部门选择器
+        v.component('app-mob-department-select',() => import('@/components/app-mob-department-select/app-mob-department-select.vue'));
+        // 人员部门选择器
+        v.component('app-mob-department-personnel',() => import('@/components/app-mob-department-personnel/app-mob-department-personnel.vue'));
+        v.component('app-mob-group-picker',() => import('@/components/app-mob-group-picker/app-mob-group-picker.vue'));
+        v.component('app-mob-group-select',() => import('@/components/app-mob-group-select/app-mob-group-select.vue'));
+        // 树选择
+        v.component('app-tree',() => import('@/components/app-tree/app-tree.vue'));
+        //文件列表
+        v.component('app-mob-file-list',AppMobFileList);
+
+        // ui组件 BEGIN
+        // 按钮
+        v.component('app-mob-button',() => import('@/components/ui-components/app-mob-button/app-mob-button.vue'));
+        //图标
+        v.component('app-mob-icon',() => import('@/components/ui-components/app-mob-icon/app-mob-icon.vue'));
+        //标题
+        v.component('app-mob-title',() => import('@/components/ui-components/app-mob-title/app-mob-title.vue'));
+        //header
+        v.component('app-mob-header',() => import('@/components/ui-components/app-mob-header/app-mob-header.vue'));       
     },
 };

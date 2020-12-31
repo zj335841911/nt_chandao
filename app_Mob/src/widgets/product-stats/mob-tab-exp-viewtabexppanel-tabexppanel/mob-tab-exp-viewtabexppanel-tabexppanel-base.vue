@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
                         <view_tabviewpanel4
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel4"  
@@ -36,7 +36,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel5'">
                         <view_tabviewpanel5
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel5"  
@@ -47,7 +47,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
                         <view_tabviewpanel3
                 :viewState="viewState"
-                viewName="ProductStatsMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel3"  
@@ -65,7 +65,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
+import ProductStatsEntityService from '@/app-core/service/product-stats/product-stats-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/product-stats/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -174,7 +174,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {ProductStatsService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected appEntityService: ProductStatsService = new ProductStatsService();
+    protected appEntityService: ProductStatsEntityService = new ProductStatsEntityService();
 
     /**
      * 界面UI服务对象

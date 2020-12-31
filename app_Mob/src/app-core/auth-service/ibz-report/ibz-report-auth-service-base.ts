@@ -2,7 +2,7 @@ import { AuthService } from '@ibiz-core/auth-service/auth-service-base';
 
 
 /**
- * 汇报权限服务对象基类
+ * 汇报汇总权限服务对象基类
  *
  * @export
  * @class IbzReportAuthServiceBase

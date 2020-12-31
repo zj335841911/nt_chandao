@@ -33,7 +33,6 @@
     :error="detailsModel.prodoctname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.prodoctname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="DYNAMIC" 
     tag="ProductBranch_Cache"
     :isCache="false" 
-    v-if="data.branch"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.modulename1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.modulename1"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -151,7 +148,6 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -182,7 +178,6 @@
     codeListType="STATIC" 
     tag="Story__type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -213,13 +208,42 @@
     codeListType="STATIC" 
     tag="Story__pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
     :value="data.pri" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='storypoints' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="storypoints_item"  
+    :itemValue="this.data.storypoints" 
+    v-show="detailsModel.storypoints.visible" 
+    :itemRules="this.rules.storypoints" 
+    :caption="$t('story.mobmain_form.details.storypoints')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.storypoints.disabled"
+    :error="detailsModel.storypoints.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    codeListType="STATIC" 
+    tag="StoryPoints"
+    :isCache="false" 
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.storypoints" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -244,7 +268,6 @@
     codeListType="STATIC" 
     tag="Story__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -273,9 +296,8 @@
     :isEmptyCaption="false">
         <app-mob-span  
     codeListType="DYNAMIC" 
-    tag="UserRealName"
+    tag="UserRealNameProductTeam"
     :isCache="false" 
-    v-if="data.assignedto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -303,7 +325,6 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.assigneddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -334,7 +355,6 @@
     codeListType="STATIC" 
     tag="Story__source"
     :isCache="false" 
-    v-if="data.source"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -362,7 +382,6 @@
     :error="detailsModel.sourcenote.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.sourcenote"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -393,7 +412,6 @@
     codeListType="STATIC" 
     tag="Story__stage"
     :isCache="false" 
-    v-if="data.stage"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -424,7 +442,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.closedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -452,7 +469,6 @@
     :error="detailsModel.closeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.closeddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -483,7 +499,6 @@
     codeListType="STATIC" 
     tag="Story__closed_reason"
     :isCache="false" 
-    v-if="data.closedreason"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -553,7 +568,6 @@
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.mailtopk"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -581,7 +595,6 @@
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.keywords"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -694,7 +707,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import MobMainService from '@/app-core/ctrl-service/story/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -806,7 +819,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {StoryService}
      * @memberof MobMain
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象
@@ -903,6 +916,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -1021,6 +1042,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         title: null,
         type: null,
         pri: null,
+        storypoints: null,
         status: null,
         assignedto: null,
         assigneddate: null,
@@ -1212,6 +1234,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         type: new FormItemModel({ caption: '需求类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        storypoints: new FormItemModel({ caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1447,6 +1471,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.pri')
     onPriChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 storypoints 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.storypoints')
+    onStorypointsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'storypoints', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1704,6 +1740,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
         if (Object.is(name, 'version')) {
             const details: string[] = ['title', 'spec', 'verify'];
             if(await this.validItem('version', this.data['version'])){
@@ -1729,7 +1766,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`story.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1956,6 +1995,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *  @memberof MobMain
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.story});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -2006,7 +2048,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Story")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.story){
                     this.refresh([data]);
                 }
             })
@@ -2232,6 +2274,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ title: arg.title});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -2310,10 +2353,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -2337,10 +2379,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

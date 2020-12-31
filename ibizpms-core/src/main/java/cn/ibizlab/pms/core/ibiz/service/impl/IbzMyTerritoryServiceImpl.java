@@ -60,6 +60,9 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyTerritoryCountLogic myterritorycountLogic;
+    @Autowired
+    @Lazy
+    IIbzMyTerritoryService proxyService;
 
     protected int batchSize = 500;
 
@@ -166,21 +169,49 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzMyTerritory> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzMyTerritory> create = new ArrayList<>();
+        List<IbzMyTerritory> update = new ArrayList<>();
+        for (IbzMyTerritory et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzMyTerritory> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzMyTerritory> create = new ArrayList<>();
+        List<IbzMyTerritory> update = new ArrayList<>();
+        for (IbzMyTerritory et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 
@@ -209,6 +240,15 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Override
     public Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWorkMob(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 个人信息-个人贡献
+     */
+    @Override
+    public Page<IbzMyTerritory> searchPersonInfo(IbzMyTerritorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchPersonInfo(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

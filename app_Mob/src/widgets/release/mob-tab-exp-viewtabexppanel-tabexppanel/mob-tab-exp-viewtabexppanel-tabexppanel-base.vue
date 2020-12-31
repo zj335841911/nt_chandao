@@ -3,7 +3,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="ReleaseMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
@@ -14,7 +14,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
                         <view_tabviewpanel4
                 :viewState="viewState"
-                viewName="ReleaseMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel4"  
@@ -25,7 +25,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel5'">
                         <view_tabviewpanel5
                 :viewState="viewState"
-                viewName="ReleaseMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel5"  
@@ -36,7 +36,7 @@
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
                         <view_tabviewpanel3
                 :viewState="viewState"
-                viewName="ReleaseMobTabExpView"  
+                viewName="MobTabExpView"
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel3"  
@@ -54,7 +54,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ReleaseService from '@/app-core/service/release/release-service';
+import ReleaseEntityService from '@/app-core/service/release/release-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/release/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -164,7 +164,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {ReleaseService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected appEntityService: ReleaseService = new ReleaseService();
+    protected appEntityService: ReleaseEntityService = new ReleaseEntityService();
 
     /**
      * 界面UI服务对象

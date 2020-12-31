@@ -33,7 +33,6 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -64,7 +63,6 @@
     codeListType="STATIC" 
     tag="Pri"
     :isCache="false" 
-    v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -92,7 +90,6 @@
     :error="detailsModel.date1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.date1"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -123,7 +120,6 @@
     codeListType="STATIC" 
     tag="BeginendDropList"
     :isCache="false" 
-    v-if="data.begin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -154,7 +150,6 @@
     codeListType="STATIC" 
     tag="BeginendDropList"
     :isCache="false" 
-    v-if="data.end"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -185,7 +180,6 @@
     codeListType="STATIC" 
     tag="Type"
     :isCache="false" 
-    v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -216,7 +210,6 @@
     codeListType="STATIC" 
     tag="Todo__status"
     :isCache="false" 
-    v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -247,7 +240,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -275,7 +267,6 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-    v-if="data.assigneddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -306,7 +297,6 @@
     codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
@@ -334,6 +324,41 @@
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='noticeusers' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="noticeusers_item"  
+    :itemValue="this.data.noticeusers" 
+    v-show="detailsModel.noticeusers.visible" 
+    :itemRules="this.rules.noticeusers" 
+    :caption="$t('todo.mobmain_form.details.noticeusers')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.noticeusers.disabled"
+    :error="detailsModel.noticeusers.error" 
+    :isEmptyCaption="false">
+        <app-mob-group-select
+  name="noticeusers"
+  :value='data.noticeusers'
+  valueitem="desc"
+  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
+  treeurl="/sysorganizations/${orgid}/suborg/picker"
+  :multiple="true"
+  filter="srforgid"
+  :fillmap="{'id':'desc','label':'noticeusers'}"
+  :disabled="detailsModel.noticeusers.disabled"
+  :data="data"
+  :context="context"
+    tag='UserRealName_valueofid' codelistType='DYNAMIC'
+  @formitemvaluechange="onFormItemValueChange">
+</app-mob-group-select>
 
 </app-form-item>
 
@@ -396,7 +421,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TodoService from '@/app-core/service/todo/todo-service';
+import TodoEntityService from '@/app-core/service/todo/todo-service';
 import MobMainService from '@/app-core/ctrl-service/todo/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -508,7 +533,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @type {TodoService}
      * @memberof MobMain
      */
-    protected appEntityService: TodoService = new TodoService();
+    protected appEntityService: TodoEntityService = new TodoEntityService();
 
     /**
      * 界面UI服务对象
@@ -605,6 +630,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     @Prop() protected removeAction!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof YDDTBJ
+     */
+    @Prop({ default: false }) protected isautoload?: boolean;
     
     /**
      * 部件行为--loaddraft
@@ -724,6 +757,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         assigneddate: null,
         assignedto: null,
         desc: null,
+        noticeusers: null,
         id: null,
         todo: null,
     };
@@ -899,6 +933,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        noticeusers: new FormItemModel({ caption: '测试人员', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1121,6 +1157,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1191,6 +1239,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
 
@@ -1210,7 +1259,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
+                const {field , message } = errors[0];
+                let _message :any = (this.$t(`todo.mobmain_form.details.${field}`) as string) +' '+ this.$t(`app.form.rules.${message}`);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]: _message);
                 resolve(false);
             });
         });
@@ -1437,6 +1488,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *  @memberof MobMain
      */    
     protected afterCreated(){
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context.todo});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -1487,7 +1541,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 if(!Object.is(name,"Todo")){
                     return;
                 }
-                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction && this.context.todo){
                     this.refresh([data]);
                 }
             })
@@ -1713,6 +1767,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$notice.error(this.viewName+this.$t('app.view')+this.$t('app.ctrl.form')+actionName+ this.$t('app.notConfig'));
             return Promise.reject();
         }
+        Object.assign(this.viewparams,{ name: arg.name});
         Object.assign(arg, this.viewparams);
         let response: any = null;
         if (Object.is(data.srfuf, '1')) {
@@ -1791,10 +1846,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         Object.assign(arg, this.viewparams);
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
-            this.$notice.success('工作流启动成功');
             AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data});
+            return response
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流启动失败, ' + response.error.message);
         }
         return response;
     }
@@ -1818,10 +1872,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
-            this.$notice.success('工作流提交成功');
             AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data});
+            return response        
         } else if (response && response.status !== 401) {
-            this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
         }
     }

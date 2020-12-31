@@ -66,7 +66,7 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
-        name: 'thisweektask1',
+        name: 'thisweektask',
         prop: 'thisweektask',
         dataType: 'SMCODELIST',
       },
@@ -83,12 +83,12 @@ export default class MainModel {
       {
         name: 'plannextweek',
         prop: 'plannextweek',
-        dataType: 'SMCODELIST',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'comment',
         prop: 'comment',
-        dataType: 'TEXT',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'files',

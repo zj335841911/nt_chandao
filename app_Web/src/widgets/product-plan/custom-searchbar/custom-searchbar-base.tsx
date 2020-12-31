@@ -86,6 +86,7 @@ export class CustomSearchbarBase extends MainControlBase {
     public detailsModel: any = {
         'titlelike': {
             label: '名称',
+            localetag: 'entities.productplan.fields.title',
             name: 'titlelike',
             prop: 'title',
             mode: 'LIKE',
@@ -93,6 +94,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'producteq': {
             label: '产品',
+            localetag: 'entities.productplan.fields.product',
             name: 'producteq',
             prop: 'product',
             mode: 'EQ',
@@ -100,6 +102,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'begingteq': {
             label: '开始日期',
+            localetag: 'entities.productplan.fields.begin',
             name: 'begingteq',
             prop: 'begin',
             mode: 'GTANDEQ',
@@ -107,6 +110,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'brancheq': {
             label: '平台/分支',
+            localetag: 'entities.productplan.fields.branch',
             name: 'brancheq',
             prop: 'branch',
             mode: 'EQ',
@@ -114,6 +118,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'deltaeq': {
             label: '周期',
+            localetag: 'entities.productplan.fields.delta',
             name: 'deltaeq',
             prop: 'delta',
             mode: 'EQ',
@@ -121,6 +126,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'endlteq': {
             label: '结束日期',
+            localetag: 'entities.productplan.fields.end',
             name: 'endlteq',
             prop: 'end',
             mode: 'LTANDEQ',
@@ -128,6 +134,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'futureeq': {
             label: '待定',
+            localetag: 'entities.productplan.fields.future',
             name: 'futureeq',
             prop: 'future',
             mode: 'EQ',
@@ -135,6 +142,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'isexpiredeq': {
             label: '是否过期',
+            localetag: 'entities.productplan.fields.isexpired',
             name: 'isexpiredeq',
             prop: 'isexpired',
             mode: 'EQ',
@@ -142,6 +150,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'parentnameeq': {
             label: '父计划名称',
+            localetag: 'entities.productplan.fields.parentname',
             name: 'parentnameeq',
             prop: 'parentname',
             mode: 'EQ',
@@ -149,6 +158,7 @@ export class CustomSearchbarBase extends MainControlBase {
         },
         'parentnamelike': {
             label: '父计划名称',
+            localetag: 'entities.productplan.fields.parentname',
             name: 'parentnamelike',
             prop: 'parentname',
             mode: 'LIKE',

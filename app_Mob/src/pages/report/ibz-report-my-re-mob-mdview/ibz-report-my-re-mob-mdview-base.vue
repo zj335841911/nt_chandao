@@ -1,15 +1,16 @@
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'ibz-report-my-re-mob-mdview': true }">
     
-    <ion-header>
+    <app-mob-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
             <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
+                <app-mob-button 
+                    v-show="isShowBackButton" 
+                    iconName="chevron-back" 
+                    :text="$t('app.button.back')" 
+                    @click="closeView" />
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <app-mob-title class="view-title"><label class="title-label"><app-mob-icon v-if="model.icon" :name="model.icon"></app-mob-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></app-mob-title>
         </ion-toolbar>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
@@ -22,21 +23,21 @@
                     </div>
                 </div>
                 <div class="mdview-tools-select">
-                    <app-van-select  name="n_type_eq" title="模板" :items="[{value:'weekly',label:'周报'},{value:'daily',label:'日报'},{value:'monthly',label:'月报'},]" @onConfirm="onCategory"></app-van-select>
+                    <app-van-select  name="n_type_eq" title="模板" :items="[{value:'weekly',label:'周报'},{value:'daily',label:'日报'},{value:'monthly',label:'月报'},{value:'reportly',label:'汇报'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
             </div>
-    </ion-header>
+    </app-mob-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
+        <app-mob-header>
             <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
+                <app-mob-title>{{$t('app.searchForm.title')}}</app-mob-title>
             </ion-toolbar>
-        </ion-header>
+        </app-mob-header>
         <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
-    viewName="IbzReportMyReMobMDView"  
+    viewName="MyReMobMDView"
     :viewparams="viewparams" 
     :context="context" 
      
@@ -59,8 +60,19 @@
         </div>
         <ion-footer>
         <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+            <app-mob-button 
+            class="search-btn-item"
+            :text="$t('app.searchForm.searchButton.reset')" 
+            color="light" 
+            shape="round" 
+            size="small"
+            @click="onReset" />
+            <app-mob-button 
+            class="search-btn-item" 
+            shape="round" 
+            size="small" 
+            :text="$t('app.searchForm.searchButton.search')" 
+            @click="onSearch" />
         </div>
         </ion-footer>
     </van-popup>
@@ -82,7 +94,7 @@
         </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="IbzReportMyReMobMDView"  
+            viewName="MyReMobMDView"
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"
@@ -110,6 +122,9 @@
     </ion-content>
     <ion-footer class="view-footer">
         
+    <div class="scroll_tool">
+        <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+    </div>
     </ion-footer>
 </ion-page>
 </template>
@@ -754,7 +769,9 @@ export default class IbzReportMyReMobMDViewBase extends Vue {
                 if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
                     let mdctrl:any = this.$refs.mdctrl; 
                     if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
-                        mdctrl.loadBottom();
+                        mdctrl.loadStatus = true;
+                        await mdctrl.loadBottom()
+                        mdctrl.loadStatus = false;
                     }           
                 }
             }

@@ -118,13 +118,13 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '名称 值不能为空',
+                    message: `${this.$t('entities.branch.platformmanagement_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.name.required,
                     type: 'string',
-                    message: '名称 值不能为空',
+                    message: `${this.$t('entities.branch.platformmanagement_form.details.name')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

@@ -67,6 +67,9 @@ export default class StoryKanBanModel {
 				name: 'id',
 			},
 			{
+				name: 'project',
+			},
+			{
 				name: 'pri',
 			},
 			{

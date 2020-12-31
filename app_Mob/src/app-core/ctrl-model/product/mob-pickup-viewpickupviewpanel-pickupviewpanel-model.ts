@@ -156,6 +156,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'ibiz_id',
       },
+      {
+        name: 'supproreport',
+      },
     ]
   }
 

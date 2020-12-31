@@ -9,12 +9,14 @@ import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.mapper.BuildMapper;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 /**
@@ -193,6 +195,21 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         return et;
     }
 
+
+    public boolean delete(Long key){
+        Build old = this.get(key);
+        if (old.getBugs() !=null && "".equals(old.getBugs())){
+            throw  new RuntimeException("已有Bug的解决版本关联此版本，不能删除!");
+        }
+        List<Bug> linkedBugs = bugHelper.list(new QueryWrapper<Bug>().in("openedBuild",old.getId()));
+        for (Bug bug : linkedBugs) {
+            if (Arrays.asList(bug.getOpenedbuild().split(",")).contains(key.toString())){
+                throw new RuntimeException("已有bug的影响版本关联此版本，不能删除！");
+            }
+        }
+
+        return super.delete(key);
+    }
 
 
 }

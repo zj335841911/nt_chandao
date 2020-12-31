@@ -197,4 +197,12 @@ export interface IbzReport {
      * @memberof IbzReport
      */
     submittime?: any;
+
+    /**
+     * 未读汇报数
+     *
+     * @returns {*}
+     * @memberof IbzReport
+     */
+    reportlycnt?: any;
 }

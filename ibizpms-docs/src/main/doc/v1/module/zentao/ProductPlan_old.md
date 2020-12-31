@@ -38,6 +38,7 @@ hide members
 |工时数|ESTIMATECNT|INT|&nbsp;|
 |开始日期|BEGINSTR|TEXT|&nbsp;|
 |结束日期|ENDSTR|TEXT|&nbsp;|
+|计划模板|PLANTEMPLET|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -63,6 +64,7 @@ hide members
 |工时数|默认规则|默认规则|
 |开始日期|默认规则|内容长度必须小于等于[200]|
 |结束日期|默认规则|内容长度必须小于等于[200]|
+|计划模板|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -87,6 +89,7 @@ hide members
 |批量解除关联需求|用户自定义|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |计算计划结束时间|用户自定义|&nbsp;|
+|导入计划模板|用户自定义|&nbsp;|
 |关联Bug|用户自定义|&nbsp;|
 |关联需求|用户自定义|&nbsp;|
 |移动端产品计划计数器|实体处理逻辑|&nbsp;|
@@ -180,6 +183,7 @@ hide footbox
 |待定(FUTURE)|EQ|
 |周期(DELTA)|EQ|
 |是否过期(ISEXPIRED)|EQ|
+|计划模板(PLANTEMPLET)|EQ|
 
 ## 导入模式
 无

@@ -107,8 +107,8 @@ export class TypeGanttGanttBase extends MainControlBase {
         }
         const view: any = {
             viewname: 'task-main-dashboard-view', 
-            height: 0, 
-            width: 1360,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.task.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };
@@ -158,8 +158,8 @@ export class TypeGanttGanttBase extends MainControlBase {
         }
         const view: any = {
             viewname: 'task-main-dashboard-view', 
-            height: 0, 
-            width: 1360,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.task.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };

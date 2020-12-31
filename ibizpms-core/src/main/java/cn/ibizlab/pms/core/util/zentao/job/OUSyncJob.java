@@ -32,14 +32,7 @@ import java.util.List;
 @ConditionalOnExpression("'${spring.application.name}'.startsWith('pms-webapi')")
 public class OUSyncJob implements ApplicationRunner {
     @Autowired
-    IBZOUFeignClient feignClient;
-    @Autowired
     IUserService userService;
-    @Autowired
-    IDeptService deptService;
-    @Autowired
-    ICompanyService companyService;
-
     @Value("${pms.batchsync.ou:false}")
     private boolean batchUpdate;
     @Override
@@ -50,20 +43,7 @@ public class OUSyncJob implements ApplicationRunner {
     }
     public void syncAccount(){
         try {
-            Thread.sleep(10000);
-            JSONObject jo= new JSONObject();
-            jo.put("orgs",companyService.list());
-            jo.put("depts",deptService.list());
-            jo.put("emps",userService.list());
-            Long start = new Date().getTime();
-            log.info("sycn:[{}]",jo);
-            if(feignClient.sync(jo)){
-                log.info("向[OU]同步用户资源成功");
-            }else{
-                log.error("向[OU]同步用户资源失败");
-            }
-            Long end = new Date().getTime();
-            log.info("同步用户资源耗时：{}ms",end-start);
+            userService.syncAccount(new User());
         }
         catch (Exception ex) {
             ex.printStackTrace();

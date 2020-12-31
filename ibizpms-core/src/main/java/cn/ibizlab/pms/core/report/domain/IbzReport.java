@@ -32,7 +32,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
- * 实体[汇报]
+ * 实体[汇报汇总]
  */
 @Getter
 @Setter
@@ -224,6 +224,13 @@ public class IbzReport extends EntityMP implements Serializable {
     @JSONField(name = "submittime")
     @JsonProperty("submittime")
     private String submittime;
+    /**
+     * 未读汇报数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reportlycnt")
+    @JsonProperty("reportlycnt")
+    private Integer reportlycnt;
 
 
 

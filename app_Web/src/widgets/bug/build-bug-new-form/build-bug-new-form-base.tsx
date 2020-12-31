@@ -143,13 +143,13 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.productname.required,
                     type: 'string',
-                    message: '产品 值不能为空',
+                    message: `${this.$t('entities.bug.buildbugnew_form.details.productname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.productname.required,
                     type: 'string',
-                    message: '产品 值不能为空',
+                    message: `${this.$t('entities.bug.buildbugnew_form.details.productname')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -157,13 +157,13 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.openedbuild.required,
                     type: 'string',
-                    message: '影响版本 值不能为空',
+                    message: `${this.$t('entities.bug.buildbugnew_form.details.openedbuild')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.openedbuild.required,
                     type: 'string',
-                    message: '影响版本 值不能为空',
+                    message: `${this.$t('entities.bug.buildbugnew_form.details.openedbuild')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -171,13 +171,13 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: 'Bug标题 值不能为空',
+                    message: `${this.$t('entities.bug.buildbugnew_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.title.required,
                     type: 'string',
-                    message: 'Bug标题 值不能为空',
+                    message: `${this.$t('entities.bug.buildbugnew_form.details.title')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],

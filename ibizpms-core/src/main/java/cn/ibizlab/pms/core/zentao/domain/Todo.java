@@ -199,7 +199,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`private`")
     @JSONField(name = "ibizprivate")
     @JsonProperty("ibizprivate")
-    private Integer ibizprivate;
+    private String ibizprivate;
     /**
      * config
      */
@@ -482,7 +482,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [私人事务]
      */
-    public void setIbizprivate(Integer ibizprivate) {
+    public void setIbizprivate(String ibizprivate) {
         this.ibizprivate = ibizprivate;
         this.modify("private", ibizprivate);
     }

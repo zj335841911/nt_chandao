@@ -4,8 +4,13 @@
 
 ## 关系
 {% plantuml %}
+产品 *-- 产品日报 
+产品 *-- 产品月报 
+产品 *-- 产品周报 
 产品 *-- Bug统计 
+产品 *-- 测试用例统计 
 产品 *-- 需求模块 
+产品 *-- 产品团队 
 产品 *-- 测试模块 
 产品 *-- 产品的分支和平台信息 
 产品 *-- Bug 
@@ -23,6 +28,7 @@
 产品 *-- 测试套件 
 产品 *-- 测试版本 
 模块 *-- 产品 
+索引检索 <|-- 产品 
 hide members
 {% endplantuml %}
 
@@ -77,6 +83,7 @@ hide members
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
+|支持产品汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -130,6 +137,7 @@ hide members
 |组织标识|默认规则|内容长度必须小于等于[100]|
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |IBIZ标识|默认规则|内容长度必须小于等于[100]|
+|支持产品汇报|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -300,6 +308,7 @@ hide footbox
 |CurUer|当前用户([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurUer))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Product_Default))|否|&nbsp;|
 |ProductPM|产品总览([MYSQL5](../../appendix/query_MYSQL5.md#Product_ProductPM))|否|&nbsp;|
+|ProductTeam|产品团队([MYSQL5](../../appendix/query_MYSQL5.md#Product_ProductTeam))|否|&nbsp;|
 |StoryCURPROJECT|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Product_StoryCurProject))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Product_View))|否|&nbsp;|
 
@@ -314,6 +323,7 @@ hide footbox
 |CurUer|当前用户|CurUer|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |ProductPM|产品总览|ProductPM|否|&nbsp;|
+|ProductTeam|产品团队|ProductTeam|否|&nbsp;|
 |StoryCURPROJECT|当前项目|StoryCURPROJECT|否|&nbsp;|
 
 ## 查询模式

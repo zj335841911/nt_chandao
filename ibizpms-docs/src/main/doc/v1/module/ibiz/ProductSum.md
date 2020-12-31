@@ -49,6 +49,16 @@
 | 31 | [已立项阶段需求工时](#属性-已立项阶段需求工时（PROJECTEDSTAGESTORYHOURS）) | PROJECTEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
 | 32 | [已计划阶段需求工时](#属性-已计划阶段需求工时（PLANEDSTAGESTORYHOURS）) | PLANEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
 | 33 | [总工时](#属性-总工时（TOTALHOURS）) | TOTALHOURS | 整型 | 否 | 否 | 是 |
+| 34 | [代码错误](#属性-代码错误（CODEERROR）) | CODEERROR | 整型 | 否 | 否 | 是 |
+| 35 | [配置相关](#属性-配置相关（CONFIG）) | CONFIG | 整型 | 否 | 否 | 是 |
+| 36 | [安装部署](#属性-安装部署（INSTALL）) | INSTALL | 整型 | 否 | 否 | 是 |
+| 37 | [安全相关](#属性-安全相关（SECURITY）) | SECURITY | 整型 | 否 | 否 | 是 |
+| 38 | [性能问题](#属性-性能问题（PERFORMANCE）) | PERFORMANCE | 整型 | 否 | 否 | 是 |
+| 39 | [标准规范](#属性-标准规范（STANDARD）) | STANDARD | 整型 | 否 | 否 | 是 |
+| 40 | [测试脚本](#属性-测试脚本（AUTOMATION）) | AUTOMATION | 整型 | 否 | 否 | 是 |
+| 41 | [设计缺陷](#属性-设计缺陷（DESIGNDEFECT）) | DESIGNDEFECT | 整型 | 否 | 否 | 是 |
+| 42 | [其他](#属性-其他（OTHERS）) | OTHERS | 整型 | 否 | 否 | 是 |
+| 43 | [bug总计](#属性-bug总计（BUGSUM）) | BUGSUM | 整型 | 否 | 否 | 是 |
 
 ### 属性-主键标识（ID）
 #### 属性说明
@@ -149,7 +159,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+参照数据字典【[用户真实名称（动态-表格）（UserRealName_Gird）](../../codelist/UserRealName_Gird)】
 
 - 数据格式
 无
@@ -1331,6 +1341,376 @@ Integer
 #### 关系属性
 无
 
+### 属性-代码错误（CODEERROR）
+#### 属性说明
+代码错误
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-配置相关（CONFIG）
+#### 属性说明
+配置相关
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-安装部署（INSTALL）
+#### 属性说明
+安装部署
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-安全相关（SECURITY）
+#### 属性说明
+安全相关
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-性能问题（PERFORMANCE）
+#### 属性说明
+性能问题
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-标准规范（STANDARD）
+#### 属性说明
+标准规范
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-测试脚本（AUTOMATION）
+#### 属性说明
+测试脚本
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-设计缺陷（DESIGNDEFECT）
+#### 属性说明
+设计缺陷
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-其他（OTHERS）
+#### 属性说明
+其他
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-bug总计（BUGSUM）
+#### 属性说明
+bug总计
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -1456,7 +1836,8 @@ Save
 | 4 | [产品计划数和需求数_产品经理](#数据查询-产品计划数和需求数_产品经理（ProductPlancntAndStorycnt_PO）) | ProductPlancntAndStorycnt_PO | 否 |
 | 5 | [产品需求工时汇总](#数据查询-产品需求工时汇总（ProductStoryHoursSum）) | ProductStoryHoursSum | 否 |
 | 6 | [产品需求汇总查询](#数据查询-产品需求汇总查询（ProductStorySum）) | ProductStorySum | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 7 | [产品Bug类型统计](#数据查询-产品Bug类型统计（ProductSumBugType）) | ProductSumBugType | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1651,6 +2032,65 @@ from (select t1.`id`, t1.`name`, t1.`po`, t1.`status`, t2.`parent`, t2.`stage`, 
 where t1.`status` = 'normal' or (t1.`status` = 'closed' and #{srf.datacontext.closed} = '1')
 group by t1.`id`
 ```
+### 数据查询-产品Bug类型统计（ProductSumBugType）
+#### 说明
+产品Bug类型统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.*,
+	SUM(
+	IFNULL(t1.codeerror,0)  + IFNULL(t1.config,0) + IFNULL(t1.designdefect,0) +IFNULL(t1.standard,0)  + IFNULL(t1.performance,0) + IFNULL(t1.others,0) +IFNULL(t1.INSTALL,0)  + IFNULL(t1.automation,0) +IFNULL(t1.SECURITY ,0)
+	) AS bugsum 
+FROM
+	(
+SELECT
+	t1.id,
+	t1.NAME,
+	t1.po,
+	sum( IF ( t1.type = 'codeerror' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'codeerror',
+	sum( IF ( t1.type = 'config' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'config',
+	sum( IF ( t1.type = 'designdefect' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'designdefect',
+	sum( IF ( t1.type = 'standard' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'standard',
+	sum( IF ( t1.type = 'performance' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'performance',
+	sum( IF ( t1.type = 'others' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'others',
+	sum( IF ( t1.type = 'install' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'install',
+	sum( IF ( t1.type = 'automation' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'automation',
+	sum( IF ( t1.type = 'security' AND t1.deleted = '0', t1.rowcnt, 0 ) ) AS 'security' 
+FROM
+	(
+SELECT
+	t1.`id`,
+	t1.`name`,
+	t1.`po`,
+	t1.`status`,
+	t2.`type`,
+	t2.`title`,
+	t2.`deleted`,
+	1 AS `rowcnt` 
+FROM
+	zt_product t1
+	LEFT JOIN zt_bug t2 ON t1.`id` = t2.`product` 
+WHERE
+	t1.`deleted` = '0' 
+	) t1 
+WHERE
+	t1.`status` = 'normal' 
+	OR ( t1.`status` = 'closed' AND #{srf.datacontext.closed} = '1' ) 
+GROUP BY
+	t1.id 
+	) t1 
+GROUP BY
+	t1.id
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1709,6 +2149,7 @@ FROM `zt_product` t1
 | 4 | [产品需求工时汇总](#数据集合-产品需求工时汇总（ProductStoryHoursSum）) | ProductStoryHoursSum | 否 |
 | 5 | [产品需求汇总查询](#数据集合-产品需求汇总查询（ProductStorySum）) | ProductStorySum | 否 |
 | 6 | [产品计划数和需求数](#数据集合-产品计划数和需求数（ProductStorycntAndPlancnt）) | ProductStorycntAndPlancnt | 否 |
+| 7 | [产品Bug类型统计](#数据集合-产品Bug类型统计（ProductSumBugType）) | ProductSumBugType | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1794,6 +2235,20 @@ FROM `zt_product` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品计划数和需求数_产品经理（ProductPlancntAndStorycnt_PO）](#数据查询-产品计划数和需求数_产品经理（ProductPlancntAndStorycnt_PO）) |
+### 数据集合-产品Bug类型统计（ProductSumBugType）
+#### 说明
+产品Bug类型统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品Bug类型统计（ProductSumBugType）](#数据查询-产品Bug类型统计（ProductSumBugType）) |
 
 ## 数据导入
 无

@@ -14,6 +14,14 @@
                     <div class="lengend-icon" style="background:rgba(255, 166, 0, 1);"></div>
                     <span style="color:;">待办</span>
                 </div>
+                <div :class="{'event-lengend':true, 'daily':true, 'event-disabled':!isShowlegend.daily}" @click="legendTrigger('daily')">
+                    <div class="lengend-icon" style="background:rgba(60, 255, 0, 1);"></div>
+                    <span style="color:rgba(0, 0, 0, 1);">日报</span>
+                </div>
+                <div :class="{'event-lengend':true, 'reportly':true, 'event-disabled':!isShowlegend.reportly}" @click="legendTrigger('reportly')">
+                    <div class="lengend-icon" style="background:rgba(137, 2, 20, 1);"></div>
+                    <span style="color:;">汇报</span>
+                </div>
                 <div :class="{'event-lengend':true, 'testtask':true, 'event-disabled':!isShowlegend.testtask}" @click="legendTrigger('testtask')">
                     <div class="lengend-icon" style="background:rgba(95, 132, 245, 1);"></div>
                     <span style="color:;">测试单</span>

@@ -61,7 +61,7 @@ public class IBZZTFileService implements IIBZZTFileService {
         }
         try {
             if (params != null && params.get("objecttype") != null) {
-                String md5FileName = fileName;
+                String md5FileName = fileNameWithoutExt;
                 long curTime = System.currentTimeMillis();
                 md5FileName += curTime;
                 AuthenticationUser user = AuthenticationUser.getAuthenticationUser();
@@ -73,7 +73,9 @@ public class IBZZTFileService implements IIBZZTFileService {
                 md5FileName = DigestUtils.md5DigestAsHex(md5FileName.getBytes());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String curDate = sdf.format(new Date(curTime));
-                String fileShortPath = curDate + File.separator + md5FileName + extname;
+//                String fileShortPath = curDate + File.separator + md5FileName + extname;
+                String fileShortPath = curDate + File.separator + md5FileName;
+                fileShortPath = fileShortPath.replace("\\", "/");
                 String fileFullPath = filePath + fileShortPath;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());

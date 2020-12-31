@@ -47,6 +47,12 @@
 | 29 | [产品类型](#属性-产品类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
 | 30 | [产品排序](#属性-产品排序（ORDER1）) | ORDER1 | 整型 | 否 | 否 | 是 |
 | 31 | [是否置顶](#属性-是否置顶（ISTOP）) | ISTOP | 整型 | 否 | 否 | 是 |
+| 32 | [已完成的需求数](#属性-已完成的需求数（FINISHEDSTORYCNT）) | FINISHEDSTORYCNT | 整型 | 否 | 否 | 是 |
+| 33 | [解决Bug数](#属性-解决Bug数（RESOLVEDBUGCNT）) | RESOLVEDBUGCNT | 整型 | 否 | 否 | 是 |
+| 34 | [重要的Bug数](#属性-重要的Bug数（IMPORTANTBUGCNT）) | IMPORTANTBUGCNT | 整型 | 否 | 否 | 是 |
+| 35 | [需求所提bug数](#属性-需求所提bug数（BUGSTORY）) | BUGSTORY | 整型 | 否 | 否 | 是 |
+| 36 | [严重bug比](#属性-严重bug比（IMPORTANTBUGPERCENT）) | IMPORTANTBUGPERCENT | 文本，可指定长度 | 否 | 否 | 是 |
+| 37 | [已消耗工时](#属性-已消耗工时（HAVECONSUMED）) | HAVECONSUMED | 浮点 | 否 | 否 | 是 |
 
 ### 属性-产品编号（ID）
 #### 属性说明
@@ -1252,6 +1258,228 @@ Integer
 #### 关系属性
 无
 
+### 属性-已完成的需求数（FINISHEDSTORYCNT）
+#### 属性说明
+已完成的需求数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-解决Bug数（RESOLVEDBUGCNT）
+#### 属性说明
+解决Bug数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-重要的Bug数（IMPORTANTBUGCNT）
+#### 属性说明
+重要的Bug数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-需求所提bug数（BUGSTORY）
+#### 属性说明
+需求所提bug数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-严重bug比（IMPORTANTBUGPERCENT）
+#### 属性说明
+严重bug比
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已消耗工时（HAVECONSUMED）
+#### 属性说明
+已消耗工时
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -1403,7 +1631,10 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [产品质量表](#数据查询-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
+| 4 | [产品投入表](#数据查询-产品投入表（ProductInputTable）) | ProductInputTable | 否 |
+| 5 | [产品完成统计表](#数据查询-产品完成统计表（Productcompletionstatistics）) | Productcompletionstatistics | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1681,6 +1912,81 @@ FROM
 	`zt_product` t1
 	left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'product' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-产品质量表（ProdctQuantiGird）
+#### 说明
+产品质量表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.id,t1.`name`,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t2.finishedStory,0) as finishedStorycnt,IFNULL(t3.bugcnt,0) as bugcnt,IFNULL(t3.resolvedBugCnt,0) as resolvedBugCnt,IFNULL(t3.importantbugcnt,0) as importantbugcnt,IFNULL(t4.bugstory,0)  as bugstory , CONCAT(IFNULL(ROUND(t3.importantbugcnt/t3.bugcnt,2)*100,0),'%') as ImportantBugpercent
+from zt_product t1 LEFT JOIN (
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as storycnt ,
+SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStory
+from (
+select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product  ) t2 on t1.id = t2.product LEFT JOIN (
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as bugcnt,
+SUM(IF(t1.`STATUS` = 'closed' and t1.resolution in ('fixed'),t1.num,0)) as resolvedBugCnt,
+SUM(IF(t1.pri >= 1 and t1.pri <= 3,t1.num,0)) as importantbugcnt from 
+ (
+SELECT t1.`STATUS`,t1.resolution,t1.pri,t1.id,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0'
+) t1 GROUP BY t1.product) t3 on t1.id = t3.product  LEFT JOIN (
+SELECT t2.product,t2.`name`,COUNT(1) as bugstory from (
+SELECT t1.story,t1.product,t2.`name`,1 as num from zt_bug t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t1.story <> 0 and t1.deleted = '0' and t2.deleted = '0' ) t2
+GROUP BY t2.product ) t4 on t1.id = t4.product where t1.deleted = '0'
+```
+### 数据查询-产品投入表（ProductInputTable）
+#### 说明
+产品投入表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.id,t1.`name`,t1.RESPROJECTCNT,ROUND(IFNULL(t2.haveconsumed,0),2)  as haveconsumed from (
+SELECT t1.id,t1.`name`,COUNT(1) as RESPROJECTCNT from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project 
+where t3.deleted = '0' and t1.deleted = '0'
+GROUP BY t1.id) t1 
+LEFT JOIN (
+SELECT t1.id,t1.`name`,SUM(t4.consumed) as haveconsumed from zt_product t1 LEFT JOIN zt_projectproduct t2 on t1.id = t2.product LEFT JOIN zt_project t3 on t3.id = t2.project LEFT JOIN zt_task 
+t4 on t4.project = t3.id 
+where t3.deleted = '0' and t1.deleted = '0' and t3.deleted = '0' and t4.parent >= 0
+GROUP BY t1.id ) t2 on t1.id = t2.id
+
+```
+### 数据查询-产品完成统计表（Productcompletionstatistics）
+#### 说明
+产品完成统计表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT *,CONCAT(ROUND(t1.finishedstorycnt/t1.storycnt,2)*100,'%') as ImportantBugpercent from (
+SELECT t1.product,t1.`name`,
+IFNULL(COUNT(1),0) as storycnt ,
+SUM(IF(t1.stage in ('tested','developing','developed'),t1.num,0)) as finishedStorycnt
+from (
+select t1.`stage`,t1.closedReason,t1.id as storyid,t1.product,t2.`name`, 1 as num from zt_story t1 LEFT JOIN zt_product t2 on t1.product = t2.id where t2.id <> '0' and t1.deleted = '0' and t2.deleted = '0') t1 GROUP BY t1.product   ) t1
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1734,6 +2040,9 @@ FROM `zt_product` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
+| 3 | [产品质量表](#数据集合-产品质量表（ProdctQuantiGird）) | ProdctQuantiGird | 否 |
+| 4 | [产品投入表](#数据集合-产品投入表（ProductInputTable）) | ProductInputTable | 否 |
+| 5 | [产品完成统计表](#数据集合-产品完成统计表（Productcompletionstatistics）) | Productcompletionstatistics | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1763,10 +2072,91 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [未关闭产品（NoOpenProduct）](#数据查询-未关闭产品（NoOpenProduct）) |
+### 数据集合-产品质量表（ProdctQuantiGird）
+#### 说明
+产品质量表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品质量表（ProdctQuantiGird）](#数据查询-产品质量表（ProdctQuantiGird）) |
+### 数据集合-产品投入表（ProductInputTable）
+#### 说明
+产品投入表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品投入表（ProductInputTable）](#数据查询-产品投入表（ProductInputTable）) |
+### 数据集合-产品完成统计表（Productcompletionstatistics）
+#### 说明
+产品完成统计表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品完成统计表（Productcompletionstatistics）](#数据查询-产品完成统计表（Productcompletionstatistics）) |
 
 ## 数据导入
 无
 
 ## 数据导出
-无
+| 序号 | 数据导出 | 数据导出名 | 最大导出数量 |
+| ---- | ---- | ---- | ---- |
+| 1 | [产品投入数据导出](#数据导出-产品投入数据导出（ProductInputExport）) | ProductInputExport | 1,000 |
+| 2 | [产品质量数据导出](#数据导出-产品质量数据导出（ProductQuantityExport）) | ProductQuantityExport | 1,000 |
+
+### 数据导出-产品投入数据导出（ProductInputExport）
+#### 说明
+产品投入数据导出
+
+- 最大导出数
+1,000
+
+- 行为持有者
+后台及前台
+
+| 序号 | 导出标题 | 属性 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| 1 | 产品名称 | [产品名称（NAME）](#属性-产品名称（NAME）) |  |
+| 2 | 关联项目数 | [关联项目数（RESPROJECTCNT）](#属性-关联项目数（RESPROJECTCNT）) |  |
+| 3 | 已消耗工时 | [已消耗工时（HAVECONSUMED）](#属性-已消耗工时（HAVECONSUMED）) |  |
+### 数据导出-产品质量数据导出（ProductQuantityExport）
+#### 说明
+产品质量数据导出
+
+- 最大导出数
+1,000
+
+- 行为持有者
+后台及前台
+
+| 序号 | 导出标题 | 属性 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| 1 | 产品名称 | [产品名称（NAME）](#属性-产品名称（NAME）) |  |
+| 2 | 需求总数 | [需求总数（STORYCNT）](#属性-需求总数（STORYCNT）) |  |
+| 3 | 已完成的需求数 | [已完成的需求数（FINISHEDSTORYCNT）](#属性-已完成的需求数（FINISHEDSTORYCNT）) |  |
+| 4 | 所有Bug数 | [所有Bug数（BUGCNT）](#属性-所有Bug数（BUGCNT）) |  |
+| 5 | 解决Bug数 | [解决Bug数（RESOLVEDBUGCNT）](#属性-解决Bug数（RESOLVEDBUGCNT）) |  |
+| 6 | 需求所提bug数 | [需求所提bug数（BUGSTORY）](#属性-需求所提bug数（BUGSTORY）) |  |
+| 7 | 重要的Bug数 | [重要的Bug数（IMPORTANTBUGCNT）](#属性-重要的Bug数（IMPORTANTBUGCNT）) |  |
+| 8 | 严重bug比 | [严重bug比（IMPORTANTBUGPERCENT）](#属性-严重bug比（IMPORTANTBUGPERCENT）) |  |
 

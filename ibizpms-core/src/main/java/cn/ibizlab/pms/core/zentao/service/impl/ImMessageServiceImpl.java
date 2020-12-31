@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("ImMessageServiceImpl")
 public class ImMessageServiceImpl extends ServiceImpl<ImMessageMapper, ImMessage> implements IImMessageService {
 
+    @Autowired
+    @Lazy
+    IImMessageService proxyService;
 
     protected int batchSize = 500;
 
@@ -133,21 +136,49 @@ public class ImMessageServiceImpl extends ServiceImpl<ImMessageMapper, ImMessage
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ImMessage> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ImMessage> create = new ArrayList<>();
+        List<ImMessage> update = new ArrayList<>();
+        for (ImMessage et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ImMessage> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<ImMessage> create = new ArrayList<>();
+        List<ImMessage> update = new ArrayList<>();
+        for (ImMessage et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

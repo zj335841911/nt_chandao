@@ -68,11 +68,11 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
+    :localContext='{ PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag="UserRealName"
+    tag="UserRealNameProductTeam"
     codelistType="DYNAMIC"
     placeholder="请选择..."
 
@@ -114,8 +114,8 @@
     :viewparams="viewparams"
     :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}'
     :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'
-    height={400}
-    style="height:400px;"
+    
+    style=""
 ></app-rich-text-editor>
 
 </app-form-item>

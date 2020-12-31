@@ -1,42 +1,8 @@
-export default {
-  fields: {
-    projectname: "项目名称",
-    totalestimate: "预计总工时",
-    totalconsumed: "消耗总工时",
-    totalleft: "剩余总工时",
-    project: "项目",
-    id: "编号",
-    name: "名称",
-    finishedby: "完成者",
-    taskefficient: "效率",
-  },
-	views: {
-		userfinishtasksumgridview: {
-			caption: "用户完成任务汇总",
-      		title: "任务统计表格视图",
-		},
-	},
-	userfinishtasksum_grid: {
-		nodata: "",
-		columns: {
-			projectname: "项目名称",
-			finishedby: "完成者",
-			totalestimate: "预计总工时",
-			totalconsumed: "消耗总工时",
-			taskefficient: "效率",
-		},
-		uiactions: {
-		},
-	},
-	userfinishtask_searchform: {
-		details: {
-			formpage1: "表单分页", 
-			n_project_eq: "项目", 
-			n_finishedby_eq: "完成者", 
-		},
-		uiactions: {
-		},
-	},
-	userfinishtasksumgridviewtoolbar_toolbar: {
-	},
-};
+import TaskStats_zh_CN_Base from './task-stats_zh_CN_base';
+
+function getLocaleResource(){
+    const TaskStats_zh_CN_OwnData = {};
+    const targetData = Object.assign(TaskStats_zh_CN_Base(), TaskStats_zh_CN_OwnData);
+    return targetData;
+}
+export default getLocaleResource;

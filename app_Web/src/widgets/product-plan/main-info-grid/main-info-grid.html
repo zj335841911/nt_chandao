@@ -4,6 +4,7 @@
         :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
         @sort-change="onSortChange($event)"  
         :border="isDragendCol"
+        :span-method="arraySpanMethod.bind(_self)"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
         :cell-class-name="getCellClassName.bind(_self)"
@@ -20,8 +21,6 @@
         ref='multipleTable' :data="items" :show-header="!isHideHeader">
             <template slot="empty">
                 无数据 
-                <span class="quick-toolbar">
-                </span>
             </template>
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
@@ -46,22 +45,33 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="productplan"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'product-plan-main-data-edit-view', height: 0,width: 0,title: $t('entities.productplan.views.maindataeditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-            ,parameters: [
-            { pathName: 'productplans', parameterName: 'productplan' },
-            { pathName: 'maindataeditview', parameterName: 'maindataeditview' }
-            ]}"
-                            valueitem="srfkey"
-                        >
-                            <span>{{row.title}}</span>
-                        </app-column-link>
+                        <template >
+                                  <span><app-column-link
+            		deKeyField="productplan"
+            		 :context="JSON.parse(JSON.stringify(context))"
+            		 :viewparams="JSON.parse(JSON.stringify(viewparams))"
+            		 :data="row"
+            		 :linkview="{viewname: 'product-plan-main-data-edit-view', height: 0,width: 0,title: $t('entities.productplan.views.maindataeditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            			{ pathName: 'products', parameterName: 'product' },
+            			]
+            			,parameters: [
+            			{ pathName: 'productplans', parameterName: 'productplan' },
+            			{ pathName: 'maindataeditview', parameterName: 'maindataeditview' }
+            			]}"
+            				valueitem="srfkey">
+            <span v-if="row.parent === '-1'">
+            	<span title="父计划" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">父</span>
+            	<span> {{row.title}}</span>
+            </span>
+            <span v-else-if="row.parent === '0'">
+            	<span>{{row.title}}</span>
+            </span>
+            <span v-else>
+            	<span title="子计划" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
+            	<span> {{row.title}}</span>
+            </span>
+            </app-column-link></span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -121,7 +131,12 @@
                        </span>
                     </template>
                     <template slot-scope="scope">
-                        <div style="text-align: center;">
+                        <template v-if="scope.row.children">
+                            <span>
+                                <a :title="scope.row.tooltip" @click="loadMore(scope.row)">{{ scope.row.toolcaption }}</a>
+                            </span>
+                        </template>
+                        <div v-else style="text-align: center;">
                             <a v-show="scope.row.AddProject.visible" :disabled="scope.row.AddProject.disabled" @click="uiAction(scope.row, 'AddProject', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_addproject')">
                                 <i class="fa fa-plus"></i>
                                 

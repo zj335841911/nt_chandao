@@ -382,6 +382,7 @@ export class IbzCasesPortletBase extends MainControlBase {
      * @memberof IbzCasesBase
      */
     public refresh(args?: any) {
+      this.$emit('refresh',args);
     }
 
 }

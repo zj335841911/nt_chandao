@@ -84,13 +84,6 @@ export class ReportMainZSGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "name";
 
-    /**
-     * 列主键属性名称
-     *
-     * @type {string}
-     * @memberof ReportMainZSGridBase
-     */
-    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
@@ -141,42 +134,6 @@ export class ReportMainZSGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'id',
-            label: 'ID',
-            langtag: 'entities.task.reportmainzs_grid.columns.id',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'pri',
-            label: 'P',
-            langtag: 'entities.task.reportmainzs_grid.columns.pri',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'productname',
-            label: '产品',
-            langtag: 'entities.task.reportmainzs_grid.columns.productname',
-            show: true,
-            unit: 'STAR',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'projectname',
-            label: '所属项目',
-            langtag: 'entities.task.reportmainzs_grid.columns.projectname',
-            show: true,
-            unit: 'STAR',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'name',
             label: '任务名称',
             langtag: 'entities.task.reportmainzs_grid.columns.name',
@@ -189,42 +146,6 @@ export class ReportMainZSGridBase extends GridControlBase {
             name: 'status1',
             label: '任务状态',
             langtag: 'entities.task.reportmainzs_grid.columns.status1',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'assignedto',
-            label: '指派给',
-            langtag: 'entities.task.reportmainzs_grid.columns.assignedto',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'finishedby',
-            label: '完成者',
-            langtag: 'entities.task.reportmainzs_grid.columns.finishedby',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'estimate',
-            label: '预计',
-            langtag: 'entities.task.reportmainzs_grid.columns.estimate',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'consumed',
-            label: '消耗',
-            langtag: 'entities.task.reportmainzs_grid.columns.consumed',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -358,16 +279,8 @@ export class ReportMainZSGridBase extends GridControlBase {
      * @memberof ReportMainZSBase
      */
     public hasRowEdit: any = {
-        'id':false,
-        'pri':false,
-        'productname':false,
-        'projectname':false,
         'name':false,
         'status1':false,
-        'assignedto':false,
-        'finishedby':false,
-        'estimate':false,
-        'consumed':false,
         'left':false,
         'progressrate':false,
         'deadline':false,
@@ -441,36 +354,12 @@ export class ReportMainZSGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
-                name: 'pri',
-                srfkey: 'Task__pri',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
                 name: 'status1',
                 srfkey: 'TaskStatusCK',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
                 valueSeparator: ',',
-            },
-            {
-                name: 'assignedto',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'finishedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
             },
         ]);
     }
@@ -490,7 +379,7 @@ export class ReportMainZSGridBase extends GridControlBase {
     * @memberof ReportMainZSBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','productname','projectname','name','status1','assignedto','finishedby','estimate','consumed','left','progressrate','deadline'];
+        let allColumns:Array<any> = ['name','status1','left','progressrate','deadline'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -569,16 +458,8 @@ export class ReportMainZSGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                id:'',
-                pri:'',
-                productname:'',
-                projectname:'',
                 name:'',
                 status1:'',
-                assignedto:'',
-                finishedby:'',
-                estimate:'',
-                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',
@@ -606,16 +487,8 @@ export class ReportMainZSGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            id:'',
-            pri:'',
-            productname:'',
-            projectname:'',
             name:'',
             status1:'',
-            assignedto:'',
-            finishedby:'',
-            estimate:'',
-            consumed:'',
             left:'',
             progressrate:'',
             deadline:'',
@@ -679,16 +552,8 @@ export class ReportMainZSGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                id:'',
-                pri:'',
-                productname:'',
-                projectname:'',
                 name:'',
                 status1:'',
-                assignedto:'',
-                finishedby:'',
-                estimate:'',
-                consumed:'',
                 left:'',
                 progressrate:'',
                 deadline:'',

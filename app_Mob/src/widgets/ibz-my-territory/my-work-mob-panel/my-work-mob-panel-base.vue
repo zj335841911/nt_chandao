@@ -5,7 +5,8 @@
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    我的任务
+                
                 
                 
                 
@@ -14,14 +15,15 @@
                 <ion-col v-show="detailsModel.mytasks.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.mytasks" :context="context" :value="data.mytasks" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.mytasks" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    已延期任务
+                
                 
                 
                 
@@ -30,14 +32,15 @@
                 <ion-col v-show="detailsModel.myetasks.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.myetasks" :context="context" :value="data.myetasks" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.myetasks" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem3.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    我的bug
+                
                 
                 
                 
@@ -46,14 +49,15 @@
                 <ion-col v-show="detailsModel.mybugs.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.mybugs" :context="context" :value="data.mybugs" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.mybugs" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem9.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    已延期的Bug
+                
                 
                 
                 
@@ -62,14 +66,15 @@
                 <ion-col v-show="detailsModel.myebugs.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.myebugs" :context="context" :value="data.myebugs" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.myebugs" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem4.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    我的需求
+                
                 
                 
                 
@@ -78,14 +83,15 @@
                 <ion-col v-show="detailsModel.mystorys.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.mystorys" :context="context" :value="data.mystorys" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.mystorys" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem5.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    {{$t('userCustom.mywork.noCloseProject')}}
+                
                 
                 
                 
@@ -94,14 +100,15 @@
                 <ion-col v-show="detailsModel.projects.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.projects" :context="context" :value="data.projects" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.projects" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem7.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    {{$t('userCustom.mywork.deferredProjects')}}
+                
                 
                 
                 
@@ -110,14 +117,15 @@
                 <ion-col v-show="detailsModel.eprojects.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.eprojects" :context="context" :value="data.eprojects" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.eprojects" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem6.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                    
+                    {{$t('userCustom.mywork.noCloseProduct')}}
+                
                 
                 
                 
@@ -126,7 +134,7 @@
                 <ion-col v-show="detailsModel.products.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
-                    <app-mob-span  v-if="data.products" :context="context" :value="data.products" :itemParam="{}"  ></app-mob-span>
+                    <app-mob-span  :context="context" :value="data.products" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -142,7 +150,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+import IbzMyTerritoryEntityService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
 import MyWorkMobService from '@/app-core/ctrl-service/ibz-my-territory/my-work-mob-panel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -252,7 +260,7 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
      * @type {IbzMyTerritoryService}
      * @memberof MyWorkMob
      */
-    protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+    protected appEntityService: IbzMyTerritoryEntityService = new IbzMyTerritoryEntityService();
 
     /**
      * 界面UI服务对象

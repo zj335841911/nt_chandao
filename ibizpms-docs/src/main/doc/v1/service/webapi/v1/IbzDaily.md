@@ -353,6 +353,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取我的日报（已提交和未提交）
+#### 访问路径
+/ibzdailies/fetchmyalldaily
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzDailySearchContext](#IbzDailySearchContext) | 日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象列表 |
+
+### 查询我的日报（已提交和未提交）
+#### 访问路径
+/ibzdailies/searchmyalldaily
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzDailySearchContext](#IbzDailySearchContext) | 日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取我收到的日报
 #### 访问路径
 /ibzdailies/fetchmydaily
@@ -461,6 +497,78 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品日报
+#### 访问路径
+/ibzdailies/fetchproductdaily
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzDailySearchContext](#IbzDailySearchContext) | 日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象列表 |
+
+### 查询产品日报
+#### 访问路径
+/ibzdailies/searchproductdaily
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzDailySearchContext](#IbzDailySearchContext) | 日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取项目日报
+#### 访问路径
+/ibzdailies/fetchprojectdaily
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzDailySearchContext](#IbzDailySearchContext) | 日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象列表 |
+
+### 查询项目日报
+#### 访问路径
+/ibzdailies/searchprojectdaily
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzDailySearchContext](#IbzDailySearchContext) | 日报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzDailyDTO](#IbzDailyDTO)>：日报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### IbzDailyDTO
@@ -496,14 +604,16 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibz_dailyname_like | String | 允许 | 条件字段：ibz_dailyname<br>条件组合方式：`%like%` |
 | 2 | n_date_eq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`=`<br>时间格式：yyyy-MM-dd |
-| 3 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 4 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
-| 5 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
-| 6 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
-| 7 | customcond | String | 允许 | 自定义查询条件 |
-| 8 | customparams | String | 允许 | 自定义查询参数 |
-| 9 | query | String | 允许 | 快速搜索 |
-| 10 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 11 | page | int | 允许 | 当前页数<br>默认值0 |
-| 12 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 13 | sort | String | 允许 | 排序 |
+| 3 | n_date_gtandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 4 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 5 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 6 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
+| 7 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
+| 8 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
+| 9 | customcond | String | 允许 | 自定义查询条件 |
+| 10 | customparams | String | 允许 | 自定义查询参数 |
+| 11 | query | String | 允许 | 快速搜索 |
+| 12 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 13 | page | int | 允许 | 当前页数<br>默认值0 |
+| 14 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 15 | sort | String | 允许 | 排序 |

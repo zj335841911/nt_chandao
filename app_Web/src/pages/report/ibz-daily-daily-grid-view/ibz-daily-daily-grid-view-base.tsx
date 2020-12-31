@@ -126,11 +126,11 @@ export class IbzDailyDailyGridViewBase extends GridViewBase {
      * @memberof IbzDailyDailyGridView
      */
     public toolBarModels: any = {
-        deuiaction1_createuserdaily: { name: 'deuiaction1_createuserdaily', caption: '生成日报', 'isShowCaption': true, 'isShowIcon': true, tooltip: '生成日报', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'CreateUserDaily', target: 'NONE', class: '' } },
+        deuiaction1_createuserdaily: { name: 'deuiaction1_createuserdaily', caption: 'entities.ibzdaily.dailygridviewtoolbar_toolbar.deuiaction1_createuserdaily.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibzdaily.dailygridviewtoolbar_toolbar.deuiaction1_createuserdaily.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'CreateUserDaily', target: 'NONE', class: '' } },
 
-        deuiaction2_create: { name: 'deuiaction2_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'create', target: 'NONE', class: '' } },
+        deuiaction2_create: { name: 'deuiaction2_create', caption: 'entities.ibzdaily.dailygridviewtoolbar_toolbar.deuiaction2_create.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibzdaily.dailygridviewtoolbar_toolbar.deuiaction2_create.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'create', target: 'NONE', class: '' } },
 
-        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction7: { name: 'deuiaction7', caption: 'entities.ibzdaily.dailygridviewtoolbar_toolbar.deuiaction7.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibzdaily.dailygridviewtoolbar_toolbar.deuiaction7.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -455,7 +455,38 @@ export class IbzDailyDailyGridViewBase extends GridViewBase {
      * @memberof IbzDailyDailyGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
+        const localContext: any = null;
+        const localViewParam: any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+        ];
+        const _this: any = this;
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
+        }
+        const view: any = {
+            viewname: 'ibz-daily-daily-info-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.ibzdaily.views.dailyinfoeditview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
     }
 
 

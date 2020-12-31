@@ -25,6 +25,7 @@ import AppForm from './components/app-form/app-form.vue';
 import APPAutocomplete from './components/app-autocomplete/app-autocomplete.vue';
 import AppFormDruipart from './components/app-form-druipart/app-form-druipart.vue';
 import DropdownList from './components/dropdown-list/dropdown-list.vue';
+import DropdownListHidden from './components/dropdown-list-hidden/dropdown-list-hidden.vue';
 import UploadFile from './components/upload-file/upload-file.vue';
 import ContextMenuContainer from './components/context-menu-container/context-menu-container.vue';
 import AppCheckboxList from './components/app-checkbox-list/app-checkbox-list.vue';
@@ -123,6 +124,7 @@ export const AppComponents = {
         v.component('app-autocomplete', APPAutocomplete);
         v.component('app-form-druipart', AppFormDruipart);
         v.component('dropdown-list', DropdownList);
+        v.component('dropdown-list-hidden', DropdownListHidden);
         v.component('upload-file', UploadFile);
         v.component('context-menu-container', ContextMenuContainer);
         v.component('app-checkbox-list', AppCheckboxList);

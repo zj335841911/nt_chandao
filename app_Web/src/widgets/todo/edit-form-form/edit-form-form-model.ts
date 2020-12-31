@@ -81,6 +81,11 @@ export default class EditFormModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'idvalue',
+        prop: 'idvalue',
+        dataType: 'BIGINT',
+      },
+      {
         name: 'config_beforedays',
         prop: 'config_beforedays',
         dataType: 'INT',
@@ -96,6 +101,21 @@ export default class EditFormModel {
       {
         name: 'type',
         prop: 'type',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'bug',
+        prop: 'bug',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'task',
+        prop: 'task',
         dataType: 'TEXT',
       },
       {
@@ -134,7 +154,7 @@ export default class EditFormModel {
       {
         name: 'private',
         prop: 'ibizprivate',
-        dataType: 'NSCODELIST',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',

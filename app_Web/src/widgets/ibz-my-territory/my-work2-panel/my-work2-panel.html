@@ -31,9 +31,10 @@
                                     :context="context"
                                     contentStyle=""
                                     sizeStyle="height: 40px;"
-                                    contentType=""
-                                    :htmlContent='`今天剩余工作总计`'
+                                    contentType="RAW"
+                                    :htmlContent='``'
                                 >
+                                        今天剩余工作总计
                                 </app-rawitem>
                                 
                                 
@@ -196,7 +197,7 @@
                                             contentType="RAW"
                                             :htmlContent='``'
                                         >
-                                                未关闭的项目
+                                                {{ $t('userCustom.noCloseProject') }}
                                         </app-rawitem>
                                         
                                         
@@ -243,7 +244,7 @@
                                             contentType="RAW"
                                             :htmlContent='``'
                                         >
-                                                未关闭的产品
+                                                {{ $t('userCustom.noCloseProduct') }}
                                         </app-rawitem>
                                         
                                         

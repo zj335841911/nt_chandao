@@ -56,6 +56,9 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.report.service.logic.IIbzWeeklyRemove__MSDenyLogic remove__msdenyLogic;
+    @Autowired
+    @Lazy
+    IIbzWeeklyService proxyService;
 
     protected int batchSize = 500;
 
@@ -115,10 +118,19 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     public boolean checkKey(IbzWeekly et) {
         return (!ObjectUtils.isEmpty(et.getIbzweeklyid())) && (!Objects.isNull(this.getById(et.getIbzweeklyid())));
     }
-        @Override
+       @Override
     @Transactional
     public IbzWeekly createEveryWeekReport(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).createEveryWeekReport(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean createEveryWeekReportBatch (List<IbzWeekly> etList) {
+		 for(IbzWeekly et : etList) {
+		   createEveryWeekReport(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -127,6 +139,14 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean createGetLastWeekPlanAndWorkBatch(List<IbzWeekly> etList) {
+        for(IbzWeekly et : etList) {
+            createGetLastWeekPlanAndWork(et);
+        }
+        return true;
+    }
 
     @Override
     @Transactional
@@ -134,11 +154,28 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean editGetLastWeekTaskAndComTaskBatch(List<IbzWeekly> etList) {
+        for(IbzWeekly et : etList) {
+            editGetLastWeekTaskAndComTask(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzWeekly haveRead(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).haveRead(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean haveReadBatch (List<IbzWeekly> etList) {
+		 for(IbzWeekly et : etList) {
+		   haveRead(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -147,11 +184,28 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean jugThisWeekCreateWeeklyBatch(List<IbzWeekly> etList) {
+        for(IbzWeekly et : etList) {
+            jugThisWeekCreateWeekly(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzWeekly pushUserWeekly(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).pushUserWeekly(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean pushUserWeeklyBatch (List<IbzWeekly> etList) {
+		 for(IbzWeekly et : etList) {
+		   pushUserWeekly(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -169,27 +223,64 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzWeekly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzWeekly> create = new ArrayList<>();
+        List<IbzWeekly> update = new ArrayList<>();
+        for (IbzWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzweeklyid()) || ObjectUtils.isEmpty(getById(et.getIbzweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzWeekly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzWeekly> create = new ArrayList<>();
+        List<IbzWeekly> update = new ArrayList<>();
+        for (IbzWeekly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzweeklyid()) || ObjectUtils.isEmpty(getById(et.getIbzweeklyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public IbzWeekly submit(IbzWeekly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).submit(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean submitBatch (List<IbzWeekly> etList) {
+		 for(IbzWeekly et : etList) {
+		   submit(et);
+		 }
+	 	 return true;
     }
 
 
@@ -218,6 +309,24 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     @Override
     public Page<IbzWeekly> searchMyWeekly(IbzWeeklySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzWeekly> pages=baseMapper.searchMyWeekly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品团队成员周报
+     */
+    @Override
+    public Page<IbzWeekly> searchProductTeamMemberWeekly(IbzWeeklySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzWeekly> pages=baseMapper.searchProductTeamMemberWeekly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目周报
+     */
+    @Override
+    public Page<IbzWeekly> searchProjectWeekly(IbzWeeklySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzWeekly> pages=baseMapper.searchProjectWeekly(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

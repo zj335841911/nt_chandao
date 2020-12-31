@@ -48,6 +48,9 @@ import org.springframework.util.StringUtils;
 @Service("IbzMonthlyServiceImpl")
 public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMonthly> implements IIbzMonthlyService {
 
+    @Autowired
+    @Lazy
+    IIbzMonthlyService proxyService;
 
     protected int batchSize = 500;
 
@@ -113,11 +116,28 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean createGetInfoBatch(List<IbzMonthly> etList) {
+        for(IbzMonthly et : etList) {
+            createGetInfo(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly createUserMonthly(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).createUserMonthly(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean createUserMonthlyBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   createUserMonthly(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -126,17 +146,43 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         //自定义代码
         return et;
     }
+   @Override
+    @Transactional
+    public boolean editGetCompleteTaskBatch(List<IbzMonthly> etList) {
+        for(IbzMonthly et : etList) {
+            editGetCompleteTask(et);
+        }
+        return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly haveRead(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).haveRead(et);
     }
+	
+	@Override
+    @Transactional
+    public boolean haveReadBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   haveRead(et);
+		 }
+	 	 return true;
+    }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly pushUserMonthly(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).pushUserMonthly(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean pushUserMonthlyBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   pushUserMonthly(et);
+		 }
+	 	 return true;
     }
 
     @Override
@@ -154,27 +200,64 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<IbzMonthly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzMonthly> create = new ArrayList<>();
+        List<IbzMonthly> update = new ArrayList<>();
+        for (IbzMonthly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzmonthlyid()) || ObjectUtils.isEmpty(getById(et.getIbzmonthlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzMonthly> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<IbzMonthly> create = new ArrayList<>();
+        List<IbzMonthly> update = new ArrayList<>();
+        for (IbzMonthly et : list) {
+            if (ObjectUtils.isEmpty(et.getIbzmonthlyid()) || ObjectUtils.isEmpty(getById(et.getIbzmonthlyid()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
-        @Override
+       @Override
     @Transactional
     public IbzMonthly submit(IbzMonthly et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).submit(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean submitBatch (List<IbzMonthly> etList) {
+		 for(IbzMonthly et : etList) {
+		   submit(et);
+		 }
+	 	 return true;
     }
 
 
@@ -221,6 +304,24 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     @Override
     public Page<IbzMonthly> searchMySubmitMonthly(IbzMonthlySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMySubmitMonthly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品月报
+     */
+    @Override
+    public Page<IbzMonthly> searchProductMonthly(IbzMonthlySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchProductMonthly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目月报
+     */
+    @Override
+    public Page<IbzMonthly> searchProjectMonthly(IbzMonthlySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchProjectMonthly(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

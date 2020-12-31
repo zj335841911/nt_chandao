@@ -102,6 +102,7 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('daily','daily');
         this.allDeMainStateMap.set('monthly','monthly');
+        this.allDeMainStateMap.set('reportly','reportly');
         this.allDeMainStateMap.set('weekly','weekly');
     }
 
@@ -111,9 +112,10 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
      * @memberof  IbzReportUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('daily',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'WEEKLY':0,'MONTHLY':0,}));
-        this.allDeMainStateOPPrivsMap.set('monthly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DAILY':0,'WEEKLY':0,}));
-        this.allDeMainStateOPPrivsMap.set('weekly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DAILY':0,'MONTHLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('daily',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'WEEKLY':0,'REPORTLY':0,'MONTHLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('monthly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'REPORTLY':0,'DAILY':0,'WEEKLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('reportly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'MONTHLY':0,'WEEKLY':0,'DAILY':0,}));
+        this.allDeMainStateOPPrivsMap.set('weekly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DAILY':0,'REPORTLY':0,'MONTHLY':0,}));
     }
 
     /**
@@ -188,14 +190,57 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
         };
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
-        let panelNavParam= { "ibzweekly": "%ibzreport% " } ;
+        let panelNavParam= { "ibzweekly": "%ibzreport%" } ;
         let panelNavContext= { "ibzweekly": "%ibzreport%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            { pathName: 'usr2mobtabexpviewmytijiao', parameterName: 'usr2mobtabexpviewmytijiao' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 详情
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof IbzReportUIService
+     */
+    public async IbzReport_LookReportly(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { ibzreport: '%ibzreport%' });
+        Object.assign(paramJO, { ibzdailyid: '%ibzreport%' });
+        Object.assign(paramJO, { ibzdailyname: '%ibzdailyname%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { "ibzreportly": "%ibzreport%" } ;
+        let panelNavContext= { "ibzreportly": "%ibzreport%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+            { pathName: 'maininfomobeditview', parameterName: 'maininfomobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -238,7 +283,50 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            { pathName: 'usr2mobtabexpviewmyreceived', parameterName: 'usr2mobtabexpviewmyreceived' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 查收
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof IbzReportUIService
+     */
+    public async IbzReport_MyReReportly(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { ibzreport: '%ibzreport%' });
+        Object.assign(paramJO, { ibzdailyid: '%ibzreport%' });
+        Object.assign(paramJO, { ibzdailyname: '%ibzdailyname%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { "ibzreportly": "%ibzreport%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -324,7 +412,7 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'maininfomobtabexpview', parameterName: 'maininfomobtabexpview' },
+            { pathName: 'myreceivedmobtabexpview', parameterName: 'myreceivedmobtabexpview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

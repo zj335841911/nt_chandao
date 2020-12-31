@@ -45,18 +45,28 @@ public interface IIbzDailyService extends IService<IbzDaily> {
     IbzDaily getDraft(IbzDaily et);
     boolean checkKey(IbzDaily et);
     IbzDaily createUserDaily(IbzDaily et);
+    boolean createUserDailyBatch(List<IbzDaily> etList);
     IbzDaily getYeaterdayDailyPlansTaskEdit(IbzDaily et);
+    boolean getYeaterdayDailyPlansTaskEditBatch(List<IbzDaily> etList);
     IbzDaily getYesterdayDailyPlansTask(IbzDaily et);
+    boolean getYesterdayDailyPlansTaskBatch(List<IbzDaily> etList);
     IbzDaily haveRead(IbzDaily et);
+    boolean haveReadBatch(List<IbzDaily> etList);
     IbzDaily linkCompleteTask(IbzDaily et);
+    boolean linkCompleteTaskBatch(List<IbzDaily> etList);
     IbzDaily pushUserDaily(IbzDaily et);
+    boolean pushUserDailyBatch(List<IbzDaily> etList);
     boolean save(IbzDaily et);
     void saveBatch(List<IbzDaily> list);
     IbzDaily submit(IbzDaily et);
+    boolean submitBatch(List<IbzDaily> etList);
     Page<IbzDaily> searchDefault(IbzDailySearchContext context);
+    Page<IbzDaily> searchMyAllDaily(IbzDailySearchContext context);
     Page<IbzDaily> searchMyDaily(IbzDailySearchContext context);
     Page<IbzDaily> searchMyNotSubmit(IbzDailySearchContext context);
     Page<IbzDaily> searchMySubmitDaily(IbzDailySearchContext context);
+    Page<IbzDaily> searchProductDaily(IbzDailySearchContext context);
+    Page<IbzDaily> searchProjectDaily(IbzDailySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

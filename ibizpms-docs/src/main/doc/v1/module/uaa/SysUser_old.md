@@ -44,6 +44,9 @@ hide members
 |备注|MEMO|TEXT|&nbsp;|
 |保留|RESERVER|TEXT|&nbsp;|
 |超级管理员|SUPERUSER|YESNO|&nbsp;|
+|原密码|ORIGINALPASSWORD|TEXT|&nbsp;|
+|新密码|NEWPASSWORD|TEXT|&nbsp;|
+|重复密码|REPEATPASSWORD|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -80,6 +83,11 @@ hide members
 |备注|默认规则|内容长度必须小于等于[255]|
 |保留|默认规则|内容长度必须小于等于[255]|
 |超级管理员|默认规则|默认规则|
+|原密码|默认规则|内容长度必须小于等于[100]|
+|新密码|新密码值规则校验|(由字母、数字和下划线中两种以上组成且长度大于等于6 并且 新密码不能与原密码相同 并且 新密码不能用户名相同)|
+|新密码|默认规则|内容长度必须小于等于[100]|
+|重复密码|重复密码值规则校验|重复密码错误|
+|重复密码|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -94,6 +102,7 @@ hide members
 |Remove|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
+|修改密码|用户自定义|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |Save|内置方法|&nbsp;|
 

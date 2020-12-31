@@ -75,7 +75,7 @@ export class IbzTaskestimateServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 
@@ -121,7 +121,7 @@ export class IbzTaskestimateServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
             if(result){
-                return new HttpResponse(200,{});
+                return new HttpResponse(200,result);
             }else{
                 return new HttpResponse(200,{});
             } 

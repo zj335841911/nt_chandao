@@ -593,7 +593,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+参照数据字典【[用户真实名称（动态-表格）（UserRealName_Gird）](../../codelist/UserRealName_Gird)】
 
 - 数据格式
 无
@@ -1472,7 +1472,7 @@ String
 | 值 |  |
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+参照数据字典【[用户真实名称（动态-表格）（UserRealName_Gird）](../../codelist/UserRealName_Gird)】
 
 - 数据格式
 无
@@ -4987,16 +4987,17 @@ String
 | 22 | [根据测试单获取或者状态](#实体行为-根据测试单获取或者状态（GetByTestTask）) | GetByTestTask | 用户自定义 | 后台及前台 |
 | 23 | [获取测试单执行结果](#实体行为-获取测试单执行结果（GetTestTaskCntRun）) | GetTestTaskCntRun | 用户自定义 | 后台及前台 |
 | 24 | [测试单关联测试用例](#实体行为-测试单关联测试用例（LinkCase）) | linkCase | 用户自定义 | 后台及前台 |
-| 25 | [执行测试](#实体行为-执行测试（RunCase）) | RunCase | 用户自定义 | 后台及前台 |
-| 26 | [runCases](#实体行为-runCases（RunCases）) | runCases | 实体处理逻辑 | 后台 |
-| 27 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 28 | [执行测试](#实体行为-执行测试（TestRunCase）) | TestRunCase | 用户自定义 | 后台及前台 |
-| 29 | [testRunCases](#实体行为-testRunCases（TestRunCases）) | testRunCases | 实体处理逻辑 | 后台 |
-| 30 | [套件关联](#实体行为-套件关联（TestsuitelinkCase）) | testsuitelinkCase | 用户自定义 | 后台及前台 |
-| 31 | [移除用例](#实体行为-移除用例（UnlinkCase）) | unlinkCase | 用户自定义 | 后台及前台 |
-| 32 | [unlinkCases](#实体行为-unlinkCases（UnlinkCases）) | unlinkCases | 实体处理逻辑 | 后台 |
-| 33 | [移除用例](#实体行为-移除用例（UnlinkSuiteCase）) | unlinkSuiteCase | 用户自定义 | 后台及前台 |
-| 34 | [unlinkSuiteCases](#实体行为-unlinkSuiteCases（UnlinkSuiteCases）) | unlinkSuiteCases | 实体处理逻辑 | 后台 |
+| 25 | [移动端关联需求](#实体行为-移动端关联需求（MobLinkCase）) | MobLinkCase | 用户自定义 | 后台及前台 |
+| 26 | [执行测试](#实体行为-执行测试（RunCase）) | RunCase | 用户自定义 | 后台及前台 |
+| 27 | [runCases](#实体行为-runCases（RunCases）) | runCases | 实体处理逻辑 | 后台 |
+| 28 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 29 | [执行测试](#实体行为-执行测试（TestRunCase）) | TestRunCase | 用户自定义 | 后台及前台 |
+| 30 | [testRunCases](#实体行为-testRunCases（TestRunCases）) | testRunCases | 实体处理逻辑 | 后台 |
+| 31 | [套件关联](#实体行为-套件关联（TestsuitelinkCase）) | testsuitelinkCase | 用户自定义 | 后台及前台 |
+| 32 | [移除用例](#实体行为-移除用例（UnlinkCase）) | unlinkCase | 用户自定义 | 后台及前台 |
+| 33 | [unlinkCases](#实体行为-unlinkCases（UnlinkCases）) | unlinkCases | 实体处理逻辑 | 后台 |
+| 34 | [移除用例](#实体行为-移除用例（UnlinkSuiteCase）) | unlinkSuiteCase | 用户自定义 | 后台及前台 |
+| 35 | [unlinkSuiteCases](#实体行为-unlinkSuiteCases（UnlinkSuiteCases）) | unlinkSuiteCases | 实体处理逻辑 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -5277,6 +5278,18 @@ CheckKey
 ### 实体行为-测试单关联测试用例（LinkCase）
 #### 说明
 测试单关联测试用例
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-移动端关联需求（MobLinkCase）
+#### 说明
+移动端关联需求
 
 - 行为类型
 用户自定义

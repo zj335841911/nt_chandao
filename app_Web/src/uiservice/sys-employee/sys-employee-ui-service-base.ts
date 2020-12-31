@@ -96,6 +96,42 @@ export default class SysEmployeeUIServiceBase extends UIService {
      * @memberof  SysEmployeeUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'sysemployees',
+            component: 'sys-employee-edit-view',
+            openmode: '',
+            title: '人员',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MPICKUPVIEW:', {
+            viewname: 'mpickupview',
+            srfappde: 'sysemployees',
+            component: 'sys-employee-mpickup-view',
+            openmode: '',
+            title: '人员',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'sysemployees',
+            component: 'sys-employee-grid-view',
+            openmode: '',
+            title: '人员',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'sysemployees',
+            component: 'sys-employee-pickup-view',
+            openmode: '',
+            title: '人员',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

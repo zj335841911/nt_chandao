@@ -130,6 +130,12 @@ public class BuildResource {
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
+    @ApiOperation(value = "批量处理[关联需求]", tags = {"版本" },  notes = "批量处理[关联需求]")
+	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/linkstorybatch")
+    public ResponseEntity<Boolean> linkStoryBatch(@RequestBody List<BuildDTO> builddtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(buildService.linkStoryBatch(buildMapping.toDomain(builddtos)));
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
     @ApiOperation(value = "移动端项目版本计数器", tags = {"版本" },  notes = "移动端项目版本计数器")
@@ -151,6 +157,12 @@ public class BuildResource {
         domain = buildService.oneClickRelease(domain);
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
+    @ApiOperation(value = "批量处理[一键发布]", tags = {"版本" },  notes = "批量处理[一键发布]")
+	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/oneclickreleasebatch")
+    public ResponseEntity<Boolean> oneClickReleaseBatch(@RequestBody List<BuildDTO> builddtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(buildService.oneClickReleaseBatch(buildMapping.toDomain(builddtos)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
@@ -396,7 +408,11 @@ public class BuildResource {
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品版本]", tags = {"版本" },  notes = "批量处理[根据产品版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/linkstorybatch")
+    public ResponseEntity<Boolean> linkStoryByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BuildDTO> builddtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(buildService.linkStoryBatch(buildMapping.toDomain(builddtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
     @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/{build_id}/mobprojectbuildcounter")
@@ -407,7 +423,6 @@ public class BuildResource {
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
     @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/oneclickrelease")
@@ -418,7 +433,11 @@ public class BuildResource {
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
-
+    @ApiOperation(value = "批量处理[根据产品版本]", tags = {"版本" },  notes = "批量处理[根据产品版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/oneclickreleasebatch")
+    public ResponseEntity<Boolean> oneClickReleaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BuildDTO> builddtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(buildService.oneClickReleaseBatch(buildMapping.toDomain(builddtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据产品保存版本", tags = {"版本" },  notes = "根据产品保存版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/save")
@@ -673,7 +692,11 @@ public class BuildResource {
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目版本]", tags = {"版本" },  notes = "批量处理[根据项目版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/linkstorybatch")
+    public ResponseEntity<Boolean> linkStoryByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BuildDTO> builddtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(buildService.linkStoryBatch(buildMapping.toDomain(builddtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
     @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/{build_id}/mobprojectbuildcounter")
@@ -684,7 +707,6 @@ public class BuildResource {
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
     @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/oneclickrelease")
@@ -695,7 +717,11 @@ public class BuildResource {
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
-
+    @ApiOperation(value = "批量处理[根据项目版本]", tags = {"版本" },  notes = "批量处理[根据项目版本]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/oneclickreleasebatch")
+    public ResponseEntity<Boolean> oneClickReleaseByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BuildDTO> builddtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(buildService.oneClickReleaseBatch(buildMapping.toDomain(builddtos)));
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据项目保存版本", tags = {"版本" },  notes = "根据项目保存版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/save")

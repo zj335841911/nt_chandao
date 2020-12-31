@@ -10,24 +10,29 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
-| 2 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认） |
-| 3 | [测试模块（IBZ_TESTMODULE）](../ibiz/TestModule) | （默认） |
-| 4 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
-| 5 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
-| 6 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
-| 7 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
-| 8 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
-| 9 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
-| 10 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
-| 11 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
-| 12 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
-| 13 | [发布（ZT_RELEASE）](../zentao/Release) | （默认） |
-| 14 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
-| 15 | [套件用例（ZT_SUITECASE）](../zentao/SuiteCase) | （默认） |
-| 16 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
-| 17 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) | （默认） |
-| 18 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
+| 1 | [产品日报（IBIZPRO_PRODUCTDAILY）](../ibizpro/IbizproProductDaily) | （默认） |
+| 2 | [产品月报（IBIZPRO_PRODUCTMONTHLY）](../ibizpro/IbizproProductMonthly) | （默认） |
+| 3 | [产品周报（IBIZPRO_PRODUCTWEEKLY）](../ibizpro/IbizproProductWeekly) | （默认） |
+| 4 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
+| 5 | [测试用例统计（IBZ_CASESTATS）](../ibiz/CaseStats) | （默认） |
+| 6 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认） |
+| 7 | [产品团队（IBZ_PRODUCTTEAM）](../ibiz/PRODUCTTEAM) | 嵌套操作 |
+| 8 | [测试模块（IBZ_TESTMODULE）](../ibiz/TestModule) | （默认） |
+| 9 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
+| 10 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 11 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
+| 12 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 13 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
+| 14 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
+| 15 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
+| 16 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
+| 17 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
+| 18 | [发布（ZT_RELEASE）](../zentao/Release) | （默认） |
+| 19 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 20 | [套件用例（ZT_SUITECASE）](../zentao/SuiteCase) | （默认） |
+| 21 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
+| 22 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) | （默认） |
+| 23 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
@@ -84,6 +89,7 @@
 | 45 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
 | 46 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 | 47 | [IBIZ标识](#属性-IBIZ标识（IBIZ_ID）) | IBIZ_ID | 文本，可指定长度 | 否 | 是 | 是 |
+| 48 | [支持产品汇报](#属性-支持产品汇报（SUPPROREPORT）) | SUPPROREPORT | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-测试负责人（QD）
 #### 属性说明
@@ -2102,6 +2108,47 @@ String
 | 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-支持产品汇报（SUPPROREPORT）
+#### 属性说明
+支持产品汇报
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[是否（YesNo）](../../codelist/YesNo)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [状态](#属性-状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -2553,8 +2600,9 @@ Save
 | 5 | [当前用户](#数据查询-当前用户（CurUer）) | CurUer | 否 |
 | 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 7 | [产品总览](#数据查询-产品总览（ProductPM）) | ProductPM | 否 |
-| 8 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 8 | [产品团队](#数据查询-产品团队（ProductTeam）) | ProductTeam | 否 |
+| 9 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-全部产品（AllList）
 #### 说明
@@ -2607,6 +2655,7 @@ t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
 t1.`STATUS`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 t1.`TYPE`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`
 FROM `zt_product` t1 
@@ -2722,6 +2771,7 @@ t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
 t1.`STATUS`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 t1.`TYPE`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`
 FROM `zt_product` t1 
@@ -2917,6 +2967,7 @@ t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
 t1.`STATUS`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 t1.`TYPE`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`
 FROM `zt_product` t1 
@@ -2937,6 +2988,63 @@ LEFT JOIN zt_module t11 ON t1.LINE = t11.ID
 - MYSQL5
 ```SQL
 select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' and t.orgid = #{srf.sessioncontext.srforgid} GROUP BY t.`status`
+```
+### 数据查询-产品团队（ProductTeam）
+#### 说明
+产品团队
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0') AS `ACTIVEBUGCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='active' AND DELETED = '0') AS `ACTIVESTORYCNT`,
+(select count(1) from zt_build t where t.product = t1.id and t.deleted = '0') AS `BUILDCNT`,
+(select count(1) from zt_case t where t.product = t1.id and t.deleted = '0') AS `CASECNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='changed' AND DELETED = '0') AS `CHANGEDSTORYCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='closed' AND DELETED = '0') AS `CLOSEDSTORYCNT`,
+t1.`CODE`,
+t1.`CREATEDBY`,
+t1.`CREATEDDATE`,
+t1.`CREATEDVERSION`,
+t1.`DELETED`,
+(select count(1) from zt_doc t where t.product = t1.id and t.deleted = '0') AS `DOCCNT`,
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS`='draft' AND DELETED = '0') AS `DRAFTSTORYCNT`,
+t1.`IBIZ_ID`,
+t1.`ID`,
+'0' AS `ISTOP`,
+t1.`LINE`,
+t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
+t1.`NAME`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
+t1.`ORDER`,
+t1.`order` AS `ORDER1`,
+t1.`ORGID`,
+t1.`PO`,
+t1.PO AS `POPK`,
+(SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
+t1.`QD`,
+t1.QD AS `QDPK`,
+t1.`RD`,
+t1.RD AS `RDPK`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
+(select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
+(SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
+t1.`STATUS`,
+t1.`SUBSTATUS`,
+t1.`TYPE`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`
+FROM `zt_product` t1 
+LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
+LEFT JOIN zt_team t21 on t21.root = t1.id
 ```
 ### 数据查询-当前项目（StoryCurProject）
 #### 说明
@@ -2989,6 +3097,7 @@ t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
 t1.`STATUS`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 t1.`TYPE`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`
 FROM `zt_product` t1 
@@ -3047,6 +3156,7 @@ t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
 t1.`STATUS`,
 t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
 t1.`TYPE`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMBUGCNT`,
 t1.`WHITELIST`
@@ -3065,7 +3175,8 @@ LEFT JOIN zt_module t11 ON t1.LINE = t11.ID
 | 5 | [当前用户](#数据集合-当前用户（CurUer）) | CurUer | 否 |
 | 6 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 7 | [产品总览](#数据集合-产品总览（ProductPM）) | ProductPM | 否 |
-| 8 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 8 | [产品团队](#数据集合-产品团队（ProductTeam）) | ProductTeam | 否 |
+| 9 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
 
 ### 数据集合-全部产品（AllList）
 #### 说明
@@ -3165,6 +3276,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品总览（ProductPM）](#数据查询-产品总览（ProductPM）) |
+### 数据集合-产品团队（ProductTeam）
+#### 说明
+产品团队
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品团队（ProductTeam）](#数据查询-产品团队（ProductTeam）) |
 ### 数据集合-当前项目（StoryCurProject）
 #### 说明
 当前项目

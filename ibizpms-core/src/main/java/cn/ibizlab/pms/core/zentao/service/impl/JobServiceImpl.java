@@ -51,6 +51,9 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestResultService testresultService;
+    @Autowired
+    @Lazy
+    IJobService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,21 +139,49 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
+            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<Job> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Job> create = new ArrayList<>();
+        List<Job> update = new ArrayList<>();
+        for (Job et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Job> list) {
-        saveOrUpdateBatch(list, batchSize);
+        List<Job> create = new ArrayList<>();
+        List<Job> update = new ArrayList<>();
+        for (Job et : list) {
+            if (ObjectUtils.isEmpty(et.getId()) || ObjectUtils.isEmpty(getById(et.getId()))) {
+                create.add(et);
+            } else {
+                update.add(et);
+            }
+        }
+        if (create.size() > 0) {
+            proxyService.createBatch(create);
+        }
+        if (update.size() > 0) {
+            proxyService.updateBatch(update);
+        }
     }
 
 

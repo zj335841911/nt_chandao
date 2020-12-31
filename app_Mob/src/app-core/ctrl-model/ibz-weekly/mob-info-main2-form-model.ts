@@ -73,12 +73,12 @@ export class MobInfoMain2Model {
             {
                 name: 'plannextweek',
                 prop: 'plannextweek',
-                dataType: 'SMCODELIST',
+                dataType: 'HTMLTEXT',
             },
             {
                 name: 'comment',
                 prop: 'comment',
-                dataType: 'TEXT',
+                dataType: 'HTMLTEXT',
             },
             {
                 name: 'reportto',

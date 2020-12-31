@@ -15,12 +15,18 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'deadline',
+			},
+			{
 				name: 'resolution',
 			},
 			{
 				name: 'pri1',
 				prop: 'pri',
 				dataType: 'NSCODELIST',
+			},
+			{
+				name: 'delayresolve',
 			},
 			{
 				name: 'severity',

@@ -116,6 +116,7 @@ export default class AllCase {
                 
                 
                 
+                
                 _items.push(itemdata);
             });
         }

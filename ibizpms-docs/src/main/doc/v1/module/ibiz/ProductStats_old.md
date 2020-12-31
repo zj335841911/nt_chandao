@@ -40,6 +40,12 @@
 |产品类型|TYPE|SSCODELIST|&nbsp;|
 |产品排序|ORDER1|INT|&nbsp;|
 |是否置顶|ISTOP|INT|&nbsp;|
+|已完成的需求数|FINISHEDSTORYCNT|INT|&nbsp;|
+|解决Bug数|RESOLVEDBUGCNT|INT|&nbsp;|
+|重要的Bug数|IMPORTANTBUGCNT|INT|&nbsp;|
+|需求所提bug数|BUGSTORY|INT|&nbsp;|
+|严重bug比|IMPORTANTBUGPERCENT|TEXT|&nbsp;|
+|已消耗工时|HAVECONSUMED|FLOAT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -75,6 +81,12 @@
 |产品类型|默认规则|内容长度必须小于等于[60]|
 |产品排序|默认规则|默认规则|
 |是否置顶|默认规则|默认规则|
+|已完成的需求数|默认规则|默认规则|
+|解决Bug数|默认规则|默认规则|
+|重要的Bug数|默认规则|默认规则|
+|需求所提bug数|默认规则|默认规则|
+|严重bug比|默认规则|内容长度必须小于等于[100]|
+|已消耗工时|默认规则|默认规则|
 
 ## 状态控制
 
@@ -118,6 +130,9 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_Default))|否|&nbsp;|
 |NoOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_NoOpenProduct))|否|&nbsp;|
+|ProdctQuantiGird|产品质量表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_ProdctQuantiGird))|否|&nbsp;|
+|ProductInputTable|产品投入表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_ProductInputTable))|否|&nbsp;|
+|Productcompletionstatistics|产品完成统计表([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_Productcompletionstatistics))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_View))|否|&nbsp;|
 
 * **数据集合**
@@ -126,6 +141,9 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |NoOpenProduct|未关闭产品|NoOpenProduct|否|&nbsp;|
+|ProdctQuantiGird|产品质量表|ProdctQuantiGird|否|&nbsp;|
+|ProductInputTable|产品投入表|ProductInputTable|否|&nbsp;|
+|Productcompletionstatistics|产品完成统计表|Productcompletionstatistics|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
@@ -139,4 +157,13 @@ hide footbox
 
 
 ## 导出模式
-无
+* 产品投入数据导出
+
+|产品名称|关联项目数|已消耗工时|
+| :------: | :------: | :------: |
+| - | - | - |
+* 产品质量数据导出
+
+|产品名称|需求总数|已完成的需求数|所有Bug数|解决Bug数|需求所提bug数|重要的Bug数|严重bug比|
+| :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| - | - | - | - | - | - | - | - |

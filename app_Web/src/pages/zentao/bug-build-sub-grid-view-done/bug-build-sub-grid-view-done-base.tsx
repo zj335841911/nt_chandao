@@ -156,9 +156,9 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @memberof BugBuildSubGridView_Done
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'openBugGridView', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.bug.buildsubgridview_donetoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.buildsubgridview_donetoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'openBugGridView', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.bug.buildsubgridview_donetoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.bug.buildsubgridview_donetoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 
@@ -453,8 +453,8 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
         }
         const view: any = {
             viewname: 'bug-main-dashboard-view', 
-            height: 0, 
-            width: 0,  
+            height: 850, 
+            width: 1400,  
             title: this.$t('entities.bug.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };

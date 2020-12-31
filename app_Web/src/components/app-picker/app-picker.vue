@@ -438,9 +438,13 @@ export default class AppPicker extends Vue {
                     } else {
                         this.items = [...response];
                     }
-                    //   if(this.acParams && this.linkview){
-                    //       this.items.push({ isNew :true });
-                    //   }
+                    const val = this.selectValue;
+                    if (val == null || val == '') {
+                        const item = this.items.find(item => item[this.deKeyField] == this.data[this.valueitem]);
+                        if (item != null) {
+                            this.onACSelect(item);
+                        }
+                    }
                     if (this.acParams && this.actionDetails && this.actionDetails.length > 0) {
                         this.items = [...this.items, ...this.actionDetails];
                     }

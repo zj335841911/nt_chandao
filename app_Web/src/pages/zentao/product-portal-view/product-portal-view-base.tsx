@@ -81,5 +81,25 @@ export class ProductPortalViewBase extends PortalViewBase {
 
 
 
+    /** 
+     * 数据看板部件刷新状态
+     * 
+     * @type {boolean}
+     * @memberof ProductPortalViewBase
+     */
+    public state: boolean = true;
+
+    /** 
+     * 刷新
+     * 
+     * @memberof ProductPortalViewBase
+     */
+    public refresh(args: any){
+        this.state = false;
+        setTimeout(() => {
+            this.state = true;
+            this.loadModel();
+        }, 0);
+    }
 
 }

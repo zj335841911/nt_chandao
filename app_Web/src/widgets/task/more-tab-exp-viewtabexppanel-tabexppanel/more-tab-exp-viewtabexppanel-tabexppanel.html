@@ -14,7 +14,7 @@
             v-if="authResourceObject['tabviewpanel'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '分组视图'),
+                    h('span', $t('entities.task.moretabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -43,7 +43,7 @@
             v-if="authResourceObject['tabviewpanel2'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '树状图'),
+                    h('span', $t('entities.task.moretabexpviewtabexppanel_tabexppanel.tabviewpanels.tabviewpanel2.caption')),
                     h('Badge', {
                         props: {
                             count: undefined,

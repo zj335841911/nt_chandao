@@ -111,6 +111,11 @@ export class MobNewFromModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'color',
+                prop: 'color',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'pri',
                 prop: 'pri',
                 dataType: 'NSCODELIST',

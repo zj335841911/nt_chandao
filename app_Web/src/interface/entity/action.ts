@@ -189,4 +189,12 @@ export interface Action {
      * @memberof Action
      */
     noticeusers?: any;
+
+    /**
+     * 文件
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    files?: any;
 }

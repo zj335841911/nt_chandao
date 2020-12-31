@@ -1,6 +1,6 @@
 <template>
   <div class="app-mobile-actionsheet">
-      <div class="cancel-icon" v-if="curValue || curValue === 0"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
+      <div class="cancel-icon" v-if="curValue || curValue === 0"><app-mob-icon name="close-circle-outline" @onClick="clear"></app-mob-icon></div>
       <div v-if="curValue== null || curValue==''" class="select-icon" @click="showSheet"></div>
       <!-- <ion-input :value="action" readonly @ionFocus="showSheet"></ion-input> -->
       <div @click="showSheet" class="text">{{action}}</div>

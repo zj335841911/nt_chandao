@@ -3,12 +3,19 @@
         <ion-list class='app-mob-portlet story-dashboard_sysportlet5 '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>我的需求</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>{{$t(`${this.localeDeName}.views.${this.viewName.toLowerCase()}.mystory_portlet`)}}</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
-                    <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
+                    <app-mob-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @onClick="open"></app-mob-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <div class="edit_title_btn" :style="edit_title_btn">
+                <app-mob-button
+                    :text="$t('app.button.cancel')"
+                    @click="onConfirmClick(false)" />
+                <app-mob-button 
+                    :tetx="$t('app.button.confirm')"
+                    @click="onConfirmClick(true)" />
+            </div>
             <story-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :isPortalView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></story-ass-mob-mdview9>
         </ion-list>
         <van-action-sheet v-model="selectStatus" get-container="#app" :actions="actionBarModelData" cancel-text="取消" close-on-click-action @select="actionBarClick" @cancel="onCancel" />
@@ -22,7 +29,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import StoryEntityService from '@/app-core/service/story/story-service';
 import MyStoryService from '@/app-core/ctrl-service/story/my-story-portlet-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
@@ -131,7 +138,7 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      * @type {StoryService}
      * @memberof MyStory
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: StoryEntityService = new StoryEntityService();
 
     /**
      * 界面UI服务对象
@@ -202,6 +209,13 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      * @memberof MyTaskMob
      */
     @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
+     * 多语言实体名称
+     *
+     * @memberof MyStory
+     */
+    @Prop() protected localeDeName!: string;
 
     /**
      * 定制标题
@@ -397,7 +411,7 @@ export default class MyStoryBase extends Vue implements ControlInterface {
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return '我的需求'
+        return (this.$t(`app.views.${this.viewName.toLowerCase()}.mystory_portlet`) as string)
     }
 
     /**

@@ -100,6 +100,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'closemobeditview',srfappde:'projects'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'projectteammanagemobeditview',srfappde:'projects'});
     }
 
     /**
@@ -237,18 +238,6 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
                     xData.refresh(args);
                     AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
                 }
-                const { data: result } = response;
-                let _args: any[] = [];
-                if (Object.is(container.$util.typeOf(result), 'array')) {
-                    _args = [...result];
-                } else if (Object.is(container.$util.typeOf(result), 'object')) {
-                    _args = [{...result}];
-                } else {
-                    _args = [...args];
-                }
-                if (this.globaluiservice.Exit && this.globaluiservice.Exit instanceof Function) {
-                    this.globaluiservice.Exit(response.data, contextJO, paramJO, $event, xData, container);
-                }
             } else {
                 this.notice.error('系统异常！');
             }
@@ -312,6 +301,47 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
             return response;
         };
         return backend();
+    }
+
+    /**
+     * 团队成员管理
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProjectUIService
+     */
+    public async Project_TeamMemberManage(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const view: any = { 
+            viewname: 'project-project-team-manage-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '项目移动端编辑视图', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.openService.openModal(view, _context, _params);
+        return response;
     }
 
     /**

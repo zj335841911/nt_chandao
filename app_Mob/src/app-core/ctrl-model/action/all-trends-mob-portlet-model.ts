@@ -84,6 +84,9 @@ export class AllTrendsMobModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

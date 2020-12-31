@@ -139,13 +139,13 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.currentconsumed.required,
                     type: 'number',
-                    message: '本次消耗 值不能为空',
+                    message: `${this.$t('entities.task.completeform_form.details.currentconsumed')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.currentconsumed.required,
                     type: 'number',
-                    message: '本次消耗 值不能为空',
+                    message: `${this.$t('entities.task.completeform_form.details.currentconsumed')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
                 {

@@ -91,6 +91,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'myreceivedmobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'mysubmitmobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'ibzmonthlies'});
@@ -98,6 +99,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'monthlymobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'myreceivedmobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'createmobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'myreceivedmobtabexpview',srfappde:'ibzmonthlies'});
     }
 
     /**
@@ -203,8 +205,8 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         };
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
+        let panelNavParam= { "date": "%date%" } ;
+        let panelNavContext= { "date": "%date%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const deResParameters: any[] = [];
@@ -251,8 +253,8 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         };
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
+        let panelNavParam= { "date": "%date%" } ;
+        let panelNavContext= { "date": "%date%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const deResParameters: any[] = [];

@@ -76,11 +76,6 @@ export class MobMainModel {
                 dataType: 'LONGTEXT',
             },
             {
-                name: 'bugcnt',
-                prop: 'bugcnt',
-                dataType: 'INT',
-            },
-            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

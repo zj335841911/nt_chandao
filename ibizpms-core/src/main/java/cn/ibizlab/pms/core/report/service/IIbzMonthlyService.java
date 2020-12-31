@@ -45,18 +45,26 @@ public interface IIbzMonthlyService extends IService<IbzMonthly> {
     IbzMonthly getDraft(IbzMonthly et);
     boolean checkKey(IbzMonthly et);
     IbzMonthly createGetInfo(IbzMonthly et);
+    boolean createGetInfoBatch(List<IbzMonthly> etList);
     IbzMonthly createUserMonthly(IbzMonthly et);
+    boolean createUserMonthlyBatch(List<IbzMonthly> etList);
     IbzMonthly editGetCompleteTask(IbzMonthly et);
+    boolean editGetCompleteTaskBatch(List<IbzMonthly> etList);
     IbzMonthly haveRead(IbzMonthly et);
+    boolean haveReadBatch(List<IbzMonthly> etList);
     IbzMonthly pushUserMonthly(IbzMonthly et);
+    boolean pushUserMonthlyBatch(List<IbzMonthly> etList);
     boolean save(IbzMonthly et);
     void saveBatch(List<IbzMonthly> list);
     IbzMonthly submit(IbzMonthly et);
+    boolean submitBatch(List<IbzMonthly> etList);
     Page<IbzMonthly> searchDefault(IbzMonthlySearchContext context);
     Page<IbzMonthly> searchMyMonthly(IbzMonthlySearchContext context);
     Page<IbzMonthly> searchMyMonthlyMob(IbzMonthlySearchContext context);
     Page<IbzMonthly> searchMyReceivedMonthly(IbzMonthlySearchContext context);
     Page<IbzMonthly> searchMySubmitMonthly(IbzMonthlySearchContext context);
+    Page<IbzMonthly> searchProductMonthly(IbzMonthlySearchContext context);
+    Page<IbzMonthly> searchProjectMonthly(IbzMonthlySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -256,6 +256,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取bug解决汇总表
+#### 访问路径
+/bugstats/fetchbugresolvedgird
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象列表 |
+
+### 查询bug解决汇总表
+#### 访问路径
+/bugstats/searchbugresolvedgird
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取Bug指派表
 #### 访问路径
 /bugstats/fetchbugassignedto
@@ -502,7 +538,19 @@ POST
 | 23 | bugresolved | Integer | 允许 | 已解决Bug |
 | 24 | bugclosed | Integer | 允许 | 已关闭Bug |
 | 25 | projectname1 | String | 允许 | 项目名称 |
-| 26 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 26 | bugresolution | String | 允许 | Bug解决方案 |
+| 27 | bugstatus | String | 允许 | Bug状态 |
+| 28 | bugid | Integer | 允许 | Bug编号 |
+| 29 | bugtitle | String | 允许 | Bug标题 |
+| 30 | bugpri | Integer | 允许 | Bug优先级 |
+| 31 | bugseverity | Integer | 允许 | Bug严重程度 |
+| 32 | bugopenedby | String | 允许 | bug创建人 |
+| 33 | bugopeneddate | Timestamp | 允许 | Bug创建日期<br>时间格式：yyyy-MM-dd |
+| 34 | bugresolveddate | Timestamp | 允许 | bug解决日期<br>时间格式：yyyy-MM-dd |
+| 35 | dept | String | 允许 | 部门 |
+| 36 | begin | Timestamp | 允许 | 开始<br>时间格式：yyyy-MM-dd |
+| 37 | end | Timestamp | 允许 | 结束<br>时间格式：yyyy-MM-dd |
+| 38 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -514,10 +562,15 @@ POST
 | 5 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
 | 6 | n_resolvedby_eq | String | 允许 | 条件字段：resolvedby<br>条件组合方式：`=` |
 | 7 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
-| 8 | customcond | String | 允许 | 自定义查询条件 |
-| 9 | customparams | String | 允许 | 自定义查询参数 |
-| 10 | query | String | 允许 | 快速搜索 |
-| 11 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 12 | page | int | 允许 | 当前页数<br>默认值0 |
-| 13 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 14 | sort | String | 允许 | 排序 |
+| 8 | n_bugresolveddate_gtandeq | Timestamp | 允许 | 条件字段：bugresolveddate<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 9 | n_bugresolveddate_ltandeq | Timestamp | 允许 | 条件字段：bugresolveddate<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 10 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
+| 11 | n_begin_gtandeq | Timestamp | 允许 | 条件字段：begin<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 12 | n_end_ltandeq | Timestamp | 允许 | 条件字段：end<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 13 | customcond | String | 允许 | 自定义查询条件 |
+| 14 | customparams | String | 允许 | 自定义查询参数 |
+| 15 | query | String | 允许 | 快速搜索 |
+| 16 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 17 | page | int | 允许 | 当前页数<br>默认值0 |
+| 18 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 19 | sort | String | 允许 | 排序 |
