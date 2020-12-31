@@ -9570,7 +9570,8 @@ task AS id
 FROM
 `zt_taskestimate` t1 
 WHERE
-t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d')
+t1.date >= DATE_FORMAT(${srfdatacontext('begin')}, '%Y-%m-%d')
+AND t1.date <= DATE_FORMAT(${srfdatacontext('end')}, '%Y-%m-%d')
 GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT) t1
 left join zt_task t2 
 on t1.task = t2.id 
@@ -9664,7 +9665,7 @@ t1.`DATE`,
 t1.`ID`,
 t1.`LEFT`,
 t1.`TASK`
-FROM `zt_taskestimate` t1 where t1.date =DATE_FORMAT(${srfdatacontext('date')},'%y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
+FROM `zt_taskestimate` t1 where t1.date >= DATE_FORMAT(${srfdatacontext('begin')},'%y-%m-%d') and t1.date <= DATE_FORMAT(${srfdatacontext('end')},'%y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
 WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')}) 
 
 ```

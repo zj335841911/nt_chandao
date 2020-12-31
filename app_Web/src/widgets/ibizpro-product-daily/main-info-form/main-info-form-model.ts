@@ -76,6 +76,16 @@ export default class MainInfoModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'begin',
+        prop: 'begin',
+        dataType: 'DATE',
+      },
+      {
+        name: 'end',
+        prop: 'end',
+        dataType: 'DATE',
+      },
+      {
         name: 'product',
         prop: 'product',
         dataType: 'PICKUP',
