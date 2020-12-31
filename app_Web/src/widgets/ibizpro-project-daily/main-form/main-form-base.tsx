@@ -106,6 +106,8 @@ export class MainEditFormBase extends EditFormControlBase {
         pm: null,
         date: null,
         totalestimates: null,
+        begin: null,
+        end: null,
         project: null,
         tasks: null,
         ibizpro_projectdailyid: null,
@@ -270,6 +272,20 @@ export class MainEditFormBase extends EditFormControlBase {
 
         totalestimates: new FormItemModel({
     caption: '总工时', detailType: 'FORMITEM', name: 'totalestimates', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        begin: new FormItemModel({
+    caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        end: new FormItemModel({
+    caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

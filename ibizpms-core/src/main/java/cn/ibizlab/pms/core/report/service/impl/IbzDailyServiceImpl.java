@@ -395,6 +395,13 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
 
 
 
+    /**
+     * 获取searchContext
+     * @return
+     */
+    public IbzDailySearchContext getSearchContext(){
+        return new IbzDailySearchContext();
+    }
 }
 
 

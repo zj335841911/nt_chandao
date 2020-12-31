@@ -739,7 +739,8 @@ task AS id
 FROM
 `zt_taskestimate` t1 
 WHERE
-t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d')
+t1.date >= DATE_FORMAT(${srfdatacontext('begin')}, '%Y-%m-%d')
+AND t1.date <= DATE_FORMAT(${srfdatacontext('end')}, '%Y-%m-%d')
 GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT) t1
 left join zt_task t2 
 on t1.task = t2.id 

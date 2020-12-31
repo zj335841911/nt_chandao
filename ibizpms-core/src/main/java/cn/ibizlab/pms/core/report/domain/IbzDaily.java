@@ -96,6 +96,7 @@ public class IbzDaily extends EntityMP implements Serializable {
     /**
      * 日期
      */
+    @DEField(dupCheck = DupCheck.ALL, dupCheckField = "account")
     @TableField(value = "`date`")
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd")
