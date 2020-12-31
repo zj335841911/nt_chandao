@@ -69,6 +69,20 @@ export class IbizproProductMonthlyGridViewBase extends GridViewBase {
      */
     public appUIService: IbizproProductMonthlyUIService = new IbizproProductMonthlyUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbizproProductMonthlyGridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_po_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
+    };
+
     /**
      * 视图模型数据
      *

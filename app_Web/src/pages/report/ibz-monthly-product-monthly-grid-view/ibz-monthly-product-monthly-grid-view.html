@@ -1,13 +1,4 @@
 <studio-view viewName="ibzmonthlyproductmonthlygridview" viewTitle="月报表格视图" class='degridview ibz-monthly-product-monthly-grid-view'>
-    <i-input
-        slot="quickSearch"
-        clearable
-        
-        v-model="query"
-        :placeholder="$t('entities.ibzmonthly.fields.ibzmonthlyname')"
-        search
-        @on-search="onSearch($event)"
-    ></i-input>
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
