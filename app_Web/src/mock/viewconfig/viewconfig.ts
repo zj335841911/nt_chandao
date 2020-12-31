@@ -4191,6 +4191,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductMainView_Edit",
             "viewtag": "c02574075c8c15c67231cd71be040763"
         },
+        "ibzproproductusertaskproductmonthlypartgridview": {
+            "title": "产品汇报用户任务表格视图",
+            "caption": "产品日报",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibizpro",
+            "viewname": "IbzproProductUserTaskProductMonthlyPartGridView",
+            "viewtag": "c081204d4555873a491a8034c6c44316"
+        },
         "bugresolveview": {
             "title": "解决Bug",
             "caption": "解决Bug",

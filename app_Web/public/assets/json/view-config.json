@@ -5229,6 +5229,16 @@
         "viewtag": "c02574075c8c15c67231cd71be040763",
         "memo": ""
     },
+    "ibzproproductusertaskproductmonthlypartgridview": {
+        "title": "产品汇报用户任务表格视图",
+        "caption": "产品日报",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibizpro",
+        "viewname": "IbzproProductUserTaskProductMonthlyPartGridView",
+        "viewfilename": "ibzpro-product-user-task-product-monthly-part-grid-view",
+        "viewtag": "c081204d4555873a491a8034c6c44316",
+        "memo": ""
+    },
     "bugresolveview": {
         "title": "解决Bug",
         "caption": "解决Bug",

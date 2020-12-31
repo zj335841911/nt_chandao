@@ -18,7 +18,7 @@
             ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                {{$t('entities.ibzproproductusertask.productweeklygird_grid.nodata')}} 
+                {{$t('entities.ibzproproductusertask.productdailygird_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
@@ -26,10 +26,10 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('account')">
-                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.account')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.account')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -38,10 +38,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskname')">
-                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.taskname')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'taskname'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.taskname')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.taskname')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.taskname')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -50,10 +50,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('tasktype')">
-                <el-table-column show-overflow-tooltip :prop="'tasktype'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.tasktype')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'tasktype'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.tasktype')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.tasktype')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.tasktype')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -64,10 +64,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('consumed')">
-                <el-table-column show-overflow-tooltip :prop="'consumed'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.consumed')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'consumed'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.consumed')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.consumed')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.consumed')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -76,10 +76,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('eststarted')">
-                <el-table-column show-overflow-tooltip :prop="'eststarted'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.eststarted')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'eststarted'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.eststarted')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.eststarted')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.eststarted')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -88,10 +88,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('deadline')">
-                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.deadline')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.deadline')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.deadline')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.deadline')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -99,35 +99,23 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('mindate')">
-                <el-table-column show-overflow-tooltip :prop="'mindate'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.mindate')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('date')">
+                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.mindate')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.date')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.mindate"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('maxdate')">
-                <el-table-column show-overflow-tooltip :prop="'maxdate'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.maxdate')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.maxdate')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.maxdate"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('progressrate')">
-                <el-table-column show-overflow-tooltip :prop="'progressrate'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.progressrate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'progressrate'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.progressrate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.progressrate')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.progressrate')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -136,10 +124,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('delaydays')">
-                <el-table-column show-overflow-tooltip :prop="'delaydays'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.delaydays')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'delaydays'" :label="$t('entities.ibzproproductusertask.productdailygird_grid.columns.delaydays')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.delaydays')}}
+                        {{$t('entities.ibzproproductusertask.productdailygird_grid.columns.delaydays')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">

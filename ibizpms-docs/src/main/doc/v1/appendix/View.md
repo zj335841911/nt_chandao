@@ -803,6 +803,7 @@ SRFNAVPARAM.project=%project%|
 |-|我的地盘树导航视图（测试统计）|DETREEEXPVIEW|&nbsp;|
 |-|file表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|
+|-|产品汇报用户任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|解决Bug|DEOPTVIEW|&nbsp;|
 |-|我的工作|DELISTVIEW|&nbsp;|
 |-|产品周报编辑视图|DEEDITVIEW|&nbsp;|

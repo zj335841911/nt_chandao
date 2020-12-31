@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import IbzproProductUserTaskService from '@/service/ibzpro-product-user-task/ibzpro-product-user-task-service';
-import ProductWeeklyGirdService from './product-weekly-gird-grid-service';
+import ProductDailyGirdService from './product-daily-gird-grid-service';
 import IbzproProductUserTaskUIService from '@/uiservice/ibzpro-product-user-task/ibzpro-product-user-task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
@@ -12,31 +12,31 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {ProductWeeklyGirdGridBase}
+ * @extends {ProductDailyGirdGridBase}
  */
-export class ProductWeeklyGirdGridBase extends GridControlBase {
+export class ProductDailyGirdGridBase extends GridControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProductWeeklyGirdService}
-     * @memberof ProductWeeklyGirdGridBase
+     * @type {ProductDailyGirdService}
+     * @memberof ProductDailyGirdGridBase
      */
-    public service: ProductWeeklyGirdService = new ProductWeeklyGirdService({ $store: this.$store });
+    public service: ProductDailyGirdService = new ProductDailyGirdService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {IbzproProductUserTaskService}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     public appEntityService: IbzproProductUserTaskService = new IbzproProductUserTaskService({ $store: this.$store });
 
@@ -45,7 +45,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     protected appDeName: string = 'ibzproproductusertask';
 
@@ -54,7 +54,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     protected appDeLogicName: string = '产品汇报用户任务';
 
@@ -62,7 +62,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 界面UI服务对象
      *
      * @type {IbzproProductUserTaskUIService}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */  
     public appUIService: IbzproProductUserTaskUIService = new IbzproProductUserTaskUIService(this.$store);
 
@@ -71,7 +71,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */  
     public ActionModel: any = {
     };
@@ -80,7 +80,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 主信息表格列
      *
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */  
     public majorInfoColName:string = "";
 
@@ -90,15 +90,15 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
-    protected localStorageTag: string = 'ibizpro_productusertask_productweeklygird_grid';
+    protected localStorageTag: string = 'ibizpro_productusertask_productdailygird_grid';
 
     /**
      * 分页条数
      *
      * @type {number}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     public limit: number = 10;
 
@@ -106,13 +106,13 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     public allColumns: any[] = [
         {
             name: 'account',
             label: '用户',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.account',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.account',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -121,7 +121,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         {
             name: 'taskname',
             label: '任务名称',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.taskname',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.taskname',
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
@@ -130,7 +130,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         {
             name: 'tasktype',
             label: '任务类型',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.tasktype',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.tasktype',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -138,8 +138,8 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         },
         {
             name: 'consumed',
-            label: '本周消耗',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.consumed',
+            label: '当天消耗',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.consumed',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -148,7 +148,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         {
             name: 'eststarted',
             label: '预计开始',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.eststarted',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.eststarted',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -157,25 +157,16 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         {
             name: 'deadline',
             label: '截止日期',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.deadline',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.deadline',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'mindate',
+            name: 'date',
             label: '日期',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.mindate',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'maxdate',
-            label: '日期',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.maxdate',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.date',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -184,7 +175,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         {
             name: 'progressrate',
             label: '进度',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.progressrate',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.progressrate',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -193,7 +184,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         {
             name: 'delaydays',
             label: '延期天数',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.delaydays',
+            langtag: 'entities.ibzproproductusertask.productdailygird_grid.columns.delaydays',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -205,7 +196,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     public getGridRowModel(){
         return {
@@ -217,7 +208,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public isEnableGroup:boolean = false;
 
@@ -225,7 +216,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public groupAppField:string ="";
 
@@ -233,7 +224,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -241,7 +232,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -249,7 +240,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public groupMode:string ="NONE";
 
@@ -257,7 +248,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public codelistTag: string = "";
 
@@ -265,7 +256,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public codelistType: string = "";
 
@@ -273,7 +264,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     public rules() {
         return {
@@ -288,7 +279,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public deRules:any = {
     };
@@ -297,7 +288,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public hasRowEdit: any = {
         'account':false,
@@ -306,8 +297,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         'consumed':false,
         'eststarted':false,
         'deadline':false,
-        'mindate':false,
-        'maxdate':false,
+        'date':false,
         'progressrate':false,
         'delaydays':false,
     };
@@ -317,7 +307,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -375,7 +365,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof ProductWeeklyGirdGridBase
+     * @memberof ProductDailyGirdGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -394,7 +384,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
     /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public updateDefault(row: any){                    
     }
@@ -402,10 +392,10 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof ProductWeeklyGirdBase
+    * @memberof ProductDailyGirdBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['account','taskname','tasktype','consumed','eststarted','deadline','mindate','maxdate','progressrate','delaydays'];
+        let allColumns:Array<any> = ['account','taskname','tasktype','consumed','eststarted','deadline','date','progressrate','delaydays'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -418,7 +408,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -433,7 +423,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -450,7 +440,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -490,8 +480,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
                 consumed:'',
                 eststarted:'',
                 deadline:'',
-                mindate:'',
-                maxdate:'',
+                date:'',
                 progressrate:'',
                 delaydays:'',
                 children: children
@@ -524,8 +513,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
             consumed:'',
             eststarted:'',
             deadline:'',
-            mindate:'',
-            maxdate:'',
+            date:'',
             progressrate:'',
             delaydays:'',
             children: child
@@ -544,7 +532,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public async drawGroup(){
         if(!this.isEnableGroup) return;
@@ -594,8 +582,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
                 consumed:'',
                 eststarted:'',
                 deadline:'',
-                mindate:'',
-                maxdate:'',
+                date:'',
                 progressrate:'',
                 delaydays:'',
                 children: children,
@@ -615,7 +602,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof ProductWeeklyGirdBase
+     * @memberof ProductDailyGirdBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){
