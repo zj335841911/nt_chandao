@@ -102,6 +102,7 @@ export class AssignToEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        product: null,
         assignedto: null,
         comment: null,
         id: null,
@@ -202,6 +203,13 @@ export class AssignToEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({
     caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        product: new FormItemModel({
+    caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

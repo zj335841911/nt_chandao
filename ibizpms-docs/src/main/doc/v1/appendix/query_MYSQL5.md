@@ -16956,7 +16956,7 @@ LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
 RIGHT JOIN zt_product t51 ON t1.PRODUCT = t51.ID 
 LEFT OUTER JOIN zt_projectproduct t61 ON t51.ID = t61.PRODUCT 
 
-WHERE ( t61.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')} ) 
+WHERE ( t61.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')}  AND  (t61.plan = 0 or t1.plan = t61.plan or t1.plan in (select t.id from zt_productplan t where t.parent = t61.plan)) ) 
 NOT(EXISTS(SELECT * FROM zt_projectstory t71 
  WHERE 
  t1.ID = t71.STORY  AND  ( t71.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_PROJECTSTORY"}')} ) )) 
