@@ -33,7 +33,6 @@ export default class StartFormEditForm extends StartFormEditFormBase {
      * @memberof EditFormControlBase
      */
     public async save(opt: any = {}, showResultInfo?: boolean, ifStateNext: boolean = true): Promise<any> {
-        debugger
         const  open =  async ()=>{
             return await  new Promise((resolve: any, reject: any) => {
                 this.$Modal.confirm({
