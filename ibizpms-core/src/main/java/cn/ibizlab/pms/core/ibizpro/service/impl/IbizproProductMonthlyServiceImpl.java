@@ -191,6 +191,21 @@ public class IbizproProductMonthlyServiceImpl extends ServiceImpl<IbizproProduct
         }
     }
 
+    @Override
+    @Transactional
+    public IbizproProductMonthly statsProductMonthly(IbizproProductMonthly et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean statsProductMonthlyBatch(List<IbizproProductMonthly> etList) {
+        for(IbizproProductMonthly et : etList) {
+            statsProductMonthly(et);
+        }
+        return true;
+    }
+
 
     @Override
     public List<IbizproProductMonthly> selectByProduct(Long id) {

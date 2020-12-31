@@ -115,6 +115,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('sysrole', () => import('@/authservice/sys-role/sys-role-auth-service'));
         this.allAuthService.set('task', () => import('@/authservice/task/task-auth-service'));
         this.allAuthService.set('build', () => import('@/authservice/build/build-auth-service'));
+        this.allAuthService.set('ibizproproductmonthly', () => import('@/authservice/ibizpro-product-monthly/ibizpro-product-monthly-auth-service'));
         this.allAuthService.set('testresult', () => import('@/authservice/test-result/test-result-auth-service'));
         this.allAuthService.set('testsuite', () => import('@/authservice/test-suite/test-suite-auth-service'));
         this.allAuthService.set('ibzplantempletdetail', () => import('@/authservice/ibz-plan-templet-detail/ibz-plan-templet-detail-auth-service'));

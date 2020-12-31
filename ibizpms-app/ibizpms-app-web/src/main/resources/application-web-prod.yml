@@ -311,6 +311,10 @@ zuul:
       path: /builds/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_productmonthly:
+      path: /ibizproproductmonthlies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_testresult:
       path: /testresults/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

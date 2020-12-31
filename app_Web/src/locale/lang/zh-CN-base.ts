@@ -76,6 +76,7 @@ import ibizproproductdaily_zh_CN from '@locale/lanres/entities/ibizpro-product-d
 import sysrole_zh_CN from '@locale/lanres/entities/sys-role/sys-role_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
+import ibizproproductmonthly_zh_CN from '@locale/lanres/entities/ibizpro-product-monthly/ibizpro-product-monthly_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
 import ibzplantempletdetail_zh_CN from '@locale/lanres/entities/ibz-plan-templet-detail/ibz-plan-templet-detail_zh_CN';
@@ -476,6 +477,7 @@ function getAppLocale(){
             sysrole: sysrole_zh_CN(),
             task: task_zh_CN(),
             build: build_zh_CN(),
+            ibizproproductmonthly: ibizproproductmonthly_zh_CN(),
             testresult: testresult_zh_CN(),
             testsuite: testsuite_zh_CN(),
             ibzplantempletdetail: ibzplantempletdetail_zh_CN(),

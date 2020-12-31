@@ -115,6 +115,7 @@ export class UIServiceRegister {
         this.allUIService.set('sysrole', () => import('@/uiservice/sys-role/sys-role-ui-service'));
         this.allUIService.set('task', () => import('@/uiservice/task/task-ui-service'));
         this.allUIService.set('build', () => import('@/uiservice/build/build-ui-service'));
+        this.allUIService.set('ibizproproductmonthly', () => import('@/uiservice/ibizpro-product-monthly/ibizpro-product-monthly-ui-service'));
         this.allUIService.set('testresult', () => import('@/uiservice/test-result/test-result-ui-service'));
         this.allUIService.set('testsuite', () => import('@/uiservice/test-suite/test-suite-ui-service'));
         this.allUIService.set('ibzplantempletdetail', () => import('@/uiservice/ibz-plan-templet-detail/ibz-plan-templet-detail-ui-service'));

@@ -83,6 +83,7 @@ import './entity/ibizpro-product-dailys/ibizpro-product-dailys';
 import './entity/sys-roles/sys-roles';
 import './entity/tasks/tasks';
 import './entity/builds/builds';
+import './entity/ibizpro-product-monthlys/ibizpro-product-monthlys';
 import './entity/test-results/test-results';
 import './entity/test-suites/test-suites';
 import './entity/ibz-plan-templet-details/ibz-plan-templet-details';
