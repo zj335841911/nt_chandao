@@ -123,6 +123,11 @@ public class SysEmployeeFallback implements SysEmployeeFeignClient {
     }
 
 
+    public Page<SysEmployee> searchStoryProductTeamChoice(SysEmployeeSearchContext context) {
+        return null;
+    }
+
+
     public Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context) {
         return null;
     }

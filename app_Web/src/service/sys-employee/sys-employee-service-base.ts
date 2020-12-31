@@ -462,6 +462,35 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * FetchStoryProductTeamChoice接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchStoryProductTeamChoice(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchstoryproductteamchoice`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchStoryProductTeamChoice接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchStoryProductTeamChoice(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchstoryproductteamchoice`,tempData,isloading);
+    }
+
+    /**
      * FetchTaskMTeam接口方法
      *
      * @param {*} [context={}]

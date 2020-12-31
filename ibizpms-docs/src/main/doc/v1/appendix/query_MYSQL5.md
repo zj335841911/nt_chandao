@@ -17815,6 +17815,43 @@ t1.`USERNAME`
 FROM `T_IBZEMP` t1 
 
 ```
+### 产品团队成员选择(StoryProductTeamChoice)<div id="SysEmployee_StoryProductTeamChoice"></div>
+```sql
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`ENABLE`,
+t1.`IPADDR`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `T_IBZEMP` t1 
+
+```
 ### 任务多人团队(TaskMTeam)<div id="SysEmployee_TaskMTeam"></div>
 ```sql
 

@@ -544,6 +544,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SysEmployeeDTO](#SysEmployeeDTO)>：人员实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品团队成员选择
+#### 访问路径
+/sysemployees/fetchstoryproductteamchoice
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 人员查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SysEmployeeDTO](#SysEmployeeDTO)>：人员实体传输对象列表 |
+
+### 查询产品团队成员选择
+#### 访问路径
+/sysemployees/searchstoryproductteamchoice
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 人员查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SysEmployeeDTO](#SysEmployeeDTO)>：人员实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取任务多人团队
 #### 访问路径
 /sysemployees/fetchtaskmteam

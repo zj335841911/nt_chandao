@@ -55,6 +55,7 @@ public interface ISysEmployeeService {
     Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectTeamUserTask(SysEmployeeSearchContext context);
     Page<SysEmployee> searchProjectteamPk(SysEmployeeSearchContext context);
+    Page<SysEmployee> searchStoryProductTeamChoice(SysEmployeeSearchContext context);
     Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context);
     Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context);
     List<SysEmployee> selectByMdeptid(String deptid);

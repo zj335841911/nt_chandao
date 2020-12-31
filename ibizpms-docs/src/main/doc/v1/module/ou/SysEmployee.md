@@ -1481,9 +1481,10 @@ Save
 | 8 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
 | 9 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 10 | [项目团队成员选择](#数据查询-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 11 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
-| 12 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
-| 13 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 11 | [产品团队成员选择](#数据查询-产品团队成员选择（StoryProductTeamChoice）) | StoryProductTeamChoice | 否 |
+| 12 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
+| 13 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
+| 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug用户（BugUser）
 #### 说明
@@ -1833,6 +1834,54 @@ t1.`USERNAME`
 FROM `T_IBZEMP` t1 
 
 ```
+### 数据查询-产品团队成员选择（StoryProductTeamChoice）
+#### 说明
+产品团队成员选择
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`ENABLE`,
+t1.`IPADDR`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `T_IBZEMP` t1 
+
+```
 ### 数据查询-任务多人团队（TaskMTeam）
 #### 说明
 任务多人团队
@@ -1925,8 +1974,9 @@ FROM `T_IBZEMP` t1
 | 8 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
 | 9 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 10 | [项目团队成员选择](#数据集合-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 11 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
-| 12 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
+| 11 | [产品团队成员选择](#数据集合-产品团队成员选择（StoryProductTeamChoice）) | StoryProductTeamChoice | 否 |
+| 12 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
+| 13 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
 
 ### 数据集合-Bug用户（BugUser）
 #### 说明
@@ -2068,6 +2118,20 @@ Bug用户
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目团队成员选择（ProjectteamPk）](#数据查询-项目团队成员选择（ProjectteamPk）) |
+### 数据集合-产品团队成员选择（StoryProductTeamChoice）
+#### 说明
+产品团队成员选择
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品团队成员选择（StoryProductTeamChoice）](#数据查询-产品团队成员选择（StoryProductTeamChoice）) |
 ### 数据集合-任务多人团队（TaskMTeam）
 #### 说明
 任务多人团队
