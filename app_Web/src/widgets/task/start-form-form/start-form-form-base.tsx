@@ -173,13 +173,13 @@ export class StartFormEditFormBase extends EditFormControlBase {
                   {
                       type:"VALUERANGE2",
                       condOP:"",
-                      ruleInfo:"预计剩余大于0", 
+                      ruleInfo:"预计剩余大于等于0", 
                       isKeyCond:false,
                       isNotMode:false,
                       minValue:0,
                       deName:"left",
                       isIncludeMaxValue:false,
-                      isIncludeMinValue:false,
+                      isIncludeMinValue:true,
                   },
                 ],
         consumed:[
