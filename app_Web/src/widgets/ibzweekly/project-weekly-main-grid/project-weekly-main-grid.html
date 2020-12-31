@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('ibz_weeklyname')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_weeklyname'" :label="$t('entities.ibzweekly.projectweeklymain_grid.columns.ibz_weeklyname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'ibz_weeklyname'" :label="$t('entities.ibzweekly.projectweeklymain_grid.columns.ibz_weeklyname')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzweekly.projectweeklymain_grid.columns.ibz_weeklyname')}}

@@ -7657,6 +7657,43 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 
 ```
 
+# **产品月报**(IBIZPRO_PRODUCTMONTHLY)
+
+### 数据查询(DEFAULT)<div id="IbizproProductMonthly_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBIZPRO_PRODUCTMONTHLYID`,
+t1.`IBIZPRO_PRODUCTMONTHLYNAME`,
+t11.`PO`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTMONTHLY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbizproProductMonthly_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBIZPRO_PRODUCTMONTHLYID`,
+t1.`IBIZPRO_PRODUCTMONTHLYNAME`,
+t11.`PO`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`TOTALESTIMATES`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBIZPRO_PRODUCTMONTHLY` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+
+```
+
 # **产品周报**(IBIZPRO_PRODUCTWEEKLY)
 
 ### 数据查询(DEFAULT)<div id="IbizproProductWeekly_Default"></div>

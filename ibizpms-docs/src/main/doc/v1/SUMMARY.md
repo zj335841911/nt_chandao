@@ -230,6 +230,8 @@
 
     * [产品日报](module/ibizpro/IbizproProductDaily.md) 
 
+    * [产品月报](module/ibizpro/IbizproProductMonthly.md) 
+
     * [产品周报](module/ibizpro/IbizproProductWeekly.md) 
 
     * [项目日报](module/ibizpro/IbizproProjectDaily.md) 

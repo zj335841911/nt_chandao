@@ -330,6 +330,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_action`(
@@ -2809,6 +2819,16 @@ CREATE TABLE `zt_action`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **产品的分支和平台信息** (zt_branch)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -2818,6 +2838,16 @@ CREATE TABLE `zt_action`(
 | PRODUCT        | 所属产品  |       |   8   | &nbsp; |
 | ORDER        | 排序  | INTEGER      |   5   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4601,6 +4631,16 @@ CREATE TABLE `zt_branch`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_bug`(
@@ -5735,6 +5775,16 @@ CREATE TABLE `zt_bug`(
 | BUGEFFICIENT        | 有效率  | VARCHAR      |   200   | &nbsp; |
 | ID        | 标识  |       |   20   | 主键&nbsp; |
 | PROJECTNAME        | 项目名称  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7547,6 +7597,16 @@ CREATE TABLE `zt_bug`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_build`(
@@ -8546,6 +8606,16 @@ CREATE TABLE `zt_build`(
 | LEFT        | 预计剩余  | DOUBLE      |   -1   | &nbsp; |
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
 | ISWEEKEND        | 周末  | VARCHAR      |   200   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10423,6 +10493,16 @@ CREATE TABLE `zt_burn`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_case`(
@@ -11856,6 +11936,16 @@ CREATE TABLE `zt_case`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_case`(
@@ -12819,6 +12909,16 @@ CREATE TABLE `zt_case`(
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
 | DESC        | 步骤  | CLOB      |   65,535   | &nbsp; |
 | CASESTEPID        | 用例步骤编号  |       |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -15596,6 +15696,16 @@ CREATE TABLE `zt_casestep`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **公司动态汇总** (zt_action)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -15612,6 +15722,16 @@ CREATE TABLE `zt_casestep`(
 | ID        | 标识  |       |   20   | 主键&nbsp; |
 | OPENEDTASKCNT        | 新增任务数  | INTEGER      |   -1   | &nbsp; |
 | FINISHEDTASKCNT        | 完成任务数  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -18387,6 +18507,16 @@ CREATE TABLE `zt_action`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **配置** (zt_config)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -18397,6 +18527,16 @@ CREATE TABLE `zt_action`(
 | ID        | id  |       |   -1   | 主键&nbsp; |
 | OWNER        | 所有者  | VARCHAR      |   30   | &nbsp; |
 | VALUE        | 值  | CLOB      |   65,535   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21163,6 +21303,16 @@ CREATE TABLE `zt_action`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **部门** (zt_dept)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -21178,6 +21328,16 @@ CREATE TABLE `zt_action`(
 | PATH        | path  | VARCHAR      |   255   | &nbsp; |
 | PARENT        | parent  |       |   -1   | &nbsp; |
 | POSITION        | position  | VARCHAR      |   30   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -23107,6 +23267,16 @@ CREATE TABLE `zt_action`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_doc`(
@@ -23993,6 +24163,16 @@ CREATE TABLE `zt_doc`(
 | VERSION        | 版本号  | INTEGER      |   5   | &nbsp; |
 | CONTENT        | 文档正文  | CLOB      |   65,535   | &nbsp; |
 | TYPE        | 文档类型  | VARCHAR      |   10   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25964,6 +26144,16 @@ CREATE TABLE `zt_doccontent`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_doclib`(
@@ -26821,6 +27011,16 @@ CREATE TABLE `zt_doclib`(
 | PATH        | path  | VARCHAR      |   255   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | ROOT        | 编号  |       |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -29603,6 +29803,16 @@ CREATE TABLE `zt_module`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **effort** (zt_effort)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -30993,6 +31203,16 @@ CREATE TABLE `zt_module`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **员工负载表** (ZT_TASK)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -31008,6 +31228,16 @@ CREATE TABLE `zt_module`(
 | NAME        | 任务名  | VARCHAR      |   100   | &nbsp; |
 | PROJECTNAME        | 项目  | VARCHAR      |   90   | &nbsp; |
 | LEFT        | 剩余工时  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -33786,6 +34016,16 @@ CREATE TABLE `ZT_TASK`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **extension** (zt_extension)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -35180,6 +35420,16 @@ CREATE TABLE `ZT_TASK`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **附件** (zt_file)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -35197,6 +35447,16 @@ CREATE TABLE `ZT_TASK`(
 | ADDEDBY        | 由谁添加  | VARCHAR      |   30   | &nbsp; |
 | EXTENSION        | 文件类型  | VARCHAR      |   30   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -37973,6 +38233,16 @@ CREATE TABLE `zt_file`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **群组权限** (zt_grouppriv)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -37981,6 +38251,16 @@ CREATE TABLE `zt_file`(
 | ID        | 虚拟主键  | VARCHAR      |   200   | 主键&nbsp; |
 | GROUP        | group  | INTEGER      |   -1   | &nbsp; |
 | MODULE        | module  | VARCHAR      |   30   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -39955,6 +40235,16 @@ CREATE TABLE `zt_file`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_history`(
@@ -40757,6 +41047,16 @@ CREATE TABLE `zt_history`(
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
 | ID        | ID  | VARCHAR      |   60   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -43527,6 +43827,16 @@ CREATE TABLE `zt_history`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **系统插件** (T_IBIZPRO_PLUGIN)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -43545,6 +43855,16 @@ CREATE TABLE `zt_history`(
 | DOWNLOADURL        | 最新版本下载地址  | VARCHAR      |   100   | &nbsp; |
 | TAG        | 标签  | VARCHAR      |   2,000   | &nbsp; |
 | DOWNLOADCOUNT        | 总下载量  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46300,6 +46620,16 @@ CREATE TABLE `zt_history`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **平台产品** (zt_product)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -46308,6 +46638,16 @@ CREATE TABLE `zt_history`(
 | NAME        | 产品名称  | VARCHAR      |   90   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | CODE        | 产品代号  | VARCHAR      |   45   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48626,6 +48966,16 @@ CREATE TABLE `zt_product`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_story`(
@@ -49172,6 +49522,16 @@ CREATE TABLE `zt_story`(
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | ID        | id  |       |   20   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50668,6 +51028,16 @@ CREATE TABLE `zt_module`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `T_IBZPRO_SYSTPL`(
@@ -51981,6 +52351,16 @@ CREATE TABLE `T_IBZPRO_SYSTPL`(
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | IBZPRO_SYSTEMNAME        | 运行生产系统名称  | VARCHAR      |   200   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54761,6 +55141,16 @@ CREATE TABLE `T_IBZPRO_SYSTEM`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **实体** (zt_user)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -54769,6 +55159,16 @@ CREATE TABLE `T_IBZPRO_SYSTEM`(
 | ID        | ID  |       |   20   | 主键&nbsp; |
 | COMMITER        | 源代码账户  | VARCHAR      |   100   | &nbsp; |
 | ACCOUNT        | 账户  | VARCHAR      |   30   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -56168,6 +56568,16 @@ CREATE TABLE `zt_user`(
 | INDEXDESC        | 内容[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
 | ORGID        | 组织标识  | VARCHAR      |   200   | &nbsp; |
 | PROJECT        | 项目  | VARCHAR      |   200   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -58950,6 +59360,1428 @@ CREATE TABLE `T_IBIZPRO_PRODUCTDAILY`(
 
 
 
+
+
+
+
+
+
+
+
+
+
+## **产品月报** (T_IBIZPRO_PRODUCTMONTHLY)
+
+| 字段        |    中文名称    | 类型    |  数长度  |  备注  |
+| --------   |------------| :-----:   | :----: | :--------- | 
+| PRODUCTNAME        | 产品名称  | VARCHAR      |   90   | &nbsp; |
+| UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
+| TOTALESTIMATES        | 总工时  | DOUBLE      |   -1   | &nbsp; |
+| CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
+| IBIZPRO_PRODUCTMONTHLYNAME        | 产品月报名称  | VARCHAR      |   200   | &nbsp; |
+| UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
+| CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
+| PO        | 产品负责人  | VARCHAR      |   30   | &nbsp; |
+| PRODUCT        | 产品编号  |       |   8   | &nbsp; |
+| IBIZPRO_PRODUCTMONTHLYID        | 产品月报标识  |       |   100   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+表
+```sql
+CREATE TABLE `T_IBIZPRO_PRODUCTMONTHLY`(
+`IBIZPRO_PRODUCTMONTHLYID`  BIGINT(100)  UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '产品月报标识' 
+,`IBIZPRO_PRODUCTMONTHLYNAME`  VARCHAR(200) COMMENT '产品月报名称' 
+,`CREATEDATE`  DATETIME COMMENT '建立时间' 
+,`CREATEMAN`  VARCHAR(60) COMMENT '建立人' 
+,`UPDATEMAN`  VARCHAR(60) COMMENT '更新人' 
+,`UPDATEDATE`  DATETIME COMMENT '更新时间' 
+,`PRODUCT`  BIGINT(8)  UNSIGNED COMMENT '产品编号' 
+,`TOTALESTIMATES`  DOUBLE COMMENT '总工时' 
+)COMMENT='产品月报';
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## **产品周报** (T_IBIZPRO_PRODUCTWEEKLY)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -58966,6 +60798,16 @@ CREATE TABLE `T_IBIZPRO_PRODUCTDAILY`(
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | PRODUCT        | 编号  |       |   8   | &nbsp; |
 | TASKS        | 任务  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -60400,6 +62242,16 @@ CREATE TABLE `T_IBIZPRO_PRODUCTWEEKLY`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `T_IBIZPRO_PROJECTDAILY`(
@@ -61781,6 +63633,16 @@ CREATE TABLE `T_IBIZPRO_PROJECTDAILY`(
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | PROJECT        | 项目编号  |       |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63256,6 +65118,16 @@ CREATE TABLE `T_IBIZPRO_PROJECTMONTHLY`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `T_IBZPRO_PROJECTWEEKLY`(
@@ -64599,6 +66471,16 @@ CREATE TABLE `T_IBZPRO_PROJECTWEEKLY`(
 | AGENTEND        | 代理结束日期  | DATETIME      |   -1   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | CREATEMANNAME        | 创建人姓名  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66451,6 +68333,16 @@ CREATE TABLE `T_IBZ_AGENT`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_case`(
@@ -67449,6 +69341,16 @@ CREATE TABLE `zt_case`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | SUBMITTIME        | 提交时间  | DATETIME      |   -1   | &nbsp; |
 | MAILTOPK        | 抄送给（选择）  | VARCHAR      |   200   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -69015,6 +70917,16 @@ CREATE TABLE `T_IBZ_DAILY`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `T_IBZ_FAVORITES`(
@@ -70265,6 +72177,16 @@ CREATE TABLE `T_IBZ_FAVORITES`(
 | LASTEDITEDDATE        | 最后编辑时间  | DATETIME      |   -1   | &nbsp; |
 | PRODUCT        | 产品  |       |   20   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -73038,6 +74960,16 @@ CREATE TABLE `zt_testsuite`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **用例库用例步骤** (zt_casestep)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -73049,6 +74981,16 @@ CREATE TABLE `zt_testsuite`(
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | CASE        | 用例编号  |       |   8   | &nbsp; |
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -75818,6 +77760,16 @@ CREATE TABLE `zt_testsuite`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **月报** (T_IBZ_MONTHLY)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -75844,6 +77796,16 @@ CREATE TABLE `zt_testsuite`(
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | REPORTTOPK        | 汇报给（选择）  | VARCHAR      |   200   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -78535,6 +80497,16 @@ CREATE TABLE `T_IBZ_MONTHLY`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_user`(
@@ -78710,6 +80682,16 @@ CREATE TABLE `zt_user`(
 | CREATEMANNAME        | 创建人姓名  | VARCHAR      |   100   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | PRODUCT        | 产品  |       |   20   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -80116,6 +82098,16 @@ CREATE TABLE `T_IBZ_PLANTEMPLET`(
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | TYPE        | 类型  | VARCHAR      |   60   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82351,6 +84343,16 @@ CREATE TABLE `T_IBZ_PLANTEMPLETDETAIL`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_project`(
@@ -82930,6 +84932,16 @@ CREATE TABLE `zt_project`(
 | UPDATEMANNAME        | 更新人名称  | VARCHAR      |   60   | &nbsp; |
 | TOMORROWPLANSTASK        | 计划任务  | VARCHAR      |   2,000   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -84565,6 +86577,16 @@ CREATE TABLE `t_ibz_daily`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `T_IBZ_REPORT_ROLE_CONFIG`(
@@ -85749,6 +87771,16 @@ CREATE TABLE `T_IBZ_REPORT_ROLE_CONFIG`(
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
 | DATE        | 汇报日期  | DATETIME      |   -1   | &nbsp; |
 | REPORTTO        | 汇报给  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -87157,6 +89189,16 @@ CREATE TABLE `T_IBZ_REPORTLY`(
 | OBJECTORDER        | 排序  | INTEGER      |   100   | &nbsp; |
 | TYPE        | 类型  | VARCHAR      |   60   | &nbsp; |
 | IBZ_TOPID        | 标识  | VARCHAR      |   100   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88817,6 +90859,16 @@ CREATE TABLE `T_IBZ_TOP`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `T_IBZ_WEEKLY`(
@@ -89988,6 +92040,16 @@ CREATE TABLE `T_IBZ_WEEKLY`(
 | VAILD        | 是否启用  | VARCHAR      |   60   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | SCOPE        | 范围  | VARCHAR      |   2,000   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -92442,6 +94504,16 @@ CREATE TABLE `T_IBZPRO_CONFIG`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_taskestimate`(
@@ -92786,6 +94858,16 @@ CREATE TABLE `zt_taskestimate`(
 | ID        | 编号  |       |   20   | 主键&nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   30   | &nbsp; |
 | TASK        | 任务  |       |   20   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -94788,6 +96870,16 @@ CREATE TABLE `zt_taskestimate`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_im_chat`(
@@ -95600,6 +97692,16 @@ CREATE TABLE `zt_im_chat`(
 | MUTE        | mute  | VARCHAR      |   1   | &nbsp; |
 | ORDER        | order  | INTEGER      |   -1   | &nbsp; |
 | ID        | id  |       |   -1   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -97630,6 +99732,16 @@ CREATE TABLE `zt_im_chatuser`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_im_client`(
@@ -98408,6 +100520,16 @@ CREATE TABLE `zt_im_client`(
 | OPENEDBY        | openedBy  | INTEGER      |   -1   | &nbsp; |
 | OPENEDDATE        | openedDate  | DATETIME      |   -1   | &nbsp; |
 | PARTICIPANTS        | participants  | CLOB      |   65,535   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -100448,6 +102570,16 @@ CREATE TABLE `zt_im_conference`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_im_conferenceaction`(
@@ -101204,6 +103336,16 @@ CREATE TABLE `zt_im_conferenceaction`(
 | CONTENT        | content  | CLOB      |   65,535   | &nbsp; |
 | CGID        | cgid  | VARCHAR      |   40   | &nbsp; |
 | DELETED        | 逻辑删除标志  | VARCHAR      |   1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103265,6 +105407,16 @@ CREATE TABLE `zt_im_message`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_im_messagestatus`(
@@ -103997,6 +106149,16 @@ CREATE TABLE `zt_im_messagestatus`(
 | RESULT        | result  | CLOB      |   65,535   | &nbsp; |
 | PROCESSDATE        | processDate  | DATETIME      |   -1   | &nbsp; |
 | STATUS        | status  | VARCHAR      |   30   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -106774,6 +108936,16 @@ CREATE TABLE `zt_im_queue`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **job** (zt_job)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -108173,6 +110345,16 @@ CREATE TABLE `zt_im_queue`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **lang** (zt_lang)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -108184,6 +110366,16 @@ CREATE TABLE `zt_im_queue`(
 | SECTION        | section  | VARCHAR      |   30   | &nbsp; |
 | VALUE        | value  | CLOB      |   65,535   | &nbsp; |
 | SYSTEM        | system  | VARCHAR      |   1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -110947,6 +113139,16 @@ CREATE TABLE `zt_im_queue`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **模块** (zt_module)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -110967,6 +113169,16 @@ CREATE TABLE `zt_im_queue`(
 | ID        | id  |       |   -1   | 主键&nbsp; |
 | TYPE        | 类型  | VARCHAR      |   30   | &nbsp; |
 | BRANCH        | 平台/分支  |       |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -113754,6 +115966,16 @@ CREATE TABLE `zt_module`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **产品团队** (zt_team)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -113773,6 +115995,16 @@ CREATE TABLE `zt_module`(
 | TOTAL        | 总计可用  | INTEGER      |   -1   | &nbsp; |
 | LIMITED        | 受限用户  | VARCHAR      |   8   | &nbsp; |
 | HOURS        | 可用工时/天  | DOUBLE      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116632,6 +118864,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **实体** (T_PSDATAENTITY)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -116728,6 +118970,16 @@ CREATE TABLE `zt_team`(
 | SAASMODE        | SaaS构型  | INTEGER      |   -1   | &nbsp; |
 | USERCAT        | 用户分类  | VARCHAR      |   10   | &nbsp; |
 | LOGICVALIDVALUE        | 逻辑有效值  | VARCHAR      |   10   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119513,6 +121765,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **外部接口实体** (T_PSSUBSYSSADE)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -120914,6 +123176,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **外部服务接口** (T_PSSUBSYSSERVICEAPI)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -120930,6 +123202,16 @@ CREATE TABLE `zt_team`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | PSMODULENAME        | 系统模块  | VARCHAR      |   200   | &nbsp; |
 | PSSYSTEMNAME        | 系统  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -123745,6 +126027,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **系统需求项** (T_PSSYSREQITEM)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -125153,6 +127445,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **系统需求模块** (T_PSSYSREQMODULE)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -125183,6 +127485,16 @@ CREATE TABLE `zt_team`(
 | MEMO        | 备注  | VARCHAR      |   4,000   | &nbsp; |
 | ORDERVALUE        | 排序值  | INTEGER      |   -1   | &nbsp; |
 | MODULETAG4        | 模块标记4  | VARCHAR      |   200   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -127973,6 +130285,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **后台服务架构** (T_PSSYSSFPUB)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -128013,6 +130335,16 @@ CREATE TABLE `zt_team`(
 | PSSYSTEMNAME        | 系统  | VARCHAR      |   100   | &nbsp; |
 | PPSSYSSFPUBID        | 父后台服务体系  | VARCHAR      |   100   | &nbsp; |
 | PSSFSTYLEPARAMNAME        | 服务框架参数  | VARCHAR      |   200   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -130812,6 +133144,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **系统数据库** (T_PSSYSTEMDBCFG)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -130850,6 +133192,16 @@ CREATE TABLE `zt_team`(
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | PSSYSTEMDBCFGNAME        | 系统数据库名称  | VARCHAR      |   200   | &nbsp; |
 | TABSPACE2        | 表空间2名称  | VARCHAR      |   60   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132271,6 +134623,16 @@ CREATE TABLE `zt_team`(
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | LINE        | 产品线  |       |   8   | &nbsp; |
 | PRODUCTPLANCNT        | 计划总数  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -135066,6 +137428,16 @@ CREATE TABLE `zt_product`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **产品线** (T_IBZ_PRODUCTLINE)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -135076,6 +137448,16 @@ CREATE TABLE `zt_product`(
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | IBZ_PRODUCTLINENAME        | 产品线名称  | VARCHAR      |   200   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136471,6 +138853,16 @@ CREATE TABLE `zt_product`(
 | TYPE        | 类型（story）  | VARCHAR      |   30   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | BRANCH        | branch  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -138699,6 +141091,16 @@ CREATE TABLE `zt_module`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_productplan`(
@@ -139311,6 +141713,16 @@ CREATE TABLE `zt_productplan`(
 | RELEASEDSTORYCNT        | 已发布需求数  | INTEGER      |   -1   | &nbsp; |
 | BUGCNT        | 所有Bug数  | INTEGER      |   -1   | &nbsp; |
 | UNCONFIRMBUGCNT        | 未确认Bug数  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -140732,6 +143144,16 @@ CREATE TABLE `zt_product`(
 | RELEASEDSTAGESTORYHOURS        | 已发布阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORYCNT        | 已关闭  | INTEGER      |   -1   | &nbsp; |
 | CHANGEDSTORYCNT        | 已变更  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -142991,6 +145413,16 @@ CREATE TABLE `zt_product`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_project`(
@@ -143598,6 +146030,16 @@ CREATE TABLE `zt_project`(
 | PARENT        | id  |       |   20   | &nbsp; |
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | ORDER        | 排序值  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -146378,6 +148820,16 @@ CREATE TABLE `zt_module`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **项目统计** (zt_project)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -146426,6 +148878,16 @@ CREATE TABLE `zt_module`(
 | TOTALCONSUMED        | 任务消耗总工时  | DOUBLE      |   -1   | &nbsp; |
 | EMPTYSTORY        | 空需求  | INTEGER      |   -1   | &nbsp; |
 | WAITSTAGESTORYCNT        | 未开始阶段需求数  | INTEGER      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -149197,6 +151659,16 @@ CREATE TABLE `zt_project`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **项目团队** (zt_team)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -149216,6 +151688,16 @@ CREATE TABLE `zt_project`(
 | JOIN        | 加盟日  | DATETIME      |   -1   | &nbsp; |
 | CONSUMED        | 总计消耗  | DOUBLE      |   -1   | &nbsp; |
 | LIMITED        | 受限用户  | VARCHAR      |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -152000,6 +154482,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **发布** (zt_release)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -152022,6 +154514,16 @@ CREATE TABLE `zt_team`(
 | NAME        | 发布名称  | VARCHAR      |   255   | &nbsp; |
 | STATUS        | 状态  | VARCHAR      |   20   | &nbsp; |
 | BUILDNAME        | 版本  | VARCHAR      |   150   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -154811,6 +157313,16 @@ CREATE TABLE `zt_release`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **repobranch** (zt_repobranch)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -154819,6 +157331,16 @@ CREATE TABLE `zt_release`(
 | ID        | 虚拟主键  | VARCHAR      |   200   | 主键&nbsp; |
 | REVISION        | revision  | INTEGER      |   -1   | &nbsp; |
 | BRANCH        | branch  | VARCHAR      |   255   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -157580,6 +160102,16 @@ CREATE TABLE `zt_release`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **repohistory** (zt_repohistory)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -157591,6 +160123,16 @@ CREATE TABLE `zt_release`(
 | COMMITTER        | committer  | VARCHAR      |   100   | &nbsp; |
 | REVISION        | revision  | VARCHAR      |   40   | &nbsp; |
 | TIME        | time  | DATETIME      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -160354,6 +162896,16 @@ CREATE TABLE `zt_release`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **需求** (zt_story)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -160415,6 +162967,16 @@ CREATE TABLE `zt_release`(
 | ISCHILD        | 是否可以细分  | VARCHAR      |   200   | &nbsp; |
 | STATUS        | 当前状态  | VARCHAR      |   200   | &nbsp; |
 | BRANCHNAME        | 平台/分支  | VARCHAR      |   255   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -161850,6 +164412,16 @@ CREATE TABLE `zt_story`(
 | ID        | 虚拟主键  | VARCHAR      |   200   | 主键&nbsp; |
 | VERIFY        | 验收标准  | CLOB      |   65,535   | &nbsp; |
 | TITLE        | 需求名称  | VARCHAR      |   255   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -164619,6 +167191,16 @@ CREATE TABLE `zt_storyspec`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **套件用例** (zt_suitecase)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -164628,6 +167210,16 @@ CREATE TABLE `zt_storyspec`(
 | PRODUCT        | 所属产品  |       |   8   | &nbsp; |
 | ID        | 虚拟主键  | VARCHAR      |   200   | 主键&nbsp; |
 | VERSION        | 用例版本  | INTEGER      |   5   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -166035,6 +168627,16 @@ CREATE TABLE `zt_suitecase`(
 | PDEPTID        | 上级部门  | VARCHAR      |   100   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | LEADERNAME        | 分管领导  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -168820,6 +171422,16 @@ CREATE TABLE `zt_suitecase`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **单位** (T_SYS_ORG)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -170211,6 +172823,16 @@ CREATE TABLE `zt_suitecase`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **岗位** (IBZPOST)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -170220,6 +172842,16 @@ CREATE TABLE `zt_suitecase`(
 | POSTNAME        | 岗位名称  | VARCHAR      |   100   | &nbsp; |
 | POSTCODE        | 岗位编码  | VARCHAR      |   100   | &nbsp; |
 | POSTID        | 岗位标识  | VARCHAR      |   100   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -172983,6 +175615,16 @@ CREATE TABLE `zt_suitecase`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **组** (IBZTEAM)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -172991,6 +175633,16 @@ CREATE TABLE `zt_suitecase`(
 | MEMO        | 备注  | VARCHAR      |   2,000   | &nbsp; |
 | DOMAINS        | 区属  | VARCHAR      |   100   | &nbsp; |
 | TEAMNAME        | 组名称  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -175755,6 +178407,16 @@ CREATE TABLE `zt_suitecase`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **系统更新功能** (T_SYS_UPDATE_FEATURES)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -175771,6 +178433,16 @@ CREATE TABLE `zt_suitecase`(
 | TYPE        | 更新类型  | VARCHAR      |   60   | &nbsp; |
 | DISPLAYORDER        | 展示顺序  | INTEGER      |   -1   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -177176,6 +179848,16 @@ CREATE TABLE `T_SYS_UPDATE_FEATURES`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | SYS_UPDATE_LOGID        | 系统更新日志标识  | VARCHAR      |   100   | 主键&nbsp; |
 | UPDATEBRANCH        | 更新平台  | VARCHAR      |   60   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -179977,6 +182659,16 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **用户角色关系** (IBZUSER_ROLE)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -179991,6 +182683,16 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | MDEPTNAME        | 主部门  | VARCHAR      |   100   | &nbsp; |
 | ORGNAME        | 单位  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -181426,6 +184128,16 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | MYCONSUMED        | 之前消耗  | DOUBLE      |   -1   | &nbsp; |
 | NAME        | 任务名称  | VARCHAR      |   255   | &nbsp; |
 | TASKTYPE        | 任务类型  | VARCHAR      |   200   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -183908,6 +186620,16 @@ CREATE TABLE `zt_task`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_taskestimate`(
@@ -184258,6 +186980,16 @@ CREATE TABLE `zt_taskestimate`(
 | TASKMSGRECORDID        | 待办消息记录标识  | VARCHAR      |   100   | 主键&nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | TASKUSERID        | 待办人标识  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -186661,6 +189393,16 @@ CREATE TABLE `T_TASKMSGRECORD`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_task`(
@@ -187062,6 +189804,16 @@ CREATE TABLE `zt_task`(
 | ESTIMATE        | 最初预计  | DOUBLE      |   -1   | &nbsp; |
 | TOTAL        | 总计可用  | INTEGER      |   -1   | &nbsp; |
 | ROOT        | 编号  |       |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -189550,6 +192302,16 @@ CREATE TABLE `zt_team`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_team`(
@@ -189885,6 +192647,16 @@ CREATE TABLE `zt_team`(
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | ROOT        | 编号  |       |   8   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -191303,6 +194075,16 @@ CREATE TABLE `zt_module`(
 | BEGIN        | 开始时间  | DATETIME      |   -1   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | BUGS        | 测试的Bug  | CLOB      |   65,535   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193879,6 +196661,16 @@ CREATE TABLE `zt_testreport`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_testresult`(
@@ -194127,6 +196919,16 @@ CREATE TABLE `zt_testresult`(
 | LASTRUNRESULT        | 结果  | VARCHAR      |   30   | &nbsp; |
 | CASE        | 测试用例  |       |   8   | &nbsp; |
 | LASTRUNNER        | 最后执行人  | VARCHAR      |   30   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -196718,6 +199520,16 @@ CREATE TABLE `zt_testrun`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_testsuite`(
@@ -196947,6 +199759,16 @@ CREATE TABLE `zt_testsuite`(
 | DESC        | 描述  | CLOB      |   65,535   | &nbsp; |
 | OWNERPK        | 负责人（选择）  | VARCHAR      |   200   | &nbsp; |
 | AUTO        | auto  | VARCHAR      |   10   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199599,6 +202421,16 @@ CREATE TABLE `zt_testtask`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_todo`(
@@ -199809,6 +202641,16 @@ CREATE TABLE `zt_todo`(
 | ACCOUNT        | 账户  | VARCHAR      |   30   | &nbsp; |
 | ZIPCODE        | zipcode  | VARCHAR      |   10   | &nbsp; |
 | CLIENTLANG        | clientLang  | VARCHAR      |   10   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -202592,6 +205434,16 @@ CREATE TABLE `zt_user`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 表
 ```sql
 CREATE TABLE `zt_usercontact`(
@@ -202622,6 +205474,16 @@ CREATE TABLE `zt_usercontact`(
 | GROUP        | group  | INTEGER      |   -1   | &nbsp; |
 | ACCOUNT        | account  | VARCHAR      |   30   | &nbsp; |
 | ID        | 虚拟主键  | VARCHAR      |   200   | 主键&nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -205383,6 +208245,16 @@ CREATE TABLE `zt_usercontact`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **用户模板** (zt_usertpl)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -205393,6 +208265,16 @@ CREATE TABLE `zt_usercontact`(
 | ACCOUNT        | account  | VARCHAR      |   30   | &nbsp; |
 | CONTENT        | content  | CLOB      |   65,535   | &nbsp; |
 | TITLE        | 模板标题  | VARCHAR      |   150   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -208162,6 +211044,16 @@ CREATE TABLE `zt_usertpl`(
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## **用户年度工作内容统计** (zt_user)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
@@ -208216,6 +211108,16 @@ CREATE TABLE `zt_usertpl`(
 | ZIPCODE        | zipcode  | VARCHAR      |   10   | &nbsp; |
 | YEARBUGCNT        | 累计创建Bug数  | INTEGER      |   -1   | &nbsp; |
 | JUDGEROLE        | 判断角色  | VARCHAR      |   100   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -209652,6 +212554,16 @@ CREATE TABLE `zt_user`(
 | CREATEDBY        | createdBy  | VARCHAR      |   30   | &nbsp; |
 | CREATEDDATE        | createdDate  | DATETIME      |   -1   | &nbsp; |
 | EDITEDDATE        | editedDate  | DATETIME      |   -1   | &nbsp; |
+
+
+
+
+
+
+
+
+
+
 
 
 

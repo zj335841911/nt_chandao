@@ -662,6 +662,9 @@ class 索引检索 {
 class 产品日报 {
 }
 
+class 产品月报 {
+}
+
 class 产品周报 {
 }
 

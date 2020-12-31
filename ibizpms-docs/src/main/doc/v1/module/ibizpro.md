@@ -28,6 +28,9 @@ class 索引检索 {
 class 产品日报 {
 }
 
+class 产品月报 {
+}
+
 class 产品周报 {
 }
 
@@ -90,6 +93,7 @@ hide members
 |IBZPRO_SYSTEM|[运行生产系统](ibizpro/IBZProSystem.md)|主实体|&nbsp;|
 |IBIZPRO_INDEX|[索引检索](ibizpro/IbizproIndex.md)|主实体|&nbsp;|
 |IBIZPRO_PRODUCTDAILY|[产品日报](ibizpro/IbizproProductDaily.md)|主实体|&nbsp;|
+|IBIZPRO_PRODUCTMONTHLY|[产品月报](ibizpro/IbizproProductMonthly.md)|主实体|&nbsp;|
 |IBIZPRO_PRODUCTWEEKLY|[产品周报](ibizpro/IbizproProductWeekly.md)|主实体|&nbsp;|
 |IBIZPRO_PROJECTDAILY|[项目日报](ibizpro/IbizproProjectDaily.md)|主实体|&nbsp;|
 |IBIZPRO_PROJECTMONTHLY|[项目月报](ibizpro/IbizproProjectMonthly.md)|主实体|&nbsp;|
