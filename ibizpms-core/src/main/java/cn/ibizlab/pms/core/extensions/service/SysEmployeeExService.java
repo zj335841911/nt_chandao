@@ -92,6 +92,17 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     }
 
     @Override
+    public Page<SysEmployee> searchStoryProductTeamPK(SysEmployeeSearchContext context){
+        log.info("SysEmployeeExService：searchStoryProductTeamPK");
+        Map<String,Object> params = context.getParams();
+        if (params.get("product") != null && !"0".equals(params.get("product"))){
+            //产品团队
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PRODUCT.getValue(),params.get("product")));
+        }
+        return super.searchDefault(context);
+    }
+
+    @Override
     public Page<SysEmployee> searchProjectTeamMProduct(SysEmployeeSearchContext context){
         log.info("SysEmployeeExService：searchProjectTeamMProduct");
         Map<String,Object> params = context.getParams();
