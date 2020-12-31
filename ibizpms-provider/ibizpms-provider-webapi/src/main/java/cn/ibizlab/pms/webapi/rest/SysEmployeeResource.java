@@ -356,11 +356,11 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchStoryProductTeamChoice-all') and hasPermission(#context,'pms-SysEmployee-Get')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchStoryProductTeamPK-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取产品团队成员选择", tags = {"人员" } ,notes = "获取产品团队成员选择")
-    @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchstoryproductteamchoice")
-	public ResponseEntity<List<SysEmployeeDTO>> fetchStoryProductTeamChoice(SysEmployeeSearchContext context) {
-        Page<SysEmployee> domains = sysemployeeService.searchStoryProductTeamChoice(context) ;
+    @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchstoryproductteampk")
+	public ResponseEntity<List<SysEmployeeDTO>> fetchStoryProductTeamPK(SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchStoryProductTeamPK(context) ;
         List<SysEmployeeDTO> list = sysemployeeMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -369,11 +369,11 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchStoryProductTeamChoice-all') and hasPermission(#context,'pms-SysEmployee-Get')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchStoryProductTeamPK-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询产品团队成员选择", tags = {"人员" } ,notes = "查询产品团队成员选择")
-    @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchstoryproductteamchoice")
-	public ResponseEntity<Page<SysEmployeeDTO>> searchStoryProductTeamChoice(@RequestBody SysEmployeeSearchContext context) {
-        Page<SysEmployee> domains = sysemployeeService.searchStoryProductTeamChoice(context) ;
+    @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchstoryproductteampk")
+	public ResponseEntity<Page<SysEmployeeDTO>> searchStoryProductTeamPK(@RequestBody SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchStoryProductTeamPK(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

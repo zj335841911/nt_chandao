@@ -462,7 +462,7 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
-     * FetchStoryProductTeamChoice接口方法
+     * FetchStoryProductTeamPK接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -470,14 +470,14 @@ export default class SysEmployeeServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof SysEmployeeServiceBase
      */
-    public async FetchStoryProductTeamChoice(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchStoryProductTeamPK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchstoryproductteamchoice`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/sysemployees/fetchstoryproductteampk`,tempData,isloading);
         return res;
     }
 
     /**
-     * searchStoryProductTeamChoice接口方法
+     * searchStoryProductTeamPK接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -485,9 +485,9 @@ export default class SysEmployeeServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof SysEmployeeServiceBase
      */
-    public async searchStoryProductTeamChoice(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async searchStoryProductTeamPK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/sysemployees/searchstoryproductteamchoice`,tempData,isloading);
+        return await Http.getInstance().post(`/sysemployees/searchstoryproductteampk`,tempData,isloading);
     }
 
     /**

@@ -711,9 +711,9 @@ mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteampk(\?[\w-./?%&=,]*)*$/))
     return [status, records ?  records : []];
 });
     
-// FetchStoryProductTeamChoice
-mock.onGet(new RegExp(/^\/sysemployees\/fetchstoryproductteamchoice$/)).reply((config: any) => {
-    console.groupCollapsed("实体:sysemployee 方法: FetchStoryProductTeamChoice");
+// FetchStoryProductTeamPK
+mock.onGet(new RegExp(/^\/sysemployees\/fetchstoryproductteampk$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchStoryProductTeamPK");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -726,9 +726,9 @@ mock.onGet(new RegExp(/^\/sysemployees\/fetchstoryproductteamchoice$/)).reply((c
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchStoryProductTeamChoice
-mock.onGet(new RegExp(/^\/sysemployees\/fetchstoryproductteamchoice(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:sysemployee 方法: FetchStoryProductTeamChoice");
+// FetchStoryProductTeamPK
+mock.onGet(new RegExp(/^\/sysemployees\/fetchstoryproductteampk(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchStoryProductTeamPK");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

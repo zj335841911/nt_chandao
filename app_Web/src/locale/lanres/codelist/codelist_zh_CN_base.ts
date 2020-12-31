@@ -950,6 +950,9 @@ function getLocaleResourceBase(){
           "0": commonLogic.appcommonhandle("否",null),
           "empty": commonLogic.appcommonhandle("",null),
       },
+      UserRealNameProductTeam: {
+          "empty": commonLogic.appcommonhandle("",null),
+      },
       ExpiredPlan: {
           "1": commonLogic.appcommonhandle("过期计划",null),
           "empty": commonLogic.appcommonhandle("",null),

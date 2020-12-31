@@ -546,7 +546,7 @@ POST
 
 ### 获取产品团队成员选择
 #### 访问路径
-/sysemployees/fetchstoryproductteamchoice
+/sysemployees/fetchstoryproductteampk
 
 #### 请求方法
 GET
@@ -564,7 +564,7 @@ GET
 
 ### 查询产品团队成员选择
 #### 访问路径
-/sysemployees/searchstoryproductteamchoice
+/sysemployees/searchstoryproductteampk
 
 #### 请求方法
 POST

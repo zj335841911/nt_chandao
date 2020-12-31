@@ -1481,7 +1481,7 @@ Save
 | 8 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
 | 9 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 10 | [项目团队成员选择](#数据查询-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 11 | [产品团队成员选择](#数据查询-产品团队成员选择（StoryProductTeamChoice）) | StoryProductTeamChoice | 否 |
+| 11 | [产品团队成员选择](#数据查询-产品团队成员选择（StoryProductTeamPK）) | StoryProductTeamPK | 否 |
 | 12 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
 | 13 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
 | 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
@@ -1834,7 +1834,7 @@ t1.`USERNAME`
 FROM `T_IBZEMP` t1 
 
 ```
-### 数据查询-产品团队成员选择（StoryProductTeamChoice）
+### 数据查询-产品团队成员选择（StoryProductTeamPK）
 #### 说明
 产品团队成员选择
 
@@ -1974,7 +1974,7 @@ FROM `T_IBZEMP` t1
 | 8 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
 | 9 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 10 | [项目团队成员选择](#数据集合-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
-| 11 | [产品团队成员选择](#数据集合-产品团队成员选择（StoryProductTeamChoice）) | StoryProductTeamChoice | 否 |
+| 11 | [产品团队成员选择](#数据集合-产品团队成员选择（StoryProductTeamPK）) | StoryProductTeamPK | 否 |
 | 12 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
 | 13 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
 
@@ -2118,7 +2118,7 @@ Bug用户
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目团队成员选择（ProjectteamPk）](#数据查询-项目团队成员选择（ProjectteamPk）) |
-### 数据集合-产品团队成员选择（StoryProductTeamChoice）
+### 数据集合-产品团队成员选择（StoryProductTeamPK）
 #### 说明
 产品团队成员选择
 
@@ -2131,7 +2131,7 @@ Bug用户
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [产品团队成员选择（StoryProductTeamChoice）](#数据查询-产品团队成员选择（StoryProductTeamChoice）) |
+| 1 | [产品团队成员选择（StoryProductTeamPK）](#数据查询-产品团队成员选择（StoryProductTeamPK）) |
 ### 数据集合-任务多人团队（TaskMTeam）
 #### 说明
 任务多人团队

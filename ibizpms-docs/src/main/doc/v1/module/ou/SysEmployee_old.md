@@ -116,7 +116,7 @@ hide members
 |ProjectTeamUser|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUser))|否|&nbsp;|
 |ProjectTeamUserTask|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUserTask))|否|&nbsp;|
 |ProjectteamPk|项目团队成员选择([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectteamPk))|否|&nbsp;|
-|StoryProductTeamChoice|产品团队成员选择([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_StoryProductTeamChoice))|否|&nbsp;|
+|StoryProductTeamChoice|产品团队成员选择([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_StoryProductTeamPK))|否|&nbsp;|
 |TaskMTeam|任务多人团队([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_TaskMTeam))|否|&nbsp;|
 |TASKTEAM|任务团队([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_TaskTeam))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_View))|否|&nbsp;|

@@ -308,8 +308,8 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
      * 查询集合 产品团队成员选择
      */
     @Override
-    public Page<SysEmployee> searchStoryProductTeamChoice(SysEmployeeSearchContext context) {
-        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchStoryProductTeamChoice(context);
+    public Page<SysEmployee> searchStoryProductTeamPK(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchStoryProductTeamPK(context);
         return sysEmployees;
     }
 

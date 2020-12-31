@@ -6729,6 +6729,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "UserRealNameProductTeam",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchStoryProductTeamPK",
+        "items": []
+    },
+    {
         srfkey: "ExpiredPlan",
         emptytext: "未定义",
         "codelisttype":"static",

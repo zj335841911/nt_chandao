@@ -805,7 +805,7 @@ export class Main3GridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName_Gird',
+                srfkey: 'UserRealNameProductTeam',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

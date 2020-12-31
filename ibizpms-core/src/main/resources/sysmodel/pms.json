@@ -35477,7 +35477,7 @@
     "field_logic_name":"指派给",
     "entity_name":"Story",
     "field_type":"TEXT",
-    "dict":"UserRealName_Gird",
+    "dict":"UserRealNameProductTeam",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",

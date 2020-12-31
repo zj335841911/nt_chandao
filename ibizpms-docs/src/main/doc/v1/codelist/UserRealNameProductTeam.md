@@ -1,6 +1,6 @@
-# 数据字典-用户真实名称（动态-产品团队）（UserRealNameProductTeam）
+# 数据字典-用户真实名称（动态-产品团队选择）（UserRealNameProductTeam）
 ## 字典说明
-用户真实名称（动态-产品团队）
+用户真实名称（动态-产品团队选择）
 
 ## 基本说明
 | 项目 | 说明 |
@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [人员](../module/ou/SysEmployee) |
-| 结果集合 | [产品团队成员选择（StoryProductTeamChoice）](../module/ou/SysEmployee/#数据集合-产品团队成员选择（StoryProductTeamChoice）) |
+| 结果集合 | [产品团队成员选择（StoryProductTeamPK）](../module/ou/SysEmployee/#数据集合-产品团队成员选择（StoryProductTeamPK）) |
 

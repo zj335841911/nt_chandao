@@ -117,8 +117,8 @@ public interface SysEmployeeFeignClient {
 
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchstoryproductteamchoice")
-    Page<SysEmployee> searchStoryProductTeamChoice(@RequestBody SysEmployeeSearchContext context);
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchstoryproductteampk")
+    Page<SysEmployee> searchStoryProductTeamPK(@RequestBody SysEmployeeSearchContext context);
 
 
 
