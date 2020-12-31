@@ -136,6 +136,24 @@ public class IbizproProjectDailyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String pm;
 
+    /**
+     * 属性 [BEGIN]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
+
+    /**
+     * 属性 [END]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+
 
     /**
      * 设置 [IBIZPRO_PROJECTDAILYNAME]
@@ -183,6 +201,22 @@ public class IbizproProjectDailyDTO extends DTOBase implements Serializable {
     public void setPm(String  pm){
         this.pm = pm ;
         this.modify("pm",pm);
+    }
+
+    /**
+     * 设置 [BEGIN]
+     */
+    public void setBegin(Timestamp  begin){
+        this.begin = begin ;
+        this.modify("begin",begin);
+    }
+
+    /**
+     * 设置 [END]
+     */
+    public void setEnd(Timestamp  end){
+        this.end = end ;
+        this.modify("end",end);
     }
 
 

@@ -18,7 +18,7 @@ hide members
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |类型|INDEX_TYPE|SSCODELIST|&nbsp;|
-|主键|INDEXID|INT|&nbsp;|
+|主键|INDEXID|BIGINT|&nbsp;|
 |标题[需求、任务等]|INDEXNAME|TEXT|&nbsp;|
 |逻辑标识|DELETED|YESNO|&nbsp;|
 |组织标识|ORGID|TEXT|&nbsp;|

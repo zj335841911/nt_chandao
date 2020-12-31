@@ -24,6 +24,8 @@ hide members
 |任务|TASKS|TEXT|&nbsp;|
 |总工时|TOTALESTIMATES|FLOAT|&nbsp;|
 |产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
+|开始日期|BEGIN|DATE|&nbsp;|
+|结束日期|END|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -40,6 +42,8 @@ hide members
 |任务|默认规则|内容长度必须小于等于[100]|
 |总工时|默认规则|默认规则|
 |产品名称|默认规则|内容长度必须小于等于[90]|
+|开始日期|默认规则|默认规则|
+|结束日期|默认规则|默认规则|
 
 ## 状态控制
 

@@ -44,7 +44,8 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "indexid")
     @JsonProperty("indexid")
-    private Integer indexid;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long indexid;
 
     /**
      * 属性 [INDEXNAME]

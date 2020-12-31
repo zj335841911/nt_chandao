@@ -76,6 +76,16 @@ export default class MainModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'begin',
+        prop: 'begin',
+        dataType: 'DATE',
+      },
+      {
+        name: 'end',
+        prop: 'end',
+        dataType: 'DATE',
+      },
+      {
         name: 'project',
         prop: 'project',
         dataType: 'PICKUP',

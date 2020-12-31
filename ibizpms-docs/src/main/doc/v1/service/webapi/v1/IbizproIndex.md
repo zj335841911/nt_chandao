@@ -49,7 +49,7 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibizproindex_id | Integer | 索引检索主键ID |
+| 1 | ibizproindex_id | Long | 索引检索主键ID |
 | 2 | ibizproindexdto | [IbizproIndexDTO](#IbizproIndexDTO) | 索引检索实体传输对象 |
 
 #### 返回说明
@@ -86,7 +86,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibizproindex_id | Integer | 索引检索主键ID |
+| 1 | ibizproindex_id | Long | 索引检索主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -104,7 +104,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ids | List<Integer> | 索引检索主键ID列表 |
+| 1 | ids | List<Long> | 索引检索主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -122,7 +122,7 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibizproindex_id | Integer | 索引检索主键ID |
+| 1 | ibizproindex_id | Long | 索引检索主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -356,7 +356,7 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | ibizproindex_id | Integer | 索引检索主键ID |
+| 1 | ibizproindex_id | Long | 索引检索主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -370,7 +370,7 @@ GET
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | indextype | String | 允许 | 类型 |
-| 2 | indexid | Integer | 允许 | 主键 |
+| 2 | indexid | Long | 允许 | 主键 |
 | 3 | indexname | String | 允许 | 标题[需求、任务等] |
 | 4 | deleted | String | 允许 | 逻辑标识 |
 | 5 | orgid | String | 允许 | 组织标识 |

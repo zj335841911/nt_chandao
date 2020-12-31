@@ -58,7 +58,7 @@ public class IbizproProjectMonthlyExService extends IbizproProjectMonthlyService
         Date date = calendar.getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         String strDate = dateFormat.format(date);
-        List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(" and SUPPROREPORT = '1' and pm is not null  and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and DATE_FORMAT(tt.date,'%Y-%m') = '"+ strDate +"')"));
+        List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(" and SUPPROREPORT = '1' and pm is not null and pm <> '' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and DATE_FORMAT(tt.date,'%Y-%m') = '"+ strDate +"')"));
         Timestamp timestamp = new Timestamp(date.getTime());
         List<IbizproProjectMonthly> ibizproProjectMonthlies = new ArrayList<>();
         for(Project project : projectList) {

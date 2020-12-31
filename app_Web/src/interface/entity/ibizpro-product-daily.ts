@@ -101,4 +101,20 @@ export interface IbizproProductDaily {
      * @memberof IbizproProductDaily
      */
     productname?: any;
+
+    /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    begin?: any;
+
+    /**
+     * 结束日期
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    end?: any;
 }

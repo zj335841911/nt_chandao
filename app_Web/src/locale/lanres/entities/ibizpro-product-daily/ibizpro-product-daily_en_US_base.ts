@@ -15,6 +15,8 @@ function getLocaleResourceBase(){
 			tasks: commonLogic.appcommonhandle("任务",null),
 			totalestimates: commonLogic.appcommonhandle("总工时",null),
 			productname: commonLogic.appcommonhandle("产品名称",null),
+			begin: commonLogic.appcommonhandle("开始日期",null),
+			end: commonLogic.appcommonhandle("结束日期",null),
 		},
 			views: {
 				editview: {
@@ -63,6 +65,8 @@ function getLocaleResourceBase(){
 					po: commonLogic.appcommonhandle("产品负责人",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
 					totalestimates: commonLogic.appcommonhandle("总工时",null), 
+					begin: commonLogic.appcommonhandle("开始日期",null), 
+					end: commonLogic.appcommonhandle("结束日期",null), 
 					product: commonLogic.appcommonhandle("产品",null), 
 					tasks: commonLogic.appcommonhandle("任务",null), 
 					ibizpro_productdailyid: commonLogic.appcommonhandle("产品日报标识",null), 
@@ -76,6 +80,8 @@ function getLocaleResourceBase(){
 					productname: commonLogic.appcommonhandle("产品名称",null),
 					po: commonLogic.appcommonhandle("产品负责人",null),
 					date: commonLogic.appcommonhandle("日期",null),
+					begin: commonLogic.appcommonhandle("开始日期",null),
+					end: commonLogic.appcommonhandle("结束日期",null),
 					totalestimates: commonLogic.appcommonhandle("总工时",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),

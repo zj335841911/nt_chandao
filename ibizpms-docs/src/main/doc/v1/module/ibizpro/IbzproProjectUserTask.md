@@ -695,7 +695,7 @@ t1.`DATE`,
 t1.`ID`,
 t1.`LEFT`,
 t1.`TASK`
-FROM `zt_taskestimate` t1 where t1.date =DATE_FORMAT(${srfdatacontext('date')},'%y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
+FROM `zt_taskestimate` t1 where t1.date >= DATE_FORMAT(${srfdatacontext('begin')},'%y-%m-%d') and t1.date <= DATE_FORMAT(${srfdatacontext('end')},'%y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
 ```
 ### 数据查询-项目月报任务（ProjectMonthlyTask）
 #### 说明

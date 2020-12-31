@@ -70,7 +70,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzMonthly et) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
-        List<IbzMonthly> monthlyList = this.list(new QueryWrapper<IbzMonthly>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m')"));
+        List<IbzMonthly> monthlyList = this.list(new QueryWrapper<IbzMonthly>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT('" + et.getDate() + "','%Y-%m')"));
         if (monthlyList.size() > 0) {
             throw new BadRequestAlertException("您的" + dateFormat.format(et.getDate()) + "的月报已经存在，请勿重复创建！", StaticDict.ReportType.MONTHLY.getValue(), "");
         }

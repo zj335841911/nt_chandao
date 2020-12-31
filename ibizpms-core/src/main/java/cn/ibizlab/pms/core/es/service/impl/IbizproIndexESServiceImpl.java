@@ -59,7 +59,7 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
 
     }
     @Override
-    public IbizproIndex get(Integer key) {
+    public IbizproIndex get(Long key) {
         return null;
     }
     @Override

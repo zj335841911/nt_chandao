@@ -1070,14 +1070,14 @@
 
 
     <!--输出实体[IBIZPRO_INDEX]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_index-152-36">
+    <changeSet author="zentao" id="tab-ibizpro_index-153-36">
         <createTable tableName="">
         </createTable>
     </changeSet>
 
 
     <!--输出实体[IBIZPRO_PRODUCTDAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_productdaily-86-37">
+    <changeSet author="zentao" id="tab-ibizpro_productdaily-90-37">
         <createTable tableName="T_IBIZPRO_PRODUCTDAILY">
                 <column name="IBIZPRO_PRODUCTDAILYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1101,6 +1101,10 @@
                 <column name="TASKS" remarks="" type="VARCHAR(100)">
                 </column>
                 <column name="TOTALESTIMATES" remarks="" type="FLOAT">
+                </column>
+                <column name="BEGIN" remarks="" type="DATETIME">
+                </column>
+                <column name="END" remarks="" type="DATETIME">
                 </column>
         </createTable>
     </changeSet>
@@ -1171,7 +1175,7 @@
 
 
     <!--输出实体[IBIZPRO_PROJECTDAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_projectdaily-64-40">
+    <changeSet author="zentao" id="tab-ibizpro_projectdaily-74-40">
         <createTable tableName="T_IBIZPRO_PROJECTDAILY">
                 <column name="IBIZPRO_PROJECTDAILYID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_IBIZPRO_PROJECTDAILY_IBIZPR"/>
@@ -1195,6 +1199,10 @@
                 <column name="TOTALESTIMATES" remarks="" type="FLOAT">
                 </column>
                 <column name="PM" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BEGIN" remarks="" type="DATETIME">
+                </column>
+                <column name="END" remarks="" type="DATETIME">
                 </column>
         </createTable>
     </changeSet>
@@ -2645,7 +2653,7 @@
 
 
     <!--输出实体[ZT_TASK]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_task-2720-104">
+    <changeSet author="zentao" id="tab-zt_task-2722-104">
         <createTable tableName="zt_task">
                 <column name="CANCELEDBY" remarks="" type="VARCHAR(30)">
                 </column>
@@ -3257,7 +3265,7 @@
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBIZPRO_INDEX]外键关系 -->
         <!--输出实体[IBIZPRO_PRODUCTDAILY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibizpro_productdaily-86-176">
+    <changeSet author="zentao" id="fk-ibizpro_productdaily-90-176">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBIZPRO_PRODUCTDAILY" constraintName="DER1N_IBIZPRO_PRODUCTDAILY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBIZPRO_PRODUCTMONTHLY]外键关系 -->
@@ -3269,7 +3277,7 @@
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBIZPRO_PRODUCTWEEKLY" constraintName="DER1N_IBIZPRO_PRODUCTWEEKLY_ZT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBIZPRO_PROJECTDAILY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibizpro_projectdaily-64-179">
+    <changeSet author="zentao" id="fk-ibizpro_projectdaily-74-179">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="T_IBIZPRO_PROJECTDAILY" constraintName="DER1N_IBIZPRO_PROJECTDAILY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBIZPRO_PROJECTMONTHLY]外键关系 -->
@@ -3465,19 +3473,19 @@
         <!--输出实体[SYS_UPDATE_FEATURES]外键关系 -->
         <!--输出实体[SYS_UPDATE_LOG]外键关系 -->
         <!--输出实体[ZT_TASK]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_task-2720-225">
+    <changeSet author="zentao" id="fk-zt_task-2722-225">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_IBZ_PROJECTMODUL" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2720-226">
+    <changeSet author="zentao" id="fk-zt_task-2722-226">
        <addForeignKeyConstraint baseColumnNames="FROMBUG" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_ZT_BUG_FROMBUG" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_bug" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2720-227">
+    <changeSet author="zentao" id="fk-zt_task-2722-227">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_ZT_PROJECT_PROJE" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2720-228">
+    <changeSet author="zentao" id="fk-zt_task-2722-228">
        <addForeignKeyConstraint baseColumnNames="STORY" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_ZT_STORY_STORY" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_story" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2720-229">
+    <changeSet author="zentao" id="fk-zt_task-2722-229">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_task" constraintName="DER1N__ZT_TASK__ZT_TASK__PAREN" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_task" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TASKESTIMATE]外键关系 -->

@@ -256,7 +256,9 @@ POST
 | 10 | tasks | String | 允许 | 任务 |
 | 11 | totalestimates | Double | 允许 | 总工时 |
 | 12 | pm | String | 允许 | 项目负责人 |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | begin | Timestamp | 允许 | 开始日期<br>时间格式：yyyy-MM-dd |
+| 14 | end | Timestamp | 允许 | 结束日期<br>时间格式：yyyy-MM-dd |
+| 15 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProjectDailySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

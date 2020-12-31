@@ -7603,9 +7603,11 @@ FROM `zt_task` t1
 ### 数据查询(DEFAULT)<div id="IbizproProductDaily_Default"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
@@ -7640,9 +7642,11 @@ LEFT JOIN `ZT_PRODUCT` t2 ON t1.`PRODUCT` = t2.`ID`
 ### 默认（全部数据）(VIEW)<div id="IbizproProductDaily_View"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
@@ -7750,9 +7754,11 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ### 数据查询(DEFAULT)<div id="IbizproProjectDaily_Default"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PROJECTDAILYID`,
 t1.`IBIZPRO_PROJECTDAILYNAME`,
 t1.`PM`,
@@ -7769,9 +7775,11 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 ### 默认（全部数据）(VIEW)<div id="IbizproProjectDaily_View"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PROJECTDAILYID`,
 t1.`IBIZPRO_PROJECTDAILYNAME`,
 t1.`PM`,
@@ -9562,7 +9570,8 @@ task AS id
 FROM
 `zt_taskestimate` t1 
 WHERE
-t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d')
+t1.date >= DATE_FORMAT(${srfdatacontext('begin')}, '%Y-%m-%d')
+AND t1.date <= DATE_FORMAT(${srfdatacontext('end')}, '%Y-%m-%d')
 GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT) t1
 left join zt_task t2 
 on t1.task = t2.id 
@@ -9656,7 +9665,7 @@ t1.`DATE`,
 t1.`ID`,
 t1.`LEFT`,
 t1.`TASK`
-FROM `zt_taskestimate` t1 where t1.date =DATE_FORMAT(${srfdatacontext('date')},'%y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
+FROM `zt_taskestimate` t1 where t1.date >= DATE_FORMAT(${srfdatacontext('begin')},'%y-%m-%d') and t1.date <= DATE_FORMAT(${srfdatacontext('end')},'%y-%m-%d')) t1 GROUP BY t1.DATE,t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
 WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')}) 
 
 ```

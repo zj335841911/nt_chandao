@@ -18,8 +18,7 @@ public class IbizproIndex implements Serializable {
     @Field(type = FieldType.Text)
     private String indextype;
     @Field(type = FieldType.Text)
-
-    private Integer indexid;
+    private Long indexid;
     @Field(type = FieldType.Text)
     private String indexname;
     @Field(type = FieldType.Text)
