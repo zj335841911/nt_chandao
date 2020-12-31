@@ -57,7 +57,12 @@ export default class ProductWeeklyGirdModel {
           dataType: 'DATE',
         },
         {
-          name: 'date',
+          name: 'mindate',
+          prop: 'date',
+          dataType: 'DATE',
+        },
+        {
+          name: 'maxdate',
           prop: 'date',
           dataType: 'DATE',
         },
@@ -75,6 +80,11 @@ export default class ProductWeeklyGirdModel {
           name: 'task',
           prop: 'task',
           dataType: 'BIGINT',
+        },
+        {
+          name: 'date',
+          prop: 'date',
+          dataType: 'DATE',
         },
         {
           name: 'srfmajortext',

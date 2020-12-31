@@ -1753,7 +1753,7 @@
 
 
     <!--输出实体[IBIZPRO_PRODUCTUSERTASK]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_productusertask-48-62">
+    <changeSet author="zentao" id="tab-ibizpro_productusertask-49-62">
         <createTable tableName="zt_taskestimate">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBIZPRO_PRODUCTUSERTASK_ID"/>
