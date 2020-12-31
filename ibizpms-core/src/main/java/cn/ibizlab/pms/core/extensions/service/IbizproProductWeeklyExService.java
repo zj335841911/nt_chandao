@@ -18,6 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -48,11 +51,28 @@ public class IbizproProductWeeklyExService extends IbizproProductWeeklyServiceIm
     @Override
     @Transactional
     public IbizproProductWeekly sumProductWeekly(IbizproProductWeekly et) {
-        List<Product> productList = productHelper.list(new QueryWrapper<Product>().last("and supproreport = '1' and po is not null  and EXISTS(select * from zt_taskestimate tt left join zt_task t2  on tt.task = t2.id LEFT JOIN zt_story t3 on t3.id = t2.story where t3.product = zt_product.id and  YEARWEEK(DATE_FORMAT(DATE_SUB(tt.date, INTERVAL -1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(DATE_SUB(NOW(), INTERVAL -1 DAY),'%Y-%m-%d'))) "));
+        //计算统计范围，上周六到本周五
+        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(new Date());
+        calendar.add(Calendar.DATE,-7);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String beginDate = dateFormat.format(calendar.getTime());
+        calendar.add(Calendar.DATE,6);
+        String endDate = dateFormat.format(calendar.getTime());
+
+
+        List<Product> productList = productHelper.list(new QueryWrapper<Product>().last("and supproreport = '1' and po is not null and po <> '' and EXISTS(select * from zt_taskestimate tt left join zt_task t2  on tt.task = t2.id LEFT JOIN zt_story t3 on t3.id = t2.story where t3.product = zt_product.id and  YEARWEEK(DATE_FORMAT(DATE_SUB(tt.date, INTERVAL -1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(DATE_SUB(NOW(), INTERVAL -1 DAY),'%Y-%m-%d'))) "));
         for (Product product : productList) {
+//            List<IbizproProductWeekly> ibizproProductWeeklies = this.list(new QueryWrapper<IbizproProductWeekly>().last("where product = '"+product.getId()+"' and YEARWEEK(DATE_FORMAT(DATE_SUB(date, INTERVAL -1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(DATE_SUB(NOW(), INTERVAL -1 DAY),'%Y-%m-%d'))"));
+//            if (ibizproProductWeeklies.size() > 0){
+//                continue;
+//            }
+            this.remove(new QueryWrapper<IbizproProductWeekly>().last("where product = '"+product.getId()+"' and YEARWEEK(DATE_FORMAT(DATE_SUB(date, INTERVAL -1 DAY),'%Y-%m-%d')) = YEARWEEK(DATE_FORMAT(DATE_SUB(NOW(), INTERVAL -1 DAY),'%Y-%m-%d'))"));
             IbizproProductWeekly productWeekly = new IbizproProductWeekly();
             List<Task> taskList = getProductTask(product);
             String tasksId = getTasksId(taskList);
+            productWeekly.setBegindatestats(beginDate);
+            productWeekly.setEnddatestats(endDate);
             productWeekly.setTasks(getTasksId(taskList));
             productWeekly.setProduct(product.getId());
             productWeekly.setPo(product.getPo());
