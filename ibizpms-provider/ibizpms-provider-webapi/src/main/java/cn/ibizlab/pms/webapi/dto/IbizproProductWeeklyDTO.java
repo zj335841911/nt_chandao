@@ -136,6 +136,24 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
 
+    /**
+     * 属性 [BEGINDATESTATS]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "begindatestats" , format="yyyy-MM-dd")
+    @JsonProperty("begindatestats")
+    private Timestamp begindatestats;
+
+    /**
+     * 属性 [ENDDATESTATS]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "enddatestats" , format="yyyy-MM-dd")
+    @JsonProperty("enddatestats")
+    private Timestamp enddatestats;
+
 
     /**
      * 设置 [TOTALESTIMATES]
@@ -183,6 +201,22 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
+    }
+
+    /**
+     * 设置 [BEGINDATESTATS]
+     */
+    public void setBegindatestats(Timestamp  begindatestats){
+        this.begindatestats = begindatestats ;
+        this.modify("begindatestats",begindatestats);
+    }
+
+    /**
+     * 设置 [ENDDATESTATS]
+     */
+    public void setEnddatestats(Timestamp  enddatestats){
+        this.enddatestats = enddatestats ;
+        this.modify("enddatestats",enddatestats);
     }
 
 

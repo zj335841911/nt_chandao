@@ -7705,9 +7705,11 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ### 数据查询(DEFAULT)<div id="IbizproProductWeekly_Default"></div>
 ```sql
 SELECT
+t1.`BEGINDATESTATS`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`ENDDATESTATS`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`IBIZPRO_PRODUCTWEEKLYID`,
 t1.`PO`,
@@ -7724,9 +7726,11 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ### 默认（全部数据）(VIEW)<div id="IbizproProductWeekly_View"></div>
 ```sql
 SELECT
+t1.`BEGINDATESTATS`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`ENDDATESTATS`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`IBIZPRO_PRODUCTWEEKLYID`,
 t1.`PO`,

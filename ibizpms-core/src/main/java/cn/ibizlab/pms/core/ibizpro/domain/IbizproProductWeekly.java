@@ -136,6 +136,22 @@ public class IbizproProductWeekly extends EntityMP implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     private String productname;
+    /**
+     * 开始统计
+     */
+    @TableField(value = "`begindatestats`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "begindatestats", format = "yyyy-MM-dd")
+    @JsonProperty("begindatestats")
+    private Timestamp begindatestats;
+    /**
+     * 结束统计
+     */
+    @TableField(value = "`enddatestats`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "enddatestats", format = "yyyy-MM-dd")
+    @JsonProperty("enddatestats")
+    private Timestamp enddatestats;
 
     /**
      * 
@@ -205,6 +221,42 @@ public class IbizproProductWeekly extends EntityMP implements Serializable {
         this.modify("product", product);
     }
 
+    /**
+     * 设置 [开始统计]
+     */
+    public void setBegindatestats(Timestamp begindatestats) {
+        this.begindatestats = begindatestats;
+        this.modify("begindatestats", begindatestats);
+    }
+
+    /**
+     * 格式化日期 [开始统计]
+     */
+    public String formatBegindatestats() {
+        if (this.begindatestats == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(begindatestats);
+    }
+    /**
+     * 设置 [结束统计]
+     */
+    public void setEnddatestats(Timestamp enddatestats) {
+        this.enddatestats = enddatestats;
+        this.modify("enddatestats", enddatestats);
+    }
+
+    /**
+     * 格式化日期 [结束统计]
+     */
+    public String formatEnddatestats() {
+        if (this.enddatestats == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(enddatestats);
+    }
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

@@ -42,6 +42,16 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'begindatestats',
+          prop: 'begindatestats',
+          dataType: 'DATE',
+        },
+        {
+          name: 'enddatestats',
+          prop: 'enddatestats',
+          dataType: 'DATE',
+        },
+        {
           name: 'date',
           prop: 'date',
           dataType: 'DATE',

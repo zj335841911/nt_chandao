@@ -129,6 +129,24 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'begindatestats',
+            label: '开始统计',
+            langtag: 'entities.ibizproproductweekly.main_grid.columns.begindatestats',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'enddatestats',
+            label: '结束统计',
+            langtag: 'entities.ibizproproductweekly.main_grid.columns.enddatestats',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'date',
             label: '日期',
             langtag: 'entities.ibizproproductweekly.main_grid.columns.date',
@@ -250,6 +268,8 @@ export class MainGridBase extends GridControlBase {
         'ibizpro_productdailyname':false,
         'productname':false,
         'po':false,
+        'begindatestats':false,
+        'enddatestats':false,
         'date':false,
         'totalestimates':false,
     };
@@ -339,7 +359,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibizpro_productdailyname','productname','po','date','totalestimates'];
+        let allColumns:Array<any> = ['ibizpro_productdailyname','productname','po','begindatestats','enddatestats','date','totalestimates'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -421,6 +441,8 @@ export class MainGridBase extends GridControlBase {
                 ibizpro_productdailyname:'',
                 productname:'',
                 po:'',
+                begindatestats:'',
+                enddatestats:'',
                 date:'',
                 totalestimates:'',
                 children: children
@@ -450,6 +472,8 @@ export class MainGridBase extends GridControlBase {
             ibizpro_productdailyname:'',
             productname:'',
             po:'',
+            begindatestats:'',
+            enddatestats:'',
             date:'',
             totalestimates:'',
             children: child
@@ -515,6 +539,8 @@ export class MainGridBase extends GridControlBase {
                 ibizpro_productdailyname:'',
                 productname:'',
                 po:'',
+                begindatestats:'',
+                enddatestats:'',
                 date:'',
                 totalestimates:'',
                 children: children,

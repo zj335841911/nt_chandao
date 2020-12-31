@@ -101,4 +101,20 @@ export interface IbizproProductWeekly {
      * @memberof IbizproProductWeekly
      */
     productname?: any;
+
+    /**
+     * 开始统计
+     *
+     * @returns {*}
+     * @memberof IbizproProductWeekly
+     */
+    begindatestats?: any;
+
+    /**
+     * 结束统计
+     *
+     * @returns {*}
+     * @memberof IbizproProductWeekly
+     */
+    enddatestats?: any;
 }

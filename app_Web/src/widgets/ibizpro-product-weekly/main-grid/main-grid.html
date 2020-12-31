@@ -89,6 +89,30 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('begindatestats')">
+                <el-table-column show-overflow-tooltip :prop="'begindatestats'" :label="$t('entities.ibizproproductweekly.main_grid.columns.begindatestats')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibizproproductweekly.main_grid.columns.begindatestats')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.begindatestats"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('enddatestats')">
+                <el-table-column show-overflow-tooltip :prop="'enddatestats'" :label="$t('entities.ibizproproductweekly.main_grid.columns.enddatestats')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibizproproductweekly.main_grid.columns.enddatestats')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <app-format-data format="YYYY-MM-DD" :data="row.enddatestats"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('date')">
                 <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibizproproductweekly.main_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
