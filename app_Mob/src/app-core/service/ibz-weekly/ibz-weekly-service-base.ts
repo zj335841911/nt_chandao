@@ -312,4 +312,34 @@ export class IbzWeeklyServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/ibzweeklies/fetchmyweekly`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchProductTeamMemberWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyServiceBase
+     */
+    public async FetchProductTeamMemberWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzweeklies/fetchproductteammemberweekly`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyServiceBase
+     */
+    public async FetchProjectWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzweeklies/fetchprojectweekly`,tempData,isloading);
+        return res;
+    }
 }

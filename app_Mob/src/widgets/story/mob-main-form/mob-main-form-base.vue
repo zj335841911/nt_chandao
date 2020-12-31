@@ -296,7 +296,7 @@
     :isEmptyCaption="false">
         <app-mob-span  
     codeListType="DYNAMIC" 
-    tag="UserRealName_Gird"
+    tag="UserRealNameProductTeam"
     :isCache="false" 
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
