@@ -66,15 +66,16 @@ public class IbizproProjectWeeklyExService extends IbizproProjectWeeklyServiceIm
         int week = getWeekAtThisMonth();
         List<IbizproProjectWeekly> ibizproProjectWeeklyList = new ArrayList<>();
         Timestamp timestamp = new Timestamp(today.getTime());
-        List<Project> projectList = iProjectService.list(new QueryWrapper<Project>().last(" and SUPPROREPORT = '1' and pm is not null  and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and DATE_FORMAT(tt.date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB("+strDate+", INTERVAL 8 day),'%Y-%m-%d'))"));
+        List<Project> projectList = iProjectService.list(new QueryWrapper<Project>().last(" and SUPPROREPORT = '1' and pm != ''  and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and DATE_FORMAT(tt.date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB('"+strDate+"', INTERVAL 8 day),'%Y-%m-%d'))"));
         for (Project project : projectList) {
+            this.remove(new QueryWrapper<IbizproProjectWeekly>().eq("project",project.getId()).last("and DATE_FORMAT(tt.date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB('"+strDate+"', INTERVAL 8 day),'%Y-%m-%d')"));
             IbizproProjectWeekly ibizproProjectWeekly = new IbizproProjectWeekly();
             ibizproProjectWeekly.setProject(project.getId());
             ibizproProjectWeekly.setDate(timestamp);
             ibizproProjectWeekly.setPm(project.getPm());
-            List<Task> taskList = getTaskList(project.getId());
+            List<Task> taskList = getTaskList(project.getId(),strDate);
             ibizproProjectWeekly.setTasks(getCurTasks(taskList));
-            ibizproProjectWeekly.setTotalestimates(getCusrTotalestimates(taskList));
+            ibizproProjectWeekly.setTotalestimates(getCusrTotalestimates(taskList,strDate));
             ibizproProjectWeekly.setProjectweeklyname(project.getName() + "-" + date + "月第" + week + "周的周报");
             ibizproProjectWeekly.setYear(date.substring(0,4));
             ibizproProjectWeekly.setMonth(date.substring(5));
@@ -107,9 +108,9 @@ public class IbizproProjectWeeklyExService extends IbizproProjectWeeklyServiceIm
      * @param project
      * @return
      */
-    public List<Task> getTaskList(Long project) {
+    public List<Task> getTaskList(Long project,String strDate) {
 
-        return iTaskService.list(new QueryWrapper<Task>().eq("project", project).last("  and EXISTS(select 1 from zt_taskestimate tt where tt.task = zt_task.id and DATE_FORMAT(tt.date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB(now(), INTERVAL 8 day),'%Y-%m-%d'))"));
+        return iTaskService.list(new QueryWrapper<Task>().eq("project", project).last("  and EXISTS(select 1 from zt_taskestimate tt where tt.task = zt_task.id and DATE_FORMAT(tt.date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB('"+strDate+"', INTERVAL 8 day),'%Y-%m-%d'))"));
     }
 
     /**
@@ -136,10 +137,10 @@ public class IbizproProjectWeeklyExService extends IbizproProjectWeeklyServiceIm
      * @param tasklists
      * @return
      */
-    public Double getCusrTotalestimates(List<Task> tasklists) {
+    public Double getCusrTotalestimates(List<Task> tasklists,String strDate) {
         Double totalestimates = 0.0d;
         for (Task task : tasklists) {
-            List<TaskEstimate> taskEstimateList = iTaskEstimateService.list(new QueryWrapper<TaskEstimate>().eq("task", task.getId()).last("and DATE_FORMAT(date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB(now(), INTERVAL 8 day),'%Y-%m-%d')"));
+            List<TaskEstimate> taskEstimateList = iTaskEstimateService.list(new QueryWrapper<TaskEstimate>().eq("task", task.getId()).last("and DATE_FORMAT(date,'%Y-%m-%d') > DATE_FORMAT(DATE_SUB('"+strDate+"', INTERVAL 8 day),'%Y-%m-%d')"));
             for (TaskEstimate taskEstimate : taskEstimateList) {
                 totalestimates += taskEstimate.getConsumed();
             }
