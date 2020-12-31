@@ -1400,7 +1400,7 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_DAILY` t1 
 where
 t1.`ISSUBMIT` = '1' 
-AND exists(select 1 from zt_team t2 where t2.account = t1.`ACCOUNT` and t2.type = 'product' and t2.root = ${srfdatacontext('product')}) 
+AND exists(select 1 from zt_team t2 where t2.account = t1.`ACCOUNT` and t2.type = 'product' and t2.root = ${srfdatacontext('curproduct')}) 
 AND DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m-%d')
 ```
 ### 数据查询-项目日报（ProjectDaily）
