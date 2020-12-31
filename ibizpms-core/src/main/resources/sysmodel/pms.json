@@ -11274,6 +11274,47 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"TASKS" ,
+    "codename":"Tasks",
+    "field_logic_name":"任务",
+    "entity_name":"IbizproProductMonthly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DATE" ,
+    "codename":"Date",
+    "field_logic_name":"日期",
+    "entity_name":"IbizproProductMonthly",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEAR_MONTH" ,
+    "codename":"YearMonth",
+    "field_logic_name":"年月",
+    "entity_name":"IbizproProductMonthly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

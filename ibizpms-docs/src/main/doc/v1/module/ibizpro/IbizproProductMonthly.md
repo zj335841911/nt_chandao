@@ -28,6 +28,9 @@
 | 8 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
 | 9 | [产品负责人](#属性-产品负责人（PO）) | PO | 外键值附加数据 | 否 | 是 | 是 |
 | 10 | [总工时](#属性-总工时（TOTALESTIMATES）) | TOTALESTIMATES | 浮点 | 否 | 是 | 是 |
+| 11 | [任务](#属性-任务（TASKS）) | TASKS | 文本，可指定长度 | 否 | 是 | 是 |
+| 12 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 是 | 是 |
+| 13 | [年月](#属性-年月（YEAR_MONTH）) | YEAR_MONTH | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-产品月报标识（IBIZPRO_PRODUCTMONTHLYID）
 #### 属性说明
@@ -446,6 +449,129 @@ Double
 | 关系属性 | [产品负责人（PO）](../zentao/Product/#属性-产品负责人（PO）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-任务（TASKS）
+#### 属性说明
+任务
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品负责人（PO）](../zentao/Product/#属性-产品负责人（PO）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-日期（DATE）
+#### 属性说明
+日期
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品负责人（PO）](../zentao/Product/#属性-产品负责人（PO）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-年月（YEAR_MONTH）
+#### 属性说明
+年月
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品负责人（PO）](../zentao/Product/#属性-产品负责人（PO）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -585,14 +711,17 @@ Save
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`DATE`,
 t1.`IBIZPRO_PRODUCTMONTHLYID`,
 t1.`IBIZPRO_PRODUCTMONTHLYNAME`,
 t11.`PO`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
+t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
+t1.`UPDATEMAN`,
+t1.`YEAR_MONTH`
 FROM `T_IBIZPRO_PRODUCTMONTHLY` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
@@ -613,14 +742,17 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 SELECT
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`DATE`,
 t1.`IBIZPRO_PRODUCTMONTHLYID`,
 t1.`IBIZPRO_PRODUCTMONTHLYNAME`,
 t11.`PO`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
+t1.`TASKS`,
 t1.`TOTALESTIMATES`,
 t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
+t1.`UPDATEMAN`,
+t1.`YEAR_MONTH`
 FROM `T_IBIZPRO_PRODUCTMONTHLY` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 

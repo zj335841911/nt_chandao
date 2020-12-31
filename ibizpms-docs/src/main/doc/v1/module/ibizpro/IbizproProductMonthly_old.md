@@ -22,6 +22,9 @@ hide members
 |产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 |产品负责人|PO|PICKUPDATA|&nbsp;|
 |总工时|TOTALESTIMATES|FLOAT|&nbsp;|
+|任务|TASKS|TEXT|&nbsp;|
+|日期|DATE|DATE|&nbsp;|
+|年月|YEAR_MONTH|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -36,6 +39,9 @@ hide members
 |产品名称|默认规则|内容长度必须小于等于[90]|
 |产品负责人|默认规则|内容长度必须小于等于[30]|
 |总工时|默认规则|默认规则|
+|任务|默认规则|内容长度必须小于等于[100]|
+|日期|默认规则|默认规则|
+|年月|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

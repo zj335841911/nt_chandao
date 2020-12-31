@@ -121,6 +121,29 @@ public class IbizproProductMonthly extends EntityMP implements Serializable {
     @JSONField(name = "totalestimates")
     @JsonProperty("totalestimates")
     private Double totalestimates;
+    /**
+     * 任务
+     */
+    @TableField(value = "`tasks`")
+    @JSONField(name = "tasks")
+    @JsonProperty("tasks")
+    private String tasks;
+    /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+    /**
+     * 年月
+     */
+    @DEField(name = "year_month")
+    @TableField(value = "`year_month`")
+    @JSONField(name = "yearmonth")
+    @JsonProperty("yearmonth")
+    private String yearmonth;
 
     /**
      * 产品编号
@@ -154,6 +177,40 @@ public class IbizproProductMonthly extends EntityMP implements Serializable {
     public void setTotalestimates(Double totalestimates) {
         this.totalestimates = totalestimates;
         this.modify("totalestimates", totalestimates);
+    }
+
+    /**
+     * 设置 [任务]
+     */
+    public void setTasks(String tasks) {
+        this.tasks = tasks;
+        this.modify("tasks", tasks);
+    }
+
+    /**
+     * 设置 [日期]
+     */
+    public void setDate(Timestamp date) {
+        this.date = date;
+        this.modify("date", date);
+    }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate() {
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+    /**
+     * 设置 [年月]
+     */
+    public void setYearmonth(String yearmonth) {
+        this.yearmonth = yearmonth;
+        this.modify("year_month", yearmonth);
     }
 
 
