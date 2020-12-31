@@ -7603,9 +7603,11 @@ FROM `zt_task` t1
 ### 数据查询(DEFAULT)<div id="IbizproProductDaily_Default"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
@@ -7640,9 +7642,11 @@ LEFT JOIN `ZT_PRODUCT` t2 ON t1.`PRODUCT` = t2.`ID`
 ### 默认（全部数据）(VIEW)<div id="IbizproProductDaily_View"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
@@ -7750,9 +7754,11 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ### 数据查询(DEFAULT)<div id="IbizproProjectDaily_Default"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PROJECTDAILYID`,
 t1.`IBIZPRO_PROJECTDAILYNAME`,
 t1.`PM`,
@@ -7769,9 +7775,11 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 ### 默认（全部数据）(VIEW)<div id="IbizproProjectDaily_View"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PROJECTDAILYID`,
 t1.`IBIZPRO_PROJECTDAILYNAME`,
 t1.`PM`,

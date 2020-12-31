@@ -101,4 +101,20 @@ export interface IbizproProjectDaily {
      * @memberof IbizproProjectDaily
      */
     pm?: any;
+
+    /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    begin?: any;
+
+    /**
+     * 结束日期
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    end?: any;
 }

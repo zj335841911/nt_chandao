@@ -88,20 +88,20 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
 
     @Override
     @Transactional
-    public boolean remove(Integer key) {
+    public boolean remove(Long key) {
         boolean result = removeById(key);
         return result;
     }
 
     @Override
     @Transactional
-    public void removeBatch(Collection<Integer> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbizproIndex get(Integer key) {
+    public IbizproIndex get(Long key) {
         IbizproIndex et = getById(key);
         if (et == null) {
             et = new IbizproIndex();
@@ -241,7 +241,7 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
     }
 
     @Override
-    public List<IbizproIndex> getIbizproindexByIds(List<Integer> ids) {
+    public List<IbizproIndex> getIbizproindexByIds(List<Long> ids) {
          return this.listByIds(ids);
     }
 

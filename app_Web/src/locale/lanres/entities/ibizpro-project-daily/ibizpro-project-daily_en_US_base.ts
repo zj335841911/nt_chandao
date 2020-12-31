@@ -15,6 +15,8 @@ function getLocaleResourceBase(){
 			tasks: commonLogic.appcommonhandle("任务",null),
 			totalestimates: commonLogic.appcommonhandle("总工时",null),
 			pm: commonLogic.appcommonhandle("项目负责人",null),
+			begin: commonLogic.appcommonhandle("开始日期",null),
+			end: commonLogic.appcommonhandle("结束日期",null),
 		},
 			views: {
 				editview: {

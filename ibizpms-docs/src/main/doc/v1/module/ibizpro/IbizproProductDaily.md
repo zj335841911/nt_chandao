@@ -30,6 +30,8 @@
 | 10 | [任务](#属性-任务（TASKS）) | TASKS | 文本，可指定长度 | 否 | 是 | 是 |
 | 11 | [总工时](#属性-总工时（TOTALESTIMATES）) | TOTALESTIMATES | 浮点 | 否 | 是 | 是 |
 | 12 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
+| 13 | [开始日期](#属性-开始日期（BEGIN）) | BEGIN | 日期型 | 否 | 是 | 是 |
+| 14 | [结束日期](#属性-结束日期（END）) | END | 日期型 | 否 | 是 | 是 |
 
 ### 属性-产品日报名称（IBIZPRO_PRODUCTDAILYNAME）
 #### 属性说明
@@ -532,6 +534,88 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-开始日期（BEGIN）
+#### 属性说明
+开始日期
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-结束日期（END）
+#### 属性说明
+结束日期
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -684,9 +768,11 @@ Save
 - MYSQL5
 ```SQL
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
@@ -743,9 +829,11 @@ LEFT JOIN `ZT_PRODUCT` t2 ON t1.`PRODUCT` = t2.`ID`
 - MYSQL5
 ```SQL
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,

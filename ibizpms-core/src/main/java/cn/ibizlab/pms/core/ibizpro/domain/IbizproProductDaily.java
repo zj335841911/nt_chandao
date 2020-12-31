@@ -136,6 +136,22 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     private String productname;
+    /**
+     * 开始日期
+     */
+    @TableField(value = "`begin`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
+    /**
+     * 结束日期
+     */
+    @TableField(value = "`end`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
 
     /**
      * 产品
@@ -205,6 +221,42 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
         this.modify("totalestimates", totalestimates);
     }
 
+    /**
+     * 设置 [开始日期]
+     */
+    public void setBegin(Timestamp begin) {
+        this.begin = begin;
+        this.modify("begin", begin);
+    }
+
+    /**
+     * 格式化日期 [开始日期]
+     */
+    public String formatBegin() {
+        if (this.begin == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(begin);
+    }
+    /**
+     * 设置 [结束日期]
+     */
+    public void setEnd(Timestamp end) {
+        this.end = end;
+        this.modify("end", end);
+    }
+
+    /**
+     * 格式化日期 [结束日期]
+     */
+    public String formatEnd() {
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(end);
+    }
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

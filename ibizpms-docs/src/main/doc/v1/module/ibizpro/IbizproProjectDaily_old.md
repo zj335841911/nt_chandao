@@ -24,6 +24,8 @@ hide members
 |任务|TASKS|TEXT|&nbsp;|
 |总工时|TOTALESTIMATES|FLOAT|&nbsp;|
 |项目负责人|PM|TEXT|&nbsp;|
+|开始日期|BEGIN|DATE|&nbsp;|
+|结束日期|END|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -40,6 +42,8 @@ hide members
 |任务|默认规则|内容长度必须小于等于[2000]|
 |总工时|默认规则|默认规则|
 |项目负责人|默认规则|内容长度必须小于等于[100]|
+|开始日期|默认规则|默认规则|
+|结束日期|默认规则|默认规则|
 
 ## 状态控制
 
