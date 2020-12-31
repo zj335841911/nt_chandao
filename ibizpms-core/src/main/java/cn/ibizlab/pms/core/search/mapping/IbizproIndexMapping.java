@@ -15,7 +15,7 @@ public class IbizproIndexMapping {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
-        indexET.setIndexType("bug");
+        indexET.setIndextype("bug");
 
         //添加doc主键、数据主键及主信息
         indexET.setDocid("bug:" + srcET.getId());
@@ -34,7 +34,7 @@ public class IbizproIndexMapping {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
-        indexET.setIndexType("case");
+        indexET.setIndextype("case");
 
         //添加doc主键、数据主键及主信息
         indexET.setDocid("case:" + srcET.getId());
@@ -53,7 +53,7 @@ public class IbizproIndexMapping {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
-        indexET.setIndexType("product");
+        indexET.setIndextype("product");
 
         //添加doc主键、数据主键及主信息
         indexET.setDocid("product:" + srcET.getId());
@@ -72,7 +72,7 @@ public class IbizproIndexMapping {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
-        indexET.setIndexType("project");
+        indexET.setIndextype("project");
 
         //添加doc主键、数据主键及主信息
         indexET.setDocid("project:" + srcET.getId());
@@ -91,7 +91,7 @@ public class IbizproIndexMapping {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
-        indexET.setIndexType("story");
+        indexET.setIndextype("story");
 
         //添加doc主键、数据主键及主信息
         indexET.setDocid("story:" + srcET.getId());
@@ -110,7 +110,7 @@ public class IbizproIndexMapping {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
-        indexET.setIndexType("task");
+        indexET.setIndextype("task");
 
         //添加doc主键、数据主键及主信息
         indexET.setDocid("task:" + srcET.getId());
