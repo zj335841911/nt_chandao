@@ -4442,6 +4442,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b909c3bd793876e1c94b86171604b366',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProductMonthlyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+            ],
+        },
+        {
             viewtag: 'b9a10eb0b5a55e40c69c61387de5894a',
             viewmodule: 'zentao',
             viewname: 'ProductPlanMainDataEditView',
@@ -6086,6 +6096,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f6f162dba81a1d3d0875a78185218436',
+            viewmodule: 'ibizpro',
+            viewname: 'IbizproProductMonthlyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b909c3bd793876e1c94b86171604b366',
+            ],
+        },
+        {
             viewtag: 'f725c5c0e28669d9ef6b02ce237786a5',
             viewmodule: 'ibiz',
             viewname: 'ProductSumUsr3GridView',
@@ -6115,7 +6135,7 @@ export const viewstate: any = {
                 'a3d1a3af80fdf764f13a63f9c19934c6',
                 'dc4682bba4f9a504532ea1e10d4b11b5',
                 'e49ea1cccee579b8b15d125583fa6fff',
-                'd054969e8eb4b11e01d771b95045178c',
+                'f6f162dba81a1d3d0875a78185218436',
             ],
         },
         {

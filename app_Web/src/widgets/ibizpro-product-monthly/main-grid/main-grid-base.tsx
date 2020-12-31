@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
-import IbzproProjectUserTaskService from '@/service/ibzpro-project-user-task/ibzpro-project-user-task-service';
+import IbizproProductMonthlyService from '@/service/ibizpro-product-monthly/ibizpro-product-monthly-service';
 import MainService from './main-grid-service';
-import IbzproProjectUserTaskUIService from '@/uiservice/ibzpro-project-user-task/ibzpro-project-user-task-ui-service';
+import IbizproProductMonthlyUIService from '@/uiservice/ibizpro-product-monthly/ibizpro-product-monthly-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 /**
@@ -35,10 +35,10 @@ export class MainGridBase extends GridControlBase {
     /**
      * 实体服务对象
      *
-     * @type {IbzproProjectUserTaskService}
+     * @type {IbizproProductMonthlyService}
      * @memberof MainGridBase
      */
-    public appEntityService: IbzproProjectUserTaskService = new IbzproProjectUserTaskService({ $store: this.$store });
+    public appEntityService: IbizproProductMonthlyService = new IbizproProductMonthlyService({ $store: this.$store });
 
     /**
      * 应用实体名称
@@ -47,7 +47,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    protected appDeName: string = 'ibzproprojectusertask';
+    protected appDeName: string = 'ibizproproductmonthly';
 
     /**
      * 应用实体中文名称
@@ -56,43 +56,15 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    protected appDeLogicName: string = '项目汇报用户任务';
+    protected appDeLogicName: string = '产品月报';
 
     /**
      * 界面UI服务对象
      *
-     * @type {IbzproProjectUserTaskUIService}
+     * @type {IbizproProductMonthlyUIService}
      * @memberof MainBase
      */  
-    public appUIService: IbzproProjectUserTaskUIService = new IbzproProjectUserTaskUIService(this.$store);
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_taskname_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:IbzproProjectUserTaskUIService  = new IbzproProjectUserTaskUIService();
-        curUIService.IbzproProjectUserTask_TaskDetail(datas,contextJO, paramJO,  $event, xData,this,"IbzproProjectUserTask");
-    }
+    public appUIService: IbizproProductMonthlyUIService = new IbizproProductMonthlyUIService(this.$store);
 
 
     /**
@@ -102,7 +74,6 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        TaskDetail: { name: 'TaskDetail',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -111,7 +82,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainBase
      */  
-    public majorInfoColName:string = "";
+    public majorInfoColName:string = "ibizpro_productmonthlyname";
 
 
     /**
@@ -121,15 +92,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainBase
      */
-    protected localStorageTag: string = 'ibizpro_projectusertask_main_grid';
-
-    /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof MainGridBase
-     */
-    public limit: number = 10;
+    protected localStorageTag: string = 'ibizpro_productmonthly_main_grid';
 
     /**
      * 所有列成员
@@ -139,54 +102,27 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'account',
-            label: '用户',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.account',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'taskname',
-            label: '任务名称',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.taskname',
+            name: 'ibizpro_productmonthlyname',
+            label: '产品月报名称',
+            langtag: 'entities.ibizproproductmonthly.main_grid.columns.ibizpro_productmonthlyname',
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'tasktype',
-            label: '任务类型',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.tasktype',
+            name: 'productname',
+            label: '产品名称',
+            langtag: 'entities.ibizproproductmonthly.main_grid.columns.productname',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'consumed',
-            label: '本周消耗',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.consumed',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'eststarted',
-            label: '预计开始',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.eststarted',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'deadline',
-            label: '截止日期',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.deadline',
+            name: 'year_month',
+            label: '年月',
+            langtag: 'entities.ibizproproductmonthly.main_grid.columns.year_month',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -195,25 +131,25 @@ export class MainGridBase extends GridControlBase {
         {
             name: 'date',
             label: '日期',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.date',
+            langtag: 'entities.ibizproproductmonthly.main_grid.columns.date',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'progressrate',
-            label: '进度',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.progressrate',
+            name: 'po',
+            label: '产品负责人',
+            langtag: 'entities.ibizproproductmonthly.main_grid.columns.po',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'delaydays',
-            label: '延期天数',
-            langtag: 'entities.ibzproprojectusertask.main_grid.columns.delaydays',
+            name: 'totalestimates',
+            label: '总工时',
+            langtag: 'entities.ibizproproductmonthly.main_grid.columns.totalestimates',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -298,8 +234,8 @@ export class MainGridBase extends GridControlBase {
     public rules() {
         return {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品月报标识 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品月报标识 值不能为空', trigger: 'blur' },
         ],
     }
     }
@@ -320,15 +256,12 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'account':false,
-        'taskname':false,
-        'tasktype':false,
-        'consumed':false,
-        'eststarted':false,
-        'deadline':false,
+        'ibizpro_productmonthlyname':false,
+        'productname':false,
+        'year_month':false,
         'date':false,
-        'progressrate':false,
-        'delaydays':false,
+        'po':false,
+        'totalestimates':false,
     };
 
     /**
@@ -399,39 +332,16 @@ export class MainGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
-                name: 'account',
-                srfkey: 'UserRealName_Gird',
+                name: 'po',
+                srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-            {
-                name: 'tasktype',
-                srfkey: 'Task__type',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any): void {
-        $event.stopPropagation();
-        if(Object.is('TaskDetail', tag)) {
-            this.grid_taskname_click(row, tag, $event);
-        }
-    }
 
     /**
      * 更新默认值
@@ -447,7 +357,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['account','taskname','tasktype','consumed','eststarted','deadline','date','progressrate','delaydays'];
+        let allColumns:Array<any> = ['ibizpro_productmonthlyname','productname','year_month','date','po','totalestimates'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -526,18 +436,12 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                account:'',
-                TaskDetail:{
-                    visible: false
-                },
-                taskname:'',
-                tasktype:'',
-                consumed:'',
-                eststarted:'',
-                deadline:'',
+                ibizpro_productmonthlyname:'',
+                productname:'',
+                year_month:'',
                 date:'',
-                progressrate:'',
-                delaydays:'',
+                po:'',
+                totalestimates:'',
                 children: children
             }
             groupTree.push(tree);
@@ -562,18 +466,12 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            account:'',
-            TaskDetail:{
-                visible: false
-            },
-            taskname:'',
-            tasktype:'',
-            consumed:'',
-            eststarted:'',
-            deadline:'',
+            ibizpro_productmonthlyname:'',
+            productname:'',
+            year_month:'',
             date:'',
-            progressrate:'',
-            delaydays:'',
+            po:'',
+            totalestimates:'',
             children: child
         }
         if(child && child.length > 0){
@@ -634,18 +532,12 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                account:'',
-                TaskDetail:{
-                    visible: false
-                },
-                taskname:'',
-                tasktype:'',
-                consumed:'',
-                eststarted:'',
-                deadline:'',
+                ibizpro_productmonthlyname:'',
+                productname:'',
+                year_month:'',
                 date:'',
-                progressrate:'',
-                delaydays:'',
+                po:'',
+                totalestimates:'',
                 children: children,
             }
             groupTree.push(tree);
@@ -670,7 +562,7 @@ export class MainGridBase extends GridControlBase {
             const nativeData:any = this.service.getCopynativeData();
             if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
                 let targetData:any = nativeData.find((item:any) =>{
-                    return item.id === data.srfkey;
+                    return item.ibizproproductmonthlyid === data.srfkey;
                 })
                 if(targetData){
                     return targetData[param]?targetData[param]:null;

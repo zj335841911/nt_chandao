@@ -14091,6 +14091,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-stats-usr2-grid-view-product-complete/product-stats-usr2-grid-view-product-complete.vue'),
                 },
                 {
+                    path: 'ibizproproductmonthlies/:ibizproproductmonthly?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibizproproductmonthly.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproproductmonthlies', parameterName: 'ibizproproductmonthly' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-product-monthly-grid-view/ibizpro-product-monthly-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
                     meta: {
                         caption: 'entities.bug.views.stepsinfoeditview.caption',
@@ -18655,6 +18669,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-task-edit-view-commit-test/test-task-edit-view-commit-test.vue'),
+                },
+                {
+                    path: 'ibizproproductmonthlies/:ibizproproductmonthly?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibizproproductmonthly.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproproductmonthlies', parameterName: 'ibizproproductmonthly' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibizpro-product-monthly-edit-view/ibizpro-product-monthly-edit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testreports/:testreport?/projectmainediteditview/:projectmainediteditview?',
