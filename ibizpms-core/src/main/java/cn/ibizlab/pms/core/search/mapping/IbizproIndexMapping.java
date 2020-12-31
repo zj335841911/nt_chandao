@@ -1,6 +1,6 @@
 package cn.ibizlab.pms.core.search.mapping;
 
-import cn.ibizlab.pms.core.ibizpro.domain.IbizproIndex;
+import cn.ibizlab.pms.core.es.domain.IbizproIndex;
 
 import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
@@ -11,7 +11,7 @@ public class IbizproIndexMapping {
     /**
      * 映射关系：Bug --> IbizproIndex
      */
-    public static IbizproIndex bug2Bug(cn.ibizlab.pms.core.zentao.domain.Bug srcET) {
+    public static IbizproIndex bug2IbizproIndex(cn.ibizlab.pms.core.zentao.domain.Bug srcET) {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
@@ -30,7 +30,7 @@ public class IbizproIndexMapping {
     /**
      * 映射关系：Case --> IbizproIndex
      */
-    public static IbizproIndex case2Case(cn.ibizlab.pms.core.zentao.domain.Case srcET) {
+    public static IbizproIndex case2IbizproIndex(cn.ibizlab.pms.core.zentao.domain.Case srcET) {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
@@ -49,7 +49,7 @@ public class IbizproIndexMapping {
     /**
      * 映射关系：Product --> IbizproIndex
      */
-    public static IbizproIndex product2Product(cn.ibizlab.pms.core.zentao.domain.Product srcET) {
+    public static IbizproIndex product2IbizproIndex(cn.ibizlab.pms.core.zentao.domain.Product srcET) {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
@@ -68,7 +68,7 @@ public class IbizproIndexMapping {
     /**
      * 映射关系：Project --> IbizproIndex
      */
-    public static IbizproIndex project2Project(cn.ibizlab.pms.core.zentao.domain.Project srcET) {
+    public static IbizproIndex project2IbizproIndex(cn.ibizlab.pms.core.zentao.domain.Project srcET) {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
@@ -87,7 +87,7 @@ public class IbizproIndexMapping {
     /**
      * 映射关系：Story --> IbizproIndex
      */
-    public static IbizproIndex story2Story(cn.ibizlab.pms.core.zentao.domain.Story srcET) {
+    public static IbizproIndex story2IbizproIndex(cn.ibizlab.pms.core.zentao.domain.Story srcET) {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
@@ -106,7 +106,7 @@ public class IbizproIndexMapping {
     /**
      * 映射关系：Task --> IbizproIndex
      */
-    public static IbizproIndex task2Task(cn.ibizlab.pms.core.zentao.domain.Task srcET) {
+    public static IbizproIndex task2IbizproIndex(cn.ibizlab.pms.core.zentao.domain.Task srcET) {
         IbizproIndex indexET = new IbizproIndex();
 
         //添加类型信息
