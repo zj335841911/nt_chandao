@@ -50,26 +50,34 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
     @Override
     @Transactional
     public IbizproProjectDaily sumProjectDaily(IbizproProjectDaily et) {
-        //
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        calendar.getTime();
-        Date date = calendar.getTime();
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String strDate = dateFormat.format(date);
-        List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(String.format(" and SUPPROREPORT = '1' and pm is not null and pm <> '' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and tt.date = '%1$s')", strDate)));
-        Timestamp timestamp = new Timestamp(date.getTime());
+        Date now = new Date();
+        Date begin, end, dailyDate;
+        if (getDayOfWeek(now) == 1) {
+            begin = dateAddDay(now, -3);
+        } else {
+            begin = dateAddDay(now, -1);
+        }
+        end = dateAddDay(now, -1);
+        dailyDate = begin;
+        String dailyDateStr = dateFormat.format(dailyDate);
+        String beginStr = dateFormat.format(begin);
+        String endStr = dateFormat.format(end);
+        List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(String.format(" and SUPPROREPORT = '1' and pm is not null and pm <> '' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and tt.date >= '%1$s' and tt.date <= '%2$s')", beginStr, endStr)));
         List<IbizproProjectDaily> ibizproProjectDailies = new ArrayList<>();
         for(Project project : projectList) {
-            this.remove(new QueryWrapper<IbizproProjectDaily>().eq("project", project.getId()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = '" + strDate + "'"));
+            this.remove(new QueryWrapper<IbizproProjectDaily>().eq("project", project.getId()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = '" + dailyDateStr + "'"));
             IbizproProjectDaily ibizproProjectDaily = new IbizproProjectDaily();
             ibizproProjectDaily.setProject(project.getId());
-            ibizproProjectDaily.setDate(timestamp);
+            ibizproProjectDaily.setDate(new Timestamp(dailyDate.getTime()));
+            ibizproProjectDaily.setBegin(new Timestamp(begin.getTime()));
+            ibizproProjectDaily.setEnd(new Timestamp(end.getTime()));
             ibizproProjectDaily.setPm(project.getPm());
-            List<Task> taskList = getTaskList(project.getId(), strDate);
+            List<Task> taskList = getTaskList(project.getId(), beginStr, endStr);
             ibizproProjectDaily.setTasks(getCurTasks(taskList));
-            ibizproProjectDaily.setTotalestimates(getCusrTotalestimates(taskList, strDate));
-            ibizproProjectDaily.setIbizproprojectdailyname(String.format("%1$s-%2$s的日报", project.getName(), strDate));
+            ibizproProjectDaily.setTotalestimates(getCusrTotalestimates(taskList, beginStr, endStr));
+            ibizproProjectDaily.setIbizproprojectdailyname(String.format("%1$s-%2$s的日报", project.getName(), dailyDateStr));
             ibizproProjectDailies.add(ibizproProjectDaily);
         }
         if(ibizproProjectDailies.size() > 0) {
@@ -79,15 +87,40 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
     }
 
     /**
+     * 获取给定日期在一周中的第几天
+     * @param date
+     * @return
+     */
+    private Integer getDayOfWeek(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_WEEK) - 1;
+    }
+
+    /**
+     * 日期加减天数运算
+     * @param date
+     * @param day
+     * @return
+     */
+    private Date dateAddDay(Date date, Integer day){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, day);
+        return calendar.getTime();
+    }
+
+    /**
      * 获取所有的任务
      *
      * @param project
-     * @param strDate
+     * @param beginStr
+     * @param endStr
      * @return
      */
-    public List<Task> getTaskList(Long project, String strDate) {
+    public List<Task> getTaskList(Long project, String beginStr, String endStr) {
 
-        return iTaskService.list(new QueryWrapper<Task>().eq("project", project).last(String.format("  and EXISTS(select 1 from zt_taskestimate tt where tt.task = zt_task.id and tt.date = '%1$s')", strDate)));
+        return iTaskService.list(new QueryWrapper<Task>().eq("project", project).last(String.format("  and EXISTS(select 1 from zt_taskestimate tt where tt.task = zt_task.id and tt.date >= '%1$s' and tt.date <= '%2$s')", beginStr, endStr)));
     }
 
     /**
@@ -112,13 +145,14 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
      * 获取所有工时
      *
      * @param tasklists
-     * @param strDate
+     * @param beginStr
+     * @param endStr
      * @return
      */
-    public  Double getCusrTotalestimates(List<Task> tasklists, String strDate) {
+    public  Double getCusrTotalestimates(List<Task> tasklists,  String beginStr, String endStr) {
         Double totalestimates = 0.0d;
         for(Task task : tasklists) {
-            List<TaskEstimate> taskEstimateList = iTaskEstimateService.list(new QueryWrapper<TaskEstimate>().eq("task", task.getId()).eq("date",strDate ));
+            List<TaskEstimate> taskEstimateList = iTaskEstimateService.list(new QueryWrapper<TaskEstimate>().eq("task", task.getId()).last(String.format(" and date >= '%1$s' and date <= '%2$s'", beginStr, endStr)));
             for(TaskEstimate taskEstimate : taskEstimateList) {
                 totalestimates += taskEstimate.getConsumed();
             }

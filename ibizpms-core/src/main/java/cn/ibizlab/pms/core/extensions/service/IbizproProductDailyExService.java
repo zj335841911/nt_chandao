@@ -51,9 +51,19 @@ public class IbizproProductDailyExService extends IbizproProductDailyServiceImpl
     @Transactional(rollbackFor = Exception.class)
     public IbizproProductDaily statsProductDaily(IbizproProductDaily et) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date dailyDate = dateAddDay(new Date(), -1);
+        Date now = new Date();
+        Date begin, end, dailyDate;
+        if (getDayOfWeek(now) == 1) {
+            begin = dateAddDay(now, -3);
+        } else {
+            begin = dateAddDay(now, -1);
+        }
+        end = dateAddDay(now, -1);
+        dailyDate = begin;
         String dailyDateStr = dateFormat.format(dailyDate);
-        List<Product> productList = productHelper.list(new QueryWrapper<Product>().last(String.format(" and SUPPROREPORT = '1' and po is not null and po <> '' and EXISTS(select 1 from zt_taskestimate t1 left join zt_task t2 on t1.task = t2.id left join zt_story t3 on t2.story = t3.id where t3.product = zt_product.id and t1.date = '%1$s')", dailyDateStr)));
+        String beginStr = dateFormat.format(begin);
+        String endStr = dateFormat.format(end);
+        List<Product> productList = productHelper.list(new QueryWrapper<Product>().last(String.format(" and SUPPROREPORT = '1' and po is not null and po <> '' and EXISTS(select 1 from zt_taskestimate t1 left join zt_task t2 on t1.task = t2.id left join zt_story t3 on t2.story = t3.id where t3.product = zt_product.id and t1.date >= '%1$s' and t1.date <= '%2$s')", beginStr, endStr)));
         List<IbizproProductDaily> productDailies = new ArrayList<>();
         for (Product product : productList) {
             this.remove(new QueryWrapper<IbizproProductDaily>().eq("product", product.getId()).last(" and DATE_FORMAT(date, '%Y-%m-%d') = '" + dailyDateStr + "'"));
@@ -62,15 +72,28 @@ public class IbizproProductDailyExService extends IbizproProductDailyServiceImpl
             productDaily.setPo(product.getPo());
             productDaily.setProduct(product.getId());
             productDaily.setDate(new Timestamp(dailyDate.getTime()));
-            String productTasks = getProductTasks(productDaily.getProduct(), dailyDateStr);
+            productDaily.setBegin(new Timestamp(begin.getTime()));
+            productDaily.setEnd(new Timestamp(end.getTime()));
+            String productTasks = getProductTasks(productDaily.getProduct(), beginStr, endStr);
             productDaily.setTasks(productTasks);
-            productDaily.setTotalestimates(getTotalEstimates(productTasks, dailyDateStr));
+            productDaily.setTotalestimates(getTotalEstimates(productTasks, beginStr, endStr));
             productDailies.add(productDaily);
         }
         if (productDailies.size() > 0) {
             this.createBatch(productDailies);
         }
         return et;
+    }
+
+    /**
+     * 获取给定日期在一周中的第几天
+     * @param date
+     * @return
+     */
+    private Integer getDayOfWeek(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_WEEK) - 1;
     }
 
     /**
@@ -89,12 +112,13 @@ public class IbizproProductDailyExService extends IbizproProductDailyServiceImpl
     /**
      * 获取产品在日报描述当天的相关项目的相关任务id
      * @param productId
-     * @param dailyDateStr
+     * @param beginStr
+     * @param endStr
      * @return
      */
-    private String getProductTasks(Long productId, String dailyDateStr) {
+    private String getProductTasks(Long productId, String beginStr, String endStr) {
         StringBuffer productTasks = new StringBuffer();
-        List<Task> taskList = taskHelper.list(new QueryWrapper<Task>().last(String.format(" and exists(select 1 from zt_story t1 where t1.id = zt_task.story and t1.product = %1$d) and exists(select 1 from zt_taskestimate t1 where t1.task = zt_task.id and t1.date = '%2$s')", productId, dailyDateStr)));
+        List<Task> taskList = taskHelper.list(new QueryWrapper<Task>().last(String.format(" and exists(select 1 from zt_story t1 where t1.id = zt_task.story and t1.product = %1$d) and exists(select 1 from zt_taskestimate t1 where t1.task = zt_task.id and t1.date >= '%2$s' && t1.date <= '%3$s')", productId, beginStr, endStr)));
         for (Task task : taskList) {
             if (productTasks.length() > 0) {
                 productTasks.append(',');
@@ -107,12 +131,13 @@ public class IbizproProductDailyExService extends IbizproProductDailyServiceImpl
     /**
      * 获取产品在日报描述当天的相关项目的相关任务所花费的工时
      * @param productTasks
-     * @param dailyDateStr
+     * @param beginStr
+     * @param endStr
      * @return
      */
-    private Double getTotalEstimates(String productTasks, String dailyDateStr) {
+    private Double getTotalEstimates(String productTasks, String beginStr, String endStr) {
         Double totalEstimates = 0.0D;
-        List<TaskEstimate> estimateList = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().last(String.format(" where FIND_IN_SET(task, '%1$s') and date = '%2$s'", productTasks, dailyDateStr)));
+        List<TaskEstimate> estimateList = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().last(String.format(" where FIND_IN_SET(task, '%1$s') and date >= '%2$s' and date <= '%3$s'", productTasks, beginStr, endStr)));
         for (TaskEstimate estimate : estimateList) {
             totalEstimates += estimate.getConsumed();
         }
