@@ -345,9 +345,7 @@ POST
 | 10 | delaydays | String | 允许 | 延期天数 |
 | 11 | eststarted | Timestamp | 允许 | 预计开始<br>时间格式：yyyy-MM-dd |
 | 12 | deadline | Timestamp | 允许 | 截止日期<br>时间格式：yyyy-MM-dd |
-| 13 | mindate | Timestamp | 允许 | 工时记录（开始）<br>时间格式：yyyy-MM-dd |
-| 14 | maxdate | Timestamp | 允许 | 工时记录（最晚）<br>时间格式：yyyy-MM-dd |
-| 15 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzproProductUserTaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

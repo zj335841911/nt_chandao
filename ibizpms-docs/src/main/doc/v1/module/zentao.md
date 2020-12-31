@@ -172,6 +172,9 @@ class 任务 {
 class 任务预计 {
 }
 
+class 任务工时统计 {
+}
+
 class 群组 {
 }
 
@@ -540,6 +543,7 @@ hide members
 |ZT_SUITECASE|[套件用例](zentao/SuiteCase.md)|主实体|&nbsp;|
 |ZT_TASK|[任务](zentao/Task.md)|主实体|&nbsp;|
 |ZT_TASKESTIMATE|[任务预计](zentao/TaskEstimate.md)|主实体|&nbsp;|
+|TASKESTIMATESTATS|[任务工时统计](zentao/TaskEstimateStats.md)|主实体|&nbsp;|
 |ZT_TEAM|[群组](zentao/Team.md)|主实体|&nbsp;|
 |ZT_TESTREPORT|[测试报告](zentao/TestReport.md)|主实体|&nbsp;|
 |ZT_TESTRESULT|[测试结果](zentao/TestResult.md)|主实体|&nbsp;|

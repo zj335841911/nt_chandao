@@ -17387,32 +17387,6 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
-    },
-    {
-    "fieldname":"MINDATE" ,
-    "codename":"Mindate",
-    "field_logic_name":"工时记录（开始）",
-    "entity_name":"IbzproProductUserTask",
-    "field_type":"DATE",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"DATETIME",
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"MAXDATE" ,
-    "codename":"Maxdate",
-    "field_logic_name":"工时记录（最晚）",
-    "entity_name":"IbzproProductUserTask",
-    "field_type":"DATE",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"DATETIME",
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
     }
     ],
     "subEntitys":[
@@ -41007,6 +40981,106 @@
      "entity_name":"ZT_TASKESTIMATE",
      "ref_entity_name":"ZT_TASK"
     }
+    ]
+ }
+    ,
+    {
+    "entity_name":"TASKESTIMATESTATS",
+    "logic_name":"任务工时统计",
+    "code_name":"TaskEstimateStats",
+    "table_name":"zt_taskestimate",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
+    "fields":[
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"用户",
+    "entity_name":"TaskEstimateStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DATE" ,
+    "codename":"Date",
+    "field_logic_name":"日期",
+    "entity_name":"TaskEstimateStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TASKCNT" ,
+    "codename":"TaskCnt",
+    "field_logic_name":"任务数",
+    "entity_name":"TaskEstimateStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CONSUMED" ,
+    "codename":"Consumed",
+    "field_logic_name":"消耗的工时",
+    "entity_name":"TaskEstimateStats",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "data_preci":2,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"编号",
+    "entity_name":"TaskEstimateStats",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NAME" ,
+    "codename":"Name",
+    "field_logic_name":"项目名称",
+    "entity_name":"TaskEstimateStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
     ]
  }
     ,

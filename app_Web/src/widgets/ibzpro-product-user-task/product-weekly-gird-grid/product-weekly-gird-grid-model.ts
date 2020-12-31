@@ -57,13 +57,8 @@ export default class ProductWeeklyGirdModel {
           dataType: 'DATE',
         },
         {
-          name: 'mindate',
-          prop: 'mindate',
-          dataType: 'DATE',
-        },
-        {
-          name: 'maxdate',
-          prop: 'maxdate',
+          name: 'date',
+          prop: 'date',
           dataType: 'DATE',
         },
         {

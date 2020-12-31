@@ -135,24 +135,6 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("deadline")
     private Timestamp deadline;
 
-    /**
-     * 属性 [MINDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "mindate" , format="yyyy-MM-dd")
-    @JsonProperty("mindate")
-    private Timestamp mindate;
-
-    /**
-     * 属性 [MAXDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "maxdate" , format="yyyy-MM-dd")
-    @JsonProperty("maxdate")
-    private Timestamp maxdate;
-
 
     /**
      * 设置 [ACCOUNT]
@@ -192,22 +174,6 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
-    }
-
-    /**
-     * 设置 [MINDATE]
-     */
-    public void setMindate(Timestamp  mindate){
-        this.mindate = mindate ;
-        this.modify("mindate",mindate);
-    }
-
-    /**
-     * 设置 [MAXDATE]
-     */
-    public void setMaxdate(Timestamp  maxdate){
-        this.maxdate = maxdate ;
-        this.modify("maxdate",maxdate);
     }
 
 

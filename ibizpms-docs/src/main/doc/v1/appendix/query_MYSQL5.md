@@ -7624,9 +7624,11 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ### 产品日报(ProductDaily)<div id="IbizproProductDaily_ProductDaily"></div>
 ```sql
 SELECT
+t1.`BEGIN`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
+t1.`END`,
 t1.`IBIZPRO_PRODUCTDAILYID`,
 t1.`IBIZPRO_PRODUCTDAILYNAME`,
 t1.`PO`,
@@ -9544,8 +9546,6 @@ t1.`CONSUMED`,
 t1.`DATE`,
 t1.`ID`,
 t1.`LEFT`,
-t1.`MAXDATE`,
-t1.`MINDATE`,
 t1.`TASK`
 FROM `zt_taskestimate` t1 
 
@@ -9634,8 +9634,6 @@ t1.`CONSUMED`,
 t1.`DATE`,
 t1.`ID`,
 t1.`LEFT`,
-t1.`MAXDATE`,
-t1.`MINDATE`,
 t1.`TASK`
 FROM `zt_taskestimate` t1 
 
@@ -20408,6 +20406,52 @@ t1.`ID`,
 t1.`LEFT`,
 t1.`TASK`,
 t1.`WORK`
+FROM `zt_taskestimate` t1 
+
+```
+
+# **任务工时统计**(TASKESTIMATESTATS)
+
+### 数据查询(DEFAULT)<div id="TaskEstimateStats_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`DATE`,
+t1.`ID`
+FROM `zt_taskestimate` t1 
+
+```
+### 任务工时统计(TaskEstimateStatsSum)<div id="TaskEstimateStats_TaskEstimateStatsSum"></div>
+```sql
+SELECT
+	t1.date,
+	t2.NAME,
+	t1.account,
+	count( 1 ) AS taskcnt,
+	round( sum( t1.consumed ), 2 ) AS consumed 
+FROM
+	(
+SELECT
+	t1.NAME AS taskname,
+	t1.project,
+	t2.* 
+FROM
+	zt_task t1
+	RIGHT JOIN ( SELECT t1.task, t1.date, t1.consumed, t1.account FROM zt_taskestimate t1 WHERE date = ${srfdatacontext('date')}) t2 ON t1.id = t2.task 
+	) t1
+	LEFT JOIN zt_project t2 ON t1.project = t2.id 
+GROUP BY
+	t2.id,
+	t1.account 
+ORDER BY
+	t1.account
+```
+### 默认（全部数据）(VIEW)<div id="TaskEstimateStats_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`DATE`,
+t1.`ID`
 FROM `zt_taskestimate` t1 
 
 ```
