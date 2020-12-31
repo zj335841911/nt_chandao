@@ -157,18 +157,6 @@ public class IbizproIndexResource {
                 .body(new PageImpl(ibizproindexMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchDefault-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
-	@ApiOperation(value = "获取数据集", tags = {"索引检索" } ,notes = "获取数据集")
-    @RequestMapping(method= RequestMethod.GET , value="/ibizproindices/fetchdefault/es")
-	public ResponseEntity<List<IbizproIndexDTO>> esFetchDefault(IbizproIndexSearchContext context) {
-        Page<cn.ibizlab.pms.core.es.domain.IbizproIndex> domains = esService.searchDefault(context) ;
-        List<IbizproIndexDTO> list = ibizproindexMapping.toDto(esMapping.toDomain(domains.getContent()));
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchESquery-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
 	@ApiOperation(value = "获取全文检索", tags = {"索引检索" } ,notes = "获取全文检索")
     @RequestMapping(method= RequestMethod.GET , value="/ibizproindices/fetchesquery")
@@ -191,18 +179,6 @@ public class IbizproIndexResource {
                 .body(new PageImpl(ibizproindexMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchESquery-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
-	@ApiOperation(value = "获取全文检索", tags = {"索引检索" } ,notes = "获取全文检索")
-    @RequestMapping(method= RequestMethod.GET , value="/ibizproindices/fetchesquery/es")
-	public ResponseEntity<List<IbizproIndexDTO>> esFetchESquery(IbizproIndexSearchContext context) {
-        Page<cn.ibizlab.pms.core.es.domain.IbizproIndex> domains = esService.searchESquery(context) ;
-        List<IbizproIndexDTO> list = ibizproindexMapping.toDto(esMapping.toDomain(domains.getContent()));
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchIndexDER-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
 	@ApiOperation(value = "获取数据集2", tags = {"索引检索" } ,notes = "获取数据集2")
     @RequestMapping(method= RequestMethod.GET , value="/ibizproindices/fetchindexder")
@@ -225,36 +201,6 @@ public class IbizproIndexResource {
                 .body(new PageImpl(ibizproindexMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproIndex-searchIndexDER-all') and hasPermission(#context,'pms-IbizproIndex-Get')")
-	@ApiOperation(value = "获取数据集2", tags = {"索引检索" } ,notes = "获取数据集2")
-    @RequestMapping(method= RequestMethod.GET , value="/ibizproindices/fetchindexder/es")
-	public ResponseEntity<List<IbizproIndexDTO>> esFetchIndexDER(IbizproIndexSearchContext context) {
-        Page<cn.ibizlab.pms.core.es.domain.IbizproIndex> domains = esService.searchIndexDER(context) ;
-        List<IbizproIndexDTO> list = ibizproindexMapping.toDto(esMapping.toDomain(domains.getContent()));
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
-
-
-    @Autowired
-    @Lazy
-    cn.ibizlab.pms.core.es.service.IIbizproIndexESService esService;
-
-    @Autowired
-    @Lazy
-    cn.ibizlab.pms.core.ibizpro.mapping.IbizproIndexESMapping esMapping;
-
-    @PreAuthorize("hasPermission(this.ibizproindexMapping.toDomain(#ibizproindexdto),'pms-IbizproIndex-Save')")
-    @ApiOperation(value = "获取索引检索", tags = {"索引检索" },  notes = "获取索引检索")
-	@RequestMapping(method = RequestMethod.GET, value = "/ibizproindices/{ibizproindex_id}/es")
-    public ResponseEntity<IbizproIndexDTO> esGet(@PathVariable("ibizproindex_id") Long ibizproindex_id) {
-        cn.ibizlab.pms.core.es.domain.IbizproIndex domain = esService.get(ibizproindex_id);
-        IbizproIndexDTO dto = ibizproindexMapping.toDto(esMapping.toDomain(domain));
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
 
 }
 
