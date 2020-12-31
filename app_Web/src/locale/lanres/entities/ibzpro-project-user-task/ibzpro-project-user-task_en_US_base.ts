@@ -58,7 +58,7 @@ function getLocaleResourceBase(){
 					account: commonLogic.appcommonhandle("用户",null),
 					taskname: commonLogic.appcommonhandle("任务名称",null),
 					tasktype: commonLogic.appcommonhandle("任务类型",null),
-					consumed: commonLogic.appcommonhandle("当天消耗",null),
+					consumed: commonLogic.appcommonhandle("本周消耗",null),
 					eststarted: commonLogic.appcommonhandle("预计开始",null),
 					deadline: commonLogic.appcommonhandle("截止日期",null),
 					date: commonLogic.appcommonhandle("日期",null),

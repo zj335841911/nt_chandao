@@ -101,4 +101,20 @@ export interface IbzproProductUserTask {
      * @memberof IbzproProductUserTask
      */
     deadline?: any;
+
+    /**
+     * 工时记录（开始）
+     *
+     * @returns {*}
+     * @memberof IbzproProductUserTask
+     */
+    mindate?: any;
+
+    /**
+     * 工时记录（最晚）
+     *
+     * @returns {*}
+     * @memberof IbzproProductUserTask
+     */
+    maxdate?: any;
 }

@@ -15,6 +15,8 @@ function getLocaleResourceBase(){
 			delaydays: commonLogic.appcommonhandle("延期天数",null),
 			eststarted: commonLogic.appcommonhandle("预计开始",null),
 			deadline: commonLogic.appcommonhandle("截止日期",null),
+			mindate: commonLogic.appcommonhandle("工时记录（开始）",null),
+			maxdate: commonLogic.appcommonhandle("工时记录（最晚）",null),
 		},
 			views: {
 				productpartgridviewproductweekly: {

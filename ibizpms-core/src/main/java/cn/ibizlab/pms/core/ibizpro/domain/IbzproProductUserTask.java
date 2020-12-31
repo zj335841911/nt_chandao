@@ -134,6 +134,22 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JSONField(name = "deadline", format = "yyyy-MM-dd")
     @JsonProperty("deadline")
     private Timestamp deadline;
+    /**
+     * 工时记录（开始）
+     */
+    @TableField(value = "`mindate`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "mindate", format = "yyyy-MM-dd")
+    @JsonProperty("mindate")
+    private Timestamp mindate;
+    /**
+     * 工时记录（最晚）
+     */
+    @TableField(value = "`maxdate`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "maxdate", format = "yyyy-MM-dd")
+    @JsonProperty("maxdate")
+    private Timestamp maxdate;
 
 
 
@@ -187,6 +203,42 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
         this.modify("task", task);
     }
 
+    /**
+     * 设置 [工时记录（开始）]
+     */
+    public void setMindate(Timestamp mindate) {
+        this.mindate = mindate;
+        this.modify("mindate", mindate);
+    }
+
+    /**
+     * 格式化日期 [工时记录（开始）]
+     */
+    public String formatMindate() {
+        if (this.mindate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(mindate);
+    }
+    /**
+     * 设置 [工时记录（最晚）]
+     */
+    public void setMaxdate(Timestamp maxdate) {
+        this.maxdate = maxdate;
+        this.modify("maxdate", maxdate);
+    }
+
+    /**
+     * 格式化日期 [工时记录（最晚）]
+     */
+    public String formatMaxdate() {
+        if (this.maxdate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(maxdate);
+    }
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

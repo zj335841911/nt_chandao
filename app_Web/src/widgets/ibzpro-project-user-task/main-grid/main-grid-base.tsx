@@ -175,7 +175,7 @@ export class MainGridBase extends GridControlBase {
         },
         {
             name: 'consumed',
-            label: '当天消耗',
+            label: '本周消耗',
             langtag: 'entities.ibzproprojectusertask.main_grid.columns.consumed',
             show: true,
             unit: 'PX',

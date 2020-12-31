@@ -17307,6 +17307,32 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MINDATE" ,
+    "codename":"Mindate",
+    "field_logic_name":"工时记录（开始）",
+    "entity_name":"IbzproProductUserTask",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAXDATE" ,
+    "codename":"Maxdate",
+    "field_logic_name":"工时记录（最晚）",
+    "entity_name":"IbzproProductUserTask",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
