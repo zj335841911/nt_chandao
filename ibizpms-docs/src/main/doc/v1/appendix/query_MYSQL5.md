@@ -20430,8 +20430,13 @@ FROM `zt_taskestimate` t1
 ### 任务工时统计(TaskEstimateStatsSum)<div id="TaskEstimateStats_TaskEstimateStatsSum"></div>
 ```sql
 SELECT
+	t1.* 
+FROM
+	(
+SELECT
 	t1.date,
 	t2.NAME,
+	t2.id,
 	t1.account,
 	count( 1 ) AS taskcnt,
 	round( sum( t1.consumed ), 2 ) AS consumed 
@@ -20443,14 +20448,15 @@ SELECT
 	t2.* 
 FROM
 	zt_task t1
-	RIGHT JOIN ( SELECT t1.task, t1.date, t1.consumed, t1.account FROM zt_taskestimate t1 WHERE date = ${srfdatacontext('date')}) t2 ON t1.id = t2.task 
+	RIGHT JOIN ( SELECT t1.task, t1.date, t1.consumed, t1.account FROM zt_taskestimate t1  ) t2 ON t1.id = t2.task 
 	) t1
 	LEFT JOIN zt_project t2 ON t1.project = t2.id 
 GROUP BY
 	t2.id,
 	t1.account 
 ORDER BY
-	t1.account
+	t1.account 
+	) t1
 ```
 ### 默认（全部数据）(VIEW)<div id="TaskEstimateStats_View"></div>
 ```sql
