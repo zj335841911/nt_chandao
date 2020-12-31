@@ -53,9 +53,10 @@ public class IbizproProductDailyExService extends IbizproProductDailyServiceImpl
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date dailyDate = dateAddDay(new Date(), -1);
         String dailyDateStr = dateFormat.format(dailyDate);
-        List<Product> productList = productHelper.list(new QueryWrapper<Product>().last(String.format(" and SUPPROREPORT = '1' and po is not null  and EXISTS(select 1 from zt_taskestimate t1 left join zt_task t2 on t1.task = t2.id left join zt_story t3 on t2.story = t3.id where t3.product = zt_product.id and t1.date = '%1$s')", dailyDateStr)));
+        List<Product> productList = productHelper.list(new QueryWrapper<Product>().last(String.format(" and SUPPROREPORT = '1' and po is not null and po <> '' and EXISTS(select 1 from zt_taskestimate t1 left join zt_task t2 on t1.task = t2.id left join zt_story t3 on t2.story = t3.id where t3.product = zt_product.id and t1.date = '%1$s')", dailyDateStr)));
         List<IbizproProductDaily> productDailies = new ArrayList<>();
         for (Product product : productList) {
+            this.remove(new QueryWrapper<IbizproProductDaily>().eq("product", product.getId()).last(" and DATE_FORMAT(date, '%Y-%m-%d') = '" + dailyDateStr + "'"));
             IbizproProductDaily productDaily = new IbizproProductDaily();
             productDaily.setIbizproproductdailyname(String.format("%1$s-%2$s的日报" ,product.getName(), dailyDateStr));
             productDaily.setPo(product.getPo());
@@ -103,6 +104,12 @@ public class IbizproProductDailyExService extends IbizproProductDailyServiceImpl
         return productTasks.toString();
     }
 
+    /**
+     * 获取产品在日报描述当天的相关项目的相关任务所花费的工时
+     * @param productTasks
+     * @param dailyDateStr
+     * @return
+     */
     private Double getTotalEstimates(String productTasks, String dailyDateStr) {
         Double totalEstimates = 0.0D;
         List<TaskEstimate> estimateList = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().last(String.format(" where FIND_IN_SET(task, '%1$s') and date = '%2$s'", productTasks, dailyDateStr)));
