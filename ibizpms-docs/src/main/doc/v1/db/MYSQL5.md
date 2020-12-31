@@ -61095,8 +61095,8 @@ CREATE TABLE `T_IBIZPRO_PRODUCTMONTHLY`(
 | --------   |------------| :-----:   | :----: | :--------- | 
 | PRODUCTNAME        | 产品名称  | VARCHAR      |   90   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
-| BEGINDATESTATS        | 开始统计  | DATETIME      |   -1   | &nbsp; |
-| ENDDATESTATS        | 结束统计  | DATETIME      |   -1   | &nbsp; |
+| BEGINDATESTATS        | 开始统计  | VARCHAR      |   100   | &nbsp; |
+| ENDDATESTATS        | 结束统计  | VARCHAR      |   100   | &nbsp; |
 | IBIZPRO_PRODUCTWEEKLYID        | 产品周报标识  |       |   20   | 主键&nbsp; |
 | TOTALESTIMATES        | 总工时  | DOUBLE      |   -1   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
@@ -61148,8 +61148,8 @@ CREATE TABLE `T_IBIZPRO_PRODUCTWEEKLY`(
 ,`IBIZPRO_PRODUCTDAILYNAME`  VARCHAR(200) COMMENT '产品周报名称' 
 ,`IBIZPRO_PRODUCTWEEKLYID`  BIGINT(20)  UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '产品周报标识' 
 ,`PRODUCT`  BIGINT(8)  UNSIGNED COMMENT '编号' 
-,`BEGINDATESTATS`  DATETIME COMMENT '开始统计' 
-,`ENDDATESTATS`  DATETIME COMMENT '结束统计' 
+,`BEGINDATESTATS`  VARCHAR(100) COMMENT '开始统计' 
+,`ENDDATESTATS`  VARCHAR(100) COMMENT '结束统计' 
 )COMMENT='产品周报';
 ```
 

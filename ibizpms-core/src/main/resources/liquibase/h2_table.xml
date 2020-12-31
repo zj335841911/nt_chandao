@@ -1162,9 +1162,9 @@
                 </column>
                 <column name="PRODUCT" remarks="" type="BIGINT">
                 </column>
-                <column name="BEGINDATESTATS" remarks="" type="DATETIME">
+                <column name="BEGINDATESTATS" remarks="" type="VARCHAR(100)">
                 </column>
-                <column name="ENDDATESTATS" remarks="" type="DATETIME">
+                <column name="ENDDATESTATS" remarks="" type="VARCHAR(100)">
                 </column>
         </createTable>
     </changeSet>

@@ -140,19 +140,19 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
      * 属性 [BEGINDATESTATS]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begindatestats" , format="yyyy-MM-dd")
+    @JSONField(name = "begindatestats")
     @JsonProperty("begindatestats")
-    private Timestamp begindatestats;
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String begindatestats;
 
     /**
      * 属性 [ENDDATESTATS]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "enddatestats" , format="yyyy-MM-dd")
+    @JSONField(name = "enddatestats")
     @JsonProperty("enddatestats")
-    private Timestamp enddatestats;
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String enddatestats;
 
 
     /**
@@ -206,7 +206,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BEGINDATESTATS]
      */
-    public void setBegindatestats(Timestamp  begindatestats){
+    public void setBegindatestats(String  begindatestats){
         this.begindatestats = begindatestats ;
         this.modify("begindatestats",begindatestats);
     }
@@ -214,7 +214,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ENDDATESTATS]
      */
-    public void setEnddatestats(Timestamp  enddatestats){
+    public void setEnddatestats(String  enddatestats){
         this.enddatestats = enddatestats ;
         this.modify("enddatestats",enddatestats);
     }

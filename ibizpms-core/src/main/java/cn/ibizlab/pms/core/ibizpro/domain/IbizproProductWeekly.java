@@ -140,18 +140,16 @@ public class IbizproProductWeekly extends EntityMP implements Serializable {
      * 开始统计
      */
     @TableField(value = "`begindatestats`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "begindatestats", format = "yyyy-MM-dd")
+    @JSONField(name = "begindatestats")
     @JsonProperty("begindatestats")
-    private Timestamp begindatestats;
+    private String begindatestats;
     /**
      * 结束统计
      */
     @TableField(value = "`enddatestats`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "enddatestats", format = "yyyy-MM-dd")
+    @JSONField(name = "enddatestats")
     @JsonProperty("enddatestats")
-    private Timestamp enddatestats;
+    private String enddatestats;
 
     /**
      * 
@@ -224,39 +222,19 @@ public class IbizproProductWeekly extends EntityMP implements Serializable {
     /**
      * 设置 [开始统计]
      */
-    public void setBegindatestats(Timestamp begindatestats) {
+    public void setBegindatestats(String begindatestats) {
         this.begindatestats = begindatestats;
         this.modify("begindatestats", begindatestats);
     }
 
     /**
-     * 格式化日期 [开始统计]
-     */
-    public String formatBegindatestats() {
-        if (this.begindatestats == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(begindatestats);
-    }
-    /**
      * 设置 [结束统计]
      */
-    public void setEnddatestats(Timestamp enddatestats) {
+    public void setEnddatestats(String enddatestats) {
         this.enddatestats = enddatestats;
         this.modify("enddatestats", enddatestats);
     }
 
-    /**
-     * 格式化日期 [结束统计]
-     */
-    public String formatEnddatestats() {
-        if (this.enddatestats == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(enddatestats);
-    }
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

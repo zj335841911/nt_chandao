@@ -30,8 +30,8 @@
 | 10 | [产品周报标识](#属性-产品周报标识（IBIZPRO_PRODUCTWEEKLYID）) | IBIZPRO_PRODUCTWEEKLYID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
 | 11 | [编号](#属性-编号（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
 | 12 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
-| 13 | [开始统计](#属性-开始统计（BEGINDATESTATS）) | BEGINDATESTATS | 日期型 | 否 | 是 | 是 |
-| 14 | [结束统计](#属性-结束统计（ENDDATESTATS）) | ENDDATESTATS | 日期型 | 否 | 是 | 是 |
+| 13 | [开始统计](#属性-开始统计（BEGINDATESTATS）) | BEGINDATESTATS | 文本，可指定长度 | 否 | 是 | 是 |
+| 14 | [结束统计](#属性-结束统计（ENDDATESTATS）) | ENDDATESTATS | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-总工时（TOTALESTIMATES）
 #### 属性说明
@@ -543,10 +543,10 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-日期型
+文本，可指定长度
 
 - Java类型
-Timestamp
+String
 
 - 是否允许为空
 是
@@ -558,7 +558,7 @@ Timestamp
 无
 
 - 数据格式
-yyyy-MM-dd
+无
 
 - 是否支持快速搜索
 否
@@ -584,10 +584,10 @@ yyyy-MM-dd
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-日期型
+文本，可指定长度
 
 - Java类型
-Timestamp
+String
 
 - 是否允许为空
 是
@@ -599,7 +599,7 @@ Timestamp
 无
 
 - 数据格式
-yyyy-MM-dd
+无
 
 - 是否支持快速搜索
 否

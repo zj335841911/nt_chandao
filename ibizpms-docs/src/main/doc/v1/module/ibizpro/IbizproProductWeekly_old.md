@@ -24,8 +24,8 @@ hide members
 |产品周报标识|IBIZPRO_PRODUCTWEEKLYID|ACID|&nbsp;|
 |编号|PRODUCT|PICKUP|&nbsp;|
 |产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|开始统计|BEGINDATESTATS|DATE|&nbsp;|
-|结束统计|ENDDATESTATS|DATE|&nbsp;|
+|开始统计|BEGINDATESTATS|TEXT|&nbsp;|
+|结束统计|ENDDATESTATS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -42,8 +42,8 @@ hide members
 |产品周报标识|默认规则|默认规则|
 |编号|默认规则|默认规则|
 |产品名称|默认规则|内容长度必须小于等于[90]|
-|开始统计|默认规则|默认规则|
-|结束统计|默认规则|默认规则|
+|开始统计|默认规则|内容长度必须小于等于[100]|
+|结束统计|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

@@ -256,8 +256,8 @@ POST
 | 10 | ibizpro_productweeklyid | Long | 不可 | 产品周报标识 |
 | 11 | product | Long | 允许 | 编号 |
 | 12 | productname | String | 允许 | 产品名称 |
-| 13 | begindatestats | Timestamp | 允许 | 开始统计<br>时间格式：yyyy-MM-dd |
-| 14 | enddatestats | Timestamp | 允许 | 结束统计<br>时间格式：yyyy-MM-dd |
+| 13 | begindatestats | String | 允许 | 开始统计 |
+| 14 | enddatestats | String | 允许 | 结束统计 |
 | 15 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProductWeeklySearchContext

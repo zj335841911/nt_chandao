@@ -97,7 +97,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.begindatestats"></app-format-data>
+                            <span>{{row.begindatestats}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -109,7 +109,7 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.enddatestats"></app-format-data>
+                            <span>{{row.enddatestats}}</span>
                     </template>
                 </el-table-column>
             </template>

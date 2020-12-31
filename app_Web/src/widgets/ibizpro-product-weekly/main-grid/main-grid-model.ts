@@ -44,12 +44,12 @@ export default class MainModel {
         {
           name: 'begindatestats',
           prop: 'begindatestats',
-          dataType: 'DATE',
+          dataType: 'TEXT',
         },
         {
           name: 'enddatestats',
           prop: 'enddatestats',
-          dataType: 'DATE',
+          dataType: 'TEXT',
         },
         {
           name: 'date',
