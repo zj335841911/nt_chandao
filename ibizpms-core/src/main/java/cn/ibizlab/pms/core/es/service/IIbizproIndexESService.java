@@ -16,7 +16,7 @@ public interface IIbizproIndexESService{
     void updateBatch(List<IbizproIndex> list) ;
     boolean remove(IbizproIndex et) ;
     void removeBatch(Collection<Integer> idList) ;
-    IbizproIndex get(Integer key) ;
+    IbizproIndex get(Long key) ;
     boolean save(IbizproIndex et) ;
     void saveBatch(List<IbizproIndex> list) ;
     Page<IbizproIndex> searchDefault(IbizproIndexSearchContext context) ;
