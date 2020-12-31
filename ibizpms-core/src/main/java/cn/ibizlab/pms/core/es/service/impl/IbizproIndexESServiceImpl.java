@@ -27,7 +27,7 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     @Override
     public boolean create(IbizproIndex et) {
         repository.save(et);
-        CachedBeanCopier.copy(get(et.getIndexid()),et);
+        CachedBeanCopier.copy(get(et.getDocid()),et);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     @Override
     public boolean update(IbizproIndex et) {
         repository.save(et);
-        CachedBeanCopier.copy(get(et.getIndexid()),et);
+        CachedBeanCopier.copy(get(et.getDocid()),et);
         return true;
     }
 
@@ -49,21 +49,21 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     }
 
     @Override
-    public boolean remove(Long key) {
+    public boolean remove(String key) {
         repository.deleteById(key);
         return true;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<String> idList) {
 
     }
     @Override
-    public IbizproIndex get(Long key) {
+    public IbizproIndex get(String key) {
         Optional<IbizproIndex> result = repository.findById(key);
         if(!result.isPresent()){
             IbizproIndex et=new IbizproIndex();
-            et.setIndexid(key);
+            et.setDocid(key);
             return et;
         }
         else{
@@ -74,7 +74,7 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
     @Override
     public boolean save(IbizproIndex et) {
         repository.save(et);
-        CachedBeanCopier.copy(get(et.getIndexid()),et);
+        CachedBeanCopier.copy(get(et.getDocid()),et);
         return true;
     }
 

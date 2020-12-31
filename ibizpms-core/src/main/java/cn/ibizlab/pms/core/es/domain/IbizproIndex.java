@@ -37,7 +37,7 @@ public class IbizproIndex implements Serializable {
     private String acllist;
     @Field(type = FieldType.Text)
     private String acl;
-    @Field(type = FieldType.Text)
+    @Id
     private String docid;
 }
 
