@@ -230,6 +230,35 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
     }
 
     /**
+     * FetchProductMonthlyUserTaskStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProductUserTaskServiceBase
+     */
+    public async FetchProductMonthlyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzproproductusertasks/fetchproductmonthlyusertaskstats`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductMonthlyUserTaskStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzproProductUserTaskServiceBase
+     */
+    public async searchProductMonthlyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzproproductusertasks/searchproductmonthlyusertaskstats`,tempData,isloading);
+    }
+
+    /**
      * FetchProductWeeklyUserTaskStats接口方法
      *
      * @param {*} [context={}]

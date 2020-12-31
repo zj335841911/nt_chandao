@@ -5127,6 +5127,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "UserContactUsr2GridView",
             "viewtag": "e6f937afe3371083ae7dda1d58c85ed7"
         },
+        "ibzmonthlyproductmonthlygridview": {
+            "title": "月报表格视图",
+            "caption": "月报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyProductMonthlyGridView",
+            "viewtag": "e7567732197819965d948300d5a90d8c"
+        },
         "sysupdateloginfoeditview": {
             "title": "系统更新日志编辑视图",
             "caption": "更新日志",

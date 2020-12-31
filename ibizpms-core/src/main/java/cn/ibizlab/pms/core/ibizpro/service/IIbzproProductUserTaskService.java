@@ -48,6 +48,7 @@ public interface IIbzproProductUserTaskService extends IService<IbzproProductUse
     void saveBatch(List<IbzproProductUserTask> list);
     Page<IbzproProductUserTask> searchDefault(IbzproProductUserTaskSearchContext context);
     Page<IbzproProductUserTask> searchProductDailyUserTaskStats(IbzproProductUserTaskSearchContext context);
+    Page<IbzproProductUserTask> searchProductMonthlyUserTaskStats(IbzproProductUserTaskSearchContext context);
     Page<IbzproProductUserTask> searchProductWeeklyUserTaskStats(IbzproProductUserTaskSearchContext context);
     /**
      * 自定义查询SQL

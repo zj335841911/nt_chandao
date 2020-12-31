@@ -348,6 +348,28 @@ public class IbzMonthlyResource {
                 .body(new PageImpl(ibzmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchProductMonthly-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
+	@ApiOperation(value = "获取产品月报", tags = {"月报" } ,notes = "获取产品月报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmonthlies/fetchproductmonthly")
+	public ResponseEntity<List<IbzMonthlyDTO>> fetchProductMonthly(IbzMonthlySearchContext context) {
+        Page<IbzMonthly> domains = ibzmonthlyService.searchProductMonthly(context) ;
+        List<IbzMonthlyDTO> list = ibzmonthlyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchProductMonthly-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
+	@ApiOperation(value = "查询产品月报", tags = {"月报" } ,notes = "查询产品月报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmonthlies/searchproductmonthly")
+	public ResponseEntity<Page<IbzMonthlyDTO>> searchProductMonthly(@RequestBody IbzMonthlySearchContext context) {
+        Page<IbzMonthly> domains = ibzmonthlyService.searchProductMonthly(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchProjectMonthly-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
 	@ApiOperation(value = "获取项目月报", tags = {"月报" } ,notes = "获取项目月报")
     @RequestMapping(method= RequestMethod.GET , value="/ibzmonthlies/fetchprojectmonthly")

@@ -21,6 +21,7 @@ public interface IbzproProductUserTaskMapper extends BaseMapper<IbzproProductUse
 
     Page<IbzproProductUserTask> searchDefault(IPage page, @Param("srf") IbzproProductUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProductUserTask> wrapper);
     Page<IbzproProductUserTask> searchProductDailyUserTaskStats(IPage page, @Param("srf") IbzproProductUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProductUserTask> wrapper);
+    Page<IbzproProductUserTask> searchProductMonthlyUserTaskStats(IPage page, @Param("srf") IbzproProductUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProductUserTask> wrapper);
     Page<IbzproProductUserTask> searchProductWeeklyUserTaskStats(IPage page, @Param("srf") IbzproProductUserTaskSearchContext context, @Param("ew") Wrapper<IbzproProductUserTask> wrapper);
     @Override
     IbzproProductUserTask selectById(Serializable id);

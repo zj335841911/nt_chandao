@@ -4449,6 +4449,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
+                'e7567732197819965d948300d5a90d8c',
+                'c081204d4555873a491a8034c6c44316',
             ],
         },
         {
@@ -4669,6 +4671,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '8eb13e4fe49406265e2ed5fb1e0a6b53',
+            ],
+        },
+        {
+            viewtag: 'c081204d4555873a491a8034c6c44316',
+            viewmodule: 'ibizpro',
+            viewname: 'IbzproProductUserTaskProductMonthlyPartGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -5705,6 +5716,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'e7567732197819965d948300d5a90d8c',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyProductMonthlyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8caddd30a10ec08a95cd804fa2524e14',
             ],
         },
         {

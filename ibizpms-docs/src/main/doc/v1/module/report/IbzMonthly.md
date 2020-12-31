@@ -1173,8 +1173,9 @@ Save
 | 3 | [我的月报（移动端）](#数据查询-我的月报（移动端）（MyMonthlyMob）) | MyMonthlyMob | 否 |
 | 4 | [我收到的月报](#数据查询-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
 | 5 | [我提交的月报](#数据查询-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
-| 6 | [项目月报](#数据查询-项目月报（ProjectMonthly）) | ProjectMonthly | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [产品月报](#数据查询-产品月报（ProductMonthly）) | ProductMonthly | 否 |
+| 7 | [项目月报](#数据查询-项目月报（ProjectMonthly）) | ProjectMonthly | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1360,6 +1361,45 @@ FROM
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-产品月报（ProductMonthly）
+#### 说明
+产品月报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_MONTHLYID`,
+t1.`IBZ_MONTHLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`NEXTMONTHPLANSTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISMONTHTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_MONTHLY` t1 
+where 
+t1.`ISSUBMIT` = '1' 
+AND DATE_FORMAT(t1.date,'%Y-%m') = ${srfdatacontext('yearmonth')} 
+AND exists(select 1 from zt_team t2 where t2.account = t1.`ACCOUNT` and t2.type = 'product' and t2.root = ${srfdatacontext('curproduct')})
+```
 ### 数据查询-项目月报（ProjectMonthly）
 #### 说明
 项目月报
@@ -1444,7 +1484,8 @@ FROM `T_IBZ_MONTHLY` t1
 | 3 | [我的月报（移动端）](#数据集合-我的月报（移动端）（MyMonthlyMob）) | MyMonthlyMob | 否 |
 | 4 | [我收到的月报](#数据集合-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
 | 5 | [我提交的月报](#数据集合-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
-| 6 | [项目月报](#数据集合-项目月报（ProjectMonthly）) | ProjectMonthly | 否 |
+| 6 | [产品月报](#数据集合-产品月报（ProductMonthly）) | ProductMonthly | 否 |
+| 7 | [项目月报](#数据集合-项目月报（ProjectMonthly）) | ProjectMonthly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1516,6 +1557,20 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我提交的月报（MySubmitMonthly）](#数据查询-我提交的月报（MySubmitMonthly）) |
+### 数据集合-产品月报（ProductMonthly）
+#### 说明
+产品月报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品月报（ProductMonthly）](#数据查询-产品月报（ProductMonthly）) |
 ### 数据集合-项目月报（ProjectMonthly）
 #### 说明
 项目月报

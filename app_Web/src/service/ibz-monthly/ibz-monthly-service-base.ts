@@ -401,6 +401,35 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * FetchProductMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async FetchProductMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchproductmonthly`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async searchProductMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/searchproductmonthly`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectMonthly接口方法
      *
      * @param {*} [context={}]

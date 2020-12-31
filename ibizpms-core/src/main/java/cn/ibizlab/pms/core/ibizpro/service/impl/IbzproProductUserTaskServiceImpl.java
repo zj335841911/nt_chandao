@@ -202,6 +202,15 @@ public class IbzproProductUserTaskServiceImpl extends ServiceImpl<IbzproProductU
     }
 
     /**
+     * 查询集合 产品月报用户任务统计
+     */
+    @Override
+    public Page<IbzproProductUserTask> searchProductMonthlyUserTaskStats(IbzproProductUserTaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproProductUserTask> pages=baseMapper.searchProductMonthlyUserTaskStats(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzproProductUserTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品周报用户任务统计
      */
     @Override

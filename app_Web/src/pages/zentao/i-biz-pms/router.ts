@@ -8150,6 +8150,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-case-new-edit-view/ibz-case-new-edit-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/productmonthlygridview/:productmonthlygridview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.productmonthlygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'productmonthlygridview', parameterName: 'productmonthlygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-product-monthly-grid-view/ibz-monthly-product-monthly-grid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/projectmodules/:projectmodule?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.projectmodule.views.maingridview.caption',
@@ -17008,6 +17022,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-stats-edit-view9/project-stats-edit-view9.vue'),
+                },
+                {
+                    path: 'ibzproproductusertasks/:ibzproproductusertask?/productmonthlypartgridview/:productmonthlypartgridview?',
+                    meta: {
+                        caption: 'entities.ibzproproductusertask.views.productmonthlypartgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzproproductusertasks', parameterName: 'ibzproproductusertask' },
+                            { pathName: 'productmonthlypartgridview', parameterName: 'productmonthlypartgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-product-user-task-product-monthly-part-grid-view/ibzpro-product-user-task-product-monthly-part-grid-view.vue'),
                 },
                 {
                     path: 'sysemployees/:sysemployee?/editviewbasicinfo/:editviewbasicinfo?',

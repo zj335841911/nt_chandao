@@ -679,8 +679,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [产品日报用户任务统计](#数据查询-产品日报用户任务统计（ProductDailyUserTaskStats）) | ProductDailyUserTaskStats | 否 |
-| 3 | [产品周报用户任务统计](#数据查询-产品周报用户任务统计（ProductWeeklyUserTaskStats）) | ProductWeeklyUserTaskStats | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [产品月报用户任务统计](#数据查询-产品月报用户任务统计（ProductMonthlyUserTaskStats）) | ProductMonthlyUserTaskStats | 否 |
+| 4 | [产品周报用户任务统计](#数据查询-产品周报用户任务统计（ProductWeeklyUserTaskStats）) | ProductWeeklyUserTaskStats | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -727,7 +728,7 @@ t2.deadline,
 t2.ESTSTARTED,
 t2.type AS TASKTYPE,
 (CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND((ROUND(t2.`consumed`/( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE, 
-((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%Y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
 from
 (SELECT
 t1.DATE,
@@ -738,12 +739,48 @@ task AS id
 FROM
 `zt_taskestimate` t1 
 WHERE
-t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%y-%m-%d')
+t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d')
 GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT) t1
 left join zt_task t2 
 on t1.task = t2.id 
 where 
 FIND_IN_SET(t1.task, ${srfdatacontext('tasks')})
+```
+### 数据查询-产品月报用户任务统计（ProductMonthlyUserTaskStats）
+#### 说明
+产品月报用户任务统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.*,
+t2.`name` AS taskname,
+t2.deadline,
+t2.ESTSTARTED,
+t2.type AS TASKTYPE,
+(CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND(( ROUND( t2.`consumed` /( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE,
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT( now(), '%Y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t2.deadline, now()), '天' ) ELSE '' END )) AS DELAYDAYS 
+FROM
+(SELECT
+t1.DATE,
+t1.TASK,
+t1.ACCOUNT,
+ROUND(sum(t1.CONSUMED), 2) AS CONSUMED,
+task AS id 
+FROM
+`zt_taskestimate` t1 
+WHERE ${srfdatacontext('yearmonth')} = DATE_FORMAT(t1.date, '%Y-%m')
+GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT 
+) t1
+LEFT JOIN zt_task t2 ON t1.task = t2.id
+WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')})
 ```
 ### 数据查询-产品周报用户任务统计（ProductWeeklyUserTaskStats）
 #### 说明
@@ -808,7 +845,8 @@ FROM `zt_taskestimate` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [产品日报用户任务统计](#数据集合-产品日报用户任务统计（ProductDailyUserTaskStats）) | ProductDailyUserTaskStats | 否 |
-| 3 | [产品周报用户任务统计](#数据集合-产品周报用户任务统计（ProductWeeklyUserTaskStats）) | ProductWeeklyUserTaskStats | 否 |
+| 3 | [产品月报用户任务统计](#数据集合-产品月报用户任务统计（ProductMonthlyUserTaskStats）) | ProductMonthlyUserTaskStats | 否 |
+| 4 | [产品周报用户任务统计](#数据集合-产品周报用户任务统计（ProductWeeklyUserTaskStats）) | ProductWeeklyUserTaskStats | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -838,6 +876,20 @@ FROM `zt_taskestimate` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品日报用户任务统计（ProductDailyUserTaskStats）](#数据查询-产品日报用户任务统计（ProductDailyUserTaskStats）) |
+### 数据集合-产品月报用户任务统计（ProductMonthlyUserTaskStats）
+#### 说明
+产品月报用户任务统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品月报用户任务统计（ProductMonthlyUserTaskStats）](#数据查询-产品月报用户任务统计（ProductMonthlyUserTaskStats）) |
 ### 数据集合-产品周报用户任务统计（ProductWeeklyUserTaskStats）
 #### 说明
 产品周报用户任务统计

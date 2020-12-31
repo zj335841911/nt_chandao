@@ -56,6 +56,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("月报实体编辑视图",null),
 					title: commonLogic.appcommonhandle("月报编辑视图",null),
 				},
+				productmonthlygridview: {
+					caption: commonLogic.appcommonhandle("月报",null),
+					title: commonLogic.appcommonhandle("月报表格视图",null),
+				},
 			},
 			maininfo_form: {
 				details: {
@@ -160,6 +164,18 @@ function getLocaleResourceBase(){
 				},
 			},
 			monthmain_grid: {
+				columns: {
+					ibz_monthlyname: commonLogic.appcommonhandle("月报名称",null),
+					account: commonLogic.appcommonhandle("用户",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					reportto: commonLogic.appcommonhandle("汇报给",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				ibzmonthly_projectmonthly: commonLogic.appcommonhandle("项目月报查看详情",null),
+				},
+			},
+			productmonthlymain_grid: {
 				columns: {
 					ibz_monthlyname: commonLogic.appcommonhandle("月报名称",null),
 					account: commonLogic.appcommonhandle("用户",null),

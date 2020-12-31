@@ -920,6 +920,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例库|DEGRIDVIEW|&nbsp;|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|用户联系方式表格视图|DEGRIDVIEW|&nbsp;|
+|-|月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品汇总表图表视图|DECHARTVIEW9|&nbsp;|
 |-|人员表格导航视图|DEGRIDEXPVIEW|&nbsp;|

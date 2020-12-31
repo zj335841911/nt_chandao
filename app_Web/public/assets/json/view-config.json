@@ -6399,6 +6399,16 @@
         "viewtag": "e6f937afe3371083ae7dda1d58c85ed7",
         "memo": ""
     },
+    "ibzmonthlyproductmonthlygridview": {
+        "title": "月报表格视图",
+        "caption": "月报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyProductMonthlyGridView",
+        "viewfilename": "ibz-monthly-product-monthly-grid-view",
+        "viewtag": "e7567732197819965d948300d5a90d8c",
+        "memo": ""
+    },
     "sysupdateloginfoeditview": {
         "title": "系统更新日志编辑视图",
         "caption": "更新日志",

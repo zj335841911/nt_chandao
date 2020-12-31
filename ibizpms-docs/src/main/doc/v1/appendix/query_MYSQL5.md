@@ -8525,6 +8525,34 @@ WHERE t1.issubmit = '1'
 t1.account = #{srf.sessioncontext.srfloginname} 
 
 ```
+### 产品月报(ProductMonthly)<div id="IbzMonthly_ProductMonthly"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_MONTHLYID`,
+t1.`IBZ_MONTHLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`NEXTMONTHPLANSTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISMONTHTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_MONTHLY` t1 
+where 
+t1.`ISSUBMIT` = '1' 
+AND DATE_FORMAT(t1.date,'%Y-%m') = ${srfdatacontext('yearmonth')} 
+AND exists(select 1 from zt_team t2 where t2.account = t1.`ACCOUNT` and t2.type = 'product' and t2.root = ${srfdatacontext('curproduct')})
+```
 ### 项目月报(ProjectMonthly)<div id="IbzMonthly_ProjectMonthly"></div>
 ```sql
 SELECT
@@ -9523,7 +9551,7 @@ t2.deadline,
 t2.ESTSTARTED,
 t2.type AS TASKTYPE,
 (CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND((ROUND(t2.`consumed`/( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE, 
-((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%Y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
 from
 (SELECT
 t1.DATE,
@@ -9534,12 +9562,37 @@ task AS id
 FROM
 `zt_taskestimate` t1 
 WHERE
-t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%y-%m-%d')
+t1.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d')
 GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT) t1
 left join zt_task t2 
 on t1.task = t2.id 
 where 
 FIND_IN_SET(t1.task, ${srfdatacontext('tasks')})
+```
+### 产品月报用户任务统计(ProductMonthlyUserTaskStats)<div id="IbzproProductUserTask_ProductMonthlyUserTaskStats"></div>
+```sql
+SELECT
+t1.*,
+t2.`name` AS taskname,
+t2.deadline,
+t2.ESTSTARTED,
+t2.type AS TASKTYPE,
+(CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND(( ROUND( t2.`consumed` /( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE,
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT( now(), '%Y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t2.deadline, now()), '天' ) ELSE '' END )) AS DELAYDAYS 
+FROM
+(SELECT
+t1.DATE,
+t1.TASK,
+t1.ACCOUNT,
+ROUND(sum(t1.CONSUMED), 2) AS CONSUMED,
+task AS id 
+FROM
+`zt_taskestimate` t1 
+WHERE ${srfdatacontext('yearmonth')} = DATE_FORMAT(t1.date, '%Y-%m')
+GROUP BY t1.DATE, t1.TASK, t1.ACCOUNT 
+) t1
+LEFT JOIN zt_task t2 ON t1.task = t2.id
+WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')})
 ```
 ### 产品周报用户任务统计(ProductWeeklyUserTaskStats)<div id="IbzproProductUserTask_ProductWeeklyUserTaskStats"></div>
 ```sql

@@ -24,6 +24,7 @@ public interface IbzMonthlyMapper extends BaseMapper<IbzMonthly> {
     Page<IbzMonthly> searchMyMonthlyMob(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
     Page<IbzMonthly> searchMyReceivedMonthly(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
     Page<IbzMonthly> searchMySubmitMonthly(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
+    Page<IbzMonthly> searchProductMonthly(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
     Page<IbzMonthly> searchProjectMonthly(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
     @Override
     IbzMonthly selectById(Serializable id);
