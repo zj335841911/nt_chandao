@@ -4989,6 +4989,16 @@
         "viewtag": "b90624360f51aadfbfaa92d563dc1410",
         "memo": ""
     },
+    "ibizproproductmonthlyeditview": {
+        "title": "产品月报编辑视图",
+        "caption": "产品月报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductMonthlyEditView",
+        "viewfilename": "ibizpro-product-monthly-edit-view",
+        "viewtag": "b909c3bd793876e1c94b86171604b366",
+        "memo": ""
+    },
     "productplanmaindataeditview": {
         "title": "产品计划编辑视图",
         "caption": "产品计划",
@@ -6787,6 +6797,16 @@
         "viewname": "CaseGridView",
         "viewfilename": "case-grid-view",
         "viewtag": "f63aae9bc8cfe29654439743b465a942",
+        "memo": ""
+    },
+    "ibizproproductmonthlygridview": {
+        "title": "产品月报表格视图",
+        "caption": "产品月报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizpro",
+        "viewname": "IbizproProductMonthlyGridView",
+        "viewfilename": "ibizpro-product-monthly-grid-view",
+        "viewtag": "f6f162dba81a1d3d0875a78185218436",
         "memo": ""
     },
     "productsumusr3gridview": {

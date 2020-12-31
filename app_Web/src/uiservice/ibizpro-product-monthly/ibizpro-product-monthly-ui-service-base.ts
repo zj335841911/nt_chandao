@@ -96,6 +96,24 @@ export default class IbizproProductMonthlyUIServiceBase extends UIService {
      * @memberof  IbizproProductMonthlyUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibizproproductmonthlies',
+            component: 'ibizpro-product-monthly-edit-view',
+            openmode: 'DRAWER_TOP',
+            title: '产品月报',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibizproproductmonthlies',
+            component: 'ibizpro-product-monthly-grid-view',
+            openmode: '',
+            title: '产品月报',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

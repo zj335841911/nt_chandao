@@ -779,6 +779,7 @@ SRFNAVPARAM.project=%project%|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计表格视图（Bug指派表）|DEGRIDVIEW|&nbsp;|
+|-|产品月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品计划编辑视图|DEEDITVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|管理|DETABEXPVIEW|&nbsp;|
@@ -959,6 +960,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|功能测试表格视图|DEGRIDVIEW|&nbsp;|
+|-|产品月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
 |-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|

@@ -3999,6 +3999,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugStatsAssigntoGridView",
             "viewtag": "b90624360f51aadfbfaa92d563dc1410"
         },
+        "ibizproproductmonthlyeditview": {
+            "title": "产品月报编辑视图",
+            "caption": "产品月报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProductMonthlyEditView",
+            "viewtag": "b909c3bd793876e1c94b86171604b366"
+        },
         "productplanmaindataeditview": {
             "title": "产品计划编辑视图",
             "caption": "产品计划",
@@ -5438,6 +5446,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseGridView",
             "viewtag": "f63aae9bc8cfe29654439743b465a942"
+        },
+        "ibizproproductmonthlygridview": {
+            "title": "产品月报表格视图",
+            "caption": "产品月报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IbizproProductMonthlyGridView",
+            "viewtag": "f6f162dba81a1d3d0875a78185218436"
         },
         "productsumusr3gridview": {
             "title": "产品汇总表表格视图",

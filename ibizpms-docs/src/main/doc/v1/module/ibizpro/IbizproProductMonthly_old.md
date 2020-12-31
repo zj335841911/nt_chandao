@@ -85,6 +85,7 @@ hide members
 |产品编号(PRODUCT)|EQ|
 |产品名称(PRODUCTNAME)|EQ|
 |产品名称(PRODUCTNAME)|LIKE|
+|产品负责人(PO)|EQ|
 
 ## 导入模式
 无
