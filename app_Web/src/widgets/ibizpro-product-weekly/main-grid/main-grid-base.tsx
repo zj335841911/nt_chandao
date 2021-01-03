@@ -95,6 +95,22 @@ export class MainGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibizpro_productweekly_main_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'date';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
