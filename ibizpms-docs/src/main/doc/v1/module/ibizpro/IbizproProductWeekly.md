@@ -147,7 +147,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -739,10 +741,11 @@ Save
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [产品周报名称（IBIZPRO_PRODUCTDAILYNAME）](#属性-产品周报名称（IBIZPRO_PRODUCTDAILYNAME）) | `%like%` |
-| 2 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
-| 3 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
-| 4 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
+| 1 | [产品负责人（PO）](#属性-产品负责人（PO）) | `=` |
+| 2 | [产品周报名称（IBIZPRO_PRODUCTDAILYNAME）](#属性-产品周报名称（IBIZPRO_PRODUCTDAILYNAME）) | `%like%` |
+| 3 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
+| 4 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
+| 5 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

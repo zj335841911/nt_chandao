@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibizpro.domain.IbizproProductWeekly;
 @Data
 public class IbizproProductWeeklySearchContext extends QueryWrapperContext<IbizproProductWeekly> {
 
+	private String n_po_eq;//[产品负责人]
+	public void setN_po_eq(String n_po_eq) {
+        this.n_po_eq = n_po_eq;
+        if(!ObjectUtils.isEmpty(this.n_po_eq)){
+            this.getSearchCond().eq("`po`", n_po_eq);
+        }
+    }
 	private String n_ibizpro_productdailyname_like;//[产品周报名称]
 	public void setN_ibizpro_productdailyname_like(String n_ibizpro_productdailyname_like) {
         this.n_ibizpro_productdailyname_like = n_ibizpro_productdailyname_like;
