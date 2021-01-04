@@ -69,6 +69,20 @@ export class IbizproProductWeeklyUsr2GridViewBase extends GridViewBase {
      */
     public appUIService: IbizproProductWeeklyUIService = new IbizproProductWeeklyUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbizproProductWeeklyUsr2GridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_po_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
+    };
+
     /**
      * 视图模型数据
      *
@@ -112,7 +126,7 @@ export class IbizproProductWeeklyUsr2GridViewBase extends GridViewBase {
      * @memberof IbizproProductWeeklyUsr2GridView
      */
     public toolBarModels: any = {
-        deuiaction3_createproductreport: { name: 'deuiaction3_createproductreport', caption: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction3_createproductreport.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction3_createproductreport.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateProductReport', target: 'NONE', class: '' } },
+        deuiaction3_createproductreport: { name: 'deuiaction3_createproductreport', caption: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction3_createproductreport.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction3_createproductreport.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PRODUCT_MANAGER', uiaction: { tag: 'CreateProductReport', target: 'NONE', class: '' } },
 
         deuiaction2: { name: 'deuiaction2', caption: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
