@@ -16588,6 +16588,65 @@ WHERE t1.DELETED = '0'
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_STORY"}')}  AND  <#assign _value=srfdatacontext('branch','{"ignoreempty":true,"defname":"BRANCH","dename":"ZT_STORY"}')><#if _value?length gt 0>t1.`BRANCH` = ${_value}<#else>1=1</#if>  AND  <#assign _value=srfdatacontext('nodeid','{"ignoreempty":true,"defname":"MODULE","dename":"ZT_STORY"}')><#if _value?length gt 0>t1.`MODULE` = ${_value}<#else>1=1</#if> ) 
 
 ```
+### 我代理的需求(MyAgentStory)<div id="Story_MyAgentStory"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+case when t51.`AGENTUSER` = #{srf.sessioncontext.srfloginname} then t51.`AGENTUSER` else t1.`ASSIGNEDTO` end as `ASSIGNEDTO`,
+t1.`BRANCH`,
+t41.`NAME` AS `BRANCHNAME`,
+t1.`CHILDSTORIES`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`DELETED`,
+t1.`DUPLICATESTORY`,
+t1.`ESTIMATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'story' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`KEYWORDS`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LINKSTORIES`,
+t1.`MAILTO`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' ) FROM zt_module tt  WHERE FIND_IN_SET( tt.id, t11.path ) AND tt.type = 'story' GROUP BY	tt.root ) AS `MODULENAME1`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t21.`TITLE` AS `PARENTNAME`,
+t11.`PATH`,
+(case when t1.`PLAN` = '0' then '' else t1.plan end ) as `PLAN`,
+t1.`PRI`,
+t31.`NAME` AS `PRODOCTNAME`,
+t1.`PRODUCT`,
+t1.`REVIEWEDBY`,
+t1.`REVIEWEDDATE`,
+t1.`SOURCE`,
+t1.`SOURCENOTE`,
+t1.`STAGE`,
+t1.`STAGEDBY`,
+t1.`STATUS`,
+t1.`SUBSTATUS`,
+t1.`TITLE`,
+t1.`TOBUG`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VERSION` AS `VERSIONC`,
+(case when t1.parent in (-1) and t1.stage = 'wait' then '1' when t1.parent in (0) and t1.stage = 'wait' then '2'  else '0' end) AS isChild
+FROM `zt_story` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
+LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
+LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
+LEFT JOIN t_ibz_agent t51 ON t1.assignedTo = t51.CREATEMANNAME and DATE_FORMAT(now(), '%Y-%m-%d') >= t51.AGENTBEGIN and DATE_FORMAT(now(), '%Y-%m-%d') <= t51.AGENTEND
+WHERE t1.deleted = '0' 
+
+```
 ### 所创建需求数和对应的优先级及状态(MyCurOpenedStory)<div id="Story_MyCurOpenedStory"></div>
 ```sql
 SELECT

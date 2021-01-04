@@ -408,6 +408,7 @@ hide footbox
 |CaseStory|相关用例需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_CaseStory))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Story_Default))|否|&nbsp;|
 |GetProductStories|获取产品需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_GetProductStories))|否|&nbsp;获取指定产品（含分支）中当前用户的相关需求|
+|MyAgentStory|我代理的需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyAgentStory))|否|&nbsp;|
 |MyCurOpenedStory|所创建需求数和对应的优先级及状态([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyCurOpenedStory))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyFavorites))|否|&nbsp;|
 |NotCurPlanLinkStory|计划关联需求(去除已关联)([MYSQL5](../../appendix/query_MYSQL5.md#Story_NotCurPlanLinkStory))|否|&nbsp;|
