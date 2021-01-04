@@ -9564,7 +9564,7 @@ and YEARWEEK(t1.date,1) = YEARWEEK(${srfdatacontext('date')},1) )
 ### 项目周报(ProjectWeekly)<div id="IbzWeekly_ProjectWeekly"></div>
 ```sql
 SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_WEEKLYID`, t1.`IBZ_WEEKLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`THISWEEKTASK`, t1.`NEXTWEEKTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1
-WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')})  AND  DATE_FORMAT(t1.date,'%Y-%m-%d') > DATE_FORMAT( DATE_SUB(${srfdatacontext('date')} , INTERVAL 8 DAY ), '%Y-%m-%d' )  ) 
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('curproject')})  AND  (DATE_FORMAT(t1.date,'%Y-%m-%d') between DATE_FORMAT(${srfdatacontext('begindatestats')},'%Y-%m-%d') and DATE_FORMAT(${srfdatacontext('enddatestats')},'%Y-%m-%d'))  ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzWeekly_View"></div>
@@ -9786,7 +9786,7 @@ WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')})
 ```
 ### 项目周报任务(ProjectWeeklyTask)<div id="IbzproProjectUserTask_ProjectWeeklyTask"></div>
 ```sql
-select t1.*,t11.`name` as taskname,t11.deadline,t11.ESTSTARTED,t11.type as TASKTYPE,(CONCAT_WS('',case when t11.consumed = 0 or t11.consumed is null then '0' when t11.`left` = 0 or t11.`left` is null then '100' else ROUND((ROUND(t11.`consumed`/(t11.`left` + t11.consumed),2)) * 100) end ,'%')) as PROGRESSRATE,((case when t11.deadline is null or t11.deadline = '0000-00-00' or t11.deadline = '1970-01-01' then '' when t11.`status` in ('wait','doing') and t11.deadline <DATE_FORMAT(now(),'%Y-%m-%d') then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t11.deadline, now()),'天') else '' end))as DELAYDAYS from (select t1.DATE,t1.TASK,t1.ACCOUNT,ROUND(sum(t1.CONSUMED),2) as CONSUMED,task as id from ( SELECT t1.`ACCOUNT`, t1.`CONSUMED`, t1.`DATE`, t1.`ID`, t1.`LEFT`, t1.`TASK` FROM `zt_taskestimate` t1 where (DATE_FORMAT(t1.date,'%Y-%m-%d') between DATE_FORMAT(${srfdatacontext('begindate')},'%Y-%m-%d') and DATE_FORMAT(${srfdatacontext('enddate')},'%Y-%m-%d'))) t1 GROUP BY 
+select t1.*,t11.`name` as taskname,t11.deadline,t11.ESTSTARTED,t11.type as TASKTYPE,(CONCAT_WS('',case when t11.consumed = 0 or t11.consumed is null then '0' when t11.`left` = 0 or t11.`left` is null then '100' else ROUND((ROUND(t11.`consumed`/(t11.`left` + t11.consumed),2)) * 100) end ,'%')) as PROGRESSRATE,((case when t11.deadline is null or t11.deadline = '0000-00-00' or t11.deadline = '1970-01-01' then '' when t11.`status` in ('wait','doing') and t11.deadline <DATE_FORMAT(now(),'%Y-%m-%d') then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t11.deadline, now()),'天') else '' end))as DELAYDAYS from (select t1.DATE,t1.TASK,t1.ACCOUNT,ROUND(sum(t1.CONSUMED),2) as CONSUMED,task as id from ( SELECT t1.`ACCOUNT`, t1.`CONSUMED`, t1.`DATE`, t1.`ID`, t1.`LEFT`, t1.`TASK` FROM `zt_taskestimate` t1 where (DATE_FORMAT(t1.date,'%Y-%m-%d') between DATE_FORMAT(${srfdatacontext('begindatestats')},'%Y-%m-%d') and DATE_FORMAT(${srfdatacontext('enddatestats')},'%Y-%m-%d'))) t1 GROUP BY 
  t1.TASK,t1.ACCOUNT) t1 left join zt_task t11 on t1.task = t11.id
 WHERE FIND_IN_SET(t1.task, ${srfdatacontext('tasks')}) 
 
@@ -13148,7 +13148,17 @@ FROM
 	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID
 	LEFT JOIN zt_product t31 ON t1.product = t31.id 
 	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
-WHERE ( t21.`PROJECT` = ${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')} ) 
+WHERE ( t21.`PROJECT` = 	${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')}
+ or t1.parent in (	SELECT GROUP_CONCAT(t1.id)
+FROM
+	`zt_productplan` t1
+	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID
+	LEFT JOIN zt_product t31 ON t1.product = t31.id 
+	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
+	
+	where t1.deleted = '0' and ( t21.`PROJECT` = 
+${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')}
+ ) ) ) 
 t1.DELETED = '0' 
 
 ```

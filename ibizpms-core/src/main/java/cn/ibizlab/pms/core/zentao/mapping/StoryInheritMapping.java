@@ -14,7 +14,10 @@ public interface StoryInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="deleted",target = "deleted"),
+        @Mapping(source ="color",target = "color"),
         @Mapping(source ="spec",target = "indexdesc"),
+        @Mapping(source ="project",target = "project"),
     })
     IbizproIndex toIbizproindex(Story minorEntity);
 

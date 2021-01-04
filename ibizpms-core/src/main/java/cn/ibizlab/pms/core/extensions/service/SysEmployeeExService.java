@@ -99,7 +99,14 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             //产品团队
             context.setN_username_in(getAccounts(StaticDict.Team__type.PRODUCT.getValue(),params.get("product")));
         }
-        return super.searchDefault(context);
+        Page<SysEmployee> productSysPage = super.searchDefault(context);
+        if (productSysPage.getContent().size() == 0){
+            //产品团队没有人时，默认所有人员
+            return super.searchDefault(new SysEmployeeSearchContext());
+        }
+        else {
+            return productSysPage;
+        }
     }
 
     @Override

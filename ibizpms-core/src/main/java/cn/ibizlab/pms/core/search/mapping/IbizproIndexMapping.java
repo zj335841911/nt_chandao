@@ -99,7 +99,10 @@ public class IbizproIndexMapping {
         indexET.setIndexname(srcET.getTitle());
 
         //添加其他关系映射字段
+        indexET.setDeleted(srcET.getDeleted());
+        indexET.setColor(srcET.getColor());
         indexET.setIndexdesc(srcET.getSpec());
+        indexET.setProject(srcET.getProject());
 
         return indexET;
     }

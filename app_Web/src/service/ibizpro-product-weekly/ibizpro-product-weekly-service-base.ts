@@ -181,6 +181,7 @@ export default class IbizproProductWeeklyServiceBase extends EntityService {
      * @memberof IbizproProductWeeklyServiceBase
      */
     public async SumProductWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            context.ibizproproductweekly = 0;
             let res:any = Http.getInstance().post(`/ibizproproductweeklies/${context.ibizproproductweekly}/sumproductweekly`,data,isloading);
             return res;
     }
