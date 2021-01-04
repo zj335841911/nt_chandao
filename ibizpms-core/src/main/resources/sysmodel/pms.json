@@ -11410,6 +11410,7 @@
     "field_logic_name":"产品负责人",
     "entity_name":"IbizproProductWeekly",
     "field_type":"TEXT",
+    "dict":"UserRealName_Gird",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
