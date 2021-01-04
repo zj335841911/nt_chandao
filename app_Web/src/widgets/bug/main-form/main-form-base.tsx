@@ -470,9 +470,8 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): void {
-        if (Object.is(name, 'productname')) {
+        if (Object.is(name, 'product')) {
             this.onFormItemValueChange({ name: 'branch', value: null });
-            this.onFormItemValueChange({ name: 'productname', value: null });
         }
         if (Object.is(name, 'branch')) {
             this.onFormItemValueChange({ name: 'modulename', value: null });
