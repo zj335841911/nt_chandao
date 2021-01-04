@@ -31,52 +31,16 @@ public class StoryAspect {
             ibizproindexESService.createES(IbizproIndexMapping.story2IbizproIndex(Story));
         }
     }
-
-    }
-
+    @AfterReturning(value = "execution(* cn.ibizlab.pms.core.zentao.service.IStoryService.remove(..)) ")
+    @Async
+    public void remove(JoinPoint point) {
         Object id = point.getArgs()[0];
         String docid = "Story:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
         ibizproindexESService.removeES(docid);
-    }
 
     }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
     @AfterReturning(value = "execution(* cn.ibizlab.pms.core.zentao.service.IStoryService.change(..)) ")
     @Async
     public void change(JoinPoint point) {
@@ -86,57 +50,4 @@ public class StoryAspect {
             ibizproindexESService.updateES(IbizproIndexMapping.story2IbizproIndex(Story));
         }
     }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
-    }
-
 }
