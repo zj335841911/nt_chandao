@@ -13148,7 +13148,17 @@ FROM
 	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID
 	LEFT JOIN zt_product t31 ON t1.product = t31.id 
 	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
-WHERE ( t21.`PROJECT` = ${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')} ) 
+WHERE ( t21.`PROJECT` = 	${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')}
+ or t1.parent in (	SELECT GROUP_CONCAT(t1.id)
+FROM
+	`zt_productplan` t1
+	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID
+	LEFT JOIN zt_product t31 ON t1.product = t31.id 
+	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
+	
+	where t1.deleted = '0' and ( t21.`PROJECT` = 
+${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')}
+ ) ) ) 
 t1.DELETED = '0' 
 
 ```
