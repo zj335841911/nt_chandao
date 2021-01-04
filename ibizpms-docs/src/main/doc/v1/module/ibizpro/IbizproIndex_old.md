@@ -25,7 +25,7 @@ hide members
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |内容[需求、任务等]|INDEXDESC|LONGTEXT|&nbsp;|
 |颜色|COLOR|TEXT|&nbsp;|
-|项目|PROJECT|TEXT|&nbsp;|
+|项目|PROJECT|BIGINT|&nbsp;|
 |权限列表|ACLLIST|TEXT|&nbsp;|
 |权限|ACL|TEXT|&nbsp;|
 |docid|DOCID|TEXT|&nbsp;|
@@ -41,7 +41,7 @@ hide members
 |部门标识|默认规则|内容长度必须小于等于[200]|
 |内容[需求、任务等]|默认规则|内容长度必须小于等于[200]|
 |颜色|默认规则|内容长度必须小于等于[200]|
-|项目|默认规则|内容长度必须小于等于[200]|
+|项目|默认规则|默认规则|
 |权限列表|默认规则|内容长度必须小于等于[200]|
 |权限|默认规则|内容长度必须小于等于[200]|
 |docid|默认规则|内容长度必须小于等于[100]|

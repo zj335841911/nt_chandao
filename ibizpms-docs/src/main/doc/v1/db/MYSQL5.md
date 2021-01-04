@@ -57167,7 +57167,7 @@ CREATE TABLE `zt_user`(
 | INDEXNAME        | 标题[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
 | INDEXDESC        | 内容[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
 | ORGID        | 组织标识  | VARCHAR      |   200   | &nbsp; |
-| PROJECT        | 项目  | VARCHAR      |   200   | &nbsp; |
+| PROJECT        | 项目  |       |   -1   | &nbsp; |
 
 
 

@@ -31,8 +31,8 @@ public class IbizproIndex implements Serializable {
     private String indexdesc;
     @Field(type = FieldType.Text)
     private String color;
-    @Field(type = FieldType.Text)
-    private String project;
+    @Field(type = FieldType.Long)
+    private Long project;
     @Field(type = FieldType.Text)
     private String acllist;
     @Field(type = FieldType.Text)

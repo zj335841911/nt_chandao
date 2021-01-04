@@ -24,7 +24,7 @@
 | 6 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 否 | 是 |
 | 7 | [内容[需求、任务等]](#属性-内容[需求、任务等]（INDEXDESC）) | INDEXDESC | 长文本，没有长度限制 | 否 | 否 | 是 |
 | 8 | [颜色](#属性-颜色（COLOR）) | COLOR | 文本，可指定长度 | 否 | 否 | 是 |
-| 9 | [项目](#属性-项目（PROJECT）) | PROJECT | 文本，可指定长度 | 否 | 否 | 是 |
+| 9 | [项目](#属性-项目（PROJECT）) | PROJECT | 大整型 | 否 | 否 | 是 |
 | 10 | [权限列表](#属性-权限列表（ACLLIST）) | ACLLIST | 文本，可指定长度 | 否 | 否 | 是 |
 | 11 | [权限](#属性-权限（ACL）) | ACL | 文本，可指定长度 | 否 | 否 | 是 |
 | 12 | [docid](#属性-docid（DOCID）) | DOCID | 文本，可指定长度 | 否 | 否 | 是 |
@@ -354,10 +354,10 @@ null
 逻辑字段[来自计算式]
 
 - 数据类型
-文本，可指定长度
+大整型
 
 - Java类型
-String
+Long
 
 - 是否允许为空
 是
@@ -906,16 +906,18 @@ UNION ALL
 SELECT
 'story' AS `INDEX_TYPE`,v5.`ID` AS `INDEXID`
 ,v5.`TITLE` AS `INDEXNAME`
-,NULL AS `DELETED`
+,v5.`DELETED` AS `DELETED`
 ,NULL AS `ORGID`
 ,NULL AS `MDEPTID`
 ,v5.`SPEC` AS `INDEXDESC`
-,NULL AS `COLOR`
-,NULL AS `PROJECT`
+,v5.`COLOR` AS `COLOR`
+,v5.`PROJECT` AS `PROJECT`
 ,NULL AS `ACLLIST`
 ,NULL AS `ACL`
 FROM
 (SELECT
+t1.`COLOR`,
+t1.`DELETED`,
 t1.`ID`,
 t1.`TITLE`
 FROM `zt_story` t1 

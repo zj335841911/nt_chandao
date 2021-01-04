@@ -126,7 +126,7 @@ export class IbizproProjectWeeklyGridViewBase extends GridViewBase {
      * @memberof IbizproProjectWeeklyGridView
      */
     public toolBarModels: any = {
-        deuiaction3_createprojectweekly: { name: 'deuiaction3_createprojectweekly', caption: 'entities.ibizproprojectweekly.gridviewtoolbar_toolbar.deuiaction3_createprojectweekly.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproprojectweekly.gridviewtoolbar_toolbar.deuiaction3_createprojectweekly.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'createProjectWeekly', target: 'NONE', class: '' } },
+        deuiaction3_createprojectweekly: { name: 'deuiaction3_createprojectweekly', caption: 'entities.ibizproprojectweekly.gridviewtoolbar_toolbar.deuiaction3_createprojectweekly.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproprojectweekly.gridviewtoolbar_toolbar.deuiaction3_createprojectweekly.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJECT_MANAGER', uiaction: { tag: 'createProjectWeekly', target: 'NONE', class: '' } },
 
         deuiaction2: { name: 'deuiaction2', caption: 'entities.ibizproprojectweekly.gridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproprojectweekly.gridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
