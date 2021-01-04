@@ -48,7 +48,7 @@ public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
 
     }
 
-    @Overridee
+    @Override
     public boolean removeES(String key) {
         repository.deleteById(key);
         return true;
