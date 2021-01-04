@@ -7,6 +7,7 @@ import cn.ibizlab.pms.core.es.service.IIbizproIndexESService;
 import cn.ibizlab.pms.core.ibizpro.filter.IbizproIndexSearchContext;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -19,6 +20,7 @@ import java.util.Collection;
  * 实体[索引检索] 服务对象接口实现
  */
 @Service
+@ConditionalOnExpression("${sprin.data.elasticsearch.repositories.enabled:false}")
 public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
 
     @Autowired

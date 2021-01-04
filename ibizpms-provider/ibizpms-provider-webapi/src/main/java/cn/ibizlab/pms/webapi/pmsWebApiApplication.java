@@ -39,7 +39,7 @@ import java.util.List;
         org.springframework.cloud.openfeign.FeignClientsConfiguration.class
 })
 @EnableFeignClients(basePackages = {"cn.ibizlab.pms" })
-@EnableElasticsearchRepositories(basePackages ={"cn.ibizlab.pms"})
+//@EnableElasticsearchRepositories(basePackages ={"cn.ibizlab.pms"})
 @EnableAsync
 @EnableScheduling
 public class pmsWebApiApplication extends WebMvcConfigurerAdapter{
