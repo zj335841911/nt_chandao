@@ -22,5 +22,18 @@ export default class IbizproProjectDailyService extends IbizproProjectDailyServi
         super(opts);
     }
 
+    /**
+     * SumProjectDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProjectDailyServiceBase
+     */
+    public async SumProjectDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = Http.getInstance().post(`/ibizproprojectdailies/0/sumprojectdaily`,data,isloading);
+        return res;
+    }
 
 }

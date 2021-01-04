@@ -261,7 +261,9 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public fillForm(data: any = {}, action: string): void {
-        this.ignorefieldvaluechange = true;
+        if (!Object.is(action,'updateFormItem')) {
+            this.ignorefieldvaluechange = true;
+        }
         Object.keys(data).forEach((name: string) => {
             if (this.data.hasOwnProperty(name)) {
                 this.data[name] = data[name];
@@ -273,9 +275,9 @@ export class EditFormControlBase extends FormControlBase {
         if (Object.is(action, 'load')) {
             this.updateDefault();
         }
-        // this.$nextTick(() => {
+        this.$nextTick(() => {
             this.ignorefieldvaluechange = false;
-        // });
+        });
     }
 
     /**

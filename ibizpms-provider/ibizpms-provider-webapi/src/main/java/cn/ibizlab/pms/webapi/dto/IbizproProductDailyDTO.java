@@ -116,7 +116,7 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "tasks")
     @JsonProperty("tasks")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
     private String tasks;
 
     /**

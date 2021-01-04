@@ -22,5 +22,18 @@ export default class IbizproProductMonthlyService extends IbizproProductMonthlyS
         super(opts);
     }
 
+    /**
+     * ManualCreateMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductMonthlyServiceBase
+     */
+    public async ManualCreateMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = Http.getInstance().post(`/ibizproproductmonthlies/0/manualcreatemonthly`,data,isloading);
+        return res;
+    }
 
 }
