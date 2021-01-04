@@ -62,6 +62,7 @@ public class IbizproIndexMapping {
 
         //添加其他关系映射字段
         indexET.setIndexdesc(srcET.getDesc());
+        indexET.setProduct(srcET.getId());
 
         return indexET;
     }
@@ -81,6 +82,7 @@ public class IbizproIndexMapping {
 
         //添加其他关系映射字段
         indexET.setIndexdesc(srcET.getDesc());
+        indexET.setProject(srcET.getId());
 
         return indexET;
     }
