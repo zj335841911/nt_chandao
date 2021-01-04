@@ -23,7 +23,10 @@ public class IbizproIndexMapping {
         indexET.setIndexname(srcET.getTitle());
 
         //添加其他关系映射字段
+        indexET.setDeleted(srcET.getDeleted());
+        indexET.setProduct(srcET.getProduct());
         indexET.setIndexdesc(srcET.getSteps());
+        indexET.setProject(srcET.getProject());
 
         return indexET;
     }
@@ -42,7 +45,9 @@ public class IbizproIndexMapping {
         indexET.setIndexname(srcET.getTitle());
 
         //添加其他关系映射字段
+        indexET.setDeleted(srcET.getDeleted());
         indexET.setIndexdesc(srcET.getPrecondition());
+        indexET.setProduct(srcET.getProduct());
 
         return indexET;
     }
@@ -61,7 +66,9 @@ public class IbizproIndexMapping {
         indexET.setIndexname(srcET.getName());
 
         //添加其他关系映射字段
+        indexET.setDeleted(srcET.getDeleted());
         indexET.setIndexdesc(srcET.getDesc());
+        indexET.setProduct(srcET.getId());
 
         return indexET;
     }
@@ -80,7 +87,9 @@ public class IbizproIndexMapping {
         indexET.setIndexname(srcET.getName());
 
         //添加其他关系映射字段
+        indexET.setDeleted(srcET.getDeleted());
         indexET.setIndexdesc(srcET.getDesc());
+        indexET.setProject(srcET.getId());
 
         return indexET;
     }
@@ -101,8 +110,8 @@ public class IbizproIndexMapping {
         //添加其他关系映射字段
         indexET.setDeleted(srcET.getDeleted());
         indexET.setColor(srcET.getColor());
+        indexET.setProduct(srcET.getProduct());
         indexET.setIndexdesc(srcET.getSpec());
-        indexET.setProject(srcET.getProject());
 
         return indexET;
     }
@@ -121,7 +130,9 @@ public class IbizproIndexMapping {
         indexET.setIndexname(srcET.getName());
 
         //添加其他关系映射字段
+        indexET.setDeleted(srcET.getDeleted());
         indexET.setIndexdesc(srcET.getDesc());
+        indexET.setProject(srcET.getProject());
 
         return indexET;
     }

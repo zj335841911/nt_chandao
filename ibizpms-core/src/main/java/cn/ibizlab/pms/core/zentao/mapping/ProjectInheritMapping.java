@@ -14,6 +14,7 @@ public interface ProjectInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="name",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="deleted",target = "deleted"),
         @Mapping(source ="desc",target = "indexdesc"),
     })
     IbizproIndex toIbizproindex(Project minorEntity);

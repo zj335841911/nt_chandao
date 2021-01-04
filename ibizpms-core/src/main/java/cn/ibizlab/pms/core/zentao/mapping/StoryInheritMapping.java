@@ -16,8 +16,8 @@ public interface StoryInheritMapping {
         @Mapping(target ="focusNull",ignore = true),
         @Mapping(source ="deleted",target = "deleted"),
         @Mapping(source ="color",target = "color"),
+        @Mapping(source ="product",target = "product"),
         @Mapping(source ="spec",target = "indexdesc"),
-        @Mapping(source ="project",target = "project"),
     })
     IbizproIndex toIbizproindex(Story minorEntity);
 

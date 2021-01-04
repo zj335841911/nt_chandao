@@ -1552,7 +1552,7 @@ String
 | 值 |  |
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+参照数据字典【[用户真实名称（动态-表格）（UserRealName_Gird）](../../codelist/UserRealName_Gird)】
 
 - 数据格式
 无
