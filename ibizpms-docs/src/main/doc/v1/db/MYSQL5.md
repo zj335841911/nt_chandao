@@ -58578,7 +58578,7 @@ CREATE TABLE `zt_user`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | PRODUCTNAME        | 产品名称  | VARCHAR      |   90   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
-| TASKS        | 任务  | VARCHAR      |   100   | &nbsp; |
+| TASKS        | 任务  | VARCHAR      |   2,000   | &nbsp; |
 | BEGIN        | 开始日期  | DATETIME      |   -1   | &nbsp; |
 | PO        | 产品负责人  | VARCHAR      |   100   | &nbsp; |
 | END        | 结束日期  | DATETIME      |   -1   | &nbsp; |
@@ -58599,7 +58599,7 @@ CREATE TABLE `T_IBIZPRO_PRODUCTDAILY`(
 ,`PO`  VARCHAR(100) COMMENT '产品负责人' 
 ,`PRODUCT`  BIGINT(8)  UNSIGNED COMMENT '产品' 
 ,`DATE`  DATETIME COMMENT '日期' 
-,`TASKS`  VARCHAR(100) COMMENT '任务' 
+,`TASKS`  VARCHAR(2000) COMMENT '任务' 
 ,`TOTALESTIMATES`  DOUBLE COMMENT '总工时' 
 ,`BEGIN`  DATETIME COMMENT '开始日期' 
 ,`END`  DATETIME COMMENT '结束日期' 
@@ -60019,7 +60019,7 @@ CREATE TABLE `T_IBIZPRO_PRODUCTDAILY`(
 | PO        | 产品负责人  | VARCHAR      |   30   | &nbsp; |
 | PRODUCT        | 产品编号  |       |   8   | &nbsp; |
 | IBIZPRO_PRODUCTMONTHLYID        | 产品月报标识  |       |   100   | 主键&nbsp; |
-| TASKS        | 任务  | VARCHAR      |   100   | &nbsp; |
+| TASKS        | 任务  | VARCHAR      |   2,000   | &nbsp; |
 | YEAR_MONTH        | 年月  | VARCHAR      |   100   | &nbsp; |
 
 
@@ -60048,7 +60048,7 @@ CREATE TABLE `T_IBIZPRO_PRODUCTMONTHLY`(
 ,`UPDATEDATE`  DATETIME COMMENT '更新时间' 
 ,`PRODUCT`  BIGINT(8)  UNSIGNED COMMENT '产品编号' 
 ,`TOTALESTIMATES`  DOUBLE COMMENT '总工时' 
-,`TASKS`  VARCHAR(100) COMMENT '任务' 
+,`TASKS`  VARCHAR(2000) COMMENT '任务' 
 ,`DATE`  DATETIME COMMENT '日期' 
 ,`YEAR_MONTH`  VARCHAR(100) COMMENT '年月' 
 )COMMENT='产品月报';

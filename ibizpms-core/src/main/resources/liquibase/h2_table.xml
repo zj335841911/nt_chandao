@@ -1098,7 +1098,7 @@
                 </column>
                 <column name="DATE" remarks="" type="DATETIME">
                 </column>
-                <column name="TASKS" remarks="" type="VARCHAR(100)">
+                <column name="TASKS" remarks="" type="VARCHAR(2000)">
                 </column>
                 <column name="TOTALESTIMATES" remarks="" type="FLOAT">
                 </column>
@@ -1130,7 +1130,7 @@
                 </column>
                 <column name="TOTALESTIMATES" remarks="" type="FLOAT">
                 </column>
-                <column name="TASKS" remarks="" type="VARCHAR(100)">
+                <column name="TASKS" remarks="" type="VARCHAR(2000)">
                 </column>
                 <column name="DATE" remarks="" type="DATETIME">
                 </column>
