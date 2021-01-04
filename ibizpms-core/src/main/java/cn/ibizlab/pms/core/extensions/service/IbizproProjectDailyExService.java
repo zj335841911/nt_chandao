@@ -7,6 +7,7 @@ import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
 import cn.ibizlab.pms.core.zentao.service.ITaskEstimateService;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.ibizpro.domain.IbizproProjectDaily;
@@ -64,7 +65,14 @@ public class IbizproProjectDailyExService extends IbizproProjectDailyServiceImpl
         String dailyDateStr = dateFormat.format(dailyDate);
         String beginStr = dateFormat.format(begin);
         String endStr = dateFormat.format(end);
-        List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(String.format(" and SUPPROREPORT = '1' and pm is not null and pm <> '' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and tt.date >= '%1$s' and tt.date <= '%2$s')", beginStr, endStr)));
+        List<Project> projectList;
+        if ("yes".equals(et.getExtensionparams().get("ismanual"))) {
+            // 手动生成自己负责的项目日报
+            projectList = iProjectService.list(new QueryWrapper<Project>().last(String.format(" and SUPPROREPORT = '1' and pm = '%1$s' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and tt.date >= '%2$s' and tt.date <= '%3$s')", AuthenticationUser.getAuthenticationUser().getUsername(), beginStr, endStr)));
+        } else {
+            // 自动生成项目日报
+            projectList = iProjectService.list(new QueryWrapper<Project>().last(String.format(" and SUPPROREPORT = '1' and pm is not null and pm <> '' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and tt.date >= '%1$s' and tt.date <= '%2$s')", beginStr, endStr)));
+        }
         List<IbizproProjectDaily> ibizproProjectDailies = new ArrayList<>();
         for(Project project : projectList) {
             this.remove(new QueryWrapper<IbizproProjectDaily>().eq("project", project.getId()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = '" + dailyDateStr + "'"));

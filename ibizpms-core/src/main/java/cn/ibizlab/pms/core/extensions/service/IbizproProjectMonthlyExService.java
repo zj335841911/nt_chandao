@@ -1,16 +1,19 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.ibizpro.service.impl.IbizproProjectMonthlyServiceImpl;
+import cn.ibizlab.pms.core.zentao.domain.Product;
 import cn.ibizlab.pms.core.zentao.domain.Project;
 import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
 import cn.ibizlab.pms.core.zentao.service.ITaskEstimateService;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.ibizpro.domain.IbizproProjectMonthly;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
@@ -59,7 +62,37 @@ public class IbizproProjectMonthlyExService extends IbizproProjectMonthlyService
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         String strDate = dateFormat.format(date);
         List<Project> projectList =  iProjectService.list(new QueryWrapper<Project>().last(" and SUPPROREPORT = '1' and pm is not null and pm <> '' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and DATE_FORMAT(tt.date,'%Y-%m') = '"+ strDate +"')"));
-        Timestamp timestamp = new Timestamp(date.getTime());
+        createProjectMonthly(projectList, strDate, new Timestamp(date.getTime()));
+        return et;
+    }
+
+    /**
+     * [StatsProductMonthly:手动生成项目月报] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public IbizproProjectMonthly manualCreateMonthly(IbizproProjectMonthly et) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
+        Date date = new Date();
+        if (!isLastDayOfMonth(date)) {
+            date = dateAddMonth(date, -1);
+        }
+        String strDate = dateFormat.format(date);
+        List<Project> projectList = iProjectService.list(new QueryWrapper<Project>().last(" and SUPPROREPORT = '1' and pm = '" + AuthenticationUser.getAuthenticationUser().getUsername() + "' and EXISTS(select 1 from zt_taskestimate tt left join zt_task t2 on tt.task = t2.id where t2.project = zt_project.id and DATE_FORMAT(tt.date,'%Y-%m') = '"+ strDate +"')"));
+        createProjectMonthly(projectList, strDate, new Timestamp(date.getTime()));
+        return et;
+    }
+
+    /**
+     * 根据产品列表和日期生成对应的产品月报
+     * @param projectList
+     * @param strDate
+     * @param timestamp
+     * @return
+     */
+    private Boolean createProjectMonthly(List<Project> projectList, String strDate, Timestamp timestamp) {
         List<IbizproProjectMonthly> ibizproProjectMonthlies = new ArrayList<>();
         for(Project project : projectList) {
             this.remove(new QueryWrapper<IbizproProjectMonthly>().eq("project", project.getId()).eq("`Year_month`", strDate));
@@ -77,7 +110,31 @@ public class IbizproProjectMonthlyExService extends IbizproProjectMonthlyService
         if(ibizproProjectMonthlies.size() > 0) {
             this.createBatch(ibizproProjectMonthlies);
         }
-        return et;
+        return true;
+    }
+
+    /**
+     * 日期加减月数运算
+     * @param date
+     * @param month
+     * @return
+     */
+    private Date dateAddMonth(Date date, Integer month) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MONTH, month);
+        return calendar.getTime();
+    }
+
+    /**
+     * 判断所给日期是否是当月的最后一天
+     * @param date
+     * @return
+     */
+    private Boolean isLastDayOfMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_MONTH) == calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
 
     /**
