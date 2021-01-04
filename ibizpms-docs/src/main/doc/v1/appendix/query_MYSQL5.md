@@ -9564,7 +9564,7 @@ and YEARWEEK(t1.date,1) = YEARWEEK(${srfdatacontext('date')},1) )
 ### 项目周报(ProjectWeekly)<div id="IbzWeekly_ProjectWeekly"></div>
 ```sql
 SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_WEEKLYID`, t1.`IBZ_WEEKLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.MAILTO AS `MAILTOPK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.REPORTTO AS `REPORTTOPK`, t1.`SUBMITTIME`, t1.`THISWEEKTASK`, t1.`NEXTWEEKTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_WEEKLY` t1
-WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('project')})  AND  (DATE_FORMAT(t1.date,'%Y-%m-%d') between DATE_FORMAT(${srfdatacontext('begindatestats')},'%Y-%m-%d') and DATE_FORMAT(${srfdatacontext('enddatestats')},'%Y-%m-%d'))  ) 
+WHERE ( t1.`ISSUBMIT` = '1'  AND  t1.ACCOUNT in (select t.ACCOUNT from zt_team t where t.type = 'project' and t.root =${srfdatacontext('curproject')})  AND  (DATE_FORMAT(t1.date,'%Y-%m-%d') between DATE_FORMAT(${srfdatacontext('begindatestats')},'%Y-%m-%d') and DATE_FORMAT(${srfdatacontext('enddatestats')},'%Y-%m-%d'))  ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzWeekly_View"></div>
