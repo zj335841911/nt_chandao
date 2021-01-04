@@ -91,6 +91,16 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
+        name: 'begindatestats',
+        prop: 'begindatestats',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'enddatestats',
+        prop: 'enddatestats',
+        dataType: 'TEXT',
+      },
+      {
         name: 'ibzpro_projectweeklyid',
         prop: 'projectweeklyid',
         dataType: 'GUID',

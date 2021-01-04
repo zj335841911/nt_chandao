@@ -70,6 +70,8 @@ function getLocaleResourceBase(){
 					totalestimates1: commonLogic.appcommonhandle("总工时",null), 
 					tasks: commonLogic.appcommonhandle("任务",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
+					begindatestats: commonLogic.appcommonhandle("开始统计",null), 
+					enddatestats: commonLogic.appcommonhandle("结束统计",null), 
 					ibzpro_projectweeklyid: commonLogic.appcommonhandle("项目周报标识",null), 
 				},
 				uiactions: {
