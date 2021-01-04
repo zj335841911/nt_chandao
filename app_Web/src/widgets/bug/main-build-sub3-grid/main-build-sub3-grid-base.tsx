@@ -417,7 +417,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             },
             {
                 name: 'openedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -425,7 +425,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'BugUserRealName',
+                srfkey: 'UserRealNameUnAssignTo_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -433,7 +433,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             },
             {
                 name: 'resolvedby',
-                srfkey: 'BugUserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
