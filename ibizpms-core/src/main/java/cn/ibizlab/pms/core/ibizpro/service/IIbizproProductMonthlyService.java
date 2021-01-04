@@ -44,6 +44,8 @@ public interface IIbizproProductMonthlyService extends IService<IbizproProductMo
     IbizproProductMonthly get(Long key);
     IbizproProductMonthly getDraft(IbizproProductMonthly et);
     boolean checkKey(IbizproProductMonthly et);
+    IbizproProductMonthly manualCreateMonthly(IbizproProductMonthly et);
+    boolean manualCreateMonthlyBatch(List<IbizproProductMonthly> etList);
     boolean save(IbizproProductMonthly et);
     void saveBatch(List<IbizproProductMonthly> list);
     IbizproProductMonthly statsProductMonthly(IbizproProductMonthly et);

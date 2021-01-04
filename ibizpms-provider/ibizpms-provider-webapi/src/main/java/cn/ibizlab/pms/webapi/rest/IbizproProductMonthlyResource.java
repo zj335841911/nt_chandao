@@ -121,6 +121,23 @@ public class IbizproProductMonthlyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyService.checkKey(ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductMonthly-ManualCreateMonthly-all')")
+    @ApiOperation(value = "手动生成产品月报", tags = {"产品月报" },  notes = "手动生成产品月报")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/{ibizproproductmonthly_id}/manualcreatemonthly")
+    public ResponseEntity<IbizproProductMonthlyDTO> manualCreateMonthly(@PathVariable("ibizproproductmonthly_id") Long ibizproproductmonthly_id, @RequestBody IbizproProductMonthlyDTO ibizproproductmonthlydto) {
+        IbizproProductMonthly domain = ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydto);
+        domain.setIbizproproductmonthlyid(ibizproproductmonthly_id);
+        domain = ibizproproductmonthlyService.manualCreateMonthly(domain);
+        ibizproproductmonthlydto = ibizproproductmonthlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductMonthly-ManualCreateMonthly-all')")
+    @ApiOperation(value = "批量处理[手动生成产品月报]", tags = {"产品月报" },  notes = "批量处理[手动生成产品月报]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/{ibizproproductmonthly_id}/manualcreatemonthlybatch")
+    public ResponseEntity<Boolean> manualCreateMonthlyBatch(@RequestBody List<IbizproProductMonthlyDTO> ibizproproductmonthlydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyService.manualCreateMonthlyBatch(ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydtos)));
+    }
+
     @PreAuthorize("hasPermission(this.ibizproproductmonthlyMapping.toDomain(#ibizproproductmonthlydto),'pms-IbizproProductMonthly-Save')")
     @ApiOperation(value = "保存产品月报", tags = {"产品月报" },  notes = "保存产品月报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/save")
