@@ -14,7 +14,9 @@ public interface TaskInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="name",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="deleted",target = "deleted"),
         @Mapping(source ="desc",target = "indexdesc"),
+        @Mapping(source ="project",target = "project"),
     })
     IbizproIndex toIbizproindex(Task minorEntity);
 
