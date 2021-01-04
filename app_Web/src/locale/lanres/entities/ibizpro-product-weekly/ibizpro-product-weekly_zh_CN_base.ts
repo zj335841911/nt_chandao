@@ -64,6 +64,8 @@ function getLocaleResourceBase(){
 					po: commonLogic.appcommonhandle("产品负责人",null), 
 					totalestimates: commonLogic.appcommonhandle("总工时",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
+					enddatestats: commonLogic.appcommonhandle("结束统计",null), 
+					begindatestats: commonLogic.appcommonhandle("开始统计",null), 
 					product: commonLogic.appcommonhandle("编号",null), 
 					tasks: commonLogic.appcommonhandle("任务",null), 
 					ibizpro_productweeklyid: commonLogic.appcommonhandle("产品周报标识",null), 

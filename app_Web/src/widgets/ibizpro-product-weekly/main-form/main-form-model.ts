@@ -76,6 +76,16 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
+        name: 'enddatestats',
+        prop: 'enddatestats',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'begindatestats',
+        prop: 'begindatestats',
+        dataType: 'TEXT',
+      },
+      {
         name: 'product',
         prop: 'product',
         dataType: 'PICKUP',
