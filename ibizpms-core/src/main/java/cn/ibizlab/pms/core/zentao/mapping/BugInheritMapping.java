@@ -14,6 +14,7 @@ public interface BugInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="deleted",target = "deleted"),
         @Mapping(source ="product",target = "product"),
         @Mapping(source ="steps",target = "indexdesc"),
         @Mapping(source ="project",target = "project"),
