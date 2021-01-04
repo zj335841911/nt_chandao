@@ -104,7 +104,6 @@ public class IbzDaily extends EntityMP implements Serializable {
     /**
      * 用户
      */
-    @DEField(dupCheck = DupCheck.ALL)
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
