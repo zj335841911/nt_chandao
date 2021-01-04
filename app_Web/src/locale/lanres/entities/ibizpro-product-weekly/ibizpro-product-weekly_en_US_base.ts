@@ -92,6 +92,24 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			usr2gridviewtoolbar_toolbar: {
+				deuiaction3_createproductreport: {
+					caption: commonLogic.appcommonhandle("生成周报",null),
+					tip: commonLogic.appcommonhandle("生成周报",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("Filter",null),
+					tip: commonLogic.appcommonhandle("Filter",null),
+				},
+			},
 		};
 		return data;
 }

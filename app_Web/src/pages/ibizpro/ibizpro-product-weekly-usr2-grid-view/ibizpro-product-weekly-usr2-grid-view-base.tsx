@@ -91,6 +91,10 @@ export class IbizproProductWeeklyUsr2GridViewBase extends GridViewBase {
      * @memberof IbizproProductWeeklyUsr2GridViewBase
      */
     protected containerModel: any = {
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
         view_grid: {
             name: 'grid',
             type: 'GRID',
@@ -100,6 +104,24 @@ export class IbizproProductWeeklyUsr2GridViewBase extends GridViewBase {
             type: 'SEARCHFORM',
         },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof IbizproProductWeeklyUsr2GridView
+     */
+    public toolBarModels: any = {
+        deuiaction3_createproductreport: { name: 'deuiaction3_createproductreport', caption: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction3_createproductreport.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction3_createproductreport.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateProductReport', target: 'NONE', class: '' } },
+
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+
+        deuiaction4: { name: 'deuiaction4', caption: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction4.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.ibizproproductweekly.usr2gridviewtoolbar_toolbar.deuiaction4.tip', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+
+    };
+
 
 
 	/**
@@ -162,6 +184,28 @@ export class IbizproProductWeeklyUsr2GridViewBase extends GridViewBase {
             majorPSDEField: 'ibizproproductweeklyname',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbizproProductWeeklyUsr2GridViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction3_createproductreport')) {
+            this.toolbar_deuiaction3_createproductreport_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.toolbar_deuiaction2_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.toolbar_deuiaction4_click(null, '', $event2);
+        }
     }
 
     /**
@@ -250,6 +294,119 @@ export class IbizproProductWeeklyUsr2GridViewBase extends GridViewBase {
      */
     public searchform_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_createproductreport_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbizproProductWeeklyUIService  = new IbizproProductWeeklyUIService();
+        curUIService.IbizproProductWeekly_CreateProductReport(datas,contextJO, paramJO,  $event, xData,this,"IbizproProductWeekly");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"IbizproProductWeekly");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"IbizproProductWeekly");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"IbizproProductWeekly");
     }
 
     /**
@@ -351,4 +508,58 @@ export class IbizproProductWeeklyUsr2GridViewBase extends GridViewBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof IbizproProductWeeklyUsr2GridViewBase
+     */
+    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (xData && xData.refresh && xData.refresh instanceof Function) {
+            xData.refresh(args);
+        } else if (_this.refresh && _this.refresh instanceof Function) {
+            _this.refresh(args);
+        }
+    }
+    /**
+     * 导出
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof IbizproProductWeeklyUsr2GridViewBase
+     */
+    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
+            return ;
+        }
+        xData.exportExcel($event.exportparms);
+    }
+    /**
+     * 过滤
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof IbizproProductWeeklyUsr2GridViewBase
+     */
+    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (_this.hasOwnProperty('isExpandSearchForm')) {
+            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        }
+    }
 }
