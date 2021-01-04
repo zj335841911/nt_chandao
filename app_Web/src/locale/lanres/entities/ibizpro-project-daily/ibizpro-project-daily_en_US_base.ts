@@ -94,6 +94,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			gridviewtoolbar_toolbar: {
+				deuiaction1_manualcreatedaily: {
+					caption: commonLogic.appcommonhandle("生成日报",null),
+					tip: commonLogic.appcommonhandle("生成日报",null),
+				},
+			},
 		};
 		return data;
 }
