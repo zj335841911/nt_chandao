@@ -164,6 +164,13 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     @JSONField(name = "begindatestats")
     @JsonProperty("begindatestats")
     private String begindatestats;
+    /**
+     * 结束统计
+     */
+    @TableField(value = "`enddatestats`")
+    @JSONField(name = "enddatestats")
+    @JsonProperty("enddatestats")
+    private String enddatestats;
 
     /**
      * 项目
@@ -263,6 +270,14 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     public void setBegindatestats(String begindatestats) {
         this.begindatestats = begindatestats;
         this.modify("begindatestats", begindatestats);
+    }
+
+    /**
+     * 设置 [结束统计]
+     */
+    public void setEnddatestats(String enddatestats) {
+        this.enddatestats = enddatestats;
+        this.modify("enddatestats", enddatestats);
     }
 
 

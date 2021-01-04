@@ -105,11 +105,27 @@ export class IbizproProductDailyGridViewBase extends GridViewBase {
      * @memberof IbizproProductDailyGridViewBase
      */
     protected containerModel: any = {
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
         view_grid: {
             name: 'grid',
             type: 'GRID',
         },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof IbizproProductDailyGridView
+     */
+    public toolBarModels: any = {
+        deuiaction1_manualcreatedaily: { name: 'deuiaction1_manualcreatedaily', caption: 'entities.ibizproproductdaily.gridviewtoolbar_toolbar.deuiaction1_manualcreatedaily.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.ibizproproductdaily.gridviewtoolbar_toolbar.deuiaction1_manualcreatedaily.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ManualCreateDaily', target: 'NONE', class: '' } },
+
+    };
+
 
 
 	/**
@@ -174,6 +190,19 @@ export class IbizproProductDailyGridViewBase extends GridViewBase {
     }
 
     /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbizproProductDailyGridViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1_manualcreatedaily')) {
+            this.toolbar_deuiaction1_manualcreatedaily_click(null, '', $event2);
+        }
+    }
+
+    /**
      * grid 部件 selectionchange 事件
      *
      * @param {*} [args={}]
@@ -226,6 +255,35 @@ export class IbizproProductDailyGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_manualcreatedaily_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbizproProductDailyUIService  = new IbizproProductDailyUIService();
+        curUIService.IbizproProductDaily_ManualCreateDaily(datas,contextJO, paramJO,  $event, xData,this,"IbizproProductDaily");
     }
 
     /**

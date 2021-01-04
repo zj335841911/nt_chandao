@@ -260,7 +260,8 @@ POST
 | 14 | year | String | 允许 | 年 |
 | 15 | month | String | 允许 | 月 |
 | 16 | begindatestats | String | 允许 | 开始统计 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | enddatestats | String | 允许 | 结束统计 |
+| 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProjectWeeklySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

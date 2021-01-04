@@ -28,6 +28,7 @@ hide members
 |年|YEAR|TEXT|&nbsp;|
 |月|MONTH|TEXT|&nbsp;|
 |开始统计|BEGINDATESTATS|TEXT|&nbsp;|
+|结束统计|ENDDATESTATS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -48,6 +49,7 @@ hide members
 |年|默认规则|内容长度必须小于等于[100]|
 |月|默认规则|内容长度必须小于等于[100]|
 |开始统计|默认规则|内容长度必须小于等于[100]|
+|结束统计|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
