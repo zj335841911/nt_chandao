@@ -90,6 +90,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			gridviewtoolbar_toolbar: {
+				deuiaction1_manualcreatemonthly: {
+					caption: commonLogic.appcommonhandle("生成月报",null),
+					tip: commonLogic.appcommonhandle("生成月报",null),
+				},
+			},
 		};
 		return data;
 }

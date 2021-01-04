@@ -44,6 +44,8 @@ public interface IIbizproProjectMonthlyService extends IService<IbizproProjectMo
     IbizproProjectMonthly get(String key);
     IbizproProjectMonthly getDraft(IbizproProjectMonthly et);
     boolean checkKey(IbizproProjectMonthly et);
+    IbizproProjectMonthly manualCreateMonthly(IbizproProjectMonthly et);
+    boolean manualCreateMonthlyBatch(List<IbizproProjectMonthly> etList);
     boolean save(IbizproProjectMonthly et);
     void saveBatch(List<IbizproProjectMonthly> list);
     IbizproProjectMonthly sumProjectMonthly(IbizproProjectMonthly et);

@@ -121,6 +121,23 @@ public class IbizproProjectMonthlyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibizproprojectmonthlyService.checkKey(ibizproprojectmonthlyMapping.toDomain(ibizproprojectmonthlydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProjectMonthly-ManualCreateMonthly-all')")
+    @ApiOperation(value = "手动生成项目月报", tags = {"项目月报" },  notes = "手动生成项目月报")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectmonthlies/{ibizproprojectmonthly_id}/manualcreatemonthly")
+    public ResponseEntity<IbizproProjectMonthlyDTO> manualCreateMonthly(@PathVariable("ibizproprojectmonthly_id") String ibizproprojectmonthly_id, @RequestBody IbizproProjectMonthlyDTO ibizproprojectmonthlydto) {
+        IbizproProjectMonthly domain = ibizproprojectmonthlyMapping.toDomain(ibizproprojectmonthlydto);
+        domain.setIbizproprojectmonthlyid(ibizproprojectmonthly_id);
+        domain = ibizproprojectmonthlyService.manualCreateMonthly(domain);
+        ibizproprojectmonthlydto = ibizproprojectmonthlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectmonthlydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProjectMonthly-ManualCreateMonthly-all')")
+    @ApiOperation(value = "批量处理[手动生成项目月报]", tags = {"项目月报" },  notes = "批量处理[手动生成项目月报]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectmonthlies/{ibizproprojectmonthly_id}/manualcreatemonthlybatch")
+    public ResponseEntity<Boolean> manualCreateMonthlyBatch(@RequestBody List<IbizproProjectMonthlyDTO> ibizproprojectmonthlydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectmonthlyService.manualCreateMonthlyBatch(ibizproprojectmonthlyMapping.toDomain(ibizproprojectmonthlydtos)));
+    }
+
     @PreAuthorize("hasPermission(this.ibizproprojectmonthlyMapping.toDomain(#ibizproprojectmonthlydto),'pms-IbizproProjectMonthly-Save')")
     @ApiOperation(value = "保存项目月报", tags = {"项目月报" },  notes = "保存项目月报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectmonthlies/save")

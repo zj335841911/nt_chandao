@@ -126,7 +126,7 @@ export class IbizproProjectDailyGridViewBase extends GridViewBase {
      * @memberof IbizproProjectDailyGridView
      */
     public toolBarModels: any = {
-        deuiaction1_manualcreatedaily: { name: 'deuiaction1_manualcreatedaily', caption: 'entities.ibizproprojectdaily.gridviewtoolbar_toolbar.deuiaction1_manualcreatedaily.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.ibizproprojectdaily.gridviewtoolbar_toolbar.deuiaction1_manualcreatedaily.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ManualCreateDaily', target: 'NONE', class: '' } },
+        deuiaction1_manualcreatedaily: { name: 'deuiaction1_manualcreatedaily', caption: 'entities.ibizproprojectdaily.gridviewtoolbar_toolbar.deuiaction1_manualcreatedaily.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.ibizproprojectdaily.gridviewtoolbar_toolbar.deuiaction1_manualcreatedaily.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ManualCreateDaily', target: 'NONE', class: '' } },
 
     };
 
