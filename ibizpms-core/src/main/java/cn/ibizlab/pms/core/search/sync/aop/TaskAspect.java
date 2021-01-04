@@ -44,7 +44,7 @@ public class TaskAspect {
     @Async
     public void remove(JoinPoint point) {
         Object id = point.getArgs()[0];
-        String docid = "Task:" + id;
+        String docid = "task:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
         ibizproindexESService.removeES(docid);

@@ -44,7 +44,7 @@ public class ProductAspect {
     @Async
     public void remove(JoinPoint point) {
         Object id = point.getArgs()[0];
-        String docid = "Product:" + id;
+        String docid = "product:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
         ibizproindexESService.removeES(docid);

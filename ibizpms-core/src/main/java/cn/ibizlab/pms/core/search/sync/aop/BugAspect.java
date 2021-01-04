@@ -44,7 +44,7 @@ public class BugAspect {
     @Async
     public void remove(JoinPoint point) {
         Object id = point.getArgs()[0];
-        String docid = "Bug:" + id;
+        String docid = "bug:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
         ibizproindexESService.removeES(docid);

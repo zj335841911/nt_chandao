@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import lombok.Data;
 
 @Data
-@Document(indexName = "pms", type = "_doc", shards = 5, replicas = 1)
+@Document(indexName = "ibizproindex", type = "_doc", shards = 5, replicas = 1)
 public class IbizproIndex implements Serializable {
 
     private static final long serialVersionUID = 1L;

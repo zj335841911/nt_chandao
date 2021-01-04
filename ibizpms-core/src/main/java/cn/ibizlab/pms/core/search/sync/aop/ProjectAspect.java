@@ -44,7 +44,7 @@ public class ProjectAspect {
     @Async
     public void remove(JoinPoint point) {
         Object id = point.getArgs()[0];
-        String docid = "Project:" + id;
+        String docid = "project:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
         ibizproindexESService.removeES(docid);

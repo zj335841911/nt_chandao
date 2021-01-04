@@ -35,7 +35,7 @@ public class StoryAspect {
     @Async
     public void remove(JoinPoint point) {
         Object id = point.getArgs()[0];
-        String docid = "Story:" + id;
+        String docid = "story:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
         ibizproindexESService.removeES(docid);
