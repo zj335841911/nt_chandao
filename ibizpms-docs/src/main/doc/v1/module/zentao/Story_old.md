@@ -439,6 +439,7 @@ hide footbox
 |CaseStory|相关用例需求|CaseStory|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |GetProductStories|获取产品需求|GetProductStories|否|&nbsp;|
+|MyAgentStory|我代理的需求|MyAgentStory|否|&nbsp;|
 |MyCurOpenedStory|所创建需求数和对应的优先级及状态|MyCurOpenedStory|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
 |NotCurPlanLinkStory|计划关联需求(去除已关联)|NotCurPlanLinkStory|否|&nbsp;|

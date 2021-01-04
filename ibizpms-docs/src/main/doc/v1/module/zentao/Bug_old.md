@@ -406,6 +406,7 @@ hide footbox
 |BuildProduceBugType_Project|Build产生的Bug-类型分布(项目)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_BuildProduceBugType_Project))|否|&nbsp;|
 |CurUserResolve|当前用户解决的Bug([MYSQL5](../../appendix/query_MYSQL5.md#Bug_CurUserResolve))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Bug_Default))|否|&nbsp;|
+|MyAgentBug|我代理的Bug([MYSQL5](../../appendix/query_MYSQL5.md#Bug_MyAgentBug))|否|&nbsp;|
 |MyCurOpenedBug|累计创建的Bug数([MYSQL5](../../appendix/query_MYSQL5.md#Bug_MyCurOpenedBug))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Bug_MyFavorites))|否|&nbsp;|
 |NotCurPlanLinkBug|计划关联bug(去除已关联)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_NotCurPlanLinkBug))|否|&nbsp;|
@@ -443,6 +444,7 @@ hide footbox
 |BuildProduceBugType_Project|Build产生的Bug-类型分布(项目)|BuildProduceBugType_Project|否|&nbsp;|
 |CurUserResolve|当前用户解决的Bug|CurUserResolve|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|MyAgentBug|我代理的Bug|MyAgentBug|否|&nbsp;|
 |MyCurOpenedBug|累计创建的Bug数|MyCurOpenedBug|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
 |NotCurPlanLinkBug|计划关联bug（去除已关联）|NotCurPlanLinkBug|否|&nbsp;|

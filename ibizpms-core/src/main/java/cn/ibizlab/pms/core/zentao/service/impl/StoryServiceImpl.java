@@ -932,6 +932,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
     /**
+     * 查询集合 我代理的需求
+     */
+    @Override
+    public Page<Story> searchMyAgentStory(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyAgentStory(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 所创建需求数和对应的优先级及状态
      */
     @Override

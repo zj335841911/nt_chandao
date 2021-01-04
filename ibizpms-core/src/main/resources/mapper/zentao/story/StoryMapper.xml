@@ -181,6 +181,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyAgentStory]-->
+	 <select id="searchMyAgentStory"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+         select t1.* from (
+                <include refid="MyAgentStory" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[MyCurOpenedStory]-->
 	 <select id="searchMyCurOpenedStory"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
          select t1.* from (
