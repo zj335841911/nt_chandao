@@ -381,7 +381,8 @@ GET
 | 10 | acllist | String | 允许 | 权限列表 |
 | 11 | acl | String | 允许 | 权限 |
 | 12 | docid | String | 允许 | docid |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | product | Long | 允许 | 产品 |
+| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproIndexSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

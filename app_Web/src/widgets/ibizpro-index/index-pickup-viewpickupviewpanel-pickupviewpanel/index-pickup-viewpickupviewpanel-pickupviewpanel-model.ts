@@ -51,6 +51,9 @@ export default class IndexPickupViewpickupviewpanelModel {
       {
         name: 'docid',
       },
+      {
+        name: 'product',
+      },
     ]
   }
 

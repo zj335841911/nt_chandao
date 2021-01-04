@@ -126,7 +126,7 @@ export class IbizproProductMonthlyGridViewBase extends GridViewBase {
      * @memberof IbizproProductMonthlyGridView
      */
     public toolBarModels: any = {
-        deuiaction1_manualcreatemonthly: { name: 'deuiaction1_manualcreatemonthly', caption: 'entities.ibizproproductmonthly.gridviewtoolbar_toolbar.deuiaction1_manualcreatemonthly.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.ibizproproductmonthly.gridviewtoolbar_toolbar.deuiaction1_manualcreatemonthly.tip', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PRODUCT_MANAGER', uiaction: { tag: 'ManualCreateMonthly', target: 'NONE', class: '' } },
+        deuiaction1_manualcreatemonthly: { name: 'deuiaction1_manualcreatemonthly', caption: 'entities.ibizproproductmonthly.gridviewtoolbar_toolbar.deuiaction1_manualcreatemonthly.caption', 'isShowCaption': false, 'isShowIcon': true, tooltip: 'entities.ibizproproductmonthly.gridviewtoolbar_toolbar.deuiaction1_manualcreatemonthly.tip', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PRODUCT_MANAGER', uiaction: { tag: 'ManualCreateMonthly', target: 'NONE', class: '' } },
 
     };
 

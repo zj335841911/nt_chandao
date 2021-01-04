@@ -101,4 +101,12 @@ export interface IbizproIndex {
      * @memberof IbizproIndex
      */
     docid?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IbizproIndex
+     */
+    product?: any;
 }

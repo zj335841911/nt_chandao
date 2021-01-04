@@ -128,6 +128,13 @@ public class IbizproIndex extends EntityMP implements Serializable {
     @JSONField(name = "docid")
     @JsonProperty("docid")
     private String docid;
+    /**
+     * 产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
 
 
 

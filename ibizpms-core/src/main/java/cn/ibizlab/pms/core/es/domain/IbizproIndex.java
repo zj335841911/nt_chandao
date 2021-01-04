@@ -39,6 +39,8 @@ public class IbizproIndex implements Serializable {
     private String acl;
     @Id
     private String docid;
+    @Field(type = FieldType.Long)
+    private Long product;
 }
 
 
