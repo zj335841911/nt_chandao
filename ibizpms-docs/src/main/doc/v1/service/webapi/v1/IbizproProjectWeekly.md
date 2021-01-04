@@ -259,7 +259,8 @@ POST
 | 13 | week | String | 允许 | 周 |
 | 14 | year | String | 允许 | 年 |
 | 15 | month | String | 允许 | 月 |
-| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 16 | begindatestats | String | 允许 | 开始统计 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProjectWeeklySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

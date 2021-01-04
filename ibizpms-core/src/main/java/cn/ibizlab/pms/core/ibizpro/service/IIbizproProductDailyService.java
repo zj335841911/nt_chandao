@@ -44,6 +44,8 @@ public interface IIbizproProductDailyService extends IService<IbizproProductDail
     IbizproProductDaily get(Long key);
     IbizproProductDaily getDraft(IbizproProductDaily et);
     boolean checkKey(IbizproProductDaily et);
+    IbizproProductDaily manualCreateDaily(IbizproProductDaily et);
+    boolean manualCreateDailyBatch(List<IbizproProductDaily> etList);
     boolean save(IbizproProductDaily et);
     void saveBatch(List<IbizproProductDaily> list);
     IbizproProductDaily statsProductDaily(IbizproProductDaily et);

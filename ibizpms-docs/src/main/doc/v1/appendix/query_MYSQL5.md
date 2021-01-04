@@ -7937,6 +7937,7 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 ### 数据查询(DEFAULT)<div id="IbizproProjectWeekly_Default"></div>
 ```sql
 SELECT
+t1.`BEGINDATESTATS`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
@@ -7959,6 +7960,7 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 ### 默认（全部数据）(VIEW)<div id="IbizproProjectWeekly_View"></div>
 ```sql
 SELECT
+t1.`BEGINDATESTATS`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,

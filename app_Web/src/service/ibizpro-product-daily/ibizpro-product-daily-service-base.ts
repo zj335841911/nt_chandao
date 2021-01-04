@@ -155,6 +155,20 @@ export default class IbizproProductDailyServiceBase extends EntityService {
     }
 
     /**
+     * ManualCreateDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductDailyServiceBase
+     */
+    public async ManualCreateDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/manualcreatedaily`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

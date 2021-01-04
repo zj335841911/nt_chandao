@@ -1077,7 +1077,7 @@
 
 
     <!--输出实体[IBIZPRO_PRODUCTDAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_productdaily-103-37">
+    <changeSet author="zentao" id="tab-ibizpro_productdaily-106-37">
         <createTable tableName="T_IBIZPRO_PRODUCTDAILY">
                 <column name="IBIZPRO_PRODUCTDAILYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1239,7 +1239,7 @@
 
 
     <!--输出实体[IBZPRO_PROJECTWEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_projectweekly-133-42">
+    <changeSet author="zentao" id="tab-ibzpro_projectweekly-137-42">
         <createTable tableName="T_IBZPRO_PROJECTWEEKLY">
                 <column name="IBZPRO_PROJECTWEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1269,6 +1269,8 @@
                 <column name="YEAR" remarks="" type="VARCHAR(100)">
                 </column>
                 <column name="MONTH" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BEGINDATESTATS" remarks="" type="VARCHAR(100)">
                 </column>
         </createTable>
     </changeSet>
@@ -2750,7 +2752,7 @@
 
 
     <!--输出实体[ZT_TESTREPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_testreport-421-112">
+    <changeSet author="zentao" id="tab-zt_testreport-425-112">
         <createTable tableName="zt_testreport">
                 <column name="OBJECTID" remarks="" type="INT">
                 </column>
@@ -3264,7 +3266,7 @@
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBIZPRO_INDEX]外键关系 -->
         <!--输出实体[IBIZPRO_PRODUCTDAILY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibizpro_productdaily-103-177">
+    <changeSet author="zentao" id="fk-ibizpro_productdaily-106-177">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="T_IBIZPRO_PRODUCTDAILY" constraintName="DER1N_IBIZPRO_PRODUCTDAILY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBIZPRO_PRODUCTMONTHLY]外键关系 -->
@@ -3284,7 +3286,7 @@
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="T_IBIZPRO_PROJECTMONTHLY" constraintName="DER1N_IBIZPRO_PROJECTMONTHLY_Z" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_PROJECTWEEKLY]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_projectweekly-133-182">
+    <changeSet author="zentao" id="fk-ibzpro_projectweekly-137-182">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="T_IBZPRO_PROJECTWEEKLY" constraintName="DER1N_IBZPRO_PROJECTWEEKLY_ZT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_AGENT]外键关系 -->
@@ -3507,10 +3509,10 @@
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_TESTMODULE_ZT_PRODUC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTREPORT]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_testreport-421-235">
+    <changeSet author="zentao" id="fk-zt_testreport-425-235">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_testreport" constraintName="DER1N_ZT_TESTREPORT_ZT_PRODUCT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_testreport-421-236">
+    <changeSet author="zentao" id="fk-zt_testreport-425-236">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_testreport" constraintName="DER1N_ZT_TESTREPORT_ZT_PROJECT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTRESULT]外键关系 -->

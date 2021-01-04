@@ -138,10 +138,11 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall9"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttaskovbytimedefault.get("tasks"));
-    param.put("param1",testreportgetinfotesttaskovbytimedefault.get("begin"));
-    param.put("param2",testreportgetinfotesttaskovbytimedefault.get("end"));
-    String strSql="select COUNT(1) testresultcnt from zt_testresult t1  INNER JOIN zt_case t31 on t31.id = t1.`case` inner join zt_testrun t11 on t1.run = t11.id and t1.`case` = t11.`case` INNER JOIN zt_testtask t41 on t41.id = t11.task where t41.id = #{et.param0}  and t31.deleted = '0' and t1.date >  #{et.param1} and t1.date <  #{et.param2}";
+    param.put("param0",testreportgetinfotesttaskovbytimedefault.get("begin"));
+    param.put("param1",testreportgetinfotesttaskovbytimedefault.get("end"));
+    param.put("param2",testreportgetinfotesttaskovbytimedefault.get("cases"));
+    param.put("param3",testreportgetinfotesttaskovbytimedefault.get("tasks"));
+    String strSql="select COUNT(1) testresultcnt from zt_testresult t1  INNER JOIN zt_case t31 on t31.id = t1.`case` inner join zt_testrun t11 on t1.run = t11.id and t1.`case` = t11.`case` where   t31.deleted = '0' and t1.date >  #{et.param0} and t1.date <  #{et.param1}  and find_in_set(t11.case,#{et.param2}) and find_in_set(t11.task,#{et.param3})";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

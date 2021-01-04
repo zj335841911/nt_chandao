@@ -18,6 +18,8 @@ function getLocaleResourceBase(){
 			week: commonLogic.appcommonhandle("周",null),
 			year: commonLogic.appcommonhandle("年",null),
 			month: commonLogic.appcommonhandle("月",null),
+			begindatestats: commonLogic.appcommonhandle("开始统计",null),
+			enddatestats: commonLogic.appcommonhandle("结束统计",null),
 		},
 			views: {
 				gridview: {
