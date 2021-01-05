@@ -49,7 +49,7 @@ public class TaskAspect {
         String docid = "task:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
-        indexDE.setDeleted(1);
+        indexDE.setDeleted("1");
         ibizproindexESService.removeES(indexDE);
 
     }

@@ -40,7 +40,7 @@ public class StoryAspect {
         String docid = "story:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
-        indexDE.setDeleted(1);
+        indexDE.setDeleted("1");
         ibizproindexESService.removeES(indexDE);
 
     }
