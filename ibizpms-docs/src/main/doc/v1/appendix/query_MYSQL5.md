@@ -12445,6 +12445,17 @@ WHERE t1.DELETED = '0'
 ( t1.`ORGID` =  ${srfsessioncontext('srforgid','{"defname":"ORGID","dename":"ZT_PRODUCT"}')} ) 
 
 ```
+### ES批量的导入(ESBulk)<div id="Product_ESBulk"></div>
+```sql
+SELECT
+	t1.id,
+	t1.title,
+	t1.precondition,
+	t1.PRODUCT,
+	t1.deleted
+FROM
+	zt_product t1
+```
 ### 产品总览(ProductPM)<div id="Product_ProductPM"></div>
 ```sql
 select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' and t.orgid = #{srf.sessioncontext.srforgid} GROUP BY t.`status`

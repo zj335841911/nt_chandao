@@ -157,6 +157,11 @@
 						 AND ( t1.`ORGID` =  #{srf.sessioncontext.srforgid} )
 			]]>
     </sql>
+    <!--数据查询[ESBulk]-->
+    <sql id="ESBulk" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.id, 	t1.title, 	t1.precondition, 	t1.PRODUCT, 	t1.deleted FROM 	zt_product t1
+			]]>
+    </sql>
     <!--数据查询[ProductPM]-->
     <sql id="ProductPM" databaseId="mysql">
 		<![CDATA[ select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' and t.orgid = #{srf.sessioncontext.srforgid} GROUP BY t.`status`

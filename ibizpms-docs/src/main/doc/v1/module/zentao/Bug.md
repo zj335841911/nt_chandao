@@ -315,7 +315,7 @@ String
 | 值 |  |
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（Bug）（BugUserRealName）](../../codelist/BugUserRealName)】
+参照数据字典【[用户真实名称（动态-表格）（未指派）（UserRealNameUnAssignTo_Gird）](../../codelist/UserRealNameUnAssignTo_Gird)】
 
 - 数据格式
 无
