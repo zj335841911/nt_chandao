@@ -178,10 +178,10 @@
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ PROJECT:"%project%", PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%", project:"%project%" }' 
   :disabled="detailsModel.members.disabled"
-  tag='UserRealName' 
+  tag='UserRealNameProductTeam' 
   codelistType='DYNAMIC' 
   valueSeparator=","
   placeholder='请选择...' style="">
