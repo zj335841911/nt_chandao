@@ -13350,6 +13350,7 @@ WHERE
 	 
 	) or t1.acl = 'open' )
 	 
+t1.orgid = #{srf.sessioncontext.srforgid} 
 
 ```
 ### 未关闭产品(NoOpenProduct)<div id="ProductStats_NoOpenProduct"></div>
