@@ -89,9 +89,17 @@ function getLocaleResourceBase(){
 				},
 			},
 			gridviewtoolbar_toolbar: {
-				deuiaction1_manualcreatedaily: {
+				deuiaction3_manualcreatedaily: {
 					caption: commonLogic.appcommonhandle("生成日报",null),
 					tip: commonLogic.appcommonhandle("生成日报",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
 				},
 			},
 		};

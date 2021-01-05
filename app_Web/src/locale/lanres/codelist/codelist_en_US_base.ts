@@ -874,6 +874,9 @@ function getLocaleResourceBase(){
           "1": commonLogic.appcommonhandle("不需要评审",null),
           "empty": commonLogic.appcommonhandle("",null)
       },
+      UserRealNameProductTeamNotAssign: {
+          "empty": commonLogic.appcommonhandle("未指派",null),
+      },
       Story__review_result_draft: {
           "pass": commonLogic.appcommonhandle("确认通过",null),
           "clarify": commonLogic.appcommonhandle("有待明确",null),

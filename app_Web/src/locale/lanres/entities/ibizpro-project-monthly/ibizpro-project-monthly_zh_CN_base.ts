@@ -91,9 +91,21 @@ function getLocaleResourceBase(){
 				},
 			},
 			gridviewtoolbar_toolbar: {
-				deuiaction1_manualcreatemonthly: {
+				deuiaction3_manualcreatemonthly: {
 					caption: commonLogic.appcommonhandle("生成月报",null),
 					tip: commonLogic.appcommonhandle("生成月报",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
 		};

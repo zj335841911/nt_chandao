@@ -6177,6 +6177,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "UserRealNameProductTeamNotAssign",
+        "emptytext": "未指派",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchStoryProductTeamPK",
+        "items": []
+    },
+    {
         srfkey: "Story__review_result_draft",
         emptytext: "未定义",
         "codelisttype":"static",

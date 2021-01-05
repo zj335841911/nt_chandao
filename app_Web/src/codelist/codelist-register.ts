@@ -78,6 +78,7 @@ export class CodeListRegister {
         this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
         this.allCodeList.set('AllRole', () => import('@/codelist/all-role'));
         this.allCodeList.set('ProjectTeamProduct', () => import('@/codelist/project-team-product'));
+        this.allCodeList.set('UserRealNameProductTeamNotAssign', () => import('@/codelist/user-real-name-product-team-not-assign'));
         this.allCodeList.set('AllTask', () => import('@/codelist/all-task'));
         this.allCodeList.set('CurDocVersion', () => import('@/codelist/cur-doc-version'));
         this.allCodeList.set('UserRealNameProductTeam', () => import('@/codelist/user-real-name-product-team'));
