@@ -62,6 +62,9 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'ibizproprojectmonthlyname',
           dataType: 'TEXT',

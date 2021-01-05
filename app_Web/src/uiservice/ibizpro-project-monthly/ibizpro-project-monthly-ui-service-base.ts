@@ -25,7 +25,7 @@ export default class IbizproProjectMonthlyUIServiceBase extends UIService {
      * 
      * @memberof  IbizproProjectMonthlyUIServiceBase
      */
-    public isEnableDEMainState:boolean = false;
+    public isEnableDEMainState:boolean = true;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -60,7 +60,7 @@ export default class IbizproProjectMonthlyUIServiceBase extends UIService {
      * 
      * @memberof  IbizproProjectMonthlyUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['ibizproprojectmonthlyid'];
 
     /**
      * 主状态集合Map
