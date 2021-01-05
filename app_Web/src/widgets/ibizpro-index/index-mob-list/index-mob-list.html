@@ -7,7 +7,7 @@
             @click="handleClick(item)"
             @dblclick="handleDblClick(item)"
         >
-            <div class="app_list_index_item" style="padding-left: 20px;"> {{item.index_type}} # {{item.srfkey}} / <span  v-html='item.indexdesc'>{{item.srfmajortext}}</span></div>
+            <div class="app_list_index_item" style="padding-left: 20px;"> {{item.index_type}} # {{item.srfkey}} / <span  v-html='item.srfmajortext'></span></div>
 				<div class="app_list_index_item" style="overflow-x:auto;padding-left: 20px;" v-html='item.indexdesc'></div>
         </div>
     </div>
