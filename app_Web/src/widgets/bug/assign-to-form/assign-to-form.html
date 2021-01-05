@@ -99,11 +99,11 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext='{ PROJECT:"%project%" }' 
-    :localParam='{ project:"%project%" }' 
+    :localContext='{ PROJECT:"%project%", PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%", project:"%project%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag="BugUserRealName"
+    tag="UserRealNameProductTeamNotAssign"
     codelistType="DYNAMIC"
     placeholder="请选择..."
 

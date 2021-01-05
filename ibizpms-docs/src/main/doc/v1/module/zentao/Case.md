@@ -5569,23 +5569,24 @@ unlinkSuiteCases
 | 3 | [套件关联用例](#数据查询-套件关联用例（CurSuite）) | CurSuite | 否 |
 | 4 | [测试单关联用例](#数据查询-测试单关联用例（CurTestTask）) | CurTestTask | 否 |
 | 5 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 6 | [测试报告关联-按模块](#数据查询-测试报告关联-按模块（ModuleRePortCase）) | ModuleRePortCase | 否 |
-| 7 | [测试报告关联-按模块-条目](#数据查询-测试报告关联-按模块-条目（ModuleRePortCaseEntry）) | ModuleRePortCaseEntry | 否 |
-| 8 | [项目报告关联-按模块](#数据查询-项目报告关联-按模块（ModuleRePortCase_Project）) | ModuleRePortCase_Project | 否 |
-| 9 | [用例我得收藏](#数据查询-用例我得收藏（MyFavorite）) | MyFavorite | 否 |
-| 10 | [套件关联用例](#数据查询-套件关联用例（NotCurTestSuite）) | NotCurTestSuite | 否 |
-| 11 | [测试单关联用例](#数据查询-测试单关联用例（NotCurTestTask）) | NotCurTestTask | 否 |
-| 12 | [测试单关联用例（项目关联）](#数据查询-测试单关联用例（项目关联）（NotCurTestTaskProject）) | NotCurTestTaskProject | 否 |
-| 13 | [测试报告关联用例](#数据查询-测试报告关联用例（RePortCase）) | RePortCase | 否 |
-| 14 | [测试报告关联用例-条目](#数据查询-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
-| 15 | [项目报告关联用例-关联用例](#数据查询-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
-| 16 | [测试报告关联-执行人](#数据查询-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
-| 17 | [测试报告关联-执行人-条目](#数据查询-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
-| 18 | [项目报告关联-执行人](#数据查询-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
-| 19 | [测试报告关联--执行结果](#数据查询-测试报告关联--执行结果（RunRePortCase）) | RunRePortCase | 否 |
-| 20 | [测试报告关联--执行结果条目](#数据查询-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
-| 21 | [项目报告关联-执行结果](#数据查询-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
-| 22 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 7 | [测试报告关联-按模块](#数据查询-测试报告关联-按模块（ModuleRePortCase）) | ModuleRePortCase | 否 |
+| 8 | [测试报告关联-按模块-条目](#数据查询-测试报告关联-按模块-条目（ModuleRePortCaseEntry）) | ModuleRePortCaseEntry | 否 |
+| 9 | [项目报告关联-按模块](#数据查询-项目报告关联-按模块（ModuleRePortCase_Project）) | ModuleRePortCase_Project | 否 |
+| 10 | [用例我得收藏](#数据查询-用例我得收藏（MyFavorite）) | MyFavorite | 否 |
+| 11 | [套件关联用例](#数据查询-套件关联用例（NotCurTestSuite）) | NotCurTestSuite | 否 |
+| 12 | [测试单关联用例](#数据查询-测试单关联用例（NotCurTestTask）) | NotCurTestTask | 否 |
+| 13 | [测试单关联用例（项目关联）](#数据查询-测试单关联用例（项目关联）（NotCurTestTaskProject）) | NotCurTestTaskProject | 否 |
+| 14 | [测试报告关联用例](#数据查询-测试报告关联用例（RePortCase）) | RePortCase | 否 |
+| 15 | [测试报告关联用例-条目](#数据查询-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
+| 16 | [项目报告关联用例-关联用例](#数据查询-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
+| 17 | [测试报告关联-执行人](#数据查询-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
+| 18 | [测试报告关联-执行人-条目](#数据查询-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
+| 19 | [项目报告关联-执行人](#数据查询-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
+| 20 | [测试报告关联--执行结果](#数据查询-测试报告关联--执行结果（RunRePortCase）) | RunRePortCase | 否 |
+| 21 | [测试报告关联--执行结果条目](#数据查询-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
+| 22 | [项目报告关联-执行结果](#数据查询-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
+| 23 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-批量新建用例（BatchNew）
 #### 说明
@@ -5944,6 +5945,28 @@ LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID
 LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
 LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
 LEFT JOIN zt_testsuite t41 ON t1.LIB = t41.ID
+```
+### 数据查询-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.id,
+	t1.title,
+	t1.precondition,
+	t1.PRODUCT,
+	t1.deleted
+FROM
+	zt_case t1
 ```
 ### 数据查询-测试报告关联-按模块（ModuleRePortCase）
 #### 说明
@@ -7208,22 +7231,23 @@ LEFT JOIN zt_testsuite t41 ON t1.LIB = t41.ID
 | 3 | [套件关联用例](#数据集合-套件关联用例（CurSuite）) | CurSuite | 否 |
 | 4 | [测试单关联用例](#数据集合-测试单关联用例（CurTestTask）) | CurTestTask | 否 |
 | 5 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 6 | [测试报告关联用例](#数据集合-测试报告关联用例（ModuleRePortCase）) | ModuleRePortCase | 否 |
-| 7 | [测试报告关联-按模块-条目](#数据集合-测试报告关联-按模块-条目（ModuleRePortCaseEntry）) | ModuleRePortCaseEntry | 否 |
-| 8 | [项目报告关联-按模块](#数据集合-项目报告关联-按模块（ModuleRePortCase_Project）) | ModuleRePortCase_Project | 否 |
-| 9 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 10 | [套件关联用例](#数据集合-套件关联用例（NotCurTestSuite）) | NotCurTestSuite | 否 |
-| 11 | [测试单关联用例](#数据集合-测试单关联用例（NotCurTestTask）) | NotCurTestTask | 否 |
-| 12 | [测试单关联用例（项目关联）](#数据集合-测试单关联用例（项目关联）（NotCurTestTaskProject）) | NotCurTestTaskProject | 否 |
-| 13 | [测试报告关联用例](#数据集合-测试报告关联用例（RePortCase）) | RePortCase | 否 |
-| 14 | [测试报告关联用例-条目](#数据集合-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
-| 15 | [项目报告关联用例-关联用例](#数据集合-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
-| 16 | [测试报告关联-执行人](#数据集合-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
-| 17 | [测试报告关联-执行人-条目](#数据集合-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
-| 18 | [项目报告关联-执行人](#数据集合-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
-| 19 | [测试报告关联用例](#数据集合-测试报告关联用例（RunRePortCase）) | RunRePortCase | 否 |
-| 20 | [测试报告关联--执行结果条目](#数据集合-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
-| 21 | [项目报告关联-执行结果](#数据集合-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
+| 6 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 7 | [测试报告关联用例](#数据集合-测试报告关联用例（ModuleRePortCase）) | ModuleRePortCase | 否 |
+| 8 | [测试报告关联-按模块-条目](#数据集合-测试报告关联-按模块-条目（ModuleRePortCaseEntry）) | ModuleRePortCaseEntry | 否 |
+| 9 | [项目报告关联-按模块](#数据集合-项目报告关联-按模块（ModuleRePortCase_Project）) | ModuleRePortCase_Project | 否 |
+| 10 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 11 | [套件关联用例](#数据集合-套件关联用例（NotCurTestSuite）) | NotCurTestSuite | 否 |
+| 12 | [测试单关联用例](#数据集合-测试单关联用例（NotCurTestTask）) | NotCurTestTask | 否 |
+| 13 | [测试单关联用例（项目关联）](#数据集合-测试单关联用例（项目关联）（NotCurTestTaskProject）) | NotCurTestTaskProject | 否 |
+| 14 | [测试报告关联用例](#数据集合-测试报告关联用例（RePortCase）) | RePortCase | 否 |
+| 15 | [测试报告关联用例-条目](#数据集合-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
+| 16 | [项目报告关联用例-关联用例](#数据集合-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
+| 17 | [测试报告关联-执行人](#数据集合-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
+| 18 | [测试报告关联-执行人-条目](#数据集合-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
+| 19 | [项目报告关联-执行人](#数据集合-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
+| 20 | [测试报告关联用例](#数据集合-测试报告关联用例（RunRePortCase）) | RunRePortCase | 否 |
+| 21 | [测试报告关联--执行结果条目](#数据集合-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
+| 22 | [项目报告关联-执行结果](#数据集合-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
 
 ### 数据集合-批量新建用例（BatchNew）
 #### 说明
@@ -7295,6 +7319,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [ES批量的导入（ESBulk）](#数据查询-ES批量的导入（ESBulk）) |
 ### 数据集合-测试报告关联用例（ModuleRePortCase）
 #### 说明
 测试报告关联用例

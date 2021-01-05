@@ -3774,6 +3774,17 @@ LEFT JOIN zt_testsuite t41 ON t1.LIB = t41.ID
 WHERE t1.DELETED = '0' 
 
 ```
+### ES批量的导入(ESBulk)<div id="Case_ESBulk"></div>
+```sql
+SELECT
+	t1.id,
+	t1.title,
+	t1.precondition,
+	t1.PRODUCT,
+	t1.deleted
+FROM
+	zt_case t1
+```
 ### 测试报告关联-按模块(ModuleRePortCase)<div id="Case_ModuleRePortCase"></div>
 ```sql
 SELECT 

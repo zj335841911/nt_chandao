@@ -687,6 +687,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取ES批量的导入
+#### 访问路径
+/cases/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 查询ES批量的导入
+#### 访问路径
+/cases/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取测试报告关联用例
 #### 访问路径
 /cases/fetchmodulereportcase
@@ -1968,6 +2004,44 @@ POST
 ### 根据查询DEFAULT
 #### 访问路径
 /products/{product_id}/cases/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取ES批量的导入
+#### 访问路径
+/products/{product_id}/cases/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/products/{product_id}/cases/searchesbulk
 
 #### 请求方法
 POST
@@ -3313,6 +3387,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取ES批量的导入
+#### 访问路径
+/stories/{story_id}/cases/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/stories/{story_id}/cases/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取测试报告关联用例
 #### 访问路径
 /stories/{story_id}/cases/fetchmodulereportcase
@@ -4626,6 +4738,44 @@ POST
 ### 根据查询DEFAULT
 #### 访问路径
 /products/{product_id}/stories/{story_id}/cases/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取ES批量的导入
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchesbulk
 
 #### 请求方法
 POST

@@ -416,6 +416,7 @@ hide footbox
 |CurSuite|套件关联用例([MYSQL5](../../appendix/query_MYSQL5.md#Case_CurSuite))|否|&nbsp;|
 |CurTestTask|测试单关联用例([MYSQL5](../../appendix/query_MYSQL5.md#Case_CurTestTask))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Case_Default))|否|&nbsp;|
+|ESBulk|ES批量的导入([MYSQL5](../../appendix/query_MYSQL5.md#Case_ESBulk))|否|&nbsp;|
 |ModuleRePortCase|测试报告关联-按模块([MYSQL5](../../appendix/query_MYSQL5.md#Case_ModuleRePortCase))|否|&nbsp;|
 |ModuleRePortCaseEntry|测试报告关联-按模块-条目([MYSQL5](../../appendix/query_MYSQL5.md#Case_ModuleRePortCaseEntry))|否|&nbsp;|
 |ModuleRePortCase_Project|项目报告关联-按模块([MYSQL5](../../appendix/query_MYSQL5.md#Case_ModuleRePortCase_Project))|否|&nbsp;|
@@ -443,6 +444,7 @@ hide footbox
 |CurSuite|套件关联用例|CurSuite|否|&nbsp;|
 |CurTestTask|测试单关联用例|CurTestTask|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|ESBulk|ES批量的导入|ESBulk|否|&nbsp;|
 |ModuleRePortCase|测试报告关联用例|ModuleRePortCase|否|&nbsp;|
 |ModuleRePortCaseEntry|测试报告关联-按模块-条目|ModuleRePortCaseEntry|否|&nbsp;|
 |ModuleRePortCase_Project|项目报告关联-按模块|ModuleRePortCase_Project|否|&nbsp;|

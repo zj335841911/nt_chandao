@@ -104,6 +104,7 @@ export class AssignToEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         assignedto: null,
         project: null,
+        product: null,
         mailto: null,
         mailtoconact: null,
         mailtopk: null,
@@ -227,6 +228,13 @@ export class AssignToEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        product: new FormItemModel({
+    caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         mailto: new FormItemModel({
     caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -273,6 +281,7 @@ export class AssignToEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 
