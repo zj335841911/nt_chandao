@@ -4447,13 +4447,14 @@ Save
 | 2 | [当前项目](#数据查询-当前项目（CurProduct）) | CurProduct | 否 |
 | 3 | [当前用户项目](#数据查询-当前用户项目（CurUser）) | CurUser | 否 |
 | 4 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 5 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 6 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
-| 7 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
-| 8 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 9 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 10 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
-| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 6 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 7 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
+| 8 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
+| 9 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 10 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 11 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 12 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）
 #### 说明
@@ -4749,6 +4750,21 @@ t1.`TEAM`,
 t1.`TYPE`
 FROM `zt_project` t1 
 LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+
+```
+### 数据查询-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 
 ```
 ### 数据查询-参与项目(年度总结)（InvolvedProject）
