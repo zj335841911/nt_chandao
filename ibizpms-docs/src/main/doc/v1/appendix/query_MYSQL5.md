@@ -12323,7 +12323,12 @@ FROM
 	LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 WHERE
 	t1.deleted = '0' 
-	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} ) UNION
+	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} 
+	or t1.PO = #{srf.sessioncontext.srfloginname} 
+	or t1.RD = #{srf.sessioncontext.srfloginname} 
+	or t1.QD =  #{srf.sessioncontext.srfloginname} 
+	) 
+	UNION
 SELECT
        t1.MDEPTID,
         t1.orgid,
@@ -12376,20 +12381,11 @@ FROM
 WHERE
 	t1.deleted = '0' 
 	AND t1.id IN (
-SELECT
-	t.product 
-FROM
-	zt_projectproduct t 
+SELECT t.root from zt_team t
 WHERE
-	t.project IN (
-SELECT
-	t3.root 
-FROM
-	zt_team t3 
-WHERE
-	t3.account = #{srf.sessioncontext.srfloginname} 
-	AND t3.type = 'project' 
-	) 
+	t.account =  #{srf.sessioncontext.srfloginname} 
+	AND t.type = 'product' 
+	 
 	) 
 	) t1
 WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
@@ -13346,22 +13342,15 @@ FROM
 	`zt_product` t1
 	left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'product' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
 WHERE t1.DELETED = '0' 
-(t1.id IN (
-SELECT
-	t.product 
-FROM
-	zt_projectproduct t 
+(t1.id in(
+	SELECT t.root from zt_team t
 WHERE
-	t.project IN (
-SELECT
-	t3.root 
-FROM
-	zt_team t3 
-WHERE
-	t3.account = #{srf.sessioncontext.srfloginname} 
-	AND t3.type = 'project' 
-	) 
-	) or  t1.acl = 'open') 
+	t.account =  #{srf.sessioncontext.srfloginname}
+	AND t.type = 'product' 
+	 
+	) or t1.acl = 'open' )
+	 
+t1.orgid = #{srf.sessioncontext.srforgid} 
 
 ```
 ### 未关闭产品(NoOpenProduct)<div id="ProductStats_NoOpenProduct"></div>

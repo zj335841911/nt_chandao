@@ -229,7 +229,7 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="BugUserRealName"
+    tag="UserRealNameUnAssignTo_Gird"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
