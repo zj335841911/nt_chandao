@@ -673,6 +673,7 @@ hide footbox
 |CurProduct|当前项目|CurProduct|否|&nbsp;|
 |CurUser|当前用户项目|CurUser|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|ESBulk|ES批量的导入|ESBulk|否|&nbsp;|
 |InvolvedProject|参与项目(年度总结)|InvolvedProject|否|&nbsp;|
 |InvolvedProject_StoryTaskBug|参与项目完成需求任务bug|InvolvedProjectStoryTaskBug|否|&nbsp;|
 |MyProject|我的项目|MyProject|否|&nbsp;|

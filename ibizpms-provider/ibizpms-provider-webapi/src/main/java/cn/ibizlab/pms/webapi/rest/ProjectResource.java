@@ -460,6 +460,28 @@ public class ProjectResource {
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchESBulk-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "获取ES批量的导入", tags = {"项目" } ,notes = "获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchesbulk")
+	public ResponseEntity<List<ProjectDTO>> fetchESBulk(ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchESBulk(context) ;
+        List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchESBulk-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "查询ES批量的导入", tags = {"项目" } ,notes = "查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/searchesbulk")
+	public ResponseEntity<Page<ProjectDTO>> searchESBulk(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchInvolvedProject-all') and hasPermission(#context,'pms-Project-Get')")
 	@ApiOperation(value = "获取参与项目(年度总结)", tags = {"项目" } ,notes = "获取参与项目(年度总结)")
     @RequestMapping(method= RequestMethod.GET , value="/projects/fetchinvolvedproject")

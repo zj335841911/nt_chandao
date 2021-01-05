@@ -506,6 +506,15 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
 
     /**
+     * 查询集合 ES批量的导入
+     */
+    @Override
+    public Page<Project> searchESBulk(ProjectSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Project> pages=baseMapper.searchESBulk(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Project>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 参与项目(年度总结)
      */
     @Override

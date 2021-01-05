@@ -1893,7 +1893,6 @@ SELECT
 	t1.project 
 FROM
 	zt_bug t1
-	LEFT JOIN zt_product t2 ON t1.product = t2.id
 ```
 ### 我代理的Bug(MyAgentBug)<div id="Bug_MyAgentBug"></div>
 ```sql
@@ -14055,7 +14054,13 @@ WHERE t1.DELETED = '0'
 ```
 ### ES批量的导入(ESBulk)<div id="Project_ESBulk"></div>
 ```sql
-
+SELECT
+	t1.id,
+	t1.`name`,
+	t1.`desc`,
+	t1.deleted
+FROM
+	zt_project t1
 ```
 ### 参与项目(年度总结)(InvolvedProject)<div id="Project_InvolvedProject"></div>
 ```sql

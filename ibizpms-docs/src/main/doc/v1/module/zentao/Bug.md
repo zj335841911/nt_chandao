@@ -6249,7 +6249,6 @@ SELECT
 	t1.project 
 FROM
 	zt_bug t1
-	LEFT JOIN zt_product t2 ON t1.product = t2.id
 ```
 ### 数据查询-我代理的Bug（MyAgentBug）
 #### 说明

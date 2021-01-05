@@ -586,7 +586,7 @@
     </sql>
     <!--数据查询[ESBulk]-->
     <sql id="ESBulk" databaseId="mysql">
-		<![CDATA[ SELECT 	t1.id, 	t1.title, 	t1.color, 	t1.steps, 	t1.deleted, 	t1.product, 	t1.project  FROM 	zt_bug t1 	LEFT JOIN zt_product t2 ON t1.product = t2.id
+		<![CDATA[ SELECT 	t1.id, 	t1.title, 	t1.color, 	t1.steps, 	t1.deleted, 	t1.product, 	t1.project  FROM 	zt_bug t1
 			]]>
     </sql>
     <!--数据查询[MyAgentBug]-->

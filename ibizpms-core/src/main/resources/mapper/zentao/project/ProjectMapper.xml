@@ -72,6 +72,15 @@
 		 order by `id`  desc  
      </select>
 
+    <!--数据集合[ESBulk]-->
+	 <select id="searchESBulk"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext"  resultMap="ProjectResultMap">
+         select t1.* from (
+                <include refid="ESBulk" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[InvolvedProject]-->
 	 <select id="searchInvolvedProject"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext"  resultMap="ProjectResultMap">
          select t1.* from (
@@ -155,7 +164,7 @@
     </sql>
     <!--数据查询[ESBulk]-->
     <sql id="ESBulk" databaseId="mysql">
-		<![CDATA[ 
+		<![CDATA[ SELECT 	t1.id, 	t1.`name`, 	t1.`desc`, 	t1.deleted FROM 	zt_project t1
 			]]>
     </sql>
     <!--数据查询[InvolvedProject]-->

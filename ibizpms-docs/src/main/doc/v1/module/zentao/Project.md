@@ -4765,7 +4765,13 @@ ES批量的导入
 #### SQL
 - MYSQL5
 ```SQL
-
+SELECT
+	t1.id,
+	t1.`name`,
+	t1.`desc`,
+	t1.deleted
+FROM
+	zt_project t1
 ```
 ### 数据查询-参与项目(年度总结)（InvolvedProject）
 #### 说明
@@ -5218,12 +5224,13 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 | 2 | [当前项目](#数据集合-当前项目（CurProduct）) | CurProduct | 否 |
 | 3 | [当前用户项目](#数据集合-当前用户项目（CurUser）) | CurUser | 否 |
 | 4 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 5 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 6 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
-| 7 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
-| 8 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 9 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 10 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 5 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 6 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 7 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
+| 8 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
+| 9 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 10 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 11 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
 
 ### 数据集合-BugProject（BugProject）
 #### 说明
@@ -5281,6 +5288,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [ES批量的导入（ESBulk）](#数据查询-ES批量的导入（ESBulk）) |
 ### 数据集合-参与项目(年度总结)（InvolvedProject）
 #### 说明
 参与项目(年度总结)
