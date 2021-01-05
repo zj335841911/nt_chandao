@@ -23,6 +23,7 @@ import sun.tools.tree.IncDecExpression;
 import java.io.IOException;
 
 import static cn.ibizlab.pms.core.search.extentions.service.IbizproIndexSearchService.INDEX;
+import static cn.ibizlab.pms.core.search.extentions.service.IbizproIndexSearchService.TYPE;
 
 @Slf4j
 @Component
@@ -42,7 +43,7 @@ public class IndexUtil {
 
     public void createMapping() throws IOException {
 
-        CreateIndexRequest request = new CreateIndexRequest("pms06");
+        CreateIndexRequest request = new CreateIndexRequest(INDEX);
         XContentBuilder mapping = XContentFactory.jsonBuilder().startObject()
                 .startObject("_doc")
                 .startObject("properties")
@@ -66,7 +67,7 @@ public class IndexUtil {
                 .endObject()
                 .endObject();
         // add partition
-        request.mapping("_doc", mapping);
+        request.mapping(TYPE, mapping);
 
         // 配置可选参数
         request.timeout(TimeValue.timeValueMinutes(2));
