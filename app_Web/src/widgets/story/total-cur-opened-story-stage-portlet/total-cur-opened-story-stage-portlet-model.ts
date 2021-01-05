@@ -219,6 +219,18 @@ export default class TotalCurOpenedStoryStageModel {
       {
         name: 'assessresult',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'acl',
+      },
+      {
+        name: 'acllist',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

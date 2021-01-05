@@ -923,6 +923,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
     /**
+     * 查询集合 ES批量的导入
+     */
+    @Override
+    public Page<Story> searchESBulk(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchESBulk(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 获取产品需求
      */
     @Override
@@ -1152,6 +1161,27 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return true;
     }
 
+    @Override
+    public List<Story> getStoryByIds(List<Long> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<Story> getStoryByEntities(List<Story> entities) {
+        List ids =new ArrayList();
+        for(Story entity : entities){
+            Serializable id=entity.getId();
+            if (!ObjectUtils.isEmpty(id)) {
+                ids.add(id);
+            }
+        }
+        if (ids.size() > 0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
+    }
 
 
 

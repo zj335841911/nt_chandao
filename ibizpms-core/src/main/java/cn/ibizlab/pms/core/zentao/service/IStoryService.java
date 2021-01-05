@@ -126,6 +126,7 @@ public interface IStoryService extends IService<Story> {
     Page<Story> searchByModule(StorySearchContext context);
     Page<Story> searchCaseStory(StorySearchContext context);
     Page<Story> searchDefault(StorySearchContext context);
+    Page<Story> searchESBulk(StorySearchContext context);
     Page<Story> searchGetProductStories(StorySearchContext context);
     Page<Story> searchMyAgentStory(StorySearchContext context);
     Page<Story> searchMyCurOpenedStory(StorySearchContext context);
@@ -172,6 +173,8 @@ public interface IStoryService extends IService<Story> {
      */
     boolean execute(String sql, Map param);
 
+    List<Story> getStoryByIds(List<Long> ids);
+    List<Story> getStoryByEntities(List<Story> entities);
 }
 
 

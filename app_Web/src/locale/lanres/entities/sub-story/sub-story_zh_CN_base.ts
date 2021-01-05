@@ -71,6 +71,10 @@ function getLocaleResourceBase(){
 			ibiz_sourcename: commonLogic.appcommonhandle("来源对象名称",null),
 			storypoints: commonLogic.appcommonhandle("故事点",null),
 			assessresult: commonLogic.appcommonhandle("评审结果",null),
+			orgid: commonLogic.appcommonhandle("orgid",null),
+			acl: commonLogic.appcommonhandle("acl",null),
+			acllist: commonLogic.appcommonhandle("acllist",null),
+			mdeptid: commonLogic.appcommonhandle("MDEPTID",null),
 		},
 			views: {
 				subgridview: {

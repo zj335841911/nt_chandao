@@ -638,6 +638,42 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String assessresult;
 
+    /**
+     * 属性 [ORGID]
+     *
+     */
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgid;
+
+    /**
+     * 属性 [ACL]
+     *
+     */
+    @JSONField(name = "acl")
+    @JsonProperty("acl")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String acl;
+
+    /**
+     * 属性 [ACLLIST]
+     *
+     */
+    @JSONField(name = "acllist")
+    @JsonProperty("acllist")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String acllist;
+
+    /**
+     * 属性 [MDEPTID]
+     *
+     */
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mdeptid;
+
 
     /**
      * 设置 [ASSIGNEDTO]

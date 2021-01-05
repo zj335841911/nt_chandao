@@ -219,6 +219,18 @@ export default class Usr2MPickupViewpickupviewpanelModel {
       {
         name: 'assessresult',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'acl',
+      },
+      {
+        name: 'acllist',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 
