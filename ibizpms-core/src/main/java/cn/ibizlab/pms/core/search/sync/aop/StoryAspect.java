@@ -41,7 +41,8 @@ public class StoryAspect {
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
         indexDE.setDeleted("1");
-        ibizproindexESService.removeES(indexDE);
+        //ES逻辑删除
+        ibizproindexESService.updateES(indexDE);
 
     }
     @AfterReturning(value = "execution(* cn.ibizlab.pms.core.zentao.service.IStoryService.change(..)) ")
