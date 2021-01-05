@@ -493,7 +493,7 @@
     :isEmptyCaption="false">
         <app-mob-span  
     codeListType="DYNAMIC" 
-    tag="UserRealName"
+    tag="UserRealName_Gird"
     :isCache="false" 
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 

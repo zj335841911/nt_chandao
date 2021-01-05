@@ -1,4 +1,5 @@
 import { HttpResponse } from '@/ibiz-core/utils';
+import  UserRealNameUnAssignTo_Gird  from '@/app-core/code-list/user-real-name-un-assign-to-gird';
 import  ProductBranch_Cache  from '@/app-core/code-list/product-branch-cache';
 import  MyPlanTask  from '@/app-core/code-list/my-plan-task';
 import  SysOperator  from '@/app-core/code-list/sys-operator';
@@ -8,7 +9,6 @@ import  UserRealName_valueofid  from '@/app-core/code-list/user-real-name-valueo
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
 import  BugModule  from '@/app-core/code-list/bug-module';
 import  Role  from '@/app-core/code-list/role';
-import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  ProductPlan  from '@/app-core/code-list/product-plan';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
@@ -60,6 +60,8 @@ export class CodeListService {
      * @memberof CodeListService
      */
     protected allCodeList: any = {
+        // 用户真实名称（动态-表格）（未指派）
+        UserRealNameUnAssignTo_Gird: new UserRealNameUnAssignTo_Gird(),
         // 产品平台（动态）_缓存
         ProductBranch_Cache: new ProductBranch_Cache(),
         // 我计划参与的任务（汇报）
@@ -78,8 +80,6 @@ export class CodeListService {
         BugModule: new BugModule(),
         // 群组（动态）
         Role: new Role(),
-        // 用户真实名称（动态）（Bug）
-        BugUserRealName: new BugUserRealName(),
         // 当前用例版本（动态）
         CurCaseVersion: new CurCaseVersion(),
         // 产品计划（动态）

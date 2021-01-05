@@ -89,6 +89,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "UserRealNameUnAssignTo_Gird",
+        "emptytext": "未指派",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: 'Story__closed_reason',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1013,14 +1021,6 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
-    },
-    {
-        "srfkey": "BugUserRealName",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
-        "appdedataset":"FetchBugUser",
-        "items": []
     },
     {
         srfkey: 'Story__type',

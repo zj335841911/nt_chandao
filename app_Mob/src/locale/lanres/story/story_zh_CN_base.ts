@@ -69,6 +69,10 @@ export default {
     ibiz_sourcename: "来源对象名称",
     storypoints: "故事点",
     assessresult: "评审结果",
+    orgid: "orgid",
+    acl: "acl",
+    acllist: "acllist",
+    mdeptid: "MDEPTID",
   },
 	views: {
 		newmobeditview: {
