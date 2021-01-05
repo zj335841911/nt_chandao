@@ -1,42 +1,41 @@
 package cn.ibizlab.pms.core.search.util;
 
 import cn.ibizlab.pms.core.es.domain.IbizproIndex;
+import cn.ibizlab.pms.core.es.service.IIbizproIndexESService;
 import cn.ibizlab.pms.core.search.mapping.IbizproIndexMapping;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.filter.*;
 import cn.ibizlab.pms.core.zentao.service.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import liquibase.pro.packaged.A;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
-import org.elasticsearch.action.bulk.BulkProcessor;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.support.WriteRequest;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import static cn.ibizlab.pms.core.search.extentions.service.IbizproIndexSearchService.INDEX;
 
 @Slf4j
 @Component
+@ConditionalOnBean(IIbizproIndexESService.class)
 public class BulkProcessUtil {
-    public List<String> existIds;
-    public static final int MAX_PER_BULK = 100000;
+    @Value("${ibiz.es.bulk.maxread:10000}")
+    public int maxReadSize;
     @Autowired
     RestHighLevelClient restHighLevelClient;
     @Autowired
@@ -52,27 +51,19 @@ public class BulkProcessUtil {
     @Autowired
     ITaskService taskService;
 
-    public void importData() {
+    public void importData() throws IOException {
         Long start = System.currentTimeMillis();
-        //1. 如果索引不存在，新建索引
-        createIndex();
 
-        //2. bug, case, product, project, story, task 的数据库数据转为ibizproindex集合。
-        existIds = new ArrayList<>();
+        //bug, case, product, project, story, task 的数据库数据转为ibizproindex集合。
         List<IbizproIndex> docs = importFromDB();
 
-        //3. 写入
+        // 写入
         bulk(docs);
 
-        //4. deleteByQuery
-        deleteByQuery(existIds);
         Long end = System.currentTimeMillis();
         log.info("批量同步了{}条数据,耗时：{}", docs.size(), end - start);
     }
 
-    public void createIndex() {
-        //TODO 创建索引。
-    }
 
     private List<IbizproIndex> importFromDB() {
         List<IbizproIndex> ibizproIndices = new ArrayList<>();
@@ -88,29 +79,20 @@ public class BulkProcessUtil {
     }
 
 
-    private void bulk(List<IbizproIndex> documents) {
+    private void bulk(List<IbizproIndex> documents) throws IOException {
         BulkResponse response = null;
         if (StringUtils.isBlank(INDEX) || CollectionUtils.isEmpty(documents)) {
             log.warn("Es index is blank or documents is empty.");
             return;
         }
 
-        try {
             BulkRequest bulkRequest = new BulkRequest();
             for (IbizproIndex ibizproIndex : documents) {
                 bulkRequest.add(new UpdateRequest(INDEX, "_doc", ibizproIndex.getDocid()).doc(JSON.toJSONString(ibizproIndex),XContentType.JSON).docAsUpsert(true));
             }
             response = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);
-            System.out.println(JSONObject.toJSONString(response));
-        } catch (Exception e) {
-            log.error("Update documents to es as batch failed!", e);
-            e.printStackTrace();
-        }
+            log.debug("bulk updated:{}",response);
         return;
-    }
-
-    private void deleteByQuery(List<String> ids) {
-
     }
 
     private void importBug(List<IbizproIndex> indexList) {
@@ -119,8 +101,8 @@ public class BulkProcessUtil {
         do {
             BugSearchContext context = new BugSearchContext();
             context.setPage(page);
-            context.setSize(MAX_PER_BULK);
-            bugs = bugService.searchDefault(context).toList();
+            context.setSize(maxReadSize);
+            bugs = bugService.searchESBulk(context).toList();
             List<IbizproIndex> indexes = bugs.stream().map(et -> IbizproIndexMapping.bug2IbizproIndex(et)).collect(Collectors.toList());
             indexList.addAll(indexes);
             page++;
@@ -134,8 +116,8 @@ public class BulkProcessUtil {
         do {
             CaseSearchContext context = new CaseSearchContext();
             context.setPage(page);
-            context.setSize(MAX_PER_BULK);
-            cases = caseService.searchDefault(context).toList();
+            context.setSize(maxReadSize);
+            cases = caseService.searchESBulk(context).toList();
             List<IbizproIndex> indexes = cases.stream().map(et -> IbizproIndexMapping.case2IbizproIndex(et)).collect(Collectors.toList());
             indexList.addAll(indexes);
             page++;
@@ -149,8 +131,8 @@ public class BulkProcessUtil {
         do {
             ProductSearchContext context = new ProductSearchContext();
             context.setPage(page);
-            context.setSize(MAX_PER_BULK);
-            list = productService.searchDefault(context).toList();
+            context.setSize(maxReadSize);
+            list = productService.searchESBulk(context).toList();
             List<IbizproIndex> indexes = list.stream().map(et -> IbizproIndexMapping.product2IbizproIndex(et)).collect(Collectors.toList());
             indexList.addAll(indexes);
             page++;
@@ -164,8 +146,8 @@ public class BulkProcessUtil {
         do {
             ProjectSearchContext context = new ProjectSearchContext();
             context.setPage(page);
-            context.setSize(MAX_PER_BULK);
-            list = projectService.searchDefault(context).toList();
+            context.setSize(maxReadSize);
+            list = projectService.searchESBulk(context).toList();
             List<IbizproIndex> indexes = list.stream().map(et -> IbizproIndexMapping.project2IbizproIndex(et)).collect(Collectors.toList());
             indexList.addAll(indexes);
             page++;
@@ -179,8 +161,8 @@ public class BulkProcessUtil {
         do {
             StorySearchContext context = new StorySearchContext();
             context.setPage(page);
-            context.setSize(MAX_PER_BULK);
-            list = storyService.searchDefault(context).toList();
+            context.setSize(maxReadSize);
+            list = storyService.searchESBulk(context).toList();
             List<IbizproIndex> indexes = list.stream().map(et -> IbizproIndexMapping.story2IbizproIndex(et)).collect(Collectors.toList());
             indexList.addAll(indexes);
             page++;
@@ -194,8 +176,8 @@ public class BulkProcessUtil {
         do {
             TaskSearchContext context = new TaskSearchContext();
             context.setPage(page);
-            context.setSize(MAX_PER_BULK);
-            list = taskService.searchDefault(context).toList();
+            context.setSize(maxReadSize);
+            list = taskService.searchESBulk(context).toList();
             List<IbizproIndex> indexes = list.stream().map(et -> IbizproIndexMapping.task2IbizproIndex(et)).collect(Collectors.toList());
             indexList.addAll(indexes);
             page++;

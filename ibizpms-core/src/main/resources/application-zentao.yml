@@ -26,7 +26,13 @@ ibiz:
       ou: ibzou-api
       notify: ibznotify-api
   cacheLevel: L2
-
+  # 是否加载ES
+  es:
+    enabled: true
+    #ES服务器地址
+    server: 172.16.180.217:9200
+    bulk:
+      maxread: 10000
   #消息推送相关
   message:
     # 开启消息推送
@@ -63,4 +69,4 @@ pms:
 #Log配置
 logging:
   level:
-    cn.ibizlab.pms: debug
+    cn.ibizlab.pms: info

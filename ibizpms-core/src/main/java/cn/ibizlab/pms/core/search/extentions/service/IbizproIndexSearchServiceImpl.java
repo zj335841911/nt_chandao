@@ -15,6 +15,8 @@ import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -29,9 +31,10 @@ public class IbizproIndexSearchServiceImpl implements IbizproIndexSearchService 
     private RestHighLevelClient rhlClient;
     @Autowired
     private IbizporIndexCondition ibizporIndexCondition;
-    @Override
-    public Page<IbizproIndex> search(String hitKey, int from, int size) {
 
+    @Override
+    public Page<IbizproIndex> search(String hitKey, int page, int size) {
+        int from = page * size;
         SearchSourceBuilder sourceBuilder = ibizporIndexCondition.buildQuery(hitKey);
         sourceBuilder.from(from);
         sourceBuilder.size(size);
@@ -65,12 +68,28 @@ public class IbizproIndexSearchServiceImpl implements IbizproIndexSearchService 
             IbizproIndex ibizproIndex = new IbizproIndex();
             ibizproIndex.setIndexid(Long.valueOf(source.get("indexid").toString()));
             ibizproIndex.setIndextype(source.get("indextype") == null ? null : source.get("indextype").toString());
-            ibizproIndex.setIndexname(source.get("indexname") == null ? null : source.get("indexname").toString());
-            ibizproIndex.setIndexdesc(source.get("indexdesc") == null ? null : source.get("indexdesc").toString());
+            this.setIndexName(ibizproIndex,hit);
+            this.setIndexdesc(ibizproIndex,hit);
             list.add(ibizproIndex);
         }
 
-        return new PageImpl<>(list);
+        return new PageImpl<>(list, PageRequest.of(page, size), total);
     }
 
+    private void setIndexName(IbizproIndex ibizproIndex, SearchHit hit) {
+        if (hit.getHighlightFields() != null && hit.getHighlightFields().containsKey("indexname")) {
+            ibizproIndex.setIndexname(hit.getHighlightFields().get("indexname") == null ? null : hit.getHighlightFields().get("indexname").fragments()[0].toString());
+
+        } else {
+            ibizproIndex.setIndexname(hit.getSourceAsMap().get("indexname") == null ? null : hit.getSourceAsMap().get("indexname").toString());
+        }
+    }
+
+    private void setIndexdesc(IbizproIndex ibizproIndex, SearchHit hit) {
+        if (hit.getHighlightFields() != null && hit.getHighlightFields().containsKey("indexdesc")) {
+            ibizproIndex.setIndexdesc(hit.getHighlightFields().get("indexdesc") == null ? null : hit.getHighlightFields().get("indexdesc").fragments()[0].toString());
+        } else {
+            ibizproIndex.setIndexdesc(hit.getSourceAsMap().get("indexdesc") == null ? null : hit.getSourceAsMap().get("indexdesc").toString());
+        }
+    }
 }

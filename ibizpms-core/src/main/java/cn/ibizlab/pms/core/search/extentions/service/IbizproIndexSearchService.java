@@ -6,5 +6,5 @@ import org.springframework.data.domain.Page;
 public interface IbizproIndexSearchService {
     String INDEX ="ibizproindex";
     String TYPE ="_doc";
-    Page<IbizproIndex> search(String hitKey, int from, int size);
+    Page<IbizproIndex> search(String hitKey, int page, int size);
 }
