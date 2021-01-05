@@ -16653,18 +16653,21 @@ WHERE t1.DELETED = '0'
 ### ES批量的导入(ESBulk)<div id="Story_ESBulk"></div>
 ```sql
 SELECT
-t1.`ID`,
-t1.`TITLE`,
-t11.orgid,
-t11.MDEPTID,
-t1.deleted,
-t21.spec,
-t1.color,
-t11.acl,
-CONCAT_WS(',',t11.CREATEDBY,t11.qd,t11.po,t11.rd) as acllist,
-( SELECT GROUP_CONCAT( t.project ) FROM zt_projectproduct t WHERE t.product = t1.product GROUP BY t.product ) AS project
-FROM `zt_story` t1 left join zt_product t11 on t11.id = t1.product 
-left join zt_storyspec t21 on t21.story = t1.id and t1.version = t21.version
+	t1.`ID`,
+	t1.`TITLE`,
+	t11.orgid,
+	t11.MDEPTID,
+	t1.deleted,
+	t21.spec,
+	t1.color,
+	t11.acl,
+	CONCAT_WS( ',', t11.CREATEDBY, t11.qd, t11.po, t11.rd ) AS acllist,
+	t1.product
+FROM
+	`zt_story` t1
+	LEFT JOIN zt_product t11 ON t11.id = t1.product
+	LEFT JOIN zt_storyspec t21 ON t21.story = t1.id 
+	AND t1.version = t21.version
 ```
 ### 获取产品需求(GetProductStories)<div id="Story_GetProductStories"></div>
 ```sql
