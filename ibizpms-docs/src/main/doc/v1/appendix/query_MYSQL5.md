@@ -12449,9 +12449,8 @@ WHERE t1.DELETED = '0'
 ```sql
 SELECT
 	t1.id,
-	t1.title,
-	t1.precondition,
-	t1.PRODUCT,
+	t1.`name`,
+	t1.desc,
 	t1.deleted
 FROM
 	zt_product t1
@@ -19048,6 +19047,16 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 
+```
+### ES批量的导入(ESBulk)<div id="Task_ESBulk"></div>
+```sql
+SELECT
+	t1.id,
+	t1.`name`,
+	t1.desc,
+	t1.deleted
+FROM
+	zt_task t1
 ```
 ### 我代理的任务(MyAgentTask)<div id="Task_MyAgentTask"></div>
 ```sql

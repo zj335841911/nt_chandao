@@ -328,6 +328,28 @@ public class ProductResource {
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchESBulk-all') and hasPermission(#context,'pms-Product-Get')")
+	@ApiOperation(value = "获取ES批量的导入", tags = {"产品" } ,notes = "获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchesbulk")
+	public ResponseEntity<List<ProductDTO>> fetchESBulk(ProductSearchContext context) {
+        Page<Product> domains = productService.searchESBulk(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchESBulk-all') and hasPermission(#context,'pms-Product-Get')")
+	@ApiOperation(value = "查询ES批量的导入", tags = {"产品" } ,notes = "查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchesbulk")
+	public ResponseEntity<Page<ProductDTO>> searchESBulk(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductPM-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取产品总览", tags = {"产品" } ,notes = "获取产品总览")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchproductpm")

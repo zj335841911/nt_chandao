@@ -93,6 +93,15 @@
 		 order by `id`  desc  
      </select>
 
+    <!--数据集合[ESBulk]-->
+	 <select id="searchESBulk"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductSearchContext"  resultMap="ProductResultMap">
+         select t1.* from (
+                <include refid="ESBulk" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ProductPM]-->
 	 <select id="searchProductPM"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductSearchContext"  resultMap="ProductResultMap">
          select t1.* from (
@@ -159,7 +168,7 @@
     </sql>
     <!--数据查询[ESBulk]-->
     <sql id="ESBulk" databaseId="mysql">
-		<![CDATA[ SELECT 	t1.id, 	t1.title, 	t1.precondition, 	t1.PRODUCT, 	t1.deleted FROM 	zt_product t1
+		<![CDATA[ SELECT 	t1.id, 	t1.`name`, 	t1.desc, 	t1.deleted FROM 	zt_product t1
 			]]>
     </sql>
     <!--数据查询[ProductPM]-->

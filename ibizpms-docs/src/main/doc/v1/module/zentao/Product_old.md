@@ -323,6 +323,7 @@ hide footbox
 |CURPROJECT|当前项目|CURPROJECT|否|&nbsp;|
 |CurUer|当前用户|CurUer|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|ESBulk|ES批量的导入|ESBulk|否|&nbsp;|
 |ProductPM|产品总览|ProductPM|否|&nbsp;|
 |ProductTeam|产品团队|ProductTeam|否|&nbsp;|
 |StoryCURPROJECT|当前项目|StoryCURPROJECT|否|&nbsp;|

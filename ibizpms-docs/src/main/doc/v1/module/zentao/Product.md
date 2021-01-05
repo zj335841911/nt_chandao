@@ -2990,9 +2990,8 @@ ES批量的导入
 ```SQL
 SELECT
 	t1.id,
-	t1.title,
-	t1.precondition,
-	t1.PRODUCT,
+	t1.`name`,
+	t1.desc,
 	t1.deleted
 FROM
 	zt_product t1
@@ -3197,9 +3196,10 @@ LEFT JOIN zt_module t11 ON t1.LINE = t11.ID
 | 4 | [当前项目](#数据集合-当前项目（CurProject）) | CurProject | 否 |
 | 5 | [当前用户](#数据集合-当前用户（CurUer）) | CurUer | 否 |
 | 6 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 7 | [产品总览](#数据集合-产品总览（ProductPM）) | ProductPM | 否 |
-| 8 | [产品团队](#数据集合-产品团队（ProductTeam）) | ProductTeam | 否 |
-| 9 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 7 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 8 | [产品总览](#数据集合-产品总览（ProductPM）) | ProductPM | 否 |
+| 9 | [产品团队](#数据集合-产品团队（ProductTeam）) | ProductTeam | 否 |
+| 10 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
 
 ### 数据集合-全部产品（AllList）
 #### 说明
@@ -3285,6 +3285,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [ES批量的导入（ESBulk）](#数据查询-ES批量的导入（ESBulk）) |
 ### 数据集合-产品总览（ProductPM）
 #### 说明
 产品总览

@@ -484,6 +484,35 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * FetchESBulk接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async FetchESBulk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/products/fetchesbulk`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchESBulk接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async searchESBulk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/searchesbulk`,tempData,isloading);
+    }
+
+    /**
      * FetchProductPM接口方法
      *
      * @param {*} [context={}]

@@ -6584,29 +6584,30 @@ FAVORITES
 | 7 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
 | 8 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 9 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 10 | [我代理的任务](#数据查询-我代理的任务（MyAgentTask）) | MyAgentTask | 否 |
-| 11 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
-| 12 | [已完成任务（移动端）](#数据查询-已完成任务（移动端）（MyCompleteTaskMob）) | MyCompleteTaskMob | 否 |
-| 13 | [我完成的任务（移动端月报）](#数据查询-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
-| 14 | [我完成的任务（月报展示）](#数据查询-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
-| 15 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
-| 16 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 17 | [我计划参与的任务（移动端月报）](#数据查询-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
-| 18 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 19 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
-| 20 | [移动端下周计划参与(汇报)](#数据查询-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
-| 21 | [下周计划完成的任务(汇报)](#数据查询-下周计划完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
-| 22 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 23 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 24 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
-| 25 | [我本月完成的任务（下拉列表框）](#数据查询-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
-| 26 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 27 | [本周已完成任务(下拉框选择)](#数据查询-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
-| 28 | [移动端本周已完成任务(汇报)](#数据查询-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
-| 29 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 30 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
-| 31 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
-| 32 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 10 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 11 | [我代理的任务](#数据查询-我代理的任务（MyAgentTask）) | MyAgentTask | 否 |
+| 12 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
+| 13 | [已完成任务（移动端）](#数据查询-已完成任务（移动端）（MyCompleteTaskMob）) | MyCompleteTaskMob | 否 |
+| 14 | [我完成的任务（移动端月报）](#数据查询-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
+| 15 | [我完成的任务（月报展示）](#数据查询-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
+| 16 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
+| 17 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 18 | [我计划参与的任务（移动端月报）](#数据查询-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
+| 19 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 20 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
+| 21 | [移动端下周计划参与(汇报)](#数据查询-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
+| 22 | [下周计划完成的任务(汇报)](#数据查询-下周计划完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
+| 23 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 24 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 25 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
+| 26 | [我本月完成的任务（下拉列表框）](#数据查询-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
+| 27 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 28 | [本周已完成任务(下拉框选择)](#数据查询-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
+| 29 | [移动端本周已完成任务(汇报)](#数据查询-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
+| 30 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 31 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
+| 32 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 33 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -7251,6 +7252,27 @@ LEFT JOIN zt_story t21 ON t1.STORY = t21.ID
 LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+```
+### 数据查询-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.id,
+	t1.`name`,
+	t1.desc,
+	t1.deleted
+FROM
+	zt_task t1
 ```
 ### 数据查询-我代理的任务（MyAgentTask）
 #### 说明
@@ -8966,28 +8988,29 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 7 | [用户年度完成任务](#数据集合-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
 | 8 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 9 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 10 | [我代理的任务](#数据集合-我代理的任务（MyAgentTask）) | MyAgentTask | 否 |
-| 11 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
-| 12 | [我完成的任务（移动端日报）](#数据集合-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
-| 13 | [我完成的任务（移动端月报）](#数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
-| 14 | [我完成的任务（月报展示）](#数据集合-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
-| 15 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
-| 16 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 17 | [我计划参与的任务（移动端月报）](#数据集合-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
-| 18 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 19 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
-| 20 | [移动端下周计划参与(汇报)](#数据集合-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
-| 21 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
-| 22 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 23 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 24 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 25 | [我本月完成的任务（下拉列表框）](#数据集合-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
-| 26 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 27 | [本周已完成任务(下拉框选择)](#数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
-| 28 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
-| 29 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 30 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 31 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 10 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 11 | [我代理的任务](#数据集合-我代理的任务（MyAgentTask）) | MyAgentTask | 否 |
+| 12 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
+| 13 | [我完成的任务（移动端日报）](#数据集合-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
+| 14 | [我完成的任务（移动端月报）](#数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
+| 15 | [我完成的任务（月报展示）](#数据集合-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
+| 16 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
+| 17 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 18 | [我计划参与的任务（移动端月报）](#数据集合-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
+| 19 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 20 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
+| 21 | [移动端下周计划参与(汇报)](#数据集合-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
+| 22 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
+| 23 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 24 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 25 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 26 | [我本月完成的任务（下拉列表框）](#数据集合-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
+| 27 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 28 | [本周已完成任务(下拉框选择)](#数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
+| 29 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
+| 30 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 31 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 32 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -9115,6 +9138,20 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DefaultRow（DefaultRow）](#数据查询-DefaultRow（DefaultRow）) |
+### 数据集合-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [ES批量的导入（ESBulk）](#数据查询-ES批量的导入（ESBulk）) |
 ### 数据集合-我代理的任务（MyAgentTask）
 #### 说明
 我代理的任务
