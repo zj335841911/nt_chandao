@@ -25,7 +25,7 @@ export default class IbizproProductWeeklyUIServiceBase extends UIService {
      * 
      * @memberof  IbizproProductWeeklyUIServiceBase
      */
-    public isEnableDEMainState:boolean = false;
+    public isEnableDEMainState:boolean = true;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -60,7 +60,7 @@ export default class IbizproProductWeeklyUIServiceBase extends UIService {
      * 
      * @memberof  IbizproProductWeeklyUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['ibizpro_productweeklyid'];
 
     /**
      * 主状态集合Map
