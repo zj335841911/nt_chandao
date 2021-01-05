@@ -1,7 +1,7 @@
 package cn.ibizlab.pms.core.search.sync.aop;
 
 import cn.ibizlab.pms.core.es.service.IIbizproIndexESService;
-import cn.ibizlab.pms.core.ibizpro.domain.IbizproIndex;
+import cn.ibizlab.pms.core.es.domain.IbizproIndex;
 import cn.ibizlab.pms.core.search.mapping.IbizproIndexMapping;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
 import cn.ibizlab.pms.core.zentao.domain.Story;
@@ -10,6 +10,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ import java.io.IOException;
 @Slf4j
 @Aspect
 @Component
+@ConditionalOnBean(IIbizproIndexESService.class)
 public class StoryAspect {
     @Autowired
     IIbizproIndexESService ibizproindexESService;
@@ -38,7 +40,8 @@ public class StoryAspect {
         String docid = "story:" + id;
         IbizproIndex indexDE = new IbizproIndex();
         indexDE.setDocid(docid);
-        ibizproindexESService.removeES(docid);
+        indexDE.setDeleted(1);
+        ibizproindexESService.removeES(indexDE);
 
     }
     @AfterReturning(value = "execution(* cn.ibizlab.pms.core.zentao.service.IStoryService.change(..)) ")

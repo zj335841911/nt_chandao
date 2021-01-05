@@ -19,6 +19,7 @@ import java.util.Collection;
  * 实体[索引检索] 服务对象接口实现
  */
 @Service
+@ConditionalOnClass(IbizproIndexESRepository.class)
 public class IbizproIndexESServiceImpl implements IIbizproIndexESService {
 
     @Autowired
