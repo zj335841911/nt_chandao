@@ -42611,7 +42611,7 @@
     "field_logic_name":"负责人",
     "entity_name":"TestReport",
     "field_type":"TEXT",
-    "dict":"UserRealName",
+    "dict":"UserRealNameProductTeam",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",

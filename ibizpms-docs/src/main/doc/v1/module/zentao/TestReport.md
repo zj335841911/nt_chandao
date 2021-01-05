@@ -717,7 +717,7 @@ String
 | 值 |  |
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+参照数据字典【[用户真实名称（动态-产品团队选择）（UserRealNameProductTeam）](../../codelist/UserRealNameProductTeam)】
 
 - 数据格式
 无
