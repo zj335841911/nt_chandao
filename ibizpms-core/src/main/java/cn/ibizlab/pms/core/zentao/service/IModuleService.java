@@ -54,6 +54,7 @@ public interface IModuleService extends IService<Module> {
     Page<Module> searchDocModule(ModuleSearchContext context);
     Page<Module> searchLine(ModuleSearchContext context);
     Page<Module> searchStoryModule(ModuleSearchContext context);
+    Page<Module> searchTaskModule(ModuleSearchContext context);
     List<Module> selectByBranch(Long id);
     void removeByBranch(Long id);
     List<Module> selectByParent(Long id);

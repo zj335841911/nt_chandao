@@ -310,10 +310,17 @@ export default class AppPicker extends Vue {
      */
     get refvalue() {
         if (this.valueitem && this.data) {
-            if (this.valFormat && this.valFormat.hasOwnProperty(this.data[this.valueitem])) {
-                return this.valFormat[this.data[this.valueitem]];
+            const key = this.data[this.valueitem];
+            if (!key) {
+                return null;
             }
-            return this.data[this.valueitem];
+            if (!this.data[this.deMajorField]) {
+                this.fillTextById();
+            }
+            if (this.valFormat && this.valFormat.hasOwnProperty(key)) {
+                return this.valFormat[key];
+            }
+            return key;
         }
         return this.curvalue;
     }
@@ -332,13 +339,16 @@ export default class AppPicker extends Vue {
             const value = this.data[this.valueitem];
             const index = this.items.findIndex((item: any) => Object.is(item.value, value));
             if (index !== -1) {
+                this.fillTextById();
                 return;
             }
             this.items = [];
             if (value) {
                 this.items.push({ text: newVal, value: value });
             }
-            this.onSearch(newVal, null, false);
+            if(newVal && value){
+                this.onSearch(newVal, null, false);
+            }
         }
     }
 
@@ -369,6 +379,22 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public destroyed(): void {}
+
+    /**
+     * 当id在数据中存在时，查找val值填充到表单中
+     *
+     * @memberof AppPicker
+     */
+    fillTextById(): void {
+        const key = this.data[this.deKeyField];
+        const val = this.data[this.valueitem];
+        if ((key == null || key == '') && val != null && val !== '') {
+            const item = this.items.find(item => item[this.deKeyField] == val);
+            if (item != null && this.name) {
+                this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField] });
+            }
+        }
+    }
 
     /**
      * 下拉切换回调
@@ -438,19 +464,13 @@ export default class AppPicker extends Vue {
                     } else {
                         this.items = [...response];
                     }
-                    const val = this.selectValue;
-                    if (val == null || val == '') {
-                        const item = this.items.find(item => item[this.deKeyField] == this.data[this.valueitem]);
-                        if (item != null) {
-                            this.onACSelect(item);
-                        }
-                    }
                     if (this.acParams && this.actionDetails && this.actionDetails.length > 0) {
                         this.items = [...this.items, ...this.actionDetails];
                     }
                     if (callback) {
                         callback(this.items);
                     }
+                    this.fillTextById();
                 })
                 .catch((error: any) => {
                     if (callback) {

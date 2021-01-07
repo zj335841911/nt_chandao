@@ -103,6 +103,7 @@ hide members
 |DocModule|文档目录|DocModule|否|&nbsp;|
 |Line|产品线|Line|否|&nbsp;|
 |StoryModule|需求模块|StoryModule|否|&nbsp;|
+|TaskModule|任务模块|TaskModule|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

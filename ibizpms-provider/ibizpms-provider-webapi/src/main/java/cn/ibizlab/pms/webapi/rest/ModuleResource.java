@@ -284,6 +284,28 @@ public class ModuleResource {
                 .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchTaskModule-all') and hasPermission(#context,'pms-Module-Get')")
+	@ApiOperation(value = "获取任务模块", tags = {"模块" } ,notes = "获取任务模块")
+    @RequestMapping(method= RequestMethod.GET , value="/modules/fetchtaskmodule")
+	public ResponseEntity<List<ModuleDTO>> fetchTaskModule(ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchTaskModule(context) ;
+        List<ModuleDTO> list = moduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchTaskModule-all') and hasPermission(#context,'pms-Module-Get')")
+	@ApiOperation(value = "查询任务模块", tags = {"模块" } ,notes = "查询任务模块")
+    @RequestMapping(method= RequestMethod.POST , value="/modules/searchtaskmodule")
+	public ResponseEntity<Page<ModuleDTO>> searchTaskModule(@RequestBody ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchTaskModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

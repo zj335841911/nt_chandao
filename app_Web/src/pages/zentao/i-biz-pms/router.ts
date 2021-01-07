@@ -13,6 +13,7 @@ const router = new Router({
     routes: [
                 {
             path: '/ibizpms/:ibizpms?',
+            name: 'ibizpms',
             beforeEnter: async (to: any, from: any, next: any) => {
                 const routerParamsName = 'ibizpms';
                 const params: any = {};

@@ -17,13 +17,16 @@
                             @on-close="onClose(item)"
                         >
                             <div class="tag-text">
-                                <div :title="item.info ? ($t(item.caption) + item.info) : $t(item.caption)" class="tag-caption-content">
+                                <div
+                                    :title="item.info ? $t(item.caption) + item.info : $t(item.caption)"
+                                    class="tag-caption-content"
+                                >
                                     <i
                                         v-if="item.meta.iconCls && !Object.is(item.meta.iconCls, '')"
                                         :class="item.meta.iconCls"
                                     ></i>
                                     <img v-else :src="item.meta.imgPath" class="text-icon" />
-                                    &nbsp;{{ item.info ? ($t(item.caption) + item.info) : $t(item.caption) }}
+                                    &nbsp;{{ item.info ? $t(item.caption) + item.info : $t(item.caption) }}
                                 </div>
                             </div>
                         </Tag>
@@ -82,7 +85,7 @@ export default class TabPageExp extends Vue {
      */
     @Watch('activeItem')
     public onActiveItemChange(newVal: any) {
-        if(newVal) {
+        if (newVal) {
             this.changeTabHistory(newVal);
         }
     }
@@ -161,7 +164,7 @@ export default class TabPageExp extends Vue {
                             this.$router.back();
                         }
                     } else {
-                        this.$router.push('/');
+                        this.gotoPage();
                     }
                 },
             });
@@ -169,14 +172,13 @@ export default class TabPageExp extends Vue {
             this.appService.navHistory.remove(item);
             if (this.appService.navHistory.historyList.length > 0) {
                 if (this.appService.navHistory.isRouteSame(item.to, this.$route)) {
-                    // this.$router.back();
                     let go: any = this.appService.navHistory.historyList[
                         this.appService.navHistory.historyList.length - 1
                     ].to;
                     this.$router.push({ path: go.path, params: go.params, query: go.query });
                 }
             } else {
-                this.$router.push('/');
+                this.gotoPage();
             }
         }
     }
@@ -222,7 +224,10 @@ export default class TabPageExp extends Vue {
             if (path) {
                 this.$router.push({ path: path });
             } else {
-                this.$router.push('/');
+                const name: any = this.$route?.matched[0].name;
+                const param = this.$route.params[name];
+                const path = `/${name}${param ? `/${param}` : ''}`;
+                this.$router.push({ path });
             }
         }
     }
@@ -235,12 +240,12 @@ export default class TabPageExp extends Vue {
      */
     public updateSortIndex(page: any) {
         const pages: any[] = this.appService.navHistory.historyList;
-        if(pages.length > 0) {
+        if (pages.length > 0) {
             pages.forEach((item: any) => {
-                if(Object.is(item.to.fullPath, page.fullPath)) {
+                if (Object.is(item.to.fullPath, page.fullPath)) {
                     this.appService.navHistory.updateSortIndex(item);
                 }
-            })
+            });
         }
     }
 
@@ -252,22 +257,22 @@ export default class TabPageExp extends Vue {
      */
     public changeTabHistory(menu: any) {
         let menuTitle: string = '';
-        if(!menu.hidden && menu.isActivated) {
-            menuTitle = menu.text ? menu.text : (menu.tooltip ? menu.tooltip : '');
+        if (!menu.hidden && menu.isActivated) {
+            menuTitle = menu.text ? menu.text : menu.tooltip ? menu.tooltip : '';
         }
         let pages: any[] = this.appService.navHistory.historyList;
         let groups: Array<any> = this.handleTabPagesGroup(pages);
-        if(groups.length === 0) {
+        if (groups.length === 0) {
             return;
         }
         groups.forEach((group: any) => {
-            if(Object.is(group.caption, menuTitle) && group.items && group.items.length > 0) {
+            if (Object.is(group.caption, menuTitle) && group.items && group.items.length > 0) {
                 let goTab: any = group.items.sort((val1: any, val2: any) => {
                     return val2.sortIndex - val1.sortIndex;
                 })[0];
                 this.$router.push({ path: goTab.to.fullPath, params: goTab.to.params, query: goTab.to.query });
             }
-        })
+        });
     }
 
     /**
@@ -277,19 +282,21 @@ export default class TabPageExp extends Vue {
      * @memberof TabPageExp
      */
     public handleTabPagesGroup(pages: any) {
-        if(pages.length === 0) {
+        if (pages.length === 0) {
             return [];
         }
         let groups: Array<any> = [];
         pages.forEach((item: any) => {
             const caption: any = item.caption.split(' - ')[0];
-            const tempArr: Array<any> = groups.filter((group: any) => { return Object.is(group.caption, caption); });
-            if(tempArr.length === 0){
+            const tempArr: Array<any> = groups.filter((group: any) => {
+                return Object.is(group.caption, caption);
+            });
+            if (tempArr.length === 0) {
                 groups.push({ caption: caption, items: [item] });
             } else {
                 tempArr[0].items.push(item);
             }
-        })
+        });
         return groups;
     }
 

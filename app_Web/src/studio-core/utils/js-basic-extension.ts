@@ -1,6 +1,6 @@
 // 扩展Object方法，删除所有元素不改变内存地址
 Object.defineProperty(Object.prototype, 'clearAll', {
-    writable: false,
+    writable: true,
     enumerable: false,
     configurable: true,
     value: function () {
