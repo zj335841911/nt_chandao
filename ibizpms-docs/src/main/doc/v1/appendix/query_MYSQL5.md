@@ -18487,126 +18487,16 @@ LEFT JOIN IBZUSER t21 ON t1.SYS_USERID = t21.USERID
 
 ### 指派给我任务(AssignedToMyTask)<div id="Task_AssignedToMyTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
+( t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} ) 
 
 ```
 ### 指派给我任务（PC）(AssignedToMyTaskPc)<div id="Task_AssignedToMyTaskPc"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
+( t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} ) 
 t1.estStarted is not null and t1.estStarted <> '0000-00-00' and t1.estStarted <> '1970-01-01' 
 t1.parent >= 0 
 t1.assigneddate is not null and t1.assigneddate <> '0000-00-00 00:00:00' 
@@ -18614,321 +18504,35 @@ t1.assigneddate is not null and t1.assigneddate <> '0000-00-00 00:00:00'
 ```
 ### Bug相关任务(BugTask)<div id="Task_BugTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-CONCAT_WS(':',t1.id,t61.realname,t1.`name`) as `NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
-LEFT JOIN zt_user t61 on t61.account = t1.assignedTo
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, CONCAT_WS(':',t1.id,t61.realname,t1.`name`) as `NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN zt_user t61 on t61.account = t1.assignedTo
 WHERE t1.deleted = '0' 
 (t1.project = #{srf.webcontext.project} or t1.project = #{srf.webcontext.curproject}) 
 
 ```
 ### 通过模块查询(ByModule)<div id="Task_ByModule"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) as DELAY,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) as DELAY, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-FIND_IN_SET (${srfdatacontext('srfparentkey','{"defname":"ID","dename":"ZT_PROJECTMODULE"}')}, t11.`PATH`) 
+FIND_IN_SET (#{srf.datacontext.srfparentkey}, t11.`PATH`) 
 ( t1.`PARENT` = 0  or  t1.`PARENT` = -1) 
 
 ```
 ### 子任务(ChildTask)<div id="Task_ChildTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 ( 1<>1 ) 
 
 ```
 ### 子任务（树）(ChildTaskTree)<div id="Task_ChildTaskTree"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t61.`REALNAME`  AS `ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-CONCAT_WS('','子任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-'40' AS `TASKTYPE`,
-t1.`status` as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
+SELECT t1.`ASSIGNEDDATE`, t61.`REALNAME`  AS `ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, CONCAT_WS('','子任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, '40' AS `TASKTYPE`, t1.`status` as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID  LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
 ```
 ### 用户年度完成任务(CurFinishTask)<div id="Task_CurFinishTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')}  AND  left(t1.finishedDate,4) = #{srf.webcontext.curyear} ) 
+( t1.`FINISHEDBY` =  #{srf.sessioncontext.srfloginname}  AND  left(t1.finishedDate,4) = #{srf.webcontext.curyear} ) 
 
 ```
 ### DEFAULT(DEFAULT)<div id="Task_Default"></div>
@@ -18996,1530 +18600,165 @@ WHERE t1.DELETED = '0'
 ```
 ### DefaultRow(DefaultRow)<div id="Task_DefaultRow"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1 ) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`desc`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1 ) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`desc`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 
 ```
 ### ES批量的导入(ESBulk)<div id="Task_ESBulk"></div>
 ```sql
-SELECT
-	t1.id,
-	t1.`name`,
-	t1.desc,
-	t1.deleted
-FROM
-	zt_task t1
+SELECT t1.id, t1.`name`, t1.desc, t1.deleted FROM zt_task t1
 ```
 ### 我代理的任务(MyAgentTask)<div id="Task_MyAgentTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-case when t61.AGENTUSER = #{srf.sessioncontext.srfloginname} then t61.AGENTUSER else t1.assignedTo end as `ASSIGNEDTO`, 
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname}) AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-	( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
-LEFT JOIN t_ibz_agent t61 ON t1.assignedTo = t61.CREATEMANNAME and DATE_FORMAT(now(), '%Y-%m-%d') >= t61.AGENTBEGIN and DATE_FORMAT(now(), '%Y-%m-%d') <= t61.AGENTEND
+SELECT t1.`ASSIGNEDDATE`, case when t61.AGENTUSER = #{srf.sessioncontext.srfloginname} then t61.AGENTUSER else t1.assignedTo end as `ASSIGNEDTO`,  t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname}) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, 	( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN t_ibz_agent t61 ON t1.assignedTo = t61.CREATEMANNAME and DATE_FORMAT(now(), '%Y-%m-%d') >= t61.AGENTBEGIN and DATE_FORMAT(now(), '%Y-%m-%d') <= t61.AGENTEND
 WHERE t1.deleted = '0' 
 
 ```
 ### 我完成的任务（汇报）(MyCompleteTask)<div id="Task_MyCompleteTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-(SELECT sum(tt.consumed) from zt_taskestimate tt where tt.task = t1.id and tt.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d' ) and tt.account =${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}) as 'consumed',
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, (SELECT sum(tt.consumed) from zt_taskestimate tt where tt.task = t1.id and tt.date = DATE_FORMAT(#{srf.datacontext.date}, '%Y-%m-%d' ) and tt.account =#{srf.sessioncontext.srfloginname}) as 'consumed', t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-EXISTS(select 1 from zt_taskestimate t where t.task = t1.id and t.account = ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} and DATE_FORMAT( t.date, '%Y-%m-%d' ) = DATE_FORMAT( CASE WHEN ${srfdatacontext('date')} IS NULL THEN now() ELSE ${srfdatacontext('date')} END, '%Y-%m-%d' )) 
+EXISTS(select 1 from zt_taskestimate t where t.task = t1.id and t.account = #{srf.sessioncontext.srfloginname} and DATE_FORMAT( t.date, '%Y-%m-%d' ) = DATE_FORMAT( CASE WHEN #{srf.datacontext.date} IS NULL THEN now() ELSE #{srf.datacontext.date} END, '%Y-%m-%d' )) 
 t31.deleted='0' 
 
 ```
-### 已完成任务（移动端）(MyCompleteTaskMob)<div id="Task_MyCompleteTaskMob"></div>
+### 我完成的任务（移动端日报）(MyCompleteTaskMobDaily)<div id="Task_MyCompleteTaskMobDaily"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
-WHERE FIND_IN_SET(t1.id,(select TODAYTASK from t_ibz_daily where IBZ_dailyID = ${srfdatacontext('srfparentkey')}))
- 
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+WHERE FIND_IN_SET(t1.id,(select TODAYTASK from t_ibz_daily where IBZ_dailyID = #{srf.datacontext.srfparentkey})) 
 t1.deleted='0' 
 
 ```
 ### 我完成的任务（移动端月报）(MyCompleteTaskMobMonthly)<div id="Task_MyCompleteTaskMobMonthly"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-FIND_IN_SET(t1.id,(select thismonthtask from t_ibz_monthly where IBZ_MONTHLYID = ${srfdatacontext('srfparentkey')} )) 
+FIND_IN_SET(t1.id,(select thismonthtask from t_ibz_monthly where IBZ_MONTHLYID = #{srf.datacontext.srfparentkey} )) 
 
 ```
 ### 我完成的任务（月报展示）(MyCompleteTaskMonthlyZS)<div id="Task_MyCompleteTaskMonthlyZS"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-(select IFNULL(SUM(consumed),0) from zt_taskestimate where task = t1.id and account = ${srfsessioncontext('srfloginname','{"defname":"ACCOUNT","dename":"ZT_TASKESTIMATE"}')} and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(${srfdatacontext('date')},'%Y-%m')) as `CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, (select IFNULL(SUM(consumed),0) from zt_taskestimate where task = t1.id and account = #{srf.sessioncontext.srfloginname} and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(#{srf.datacontext.date},'%Y-%m')) as `CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.deleted = '0' 
-(FIND_IN_SET (t1.`ID`,${srfwebcontext('todaytask','{"defname":"ID","dename":"ZT_TASK"}')}) ) 
+(FIND_IN_SET (t1.`ID`,#{srf.webcontext.todaytask}) ) 
 
 ```
 ### 我完成的任务（汇报）(MyCompleteTaskZS)<div id="Task_MyCompleteTaskZS"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-(SELECT sum(tt.consumed) from zt_taskestimate tt where tt.task = t1.id and tt.date = DATE_FORMAT(${srfdatacontext('date')}, '%Y-%m-%d' ) and tt.account =${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')}) as 'consumed',
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, (SELECT sum(tt.consumed) from zt_taskestimate tt where tt.task = t1.id and tt.date = DATE_FORMAT(#{srf.datacontext.date}, '%Y-%m-%d' ) and tt.account =#{srf.sessioncontext.srfloginname}) as 'consumed', t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-(FIND_IN_SET (t1.`ID`,${srfwebcontext('todaytask','{"defname":"ID","dename":"ZT_TASK"}')}) ) 
+(FIND_IN_SET (t1.`ID`,#{srf.webcontext.todaytask}) ) 
 
 ```
 ### 我的收藏(MyFavorites)<div id="Task_MyFavorites"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 t1.id in (select t.OBJECTID from T_IBZ_FAVORITES t where t.type = 'task' and t.account = #{srf.sessioncontext.srfloginname}) 
 
 ```
 ### 我计划参与的任务（移动端月报）(MyPlansTaskMobMonthly)<div id="Task_MyPlansTaskMobMonthly"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-FIND_IN_SET(t1.id,(select nextmonthplanstask from t_ibz_monthly where IBZ_MONTHLYID = ${srfdatacontext('srfparentkey')} )) 
+FIND_IN_SET(t1.id,(select nextmonthplanstask from t_ibz_monthly where IBZ_MONTHLYID = #{srf.datacontext.srfparentkey} )) 
 
 ```
 ### 我计划参与的任务（汇报）(MyTomorrowPlanTask)<div id="Task_MyTomorrowPlanTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
+( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} ) 
 
 ```
 ### 我计划参与的任务（汇报）(MyTomorrowPlanTaskMobDaily)<div id="Task_MyTomorrowPlanTaskMobDaily"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( FIND_IN_SET(t1.id,(select tomorrowplanstask from t_ibz_daily where IBZ_dailyID = ${srfdatacontext('srfparentkey')})) ) 
+( FIND_IN_SET(t1.id,(select tomorrowplanstask from t_ibz_daily where IBZ_dailyID = #{srf.datacontext.srfparentkey})) ) 
 
 ```
 ### 移动端下周计划参与(汇报)(NextWeekCompleteTaskMobZS)<div id="Task_NextWeekCompleteTaskMobZS"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-find_in_set(t1.id,
-(select nextweektask from t_ibz_weekly where ibz_weeklyid = ${srfdatacontext('srfparentkey')}
-)) 
+find_in_set(t1.id, (select nextweektask from t_ibz_weekly where ibz_weeklyid = #{srf.datacontext.srfparentkey} )) 
 
 ```
-### 下周计划完成的任务(汇报)(NextWeekCompleteTaskZS)<div id="Task_NextWeekCompleteTaskZS"></div>
+### 本周完成的任务(汇报)(NextWeekCompleteTaskZS)<div id="Task_NextWeekCompleteTaskZS"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( FIND_IN_SET(t1.id, case when  ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
-else ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} end 
-) ) 
+( FIND_IN_SET(t1.id, case when  #{srf.webcontext.nextweektask} is null then 0 else #{srf.webcontext.nextweektask} end  ) ) 
 
 ```
 ### 下周计划完成任务(汇报)(NextWeekPlanCompleteTask)<div id="Task_NextWeekPlanCompleteTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
+( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} ) 
 
 ```
 ### 项目任务(ProjectTask)<div id="Task_ProjectTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) as DELAY,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root LIMIT 0,1) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) as DELAY, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root LIMIT 0,1) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 ( t1.`PARENT` <= 0 ) 
 
 ```
 ### 根任务(RootTask)<div id="Task_RootTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t61.`REALNAME`  AS `ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-CONCAT_WS('','任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-'40' AS `TASKTYPE`,
-t1.`status` as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
+SELECT t1.`ASSIGNEDDATE`, t61.`REALNAME`  AS `ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, CONCAT_WS('','任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, '40' AS `TASKTYPE`, t1.`status` as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID  LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
 WHERE t1.DELETED = '0' 
-t1.`PARENT` in(0,-1) 
+t1.`PARENT` in (0,-1) 
 
 ```
 ### 我本月完成的任务（下拉列表框）(ThisMonthCompleteTaskChoice)<div id="Task_ThisMonthCompleteTaskChoice"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.deleted = '0' 
 t31.deleted = '0' 
-EXISTS(select 1 from zt_taskestimate t where t.task = t1.id and t.account = ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} and DATE_FORMAT( t.date, '%Y-%m' ) = DATE_FORMAT( CASE WHEN ${srfdatacontext('date')} IS NULL THEN now() ELSE ${srfdatacontext('date')} END, '%Y-%m' )) 
+EXISTS(select 1 from zt_taskestimate t where t.task = t1.id and t.account = #{srf.sessioncontext.srfloginname} and DATE_FORMAT( t.date, '%Y-%m' ) = DATE_FORMAT( CASE WHEN #{srf.datacontext.date} IS NULL THEN now() ELSE #{srf.datacontext.date} END, '%Y-%m' )) 
 
 ```
 ### 本周完成的任务(汇报)(ThisWeekCompleteTask)<div id="Task_ThisWeekCompleteTask"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')} ) ) ) 
+( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} )  OR  ( t1.`FINISHEDBY` =  #{srf.sessioncontext.srfloginname} ) ) ) 
 
 ```
 ### 本周已完成任务(下拉框选择)(ThisWeekCompleteTaskChoice)<div id="Task_ThisWeekCompleteTaskChoice"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 t31.deleted = '0' 
-EXISTS(SELECT 1 from zt_taskestimate t2 where t1.id = t2.task and t2.account = ${srfsessioncontext('srfloginname')} and YEARWEEK(t2.date,1) = YEARWEEK(case when ${srfdatacontext('date')} is null then
-now() else ${srfdatacontext('date')}  end,1) ) 
+EXISTS(SELECT 1 from zt_taskestimate t2 where t1.id = t2.task and t2.account = #{srf.sessioncontext.srfloginname} and YEARWEEK(t2.date,1) = YEARWEEK(case when #{srf.datacontext.date} is null then now() else #{srf.datacontext.date}  end,1) ) 
 
 ```
 ### 移动端本周已完成任务(汇报)(ThisWeekCompleteTaskMobZS)<div id="Task_ThisWeekCompleteTaskMobZS"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-find_in_set(t1.id,
-(select thisweektask from t_ibz_weekly where ibz_weeklyid = ${srfdatacontext('srfparentkey')}
-)) 
+find_in_set(t1.id, (select thisweektask from t_ibz_weekly where ibz_weeklyid = #{srf.datacontext.srfparentkey} )) 
 
 ```
 ### 本周完成的任务(汇报)(ThisWeekCompleteTaskZS)<div id="Task_ThisWeekCompleteTaskZS"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-(select IFNULL(SUM(t.consumed),0) from zt_taskestimate t where t.task = t1.id and t.account = ${srfsessioncontext('srfloginname')}
-and YEARWEEK(t.date,1) = YEARWEEK(${srfdatacontext('date')},1) ) as `consumed`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
-t1.`ESTIMATE`,
-t1.`ESTSTARTED`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t11.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
-t1.CONSUMED AS `MYCONSUMED`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t51.`NAME` AS `PARENTNAME`,
-t11.`PATH`,
-t1.`PRI`,
-t21.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
-t1.`PROJECT`,
-t31.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
-case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
-t1.`STORY`,
-t21.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-t1.`TYPE`,
-DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
-FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
-
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, (select IFNULL(SUM(t.consumed),0) from zt_taskestimate t where t.task = t1.id and t.account = #{srf.sessioncontext.srfloginname} and YEARWEEK(t.date,1) = YEARWEEK(#{srf.datacontext.date},1) ) as `consumed`, t1.`DEADLINE`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MAILTO`, '' AS `MAILTOPK`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.CONSUMED AS `MYCONSUMED`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`, case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, t1.`TYPE`, DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-( FIND_IN_SET(t1.id, case when  ${srfwebcontext('thisweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
-else ${srfwebcontext('thisweektask','{"defname":"ID","dename":"ZT_TASK"}')} end 
-) ) 
+( FIND_IN_SET(t1.id, case when  #{srf.webcontext.thisweektask} is null then 0 else #{srf.webcontext.thisweektask} end  ) ) 
 
 ```
-### todo任务列表查询(TodoListTask)<div id="Task_TodoListTask"></div>
+### todo列表查询(TodoListTask)<div id="Task_TodoListTask"></div>
 ```sql
-SELECT
-	t1.* 
-FROM
-	(
-SELECT
-	t1.id,
-	t1.`name`,
-	t1.pri,
-	t1.assignedTo,
-	t1.finishedBy,
-	t1.finishedDate,
-	t1.estStarted,
-CASE
-	
-	WHEN t1.`status` IN ( 'done', 'closed' ) THEN
-	'1' ELSE '0' 
-	END AS isfinished,
-	( SELECT count( 1 ) FROM zt_action WHERE objectType = 'task' AND action = 'commented' AND objectid = t1.id ) AS ReplyCount,
-CASE
-		
-		WHEN t1.`desc` IS NULL 
-		OR t1.`desc` = '' THEN
-			'0' ELSE '1' 
-		END AS hasDetail,
-		t1.project,
-		t1.`TYPE`,
-		t1.`status`,
-		t1.deleted,
-		t1.openeddate,
-		t1.closeddate,
-		t1.assigneddate,
-                t1.consumed,
-		t1.deadline,
-		t11.`name` AS projectname,
-		t1.canceleddate,
-		t1.lastediteddate,
-                DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') as updatedate,
-		t1.lasteditedby,
-		t1.openedby,
-		t1.closedby,
-		t1.canceledby 
-	FROM
-		`zt_task` t1
-	LEFT JOIN zt_project t11 ON t1.project = t11.id 
-) t1
+SELECT 	t1.*  FROM 	( SELECT 	t1.id, 	t1.`name`, 	t1.pri, 	t1.assignedTo, 	t1.finishedBy, 	t1.finishedDate, 	t1.estStarted, CASE 	 	WHEN t1.`status` IN ( 'done', 'closed' ) THEN 	'1' ELSE '0'  	END AS isfinished, 	( SELECT count( 1 ) FROM zt_action WHERE objectType = 'task' AND action = 'commented' AND objectid = t1.id ) AS ReplyCount, CASE 		 		WHEN t1.`desc` IS NULL  		OR t1.`desc` = '' THEN 			'0' ELSE '1'  		END AS hasDetail, 		t1.project, 		t1.`TYPE`, 		t1.`status`, 		t1.deleted, 		t1.openeddate, 		t1.closeddate, 		t1.assigneddate,                 t1.consumed, 		t1.deadline, 		t11.`name` AS projectname, 		t1.canceleddate, 		t1.lastediteddate,                 DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') as updatedate, 		t1.lasteditedby, 		t1.openedby, 		t1.closedby, 		t1.canceledby  	FROM 		`zt_task` t1 	LEFT JOIN zt_project t11 ON t1.project = t11.id  ) t1
 WHERE t1.deleted = '0' 
 
 ```
 ### 任务类型分组(TypeGroup)<div id="Task_TypeGroup"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`CANCELEDBY`,
-t1.`CANCELEDDATE`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`CLOSEDREASON`,
-t1.`COLOR`,
-t1.`CONSUMED`,
-t1.`DELETED`,
-t1.`ESTIMATE`,
-(SELECT MIN(ESTSTARTED) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00') AS `ESTSTARTED`,
-(SELECT MAX(DEADLINE) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and DEADLINE <> '0000-00-00') AS `DEADLINE`,
-(SELECT DATEDIFF(MAX(DEADLINE),MIN(ESTSTARTED))  FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00' AND DEADLINE <> '0000-00-00') AS `DURATION`,
-t1.`FINISHEDBY`,
-t1.`FINISHEDDATE`,
-t1.`FROMBUG`,
-t1.`ID`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LEFT`,
-t1.`MODULE`,
-t21.`NAME` AS `MODULENAME`,
-t1.`NAME`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`PARENT`,
-t11.`NAME` AS `PARENTNAME`,
-t1.`PRI`,
-t31.`PRODUCT`,
-t41.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t51.`NAME` AS `PROJECTNAME`,
-t1.`REALSTARTED`,
-t1.`STATUS`,
-t1.`STORY`,
-t31.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-(case when t1.storyVersion < t31.version and t31.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`,
-(case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end)
-as statusorder
-FROM `zt_task` t1 
-LEFT JOIN zt_task t11 ON t1.PARENT = t11.ID 
-LEFT JOIN zt_module t21 ON t1.MODULE = t21.ID 
-LEFT JOIN zt_story t31 ON t1.STORY = t31.ID 
-LEFT JOIN zt_product t41 ON t31.PRODUCT = t41.ID 
-LEFT JOIN zt_project t51 ON t1.PROJECT = t51.ID 
-
-WHERE 
-t1.DELETED = '0'
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DELETED`, t1.`ESTIMATE`, (SELECT MIN(ESTSTARTED) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00') AS `ESTSTARTED`, (SELECT MAX(DEADLINE) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and DEADLINE <> '0000-00-00') AS `DEADLINE`, (SELECT DATEDIFF(MAX(DEADLINE),MIN(ESTSTARTED))  FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00' AND DEADLINE <> '0000-00-00') AS `DURATION`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t21.`NAME` AS `MODULENAME`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t11.`NAME` AS `PARENTNAME`, t1.`PRI`, t31.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t51.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t31.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t31.version and t31.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder FROM `zt_task` t1  LEFT JOIN zt_task t11 ON t1.PARENT = t11.ID  LEFT JOIN zt_module t21 ON t1.MODULE = t21.ID  LEFT JOIN zt_story t31 ON t1.STORY = t31.ID  LEFT JOIN zt_product t41 ON t31.PRODUCT = t41.ID  LEFT JOIN zt_project t51 ON t1.PROJECT = t51.ID   WHERE  t1.DELETED = '0'
 ```
 ### 默认（全部数据）(VIEW)<div id="Task_View"></div>
 ```sql

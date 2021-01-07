@@ -1277,8 +1277,8 @@ hide footbox
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|AssignedToMyTask|指派给我任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_AssignedToMyTask))|否|&nbsp;指派给我任务（移动端）|
-|AssignedToMyTaskPc|指派给我任务（PC）([MYSQL5](../../appendix/query_MYSQL5.md#Task_AssignedToMyTaskPc))|否|&nbsp;指派给我任务（移动端）|
+|AssignedToMyTask|指派给我任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_AssignedToMyTask))|否|&nbsp;|
+|AssignedToMyTaskPc|指派给我任务（PC）([MYSQL5](../../appendix/query_MYSQL5.md#Task_AssignedToMyTaskPc))|否|&nbsp;|
 |BugTask|Bug相关任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_BugTask))|否|&nbsp;|
 |ByModule|通过模块查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_ByModule))|否|&nbsp;|
 |ChildTask|子任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ChildTask))|否|&nbsp;|
@@ -1289,7 +1289,7 @@ hide footbox
 |ESBulk|ES批量的导入([MYSQL5](../../appendix/query_MYSQL5.md#Task_ESBulk))|否|&nbsp;|
 |MyAgentTask|我代理的任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyAgentTask))|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTask))|否|&nbsp;|
-|MyCompleteTaskMob|已完成任务（移动端）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMob))|否|&nbsp;|
+|MyCompleteTaskMobDaily|我完成的任务（移动端日报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobDaily))|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobMonthly))|否|&nbsp;|
 |MyCompleteTaskMonthlyZS|我完成的任务（月报展示）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMonthlyZS))|否|&nbsp;|
 |MyCompleteTaskZS|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskZS))|否|&nbsp;|
@@ -1298,7 +1298,7 @@ hide footbox
 |MyTomorrowPlanTask|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTask))|否|&nbsp;|
 |MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTaskMobDaily))|否|&nbsp;|
 |NextWeekCompleteTaskMobZS|移动端下周计划参与(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekCompleteTaskMobZS))|否|&nbsp;|
-|NextWeekCompleteTaskZS|下周计划完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekCompleteTaskZS))|否|&nbsp;|
+|NextWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekCompleteTaskZS))|否|&nbsp;|
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekPlanCompleteTask))|否|&nbsp;|
 |ProjectTask|项目任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ProjectTask))|否|&nbsp;|
 |RootTask|根任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_RootTask))|否|&nbsp;|
@@ -1307,7 +1307,7 @@ hide footbox
 |ThisWeekCompleteTaskChoice|本周已完成任务(下拉框选择)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskChoice))|否|&nbsp;|
 |ThisWeekCompleteTaskMobZS|移动端本周已完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskMobZS))|否|&nbsp;|
 |ThisWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskZS))|否|&nbsp;|
-|TodoListTask|todo任务列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|
+|TodoListTask|todo列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|
 |TypeGroup|任务类型分组([MYSQL5](../../appendix/query_MYSQL5.md#Task_TypeGroup))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Task_View))|否|&nbsp;|
 
@@ -1327,7 +1327,7 @@ hide footbox
 |ESBulk|ES批量的导入|ESBulk|否|&nbsp;|
 |MyAgentTask|我代理的任务|MyAgentTask|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）|MyCompleteTask|否|&nbsp;|
-|MyCompleteTaskMobDaily|我完成的任务（移动端日报）|MyCompleteTaskMob|否|&nbsp;|
+|MyCompleteTaskMobDaily|我完成的任务（移动端日报）|MyCompleteTaskMobDaily|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）|MyCompleteTaskMobMonthly|否|&nbsp;|
 |MyCompleteTaskMonthlyZS|我完成的任务（月报展示）|MyCompleteTaskMonthlyZS|否|&nbsp;|
 |MyCompleteTaskZS|我完成的任务（汇报）|MyCompleteTaskZS|否|&nbsp;|
