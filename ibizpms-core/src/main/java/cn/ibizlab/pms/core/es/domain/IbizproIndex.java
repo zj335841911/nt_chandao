@@ -10,14 +10,14 @@ import java.sql.Timestamp;
 import lombok.Data;
 
 @Data
-@Document(indexName = "pms", type = "_doc", shards = 5, replicas = 1)
+@Document(indexName = "ibizproindex", type = "_doc", shards = 5, replicas = 1)
 public class IbizproIndex implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Field(type = FieldType.Text)
     private String indextype;
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Long)
     private Long indexid;
     @Field(type = FieldType.Text)
     private String indexname;
@@ -31,14 +31,16 @@ public class IbizproIndex implements Serializable {
     private String indexdesc;
     @Field(type = FieldType.Text)
     private String color;
-    @Field(type = FieldType.Text)
-    private String project;
+    @Field(type = FieldType.Long)
+    private Long project;
     @Field(type = FieldType.Text)
     private String acllist;
     @Field(type = FieldType.Text)
     private String acl;
     @Id
     private String docid;
+    @Field(type = FieldType.Long)
+    private Long product;
 }
 
 

@@ -131,6 +131,21 @@ public class IbizproProductDailyServiceImpl extends ServiceImpl<IbizproProductDa
     }
     @Override
     @Transactional
+    public IbizproProductDaily manualCreateDaily(IbizproProductDaily et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean manualCreateDailyBatch(List<IbizproProductDaily> etList) {
+        for(IbizproProductDaily et : etList) {
+            manualCreateDaily(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IbizproProductDaily et) {
         if (!saveOrUpdate(et)) {
             return false;

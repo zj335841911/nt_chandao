@@ -2599,10 +2599,11 @@ Save
 | 4 | [当前项目](#数据查询-当前项目（CurProject）) | CurProject | 否 |
 | 5 | [当前用户](#数据查询-当前用户（CurUer）) | CurUer | 否 |
 | 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 7 | [产品总览](#数据查询-产品总览（ProductPM）) | ProductPM | 否 |
-| 8 | [产品团队](#数据查询-产品团队（ProductTeam）) | ProductTeam | 否 |
-| 9 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
-| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 7 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 8 | [产品总览](#数据查询-产品总览（ProductPM）) | ProductPM | 否 |
+| 9 | [产品团队](#数据查询-产品团队（ProductTeam）) | ProductTeam | 否 |
+| 10 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-全部产品（AllList）
 #### 说明
@@ -2846,7 +2847,12 @@ FROM
 	LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 WHERE
 	t1.deleted = '0' 
-	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} ) UNION
+	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} 
+	or t1.PO = #{srf.sessioncontext.srfloginname} 
+	or t1.RD = #{srf.sessioncontext.srfloginname} 
+	or t1.QD =  #{srf.sessioncontext.srfloginname} 
+	) 
+	UNION
 SELECT
        t1.MDEPTID,
         t1.orgid,
@@ -2899,20 +2905,11 @@ FROM
 WHERE
 	t1.deleted = '0' 
 	AND t1.id IN (
-SELECT
-	t.product 
-FROM
-	zt_projectproduct t 
+SELECT t.root from zt_team t
 WHERE
-	t.project IN (
-SELECT
-	t3.root 
-FROM
-	zt_team t3 
-WHERE
-	t3.account = #{srf.sessioncontext.srfloginname} 
-	AND t3.type = 'project' 
-	) 
+	t.account =  #{srf.sessioncontext.srfloginname} 
+	AND t.type = 'product' 
+	 
 	) 
 	) t1
 ```
@@ -2973,6 +2970,27 @@ t1.`TYPE`,
 FROM `zt_product` t1 
 LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 
+```
+### 数据查询-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.id,
+	t1.`name`,
+	t1.desc,
+	t1.deleted
+FROM
+	zt_product t1
 ```
 ### 数据查询-产品总览（ProductPM）
 #### 说明
@@ -3174,9 +3192,10 @@ LEFT JOIN zt_module t11 ON t1.LINE = t11.ID
 | 4 | [当前项目](#数据集合-当前项目（CurProject）) | CurProject | 否 |
 | 5 | [当前用户](#数据集合-当前用户（CurUer）) | CurUer | 否 |
 | 6 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 7 | [产品总览](#数据集合-产品总览（ProductPM）) | ProductPM | 否 |
-| 8 | [产品团队](#数据集合-产品团队（ProductTeam）) | ProductTeam | 否 |
-| 9 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 7 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 8 | [产品总览](#数据集合-产品总览（ProductPM）) | ProductPM | 否 |
+| 9 | [产品团队](#数据集合-产品团队（ProductTeam）) | ProductTeam | 否 |
+| 10 | [当前项目](#数据集合-当前项目（StoryCurProject）) | StoryCurProject | 否 |
 
 ### 数据集合-全部产品（AllList）
 #### 说明
@@ -3262,6 +3281,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-ES批量的导入（ESBulk）
+#### 说明
+ES批量的导入
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [ES批量的导入（ESBulk）](#数据查询-ES批量的导入（ESBulk）) |
 ### 数据集合-产品总览（ProductPM）
 #### 说明
 产品总览

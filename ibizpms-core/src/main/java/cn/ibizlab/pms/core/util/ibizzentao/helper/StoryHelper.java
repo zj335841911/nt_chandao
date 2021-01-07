@@ -118,6 +118,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         storySpec.setStory(et.getId());//将需求的编号值给到需求描述对象的“需求”字段
         storySpec.setVersion(1);//需求描述对象的版本号设置为1
         storySpecHelper.create(storySpec);
+        et.setSpec(storySpec.getSpec());
 
         //如果需求的项目不为null 并且不为0 并且 所处阶段不为草稿状态
         if (flag && StringUtils.compare(et.getStage(), StaticDict.Story__status.DRAFT.getValue()) != 0) {

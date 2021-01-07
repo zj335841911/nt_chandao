@@ -791,7 +791,7 @@ export class FavoriteMainGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'BugUserRealName',
+                srfkey: 'UserRealNameUnAssignTo_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

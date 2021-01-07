@@ -164,18 +164,9 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'mindate',
+            name: 'date',
             label: '日期',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.mindate',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'maxdate',
-            label: '日期',
-            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.maxdate',
+            langtag: 'entities.ibzproproductusertask.productweeklygird_grid.columns.date',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -306,8 +297,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
         'consumed':false,
         'eststarted':false,
         'deadline':false,
-        'mindate':false,
-        'maxdate':false,
+        'date':false,
         'progressrate':false,
         'delaydays':false,
     };
@@ -405,7 +395,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
     * @memberof ProductWeeklyGirdBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['account','taskname','tasktype','consumed','eststarted','deadline','mindate','maxdate','progressrate','delaydays'];
+        let allColumns:Array<any> = ['account','taskname','tasktype','consumed','eststarted','deadline','date','progressrate','delaydays'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -490,8 +480,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
                 consumed:'',
                 eststarted:'',
                 deadline:'',
-                mindate:'',
-                maxdate:'',
+                date:'',
                 progressrate:'',
                 delaydays:'',
                 children: children
@@ -524,8 +513,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
             consumed:'',
             eststarted:'',
             deadline:'',
-            mindate:'',
-            maxdate:'',
+            date:'',
             progressrate:'',
             delaydays:'',
             children: child
@@ -594,8 +582,7 @@ export class ProductWeeklyGirdGridBase extends GridControlBase {
                 consumed:'',
                 eststarted:'',
                 deadline:'',
-                mindate:'',
-                maxdate:'',
+                date:'',
                 progressrate:'',
                 delaydays:'',
                 children: children,

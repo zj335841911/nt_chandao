@@ -219,6 +219,18 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'assessresult',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'acl',
+      },
+      {
+        name: 'acllist',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

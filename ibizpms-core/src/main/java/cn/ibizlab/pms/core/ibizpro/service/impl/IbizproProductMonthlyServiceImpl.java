@@ -131,6 +131,21 @@ public class IbizproProductMonthlyServiceImpl extends ServiceImpl<IbizproProduct
     }
     @Override
     @Transactional
+    public IbizproProductMonthly manualCreateMonthly(IbizproProductMonthly et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean manualCreateMonthlyBatch(List<IbizproProductMonthly> etList) {
+        for(IbizproProductMonthly et : etList) {
+            manualCreateMonthly(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IbizproProductMonthly et) {
         if (!saveOrUpdate(et)) {
             return false;

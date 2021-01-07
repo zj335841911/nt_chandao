@@ -329,6 +329,9 @@ class 任务 {
 class 任务预计 {
 }
 
+class 任务工时统计 {
+}
+
 class 群组 {
 }
 

@@ -219,6 +219,18 @@ export default class TabExpViewtabexppanelModel {
       {
         name: 'assessresult',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'acl',
+      },
+      {
+        name: 'acllist',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

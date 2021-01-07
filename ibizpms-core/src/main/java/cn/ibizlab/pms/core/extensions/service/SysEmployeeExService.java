@@ -60,6 +60,10 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
            return super.searchDefault(context);
         }catch(Exception e) {
             List<SysEmployee> list = new ArrayList<>();
+            SysEmployee sysEmployee = new SysEmployee();
+            sysEmployee.setPersonname(AuthenticationUser.getAuthenticationUser().getPersonname());
+            sysEmployee.setUsername(AuthenticationUser.getAuthenticationUser().getUsername());
+            list.add(sysEmployee);
             Page<SysEmployee> page = new PageImpl<SysEmployee>(list);
             return page;
         }
@@ -75,7 +79,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             log.info("SysEmployeeExService：searchBugUser-" + params.get("project").toString());
             context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("project")));
         }
-        Page<SysEmployee> page = super.searchDefault(context);
+        Page<SysEmployee> page = this.searchDefault(context);
         return page;
     }
 
@@ -88,7 +92,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             context.setN_username_notin(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("root"), params.get("account") != null ?  params.get("account").toString() : null));
 
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     @Override
@@ -99,7 +103,14 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             //产品团队
             context.setN_username_in(getAccounts(StaticDict.Team__type.PRODUCT.getValue(),params.get("product")));
         }
-        return super.searchDefault(context);
+        Page<SysEmployee> productSysPage = this.searchDefault(context);
+        if (productSysPage.getContent().size() == 0){
+            //产品团队没有人时，默认所有人员
+            return this.searchDefault(new SysEmployeeSearchContext());
+        }
+        else {
+            return productSysPage;
+        }
     }
 
     @Override
@@ -121,7 +132,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             }
             context.setN_username_notin(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("root"), params.get("account") != null ?  params.get("account").toString() : null));
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     @Override
@@ -133,7 +144,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             context.setN_username_notin(getAccounts(StaticDict.Team__type.PRODUCT.getValue(), params.get("root"), params.get("account") != null ?  params.get("account").toString() : null));
 
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
     @Override
     public Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context) {
@@ -147,7 +158,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             }
 
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     @Override
@@ -161,7 +172,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
                 context.setN_username_notin(params.get("account").toString().replace(",",";"));
             }
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     @Override
@@ -172,7 +183,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             // 项目团队
             context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("srfparentkey")));
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     @Override
@@ -192,7 +203,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
                 context.setN_username_in(getAccounts(StaticDict.Team__type.TASK.getValue(), params.get("id")));
             }
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     /**
@@ -207,7 +218,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             UserContact userContact = userContactService.get(Long.parseLong(params.get("srfparentkey").toString()));
             context.setN_username_in(userContact.getUserlist().replaceAll(",", ";"));
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     @Override
@@ -223,7 +234,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
             context.setN_username_in(getAccounts(StaticDict.Team__type.TASK.getValue(), params.get("id")));
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     @Override
@@ -239,7 +250,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
             context.setN_username_in(params.get("allTeamAccount").toString().replace(",",";"));
         }
-        return super.searchDefault(context);
+        return this.searchDefault(context);
     }
 
     public String getAccounts(String type, Object root) {

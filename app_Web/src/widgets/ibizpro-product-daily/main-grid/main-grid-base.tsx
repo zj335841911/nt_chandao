@@ -154,6 +154,24 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'begin',
+            label: '开始日期',
+            langtag: 'entities.ibizproproductdaily.main_grid.columns.begin',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'end',
+            label: '结束日期',
+            langtag: 'entities.ibizproproductdaily.main_grid.columns.end',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'totalestimates',
             label: '总工时',
             langtag: 'entities.ibizproproductdaily.main_grid.columns.totalestimates',
@@ -267,6 +285,8 @@ export class MainGridBase extends GridControlBase {
         'productname':false,
         'po':false,
         'date':false,
+        'begin':false,
+        'end':false,
         'totalestimates':false,
     };
 
@@ -339,7 +359,7 @@ export class MainGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'po',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -363,7 +383,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibizpro_productdailyname','productname','po','date','totalestimates'];
+        let allColumns:Array<any> = ['ibizpro_productdailyname','productname','po','date','begin','end','totalestimates'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -446,6 +466,8 @@ export class MainGridBase extends GridControlBase {
                 productname:'',
                 po:'',
                 date:'',
+                begin:'',
+                end:'',
                 totalestimates:'',
                 children: children
             }
@@ -475,6 +497,8 @@ export class MainGridBase extends GridControlBase {
             productname:'',
             po:'',
             date:'',
+            begin:'',
+            end:'',
             totalestimates:'',
             children: child
         }
@@ -540,6 +564,8 @@ export class MainGridBase extends GridControlBase {
                 productname:'',
                 po:'',
                 date:'',
+                begin:'',
+                end:'',
                 totalestimates:'',
                 children: children,
             }

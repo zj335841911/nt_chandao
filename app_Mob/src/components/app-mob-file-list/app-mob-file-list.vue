@@ -93,7 +93,7 @@ export default class AppMobFileList extends Vue {
     public initExtensionName(newVal: any,oldVal: any){
         if(newVal){
             this.items.forEach((item: any)=>{
-                if(!Object.is(item.extension, 'jpg') || Object.is(item.extension, 'gif') || Object.is(item.extension, 'bmp') || Object.is(item.extension, 'png')){
+                if(!Object.is(item.extension, 'jpg') && !Object.is(item.extension, 'gif') && !Object.is(item.extension, 'bmp') && !Object.is(item.extension, 'png')){
                     switch (item.extension) {
                         case 'doc':
                         case 'docx':

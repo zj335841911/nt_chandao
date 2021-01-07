@@ -189,11 +189,11 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
+    :localContext='{ PROJECT:"%project%", PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%", project:"%project%" }' 
     :disabled="detailsModel.owner.disabled"
     valueType="string"
-    tag="UserRealName_Gird"
+    tag="UserRealNameProductTeam"
     codelistType="DYNAMIC"
     placeholder="请选择..."
 

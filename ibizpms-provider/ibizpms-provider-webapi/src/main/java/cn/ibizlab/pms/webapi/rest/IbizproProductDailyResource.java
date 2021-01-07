@@ -121,6 +121,23 @@ public class IbizproProductDailyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyService.checkKey(ibizproproductdailyMapping.toDomain(ibizproproductdailydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-ManualCreateDaily-all')")
+    @ApiOperation(value = "手动生成产品日报", tags = {"产品日报" },  notes = "手动生成产品日报")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/{ibizproproductdaily_id}/manualcreatedaily")
+    public ResponseEntity<IbizproProductDailyDTO> manualCreateDaily(@PathVariable("ibizproproductdaily_id") Long ibizproproductdaily_id, @RequestBody IbizproProductDailyDTO ibizproproductdailydto) {
+        IbizproProductDaily domain = ibizproproductdailyMapping.toDomain(ibizproproductdailydto);
+        domain.setIbizproproductdailyid(ibizproproductdaily_id);
+        domain = ibizproproductdailyService.manualCreateDaily(domain);
+        ibizproproductdailydto = ibizproproductdailyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-ManualCreateDaily-all')")
+    @ApiOperation(value = "批量处理[手动生成产品日报]", tags = {"产品日报" },  notes = "批量处理[手动生成产品日报]")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/{ibizproproductdaily_id}/manualcreatedailybatch")
+    public ResponseEntity<Boolean> manualCreateDailyBatch(@RequestBody List<IbizproProductDailyDTO> ibizproproductdailydtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyService.manualCreateDailyBatch(ibizproproductdailyMapping.toDomain(ibizproproductdailydtos)));
+    }
+
     @PreAuthorize("hasPermission(this.ibizproproductdailyMapping.toDomain(#ibizproproductdailydto),'pms-IbizproProductDaily-Save')")
     @ApiOperation(value = "保存产品日报", tags = {"产品日报" },  notes = "保存产品日报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/save")

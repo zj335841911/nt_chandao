@@ -15,8 +15,6 @@ function getLocaleResourceBase(){
 			delaydays: commonLogic.appcommonhandle("延期天数",null),
 			eststarted: commonLogic.appcommonhandle("预计开始",null),
 			deadline: commonLogic.appcommonhandle("截止日期",null),
-			mindate: commonLogic.appcommonhandle("工时记录（开始）",null),
-			maxdate: commonLogic.appcommonhandle("工时记录（最晚）",null),
 		},
 			views: {
 				productpartgridviewproductweekly: {
@@ -56,8 +54,7 @@ function getLocaleResourceBase(){
 					consumed: commonLogic.appcommonhandle("本周消耗",null),
 					eststarted: commonLogic.appcommonhandle("预计开始",null),
 					deadline: commonLogic.appcommonhandle("截止日期",null),
-					mindate: commonLogic.appcommonhandle("日期",null),
-					maxdate: commonLogic.appcommonhandle("日期",null),
+					date: commonLogic.appcommonhandle("日期",null),
 					progressrate: commonLogic.appcommonhandle("进度",null),
 					delaydays: commonLogic.appcommonhandle("延期天数",null),
 				},
@@ -70,7 +67,7 @@ function getLocaleResourceBase(){
 					account: commonLogic.appcommonhandle("用户",null),
 					taskname: commonLogic.appcommonhandle("任务名称",null),
 					tasktype: commonLogic.appcommonhandle("任务类型",null),
-					consumed: commonLogic.appcommonhandle("当月消耗",null),
+					consumed: commonLogic.appcommonhandle("当天消耗",null),
 					eststarted: commonLogic.appcommonhandle("预计开始",null),
 					deadline: commonLogic.appcommonhandle("截止日期",null),
 					date: commonLogic.appcommonhandle("日期",null),

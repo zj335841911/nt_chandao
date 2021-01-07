@@ -50,7 +50,7 @@ export default class ProductTeamModel {
 			},
 			{
 				name: 'account',
-        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
+        codelist:{tag:'UserRealName_Gird',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'srfkey',

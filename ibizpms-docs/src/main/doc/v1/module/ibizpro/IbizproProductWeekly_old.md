@@ -49,6 +49,8 @@ hide members
 
 无
 
+产品周报标识
+
 
 ## 行为
 | 行为    | 类型    |  说明  |
@@ -83,6 +85,7 @@ hide members
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|产品负责人(PO)|EQ|
 |产品周报名称(IBIZPRO_PRODUCTDAILYNAME)|LIKE|
 |编号(PRODUCT)|EQ|
 |产品名称(PRODUCTNAME)|EQ|

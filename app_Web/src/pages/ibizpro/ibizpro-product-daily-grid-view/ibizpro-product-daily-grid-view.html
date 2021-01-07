@@ -11,6 +11,9 @@
         search
         @on-search="onSearch($event)"
     ></i-input>
+    <template slot="toolbar">
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
+    </template>
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -26,7 +29,7 @@
         loaddraftAction=""
         loadAction=""
         createAction=""
-        fetchAction="FetchProductDaily"
+        fetchAction="FetchDefault"
         :newdata="newdata.bind(_self)"
         :opendata="opendata.bind(_self)"
         name="grid"  

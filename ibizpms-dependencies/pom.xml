@@ -25,11 +25,14 @@
         <spring-cloud-openfeign.version>2.2.1.RELEASE</spring-cloud-openfeign.version>
 
         <!--  Alibaba Druid  -->
-        <alibaba-druid.version>1.1.21</alibaba-druid.version>
+        <alibaba-druid.version>1.1.16</alibaba-druid.version>
 
         <!--  Mybatis Plus -->
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
         <mybatis-plus-dynamic-datasource.version>3.0.0</mybatis-plus-dynamic-datasource.version>
+
+        <!--  Liquibase -->
+        <liquibase.version>3.6.3</liquibase.version>
 
         <!--  Swagger2 -->
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
@@ -57,7 +60,7 @@
         <jsonwebtoken-jjwt.version>0.9.1</jsonwebtoken-jjwt.version>
 
         <!--Liquibase数据库版本更新工具-->
-        <liquibase.version>3.9.0</liquibase.version>
+        <liquibase.version>3.8.7</liquibase.version>
 
         <!--H2内存数据库-->
         <h2.version>1.4.200</h2.version>
@@ -259,7 +262,11 @@
                 <version>${baomidou-jobs.version}</version>
             </dependency>
 
-
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -326,6 +333,8 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>

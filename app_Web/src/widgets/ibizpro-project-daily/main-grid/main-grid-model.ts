@@ -47,6 +47,16 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
+        },
+        {
           name: 'totalestimates',
           prop: 'totalestimates',
           dataType: 'FLOAT',
@@ -55,6 +65,9 @@ export default class MainModel {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmstag',
         },
         {
           name: 'srfmajortext',

@@ -559,6 +559,34 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "assessresult")
     @JsonProperty("assessresult")
     private String assessresult;
+    /**
+     * orgid
+     */
+    @TableField(exist = false)
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
+    /**
+     * acl
+     */
+    @TableField(exist = false)
+    @JSONField(name = "acl")
+    @JsonProperty("acl")
+    private String acl;
+    /**
+     * acllist
+     */
+    @TableField(exist = false)
+    @JSONField(name = "acllist")
+    @JsonProperty("acllist")
+    private String acllist;
+    /**
+     * MDEPTID
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    private String mdeptid;
 
     /**
      * 

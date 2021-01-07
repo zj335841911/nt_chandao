@@ -64,6 +64,8 @@ function getLocaleResourceBase(){
 					pm: commonLogic.appcommonhandle("项目负责人",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
 					totalestimates: commonLogic.appcommonhandle("总工时",null), 
+					begin: commonLogic.appcommonhandle("开始日期",null), 
+					end: commonLogic.appcommonhandle("结束日期",null), 
 					project: commonLogic.appcommonhandle("项目编号",null), 
 					tasks: commonLogic.appcommonhandle("任务",null), 
 					ibizpro_projectdailyid: commonLogic.appcommonhandle("项目日报标识",null), 
@@ -77,6 +79,8 @@ function getLocaleResourceBase(){
 					projectname: commonLogic.appcommonhandle("项目名称",null),
 					pm: commonLogic.appcommonhandle("项目负责人",null),
 					date: commonLogic.appcommonhandle("日期",null),
+					begin: commonLogic.appcommonhandle("开始日期",null),
+					end: commonLogic.appcommonhandle("结束日期",null),
 					totalestimates: commonLogic.appcommonhandle("总工时",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
@@ -88,6 +92,24 @@ function getLocaleResourceBase(){
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
 				},
 				uiactions: {
+				},
+			},
+			gridviewtoolbar_toolbar: {
+				deuiaction3_manualcreatedaily: {
+					caption: commonLogic.appcommonhandle("生成日报",null),
+					tip: commonLogic.appcommonhandle("生成日报",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
 		};

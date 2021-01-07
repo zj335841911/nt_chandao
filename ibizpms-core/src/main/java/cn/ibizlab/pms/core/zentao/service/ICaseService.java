@@ -79,6 +79,7 @@ public interface ICaseService extends IService<Case> {
     Page<Case> searchCurSuite(CaseSearchContext context);
     Page<Case> searchCurTestTask(CaseSearchContext context);
     Page<Case> searchDefault(CaseSearchContext context);
+    Page<Case> searchESBulk(CaseSearchContext context);
     Page<Case> searchModuleRePortCase(CaseSearchContext context);
     Page<Case> searchModuleRePortCaseEntry(CaseSearchContext context);
     Page<Case> searchModuleRePortCase_Project(CaseSearchContext context);

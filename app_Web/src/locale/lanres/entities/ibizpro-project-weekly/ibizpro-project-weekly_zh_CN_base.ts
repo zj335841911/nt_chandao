@@ -18,6 +18,8 @@ function getLocaleResourceBase(){
 			week: commonLogic.appcommonhandle("周",null),
 			year: commonLogic.appcommonhandle("年",null),
 			month: commonLogic.appcommonhandle("月",null),
+			begindatestats: commonLogic.appcommonhandle("开始统计",null),
+			enddatestats: commonLogic.appcommonhandle("结束统计",null),
 		},
 			views: {
 				gridview: {
@@ -68,6 +70,8 @@ function getLocaleResourceBase(){
 					totalestimates1: commonLogic.appcommonhandle("总工时",null), 
 					tasks: commonLogic.appcommonhandle("任务",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
+					begindatestats: commonLogic.appcommonhandle("开始统计",null), 
+					enddatestats: commonLogic.appcommonhandle("结束统计",null), 
 					ibzpro_projectweeklyid: commonLogic.appcommonhandle("项目周报标识",null), 
 				},
 				uiactions: {
@@ -90,6 +94,24 @@ function getLocaleResourceBase(){
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
 				},
 				uiactions: {
+				},
+			},
+			gridviewtoolbar_toolbar: {
+				deuiaction3_createprojectweekly: {
+					caption: commonLogic.appcommonhandle("生成项目周报",null),
+					tip: commonLogic.appcommonhandle("生成项目周报",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
 		};

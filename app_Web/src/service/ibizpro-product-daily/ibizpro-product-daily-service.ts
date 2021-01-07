@@ -22,5 +22,19 @@ export default class IbizproProductDailyService extends IbizproProductDailyServi
         super(opts);
     }
 
+    /**
+     * ManualCreateDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductDailyServiceBase
+     */
+    public async ManualCreateDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = Http.getInstance().post(`/ibizproproductdailies/0/manualcreatedaily`,data,isloading);
+        return res;
+    }
+
 
 }

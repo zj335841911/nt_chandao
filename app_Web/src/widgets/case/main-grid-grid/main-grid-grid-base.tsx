@@ -428,7 +428,7 @@ export class MainGridGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.maingrid_grid.columns.title',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

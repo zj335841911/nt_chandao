@@ -6,7 +6,6 @@ import { ProductReportTabExpViewtabexppanelTabexppanelBase } from './product-rep
 import view_tabviewpanel from '@widgets/ibz-my-territory/product-report-tab-exp-viewtabviewpanel-tabviewpanel/product-report-tab-exp-viewtabviewpanel-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/ibz-my-territory/product-report-tab-exp-viewtabviewpanel2-tabviewpanel/product-report-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/ibz-my-territory/product-report-tab-exp-viewtabviewpanel3-tabviewpanel/product-report-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
-import view_tabviewpanel4 from '@widgets/ibz-my-territory/product-report-tab-exp-viewtabviewpanel4-tabviewpanel/product-report-tab-exp-viewtabviewpanel4-tabviewpanel.vue';
  
 
 /**
@@ -21,7 +20,6 @@ import view_tabviewpanel4 from '@widgets/ibz-my-territory/product-report-tab-exp
         view_tabviewpanel,
         view_tabviewpanel2,
         view_tabviewpanel3,
-        view_tabviewpanel4,
          
     },
 })

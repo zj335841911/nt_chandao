@@ -160,6 +160,9 @@ export const AppComponents = {
         v.component('app-tree',() => import('@/components/app-tree/app-tree.vue'));
         //文件列表
         v.component('app-mob-file-list',AppMobFileList);
+        //文件列表项
+        v.component('app-mob-file-list-item',() => import('@/components/app-mob-file-list-item/app-mob-file-list-item.vue'));
+
 
         // ui组件 BEGIN
         // 按钮

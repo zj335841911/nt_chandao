@@ -96,6 +96,10 @@ hide members
 |来源对象名称|IBIZ_SOURCENAME|TEXT|&nbsp;|
 |故事点|STORYPOINTS|SSCODELIST|&nbsp;|
 |评审结果|ASSESSRESULT|SSCODELIST|&nbsp;|
+|orgid|ORGID|TEXT|&nbsp;|
+|acl|ACL|TEXT|&nbsp;|
+|acllist|ACLLIST|TEXT|&nbsp;|
+|MDEPTID|MDEPTID|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -168,6 +172,10 @@ hide members
 |来源对象名称|默认规则|内容长度必须小于等于[100]|
 |故事点|默认规则|内容长度必须小于等于[60]|
 |评审结果|默认规则|内容长度必须小于等于[200]|
+|orgid|默认规则|内容长度必须小于等于[100]|
+|acl|默认规则|内容长度必须小于等于[100]|
+|acllist|默认规则|内容长度必须小于等于[100]|
+|MDEPTID|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -407,7 +415,9 @@ hide footbox
 |ByModule|通过模块查询([MYSQL5](../../appendix/query_MYSQL5.md#Story_ByModule))|否|&nbsp;|
 |CaseStory|相关用例需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_CaseStory))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Story_Default))|否|&nbsp;|
+|ESBulk|ES批量的导入([MYSQL5](../../appendix/query_MYSQL5.md#Story_ESBulk))|否|&nbsp;|
 |GetProductStories|获取产品需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_GetProductStories))|否|&nbsp;获取指定产品（含分支）中当前用户的相关需求|
+|MyAgentStory|我代理的需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyAgentStory))|否|&nbsp;|
 |MyCurOpenedStory|所创建需求数和对应的优先级及状态([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyCurOpenedStory))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyFavorites))|否|&nbsp;|
 |NotCurPlanLinkStory|计划关联需求(去除已关联)([MYSQL5](../../appendix/query_MYSQL5.md#Story_NotCurPlanLinkStory))|否|&nbsp;|
@@ -437,7 +447,9 @@ hide footbox
 |ByModule|通过模块查询|ByModule|否|&nbsp;|
 |CaseStory|相关用例需求|CaseStory|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|ESBulk|ES批量的导入|ESBulk|否|&nbsp;|
 |GetProductStories|获取产品需求|GetProductStories|否|&nbsp;|
+|MyAgentStory|我代理的需求|MyAgentStory|否|&nbsp;|
 |MyCurOpenedStory|所创建需求数和对应的优先级及状态|MyCurOpenedStory|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
 |NotCurPlanLinkStory|计划关联需求(去除已关联)|NotCurPlanLinkStory|否|&nbsp;|

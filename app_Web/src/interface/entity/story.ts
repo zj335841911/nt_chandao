@@ -549,4 +549,36 @@ export interface Story {
      * @memberof Story
      */
     assessresult?: any;
+
+    /**
+     * orgid
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    orgid?: any;
+
+    /**
+     * acl
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    acl?: any;
+
+    /**
+     * acllist
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    acllist?: any;
+
+    /**
+     * MDEPTID
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    mdeptid?: any;
 }

@@ -587,8 +587,9 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 8 | [汇总产品月报](#实体行为-汇总产品月报（StatsProductMonthly）) | StatsProductMonthly | 用户自定义 | 后台 |
+| 7 | [手动生成产品月报](#实体行为-手动生成产品月报（ManualCreateMonthly）) | ManualCreateMonthly | 用户自定义 | 后台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [汇总产品月报](#实体行为-汇总产品月报（StatsProductMonthly）) | StatsProductMonthly | 用户自定义 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -659,6 +660,18 @@ CheckKey
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-手动生成产品月报（ManualCreateMonthly）
+#### 说明
+手动生成产品月报
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无

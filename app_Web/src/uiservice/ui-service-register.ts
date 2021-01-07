@@ -84,6 +84,7 @@ export class UIServiceRegister {
         this.allUIService.set('ibzcasestep', () => import('@/uiservice/ibzcase-step/ibzcase-step-ui-service'));
         this.allUIService.set('taskestimate', () => import('@/uiservice/task-estimate/task-estimate-ui-service'));
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));
+        this.allUIService.set('taskestimatestats', () => import('@/uiservice/taskestimatestats/taskestimatestats-ui-service'));
         this.allUIService.set('plantempletdetail', () => import('@/uiservice/plan-templet-detail/plan-templet-detail-ui-service'));
         this.allUIService.set('todo', () => import('@/uiservice/todo/todo-ui-service'));
         this.allUIService.set('ibzlibmodule', () => import('@/uiservice/ibz-lib-module/ibz-lib-module-ui-service'));

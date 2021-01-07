@@ -84,6 +84,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('ibzcasestep', () => import('@/service/ibzcase-step/ibzcase-step-service'));
         this.allEntityService.set('taskestimate', () => import('@/service/task-estimate/task-estimate-service'));
         this.allEntityService.set('story', () => import('@/service/story/story-service'));
+        this.allEntityService.set('taskestimatestats', () => import('@/service/taskestimatestats/taskestimatestats-service'));
         this.allEntityService.set('plantempletdetail', () => import('@/service/plan-templet-detail/plan-templet-detail-service'));
         this.allEntityService.set('todo', () => import('@/service/todo/todo-service'));
         this.allEntityService.set('ibzlibmodule', () => import('@/service/ibz-lib-module/ibz-lib-module-service'));

@@ -15,6 +15,7 @@ export class CodeListServiceConstructor extends ServiceConstructorBase {
      * @memberof CodeListConstructor
      */
     protected init(): void {
+        this.allService.set('UserRealNameUnAssignTo_Gird', () => import('@/app-core/code-list/user-real-name-un-assign-to-gird'));
         this.allService.set('ProductBranch_Cache', () => import('@/app-core/code-list/product-branch-cache'));
         this.allService.set('MyPlanTask', () => import('@/app-core/code-list/my-plan-task'));
         this.allService.set('SysOperator', () => import('@/app-core/code-list/sys-operator'));
@@ -24,7 +25,6 @@ export class CodeListServiceConstructor extends ServiceConstructorBase {
         this.allService.set('CurProductBuild', () => import('@/app-core/code-list/cur-product-build'));
         this.allService.set('BugModule', () => import('@/app-core/code-list/bug-module'));
         this.allService.set('Role', () => import('@/app-core/code-list/role'));
-        this.allService.set('BugUserRealName', () => import('@/app-core/code-list/bug-user-real-name'));
         this.allService.set('CurCaseVersion', () => import('@/app-core/code-list/cur-case-version'));
         this.allService.set('ProductPlan', () => import('@/app-core/code-list/product-plan'));
         this.allService.set('UserRealNameProject', () => import('@/app-core/code-list/user-real-name-project'));

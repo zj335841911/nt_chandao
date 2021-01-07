@@ -439,6 +439,7 @@ function getLocaleResourceBase(){
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
 					assignedto: commonLogic.appcommonhandle("指派给",null), 
 					project: commonLogic.appcommonhandle("所属项目",null), 
+					product: commonLogic.appcommonhandle("所属产品",null), 
 					mailto: commonLogic.appcommonhandle("抄送给",null), 
 					mailtoconact: commonLogic.appcommonhandle("",null), 
 					mailtopk: commonLogic.appcommonhandle("抄送给",null), 

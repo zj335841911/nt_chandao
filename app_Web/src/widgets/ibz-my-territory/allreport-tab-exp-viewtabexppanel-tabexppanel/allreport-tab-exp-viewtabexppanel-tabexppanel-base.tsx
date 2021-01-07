@@ -105,7 +105,7 @@ export class ALLReportTabExpViewtabexppanelTabexppanelBase extends TabExpPanelCo
      * @type {*}
      * @memberof ALLReportTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:'PROJECT_MANAGER',visible: true,disabled: false},'tabviewpanel3':{resourcetag:'PRODUCT_MANAGER',visible: true,disabled: false}};
 
     /**
      * 组件创建完毕

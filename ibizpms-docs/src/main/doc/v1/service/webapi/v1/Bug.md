@@ -1322,6 +1322,78 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取ES批量的导入
+#### 访问路径
+/bugs/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 查询ES批量的导入
+#### 访问路径
+/bugs/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取我代理的Bug
+#### 访问路径
+/bugs/fetchmyagentbug
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 查询我代理的Bug
+#### 访问路径
+/bugs/searchmyagentbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取累计创建的Bug数
 #### 访问路径
 /bugs/fetchmycuropenedbug
@@ -3057,6 +3129,82 @@ POST
 ### 根据查询DEFAULT
 #### 访问路径
 /products/{product_id}/bugs/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取ES批量的导入
+#### 访问路径
+/products/{product_id}/bugs/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/products/{product_id}/bugs/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取我代理的Bug
+#### 访问路径
+/products/{product_id}/bugs/fetchmyagentbug
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询我代理的Bug
+#### 访问路径
+/products/{product_id}/bugs/searchmyagentbug
 
 #### 请求方法
 POST
@@ -4844,6 +4992,82 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取ES批量的导入
+#### 访问路径
+/stories/{story_id}/bugs/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/stories/{story_id}/bugs/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取我代理的Bug
+#### 访问路径
+/stories/{story_id}/bugs/fetchmyagentbug
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询我代理的Bug
+#### 访问路径
+/stories/{story_id}/bugs/searchmyagentbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取累计创建的Bug数
 #### 访问路径
 /stories/{story_id}/bugs/fetchmycuropenedbug
@@ -6615,6 +6839,82 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取ES批量的导入
+#### 访问路径
+/projects/{project_id}/bugs/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/projects/{project_id}/bugs/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取我代理的Bug
+#### 访问路径
+/projects/{project_id}/bugs/fetchmyagentbug
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询我代理的Bug
+#### 访问路径
+/projects/{project_id}/bugs/searchmyagentbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取累计创建的Bug数
 #### 访问路径
 /projects/{project_id}/bugs/fetchmycuropenedbug
@@ -8370,6 +8670,82 @@ POST
 ### 根据查询DEFAULT
 #### 访问路径
 /products/{product_id}/stories/{story_id}/bugs/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取ES批量的导入
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugDTO](#BugDTO)>：Bug实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取我代理的Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchmyagentbug
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [BugSearchContext](#BugSearchContext) | Bug查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugDTO](#BugDTO)>：Bug实体传输对象列表 |
+
+### 根据查询我代理的Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchmyagentbug
 
 #### 请求方法
 POST

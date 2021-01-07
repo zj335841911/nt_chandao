@@ -549,4 +549,36 @@ export interface SubStory {
      * @memberof SubStory
      */
     assessresult?: any;
+
+    /**
+     * orgid
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    orgid?: any;
+
+    /**
+     * acl
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    acl?: any;
+
+    /**
+     * acllist
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    acllist?: any;
+
+    /**
+     * MDEPTID
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    mdeptid?: any;
 }

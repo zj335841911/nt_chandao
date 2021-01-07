@@ -390,7 +390,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             },
             {
                 name: 'openedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -398,7 +398,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
             },
             {
                 name: 'resolvedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

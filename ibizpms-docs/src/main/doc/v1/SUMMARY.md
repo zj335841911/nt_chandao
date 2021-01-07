@@ -186,6 +186,8 @@
 
     * [任务预计](module/zentao/TaskEstimate.md) 
 
+    * [任务工时统计](module/zentao/TaskEstimateStats.md) 
+
     * [群组](module/zentao/Team.md) 
 
     * [测试报告](module/zentao/TestReport.md) 

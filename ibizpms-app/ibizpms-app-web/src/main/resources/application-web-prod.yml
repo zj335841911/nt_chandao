@@ -187,6 +187,10 @@ zuul:
       path: /stories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    taskestimatestats:
+      path: /taskestimatestats/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibzplantempletdetail:
       path: /plantempletdetails/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

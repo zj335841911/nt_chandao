@@ -99,27 +99,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('mindate')">
-                <el-table-column show-overflow-tooltip :prop="'mindate'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.mindate')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('date')">
+                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.mindate')}}
+                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.date')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.mindate"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('maxdate')">
-                <el-table-column show-overflow-tooltip :prop="'maxdate'" :label="$t('entities.ibzproproductusertask.productweeklygird_grid.columns.maxdate')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.ibzproproductusertask.productweeklygird_grid.columns.maxdate')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.maxdate"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

@@ -14,6 +14,9 @@ export default {
         '100': commonLogic.appcommonhandle("100",null),
         empty: commonLogic.appcommonhandle("",null),
     },
+    UserRealNameUnAssignTo_Gird: {
+        empty: commonLogic.appcommonhandle("未指派",null),
+    },
     Story__closed_reason: {
         'done': commonLogic.appcommonhandle("已完成",null),
         'subdivided': commonLogic.appcommonhandle("已细分",null),
@@ -197,9 +200,6 @@ export default {
         '2': commonLogic.appcommonhandle("2",null),
         '3': commonLogic.appcommonhandle("3",null),
         '4': commonLogic.appcommonhandle("4",null),
-        empty: commonLogic.appcommonhandle("",null),
-    },
-    BugUserRealName: {
         empty: commonLogic.appcommonhandle("",null),
     },
     Story__type: {

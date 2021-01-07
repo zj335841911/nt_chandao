@@ -138,7 +138,7 @@ export class ProductMonthlyGirdGridBase extends GridControlBase {
         },
         {
             name: 'consumed',
-            label: '当月消耗',
+            label: '当天消耗',
             langtag: 'entities.ibzproproductusertask.productmonthlygird_grid.columns.consumed',
             show: true,
             unit: 'PX',

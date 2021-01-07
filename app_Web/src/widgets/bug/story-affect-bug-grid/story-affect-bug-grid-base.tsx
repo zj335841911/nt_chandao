@@ -398,7 +398,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             },
             {
                 name: 'openedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -406,7 +406,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             },
             {
                 name: 'resolvedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -422,7 +422,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             },
             {
                 name: 'lasteditedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

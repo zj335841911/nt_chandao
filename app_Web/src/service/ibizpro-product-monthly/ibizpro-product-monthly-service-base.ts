@@ -155,6 +155,20 @@ export default class IbizproProductMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * ManualCreateMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductMonthlyServiceBase
+     */
+    public async ManualCreateMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibizproproductmonthlies/${context.ibizproproductmonthly}/manualcreatemonthly`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

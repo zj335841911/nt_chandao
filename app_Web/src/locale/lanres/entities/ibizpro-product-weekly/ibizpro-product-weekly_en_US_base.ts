@@ -64,6 +64,8 @@ function getLocaleResourceBase(){
 					po: commonLogic.appcommonhandle("产品负责人",null), 
 					totalestimates: commonLogic.appcommonhandle("总工时",null), 
 					date: commonLogic.appcommonhandle("日期",null), 
+					enddatestats: commonLogic.appcommonhandle("结束统计",null), 
+					begindatestats: commonLogic.appcommonhandle("开始统计",null), 
 					product: commonLogic.appcommonhandle("编号",null), 
 					tasks: commonLogic.appcommonhandle("任务",null), 
 					ibizpro_productweeklyid: commonLogic.appcommonhandle("产品周报标识",null), 
@@ -90,6 +92,24 @@ function getLocaleResourceBase(){
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
 				},
 				uiactions: {
+				},
+			},
+			usr2gridviewtoolbar_toolbar: {
+				deuiaction3_createproductreport: {
+					caption: commonLogic.appcommonhandle("生成周报",null),
+					tip: commonLogic.appcommonhandle("生成周报",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("Filter",null),
+					tip: commonLogic.appcommonhandle("Filter",null),
 				},
 			},
 		};

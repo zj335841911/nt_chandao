@@ -125,4 +125,20 @@ export interface IbizproProjectWeekly {
      * @memberof IbizproProjectWeekly
      */
     month?: any;
+
+    /**
+     * 开始统计
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    begindatestats?: any;
+
+    /**
+     * 结束统计
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    enddatestats?: any;
 }

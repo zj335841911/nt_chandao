@@ -106,6 +106,8 @@ export class MainEditFormBase extends EditFormControlBase {
         po: null,
         totalestimates: null,
         date: null,
+        enddatestats: null,
+        begindatestats: null,
         product: null,
         tasks: null,
         ibizpro_productweeklyid: null,
@@ -270,6 +272,20 @@ export class MainEditFormBase extends EditFormControlBase {
 
         date: new FormItemModel({
     caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        enddatestats: new FormItemModel({
+    caption: '结束统计', detailType: 'FORMITEM', name: 'enddatestats', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        begindatestats: new FormItemModel({
+    caption: '开始统计', detailType: 'FORMITEM', name: 'begindatestats', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

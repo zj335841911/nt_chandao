@@ -148,6 +148,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 手动生成项目月报
+#### 访问路径
+/ibizproprojectmonthlies/{ibizproprojectmonthly_id}/manualcreatemonthly
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibizproprojectmonthly_id | String | 项目月报主键ID |
+| 2 | ibizproprojectmonthlydto | [IbizproProjectMonthlyDTO](#IbizproProjectMonthlyDTO) | 项目月报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbizproProjectMonthlyDTO](#IbizproProjectMonthlyDTO)：项目月报实体传输对象 |
+
 ### 保存项目月报
 #### 访问路径
 /ibizproprojectmonthlies/save

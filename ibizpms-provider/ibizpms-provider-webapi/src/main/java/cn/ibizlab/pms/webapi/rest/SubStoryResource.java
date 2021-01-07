@@ -47,7 +47,7 @@ public class SubStoryResource {
     @Lazy
     public SubStoryMapping substoryMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Create')")
     @ApiOperation(value = "新建需求", tags = {"需求" },  notes = "新建需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/substories")
     public ResponseEntity<SubStoryDTO> create(@Validated @RequestBody SubStoryDTO substorydto) {
@@ -57,7 +57,7 @@ public class SubStoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Create')")
     @ApiOperation(value = "批量新建需求", tags = {"需求" },  notes = "批量新建需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/substories/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<SubStoryDTO> substorydtos) {
@@ -66,7 +66,7 @@ public class SubStoryResource {
     }
 
     @VersionCheck(entity = "story" , versionfield = "lastediteddate")
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
+    @PreAuthorize("hasPermission(this.storyService.get(#substory_id),'pms-Story-Update')")
     @ApiOperation(value = "更新需求", tags = {"需求" },  notes = "更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/substories/{substory_id}")
     public ResponseEntity<SubStoryDTO> update(@PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
@@ -77,7 +77,7 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
+    @PreAuthorize("hasPermission(this.storyService.getStoryByEntities(this.substoryMapping.toDomain(#substorydtos)),'pms-Story-Update')")
     @ApiOperation(value = "批量更新需求", tags = {"需求" },  notes = "批量更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/substories/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<SubStoryDTO> substorydtos) {
@@ -85,14 +85,14 @@ public class SubStoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
+    @PreAuthorize("hasPermission(this.storyService.get(#substory_id),'pms-Story-Remove')")
     @ApiOperation(value = "删除需求", tags = {"需求" },  notes = "删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/substories/{substory_id}")
     public ResponseEntity<Boolean> remove(@PathVariable("substory_id") Long substory_id) {
          return ResponseEntity.status(HttpStatus.OK).body(storyService.remove(substory_id));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
+    @PreAuthorize("hasPermission(this.storyService.getStoryByIds(#ids),'pms-Story-Remove')")
     @ApiOperation(value = "批量删除需求", tags = {"需求" },  notes = "批量删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/substories/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
@@ -100,7 +100,7 @@ public class SubStoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Get-all')")
+    @PostAuthorize("hasPermission(this.substoryMapping.toDomain(returnObject.body),'pms-Story-Get')")
     @ApiOperation(value = "获取需求", tags = {"需求" },  notes = "获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/substories/{substory_id}")
     public ResponseEntity<SubStoryDTO> get(@PathVariable("substory_id") Long substory_id) {
@@ -647,14 +647,14 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.reviewBatch(substoryMapping.toDomain(substorydtos)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Save')")
     @ApiOperation(value = "保存需求", tags = {"需求" },  notes = "保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/substories/save")
     public ResponseEntity<Boolean> save(@RequestBody SubStoryDTO substorydto) {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.save(substoryMapping.toDomain(substorydto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Save')")
     @ApiOperation(value = "批量保存需求", tags = {"需求" },  notes = "批量保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/substories/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<SubStoryDTO> substorydtos) {
@@ -752,7 +752,7 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.unlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取指派给我的需求", tags = {"需求" } ,notes = "获取指派给我的需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchassignedtomystory")
 	public ResponseEntity<List<SubStoryDTO>> fetchAssignedToMyStory(StorySearchContext context) {
@@ -765,7 +765,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询指派给我的需求", tags = {"需求" } ,notes = "查询指派给我的需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchassignedtomystory")
 	public ResponseEntity<Page<SubStoryDTO>> searchAssignedToMyStory(@RequestBody StorySearchContext context) {
@@ -774,7 +774,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取指派给我的需求（日历）", tags = {"需求" } ,notes = "获取指派给我的需求（日历）")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchassignedtomystorycalendar")
 	public ResponseEntity<List<SubStoryDTO>> fetchAssignedToMyStoryCalendar(StorySearchContext context) {
@@ -787,7 +787,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询指派给我的需求（日历）", tags = {"需求" } ,notes = "查询指派给我的需求（日历）")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchassignedtomystorycalendar")
 	public ResponseEntity<Page<SubStoryDTO>> searchAssignedToMyStoryCalendar(@RequestBody StorySearchContext context) {
@@ -796,7 +796,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取Bug相关需求", tags = {"需求" } ,notes = "获取Bug相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchbugstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchBugStory(StorySearchContext context) {
@@ -809,7 +809,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询Bug相关需求", tags = {"需求" } ,notes = "查询Bug相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchbugstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchBugStory(@RequestBody StorySearchContext context) {
@@ -818,7 +818,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取版本关联已完成的需求（选择数据源）", tags = {"需求" } ,notes = "获取版本关联已完成的需求（选择数据源）")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchbuildlinkcompletedstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchBuildLinkCompletedStories(StorySearchContext context) {
@@ -831,7 +831,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询版本关联已完成的需求（选择数据源）", tags = {"需求" } ,notes = "查询版本关联已完成的需求（选择数据源）")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchbuildlinkcompletedstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchBuildLinkCompletedStories(@RequestBody StorySearchContext context) {
@@ -840,7 +840,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取版本可关联的需求（产品内）", tags = {"需求" } ,notes = "获取版本可关联的需求（产品内）")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchbuildlinkablestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchBuildLinkableStories(StorySearchContext context) {
@@ -853,7 +853,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询版本可关联的需求（产品内）", tags = {"需求" } ,notes = "查询版本可关联的需求（产品内）")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchbuildlinkablestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchBuildLinkableStories(@RequestBody StorySearchContext context) {
@@ -862,7 +862,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取获取版本相关需求", tags = {"需求" } ,notes = "获取获取版本相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchbuildstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchBuildStories(@RequestBody StorySearchContext context) {
@@ -875,7 +875,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询获取版本相关需求", tags = {"需求" } ,notes = "查询获取版本相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchbuildstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchBuildStories(@RequestBody StorySearchContext context) {
@@ -884,7 +884,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取通过模块查询", tags = {"需求" } ,notes = "获取通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchbymodule")
 	public ResponseEntity<List<SubStoryDTO>> fetchByModule(@RequestBody StorySearchContext context) {
@@ -897,7 +897,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询通过模块查询", tags = {"需求" } ,notes = "查询通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchbymodule")
 	public ResponseEntity<Page<SubStoryDTO>> searchByModule(@RequestBody StorySearchContext context) {
@@ -906,7 +906,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取相关用例需求", tags = {"需求" } ,notes = "获取相关用例需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchcasestory")
 	public ResponseEntity<List<SubStoryDTO>> fetchCaseStory(StorySearchContext context) {
@@ -919,7 +919,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询相关用例需求", tags = {"需求" } ,notes = "查询相关用例需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchcasestory")
 	public ResponseEntity<Page<SubStoryDTO>> searchCaseStory(@RequestBody StorySearchContext context) {
@@ -928,7 +928,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"需求" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchdefault")
 	public ResponseEntity<List<SubStoryDTO>> fetchDefault(@RequestBody StorySearchContext context) {
@@ -941,7 +941,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"需求" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchdefault")
 	public ResponseEntity<Page<SubStoryDTO>> searchDefault(@RequestBody StorySearchContext context) {
@@ -950,7 +950,29 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchESBulk-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "获取ES批量的导入", tags = {"需求" } ,notes = "获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/substories/fetchesbulk")
+	public ResponseEntity<List<SubStoryDTO>> fetchESBulk(StorySearchContext context) {
+        Page<Story> domains = storyService.searchESBulk(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchESBulk-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "查询ES批量的导入", tags = {"需求" } ,notes = "查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/substories/searchesbulk")
+	public ResponseEntity<Page<SubStoryDTO>> searchESBulk(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取获取产品需求", tags = {"需求" } ,notes = "获取获取产品需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchgetproductstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchGetProductStories(StorySearchContext context) {
@@ -963,7 +985,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询获取产品需求", tags = {"需求" } ,notes = "查询获取产品需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchgetproductstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchGetProductStories(@RequestBody StorySearchContext context) {
@@ -972,7 +994,29 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyAgentStory-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "获取我代理的需求", tags = {"需求" } ,notes = "获取我代理的需求")
+    @RequestMapping(method= RequestMethod.GET , value="/substories/fetchmyagentstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchMyAgentStory(StorySearchContext context) {
+        Page<Story> domains = storyService.searchMyAgentStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyAgentStory-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "查询我代理的需求", tags = {"需求" } ,notes = "查询我代理的需求")
+    @RequestMapping(method= RequestMethod.POST , value="/substories/searchmyagentstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchMyAgentStory(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchMyAgentStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取所创建需求数和对应的优先级及状态", tags = {"需求" } ,notes = "获取所创建需求数和对应的优先级及状态")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchmycuropenedstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchMyCurOpenedStory(StorySearchContext context) {
@@ -985,7 +1029,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询所创建需求数和对应的优先级及状态", tags = {"需求" } ,notes = "查询所创建需求数和对应的优先级及状态")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchmycuropenedstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchMyCurOpenedStory(@RequestBody StorySearchContext context) {
@@ -994,7 +1038,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取我的收藏", tags = {"需求" } ,notes = "获取我的收藏")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchmyfavorites")
 	public ResponseEntity<List<SubStoryDTO>> fetchMyFavorites(@RequestBody StorySearchContext context) {
@@ -1007,7 +1051,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询我的收藏", tags = {"需求" } ,notes = "查询我的收藏")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchmyfavorites")
 	public ResponseEntity<Page<SubStoryDTO>> searchMyFavorites(@RequestBody StorySearchContext context) {
@@ -1016,7 +1060,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取计划关联需求(去除已关联)", tags = {"需求" } ,notes = "获取计划关联需求(去除已关联)")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchnotcurplanlinkstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchNotCurPlanLinkStory(StorySearchContext context) {
@@ -1029,7 +1073,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询计划关联需求(去除已关联)", tags = {"需求" } ,notes = "查询计划关联需求(去除已关联)")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchnotcurplanlinkstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchNotCurPlanLinkStory(@RequestBody StorySearchContext context) {
@@ -1038,7 +1082,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取数据查询", tags = {"需求" } ,notes = "获取数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchparentdefault")
 	public ResponseEntity<List<SubStoryDTO>> fetchParentDefault(@RequestBody StorySearchContext context) {
@@ -1051,7 +1095,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询数据查询", tags = {"需求" } ,notes = "查询数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchparentdefault")
 	public ResponseEntity<Page<SubStoryDTO>> searchParentDefault(@RequestBody StorySearchContext context) {
@@ -1060,7 +1104,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取数据查询", tags = {"需求" } ,notes = "获取数据查询")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchparentdefaultq")
 	public ResponseEntity<List<SubStoryDTO>> fetchParentDefaultQ(StorySearchContext context) {
@@ -1073,7 +1117,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询数据查询", tags = {"需求" } ,notes = "查询数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchparentdefaultq")
 	public ResponseEntity<Page<SubStoryDTO>> searchParentDefaultQ(@RequestBody StorySearchContext context) {
@@ -1082,7 +1126,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取项目关联需求", tags = {"需求" } ,notes = "获取项目关联需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchprojectlinkstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchProjectLinkStory(StorySearchContext context) {
@@ -1095,7 +1139,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询项目关联需求", tags = {"需求" } ,notes = "查询项目关联需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchprojectlinkstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchProjectLinkStory(@RequestBody StorySearchContext context) {
@@ -1104,7 +1148,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取项目相关需求", tags = {"需求" } ,notes = "获取项目相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchprojectstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchProjectStories(@RequestBody StorySearchContext context) {
@@ -1117,7 +1161,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询项目相关需求", tags = {"需求" } ,notes = "查询项目相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchprojectstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchProjectStories(@RequestBody StorySearchContext context) {
@@ -1126,7 +1170,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取版本可关联的完成的需求", tags = {"需求" } ,notes = "获取版本可关联的完成的需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchreleaselinkablestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchReleaseLinkableStories(StorySearchContext context) {
@@ -1139,7 +1183,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询版本可关联的完成的需求", tags = {"需求" } ,notes = "查询版本可关联的完成的需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchreleaselinkablestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchReleaseLinkableStories(@RequestBody StorySearchContext context) {
@@ -1148,7 +1192,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取获取产品发布相关需求", tags = {"需求" } ,notes = "获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchreleasestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchReleaseStories(@RequestBody StorySearchContext context) {
@@ -1161,7 +1205,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询获取产品发布相关需求", tags = {"需求" } ,notes = "查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchreleasestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchReleaseStories(@RequestBody StorySearchContext context) {
@@ -1170,7 +1214,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取通过模块查询", tags = {"需求" } ,notes = "获取通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/substories/fetchreportstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchReportStories(@RequestBody StorySearchContext context) {
@@ -1183,7 +1227,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询通过模块查询", tags = {"需求" } ,notes = "查询通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchreportstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchReportStories(@RequestBody StorySearchContext context) {
@@ -1192,7 +1236,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取获取产品发布相关需求", tags = {"需求" } ,notes = "获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchstorychild")
 	public ResponseEntity<List<SubStoryDTO>> fetchStoryChild(StorySearchContext context) {
@@ -1205,7 +1249,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询获取产品发布相关需求", tags = {"需求" } ,notes = "查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchstorychild")
 	public ResponseEntity<Page<SubStoryDTO>> searchStoryChild(@RequestBody StorySearchContext context) {
@@ -1214,7 +1258,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取获取产品发布相关需求", tags = {"需求" } ,notes = "获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchstoryrelated")
 	public ResponseEntity<List<SubStoryDTO>> fetchStoryRelated(StorySearchContext context) {
@@ -1227,7 +1271,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询获取产品发布相关需求", tags = {"需求" } ,notes = "查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchstoryrelated")
 	public ResponseEntity<Page<SubStoryDTO>> searchStoryRelated(@RequestBody StorySearchContext context) {
@@ -1236,7 +1280,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取需求细分", tags = {"需求" } ,notes = "获取需求细分")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchsubstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStory(StorySearchContext context) {
@@ -1249,7 +1293,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询需求细分", tags = {"需求" } ,notes = "查询需求细分")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchsubstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStory(@RequestBody StorySearchContext context) {
@@ -1258,7 +1302,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取任务相关需求", tags = {"需求" } ,notes = "获取任务相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchtaskrelatedstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchTaskRelatedStory(StorySearchContext context) {
@@ -1271,7 +1315,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询任务相关需求", tags = {"需求" } ,notes = "查询任务相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchtaskrelatedstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchTaskRelatedStory(@RequestBody StorySearchContext context) {
@@ -1280,7 +1324,7 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "获取默认（全部数据）", tags = {"需求" } ,notes = "获取默认（全部数据）")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchview")
 	public ResponseEntity<List<SubStoryDTO>> fetchView(StorySearchContext context) {
@@ -1293,7 +1337,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "查询默认（全部数据）", tags = {"需求" } ,notes = "查询默认（全部数据）")
     @RequestMapping(method= RequestMethod.POST , value="/substories/searchview")
 	public ResponseEntity<Page<SubStoryDTO>> searchView(@RequestBody StorySearchContext context) {
@@ -1303,7 +1347,7 @@ public class SubStoryResource {
 	}
 
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Create')")
     @ApiOperation(value = "根据需求建立需求", tags = {"需求" },  notes = "根据需求建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories")
     public ResponseEntity<SubStoryDTO> createByStory(@PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
@@ -1314,7 +1358,7 @@ public class SubStoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Create')")
     @ApiOperation(value = "根据需求批量建立需求", tags = {"需求" },  notes = "根据需求批量建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batch")
     public ResponseEntity<Boolean> createBatchByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
@@ -1327,7 +1371,7 @@ public class SubStoryResource {
     }
 
     @VersionCheck(entity = "story" , versionfield = "lastediteddate")
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
+    @PreAuthorize("hasPermission(this.storyService.get(#substory_id),'pms-Story-Update')")
     @ApiOperation(value = "根据需求更新需求", tags = {"需求" },  notes = "根据需求更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/substories/{substory_id}")
     public ResponseEntity<SubStoryDTO> updateByStory(@PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
@@ -1339,7 +1383,7 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
+    @PreAuthorize("hasPermission(this.storyService.getStoryByEntities(this.substoryMapping.toDomain(#substorydtos)),'pms-Story-Update')")
     @ApiOperation(value = "根据需求批量更新需求", tags = {"需求" },  notes = "根据需求批量更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/substories/batch")
     public ResponseEntity<Boolean> updateBatchByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
@@ -1351,14 +1395,14 @@ public class SubStoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
+    @PreAuthorize("hasPermission(this.storyService.get(#substory_id),'pms-Story-Remove')")
     @ApiOperation(value = "根据需求删除需求", tags = {"需求" },  notes = "根据需求删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/substories/{substory_id}")
     public ResponseEntity<Boolean> removeByStory(@PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(storyService.remove(substory_id));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
+    @PreAuthorize("hasPermission(this.storyService.getStoryByIds(#ids),'pms-Story-Remove')")
     @ApiOperation(value = "根据需求批量删除需求", tags = {"需求" },  notes = "根据需求批量删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/substories/batch")
     public ResponseEntity<Boolean> removeBatchByStory(@RequestBody List<Long> ids) {
@@ -1366,7 +1410,7 @@ public class SubStoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Get-all')")
+    @PostAuthorize("hasPermission(this.substoryMapping.toDomain(returnObject.body),'pms-Story-Get')")
     @ApiOperation(value = "根据需求获取需求", tags = {"需求" },  notes = "根据需求获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/substories/{substory_id}")
     public ResponseEntity<SubStoryDTO> getByStory(@PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id) {
@@ -1854,7 +1898,7 @@ public class SubStoryResource {
     public ResponseEntity<Boolean> reviewByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.reviewBatch(substoryMapping.toDomain(substorydtos)));
     }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Save')")
     @ApiOperation(value = "根据需求保存需求", tags = {"需求" },  notes = "根据需求保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/save")
     public ResponseEntity<Boolean> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
@@ -1863,7 +1907,7 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.save(domain));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Save')")
     @ApiOperation(value = "根据需求批量保存需求", tags = {"需求" },  notes = "根据需求批量保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/savebatch")
     public ResponseEntity<Boolean> saveBatchByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
@@ -1955,7 +1999,7 @@ public class SubStoryResource {
     public ResponseEntity<Boolean> unlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.unlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
     }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取指派给我的需求", tags = {"需求" } ,notes = "根据需求获取指派给我的需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchassignedtomystory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryAssignedToMyStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -1969,7 +2013,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询指派给我的需求", tags = {"需求" } ,notes = "根据需求查询指派给我的需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchassignedtomystory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryAssignedToMyStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -1978,7 +2022,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取指派给我的需求（日历）", tags = {"需求" } ,notes = "根据需求获取指派给我的需求（日历）")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchassignedtomystorycalendar")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryAssignedToMyStoryCalendarByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -1992,7 +2036,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询指派给我的需求（日历）", tags = {"需求" } ,notes = "根据需求查询指派给我的需求（日历）")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchassignedtomystorycalendar")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryAssignedToMyStoryCalendarByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2001,7 +2045,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取Bug相关需求", tags = {"需求" } ,notes = "根据需求获取Bug相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchbugstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBugStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2015,7 +2059,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询Bug相关需求", tags = {"需求" } ,notes = "根据需求查询Bug相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchbugstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBugStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2024,7 +2068,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取版本关联已完成的需求（选择数据源）", tags = {"需求" } ,notes = "根据需求获取版本关联已完成的需求（选择数据源）")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchbuildlinkcompletedstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBuildLinkCompletedStoriesByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2038,7 +2082,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询版本关联已完成的需求（选择数据源）", tags = {"需求" } ,notes = "根据需求查询版本关联已完成的需求（选择数据源）")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchbuildlinkcompletedstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBuildLinkCompletedStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2047,7 +2091,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取版本可关联的需求（产品内）", tags = {"需求" } ,notes = "根据需求获取版本可关联的需求（产品内）")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchbuildlinkablestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBuildLinkableStoriesByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2061,7 +2105,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询版本可关联的需求（产品内）", tags = {"需求" } ,notes = "根据需求查询版本可关联的需求（产品内）")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchbuildlinkablestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBuildLinkableStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2070,7 +2114,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取获取版本相关需求", tags = {"需求" } ,notes = "根据需求获取获取版本相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchbuildstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBuildStoriesByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2084,7 +2128,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询获取版本相关需求", tags = {"需求" } ,notes = "根据需求查询获取版本相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchbuildstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBuildStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2093,7 +2137,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取通过模块查询", tags = {"需求" } ,notes = "根据需求获取通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchbymodule")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryByModuleByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2107,7 +2151,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询通过模块查询", tags = {"需求" } ,notes = "根据需求查询通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchbymodule")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryByModuleByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2116,7 +2160,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取相关用例需求", tags = {"需求" } ,notes = "根据需求获取相关用例需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchcasestory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryCaseStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2130,7 +2174,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询相关用例需求", tags = {"需求" } ,notes = "根据需求查询相关用例需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchcasestory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryCaseStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2139,7 +2183,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取DEFAULT", tags = {"需求" } ,notes = "根据需求获取DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchdefault")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryDefaultByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2153,7 +2197,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询DEFAULT", tags = {"需求" } ,notes = "根据需求查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchdefault")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryDefaultByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2162,7 +2206,30 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchESBulk-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据需求获取ES批量的导入", tags = {"需求" } ,notes = "根据需求获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchesbulk")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryESBulkByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchESBulk(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchESBulk-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据需求查询ES批量的导入", tags = {"需求" } ,notes = "根据需求查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchesbulk")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryESBulkByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取获取产品需求", tags = {"需求" } ,notes = "根据需求获取获取产品需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchgetproductstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryGetProductStoriesByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2176,7 +2243,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询获取产品需求", tags = {"需求" } ,notes = "根据需求查询获取产品需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchgetproductstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryGetProductStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2185,7 +2252,30 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyAgentStory-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据需求获取我代理的需求", tags = {"需求" } ,notes = "根据需求获取我代理的需求")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchmyagentstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryMyAgentStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchMyAgentStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyAgentStory-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据需求查询我代理的需求", tags = {"需求" } ,notes = "根据需求查询我代理的需求")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchmyagentstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyAgentStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchMyAgentStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取所创建需求数和对应的优先级及状态", tags = {"需求" } ,notes = "根据需求获取所创建需求数和对应的优先级及状态")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchmycuropenedstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryMyCurOpenedStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2199,7 +2289,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询所创建需求数和对应的优先级及状态", tags = {"需求" } ,notes = "根据需求查询所创建需求数和对应的优先级及状态")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchmycuropenedstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyCurOpenedStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2208,7 +2298,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取我的收藏", tags = {"需求" } ,notes = "根据需求获取我的收藏")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchmyfavorites")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryMyFavoritesByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2222,7 +2312,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询我的收藏", tags = {"需求" } ,notes = "根据需求查询我的收藏")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchmyfavorites")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyFavoritesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2231,7 +2321,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据需求获取计划关联需求(去除已关联)")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchnotcurplanlinkstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryNotCurPlanLinkStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2245,7 +2335,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据需求查询计划关联需求(去除已关联)")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchnotcurplanlinkstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryNotCurPlanLinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2254,7 +2344,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取数据查询", tags = {"需求" } ,notes = "根据需求获取数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchparentdefault")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryParentDefaultByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2268,7 +2358,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询数据查询", tags = {"需求" } ,notes = "根据需求查询数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchparentdefault")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryParentDefaultByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2277,7 +2367,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取数据查询", tags = {"需求" } ,notes = "根据需求获取数据查询")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchparentdefaultq")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryParentDefaultQByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2291,7 +2381,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询数据查询", tags = {"需求" } ,notes = "根据需求查询数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchparentdefaultq")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryParentDefaultQByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2300,7 +2390,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取项目关联需求", tags = {"需求" } ,notes = "根据需求获取项目关联需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchprojectlinkstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryProjectLinkStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2314,7 +2404,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询项目关联需求", tags = {"需求" } ,notes = "根据需求查询项目关联需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchprojectlinkstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryProjectLinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2323,7 +2413,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取项目相关需求", tags = {"需求" } ,notes = "根据需求获取项目相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchprojectstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryProjectStoriesByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2337,7 +2427,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询项目相关需求", tags = {"需求" } ,notes = "根据需求查询项目相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchprojectstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryProjectStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2346,7 +2436,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取版本可关联的完成的需求", tags = {"需求" } ,notes = "根据需求获取版本可关联的完成的需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchreleaselinkablestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryReleaseLinkableStoriesByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2360,7 +2450,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询版本可关联的完成的需求", tags = {"需求" } ,notes = "根据需求查询版本可关联的完成的需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchreleaselinkablestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryReleaseLinkableStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2369,7 +2459,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据需求获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchreleasestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryReleaseStoriesByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2383,7 +2473,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询获取产品发布相关需求", tags = {"需求" } ,notes = "根据需求查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchreleasestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryReleaseStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2392,7 +2482,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取通过模块查询", tags = {"需求" } ,notes = "根据需求获取通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchreportstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryReportStoriesByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -2406,7 +2496,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询通过模块查询", tags = {"需求" } ,notes = "根据需求查询通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchreportstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryReportStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2415,7 +2505,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据需求获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchstorychild")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryStoryChildByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2429,7 +2519,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询获取产品发布相关需求", tags = {"需求" } ,notes = "根据需求查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchstorychild")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryStoryChildByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2438,7 +2528,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据需求获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchstoryrelated")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryStoryRelatedByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2452,7 +2542,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询获取产品发布相关需求", tags = {"需求" } ,notes = "根据需求查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchstoryrelated")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryStoryRelatedByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2461,7 +2551,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取需求细分", tags = {"需求" } ,notes = "根据需求获取需求细分")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchsubstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStorySubStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2475,7 +2565,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询需求细分", tags = {"需求" } ,notes = "根据需求查询需求细分")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchsubstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStorySubStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2484,7 +2574,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取任务相关需求", tags = {"需求" } ,notes = "根据需求获取任务相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchtaskrelatedstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryTaskRelatedStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2498,7 +2588,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询任务相关需求", tags = {"需求" } ,notes = "根据需求查询任务相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchtaskrelatedstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryTaskRelatedStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2507,7 +2597,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取默认（全部数据）", tags = {"需求" } ,notes = "根据需求获取默认（全部数据）")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchview")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryViewByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -2521,7 +2611,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求查询默认（全部数据）", tags = {"需求" } ,notes = "根据需求查询默认（全部数据）")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchview")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryViewByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -2530,7 +2620,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Create')")
     @ApiOperation(value = "根据产品需求建立需求", tags = {"需求" },  notes = "根据产品需求建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories")
     public ResponseEntity<SubStoryDTO> createByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
@@ -2541,7 +2631,7 @@ public class SubStoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Create')")
     @ApiOperation(value = "根据产品需求批量建立需求", tags = {"需求" },  notes = "根据产品需求批量建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batch")
     public ResponseEntity<Boolean> createBatchByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
@@ -2554,7 +2644,7 @@ public class SubStoryResource {
     }
 
     @VersionCheck(entity = "story" , versionfield = "lastediteddate")
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
+    @PreAuthorize("hasPermission(this.storyService.get(#substory_id),'pms-Story-Update')")
     @ApiOperation(value = "根据产品需求更新需求", tags = {"需求" },  notes = "根据产品需求更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}")
     public ResponseEntity<SubStoryDTO> updateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
@@ -2566,7 +2656,7 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
+    @PreAuthorize("hasPermission(this.storyService.getStoryByEntities(this.substoryMapping.toDomain(#substorydtos)),'pms-Story-Update')")
     @ApiOperation(value = "根据产品需求批量更新需求", tags = {"需求" },  notes = "根据产品需求批量更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/substories/batch")
     public ResponseEntity<Boolean> updateBatchByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
@@ -2578,14 +2668,14 @@ public class SubStoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
+    @PreAuthorize("hasPermission(this.storyService.get(#substory_id),'pms-Story-Remove')")
     @ApiOperation(value = "根据产品需求删除需求", tags = {"需求" },  notes = "根据产品需求删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}")
     public ResponseEntity<Boolean> removeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(storyService.remove(substory_id));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
+    @PreAuthorize("hasPermission(this.storyService.getStoryByIds(#ids),'pms-Story-Remove')")
     @ApiOperation(value = "根据产品需求批量删除需求", tags = {"需求" },  notes = "根据产品需求批量删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/substories/batch")
     public ResponseEntity<Boolean> removeBatchByProductStory(@RequestBody List<Long> ids) {
@@ -2593,7 +2683,7 @@ public class SubStoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Get-all')")
+    @PostAuthorize("hasPermission(this.substoryMapping.toDomain(returnObject.body),'pms-Story-Get')")
     @ApiOperation(value = "根据产品需求获取需求", tags = {"需求" },  notes = "根据产品需求获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}")
     public ResponseEntity<SubStoryDTO> getByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id) {
@@ -3081,7 +3171,7 @@ public class SubStoryResource {
     public ResponseEntity<Boolean> reviewByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.reviewBatch(substoryMapping.toDomain(substorydtos)));
     }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Save')")
     @ApiOperation(value = "根据产品需求保存需求", tags = {"需求" },  notes = "根据产品需求保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/save")
     public ResponseEntity<Boolean> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
@@ -3090,7 +3180,7 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.save(domain));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
+    @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Save')")
     @ApiOperation(value = "根据产品需求批量保存需求", tags = {"需求" },  notes = "根据产品需求批量保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/savebatch")
     public ResponseEntity<Boolean> saveBatchByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
@@ -3182,7 +3272,7 @@ public class SubStoryResource {
     public ResponseEntity<Boolean> unlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.unlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
     }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取指派给我的需求", tags = {"需求" } ,notes = "根据产品需求获取指派给我的需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchassignedtomystory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryAssignedToMyStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3196,7 +3286,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询指派给我的需求", tags = {"需求" } ,notes = "根据产品需求查询指派给我的需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchassignedtomystory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryAssignedToMyStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3205,7 +3295,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取指派给我的需求（日历）", tags = {"需求" } ,notes = "根据产品需求获取指派给我的需求（日历）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchassignedtomystorycalendar")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryAssignedToMyStoryCalendarByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3219,7 +3309,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStoryCalendar-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询指派给我的需求（日历）", tags = {"需求" } ,notes = "根据产品需求查询指派给我的需求（日历）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchassignedtomystorycalendar")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryAssignedToMyStoryCalendarByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3228,7 +3318,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取Bug相关需求", tags = {"需求" } ,notes = "根据产品需求获取Bug相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchbugstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBugStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3242,7 +3332,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询Bug相关需求", tags = {"需求" } ,notes = "根据产品需求查询Bug相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchbugstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBugStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3251,7 +3341,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取版本关联已完成的需求（选择数据源）", tags = {"需求" } ,notes = "根据产品需求获取版本关联已完成的需求（选择数据源）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchbuildlinkcompletedstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBuildLinkCompletedStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3265,7 +3355,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询版本关联已完成的需求（选择数据源）", tags = {"需求" } ,notes = "根据产品需求查询版本关联已完成的需求（选择数据源）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchbuildlinkcompletedstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBuildLinkCompletedStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3274,7 +3364,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取版本可关联的需求（产品内）", tags = {"需求" } ,notes = "根据产品需求获取版本可关联的需求（产品内）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchbuildlinkablestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBuildLinkableStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3288,7 +3378,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询版本可关联的需求（产品内）", tags = {"需求" } ,notes = "根据产品需求查询版本可关联的需求（产品内）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchbuildlinkablestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBuildLinkableStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3297,7 +3387,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取获取版本相关需求", tags = {"需求" } ,notes = "根据产品需求获取获取版本相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchbuildstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBuildStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3311,7 +3401,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询获取版本相关需求", tags = {"需求" } ,notes = "根据产品需求查询获取版本相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchbuildstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBuildStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3320,7 +3410,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取通过模块查询", tags = {"需求" } ,notes = "根据产品需求获取通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchbymodule")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryByModuleByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3334,7 +3424,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchByModule-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询通过模块查询", tags = {"需求" } ,notes = "根据产品需求查询通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchbymodule")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryByModuleByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3343,7 +3433,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取相关用例需求", tags = {"需求" } ,notes = "根据产品需求获取相关用例需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchcasestory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryCaseStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3357,7 +3447,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询相关用例需求", tags = {"需求" } ,notes = "根据产品需求查询相关用例需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchcasestory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryCaseStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3366,7 +3456,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取DEFAULT", tags = {"需求" } ,notes = "根据产品需求获取DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchdefault")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3380,7 +3470,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询DEFAULT", tags = {"需求" } ,notes = "根据产品需求查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchdefault")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3389,7 +3479,30 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchESBulk-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据产品需求获取ES批量的导入", tags = {"需求" } ,notes = "根据产品需求获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchesbulk")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryESBulkByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchESBulk(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchESBulk-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据产品需求查询ES批量的导入", tags = {"需求" } ,notes = "根据产品需求查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchesbulk")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryESBulkByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取获取产品需求", tags = {"需求" } ,notes = "根据产品需求获取获取产品需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchgetproductstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryGetProductStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3403,7 +3516,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchGetProductStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询获取产品需求", tags = {"需求" } ,notes = "根据产品需求查询获取产品需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchgetproductstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryGetProductStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3412,7 +3525,30 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyAgentStory-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据产品需求获取我代理的需求", tags = {"需求" } ,notes = "根据产品需求获取我代理的需求")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchmyagentstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryMyAgentStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchMyAgentStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyAgentStory-all') and hasPermission(#context,'pms-Story-Get')")
+	@ApiOperation(value = "根据产品需求查询我代理的需求", tags = {"需求" } ,notes = "根据产品需求查询我代理的需求")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchmyagentstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyAgentStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchMyAgentStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取所创建需求数和对应的优先级及状态", tags = {"需求" } ,notes = "根据产品需求获取所创建需求数和对应的优先级及状态")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchmycuropenedstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryMyCurOpenedStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3426,7 +3562,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyCurOpenedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询所创建需求数和对应的优先级及状态", tags = {"需求" } ,notes = "根据产品需求查询所创建需求数和对应的优先级及状态")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchmycuropenedstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyCurOpenedStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3435,7 +3571,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取我的收藏", tags = {"需求" } ,notes = "根据产品需求获取我的收藏")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchmyfavorites")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3449,7 +3585,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询我的收藏", tags = {"需求" } ,notes = "根据产品需求查询我的收藏")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchmyfavorites")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3458,7 +3594,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据产品需求获取计划关联需求(去除已关联)")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchnotcurplanlinkstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryNotCurPlanLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3472,7 +3608,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据产品需求查询计划关联需求(去除已关联)")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchnotcurplanlinkstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryNotCurPlanLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3481,7 +3617,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取数据查询", tags = {"需求" } ,notes = "根据产品需求获取数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchparentdefault")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryParentDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3495,7 +3631,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询数据查询", tags = {"需求" } ,notes = "根据产品需求查询数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchparentdefault")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryParentDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3504,7 +3640,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取数据查询", tags = {"需求" } ,notes = "根据产品需求获取数据查询")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchparentdefaultq")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryParentDefaultQByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3518,7 +3654,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询数据查询", tags = {"需求" } ,notes = "根据产品需求查询数据查询")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchparentdefaultq")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryParentDefaultQByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3527,7 +3663,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取项目关联需求", tags = {"需求" } ,notes = "根据产品需求获取项目关联需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchprojectlinkstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryProjectLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3541,7 +3677,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询项目关联需求", tags = {"需求" } ,notes = "根据产品需求查询项目关联需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchprojectlinkstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryProjectLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3550,7 +3686,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取项目相关需求", tags = {"需求" } ,notes = "根据产品需求获取项目相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchprojectstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryProjectStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3564,7 +3700,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询项目相关需求", tags = {"需求" } ,notes = "根据产品需求查询项目相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchprojectstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryProjectStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3573,7 +3709,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取版本可关联的完成的需求", tags = {"需求" } ,notes = "根据产品需求获取版本可关联的完成的需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchreleaselinkablestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryReleaseLinkableStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3587,7 +3723,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseLinkableStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询版本可关联的完成的需求", tags = {"需求" } ,notes = "根据产品需求查询版本可关联的完成的需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchreleaselinkablestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryReleaseLinkableStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3596,7 +3732,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品需求获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchreleasestories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryReleaseStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3610,7 +3746,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品需求查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchreleasestories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryReleaseStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3619,7 +3755,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取通过模块查询", tags = {"需求" } ,notes = "根据产品需求获取通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchreportstories")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryReportStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
@@ -3633,7 +3769,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询通过模块查询", tags = {"需求" } ,notes = "根据产品需求查询通过模块查询")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchreportstories")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryReportStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3642,7 +3778,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品需求获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchstorychild")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryStoryChildByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3656,7 +3792,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryChild-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品需求查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchstorychild")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryStoryChildByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3665,7 +3801,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品需求获取获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchstoryrelated")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryStoryRelatedByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3679,7 +3815,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchStoryRelated-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品需求查询获取产品发布相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchstoryrelated")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryStoryRelatedByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3688,7 +3824,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取需求细分", tags = {"需求" } ,notes = "根据产品需求获取需求细分")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchsubstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStorySubStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3702,7 +3838,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchSubStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询需求细分", tags = {"需求" } ,notes = "根据产品需求查询需求细分")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchsubstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStorySubStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3711,7 +3847,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取任务相关需求", tags = {"需求" } ,notes = "根据产品需求获取任务相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryTaskRelatedStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3725,7 +3861,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchTaskRelatedStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询任务相关需求", tags = {"需求" } ,notes = "根据产品需求查询任务相关需求")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryTaskRelatedStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
@@ -3734,7 +3870,7 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取默认（全部数据）", tags = {"需求" } ,notes = "根据产品需求获取默认（全部数据）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchview")
 	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryViewByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
@@ -3748,7 +3884,7 @@ public class SubStoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchView-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求查询默认（全部数据）", tags = {"需求" } ,notes = "根据产品需求查询默认（全部数据）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchview")
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryViewByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
