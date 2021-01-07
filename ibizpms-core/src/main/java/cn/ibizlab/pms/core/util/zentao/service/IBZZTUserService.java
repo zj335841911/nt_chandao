@@ -106,10 +106,12 @@ public class IBZZTUserService implements AuthenticationUserService{
         user.setDomain(domains);
         user.setEmail("");
         user.setAvatar("");
-        user.setNickname("loginname");
+        user.setNickname(loginname);
         user.setBirthday(null);
         user.setAddr("");
         user.setSex("");
+        user.setOrgid("0010");
+        user.setPersonname(loginname);
         Map<String,Object> sessionParams = user.getSessionParams();
 
         user.setSessionParams(sessionParams);
