@@ -24,14 +24,14 @@ public interface PSSysServiceAPIFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysserviceapis")
-    PSSysServiceAPI create(@RequestBody PSSysServiceAPI pssysserviceapi);
+    PSSysServiceAPI create(@RequestBody PSSysServiceAPI et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysserviceapis/batch")
     Boolean createBatch(@RequestBody List<PSSysServiceAPI> pssysserviceapis);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysserviceapis/{pssysserviceapiid}")
-    PSSysServiceAPI update(@PathVariable("pssysserviceapiid") String pssysserviceapiid, @RequestBody PSSysServiceAPI pssysserviceapi);
+    PSSysServiceAPI update(@PathVariable("pssysserviceapiid") String pssysserviceapiid, @RequestBody PSSysServiceAPI et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysserviceapis/batch")
     Boolean updateBatch(@RequestBody List<PSSysServiceAPI> pssysserviceapis);
@@ -56,11 +56,11 @@ public interface PSSysServiceAPIFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysserviceapis/checkkey")
-    Boolean checkKey(@RequestBody PSSysServiceAPI pssysserviceapi);
+    Boolean checkKey(@RequestBody PSSysServiceAPI et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysserviceapis/save")
-    Boolean save(@RequestBody PSSysServiceAPI pssysserviceapi);
+    Boolean save(@RequestBody PSSysServiceAPI et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysserviceapis/savebatch")
     Boolean saveBatch(@RequestBody List<PSSysServiceAPI> pssysserviceapis);

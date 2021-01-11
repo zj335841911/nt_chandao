@@ -24,14 +24,14 @@ public interface PSSysSFPubFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs")
-    PSSysSFPub create(@RequestBody PSSysSFPub pssyssfpub);
+    PSSysSFPub create(@RequestBody PSSysSFPub et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/batch")
     Boolean createBatch(@RequestBody List<PSSysSFPub> pssyssfpubs);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssyssfpubs/{pssyssfpubid}")
-    PSSysSFPub update(@PathVariable("pssyssfpubid") String pssyssfpubid, @RequestBody PSSysSFPub pssyssfpub);
+    PSSysSFPub update(@PathVariable("pssyssfpubid") String pssyssfpubid, @RequestBody PSSysSFPub et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssyssfpubs/batch")
     Boolean updateBatch(@RequestBody List<PSSysSFPub> pssyssfpubs);
@@ -56,11 +56,11 @@ public interface PSSysSFPubFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/checkkey")
-    Boolean checkKey(@RequestBody PSSysSFPub pssyssfpub);
+    Boolean checkKey(@RequestBody PSSysSFPub et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/save")
-    Boolean save(@RequestBody PSSysSFPub pssyssfpub);
+    Boolean save(@RequestBody PSSysSFPub et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/savebatch")
     Boolean saveBatch(@RequestBody List<PSSysSFPub> pssyssfpubs);

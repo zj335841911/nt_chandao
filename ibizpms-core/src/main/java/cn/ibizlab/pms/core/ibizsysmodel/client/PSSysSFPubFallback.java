@@ -23,14 +23,14 @@ public class PSSysSFPubFallback implements PSSysSFPubFeignClient {
         return null;
     }
 
-    public PSSysSFPub create(PSSysSFPub pssyssfpub) {
+    public PSSysSFPub create(PSSysSFPub et) {
         return null;
     }
     public Boolean createBatch(List<PSSysSFPub> pssyssfpubs) {
         return false;
     }
 
-    public PSSysSFPub update(String pssyssfpubid, PSSysSFPub pssyssfpub) {
+    public PSSysSFPub update(String pssyssfpubid, PSSysSFPub et) {
         return null;
     }
     public Boolean updateBatch(List<PSSysSFPub> pssyssfpubs) {
@@ -61,12 +61,12 @@ public class PSSysSFPubFallback implements PSSysSFPubFeignClient {
 
 
 
-    public Boolean checkKey(PSSysSFPub pssyssfpub) {
+    public Boolean checkKey(PSSysSFPub et) {
         return false;
     }
 
 
-    public Boolean save(PSSysSFPub pssyssfpub) {
+    public Boolean save(PSSysSFPub et) {
         return false;
     }
     public Boolean saveBatch(List<PSSysSFPub> pssyssfpubs) {

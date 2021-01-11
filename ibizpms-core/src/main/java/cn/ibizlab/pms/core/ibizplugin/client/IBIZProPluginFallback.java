@@ -23,14 +23,14 @@ public class IBIZProPluginFallback implements IBIZProPluginFeignClient {
         return null;
     }
 
-    public IBIZProPlugin create(IBIZProPlugin ibizproplugin) {
+    public IBIZProPlugin create(IBIZProPlugin et) {
         return null;
     }
     public Boolean createBatch(List<IBIZProPlugin> ibizproplugins) {
         return false;
     }
 
-    public IBIZProPlugin update(String ibizpropluginid, IBIZProPlugin ibizproplugin) {
+    public IBIZProPlugin update(String ibizpropluginid, IBIZProPlugin et) {
         return null;
     }
     public Boolean updateBatch(List<IBIZProPlugin> ibizproplugins) {
@@ -61,12 +61,12 @@ public class IBIZProPluginFallback implements IBIZProPluginFeignClient {
 
 
 
-    public Boolean checkKey(IBIZProPlugin ibizproplugin) {
+    public Boolean checkKey(IBIZProPlugin et) {
         return false;
     }
 
 
-    public Boolean save(IBIZProPlugin ibizproplugin) {
+    public Boolean save(IBIZProPlugin et) {
         return false;
     }
     public Boolean saveBatch(List<IBIZProPlugin> ibizproplugins) {

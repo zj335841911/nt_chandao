@@ -23,14 +23,14 @@ public class IBIZProKeywordFallback implements IBIZProKeywordFeignClient {
         return null;
     }
 
-    public IBIZProKeyword create(IBIZProKeyword ibizprokeyword) {
+    public IBIZProKeyword create(IBIZProKeyword et) {
         return null;
     }
     public Boolean createBatch(List<IBIZProKeyword> ibizprokeywords) {
         return false;
     }
 
-    public IBIZProKeyword update(String id, IBIZProKeyword ibizprokeyword) {
+    public IBIZProKeyword update(String id, IBIZProKeyword et) {
         return null;
     }
     public Boolean updateBatch(List<IBIZProKeyword> ibizprokeywords) {
@@ -61,12 +61,12 @@ public class IBIZProKeywordFallback implements IBIZProKeywordFeignClient {
 
 
 
-    public Boolean checkKey(IBIZProKeyword ibizprokeyword) {
+    public Boolean checkKey(IBIZProKeyword et) {
         return false;
     }
 
 
-    public Boolean save(IBIZProKeyword ibizprokeyword) {
+    public Boolean save(IBIZProKeyword et) {
         return false;
     }
     public Boolean saveBatch(List<IBIZProKeyword> ibizprokeywords) {

@@ -23,14 +23,14 @@ public class PSSysReqModuleFallback implements PSSysReqModuleFeignClient {
         return null;
     }
 
-    public PSSysReqModule create(PSSysReqModule pssysreqmodule) {
+    public PSSysReqModule create(PSSysReqModule et) {
         return null;
     }
     public Boolean createBatch(List<PSSysReqModule> pssysreqmodules) {
         return false;
     }
 
-    public PSSysReqModule update(String pssysreqmoduleid, PSSysReqModule pssysreqmodule) {
+    public PSSysReqModule update(String pssysreqmoduleid, PSSysReqModule et) {
         return null;
     }
     public Boolean updateBatch(List<PSSysReqModule> pssysreqmodules) {
@@ -61,12 +61,12 @@ public class PSSysReqModuleFallback implements PSSysReqModuleFeignClient {
 
 
 
-    public Boolean checkKey(PSSysReqModule pssysreqmodule) {
+    public Boolean checkKey(PSSysReqModule et) {
         return false;
     }
 
 
-    public Boolean save(PSSysReqModule pssysreqmodule) {
+    public Boolean save(PSSysReqModule et) {
         return false;
     }
     public Boolean saveBatch(List<PSSysReqModule> pssysreqmodules) {

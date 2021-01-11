@@ -24,14 +24,14 @@ public interface IBIZProKeywordFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprokeywords")
-    IBIZProKeyword create(@RequestBody IBIZProKeyword ibizprokeyword);
+    IBIZProKeyword create(@RequestBody IBIZProKeyword et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprokeywords/batch")
     Boolean createBatch(@RequestBody List<IBIZProKeyword> ibizprokeywords);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizprokeywords/{id}")
-    IBIZProKeyword update(@PathVariable("id") String id, @RequestBody IBIZProKeyword ibizprokeyword);
+    IBIZProKeyword update(@PathVariable("id") String id, @RequestBody IBIZProKeyword et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizprokeywords/batch")
     Boolean updateBatch(@RequestBody List<IBIZProKeyword> ibizprokeywords);
@@ -56,11 +56,11 @@ public interface IBIZProKeywordFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprokeywords/checkkey")
-    Boolean checkKey(@RequestBody IBIZProKeyword ibizprokeyword);
+    Boolean checkKey(@RequestBody IBIZProKeyword et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprokeywords/save")
-    Boolean save(@RequestBody IBIZProKeyword ibizprokeyword);
+    Boolean save(@RequestBody IBIZProKeyword et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprokeywords/savebatch")
     Boolean saveBatch(@RequestBody List<IBIZProKeyword> ibizprokeywords);

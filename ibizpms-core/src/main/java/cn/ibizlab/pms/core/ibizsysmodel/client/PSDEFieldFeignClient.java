@@ -24,14 +24,14 @@ public interface PSDEFieldFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psdefields")
-    PSDEField create(@RequestBody PSDEField psdefield);
+    PSDEField create(@RequestBody PSDEField et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/psdefields/batch")
     Boolean createBatch(@RequestBody List<PSDEField> psdefields);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdefields/{psdefieldid}")
-    PSDEField update(@PathVariable("psdefieldid") String psdefieldid, @RequestBody PSDEField psdefield);
+    PSDEField update(@PathVariable("psdefieldid") String psdefieldid, @RequestBody PSDEField et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdefields/batch")
     Boolean updateBatch(@RequestBody List<PSDEField> psdefields);
@@ -56,11 +56,11 @@ public interface PSDEFieldFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psdefields/checkkey")
-    Boolean checkKey(@RequestBody PSDEField psdefield);
+    Boolean checkKey(@RequestBody PSDEField et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psdefields/save")
-    Boolean save(@RequestBody PSDEField psdefield);
+    Boolean save(@RequestBody PSDEField et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/psdefields/savebatch")
     Boolean saveBatch(@RequestBody List<PSDEField> psdefields);

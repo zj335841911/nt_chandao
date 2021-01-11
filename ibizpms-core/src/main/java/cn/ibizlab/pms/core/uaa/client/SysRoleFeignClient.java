@@ -24,14 +24,14 @@ public interface SysRoleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysroles")
-    SysRole create(@RequestBody SysRole sysrole);
+    SysRole create(@RequestBody SysRole et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysroles/batch")
     Boolean createBatch(@RequestBody List<SysRole> sysroles);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysroles/{roleid}")
-    SysRole update(@PathVariable("roleid") String roleid, @RequestBody SysRole sysrole);
+    SysRole update(@PathVariable("roleid") String roleid, @RequestBody SysRole et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysroles/batch")
     Boolean updateBatch(@RequestBody List<SysRole> sysroles);
@@ -56,11 +56,11 @@ public interface SysRoleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysroles/checkkey")
-    Boolean checkKey(@RequestBody SysRole sysrole);
+    Boolean checkKey(@RequestBody SysRole et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysroles/save")
-    Boolean save(@RequestBody SysRole sysrole);
+    Boolean save(@RequestBody SysRole et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysroles/savebatch")
     Boolean saveBatch(@RequestBody List<SysRole> sysroles);
