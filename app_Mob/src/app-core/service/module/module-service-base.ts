@@ -273,4 +273,19 @@ export class ModuleServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/modules/fetchstorymodule`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchTaskModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async FetchTaskModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/modules/fetchtaskmodule`,tempData,isloading);
+        return res;
+    }
 }
