@@ -377,7 +377,7 @@
 <i-col
     class="form-layout-container"
     v-show="detailsModel.druipart1.visible"
-    :style="{'height': '300px !important',}"
+    :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
@@ -407,7 +407,7 @@
     viewname="story-grid-view9-sub-story" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
-    style="height:300px;overflow: auto;">
+    style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
