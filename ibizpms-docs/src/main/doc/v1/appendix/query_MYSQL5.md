@@ -1988,7 +1988,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 ( DATE_FORMAT( t1.openedDate, '%Y' ) = DATE_FORMAT(now(), '%Y' )  AND  t1.`OPENEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"OPENEDBY","dename":"ZT_BUG"}')} ) 
@@ -2146,7 +2146,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 t1.plan <> ${srfwebcontext('plan','{"defname":"id","dename":"ZT_PRODUCTPLAN"}')} 
@@ -2367,7 +2367,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_BUG"}')} ) 
@@ -2450,7 +2450,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_BUG"}')} ) 
@@ -2601,7 +2601,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 ( FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{srf.datacontext.srfparentkey} 

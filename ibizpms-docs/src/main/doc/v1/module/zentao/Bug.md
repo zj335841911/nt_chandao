@@ -6364,7 +6364,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-我的收藏（MyFavorites）
@@ -6538,7 +6538,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-发布关联Bug（已解决）（ReleaseBugs）
@@ -6787,7 +6787,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）
@@ -6878,7 +6878,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-发布关联Bug（未解决）（ReportBugs）
@@ -7048,7 +7048,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-查询遗留得bug(项目)（SelectBugsByProject）
