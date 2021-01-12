@@ -76,11 +76,6 @@ export default class MainModel {
           isEditable:true
         },
         {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'FONTKEY',
-        },
-        {
           name: 'casestep',
           prop: 'id',
         },

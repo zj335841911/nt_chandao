@@ -3,6 +3,403 @@
 用例步骤
 
 ## 接口清单
+### 新建用例步骤
+#### 访问路径
+/casesteps
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestepdto | [CaseStepDTO](#CaseStepDTO) | 用例步骤实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseStepDTO](#CaseStepDTO)：用例步骤实体传输对象 |
+
+### 批量新建用例步骤
+#### 访问路径
+/casesteps/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestepdtos | List<[CaseStepDTO](#CaseStepDTO)> | 用例步骤实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 更新用例步骤
+#### 访问路径
+/casesteps/{casestep_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestep_id | Long | 用例步骤主键ID |
+| 2 | casestepdto | [CaseStepDTO](#CaseStepDTO) | 用例步骤实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseStepDTO](#CaseStepDTO)：用例步骤实体传输对象 |
+
+### 批量更新用例步骤
+#### 访问路径
+/casesteps/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestepdtos | List<[CaseStepDTO](#CaseStepDTO)> | 用例步骤实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 删除用例步骤
+#### 访问路径
+/casesteps/{casestep_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestep_id | Long | 用例步骤主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量删除用例步骤
+#### 访问路径
+/casesteps/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ids | List<Long> | 用例步骤主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取用例步骤
+#### 访问路径
+/casesteps/{casestep_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestep_id | Long | 用例步骤主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseStepDTO](#CaseStepDTO)：用例步骤实体传输对象 |
+
+### 检查用例步骤
+#### 访问路径
+/casesteps/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestepdto | [CaseStepDTO](#CaseStepDTO) | 用例步骤实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 保存用例步骤
+#### 访问路径
+/casesteps/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestepdto | [CaseStepDTO](#CaseStepDTO) | 用例步骤实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量保存用例步骤
+#### 访问路径
+/casesteps/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | casestepdtos | List<[CaseStepDTO](#CaseStepDTO)> | 用例步骤实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取当前测试步骤
+#### 访问路径
+/casesteps/fetchcurtest
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象列表 |
+
+### 查询当前测试步骤
+#### 访问路径
+/casesteps/searchcurtest
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取DEFAULT
+#### 访问路径
+/casesteps/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象列表 |
+
+### 查询DEFAULT
+#### 访问路径
+/casesteps/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取DEFAULT1
+#### 访问路径
+/casesteps/fetchdefault1
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象列表 |
+
+### 查询DEFAULT1
+#### 访问路径
+/casesteps/searchdefault1
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取Mob
+#### 访问路径
+/casesteps/fetchmob
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象列表 |
+
+### 查询Mob
+#### 访问路径
+/casesteps/searchmob
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取版本
+#### 访问路径
+/casesteps/fetchversion
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象列表 |
+
+### 查询版本
+#### 访问路径
+/casesteps/searchversion
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取版本1
+#### 访问路径
+/casesteps/fetchversions
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象列表 |
+
+### 查询版本1
+#### 访问路径
+/casesteps/searchversions
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [CaseStepSearchContext](#CaseStepSearchContext) | 用例步骤查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseStepDTO](#CaseStepDTO)>：用例步骤实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据建立用例步骤
 #### 访问路径
 /cases/{case_id}/casesteps

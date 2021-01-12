@@ -48,6 +48,227 @@ public class CaseStepResource {
     public CaseStepMapping casestepMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
+    @ApiOperation(value = "新建用例步骤", tags = {"用例步骤" },  notes = "新建用例步骤")
+	@RequestMapping(method = RequestMethod.POST, value = "/casesteps")
+    public ResponseEntity<CaseStepDTO> create(@Validated @RequestBody CaseStepDTO casestepdto) {
+        CaseStep domain = casestepMapping.toDomain(casestepdto);
+		casestepService.create(domain);
+        CaseStepDTO dto = casestepMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
+    @ApiOperation(value = "批量新建用例步骤", tags = {"用例步骤" },  notes = "批量新建用例步骤")
+	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<CaseStepDTO> casestepdtos) {
+        casestepService.createBatch(casestepMapping.toDomain(casestepdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
+    @ApiOperation(value = "更新用例步骤", tags = {"用例步骤" },  notes = "更新用例步骤")
+	@RequestMapping(method = RequestMethod.PUT, value = "/casesteps/{casestep_id}")
+    public ResponseEntity<CaseStepDTO> update(@PathVariable("casestep_id") Long casestep_id, @RequestBody CaseStepDTO casestepdto) {
+		CaseStep domain  = casestepMapping.toDomain(casestepdto);
+        domain .setId(casestep_id);
+		casestepService.update(domain );
+		CaseStepDTO dto = casestepMapping.toDto(domain );
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
+    @ApiOperation(value = "批量更新用例步骤", tags = {"用例步骤" },  notes = "批量更新用例步骤")
+	@RequestMapping(method = RequestMethod.PUT, value = "/casesteps/batch")
+    public ResponseEntity<Boolean> updateBatch(@RequestBody List<CaseStepDTO> casestepdtos) {
+        casestepService.updateBatch(casestepMapping.toDomain(casestepdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
+    @ApiOperation(value = "删除用例步骤", tags = {"用例步骤" },  notes = "删除用例步骤")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/casesteps/{casestep_id}")
+    public ResponseEntity<Boolean> remove(@PathVariable("casestep_id") Long casestep_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(casestepService.remove(casestep_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
+    @ApiOperation(value = "批量删除用例步骤", tags = {"用例步骤" },  notes = "批量删除用例步骤")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/casesteps/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
+        casestepService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Get-all')")
+    @ApiOperation(value = "获取用例步骤", tags = {"用例步骤" },  notes = "获取用例步骤")
+	@RequestMapping(method = RequestMethod.GET, value = "/casesteps/{casestep_id}")
+    public ResponseEntity<CaseStepDTO> get(@PathVariable("casestep_id") Long casestep_id) {
+        CaseStep domain = casestepService.get(casestep_id);
+        CaseStepDTO dto = casestepMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取用例步骤草稿", tags = {"用例步骤" },  notes = "获取用例步骤草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/casesteps/getdraft")
+    public ResponseEntity<CaseStepDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(new CaseStep())));
+    }
+
+    @ApiOperation(value = "检查用例步骤", tags = {"用例步骤" },  notes = "检查用例步骤")
+	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody CaseStepDTO casestepdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(casestepService.checkKey(casestepMapping.toDomain(casestepdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
+    @ApiOperation(value = "保存用例步骤", tags = {"用例步骤" },  notes = "保存用例步骤")
+	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/save")
+    public ResponseEntity<Boolean> save(@RequestBody CaseStepDTO casestepdto) {
+        return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(casestepMapping.toDomain(casestepdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
+    @ApiOperation(value = "批量保存用例步骤", tags = {"用例步骤" },  notes = "批量保存用例步骤")
+	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<CaseStepDTO> casestepdtos) {
+        casestepService.saveBatch(casestepMapping.toDomain(casestepdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
+	@ApiOperation(value = "获取当前测试步骤", tags = {"用例步骤" } ,notes = "获取当前测试步骤")
+    @RequestMapping(method= RequestMethod.GET , value="/casesteps/fetchcurtest")
+	public ResponseEntity<List<CaseStepDTO>> fetchCurTest(CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchCurTest(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
+	@ApiOperation(value = "查询当前测试步骤", tags = {"用例步骤" } ,notes = "查询当前测试步骤")
+    @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchcurtest")
+	public ResponseEntity<Page<CaseStepDTO>> searchCurTest(@RequestBody CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchCurTest(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
+	@ApiOperation(value = "获取DEFAULT", tags = {"用例步骤" } ,notes = "获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/casesteps/fetchdefault")
+	public ResponseEntity<List<CaseStepDTO>> fetchDefault(CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchDefault(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
+	@ApiOperation(value = "查询DEFAULT", tags = {"用例步骤" } ,notes = "查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchdefault")
+	public ResponseEntity<Page<CaseStepDTO>> searchDefault(@RequestBody CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
+	@ApiOperation(value = "获取DEFAULT1", tags = {"用例步骤" } ,notes = "获取DEFAULT1")
+    @RequestMapping(method= RequestMethod.GET , value="/casesteps/fetchdefault1")
+	public ResponseEntity<List<CaseStepDTO>> fetchDefault1(CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchDefault1(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
+	@ApiOperation(value = "查询DEFAULT1", tags = {"用例步骤" } ,notes = "查询DEFAULT1")
+    @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchdefault1")
+	public ResponseEntity<Page<CaseStepDTO>> searchDefault1(@RequestBody CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchDefault1(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
+	@ApiOperation(value = "获取Mob", tags = {"用例步骤" } ,notes = "获取Mob")
+    @RequestMapping(method= RequestMethod.GET , value="/casesteps/fetchmob")
+	public ResponseEntity<List<CaseStepDTO>> fetchMob(CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchMob(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
+	@ApiOperation(value = "查询Mob", tags = {"用例步骤" } ,notes = "查询Mob")
+    @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchmob")
+	public ResponseEntity<Page<CaseStepDTO>> searchMob(@RequestBody CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchMob(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
+	@ApiOperation(value = "获取版本", tags = {"用例步骤" } ,notes = "获取版本")
+    @RequestMapping(method= RequestMethod.GET , value="/casesteps/fetchversion")
+	public ResponseEntity<List<CaseStepDTO>> fetchVersion(CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchVersion(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
+	@ApiOperation(value = "查询版本", tags = {"用例步骤" } ,notes = "查询版本")
+    @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchversion")
+	public ResponseEntity<Page<CaseStepDTO>> searchVersion(@RequestBody CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "获取版本1", tags = {"用例步骤" } ,notes = "获取版本1")
+    @RequestMapping(method= RequestMethod.GET , value="/casesteps/fetchversions")
+	public ResponseEntity<List<CaseStepDTO>> fetchVersions(CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+        List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
+	@ApiOperation(value = "查询版本1", tags = {"用例步骤" } ,notes = "查询版本1")
+    @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchversions")
+	public ResponseEntity<Page<CaseStepDTO>> searchVersions(@RequestBody CaseStepSearchContext context) {
+        Page<CaseStep> domains = casestepService.searchVersions(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据测试用例建立用例步骤", tags = {"用例步骤" },  notes = "根据测试用例建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casesteps")
     public ResponseEntity<CaseStepDTO> createByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
