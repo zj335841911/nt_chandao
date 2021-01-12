@@ -23,14 +23,14 @@ public class SysDepartmentFallback implements SysDepartmentFeignClient {
         return null;
     }
 
-    public SysDepartment create(SysDepartment sysdepartment) {
+    public SysDepartment create(SysDepartment et) {
         return null;
     }
     public Boolean createBatch(List<SysDepartment> sysdepartments) {
         return false;
     }
 
-    public SysDepartment update(String deptid, SysDepartment sysdepartment) {
+    public SysDepartment update(String deptid, SysDepartment et) {
         return null;
     }
     public Boolean updateBatch(List<SysDepartment> sysdepartments) {
@@ -61,12 +61,12 @@ public class SysDepartmentFallback implements SysDepartmentFeignClient {
 
 
 
-    public Boolean checkKey(SysDepartment sysdepartment) {
+    public Boolean checkKey(SysDepartment et) {
         return false;
     }
 
 
-    public Boolean save(SysDepartment sysdepartment) {
+    public Boolean save(SysDepartment et) {
         return false;
     }
     public Boolean saveBatch(List<SysDepartment> sysdepartments) {

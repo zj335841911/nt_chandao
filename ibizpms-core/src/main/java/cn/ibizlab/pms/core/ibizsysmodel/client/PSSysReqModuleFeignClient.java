@@ -24,14 +24,14 @@ public interface PSSysReqModuleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules")
-    PSSysReqModule create(@RequestBody PSSysReqModule pssysreqmodule);
+    PSSysReqModule create(@RequestBody PSSysReqModule et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules/batch")
     Boolean createBatch(@RequestBody List<PSSysReqModule> pssysreqmodules);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysreqmodules/{pssysreqmoduleid}")
-    PSSysReqModule update(@PathVariable("pssysreqmoduleid") String pssysreqmoduleid, @RequestBody PSSysReqModule pssysreqmodule);
+    PSSysReqModule update(@PathVariable("pssysreqmoduleid") String pssysreqmoduleid, @RequestBody PSSysReqModule et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysreqmodules/batch")
     Boolean updateBatch(@RequestBody List<PSSysReqModule> pssysreqmodules);
@@ -56,11 +56,11 @@ public interface PSSysReqModuleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules/checkkey")
-    Boolean checkKey(@RequestBody PSSysReqModule pssysreqmodule);
+    Boolean checkKey(@RequestBody PSSysReqModule et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules/save")
-    Boolean save(@RequestBody PSSysReqModule pssysreqmodule);
+    Boolean save(@RequestBody PSSysReqModule et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules/savebatch")
     Boolean saveBatch(@RequestBody List<PSSysReqModule> pssysreqmodules);

@@ -24,14 +24,14 @@ public interface PSSysAppFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysapps")
-    PSSysApp create(@RequestBody PSSysApp pssysapp);
+    PSSysApp create(@RequestBody PSSysApp et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysapps/batch")
     Boolean createBatch(@RequestBody List<PSSysApp> pssysapps);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysapps/{pssysappid}")
-    PSSysApp update(@PathVariable("pssysappid") String pssysappid, @RequestBody PSSysApp pssysapp);
+    PSSysApp update(@PathVariable("pssysappid") String pssysappid, @RequestBody PSSysApp et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysapps/batch")
     Boolean updateBatch(@RequestBody List<PSSysApp> pssysapps);
@@ -56,11 +56,11 @@ public interface PSSysAppFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysapps/checkkey")
-    Boolean checkKey(@RequestBody PSSysApp pssysapp);
+    Boolean checkKey(@RequestBody PSSysApp et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysapps/save")
-    Boolean save(@RequestBody PSSysApp pssysapp);
+    Boolean save(@RequestBody PSSysApp et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysapps/savebatch")
     Boolean saveBatch(@RequestBody List<PSSysApp> pssysapps);

@@ -24,14 +24,14 @@ public interface SysTeamMemberFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/systeammembers")
-    SysTeamMember create(@RequestBody SysTeamMember systeammember);
+    SysTeamMember create(@RequestBody SysTeamMember et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/systeammembers/batch")
     Boolean createBatch(@RequestBody List<SysTeamMember> systeammembers);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/systeammembers/{teammemberid}")
-    SysTeamMember update(@PathVariable("teammemberid") String teammemberid, @RequestBody SysTeamMember systeammember);
+    SysTeamMember update(@PathVariable("teammemberid") String teammemberid, @RequestBody SysTeamMember et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/systeammembers/batch")
     Boolean updateBatch(@RequestBody List<SysTeamMember> systeammembers);
@@ -56,11 +56,11 @@ public interface SysTeamMemberFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/systeammembers/checkkey")
-    Boolean checkKey(@RequestBody SysTeamMember systeammember);
+    Boolean checkKey(@RequestBody SysTeamMember et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/systeammembers/save")
-    Boolean save(@RequestBody SysTeamMember systeammember);
+    Boolean save(@RequestBody SysTeamMember et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/systeammembers/savebatch")
     Boolean saveBatch(@RequestBody List<SysTeamMember> systeammembers);

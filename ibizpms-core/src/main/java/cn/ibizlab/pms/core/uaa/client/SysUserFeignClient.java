@@ -24,14 +24,14 @@ public interface SysUserFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers")
-    SysUser create(@RequestBody SysUser sysuser);
+    SysUser create(@RequestBody SysUser et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers/batch")
     Boolean createBatch(@RequestBody List<SysUser> sysusers);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysusers/{userid}")
-    SysUser update(@PathVariable("userid") String userid, @RequestBody SysUser sysuser);
+    SysUser update(@PathVariable("userid") String userid, @RequestBody SysUser et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysusers/batch")
     Boolean updateBatch(@RequestBody List<SysUser> sysusers);
@@ -56,15 +56,15 @@ public interface SysUserFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers/{userid}/changepwd")
-    SysUser changePwd(@PathVariable("userid") String userid, @RequestBody SysUser sysuser);
+    SysUser changePwd(@PathVariable("userid") String userid, @RequestBody SysUser et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers/checkkey")
-    Boolean checkKey(@RequestBody SysUser sysuser);
+    Boolean checkKey(@RequestBody SysUser et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers/save")
-    Boolean save(@RequestBody SysUser sysuser);
+    Boolean save(@RequestBody SysUser et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers/savebatch")
     Boolean saveBatch(@RequestBody List<SysUser> sysusers);

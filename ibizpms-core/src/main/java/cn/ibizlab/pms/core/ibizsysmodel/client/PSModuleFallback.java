@@ -23,14 +23,14 @@ public class PSModuleFallback implements PSModuleFeignClient {
         return null;
     }
 
-    public PSModule create(PSModule psmodule) {
+    public PSModule create(PSModule et) {
         return null;
     }
     public Boolean createBatch(List<PSModule> psmodules) {
         return false;
     }
 
-    public PSModule update(String psmoduleid, PSModule psmodule) {
+    public PSModule update(String psmoduleid, PSModule et) {
         return null;
     }
     public Boolean updateBatch(List<PSModule> psmodules) {
@@ -61,12 +61,12 @@ public class PSModuleFallback implements PSModuleFeignClient {
 
 
 
-    public Boolean checkKey(PSModule psmodule) {
+    public Boolean checkKey(PSModule et) {
         return false;
     }
 
 
-    public Boolean save(PSModule psmodule) {
+    public Boolean save(PSModule et) {
         return false;
     }
     public Boolean saveBatch(List<PSModule> psmodules) {

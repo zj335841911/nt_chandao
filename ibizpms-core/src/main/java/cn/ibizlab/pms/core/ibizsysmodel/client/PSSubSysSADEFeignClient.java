@@ -24,14 +24,14 @@ public interface PSSubSysSADEFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsyssades")
-    PSSubSysSADE create(@RequestBody PSSubSysSADE pssubsyssade);
+    PSSubSysSADE create(@RequestBody PSSubSysSADE et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsyssades/batch")
     Boolean createBatch(@RequestBody List<PSSubSysSADE> pssubsyssades);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssubsyssades/{pssubsyssadeid}")
-    PSSubSysSADE update(@PathVariable("pssubsyssadeid") String pssubsyssadeid, @RequestBody PSSubSysSADE pssubsyssade);
+    PSSubSysSADE update(@PathVariable("pssubsyssadeid") String pssubsyssadeid, @RequestBody PSSubSysSADE et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssubsyssades/batch")
     Boolean updateBatch(@RequestBody List<PSSubSysSADE> pssubsyssades);
@@ -56,11 +56,11 @@ public interface PSSubSysSADEFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsyssades/checkkey")
-    Boolean checkKey(@RequestBody PSSubSysSADE pssubsyssade);
+    Boolean checkKey(@RequestBody PSSubSysSADE et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsyssades/save")
-    Boolean save(@RequestBody PSSubSysSADE pssubsyssade);
+    Boolean save(@RequestBody PSSubSysSADE et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsyssades/savebatch")
     Boolean saveBatch(@RequestBody List<PSSubSysSADE> pssubsyssades);

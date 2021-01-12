@@ -23,14 +23,14 @@ public class SysTeamMemberFallback implements SysTeamMemberFeignClient {
         return null;
     }
 
-    public SysTeamMember create(SysTeamMember systeammember) {
+    public SysTeamMember create(SysTeamMember et) {
         return null;
     }
     public Boolean createBatch(List<SysTeamMember> systeammembers) {
         return false;
     }
 
-    public SysTeamMember update(String teammemberid, SysTeamMember systeammember) {
+    public SysTeamMember update(String teammemberid, SysTeamMember et) {
         return null;
     }
     public Boolean updateBatch(List<SysTeamMember> systeammembers) {
@@ -61,12 +61,12 @@ public class SysTeamMemberFallback implements SysTeamMemberFeignClient {
 
 
 
-    public Boolean checkKey(SysTeamMember systeammember) {
+    public Boolean checkKey(SysTeamMember et) {
         return false;
     }
 
 
-    public Boolean save(SysTeamMember systeammember) {
+    public Boolean save(SysTeamMember et) {
         return false;
     }
     public Boolean saveBatch(List<SysTeamMember> systeammembers) {

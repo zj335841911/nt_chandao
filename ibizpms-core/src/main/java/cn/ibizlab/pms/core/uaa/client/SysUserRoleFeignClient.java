@@ -24,14 +24,14 @@ public interface SysUserRoleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysuserroles")
-    SysUserRole create(@RequestBody SysUserRole sysuserrole);
+    SysUserRole create(@RequestBody SysUserRole et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysuserroles/batch")
     Boolean createBatch(@RequestBody List<SysUserRole> sysuserroles);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysuserroles/{userroleid}")
-    SysUserRole update(@PathVariable("userroleid") String userroleid, @RequestBody SysUserRole sysuserrole);
+    SysUserRole update(@PathVariable("userroleid") String userroleid, @RequestBody SysUserRole et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysuserroles/batch")
     Boolean updateBatch(@RequestBody List<SysUserRole> sysuserroles);
@@ -56,11 +56,11 @@ public interface SysUserRoleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysuserroles/checkkey")
-    Boolean checkKey(@RequestBody SysUserRole sysuserrole);
+    Boolean checkKey(@RequestBody SysUserRole et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysuserroles/save")
-    Boolean save(@RequestBody SysUserRole sysuserrole);
+    Boolean save(@RequestBody SysUserRole et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysuserroles/savebatch")
     Boolean saveBatch(@RequestBody List<SysUserRole> sysuserroles);

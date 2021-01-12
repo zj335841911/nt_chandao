@@ -24,14 +24,14 @@ public interface SysDepartmentFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysdepartments")
-    SysDepartment create(@RequestBody SysDepartment sysdepartment);
+    SysDepartment create(@RequestBody SysDepartment et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysdepartments/batch")
     Boolean createBatch(@RequestBody List<SysDepartment> sysdepartments);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysdepartments/{deptid}")
-    SysDepartment update(@PathVariable("deptid") String deptid, @RequestBody SysDepartment sysdepartment);
+    SysDepartment update(@PathVariable("deptid") String deptid, @RequestBody SysDepartment et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysdepartments/batch")
     Boolean updateBatch(@RequestBody List<SysDepartment> sysdepartments);
@@ -56,11 +56,11 @@ public interface SysDepartmentFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysdepartments/checkkey")
-    Boolean checkKey(@RequestBody SysDepartment sysdepartment);
+    Boolean checkKey(@RequestBody SysDepartment et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysdepartments/save")
-    Boolean save(@RequestBody SysDepartment sysdepartment);
+    Boolean save(@RequestBody SysDepartment et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysdepartments/savebatch")
     Boolean saveBatch(@RequestBody List<SysDepartment> sysdepartments);
