@@ -741,7 +741,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 ( FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{srf.datacontext.srfparentkey} 
@@ -1206,7 +1206,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 ( FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{srf.datacontext.srfparentkey} 
@@ -1793,7 +1793,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 WHERE t1.DELETED = '0' 
 ( t1.`RESOLVEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"RESOLVEDBY","dename":"ZT_BUG"}')}  AND  ((DATE_FORMAT(t1.resolvedDate,'%Y') = DATE_FORMAT(now(),'%Y')  and #{srf.datacontext.curyear} is null) or (DATE_FORMAT(t1.resolvedDate,'%Y') = #{srf.datacontext.curyear}) ) ) 
