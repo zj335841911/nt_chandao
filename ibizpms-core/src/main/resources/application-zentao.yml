@@ -69,4 +69,4 @@ pms:
 #Log配置
 logging:
   level:
-    cn.ibizlab.pms: info
+    cn.ibizlab.pms: debug
