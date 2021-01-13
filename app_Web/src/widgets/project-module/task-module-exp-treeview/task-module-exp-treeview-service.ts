@@ -933,7 +933,7 @@ export default class TaskModuleExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {MODULE:"%srfkey%",MODULENAME:"%name%"} });
+                        Object.assign(treeNode, {navigateContext: {PROJECTMODULE:"%projectmodule%",MODULE:"%srfkey%",MODULENAME:"%name%"} });
                         Object.assign(treeNode, {navigateParams: {modulename:"%name%",module:"%srfkey%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -1101,7 +1101,7 @@ export default class TaskModuleExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {MODULE:"%srfkey%",MODULENAME:"%name%"} });
+                        Object.assign(treeNode, {navigateContext: {PROJECTMODULE:"%projectmodule%",MODULE:"%srfkey%",MODULENAME:"%name%"} });
                         Object.assign(treeNode, {navigateParams: {modulename:"%name%",module:"%srfkey%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -1258,7 +1258,7 @@ export default class TaskModuleExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {MODULE:"%srfkey%",MODULENAME:"%name%"} });
+                        Object.assign(treeNode, {navigateContext: {PROJECTMODULE:"%projectmodule%",MODULE:"%srfkey%",MODULENAME:"%name%"} });
                         Object.assign(treeNode, {navigateParams: {modulename:"%name%",module:"%srfkey%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
