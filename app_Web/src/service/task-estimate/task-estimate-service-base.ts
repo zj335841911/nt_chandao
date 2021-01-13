@@ -49,6 +49,11 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && context.taskestimate){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
@@ -61,6 +66,11 @@ export default class TaskEstimateServiceBase extends EntityService {
         }
         if(context.story && context.task && context.taskestimate){
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskestimate){
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
@@ -81,6 +91,20 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -123,6 +147,20 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
+        if(context.projectmodule && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates`,data,isloading);
+            
+            return res;
+        }
         if(context.task && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -149,6 +187,13 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -167,6 +212,13 @@ export default class TaskEstimateServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,data,isloading);
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,data,isloading);
             
             return res;
         }
@@ -189,6 +241,10 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && context.taskestimate){
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
@@ -199,6 +255,10 @@ export default class TaskEstimateServiceBase extends EntityService {
         }
         if(context.story && context.task && context.taskestimate){
             let res:any = Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskestimate){
+            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.task && context.taskestimate){
@@ -217,6 +277,11 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && context.taskestimate){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             
@@ -229,6 +294,11 @@ export default class TaskEstimateServiceBase extends EntityService {
         }
         if(context.story && context.task && context.taskestimate){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskestimate){
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             
             return res;
         }
@@ -249,6 +319,12 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/getdraft`,isloading);
+            res.data.taskestimate = data.taskestimate;
+            
+            return res;
+        }
         if(context.product && context.story && context.task && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/getdraft`,isloading);
             res.data.taskestimate = data.taskestimate;
@@ -263,6 +339,12 @@ export default class TaskEstimateServiceBase extends EntityService {
         }
         if(context.story && context.task && true){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/getdraft`,isloading);
+            res.data.taskestimate = data.taskestimate;
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/getdraft`,isloading);
             res.data.taskestimate = data.taskestimate;
             
             return res;
@@ -285,6 +367,13 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -303,6 +392,13 @@ export default class TaskEstimateServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
             
             return res;
         }
@@ -325,6 +421,13 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/save`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.task && context.taskestimate){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -343,6 +446,13 @@ export default class TaskEstimateServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/save`,data,isloading);
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskestimate){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/save`,data,isloading);
             
             return res;
         }
@@ -365,6 +475,11 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            return res;
+        }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
@@ -378,6 +493,11 @@ export default class TaskEstimateServiceBase extends EntityService {
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.task && true){
@@ -397,6 +517,10 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchdefault`,tempData,isloading);
+        }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/searchdefault`,tempData,isloading);
@@ -408,6 +532,10 @@ export default class TaskEstimateServiceBase extends EntityService {
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/searchdefault`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchdefault`,tempData,isloading);
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -425,6 +553,11 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async FetchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            return res;
+        }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
@@ -438,6 +571,11 @@ export default class TaskEstimateServiceBase extends EntityService {
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.task && true){
@@ -457,6 +595,10 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async searchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchdefaults`,tempData,isloading);
+        }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/searchdefaults`,tempData,isloading);
@@ -468,6 +610,10 @@ export default class TaskEstimateServiceBase extends EntityService {
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/searchdefaults`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchdefaults`,tempData,isloading);
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));

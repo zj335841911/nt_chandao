@@ -473,7 +473,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     width: 0,
                     title: this.$t('entities.task.views.calendareditview.title'),
                     placement: '',
-                    deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ],
+                    deResParameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, ],
                     parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;

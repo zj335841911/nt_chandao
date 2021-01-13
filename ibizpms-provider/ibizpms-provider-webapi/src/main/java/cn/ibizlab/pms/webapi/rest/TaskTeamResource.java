@@ -177,6 +177,135 @@ public class TaskTeamResource {
                 .body(new PageImpl(taskteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Create-all')")
+    @ApiOperation(value = "根据任务模块任务建立任务团队", tags = {"任务团队" },  notes = "根据任务模块任务建立任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams")
+    public ResponseEntity<TaskTeamDTO> createByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamDTO taskteamdto) {
+        TaskTeam domain = taskteamMapping.toDomain(taskteamdto);
+        domain.setRoot(task_id);
+		taskteamService.create(domain);
+        TaskTeamDTO dto = taskteamMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Create-all')")
+    @ApiOperation(value = "根据任务模块任务批量建立任务团队", tags = {"任务团队" },  notes = "根据任务模块任务批量建立任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch")
+    public ResponseEntity<Boolean> createBatchByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskTeamDTO> taskteamdtos) {
+        List<TaskTeam> domainlist=taskteamMapping.toDomain(taskteamdtos);
+        for(TaskTeam domain:domainlist){
+            domain.setRoot(task_id);
+        }
+        taskteamService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Update-all')")
+    @ApiOperation(value = "根据任务模块任务更新任务团队", tags = {"任务团队" },  notes = "根据任务模块任务更新任务团队")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}")
+    public ResponseEntity<TaskTeamDTO> updateByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @PathVariable("taskteam_id") Long taskteam_id, @RequestBody TaskTeamDTO taskteamdto) {
+        TaskTeam domain = taskteamMapping.toDomain(taskteamdto);
+        domain.setRoot(task_id);
+        domain.setId(taskteam_id);
+		taskteamService.update(domain);
+        TaskTeamDTO dto = taskteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Update-all')")
+    @ApiOperation(value = "根据任务模块任务批量更新任务团队", tags = {"任务团队" },  notes = "根据任务模块任务批量更新任务团队")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch")
+    public ResponseEntity<Boolean> updateBatchByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskTeamDTO> taskteamdtos) {
+        List<TaskTeam> domainlist=taskteamMapping.toDomain(taskteamdtos);
+        for(TaskTeam domain:domainlist){
+            domain.setRoot(task_id);
+        }
+        taskteamService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Remove-all')")
+    @ApiOperation(value = "根据任务模块任务删除任务团队", tags = {"任务团队" },  notes = "根据任务模块任务删除任务团队")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}")
+    public ResponseEntity<Boolean> removeByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @PathVariable("taskteam_id") Long taskteam_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(taskteamService.remove(taskteam_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Remove-all')")
+    @ApiOperation(value = "根据任务模块任务批量删除任务团队", tags = {"任务团队" },  notes = "根据任务模块任务批量删除任务团队")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch")
+    public ResponseEntity<Boolean> removeBatchByProjectModuleTask(@RequestBody List<Long> ids) {
+        taskteamService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Get-all')")
+    @ApiOperation(value = "根据任务模块任务获取任务团队", tags = {"任务团队" },  notes = "根据任务模块任务获取任务团队")
+	@RequestMapping(method = RequestMethod.GET, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}")
+    public ResponseEntity<TaskTeamDTO> getByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @PathVariable("taskteam_id") Long taskteam_id) {
+        TaskTeam domain = taskteamService.get(taskteam_id);
+        TaskTeamDTO dto = taskteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据任务模块任务获取任务团队草稿", tags = {"任务团队" },  notes = "根据任务模块任务获取任务团队草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/getdraft")
+    public ResponseEntity<TaskTeamDTO> getDraftByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id) {
+        TaskTeam domain = new TaskTeam();
+        domain.setRoot(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskteamMapping.toDto(taskteamService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据任务模块任务检查任务团队", tags = {"任务团队" },  notes = "根据任务模块任务检查任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamDTO taskteamdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(taskteamService.checkKey(taskteamMapping.toDomain(taskteamdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Save-all')")
+    @ApiOperation(value = "根据任务模块任务保存任务团队", tags = {"任务团队" },  notes = "根据任务模块任务保存任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/save")
+    public ResponseEntity<Boolean> saveByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamDTO taskteamdto) {
+        TaskTeam domain = taskteamMapping.toDomain(taskteamdto);
+        domain.setRoot(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskteamService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Save-all')")
+    @ApiOperation(value = "根据任务模块任务批量保存任务团队", tags = {"任务团队" },  notes = "根据任务模块任务批量保存任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskTeamDTO> taskteamdtos) {
+        List<TaskTeam> domainlist=taskteamMapping.toDomain(taskteamdtos);
+        for(TaskTeam domain:domainlist){
+             domain.setRoot(task_id);
+        }
+        taskteamService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-searchDefault-all')")
+	@ApiOperation(value = "根据任务模块任务获取DEFAULT", tags = {"任务团队" } ,notes = "根据任务模块任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/fetchdefault")
+	public ResponseEntity<List<TaskTeamDTO>> fetchTaskTeamDefaultByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskTeamSearchContext context) {
+        context.setN_root_eq(task_id);
+        Page<TaskTeam> domains = taskteamService.searchDefault(context) ;
+        List<TaskTeamDTO> list = taskteamMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-searchDefault-all')")
+	@ApiOperation(value = "根据任务模块任务查询DEFAULT", tags = {"任务团队" } ,notes = "根据任务模块任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/searchdefault")
+	public ResponseEntity<Page<TaskTeamDTO>> searchTaskTeamDefaultByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamSearchContext context) {
+        context.setN_root_eq(task_id);
+        Page<TaskTeam> domains = taskteamService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Create-all')")
     @ApiOperation(value = "根据需求任务建立任务团队", tags = {"任务团队" },  notes = "根据需求任务建立任务团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/taskteams")
     public ResponseEntity<TaskTeamDTO> createByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamDTO taskteamdto) {
@@ -558,6 +687,135 @@ public class TaskTeamResource {
 	@ApiOperation(value = "根据产品需求任务查询DEFAULT", tags = {"任务团队" } ,notes = "根据产品需求任务查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskteams/searchdefault")
 	public ResponseEntity<Page<TaskTeamDTO>> searchTaskTeamDefaultByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamSearchContext context) {
+        context.setN_root_eq(task_id);
+        Page<TaskTeam> domains = taskteamService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Create-all')")
+    @ApiOperation(value = "根据项目任务模块任务建立任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务建立任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams")
+    public ResponseEntity<TaskTeamDTO> createByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamDTO taskteamdto) {
+        TaskTeam domain = taskteamMapping.toDomain(taskteamdto);
+        domain.setRoot(task_id);
+		taskteamService.create(domain);
+        TaskTeamDTO dto = taskteamMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Create-all')")
+    @ApiOperation(value = "根据项目任务模块任务批量建立任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务批量建立任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch")
+    public ResponseEntity<Boolean> createBatchByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskTeamDTO> taskteamdtos) {
+        List<TaskTeam> domainlist=taskteamMapping.toDomain(taskteamdtos);
+        for(TaskTeam domain:domainlist){
+            domain.setRoot(task_id);
+        }
+        taskteamService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Update-all')")
+    @ApiOperation(value = "根据项目任务模块任务更新任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务更新任务团队")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}")
+    public ResponseEntity<TaskTeamDTO> updateByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @PathVariable("taskteam_id") Long taskteam_id, @RequestBody TaskTeamDTO taskteamdto) {
+        TaskTeam domain = taskteamMapping.toDomain(taskteamdto);
+        domain.setRoot(task_id);
+        domain.setId(taskteam_id);
+		taskteamService.update(domain);
+        TaskTeamDTO dto = taskteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Update-all')")
+    @ApiOperation(value = "根据项目任务模块任务批量更新任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务批量更新任务团队")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch")
+    public ResponseEntity<Boolean> updateBatchByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskTeamDTO> taskteamdtos) {
+        List<TaskTeam> domainlist=taskteamMapping.toDomain(taskteamdtos);
+        for(TaskTeam domain:domainlist){
+            domain.setRoot(task_id);
+        }
+        taskteamService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Remove-all')")
+    @ApiOperation(value = "根据项目任务模块任务删除任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务删除任务团队")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}")
+    public ResponseEntity<Boolean> removeByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @PathVariable("taskteam_id") Long taskteam_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(taskteamService.remove(taskteam_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Remove-all')")
+    @ApiOperation(value = "根据项目任务模块任务批量删除任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务批量删除任务团队")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch")
+    public ResponseEntity<Boolean> removeBatchByProjectProjectModuleTask(@RequestBody List<Long> ids) {
+        taskteamService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Get-all')")
+    @ApiOperation(value = "根据项目任务模块任务获取任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务获取任务团队")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}")
+    public ResponseEntity<TaskTeamDTO> getByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @PathVariable("taskteam_id") Long taskteam_id) {
+        TaskTeam domain = taskteamService.get(taskteam_id);
+        TaskTeamDTO dto = taskteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据项目任务模块任务获取任务团队草稿", tags = {"任务团队" },  notes = "根据项目任务模块任务获取任务团队草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/getdraft")
+    public ResponseEntity<TaskTeamDTO> getDraftByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id) {
+        TaskTeam domain = new TaskTeam();
+        domain.setRoot(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskteamMapping.toDto(taskteamService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据项目任务模块任务检查任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务检查任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamDTO taskteamdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(taskteamService.checkKey(taskteamMapping.toDomain(taskteamdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Save-all')")
+    @ApiOperation(value = "根据项目任务模块任务保存任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务保存任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/save")
+    public ResponseEntity<Boolean> saveByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamDTO taskteamdto) {
+        TaskTeam domain = taskteamMapping.toDomain(taskteamdto);
+        domain.setRoot(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskteamService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-Save-all')")
+    @ApiOperation(value = "根据项目任务模块任务批量保存任务团队", tags = {"任务团队" },  notes = "根据项目任务模块任务批量保存任务团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskTeamDTO> taskteamdtos) {
+        List<TaskTeam> domainlist=taskteamMapping.toDomain(taskteamdtos);
+        for(TaskTeam domain:domainlist){
+             domain.setRoot(task_id);
+        }
+        taskteamService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-searchDefault-all')")
+	@ApiOperation(value = "根据项目任务模块任务获取DEFAULT", tags = {"任务团队" } ,notes = "根据项目任务模块任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/fetchdefault")
+	public ResponseEntity<List<TaskTeamDTO>> fetchTaskTeamDefaultByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskTeamSearchContext context) {
+        context.setN_root_eq(task_id);
+        Page<TaskTeam> domains = taskteamService.searchDefault(context) ;
+        List<TaskTeamDTO> list = taskteamMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskTeam-searchDefault-all')")
+	@ApiOperation(value = "根据项目任务模块任务查询DEFAULT", tags = {"任务团队" } ,notes = "根据项目任务模块任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/searchdefault")
+	public ResponseEntity<Page<TaskTeamDTO>> searchTaskTeamDefaultByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskTeamSearchContext context) {
         context.setN_root_eq(task_id);
         Page<TaskTeam> domains = taskteamService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
