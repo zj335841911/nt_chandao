@@ -96,6 +96,10 @@ export class CaseMainNewViewBase extends EditViewBase {
             isRawValue: false,
             value: 'product',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'productmodule': {
             isRawValue: false,
             value: 'productmodule',
