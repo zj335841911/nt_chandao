@@ -496,6 +496,9 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
             this.onFormItemValueChange({ name: 'modulename', value: null });
             this.onFormItemValueChange({ name: 'module', value: null });
         }
+        if (Object.is(name, 'productname')) {
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
             this.onFormItemValueChange({ name: 'story', value: null });
@@ -504,10 +507,10 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
             this.onFormItemValueChange({ name: 'taskname', value: null });
             this.onFormItemValueChange({ name: 'task', value: null });
         }
-        if (Object.is(name, 'product')) {
+        if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'story', value: null });
         }
-        if (Object.is(name, 'project')) {
+        if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'task', value: null });
         }
     }
