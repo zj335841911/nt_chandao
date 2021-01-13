@@ -104,6 +104,10 @@ export class StoryEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'project',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'productmodule': {
             isRawValue: false,
             value: 'productmodule',
