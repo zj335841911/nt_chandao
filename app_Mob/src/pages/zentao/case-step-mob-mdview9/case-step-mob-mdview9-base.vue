@@ -440,6 +440,13 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9Base
      */
     protected afterDestroyed(){
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
         if (this.formDruipart) {
             this.formDruipart.unsubscribe();
         }

@@ -256,6 +256,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -270,6 +302,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {
@@ -380,6 +417,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -394,6 +463,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {
@@ -450,6 +524,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -464,6 +570,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {
@@ -581,6 +692,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -595,6 +738,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {
@@ -835,6 +983,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -849,6 +1029,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {
@@ -961,6 +1146,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -975,6 +1192,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {
@@ -1028,6 +1250,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -1042,6 +1296,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {
@@ -1154,6 +1413,38 @@ export default class BugUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
@@ -1168,6 +1459,11 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
             ]
         }
         if ((context as any).product && true) {

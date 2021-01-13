@@ -44,11 +44,6 @@ export class MobModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'case',
-				prop: 'id',
-                dataType: 'FONTKEY',
-			},
-			{
 				name: 'casestep',
 				prop: 'id',
 				dataType: 'FONTKEY',

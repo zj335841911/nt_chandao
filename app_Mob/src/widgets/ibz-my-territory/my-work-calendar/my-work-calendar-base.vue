@@ -736,7 +736,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                     width: 0,  
                     title: '任务移动端编辑视图', 
                     placement: '',
-                    deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ],
+                    deResParameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, ],
                     parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
                 };
                 break;
