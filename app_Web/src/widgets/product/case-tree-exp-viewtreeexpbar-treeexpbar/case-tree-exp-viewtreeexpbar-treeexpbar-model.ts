@@ -159,6 +159,9 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

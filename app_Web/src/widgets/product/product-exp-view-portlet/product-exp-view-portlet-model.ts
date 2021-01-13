@@ -159,6 +159,9 @@ export default class ProductExpViewModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

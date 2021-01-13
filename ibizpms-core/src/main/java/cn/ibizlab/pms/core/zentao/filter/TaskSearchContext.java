@@ -289,7 +289,7 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`frombug`", n_frombug_eq);
         }
     }
-	private Long n_module_eq;//[id]
+	private Long n_module_eq;//[模块]
 	public void setN_module_eq(Long n_module_eq) {
         this.n_module_eq = n_module_eq;
         if(!ObjectUtils.isEmpty(this.n_module_eq)){

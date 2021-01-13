@@ -159,6 +159,9 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

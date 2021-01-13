@@ -84,6 +84,7 @@ hide members
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
 |支持产品汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
+|产品分类|PRODUCTCLASS|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -138,6 +139,7 @@ hide members
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |IBIZ标识|默认规则|内容长度必须小于等于[100]|
 |支持产品汇报|默认规则|内容长度必须小于等于[200]|
+|产品分类|默认规则|内容长度必须小于等于[10]|
 
 ## 状态控制
 
@@ -340,6 +342,7 @@ hide footbox
 |产品线(LINENAME)|EQ|
 |产品线(LINENAME)|LIKE|
 |产品线(LINE)|EQ|
+|产品分类(PRODUCTCLASS)|EQ|
 
 ## 导入模式
 无

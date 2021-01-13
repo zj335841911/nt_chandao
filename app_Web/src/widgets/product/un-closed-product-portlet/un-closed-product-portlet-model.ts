@@ -159,6 +159,9 @@ export default class UnClosedProductModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

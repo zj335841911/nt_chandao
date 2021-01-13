@@ -343,7 +343,7 @@ export interface SubTask {
     duration?: any;
 
     /**
-     * id
+     * 模块
      *
      * @returns {*}
      * @memberof SubTask

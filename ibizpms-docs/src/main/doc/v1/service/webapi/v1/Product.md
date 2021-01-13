@@ -692,7 +692,8 @@ POST
 | 46 | mdeptid | String | 允许 | 部门标识 |
 | 47 | ibiz_id | String | 允许 | IBIZ标识 |
 | 48 | supproreport | String | 允许 | 支持产品汇报 |
-| 49 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 49 | productclass | String | 允许 | 产品分类 |
+| 50 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -706,10 +707,11 @@ POST
 | 7 | n_linename_eq | String | 允许 | 条件字段：linename<br>条件组合方式：`=` |
 | 8 | n_linename_like | String | 允许 | 条件字段：linename<br>条件组合方式：`%like%` |
 | 9 | n_line_eq | Long | 允许 | 条件字段：line<br>条件组合方式：`=` |
-| 10 | customcond | String | 允许 | 自定义查询条件 |
-| 11 | customparams | String | 允许 | 自定义查询参数 |
-| 12 | query | String | 允许 | 快速搜索 |
-| 13 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 14 | page | int | 允许 | 当前页数<br>默认值0 |
-| 15 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 16 | sort | String | 允许 | 排序 |
+| 10 | n_productclass_eq | String | 允许 | 条件字段：productclass<br>条件组合方式：`=` |
+| 11 | customcond | String | 允许 | 自定义查询条件 |
+| 12 | customparams | String | 允许 | 自定义查询参数 |
+| 13 | query | String | 允许 | 快速搜索 |
+| 14 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 15 | page | int | 允许 | 当前页数<br>默认值0 |
+| 16 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 17 | sort | String | 允许 | 排序 |

@@ -343,7 +343,7 @@ export interface Task {
     duration?: any;
 
     /**
-     * id
+     * 模块
      *
      * @returns {*}
      * @memberof Task

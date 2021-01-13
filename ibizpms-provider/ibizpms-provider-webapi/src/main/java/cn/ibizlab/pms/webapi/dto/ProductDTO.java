@@ -442,6 +442,15 @@ public class ProductDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String supproreport;
 
+    /**
+     * 属性 [PRODUCTCLASS]
+     *
+     */
+    @JSONField(name = "productclass")
+    @JsonProperty("productclass")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    private String productclass;
+
 
     /**
      * 设置 [QD]
@@ -569,6 +578,14 @@ public class ProductDTO extends DTOBase implements Serializable {
     public void setSupproreport(String  supproreport){
         this.supproreport = supproreport ;
         this.modify("supproreport",supproreport);
+    }
+
+    /**
+     * 设置 [PRODUCTCLASS]
+     */
+    public void setProductclass(String  productclass){
+        this.productclass = productclass ;
+        this.modify("productclass",productclass);
     }
 
 

@@ -159,6 +159,9 @@ export default class ProductInfoModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

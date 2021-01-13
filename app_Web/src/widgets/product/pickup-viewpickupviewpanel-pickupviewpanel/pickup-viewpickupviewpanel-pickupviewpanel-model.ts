@@ -159,6 +159,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

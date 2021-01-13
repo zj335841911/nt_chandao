@@ -159,6 +159,9 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

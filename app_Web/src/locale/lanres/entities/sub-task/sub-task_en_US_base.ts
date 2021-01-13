@@ -45,7 +45,7 @@ function getLocaleResourceBase(){
 			parent: commonLogic.appcommonhandle("父任务",null),
 			frombug: commonLogic.appcommonhandle("来源Bug",null),
 			duration: commonLogic.appcommonhandle("持续时间",null),
-			module: commonLogic.appcommonhandle("id",null),
+			module: commonLogic.appcommonhandle("模块",null),
 			path: commonLogic.appcommonhandle("模块路径",null),
 			comment: commonLogic.appcommonhandle("备注",null),
 			currentconsumed: commonLogic.appcommonhandle("本次消耗",null),

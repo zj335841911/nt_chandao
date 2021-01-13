@@ -65,7 +65,7 @@ hide members
 |父任务|PARENT|PICKUP|&nbsp;|
 |来源Bug|FROMBUG|PICKUP|&nbsp;|
 |持续时间|DURATION|TEXT|&nbsp;|
-|id|MODULE|PICKUP|&nbsp;|
+|模块|MODULE|PICKUP|&nbsp;|
 |模块路径|PATH|PICKUPDATA|&nbsp;|
 |备注|COMMENT|HTMLTEXT|&nbsp;|
 |本次消耗|CURRENTCONSUMED|FLOAT|&nbsp;|
@@ -147,7 +147,7 @@ hide members
 |父任务|默认规则|默认规则|
 |来源Bug|默认规则|默认规则|
 |持续时间|默认规则|内容长度必须小于等于[200]|
-|id|默认规则|默认规则|
+|模块|默认规则|默认规则|
 |模块路径|默认规则|内容长度必须小于等于[255]|
 |备注|默认规则|内容长度必须小于等于[1048576]|
 |本次消耗|本次消耗必须大于0|本次消耗必须大于0|
@@ -1387,7 +1387,7 @@ hide footbox
 |父任务(PARENT)|EQ|
 |父任务(PARENT)|GTANDEQ|
 |来源Bug(FROMBUG)|EQ|
-|id(MODULE)|EQ|
+|模块(MODULE)|EQ|
 |模块路径(PATH)|LIKE|
 |任务状态(STATUS1)|EQ|
 |任务类型(TASKTYPE)|EQ|

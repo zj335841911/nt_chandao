@@ -71,7 +71,7 @@
 | 40 | [父任务](#属性-父任务（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
 | 41 | [来源Bug](#属性-来源Bug（FROMBUG）) | FROMBUG | 外键值 | 否 | 是 | 是 |
 | 42 | [持续时间](#属性-持续时间（DURATION）) | DURATION | 文本，可指定长度 | 否 | 是 | 是 |
-| 43 | [id](#属性-id（MODULE）) | MODULE | 外键值 | 否 | 是 | 是 |
+| 43 | [模块](#属性-模块（MODULE）) | MODULE | 外键值 | 否 | 是 | 是 |
 | 44 | [模块路径](#属性-模块路径（PATH）) | PATH | 外键值附加数据 | 否 | 是 | 是 |
 | 45 | [备注](#属性-备注（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 是 | 是 |
 | 46 | [本次消耗](#属性-本次消耗（CURRENTCONSUMED）) | CURRENTCONSUMED | 浮点 | 否 | 是 | 是 |
@@ -1953,9 +1953,9 @@ String
 | 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-id（MODULE）
+### 属性-模块（MODULE）
 #### 属性说明
-id
+模块
 
 - 是否是主键
 否
@@ -6567,7 +6567,7 @@ FAVORITES
 | 34 | [父任务（PARENT）](#属性-父任务（PARENT）) | `=` |
 | 35 | [父任务（PARENT）](#属性-父任务（PARENT）) | `>=` |
 | 36 | [来源Bug（FROMBUG）](#属性-来源Bug（FROMBUG）) | `=` |
-| 37 | [id（MODULE）](#属性-id（MODULE）) | `=` |
+| 37 | [模块（MODULE）](#属性-模块（MODULE）) | `=` |
 | 38 | [模块路径（PATH）](#属性-模块路径（PATH）) | `%like%` |
 | 39 | [任务状态（STATUS1）](#属性-任务状态（STATUS1）) | `=` |
 | 40 | [任务类型（TASKTYPE）](#属性-任务类型（TASKTYPE）) | `=` |

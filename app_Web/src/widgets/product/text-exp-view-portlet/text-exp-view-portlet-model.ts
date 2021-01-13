@@ -159,6 +159,9 @@ export default class TextExpViewModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

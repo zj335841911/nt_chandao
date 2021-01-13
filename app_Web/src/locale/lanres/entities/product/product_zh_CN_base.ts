@@ -51,6 +51,7 @@ function getLocaleResourceBase(){
 			mdeptid: commonLogic.appcommonhandle("部门标识",null),
 			ibiz_id: commonLogic.appcommonhandle("IBIZ标识",null),
 			supproreport: commonLogic.appcommonhandle("支持产品汇报",null),
+			productclass: commonLogic.appcommonhandle("产品分类",null),
 		},
 			views: {
 				testtabexpview: {

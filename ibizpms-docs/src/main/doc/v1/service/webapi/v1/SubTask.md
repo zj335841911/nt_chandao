@@ -9288,7 +9288,7 @@ POST
 | 40 | parent | Long | 允许 | 父任务 |
 | 41 | frombug | Long | 允许 | 来源Bug |
 | 42 | duration | String | 允许 | 持续时间 |
-| 43 | module | Long | 允许 | id |
+| 43 | module | Long | 允许 | 模块 |
 | 44 | path | String | 允许 | 模块路径 |
 | 45 | comment | String | 允许 | 备注 |
 | 46 | currentconsumed | Double | 允许 | 本次消耗 |

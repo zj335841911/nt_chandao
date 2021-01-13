@@ -159,6 +159,9 @@ export default class MainTabExpViewtabviewpanel11Model {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

@@ -399,6 +399,13 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "supproreport")
     @JsonProperty("supproreport")
     private String supproreport;
+    /**
+     * 产品分类
+     */
+    @TableField(value = "`productclass`")
+    @JSONField(name = "productclass")
+    @JsonProperty("productclass")
+    private String productclass;
 
     /**
      * 产品线
@@ -544,6 +551,14 @@ public class Product extends EntityMP implements Serializable {
     public void setSupproreport(String supproreport) {
         this.supproreport = supproreport;
         this.modify("supproreport", supproreport);
+    }
+
+    /**
+     * 设置 [产品分类]
+     */
+    public void setProductclass(String productclass) {
+        this.productclass = productclass;
+        this.modify("productclass", productclass);
     }
 
 

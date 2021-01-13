@@ -159,6 +159,9 @@ export default class TestTabExpViewtabviewpanel5Model {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

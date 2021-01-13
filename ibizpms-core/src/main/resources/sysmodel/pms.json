@@ -28760,6 +28760,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PRODUCTCLASS" ,
+    "codename":"Productclass",
+    "field_logic_name":"产品分类",
+    "entity_name":"ZT_PRODUCT",
+    "field_type":"SSCODELIST",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":10,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -40448,7 +40462,7 @@
     {
     "fieldname":"MODULE" ,
     "codename":"Module",
-    "field_logic_name":"id",
+    "field_logic_name":"模块",
     "entity_name":"ZT_TASK",
     "ref_de":"IBZ_PROJECTMODULE",
     "ref_field_name":"ID",

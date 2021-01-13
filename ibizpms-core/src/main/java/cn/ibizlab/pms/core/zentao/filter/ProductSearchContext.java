@@ -92,6 +92,13 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
             this.getSearchCond().eq("`line`", n_line_eq);
         }
     }
+	private String n_productclass_eq;//[产品分类]
+	public void setN_productclass_eq(String n_productclass_eq) {
+        this.n_productclass_eq = n_productclass_eq;
+        if(!ObjectUtils.isEmpty(this.n_productclass_eq)){
+            this.getSearchCond().eq("`productclass`", n_productclass_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

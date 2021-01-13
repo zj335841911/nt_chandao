@@ -159,6 +159,9 @@ export default class ProductMainToolbarModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

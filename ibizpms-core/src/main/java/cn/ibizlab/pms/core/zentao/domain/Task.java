@@ -375,7 +375,7 @@ public class Task extends EntityMP implements Serializable {
     @JsonProperty("duration")
     private String duration;
     /**
-     * id
+     * 模块
      */
     @DEField(defaultValue = "0")
     @TableField(value = "`module`")
@@ -927,7 +927,7 @@ public class Task extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [id]
+     * 设置 [模块]
      */
     public void setModule(Long module) {
         this.module = module;

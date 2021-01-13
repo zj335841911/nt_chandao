@@ -389,4 +389,12 @@ export interface Product {
      * @memberof Product
      */
     supproreport?: any;
+
+    /**
+     * 产品分类
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    productclass?: any;
 }

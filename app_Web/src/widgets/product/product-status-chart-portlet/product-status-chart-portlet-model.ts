@@ -159,6 +159,9 @@ export default class ProductStatusChartModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 
