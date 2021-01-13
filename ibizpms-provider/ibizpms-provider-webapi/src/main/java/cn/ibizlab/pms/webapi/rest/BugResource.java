@@ -2356,6 +2356,1164 @@ public class BugResource {
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据任务建立Bug", tags = {"Bug" },  notes = "根据任务建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs")
+    public ResponseEntity<BugDTO> createByTask(@PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+		bugService.create(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据任务批量建立Bug", tags = {"Bug" },  notes = "根据任务批量建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> createBatchByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据任务更新Bug", tags = {"Bug" },  notes = "根据任务更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> updateByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain.setId(bug_id);
+		bugService.update(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据任务批量更新Bug", tags = {"Bug" },  notes = "根据任务批量更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> updateBatchByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据任务删除Bug", tags = {"Bug" },  notes = "根据任务删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<Boolean> removeByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据任务批量删除Bug", tags = {"Bug" },  notes = "根据任务批量删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> removeBatchByTask(@RequestBody List<Long> ids) {
+        bugService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
+    @ApiOperation(value = "根据任务获取Bug", tags = {"Bug" },  notes = "根据任务获取Bug")
+	@RequestMapping(method = RequestMethod.GET, value = "/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> getByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+        Bug domain = bugService.get(bug_id);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据任务获取Bug草稿", tags = {"Bug" },  notes = "根据任务获取Bug草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/tasks/{task_id}/bugs/getdraft")
+    public ResponseEntity<BugDTO> getDraftByTask(@PathVariable("task_id") Long task_id) {
+        Bug domain = new Bug();
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/activate")
+    public ResponseEntity<BugDTO> activateByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/activatebatch")
+    public ResponseEntity<Boolean> activateByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/assignto")
+    public ResponseEntity<BugDTO> assignToByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.assignTo(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/assigntobatch")
+    public ResponseEntity<Boolean> assignToByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/batchunlinkbug")
+    public ResponseEntity<BugDTO> batchUnlinkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/batchunlinkbugbatch")
+    public ResponseEntity<Boolean> batchUnlinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugNFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbug")
+    public ResponseEntity<BugDTO> buildBatchUnlinkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+    public ResponseEntity<Boolean> buildBatchUnlinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/buildlinkbug")
+    public ResponseEntity<BugDTO> buildLinkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildLinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/buildlinkbugbatch")
+    public ResponseEntity<Boolean> buildLinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/buildunlinkbug")
+    public ResponseEntity<BugDTO> buildUnlinkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/buildunlinkbugbatch")
+    public ResponseEntity<Boolean> buildUnlinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @ApiOperation(value = "根据任务检查Bug", tags = {"Bug" },  notes = "根据任务检查Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByTask(@PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/close")
+    public ResponseEntity<BugDTO> closeByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.close(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/closebatch")
+    public ResponseEntity<Boolean> closeByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/confirm")
+    public ResponseEntity<BugDTO> confirmByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.confirm(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/confirmbatch")
+    public ResponseEntity<Boolean> confirmByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/linkbug")
+    public ResponseEntity<BugDTO> linkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.linkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/linkbugbatch")
+    public ResponseEntity<Boolean> linkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbug")
+    public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaaseBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+    public ResponseEntity<Boolean> releaaseBatchUnlinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseUnLinkBugbyLeftBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbug")
+    public ResponseEntity<BugDTO> releaseUnlinkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+    public ResponseEntity<Boolean> releaseUnlinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/resolve")
+    public ResponseEntity<BugDTO> resolveByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.resolve(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/resolvebatch")
+    public ResponseEntity<Boolean> resolveByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据任务保存Bug", tags = {"Bug" },  notes = "根据任务保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/save")
+    public ResponseEntity<Boolean> saveByTask(@PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据任务批量保存Bug", tags = {"Bug" },  notes = "根据任务批量保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+             domain.setFrombug(task_id);
+        }
+        bugService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMessage-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/sendmessage")
+    public ResponseEntity<BugDTO> sendMessageByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMessage(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/sendmessagebatch")
+    public ResponseEntity<Boolean> sendMessageByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+    public ResponseEntity<Boolean> sendMsgPreProcessByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/tostory")
+    public ResponseEntity<BugDTO> toStoryByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.toStory(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/tostorybatch")
+    public ResponseEntity<Boolean> toStoryByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/unlinkbug")
+    public ResponseEntity<BugDTO> unlinkBugByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.unlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务Bug]", tags = {"Bug" },  notes = "批量处理[根据任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/bugs/{bug_id}/unlinkbugbatch")
+    public ResponseEntity<Boolean> unlinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据任务Bug", tags = {"Bug" },  notes = "根据任务Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByTask(@PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据任务获取指派给我Bug", tags = {"Bug" } ,notes = "根据任务获取指派给我Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchassignedtomybug")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据任务查询指派给我Bug", tags = {"Bug" } ,notes = "根据任务查询指派给我Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchassignedtomybug")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据任务获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据任务获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据任务查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据任务查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据任务获取版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据任务获取版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchbugsbybuild")
+	public ResponseEntity<List<BugDTO>> fetchBugBugsByBuildByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据任务查询版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据任务查询版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbugsbybuild")
+	public ResponseEntity<Page<BugDTO>> searchBugBugsByBuildByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchbuildbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据任务获取版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据任务获取版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchbuildlinkresolvedbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildLinkResolvedBugsByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据任务查询版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据任务查询版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildlinkresolvedbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildLinkResolvedBugsByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchbuildopenbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildopenbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebug")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebug")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugmodule")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModuleByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugmodule")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModuleByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugmodule_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModule_ProjectByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugmodule_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModule_ProjectByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugopenedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedByByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugopenedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedByByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugopenedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedBy_ProjectByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugopenedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedBy_ProjectByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugres")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugres")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBYByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugresolvedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBYByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBY_ProjectByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugresolvedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBY_ProjectByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugresolution_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugResolution_ProjectByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugresolution_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugResolution_ProjectByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugstatus_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugStatus_ProjectByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugstatus_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据任务获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据任务获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据任务查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据任务查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据任务获取当前用户解决的Bug", tags = {"Bug" } ,notes = "根据任务获取当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchcuruserresolve")
+	public ResponseEntity<List<BugDTO>> fetchBugCurUserResolveByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据任务查询当前用户解决的Bug", tags = {"Bug" } ,notes = "根据任务查询当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchcuruserresolve")
+	public ResponseEntity<Page<BugDTO>> searchBugCurUserResolveByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据任务获取DEFAULT", tags = {"Bug" } ,notes = "根据任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchdefault")
+	public ResponseEntity<List<BugDTO>> fetchBugDefaultByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据任务查询DEFAULT", tags = {"Bug" } ,notes = "根据任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchdefault")
+	public ResponseEntity<Page<BugDTO>> searchBugDefaultByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据任务获取ES批量的导入", tags = {"Bug" } ,notes = "根据任务获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchesbulk")
+	public ResponseEntity<List<BugDTO>> fetchBugESBulkByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据任务查询ES批量的导入", tags = {"Bug" } ,notes = "根据任务查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchesbulk")
+	public ResponseEntity<Page<BugDTO>> searchBugESBulkByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据任务获取我代理的Bug", tags = {"Bug" } ,notes = "根据任务获取我代理的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchmyagentbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyAgentBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据任务查询我代理的Bug", tags = {"Bug" } ,notes = "根据任务查询我代理的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchmyagentbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyAgentBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据任务获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据任务获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据任务查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据任务查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据任务获取我的收藏", tags = {"Bug" } ,notes = "根据任务获取我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据任务查询我的收藏", tags = {"Bug" } ,notes = "根据任务查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据任务获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据任务获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据任务查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据任务查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据任务获取遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据任务获取遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchprojectbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugProjectBugsByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据任务查询遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据任务查询遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchprojectbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugProjectBugsByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据任务获取发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据任务获取发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchreleaselinkableleftbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableLeftBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据任务查询发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据任务查询发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchreleaselinkableleftbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableLeftBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据任务获取发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据任务获取发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchreleaselinkableresolvedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableResolvedBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据任务查询发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据任务查询发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchreleaselinkableresolvedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableResolvedBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据任务获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据任务获取发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/fetchreportbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByTask(@PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据任务查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据任务查询发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchreportbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据任务获取任务相关bug", tags = {"Bug" } ,notes = "根据任务获取任务相关bug")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/bugs/fetchtaskrelatedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugTaskRelatedBugByTask(@PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据任务查询任务相关bug", tags = {"Bug" } ,notes = "根据任务查询任务相关bug")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/bugs/searchtaskrelatedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugTaskRelatedBugByTask(@PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "根据需求建立Bug", tags = {"Bug" },  notes = "根据需求建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs")
     public ResponseEntity<BugDTO> createByStory(@PathVariable("story_id") Long story_id, @RequestBody BugDTO bugdto) {
@@ -5825,6 +6983,3480 @@ public class BugResource {
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/searchtaskrelatedbug")
 	public ResponseEntity<Page<BugDTO>> searchBugTaskRelatedBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据需求任务建立Bug", tags = {"Bug" },  notes = "根据需求任务建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs")
+    public ResponseEntity<BugDTO> createByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+		bugService.create(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据需求任务批量建立Bug", tags = {"Bug" },  notes = "根据需求任务批量建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> createBatchByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据需求任务更新Bug", tags = {"Bug" },  notes = "根据需求任务更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> updateByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain.setId(bug_id);
+		bugService.update(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据需求任务批量更新Bug", tags = {"Bug" },  notes = "根据需求任务批量更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> updateBatchByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据需求任务删除Bug", tags = {"Bug" },  notes = "根据需求任务删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<Boolean> removeByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据需求任务批量删除Bug", tags = {"Bug" },  notes = "根据需求任务批量删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> removeBatchByStoryTask(@RequestBody List<Long> ids) {
+        bugService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
+    @ApiOperation(value = "根据需求任务获取Bug", tags = {"Bug" },  notes = "根据需求任务获取Bug")
+	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> getByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+        Bug domain = bugService.get(bug_id);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据需求任务获取Bug草稿", tags = {"Bug" },  notes = "根据需求任务获取Bug草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/tasks/{task_id}/bugs/getdraft")
+    public ResponseEntity<BugDTO> getDraftByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id) {
+        Bug domain = new Bug();
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/activate")
+    public ResponseEntity<BugDTO> activateByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/activatebatch")
+    public ResponseEntity<Boolean> activateByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/assignto")
+    public ResponseEntity<BugDTO> assignToByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.assignTo(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/assigntobatch")
+    public ResponseEntity<Boolean> assignToByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/batchunlinkbug")
+    public ResponseEntity<BugDTO> batchUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/batchunlinkbugbatch")
+    public ResponseEntity<Boolean> batchUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugNFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbug")
+    public ResponseEntity<BugDTO> buildBatchUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+    public ResponseEntity<Boolean> buildBatchUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildlinkbug")
+    public ResponseEntity<BugDTO> buildLinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildLinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildlinkbugbatch")
+    public ResponseEntity<Boolean> buildLinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildunlinkbug")
+    public ResponseEntity<BugDTO> buildUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildunlinkbugbatch")
+    public ResponseEntity<Boolean> buildUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @ApiOperation(value = "根据需求任务检查Bug", tags = {"Bug" },  notes = "根据需求任务检查Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/close")
+    public ResponseEntity<BugDTO> closeByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.close(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/closebatch")
+    public ResponseEntity<Boolean> closeByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/confirm")
+    public ResponseEntity<BugDTO> confirmByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.confirm(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/confirmbatch")
+    public ResponseEntity<Boolean> confirmByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/linkbug")
+    public ResponseEntity<BugDTO> linkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.linkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/linkbugbatch")
+    public ResponseEntity<Boolean> linkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbug")
+    public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaaseBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+    public ResponseEntity<Boolean> releaaseBatchUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseUnLinkBugbyLeftBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbug")
+    public ResponseEntity<BugDTO> releaseUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+    public ResponseEntity<Boolean> releaseUnlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/resolve")
+    public ResponseEntity<BugDTO> resolveByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.resolve(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/resolvebatch")
+    public ResponseEntity<Boolean> resolveByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据需求任务保存Bug", tags = {"Bug" },  notes = "根据需求任务保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/save")
+    public ResponseEntity<Boolean> saveByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据需求任务批量保存Bug", tags = {"Bug" },  notes = "根据需求任务批量保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+             domain.setFrombug(task_id);
+        }
+        bugService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMessage-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmessage")
+    public ResponseEntity<BugDTO> sendMessageByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMessage(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmessagebatch")
+    public ResponseEntity<Boolean> sendMessageByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+    public ResponseEntity<Boolean> sendMsgPreProcessByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/tostory")
+    public ResponseEntity<BugDTO> toStoryByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.toStory(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/tostorybatch")
+    public ResponseEntity<Boolean> toStoryByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/unlinkbug")
+    public ResponseEntity<BugDTO> unlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.unlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/unlinkbugbatch")
+    public ResponseEntity<Boolean> unlinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据需求任务Bug", tags = {"Bug" },  notes = "根据需求任务Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据需求任务获取指派给我Bug", tags = {"Bug" } ,notes = "根据需求任务获取指派给我Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchassignedtomybug")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据需求任务查询指派给我Bug", tags = {"Bug" } ,notes = "根据需求任务查询指派给我Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchassignedtomybug")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据需求任务获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据需求任务获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据需求任务查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据需求任务查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据需求任务获取版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据需求任务获取版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbugsbybuild")
+	public ResponseEntity<List<BugDTO>> fetchBugBugsByBuildByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据需求任务查询版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据需求任务查询版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbugsbybuild")
+	public ResponseEntity<Page<BugDTO>> searchBugBugsByBuildByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据需求任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据需求任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据需求任务获取版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据需求任务获取版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildlinkresolvedbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildLinkResolvedBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据需求任务查询版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据需求任务查询版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildlinkresolvedbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildLinkResolvedBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据需求任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildopenbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据需求任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildopenbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebug")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebug")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugmodule")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModuleByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugmodule")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModuleByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugmodule_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModule_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugmodule_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModule_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugopenedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedByByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugopenedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedByByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugopenedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedBy_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugopenedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedBy_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugres")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugres")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBYByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugresolvedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBYByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBY_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugresolvedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBY_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolution_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugResolution_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugresolution_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugResolution_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugstatus_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugStatus_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugstatus_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据需求任务获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据需求任务获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据需求任务查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据需求任务查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据需求任务获取当前用户解决的Bug", tags = {"Bug" } ,notes = "根据需求任务获取当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchcuruserresolve")
+	public ResponseEntity<List<BugDTO>> fetchBugCurUserResolveByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据需求任务查询当前用户解决的Bug", tags = {"Bug" } ,notes = "根据需求任务查询当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchcuruserresolve")
+	public ResponseEntity<Page<BugDTO>> searchBugCurUserResolveByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据需求任务获取DEFAULT", tags = {"Bug" } ,notes = "根据需求任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchdefault")
+	public ResponseEntity<List<BugDTO>> fetchBugDefaultByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据需求任务查询DEFAULT", tags = {"Bug" } ,notes = "根据需求任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchdefault")
+	public ResponseEntity<Page<BugDTO>> searchBugDefaultByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据需求任务获取ES批量的导入", tags = {"Bug" } ,notes = "根据需求任务获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchesbulk")
+	public ResponseEntity<List<BugDTO>> fetchBugESBulkByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据需求任务查询ES批量的导入", tags = {"Bug" } ,notes = "根据需求任务查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchesbulk")
+	public ResponseEntity<Page<BugDTO>> searchBugESBulkByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据需求任务获取我代理的Bug", tags = {"Bug" } ,notes = "根据需求任务获取我代理的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchmyagentbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyAgentBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据需求任务查询我代理的Bug", tags = {"Bug" } ,notes = "根据需求任务查询我代理的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchmyagentbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyAgentBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据需求任务获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据需求任务获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据需求任务查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据需求任务查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据需求任务获取我的收藏", tags = {"Bug" } ,notes = "根据需求任务获取我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据需求任务查询我的收藏", tags = {"Bug" } ,notes = "根据需求任务查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据需求任务获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据需求任务获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据需求任务查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据需求任务查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据需求任务获取遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据需求任务获取遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchprojectbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugProjectBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据需求任务查询遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据需求任务查询遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchprojectbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugProjectBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据需求任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据需求任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据需求任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据需求任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据需求任务获取发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据需求任务获取发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchreleaselinkableleftbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableLeftBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据需求任务查询发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据需求任务查询发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchreleaselinkableleftbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableLeftBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据需求任务获取发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务获取发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchreleaselinkableresolvedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableResolvedBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据需求任务查询发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据需求任务查询发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchreleaselinkableresolvedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableResolvedBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据需求任务获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据需求任务获取发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchreportbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据需求任务查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据需求任务查询发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchreportbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据需求任务获取任务相关bug", tags = {"Bug" } ,notes = "根据需求任务获取任务相关bug")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/bugs/fetchtaskrelatedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugTaskRelatedBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据需求任务查询任务相关bug", tags = {"Bug" } ,notes = "根据需求任务查询任务相关bug")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/bugs/searchtaskrelatedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugTaskRelatedBugByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据项目任务建立Bug", tags = {"Bug" },  notes = "根据项目任务建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs")
+    public ResponseEntity<BugDTO> createByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+		bugService.create(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据项目任务批量建立Bug", tags = {"Bug" },  notes = "根据项目任务批量建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> createBatchByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据项目任务更新Bug", tags = {"Bug" },  notes = "根据项目任务更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> updateByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain.setId(bug_id);
+		bugService.update(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据项目任务批量更新Bug", tags = {"Bug" },  notes = "根据项目任务批量更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> updateBatchByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据项目任务删除Bug", tags = {"Bug" },  notes = "根据项目任务删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<Boolean> removeByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据项目任务批量删除Bug", tags = {"Bug" },  notes = "根据项目任务批量删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> removeBatchByProjectTask(@RequestBody List<Long> ids) {
+        bugService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
+    @ApiOperation(value = "根据项目任务获取Bug", tags = {"Bug" },  notes = "根据项目任务获取Bug")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> getByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+        Bug domain = bugService.get(bug_id);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据项目任务获取Bug草稿", tags = {"Bug" },  notes = "根据项目任务获取Bug草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/tasks/{task_id}/bugs/getdraft")
+    public ResponseEntity<BugDTO> getDraftByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id) {
+        Bug domain = new Bug();
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/activate")
+    public ResponseEntity<BugDTO> activateByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/activatebatch")
+    public ResponseEntity<Boolean> activateByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/assignto")
+    public ResponseEntity<BugDTO> assignToByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.assignTo(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/assigntobatch")
+    public ResponseEntity<Boolean> assignToByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/batchunlinkbug")
+    public ResponseEntity<BugDTO> batchUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/batchunlinkbugbatch")
+    public ResponseEntity<Boolean> batchUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugNFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbug")
+    public ResponseEntity<BugDTO> buildBatchUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+    public ResponseEntity<Boolean> buildBatchUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/buildlinkbug")
+    public ResponseEntity<BugDTO> buildLinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildLinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/buildlinkbugbatch")
+    public ResponseEntity<Boolean> buildLinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/buildunlinkbug")
+    public ResponseEntity<BugDTO> buildUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/buildunlinkbugbatch")
+    public ResponseEntity<Boolean> buildUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @ApiOperation(value = "根据项目任务检查Bug", tags = {"Bug" },  notes = "根据项目任务检查Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/close")
+    public ResponseEntity<BugDTO> closeByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.close(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/closebatch")
+    public ResponseEntity<Boolean> closeByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/confirm")
+    public ResponseEntity<BugDTO> confirmByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.confirm(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/confirmbatch")
+    public ResponseEntity<Boolean> confirmByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/linkbug")
+    public ResponseEntity<BugDTO> linkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.linkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/linkbugbatch")
+    public ResponseEntity<Boolean> linkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbug")
+    public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaaseBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+    public ResponseEntity<Boolean> releaaseBatchUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseUnLinkBugbyLeftBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbug")
+    public ResponseEntity<BugDTO> releaseUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+    public ResponseEntity<Boolean> releaseUnlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/resolve")
+    public ResponseEntity<BugDTO> resolveByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.resolve(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/resolvebatch")
+    public ResponseEntity<Boolean> resolveByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据项目任务保存Bug", tags = {"Bug" },  notes = "根据项目任务保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/save")
+    public ResponseEntity<Boolean> saveByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据项目任务批量保存Bug", tags = {"Bug" },  notes = "根据项目任务批量保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+             domain.setFrombug(task_id);
+        }
+        bugService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMessage-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/sendmessage")
+    public ResponseEntity<BugDTO> sendMessageByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMessage(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/sendmessagebatch")
+    public ResponseEntity<Boolean> sendMessageByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+    public ResponseEntity<Boolean> sendMsgPreProcessByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/tostory")
+    public ResponseEntity<BugDTO> toStoryByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.toStory(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/tostorybatch")
+    public ResponseEntity<Boolean> toStoryByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/unlinkbug")
+    public ResponseEntity<BugDTO> unlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.unlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务Bug]", tags = {"Bug" },  notes = "批量处理[根据项目任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/unlinkbugbatch")
+    public ResponseEntity<Boolean> unlinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据项目任务Bug", tags = {"Bug" },  notes = "根据项目任务Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据项目任务获取指派给我Bug", tags = {"Bug" } ,notes = "根据项目任务获取指派给我Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchassignedtomybug")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据项目任务查询指派给我Bug", tags = {"Bug" } ,notes = "根据项目任务查询指派给我Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchassignedtomybug")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据项目任务获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据项目任务获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据项目任务查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据项目任务查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据项目任务获取版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据项目任务获取版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbugsbybuild")
+	public ResponseEntity<List<BugDTO>> fetchBugBugsByBuildByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据项目任务查询版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据项目任务查询版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbugsbybuild")
+	public ResponseEntity<Page<BugDTO>> searchBugBugsByBuildByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据项目任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据项目任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据项目任务获取版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据项目任务获取版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildlinkresolvedbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildLinkResolvedBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据项目任务查询版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据项目任务查询版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildlinkresolvedbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildLinkResolvedBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据项目任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildopenbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据项目任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildopenbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebug")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebug")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugmodule")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModuleByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugmodule")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModuleByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugmodule_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModule_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugmodule_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModule_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugopenedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedByByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugopenedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedByByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugopenedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedBy_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugopenedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedBy_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugres")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugres")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBYByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugresolvedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBYByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBY_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugresolvedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBY_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolution_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugResolution_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugresolution_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugResolution_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugstatus_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugStatus_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugstatus_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据项目任务获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据项目任务获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据项目任务查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据项目任务查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据项目任务获取当前用户解决的Bug", tags = {"Bug" } ,notes = "根据项目任务获取当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchcuruserresolve")
+	public ResponseEntity<List<BugDTO>> fetchBugCurUserResolveByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据项目任务查询当前用户解决的Bug", tags = {"Bug" } ,notes = "根据项目任务查询当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchcuruserresolve")
+	public ResponseEntity<Page<BugDTO>> searchBugCurUserResolveByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据项目任务获取DEFAULT", tags = {"Bug" } ,notes = "根据项目任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchdefault")
+	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据项目任务查询DEFAULT", tags = {"Bug" } ,notes = "根据项目任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchdefault")
+	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据项目任务获取ES批量的导入", tags = {"Bug" } ,notes = "根据项目任务获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchesbulk")
+	public ResponseEntity<List<BugDTO>> fetchBugESBulkByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据项目任务查询ES批量的导入", tags = {"Bug" } ,notes = "根据项目任务查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchesbulk")
+	public ResponseEntity<Page<BugDTO>> searchBugESBulkByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据项目任务获取我代理的Bug", tags = {"Bug" } ,notes = "根据项目任务获取我代理的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchmyagentbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyAgentBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据项目任务查询我代理的Bug", tags = {"Bug" } ,notes = "根据项目任务查询我代理的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchmyagentbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyAgentBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据项目任务获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据项目任务获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据项目任务查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据项目任务查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据项目任务获取我的收藏", tags = {"Bug" } ,notes = "根据项目任务获取我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据项目任务查询我的收藏", tags = {"Bug" } ,notes = "根据项目任务查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据项目任务获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据项目任务获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据项目任务查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据项目任务查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据项目任务获取遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据项目任务获取遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchprojectbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugProjectBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据项目任务查询遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据项目任务查询遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchprojectbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugProjectBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据项目任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据项目任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据项目任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据项目任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据项目任务获取发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据项目任务获取发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchreleaselinkableleftbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableLeftBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据项目任务查询发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据项目任务查询发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchreleaselinkableleftbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableLeftBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据项目任务获取发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务获取发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchreleaselinkableresolvedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableResolvedBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据项目任务查询发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据项目任务查询发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchreleaselinkableresolvedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableResolvedBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据项目任务获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据项目任务获取发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchreportbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据项目任务查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据项目任务查询发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchreportbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据项目任务获取任务相关bug", tags = {"Bug" } ,notes = "根据项目任务获取任务相关bug")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/bugs/fetchtaskrelatedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugTaskRelatedBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据项目任务查询任务相关bug", tags = {"Bug" } ,notes = "根据项目任务查询任务相关bug")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/bugs/searchtaskrelatedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugTaskRelatedBugByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据产品需求任务建立Bug", tags = {"Bug" },  notes = "根据产品需求任务建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs")
+    public ResponseEntity<BugDTO> createByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+		bugService.create(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "根据产品需求任务批量建立Bug", tags = {"Bug" },  notes = "根据产品需求任务批量建立Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> createBatchByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据产品需求任务更新Bug", tags = {"Bug" },  notes = "根据产品需求任务更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> updateByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain.setId(bug_id);
+		bugService.update(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "根据产品需求任务批量更新Bug", tags = {"Bug" },  notes = "根据产品需求任务批量更新Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> updateBatchByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setFrombug(task_id);
+        }
+        bugService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据产品需求任务删除Bug", tags = {"Bug" },  notes = "根据产品需求任务删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<Boolean> removeByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "根据产品需求任务批量删除Bug", tags = {"Bug" },  notes = "根据产品需求任务批量删除Bug")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/batch")
+    public ResponseEntity<Boolean> removeBatchByProductStoryTask(@RequestBody List<Long> ids) {
+        bugService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
+    @ApiOperation(value = "根据产品需求任务获取Bug", tags = {"Bug" },  notes = "根据产品需求任务获取Bug")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> getByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id) {
+        Bug domain = bugService.get(bug_id);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品需求任务获取Bug草稿", tags = {"Bug" },  notes = "根据产品需求任务获取Bug草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/getdraft")
+    public ResponseEntity<BugDTO> getDraftByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id) {
+        Bug domain = new Bug();
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/activate")
+    public ResponseEntity<BugDTO> activateByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/activatebatch")
+    public ResponseEntity<Boolean> activateByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/assignto")
+    public ResponseEntity<BugDTO> assignToByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.assignTo(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/assigntobatch")
+    public ResponseEntity<Boolean> assignToByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/batchunlinkbug")
+    public ResponseEntity<BugDTO> batchUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.batchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/batchunlinkbugbatch")
+    public ResponseEntity<Boolean> batchUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/bugfavorites")
+    public ResponseEntity<BugDTO> bugFavoritesByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugNFavorites-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/bugnfavorites")
+    public ResponseEntity<BugDTO> bugNFavoritesByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.bugNFavorites(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbug")
+    public ResponseEntity<BugDTO> buildBatchUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+    public ResponseEntity<Boolean> buildBatchUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildlinkbug")
+    public ResponseEntity<BugDTO> buildLinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildLinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildlinkbugbatch")
+    public ResponseEntity<Boolean> buildLinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildunlinkbug")
+    public ResponseEntity<BugDTO> buildUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.buildUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/buildunlinkbugbatch")
+    public ResponseEntity<Boolean> buildUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @ApiOperation(value = "根据产品需求任务检查Bug", tags = {"Bug" },  notes = "根据产品需求任务检查Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/close")
+    public ResponseEntity<BugDTO> closeByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.close(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/closebatch")
+    public ResponseEntity<Boolean> closeByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/confirm")
+    public ResponseEntity<BugDTO> confirmByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.confirm(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/confirmbatch")
+    public ResponseEntity<Boolean> confirmByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/linkbug")
+    public ResponseEntity<BugDTO> linkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.linkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/linkbugbatch")
+    public ResponseEntity<Boolean> linkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbug")
+    public ResponseEntity<BugDTO> releaaseBatchUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaaseBatchUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+    public ResponseEntity<Boolean> releaaseBatchUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseLinkBugbyLeftBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug")
+    public ResponseEntity<BugDTO> releaseUnLinkBugbyLeftBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnLinkBugbyLeftBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+    public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbug")
+    public ResponseEntity<BugDTO> releaseUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.releaseUnlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+    public ResponseEntity<Boolean> releaseUnlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/resolve")
+    public ResponseEntity<BugDTO> resolveByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.resolve(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/resolvebatch")
+    public ResponseEntity<Boolean> resolveByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据产品需求任务保存Bug", tags = {"Bug" },  notes = "根据产品需求任务保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/save")
+    public ResponseEntity<Boolean> saveByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "根据产品需求任务批量保存Bug", tags = {"Bug" },  notes = "根据产品需求任务批量保存Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+             domain.setFrombug(task_id);
+        }
+        bugService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMessage-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmessage")
+    public ResponseEntity<BugDTO> sendMessageByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMessage(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmessagebatch")
+    public ResponseEntity<Boolean> sendMessageByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocess")
+    public ResponseEntity<BugDTO> sendMsgPreProcessByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.sendMsgPreProcess(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+    public ResponseEntity<Boolean> sendMsgPreProcessByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/tostory")
+    public ResponseEntity<BugDTO> toStoryByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.toStory(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/tostorybatch")
+    public ResponseEntity<Boolean> toStoryByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/unlinkbug")
+    public ResponseEntity<BugDTO> unlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.unlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求任务Bug]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/unlinkbugbatch")
+    public ResponseEntity<Boolean> unlinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody List<BugDTO> bugdtos) {
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据产品需求任务Bug", tags = {"Bug" },  notes = "根据产品需求任务Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setFrombug(task_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取指派给我Bug", tags = {"Bug" } ,notes = "根据产品需求任务获取指派给我Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchassignedtomybug")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询指派给我Bug", tags = {"Bug" } ,notes = "根据产品需求任务查询指派给我Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchassignedtomybug")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据产品需求任务获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据产品需求任务获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据产品需求任务查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据产品需求任务查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据产品需求任务获取版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据产品需求任务获取版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbugsbybuild")
+	public ResponseEntity<List<BugDTO>> fetchBugBugsByBuildByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBugsByBuild-all')")
+	@ApiOperation(value = "根据产品需求任务查询版本关联bug(遗留的)", tags = {"Bug" } ,notes = "根据产品需求任务查询版本关联bug(遗留的)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbugsbybuild")
+	public ResponseEntity<Page<BugDTO>> searchBugBugsByBuildByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBugsByBuild(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据产品需求任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
+	@ApiOperation(value = "根据产品需求任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据产品需求任务获取版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据产品需求任务获取版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildlinkresolvedbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildLinkResolvedBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildLinkResolvedBugs-all')")
+	@ApiOperation(value = "根据产品需求任务查询版本可关联的已解决的Bugs集合", tags = {"Bug" } ,notes = "根据产品需求任务查询版本可关联的已解决的Bugs集合")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildlinkresolvedbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildLinkResolvedBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildLinkResolvedBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据产品需求任务获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务获取版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildopenbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
+	@ApiOperation(value = "根据产品需求任务查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务查询版本关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildopenbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildOpenBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebug")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebug")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugmodule")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModuleByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugmodule")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModuleByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugmodule_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugModule_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugModule_Project-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugmodule_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugModule_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugModule_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugopenedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedByByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-创建分类", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-创建分类")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugopenedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedByByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugopenedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugOpenedBy_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugOpenedBy_Project-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-创建者分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-创建者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugopenedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugOpenedBy_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugOpenedBy_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugres")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRES-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugres")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRES(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBYByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-解决者分布", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-解决者分布")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugresolvedby")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBYByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolvedby_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugRESOLVEDBY_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugRESOLVEDBY_Project-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-解决者分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-解决者分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugresolvedby_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugRESOLVEDBY_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugRESOLVEDBY_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugresolution_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugResolution_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugResolution_Project-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-解决方案分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-解决方案分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugresolution_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugResolution_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugResolution_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugstatus_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugStatus_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-状态分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugstatus_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据产品需求任务获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据产品需求任务查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据产品需求任务获取当前用户解决的Bug", tags = {"Bug" } ,notes = "根据产品需求任务获取当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchcuruserresolve")
+	public ResponseEntity<List<BugDTO>> fetchBugCurUserResolveByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchCurUserResolve-all')")
+	@ApiOperation(value = "根据产品需求任务查询当前用户解决的Bug", tags = {"Bug" } ,notes = "根据产品需求任务查询当前用户解决的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchcuruserresolve")
+	public ResponseEntity<Page<BugDTO>> searchBugCurUserResolveByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchCurUserResolve(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据产品需求任务获取DEFAULT", tags = {"Bug" } ,notes = "根据产品需求任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchdefault")
+	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
+	@ApiOperation(value = "根据产品需求任务查询DEFAULT", tags = {"Bug" } ,notes = "根据产品需求任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchdefault")
+	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据产品需求任务获取ES批量的导入", tags = {"Bug" } ,notes = "根据产品需求任务获取ES批量的导入")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchesbulk")
+	public ResponseEntity<List<BugDTO>> fetchBugESBulkByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchESBulk-all')")
+	@ApiOperation(value = "根据产品需求任务查询ES批量的导入", tags = {"Bug" } ,notes = "根据产品需求任务查询ES批量的导入")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchesbulk")
+	public ResponseEntity<Page<BugDTO>> searchBugESBulkByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchESBulk(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取我代理的Bug", tags = {"Bug" } ,notes = "根据产品需求任务获取我代理的Bug")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchmyagentbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyAgentBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyAgentBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询我代理的Bug", tags = {"Bug" } ,notes = "根据产品需求任务查询我代理的Bug")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchmyagentbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyAgentBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyAgentBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据产品需求任务获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据产品需求任务查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品需求任务获取我的收藏", tags = {"Bug" } ,notes = "根据产品需求任务获取我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchmyfavorites")
+	public ResponseEntity<List<BugDTO>> fetchBugMyFavoritesByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品需求任务查询我的收藏", tags = {"Bug" } ,notes = "根据产品需求任务查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchmyfavorites")
+	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据产品需求任务获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据产品需求任务查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据产品需求任务获取遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据产品需求任务获取遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchprojectbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugProjectBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchProjectBugs-all')")
+	@ApiOperation(value = "根据产品需求任务查询遗留得Bug(项目)", tags = {"Bug" } ,notes = "根据产品需求任务查询遗留得Bug(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchprojectbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugProjectBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchProjectBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据产品需求任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
+	@ApiOperation(value = "根据产品需求任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品需求任务获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品需求任务查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据产品需求任务获取发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchreleaselinkableleftbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableLeftBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableLeftBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询发布可关联的bug（遗留）", tags = {"Bug" } ,notes = "根据产品需求任务查询发布可关联的bug（遗留）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchreleaselinkableleftbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableLeftBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableLeftBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务获取发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchreleaselinkableresolvedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLinkableResolvedBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLinkableResolvedBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询发布可关联的bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求任务查询发布可关联的bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchreleaselinkableresolvedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLinkableResolvedBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReleaseLinkableResolvedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据产品需求任务获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品需求任务获取发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchreportbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,@RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
+	@ApiOperation(value = "根据产品需求任务查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品需求任务查询发布关联Bug（未解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchreportbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchReportBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据产品需求任务获取任务相关bug", tags = {"Bug" } ,notes = "根据产品需求任务获取任务相关bug")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/fetchtaskrelatedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugTaskRelatedBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
+        Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchTaskRelatedBug-all')")
+	@ApiOperation(value = "根据产品需求任务查询任务相关bug", tags = {"Bug" } ,notes = "根据产品需求任务查询任务相关bug")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/bugs/searchtaskrelatedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugTaskRelatedBugByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody BugSearchContext context) {
+        context.setN_frombug_eq(task_id);
         Page<Bug> domains = bugService.searchTaskRelatedBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
