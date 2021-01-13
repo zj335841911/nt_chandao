@@ -383,6 +383,7 @@ function getLocaleResourceBase(){
 					srfsourcekey: commonLogic.appcommonhandle("",null), 
 					id: commonLogic.appcommonhandle("",null), 
 					name: commonLogic.appcommonhandle("",null), 
+					project: commonLogic.appcommonhandle("所属项目",null), 
 					status: commonLogic.appcommonhandle("任务状态",null), 
 				},
 				uiactions: {

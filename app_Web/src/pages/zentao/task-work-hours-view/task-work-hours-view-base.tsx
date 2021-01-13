@@ -74,10 +74,6 @@ export class TaskWorkHoursViewBase extends OptionViewBase {
 	 * @memberof TaskWorkHoursViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': {
-            isRawValue: false,
-            value: 'project',
-        },
         'OBJECTTYPE': {
             isRawValue: true,
             value: 'task',

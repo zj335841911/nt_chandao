@@ -66,6 +66,11 @@ export default class TaskEstimateModel {
         dataType: 'TEXT',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'status',
         prop: 'status',
         dataType: 'SSCODELIST',
