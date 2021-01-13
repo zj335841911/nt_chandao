@@ -648,9 +648,9 @@ export default class TodoUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.projectmodule && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [

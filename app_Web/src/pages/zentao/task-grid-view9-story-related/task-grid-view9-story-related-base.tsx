@@ -278,9 +278,9 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.projectmodule && true){
+        if(tempContext.story && true){
             deResParameters = [
-            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
