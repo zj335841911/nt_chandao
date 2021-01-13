@@ -433,8 +433,8 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
      * @memberof TaskMainGridView_ByModule
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        let localContext:any = {MODULENAME:"%modulename%"};
+        let localViewParam:any ={modulename:"%modulename%"};
         const data: any = {};
         if(args[0].srfsourcekey){
             data.srfsourcekey = args[0].srfsourcekey;
@@ -446,6 +446,14 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
         delete tempContext.task;
         if(args.length >0){
             Object.assign(tempContext,args[0]);
+        }
+        if(localContext && Object.keys(localContext).length >0){
+            let _context:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localContext);
+            Object.assign(tempContext,_context);
+        }
+        if(localViewParam && Object.keys(localViewParam).length >0){
+            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
+            Object.assign(data,_param);
         }
         let deResParameters: any[] = [];
         if(tempContext.projectmodule && true){
