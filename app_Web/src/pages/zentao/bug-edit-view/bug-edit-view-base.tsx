@@ -92,6 +92,10 @@ export class BugEditViewBase extends EditViewBase {
 	 * @memberof BugEditViewBase
 	 */
     protected customViewParams: any = {
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'productmodule': {
             isRawValue: false,
             value: 'productmodule',

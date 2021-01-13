@@ -318,8 +318,8 @@ export default class BugExpService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
-                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
+                        Object.assign(treeNode, {navigateContext: {MODULENAME:"%name%",BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {modulename:"%name%",branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });
@@ -465,8 +465,8 @@ export default class BugExpService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_module_eq" });
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
-                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
+                        Object.assign(treeNode, {navigateContext: {MODULENAME:"%name%",BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {modulename:"%name%",branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });
