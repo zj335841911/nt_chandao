@@ -110,8 +110,9 @@ public class ProductSumResource {
 
     @ApiOperation(value = "获取产品汇总表草稿", tags = {"产品汇总表" },  notes = "获取产品汇总表草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productsums/getdraft")
-    public ResponseEntity<ProductSumDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productsumMapping.toDto(productsumService.getDraft(new ProductSum())));
+    public ResponseEntity<ProductSumDTO> getDraft(ProductSumDTO dto) {
+        ProductSum domain = productsumMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productsumMapping.toDto(productsumService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品汇总表", tags = {"产品汇总表" },  notes = "检查产品汇总表")

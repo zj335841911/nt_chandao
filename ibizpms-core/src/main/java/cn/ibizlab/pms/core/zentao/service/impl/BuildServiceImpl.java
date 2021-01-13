@@ -67,9 +67,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IBuildMobProjectBuildCounterLogic mobprojectbuildcounterLogic;
-    @Autowired
-    @Lazy
-    IBuildService proxyService;
 
     protected int batchSize = 500;
 
@@ -182,7 +179,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -200,10 +197,10 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -222,10 +219,10 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -362,6 +359,10 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
 
 
+
+    public IBuildService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

@@ -51,9 +51,6 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
-    @Autowired
-    @Lazy
-    IIbizproProjectWeeklyService proxyService;
 
     protected int batchSize = 500;
 
@@ -159,7 +156,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -177,10 +174,10 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -199,10 +196,10 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -297,6 +294,10 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
 
 
 
+
+    public IIbizproProjectWeeklyService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

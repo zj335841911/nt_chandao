@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("UserTplServiceImpl")
 public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> implements IUserTplService {
 
-    @Autowired
-    @Lazy
-    IUserTplService proxyService;
 
     protected int batchSize = 500;
 
@@ -131,7 +128,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -148,10 +145,10 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -169,10 +166,10 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -230,6 +227,10 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
 
 
 
+
+    public IUserTplService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

@@ -110,8 +110,9 @@ public class TestRunResource {
 
     @ApiOperation(value = "获取测试运行草稿", tags = {"测试运行" },  notes = "获取测试运行草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(new TestRun())));
+    public ResponseEntity<TestRunDTO> getDraft(TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试运行", tags = {"测试运行" },  notes = "检查测试运行")
@@ -231,8 +232,8 @@ public class TestRunResource {
 
     @ApiOperation(value = "根据测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据测试版本获取测试运行草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/testtasks/{testtask_id}/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraftByTestTask(@PathVariable("testtask_id") Long testtask_id) {
-        TestRun domain = new TestRun();
+    public ResponseEntity<TestRunDTO> getDraftByTestTask(@PathVariable("testtask_id") Long testtask_id, TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
         domain.setTask(testtask_id);
         return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }
@@ -360,8 +361,8 @@ public class TestRunResource {
 
     @ApiOperation(value = "根据产品测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据产品测试版本获取测试运行草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraftByProductTestTask(@PathVariable("product_id") Long product_id, @PathVariable("testtask_id") Long testtask_id) {
-        TestRun domain = new TestRun();
+    public ResponseEntity<TestRunDTO> getDraftByProductTestTask(@PathVariable("product_id") Long product_id, @PathVariable("testtask_id") Long testtask_id, TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
         domain.setTask(testtask_id);
         return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }
@@ -489,8 +490,8 @@ public class TestRunResource {
 
     @ApiOperation(value = "根据项目测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据项目测试版本获取测试运行草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraftByProjectTestTask(@PathVariable("project_id") Long project_id, @PathVariable("testtask_id") Long testtask_id) {
-        TestRun domain = new TestRun();
+    public ResponseEntity<TestRunDTO> getDraftByProjectTestTask(@PathVariable("project_id") Long project_id, @PathVariable("testtask_id") Long testtask_id, TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
         domain.setTask(testtask_id);
         return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }

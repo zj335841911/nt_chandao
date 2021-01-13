@@ -110,8 +110,9 @@ public class taskestimatestatsResource {
 
     @ApiOperation(value = "获取任务工时统计草稿", tags = {"任务工时统计" },  notes = "获取任务工时统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/taskestimatestats/getdraft")
-    public ResponseEntity<taskestimatestatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimatestatsMapping.toDto(taskestimatestatsService.getDraft(new TaskEstimateStats())));
+    public ResponseEntity<taskestimatestatsDTO> getDraft(taskestimatestatsDTO dto) {
+        TaskEstimateStats domain = taskestimatestatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimatestatsMapping.toDto(taskestimatestatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查任务工时统计", tags = {"任务工时统计" },  notes = "检查任务工时统计")

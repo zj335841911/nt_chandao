@@ -110,8 +110,9 @@ public class BuildResource {
 
     @ApiOperation(value = "获取版本草稿", tags = {"版本" },  notes = "获取版本草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/builds/getdraft")
-    public ResponseEntity<BuildDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(buildMapping.toDto(buildService.getDraft(new Build())));
+    public ResponseEntity<BuildDTO> getDraft(BuildDTO dto) {
+        Build domain = buildMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(buildMapping.toDto(buildService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查版本", tags = {"版本" },  notes = "检查版本")
@@ -132,9 +133,11 @@ public class BuildResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
     @ApiOperation(value = "批量处理[关联需求]", tags = {"版本" },  notes = "批量处理[关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/builds/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryBatch(@RequestBody List<BuildDTO> builddtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(buildService.linkStoryBatch(buildMapping.toDomain(builddtos)));
+        List<Build> domains = buildMapping.toDomain(builddtos);
+        boolean result = buildService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
@@ -160,9 +163,11 @@ public class BuildResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
     @ApiOperation(value = "批量处理[一键发布]", tags = {"版本" },  notes = "批量处理[一键发布]")
-	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/oneclickreleasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/builds/oneclickreleasebatch")
     public ResponseEntity<Boolean> oneClickReleaseBatch(@RequestBody List<BuildDTO> builddtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(buildService.oneClickReleaseBatch(buildMapping.toDomain(builddtos)));
+        List<Build> domains = buildMapping.toDomain(builddtos);
+        boolean result = buildService.oneClickReleaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
@@ -386,8 +391,8 @@ public class BuildResource {
 
     @ApiOperation(value = "根据产品获取版本草稿", tags = {"版本" },  notes = "根据产品获取版本草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/builds/getdraft")
-    public ResponseEntity<BuildDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        Build domain = new Build();
+    public ResponseEntity<BuildDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, BuildDTO dto) {
+        Build domain = buildMapping.toDomain(dto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(buildMapping.toDto(buildService.getDraft(domain)));
     }
@@ -409,9 +414,11 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
     @ApiOperation(value = "批量处理[根据产品版本]", tags = {"版本" },  notes = "批量处理[根据产品版本]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BuildDTO> builddtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(buildService.linkStoryBatch(buildMapping.toDomain(builddtos)));
+        List<Build> domains = buildMapping.toDomain(builddtos);
+        boolean result = buildService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
     @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
@@ -434,9 +441,11 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
     @ApiOperation(value = "批量处理[根据产品版本]", tags = {"版本" },  notes = "批量处理[根据产品版本]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/oneclickreleasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/oneclickreleasebatch")
     public ResponseEntity<Boolean> oneClickReleaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BuildDTO> builddtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(buildService.oneClickReleaseBatch(buildMapping.toDomain(builddtos)));
+        List<Build> domains = buildMapping.toDomain(builddtos);
+        boolean result = buildService.oneClickReleaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据产品保存版本", tags = {"版本" },  notes = "根据产品保存版本")
@@ -670,8 +679,8 @@ public class BuildResource {
 
     @ApiOperation(value = "根据项目获取版本草稿", tags = {"版本" },  notes = "根据项目获取版本草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/builds/getdraft")
-    public ResponseEntity<BuildDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        Build domain = new Build();
+    public ResponseEntity<BuildDTO> getDraftByProject(@PathVariable("project_id") Long project_id, BuildDTO dto) {
+        Build domain = buildMapping.toDomain(dto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(buildMapping.toDto(buildService.getDraft(domain)));
     }
@@ -693,9 +702,11 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
     @ApiOperation(value = "批量处理[根据项目版本]", tags = {"版本" },  notes = "批量处理[根据项目版本]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BuildDTO> builddtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(buildService.linkStoryBatch(buildMapping.toDomain(builddtos)));
+        List<Build> domains = buildMapping.toDomain(builddtos);
+        boolean result = buildService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
     @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
@@ -718,9 +729,11 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
     @ApiOperation(value = "批量处理[根据项目版本]", tags = {"版本" },  notes = "批量处理[根据项目版本]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/oneclickreleasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/oneclickreleasebatch")
     public ResponseEntity<Boolean> oneClickReleaseByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BuildDTO> builddtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(buildService.oneClickReleaseBatch(buildMapping.toDomain(builddtos)));
+        List<Build> domains = buildMapping.toDomain(builddtos);
+        boolean result = buildService.oneClickReleaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据项目保存版本", tags = {"版本" },  notes = "根据项目保存版本")

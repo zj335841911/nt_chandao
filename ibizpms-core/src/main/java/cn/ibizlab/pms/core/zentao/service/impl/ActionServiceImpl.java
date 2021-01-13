@@ -58,9 +58,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IActionCommentLogic commentLogic;
-    @Autowired
-    @Lazy
-    IActionService proxyService;
 
     protected int batchSize = 500;
 
@@ -156,7 +153,7 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -173,10 +170,10 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -194,10 +191,10 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -309,6 +306,10 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
 
 
+
+    public IActionService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

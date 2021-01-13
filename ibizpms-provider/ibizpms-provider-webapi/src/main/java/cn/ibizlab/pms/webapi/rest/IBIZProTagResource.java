@@ -110,8 +110,9 @@ public class IBIZProTagResource {
 
     @ApiOperation(value = "获取标签草稿", tags = {"标签" },  notes = "获取标签草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizprotags/getdraft")
-    public ResponseEntity<IBIZProTagDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizprotagMapping.toDto(ibizprotagService.getDraft(new IBIZProTag())));
+    public ResponseEntity<IBIZProTagDTO> getDraft(IBIZProTagDTO dto) {
+        IBIZProTag domain = ibizprotagMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizprotagMapping.toDto(ibizprotagService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查标签", tags = {"标签" },  notes = "检查标签")

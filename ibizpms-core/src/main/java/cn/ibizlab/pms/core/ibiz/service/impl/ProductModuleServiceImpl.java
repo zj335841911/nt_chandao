@@ -64,9 +64,6 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProductModuleRemoveModuleLogic removemoduleLogic;
-    @Autowired
-    @Lazy
-    IProductModuleService proxyService;
 
     protected int batchSize = 500;
 
@@ -173,7 +170,7 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -191,10 +188,10 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -213,10 +210,10 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -369,6 +366,10 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
 
 
+
+    public IProductModuleService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

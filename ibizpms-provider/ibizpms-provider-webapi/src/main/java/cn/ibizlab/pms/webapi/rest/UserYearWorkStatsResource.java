@@ -110,8 +110,9 @@ public class UserYearWorkStatsResource {
 
     @ApiOperation(value = "获取用户年度工作内容统计草稿", tags = {"用户年度工作内容统计" },  notes = "获取用户年度工作内容统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/useryearworkstats/getdraft")
-    public ResponseEntity<UserYearWorkStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsMapping.toDto(useryearworkstatsService.getDraft(new UserYearWorkStats())));
+    public ResponseEntity<UserYearWorkStatsDTO> getDraft(UserYearWorkStatsDTO dto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsMapping.toDto(useryearworkstatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用户年度工作内容统计", tags = {"用户年度工作内容统计" },  notes = "检查用户年度工作内容统计")
@@ -165,9 +166,11 @@ public class UserYearWorkStatsResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetUserYearAction-all')")
     @ApiOperation(value = "批量处理[获取用户所选年度的动作]", tags = {"用户年度工作内容统计" },  notes = "批量处理[获取用户所选年度的动作]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/{useryearworkstats_id}/getuseryearactionbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/getuseryearactionbatch")
     public ResponseEntity<Boolean> getUserYearActionBatch(@RequestBody List<UserYearWorkStatsDTO> useryearworkstatsdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsService.getUserYearActionBatch(useryearworkstatsMapping.toDomain(useryearworkstatsdtos)));
+        List<UserYearWorkStats> domains = useryearworkstatsMapping.toDomain(useryearworkstatsdtos);
+        boolean result = useryearworkstatsService.getUserYearActionBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-Save-all')")
@@ -197,9 +200,11 @@ public class UserYearWorkStatsResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-UpdateTitleByYear-all')")
     @ApiOperation(value = "批量处理[更新标题]", tags = {"用户年度工作内容统计" },  notes = "批量处理[更新标题]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/{useryearworkstats_id}/updatetitlebyyearbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/updatetitlebyyearbatch")
     public ResponseEntity<Boolean> updateTitleByYearBatch(@RequestBody List<UserYearWorkStatsDTO> useryearworkstatsdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsService.updateTitleByYearBatch(useryearworkstatsMapping.toDomain(useryearworkstatsdtos)));
+        List<UserYearWorkStats> domains = useryearworkstatsMapping.toDomain(useryearworkstatsdtos);
+        boolean result = useryearworkstatsService.updateTitleByYearBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchDefault-all')")

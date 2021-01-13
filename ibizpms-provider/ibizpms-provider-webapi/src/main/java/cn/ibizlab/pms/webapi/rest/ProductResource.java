@@ -110,8 +110,9 @@ public class ProductResource {
 
     @ApiOperation(value = "获取产品草稿", tags = {"产品" },  notes = "获取产品草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/getdraft")
-    public ResponseEntity<ProductDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productMapping.toDto(productService.getDraft(new Product())));
+    public ResponseEntity<ProductDTO> getDraft(ProductDTO dto) {
+        Product domain = productMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productMapping.toDto(productService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-CancelProductTop-all')")
@@ -143,9 +144,11 @@ public class ProductResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
     @ApiOperation(value = "批量处理[关闭]", tags = {"产品" },  notes = "批量处理[关闭]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/closebatch")
     public ResponseEntity<Boolean> closeBatch(@RequestBody List<ProductDTO> productdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.closeBatch(productMapping.toDomain(productdtos)));
+        List<Product> domains = productMapping.toDomain(productdtos);
+        boolean result = productService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductCounter-all')")

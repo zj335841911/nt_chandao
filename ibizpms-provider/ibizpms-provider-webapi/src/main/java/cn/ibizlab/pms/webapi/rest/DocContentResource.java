@@ -110,8 +110,9 @@ public class DocContentResource {
 
     @ApiOperation(value = "获取文档内容草稿", tags = {"文档内容" },  notes = "获取文档内容草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/doccontents/getdraft")
-    public ResponseEntity<DocContentDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(doccontentMapping.toDto(doccontentService.getDraft(new DocContent())));
+    public ResponseEntity<DocContentDTO> getDraft(DocContentDTO dto) {
+        DocContent domain = doccontentMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(doccontentMapping.toDto(doccontentService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查文档内容", tags = {"文档内容" },  notes = "检查文档内容")
@@ -253,8 +254,8 @@ public class DocContentResource {
 
     @ApiOperation(value = "根据文档获取文档内容草稿", tags = {"文档内容" },  notes = "根据文档获取文档内容草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/docs/{doc_id}/doccontents/getdraft")
-    public ResponseEntity<DocContentDTO> getDraftByDoc(@PathVariable("doc_id") Long doc_id) {
-        DocContent domain = new DocContent();
+    public ResponseEntity<DocContentDTO> getDraftByDoc(@PathVariable("doc_id") Long doc_id, DocContentDTO dto) {
+        DocContent domain = doccontentMapping.toDomain(dto);
         domain.setDoc(doc_id);
         return ResponseEntity.status(HttpStatus.OK).body(doccontentMapping.toDto(doccontentService.getDraft(domain)));
     }

@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("ProductSumServiceImpl")
 public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, ProductSum> implements IProductSumService {
 
-    @Autowired
-    @Lazy
-    IProductSumService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,7 +133,7 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -153,10 +150,10 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -174,10 +171,10 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -280,6 +277,10 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
 
 
 
+
+    public IProductSumService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

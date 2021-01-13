@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("TaskEstimateStatsServiceImpl")
 public class TaskEstimateStatsServiceImpl extends ServiceImpl<TaskEstimateStatsMapper, TaskEstimateStats> implements ITaskEstimateStatsService {
 
-    @Autowired
-    @Lazy
-    ITaskEstimateStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,7 +133,7 @@ public class TaskEstimateStatsServiceImpl extends ServiceImpl<TaskEstimateStatsM
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -153,10 +150,10 @@ public class TaskEstimateStatsServiceImpl extends ServiceImpl<TaskEstimateStatsM
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -174,10 +171,10 @@ public class TaskEstimateStatsServiceImpl extends ServiceImpl<TaskEstimateStatsM
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -226,6 +223,10 @@ public class TaskEstimateStatsServiceImpl extends ServiceImpl<TaskEstimateStatsM
 
 
 
+
+    public ITaskEstimateStatsService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

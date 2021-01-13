@@ -110,8 +110,9 @@ public class CaseStepResource {
 
     @ApiOperation(value = "获取用例步骤草稿", tags = {"用例步骤" },  notes = "获取用例步骤草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(new CaseStep())));
+    public ResponseEntity<CaseStepDTO> getDraft(CaseStepDTO dto) {
+        CaseStep domain = casestepMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用例步骤", tags = {"用例步骤" },  notes = "检查用例步骤")
@@ -341,8 +342,8 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByCase(@PathVariable("case_id") Long case_id) {
-        CaseStep domain = new CaseStep();
+    public ResponseEntity<CaseStepDTO> getDraftByCase(@PathVariable("case_id") Long case_id, CaseStepDTO dto) {
+        CaseStep domain = casestepMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
     }
@@ -585,8 +586,8 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据产品测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据产品测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id) {
-        CaseStep domain = new CaseStep();
+    public ResponseEntity<CaseStepDTO> getDraftByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, CaseStepDTO dto) {
+        CaseStep domain = casestepMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
     }
@@ -829,8 +830,8 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据需求测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据需求测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
-        CaseStep domain = new CaseStep();
+    public ResponseEntity<CaseStepDTO> getDraftByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, CaseStepDTO dto) {
+        CaseStep domain = casestepMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
     }
@@ -1073,8 +1074,8 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据产品需求测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据产品需求测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
-        CaseStep domain = new CaseStep();
+    public ResponseEntity<CaseStepDTO> getDraftByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, CaseStepDTO dto) {
+        CaseStep domain = casestepMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
     }

@@ -111,8 +111,9 @@ public class SysUserRoleResource {
 
     @ApiOperation(value = "获取用户角色关系草稿", tags = {"用户角色关系" },  notes = "获取用户角色关系草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysuserroles/getdraft")
-    public ResponseEntity<SysUserRoleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysuserroleMapping.toDto(sysuserroleService.getDraft(new SysUserRole())));
+    public ResponseEntity<SysUserRoleDTO> getDraft(SysUserRoleDTO dto) {
+        SysUserRole domain = sysuserroleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysuserroleMapping.toDto(sysuserroleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用户角色关系", tags = {"用户角色关系" },  notes = "检查用户角色关系")

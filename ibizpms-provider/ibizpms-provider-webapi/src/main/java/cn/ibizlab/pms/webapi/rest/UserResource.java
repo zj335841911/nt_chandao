@@ -110,8 +110,9 @@ public class UserResource {
 
     @ApiOperation(value = "获取用户草稿", tags = {"用户" },  notes = "获取用户草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/getdraft")
-    public ResponseEntity<UserDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(userService.getDraft(new User())));
+    public ResponseEntity<UserDTO> getDraft(UserDTO dto) {
+        User domain = userMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(userService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用户", tags = {"用户" },  notes = "检查用户")
@@ -158,9 +159,11 @@ public class UserResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-SyncAccount-all')")
     @ApiOperation(value = "批量处理[同步账号]", tags = {"用户" },  notes = "批量处理[同步账号]")
-	@RequestMapping(method = RequestMethod.POST, value = "/users/{user_id}/syncaccountbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/users/syncaccountbatch")
     public ResponseEntity<Boolean> syncAccountBatch(@RequestBody List<UserDTO> userdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(userService.syncAccountBatch(userMapping.toDomain(userdtos)));
+        List<User> domains = userMapping.toDomain(userdtos);
+        boolean result = userService.syncAccountBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchBugUser-all')")

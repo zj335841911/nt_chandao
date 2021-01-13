@@ -111,8 +111,9 @@ public class IbzReportRoleConfigResource {
 
     @ApiOperation(value = "获取汇报角色配置草稿", tags = {"汇报角色配置" },  notes = "获取汇报角色配置草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzreportroleconfigs/getdraft")
-    public ResponseEntity<IbzReportRoleConfigDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportroleconfigMapping.toDto(ibzreportroleconfigService.getDraft(new IbzReportRoleConfig())));
+    public ResponseEntity<IbzReportRoleConfigDTO> getDraft(IbzReportRoleConfigDTO dto) {
+        IbzReportRoleConfig domain = ibzreportroleconfigMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportroleconfigMapping.toDto(ibzreportroleconfigService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查汇报角色配置", tags = {"汇报角色配置" },  notes = "检查汇报角色配置")

@@ -60,9 +60,6 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
-    @Autowired
-    @Lazy
-    ITestResultService proxyService;
 
     protected int batchSize = 500;
 
@@ -153,7 +150,7 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -171,10 +168,10 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -193,10 +190,10 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -311,6 +308,10 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
 
 
+
+    public ITestResultService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

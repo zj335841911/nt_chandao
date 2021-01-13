@@ -51,9 +51,6 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
-    @Autowired
-    @Lazy
-    IStorySpecService proxyService;
 
     protected int batchSize = 500;
 
@@ -144,7 +141,7 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -162,10 +159,10 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -184,10 +181,10 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -271,6 +268,10 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
 
 
 
+
+    public IStorySpecService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

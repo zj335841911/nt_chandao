@@ -121,8 +121,9 @@ public class TestReportResource {
 
     @ApiOperation(value = "获取测试报告草稿", tags = {"测试报告" },  notes = "获取测试报告草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testreports/getdraft")
-    public ResponseEntity<TestReportDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(new TestReport())));
+    public ResponseEntity<TestReportDTO> getDraft(TestReportDTO dto) {
+        TestReport domain = testreportMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试报告", tags = {"测试报告" },  notes = "检查测试报告")
@@ -329,8 +330,8 @@ public class TestReportResource {
 
     @ApiOperation(value = "根据产品获取测试报告草稿", tags = {"测试报告" },  notes = "根据产品获取测试报告草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testreports/getdraft")
-    public ResponseEntity<TestReportDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        TestReport domain = new TestReport();
+    public ResponseEntity<TestReportDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, TestReportDTO dto) {
+        TestReport domain = testreportMapping.toDomain(dto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(domain)));
     }
@@ -538,8 +539,8 @@ public class TestReportResource {
 
     @ApiOperation(value = "根据项目获取测试报告草稿", tags = {"测试报告" },  notes = "根据项目获取测试报告草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testreports/getdraft")
-    public ResponseEntity<TestReportDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        TestReport domain = new TestReport();
+    public ResponseEntity<TestReportDTO> getDraftByProject(@PathVariable("project_id") Long project_id, TestReportDTO dto) {
+        TestReport domain = testreportMapping.toDomain(dto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(domain)));
     }

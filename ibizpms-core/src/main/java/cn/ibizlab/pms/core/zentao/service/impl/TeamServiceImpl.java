@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("TeamServiceImpl")
 public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements ITeamService {
 
-    @Autowired
-    @Lazy
-    ITeamService proxyService;
 
     protected int batchSize = 500;
 
@@ -151,7 +148,7 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -168,10 +165,10 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -189,10 +186,10 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -256,6 +253,10 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
 
 
 
+
+    public ITeamService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

@@ -55,9 +55,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetProjectDaysLogic getprojectdaysLogic;
-    @Autowired
-    @Lazy
-    IProjectTeamService proxyService;
 
     protected int batchSize = 500;
 
@@ -159,7 +156,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -176,10 +173,10 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -197,10 +194,10 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -214,6 +211,9 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         this.remove(new QueryWrapper<ProjectTeam>().eq("root", id));
     }
 
+    public IProjectTeamService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
     @Override
     public void saveByRoot(Long id, List<ProjectTeam> list) {
         if (list == null) {
@@ -238,13 +238,13 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
             }
         }
         if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
+            getProxyService().updateBatch(_update);
         }
         if (_create.size() > 0) {
-            proxyService.createBatch(_create);
+            getProxyService().createBatch(_create);
         }
         if (delIds.size() > 0) {
-            proxyService.removeBatch(delIds);
+            getProxyService().removeBatch(delIds);
         }
     }
 
@@ -305,6 +305,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
 
 
 

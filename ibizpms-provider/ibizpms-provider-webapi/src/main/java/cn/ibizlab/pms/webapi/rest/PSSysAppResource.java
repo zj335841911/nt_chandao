@@ -111,8 +111,9 @@ public class PSSysAppResource {
 
     @ApiOperation(value = "获取系统应用草稿", tags = {"系统应用" },  notes = "获取系统应用草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/pssysapps/getdraft")
-    public ResponseEntity<PSSysAppDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(pssysappMapping.toDto(pssysappService.getDraft(new PSSysApp())));
+    public ResponseEntity<PSSysAppDTO> getDraft(PSSysAppDTO dto) {
+        PSSysApp domain = pssysappMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(pssysappMapping.toDto(pssysappService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统应用", tags = {"系统应用" },  notes = "检查系统应用")

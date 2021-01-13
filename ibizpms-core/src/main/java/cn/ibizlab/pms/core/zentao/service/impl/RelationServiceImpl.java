@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("RelationServiceImpl")
 public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> implements IRelationService {
 
-    @Autowired
-    @Lazy
-    IRelationService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,7 +133,7 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -153,10 +150,10 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -174,10 +171,10 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -226,6 +223,10 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
 
 
 
+
+    public IRelationService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

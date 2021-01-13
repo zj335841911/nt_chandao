@@ -110,8 +110,9 @@ public class UserContactResource {
 
     @ApiOperation(value = "获取用户联系方式草稿", tags = {"用户联系方式" },  notes = "获取用户联系方式草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/usercontacts/getdraft")
-    public ResponseEntity<UserContactDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(usercontactMapping.toDto(usercontactService.getDraft(new UserContact())));
+    public ResponseEntity<UserContactDTO> getDraft(UserContactDTO dto) {
+        UserContact domain = usercontactMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(usercontactMapping.toDto(usercontactService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用户联系方式", tags = {"用户联系方式" },  notes = "检查用户联系方式")

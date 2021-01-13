@@ -110,8 +110,9 @@ public class BugStatsResource {
 
     @ApiOperation(value = "获取Bug统计草稿", tags = {"Bug统计" },  notes = "获取Bug统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/bugstats/getdraft")
-    public ResponseEntity<BugStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(bugstatsMapping.toDto(bugstatsService.getDraft(new BugStats())));
+    public ResponseEntity<BugStatsDTO> getDraft(BugStatsDTO dto) {
+        BugStats domain = bugstatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(bugstatsMapping.toDto(bugstatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查Bug统计", tags = {"Bug统计" },  notes = "检查Bug统计")

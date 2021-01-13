@@ -110,8 +110,9 @@ public class ActionResource {
 
     @ApiOperation(value = "获取系统日志草稿", tags = {"系统日志" },  notes = "获取系统日志草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/actions/getdraft")
-    public ResponseEntity<ActionDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(actionService.getDraft(new Action())));
+    public ResponseEntity<ActionDTO> getDraft(ActionDTO dto) {
+        Action domain = actionMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(actionService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统日志", tags = {"系统日志" },  notes = "检查系统日志")
@@ -143,9 +144,11 @@ public class ActionResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-EditComment-all')")
     @ApiOperation(value = "批量处理[编辑备注信息]", tags = {"系统日志" },  notes = "批量处理[编辑备注信息]")
-	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/editcommentbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/actions/editcommentbatch")
     public ResponseEntity<Boolean> editCommentBatch(@RequestBody List<ActionDTO> actiondtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(actionService.editCommentBatch(actionMapping.toDomain(actiondtos)));
+        List<Action> domains = actionMapping.toDomain(actiondtos);
+        boolean result = actionService.editCommentBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Save-all')")

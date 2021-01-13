@@ -110,8 +110,9 @@ public class EmpLoyeeloadResource {
 
     @ApiOperation(value = "获取员工负载表草稿", tags = {"员工负载表" },  notes = "获取员工负载表草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/employeeloads/getdraft")
-    public ResponseEntity<EmpLoyeeloadDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeloadMapping.toDto(employeeloadService.getDraft(new EmpLoyeeload())));
+    public ResponseEntity<EmpLoyeeloadDTO> getDraft(EmpLoyeeloadDTO dto) {
+        EmpLoyeeload domain = employeeloadMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(employeeloadMapping.toDto(employeeloadService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查员工负载表", tags = {"员工负载表" },  notes = "检查员工负载表")

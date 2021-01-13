@@ -110,8 +110,9 @@ public class IBIZProKeywordResource {
 
     @ApiOperation(value = "获取关键字草稿", tags = {"关键字" },  notes = "获取关键字草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizprokeywords/getdraft")
-    public ResponseEntity<IBIZProKeywordDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizprokeywordMapping.toDto(ibizprokeywordService.getDraft(new IBIZProKeyword())));
+    public ResponseEntity<IBIZProKeywordDTO> getDraft(IBIZProKeywordDTO dto) {
+        IBIZProKeyword domain = ibizprokeywordMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizprokeywordMapping.toDto(ibizprokeywordService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查关键字", tags = {"关键字" },  notes = "检查关键字")

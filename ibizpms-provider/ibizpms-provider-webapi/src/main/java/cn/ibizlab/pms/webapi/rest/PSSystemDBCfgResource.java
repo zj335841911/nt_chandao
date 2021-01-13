@@ -111,8 +111,9 @@ public class PSSystemDBCfgResource {
 
     @ApiOperation(value = "获取系统数据库草稿", tags = {"系统数据库" },  notes = "获取系统数据库草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/pssystemdbcfgs/getdraft")
-    public ResponseEntity<PSSystemDBCfgDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(pssystemdbcfgMapping.toDto(pssystemdbcfgService.getDraft(new PSSystemDBCfg())));
+    public ResponseEntity<PSSystemDBCfgDTO> getDraft(PSSystemDBCfgDTO dto) {
+        PSSystemDBCfg domain = pssystemdbcfgMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(pssystemdbcfgMapping.toDto(pssystemdbcfgService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统数据库", tags = {"系统数据库" },  notes = "检查系统数据库")

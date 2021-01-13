@@ -51,9 +51,6 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
-    @Autowired
-    @Lazy
-    IRepoService proxyService;
 
     protected int batchSize = 500;
 
@@ -139,7 +136,7 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -156,10 +153,10 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -177,10 +174,10 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -229,6 +226,10 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
 
 
 
+
+    public IRepoService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

@@ -110,8 +110,9 @@ public class CompanyResource {
 
     @ApiOperation(value = "获取公司草稿", tags = {"公司" },  notes = "获取公司草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/companies/getdraft")
-    public ResponseEntity<CompanyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(companyMapping.toDto(companyService.getDraft(new Company())));
+    public ResponseEntity<CompanyDTO> getDraft(CompanyDTO dto) {
+        Company domain = companyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(companyMapping.toDto(companyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查公司", tags = {"公司" },  notes = "检查公司")

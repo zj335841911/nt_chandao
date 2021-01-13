@@ -111,8 +111,9 @@ public class IbizproProjectWeeklyResource {
 
     @ApiOperation(value = "获取项目周报草稿", tags = {"项目周报" },  notes = "获取项目周报草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproprojectweeklies/getdraft")
-    public ResponseEntity<IbizproProjectWeeklyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectweeklyMapping.toDto(ibizproprojectweeklyService.getDraft(new IbizproProjectWeekly())));
+    public ResponseEntity<IbizproProjectWeeklyDTO> getDraft(IbizproProjectWeeklyDTO dto) {
+        IbizproProjectWeekly domain = ibizproprojectweeklyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectweeklyMapping.toDto(ibizproprojectweeklyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目周报", tags = {"项目周报" },  notes = "检查项目周报")
@@ -133,9 +134,11 @@ public class IbizproProjectWeeklyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProjectWeekly-PushSumProjectWeekly-all')")
     @ApiOperation(value = "批量处理[定时推送项目周报]", tags = {"项目周报" },  notes = "批量处理[定时推送项目周报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectweeklies/{ibizproprojectweekly_id}/pushsumprojectweeklybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectweeklies/pushsumprojectweeklybatch")
     public ResponseEntity<Boolean> pushSumProjectWeeklyBatch(@RequestBody List<IbizproProjectWeeklyDTO> ibizproprojectweeklydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectweeklyService.pushSumProjectWeeklyBatch(ibizproprojectweeklyMapping.toDomain(ibizproprojectweeklydtos)));
+        List<IbizproProjectWeekly> domains = ibizproprojectweeklyMapping.toDomain(ibizproprojectweeklydtos);
+        boolean result = ibizproprojectweeklyService.pushSumProjectWeeklyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.ibizproprojectweeklyMapping.toDomain(#ibizproprojectweeklydto),'pms-IbizproProjectWeekly-Save')")

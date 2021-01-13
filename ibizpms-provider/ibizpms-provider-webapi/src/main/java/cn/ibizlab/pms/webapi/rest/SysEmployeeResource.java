@@ -111,8 +111,9 @@ public class SysEmployeeResource {
 
     @ApiOperation(value = "获取人员草稿", tags = {"人员" },  notes = "获取人员草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysemployees/getdraft")
-    public ResponseEntity<SysEmployeeDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(sysemployeeService.getDraft(new SysEmployee())));
+    public ResponseEntity<SysEmployeeDTO> getDraft(SysEmployeeDTO dto) {
+        SysEmployee domain = sysemployeeMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(sysemployeeService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查人员", tags = {"人员" },  notes = "检查人员")

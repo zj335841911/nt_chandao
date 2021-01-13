@@ -110,8 +110,9 @@ public class SuiteCaseResource {
 
     @ApiOperation(value = "获取套件用例草稿", tags = {"套件用例" },  notes = "获取套件用例草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/suitecases/getdraft")
-    public ResponseEntity<SuiteCaseDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(suitecaseMapping.toDto(suitecaseService.getDraft(new SuiteCase())));
+    public ResponseEntity<SuiteCaseDTO> getDraft(SuiteCaseDTO dto) {
+        SuiteCase domain = suitecaseMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(suitecaseMapping.toDto(suitecaseService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查套件用例", tags = {"套件用例" },  notes = "检查套件用例")

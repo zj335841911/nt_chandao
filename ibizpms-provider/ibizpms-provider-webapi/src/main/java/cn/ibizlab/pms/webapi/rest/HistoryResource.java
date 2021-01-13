@@ -110,8 +110,9 @@ public class HistoryResource {
 
     @ApiOperation(value = "获取操作历史草稿", tags = {"操作历史" },  notes = "获取操作历史草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/histories/getdraft")
-    public ResponseEntity<HistoryDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(new History())));
+    public ResponseEntity<HistoryDTO> getDraft(HistoryDTO dto) {
+        History domain = historyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查操作历史", tags = {"操作历史" },  notes = "检查操作历史")
@@ -231,8 +232,8 @@ public class HistoryResource {
 
     @ApiOperation(value = "根据系统日志获取操作历史草稿", tags = {"操作历史" },  notes = "根据系统日志获取操作历史草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}/histories/getdraft")
-    public ResponseEntity<HistoryDTO> getDraftByAction(@PathVariable("action_id") Long action_id) {
-        History domain = new History();
+    public ResponseEntity<HistoryDTO> getDraftByAction(@PathVariable("action_id") Long action_id, HistoryDTO dto) {
+        History domain = historyMapping.toDomain(dto);
         domain.setAction(action_id);
         return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(domain)));
     }

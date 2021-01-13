@@ -51,9 +51,6 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletService ibzplantempletService;
-    @Autowired
-    @Lazy
-    IIbzPlanTempletDetailService proxyService;
 
     protected int batchSize = 500;
 
@@ -139,7 +136,7 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -156,10 +153,10 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -177,10 +174,10 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -194,6 +191,9 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
         this.remove(new QueryWrapper<IbzPlanTempletDetail>().eq("plantempletid", ibzplantempletid));
     }
 
+    public IIbzPlanTempletDetailService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
     @Override
     public void saveByPlantempletid(String ibzplantempletid, List<IbzPlanTempletDetail> list) {
         if (list == null) {
@@ -218,13 +218,13 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
             }
         }
         if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
+            getProxyService().updateBatch(_update);
         }
         if (_create.size() > 0) {
-            proxyService.createBatch(_create);
+            getProxyService().createBatch(_create);
         }
         if (delIds.size() > 0) {
-            proxyService.removeBatch(delIds);
+            getProxyService().removeBatch(delIds);
         }
     }
 
@@ -289,6 +289,7 @@ public class IbzPlanTempletDetailServiceImpl extends ServiceImpl<IbzPlanTempletD
             return entities;
         }
     }
+
 
 
 

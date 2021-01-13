@@ -51,9 +51,6 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IActionService actionService;
-    @Autowired
-    @Lazy
-    IHistoryService proxyService;
 
     protected int batchSize = 500;
 
@@ -139,7 +136,7 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -156,10 +153,10 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -177,10 +174,10 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -238,6 +235,10 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
 
 
 
+
+    public IHistoryService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

@@ -111,8 +111,9 @@ public class IbizproProjectMonthlyResource {
 
     @ApiOperation(value = "获取项目月报草稿", tags = {"项目月报" },  notes = "获取项目月报草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproprojectmonthlies/getdraft")
-    public ResponseEntity<IbizproProjectMonthlyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectmonthlyMapping.toDto(ibizproprojectmonthlyService.getDraft(new IbizproProjectMonthly())));
+    public ResponseEntity<IbizproProjectMonthlyDTO> getDraft(IbizproProjectMonthlyDTO dto) {
+        IbizproProjectMonthly domain = ibizproprojectmonthlyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectmonthlyMapping.toDto(ibizproprojectmonthlyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目月报", tags = {"项目月报" },  notes = "检查项目月报")
@@ -133,9 +134,11 @@ public class IbizproProjectMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProjectMonthly-ManualCreateMonthly-all')")
     @ApiOperation(value = "批量处理[手动生成项目月报]", tags = {"项目月报" },  notes = "批量处理[手动生成项目月报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectmonthlies/{ibizproprojectmonthly_id}/manualcreatemonthlybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectmonthlies/manualcreatemonthlybatch")
     public ResponseEntity<Boolean> manualCreateMonthlyBatch(@RequestBody List<IbizproProjectMonthlyDTO> ibizproprojectmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectmonthlyService.manualCreateMonthlyBatch(ibizproprojectmonthlyMapping.toDomain(ibizproprojectmonthlydtos)));
+        List<IbizproProjectMonthly> domains = ibizproprojectmonthlyMapping.toDomain(ibizproprojectmonthlydtos);
+        boolean result = ibizproprojectmonthlyService.manualCreateMonthlyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.ibizproprojectmonthlyMapping.toDomain(#ibizproprojectmonthlydto),'pms-IbizproProjectMonthly-Save')")
@@ -165,9 +168,11 @@ public class IbizproProjectMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProjectMonthly-SumProjectMonthly-all')")
     @ApiOperation(value = "批量处理[汇总项目月报]", tags = {"项目月报" },  notes = "批量处理[汇总项目月报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectmonthlies/{ibizproprojectmonthly_id}/sumprojectmonthlybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproprojectmonthlies/sumprojectmonthlybatch")
     public ResponseEntity<Boolean> sumProjectMonthlyBatch(@RequestBody List<IbizproProjectMonthlyDTO> ibizproprojectmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproprojectmonthlyService.sumProjectMonthlyBatch(ibizproprojectmonthlyMapping.toDomain(ibizproprojectmonthlydtos)));
+        List<IbizproProjectMonthly> domains = ibizproprojectmonthlyMapping.toDomain(ibizproprojectmonthlydtos);
+        boolean result = ibizproprojectmonthlyService.sumProjectMonthlyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProjectMonthly-searchDefault-all') and hasPermission(#context,'pms-IbizproProjectMonthly-Get')")

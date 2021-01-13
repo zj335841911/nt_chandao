@@ -120,8 +120,8 @@ public class TaskTeamResource {
 
     @ApiOperation(value = "根据任务获取任务团队草稿", tags = {"任务团队" },  notes = "根据任务获取任务团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/tasks/{task_id}/taskteams/getdraft")
-    public ResponseEntity<TaskTeamDTO> getDraftByTask(@PathVariable("task_id") Long task_id) {
-        TaskTeam domain = new TaskTeam();
+    public ResponseEntity<TaskTeamDTO> getDraftByTask(@PathVariable("task_id") Long task_id, TaskTeamDTO dto) {
+        TaskTeam domain = taskteamMapping.toDomain(dto);
         domain.setRoot(task_id);
         return ResponseEntity.status(HttpStatus.OK).body(taskteamMapping.toDto(taskteamService.getDraft(domain)));
     }
@@ -249,8 +249,8 @@ public class TaskTeamResource {
 
     @ApiOperation(value = "根据需求任务获取任务团队草稿", tags = {"任务团队" },  notes = "根据需求任务获取任务团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/tasks/{task_id}/taskteams/getdraft")
-    public ResponseEntity<TaskTeamDTO> getDraftByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id) {
-        TaskTeam domain = new TaskTeam();
+    public ResponseEntity<TaskTeamDTO> getDraftByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, TaskTeamDTO dto) {
+        TaskTeam domain = taskteamMapping.toDomain(dto);
         domain.setRoot(task_id);
         return ResponseEntity.status(HttpStatus.OK).body(taskteamMapping.toDto(taskteamService.getDraft(domain)));
     }
@@ -378,8 +378,8 @@ public class TaskTeamResource {
 
     @ApiOperation(value = "根据项目任务获取任务团队草稿", tags = {"任务团队" },  notes = "根据项目任务获取任务团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/tasks/{task_id}/taskteams/getdraft")
-    public ResponseEntity<TaskTeamDTO> getDraftByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id) {
-        TaskTeam domain = new TaskTeam();
+    public ResponseEntity<TaskTeamDTO> getDraftByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, TaskTeamDTO dto) {
+        TaskTeam domain = taskteamMapping.toDomain(dto);
         domain.setRoot(task_id);
         return ResponseEntity.status(HttpStatus.OK).body(taskteamMapping.toDto(taskteamService.getDraft(domain)));
     }
@@ -507,8 +507,8 @@ public class TaskTeamResource {
 
     @ApiOperation(value = "根据产品需求任务获取任务团队草稿", tags = {"任务团队" },  notes = "根据产品需求任务获取任务团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskteams/getdraft")
-    public ResponseEntity<TaskTeamDTO> getDraftByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id) {
-        TaskTeam domain = new TaskTeam();
+    public ResponseEntity<TaskTeamDTO> getDraftByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, TaskTeamDTO dto) {
+        TaskTeam domain = taskteamMapping.toDomain(dto);
         domain.setRoot(task_id);
         return ResponseEntity.status(HttpStatus.OK).body(taskteamMapping.toDto(taskteamService.getDraft(domain)));
     }

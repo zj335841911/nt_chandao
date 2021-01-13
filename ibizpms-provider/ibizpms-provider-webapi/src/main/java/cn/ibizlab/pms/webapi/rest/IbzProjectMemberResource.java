@@ -110,8 +110,9 @@ public class IbzProjectMemberResource {
 
     @ApiOperation(value = "获取项目相关成员草稿", tags = {"项目相关成员" },  notes = "获取项目相关成员草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzprojectmembers/getdraft")
-    public ResponseEntity<IbzProjectMemberDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprojectmemberMapping.toDto(ibzprojectmemberService.getDraft(new IbzProjectMember())));
+    public ResponseEntity<IbzProjectMemberDTO> getDraft(IbzProjectMemberDTO dto) {
+        IbzProjectMember domain = ibzprojectmemberMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzprojectmemberMapping.toDto(ibzprojectmemberService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目相关成员", tags = {"项目相关成员" },  notes = "检查项目相关成员")

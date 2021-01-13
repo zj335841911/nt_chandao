@@ -110,8 +110,9 @@ public class SysTeamMemberResource {
 
     @ApiOperation(value = "获取组成员草稿", tags = {"组成员" },  notes = "获取组成员草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/systeammembers/getdraft")
-    public ResponseEntity<SysTeamMemberDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(systeammemberMapping.toDto(systeammemberService.getDraft(new SysTeamMember())));
+    public ResponseEntity<SysTeamMemberDTO> getDraft(SysTeamMemberDTO dto) {
+        SysTeamMember domain = systeammemberMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(systeammemberMapping.toDto(systeammemberService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查组成员", tags = {"组成员" },  notes = "检查组成员")

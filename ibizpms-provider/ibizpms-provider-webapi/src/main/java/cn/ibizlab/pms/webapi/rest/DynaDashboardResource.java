@@ -111,8 +111,9 @@ public class DynaDashboardResource {
 
     @ApiOperation(value = "获取动态数据看板草稿", tags = {"动态数据看板" },  notes = "获取动态数据看板草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/dynadashboards/getdraft")
-    public ResponseEntity<DynaDashboardDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(dynadashboardMapping.toDto(dynadashboardService.getDraft(new DynaDashboard())));
+    public ResponseEntity<DynaDashboardDTO> getDraft(DynaDashboardDTO dto) {
+        DynaDashboard domain = dynadashboardMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(dynadashboardMapping.toDto(dynadashboardService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查动态数据看板", tags = {"动态数据看板" },  notes = "检查动态数据看板")

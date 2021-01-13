@@ -110,8 +110,9 @@ public class TestResultResource {
 
     @ApiOperation(value = "获取测试结果草稿", tags = {"测试结果" },  notes = "获取测试结果草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(new TestResult())));
+    public ResponseEntity<TestResultDTO> getDraft(TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试结果", tags = {"测试结果" },  notes = "检查测试结果")
@@ -253,8 +254,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByCase(@PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByCase(@PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
@@ -405,8 +406,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据产品测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据产品测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
@@ -557,8 +558,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据需求测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据需求测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
@@ -709,8 +710,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据产品需求测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据产品需求测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }

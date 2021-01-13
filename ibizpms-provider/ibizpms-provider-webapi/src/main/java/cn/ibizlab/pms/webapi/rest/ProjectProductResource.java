@@ -110,8 +110,9 @@ public class ProjectProductResource {
 
     @ApiOperation(value = "获取项目产品草稿", tags = {"项目产品" },  notes = "获取项目产品草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectproducts/getdraft")
-    public ResponseEntity<ProjectProductDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(new ProjectProduct())));
+    public ResponseEntity<ProjectProductDTO> getDraft(ProjectProductDTO dto) {
+        ProjectProduct domain = projectproductMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目产品", tags = {"项目产品" },  notes = "检查项目产品")
@@ -253,8 +254,8 @@ public class ProjectProductResource {
 
     @ApiOperation(value = "根据产品获取项目产品草稿", tags = {"项目产品" },  notes = "根据产品获取项目产品草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/projectproducts/getdraft")
-    public ResponseEntity<ProjectProductDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        ProjectProduct domain = new ProjectProduct();
+    public ResponseEntity<ProjectProductDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, ProjectProductDTO dto) {
+        ProjectProduct domain = projectproductMapping.toDomain(dto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(domain)));
     }
@@ -405,8 +406,8 @@ public class ProjectProductResource {
 
     @ApiOperation(value = "根据项目获取项目产品草稿", tags = {"项目产品" },  notes = "根据项目获取项目产品草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectproducts/getdraft")
-    public ResponseEntity<ProjectProductDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        ProjectProduct domain = new ProjectProduct();
+    public ResponseEntity<ProjectProductDTO> getDraftByProject(@PathVariable("project_id") Long project_id, ProjectProductDTO dto) {
+        ProjectProduct domain = projectproductMapping.toDomain(dto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(domain)));
     }

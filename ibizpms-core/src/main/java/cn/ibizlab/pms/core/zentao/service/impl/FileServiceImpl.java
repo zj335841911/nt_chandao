@@ -51,9 +51,6 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProSysTplService ibzprosystplService;
-    @Autowired
-    @Lazy
-    IFileService proxyService;
 
     protected int batchSize = 500;
 
@@ -140,7 +137,7 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -157,10 +154,10 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -178,10 +175,10 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -257,6 +254,10 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
 
 
 
+
+    public IFileService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

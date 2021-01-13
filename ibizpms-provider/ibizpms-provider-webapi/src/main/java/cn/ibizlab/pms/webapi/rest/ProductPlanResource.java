@@ -110,8 +110,9 @@ public class ProductPlanResource {
 
     @ApiOperation(value = "获取产品计划草稿", tags = {"产品计划" },  notes = "获取产品计划草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productplans/getdraft")
-    public ResponseEntity<ProductPlanDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanMapping.toDto(productplanService.getDraft(new ProductPlan())));
+    public ResponseEntity<ProductPlanDTO> getDraft(ProductPlanDTO dto) {
+        ProductPlan domain = productplanMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productplanMapping.toDto(productplanService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkBug-all')")
@@ -126,9 +127,11 @@ public class ProductPlanResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkBug-all')")
     @ApiOperation(value = "批量处理[批量解除关联Bug]", tags = {"产品计划" },  notes = "批量处理[批量解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/batchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/batchunlinkbugbatch")
     public ResponseEntity<Boolean> batchUnlinkBugBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.batchUnlinkBugBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.batchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkStory-all')")
@@ -143,9 +146,11 @@ public class ProductPlanResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkStory-all')")
     @ApiOperation(value = "批量处理[批量解除关联需求]", tags = {"产品计划" },  notes = "批量处理[批量解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/batchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/batchunlinkstorybatch")
     public ResponseEntity<Boolean> batchUnlinkStoryBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.batchUnlinkStoryBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.batchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @ApiOperation(value = "检查产品计划", tags = {"产品计划" },  notes = "检查产品计划")
@@ -166,9 +171,11 @@ public class ProductPlanResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-ImportPlanTemplet-all')")
     @ApiOperation(value = "批量处理[导入计划模板]", tags = {"产品计划" },  notes = "批量处理[导入计划模板]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/importplantempletbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/importplantempletbatch")
     public ResponseEntity<Boolean> importPlanTempletBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.importPlanTempletBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.importPlanTempletBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkBug-all')")
@@ -183,9 +190,11 @@ public class ProductPlanResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkBug-all')")
     @ApiOperation(value = "批量处理[关联Bug]", tags = {"产品计划" },  notes = "批量处理[关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/linkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/linkbugbatch")
     public ResponseEntity<Boolean> linkBugBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.linkBugBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.linkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkStory-all')")
@@ -200,9 +209,11 @@ public class ProductPlanResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkStory-all')")
     @ApiOperation(value = "批量处理[关联需求]", tags = {"产品计划" },  notes = "批量处理[关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.linkStoryBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-MobProductPlanCounter-all')")
@@ -243,9 +254,11 @@ public class ProductPlanResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkBug-all')")
     @ApiOperation(value = "批量处理[解除关联Bug]", tags = {"产品计划" },  notes = "批量处理[解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/unlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/unlinkbugbatch")
     public ResponseEntity<Boolean> unlinkBugBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.unlinkBugBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.unlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkStory-all')")
@@ -260,9 +273,11 @@ public class ProductPlanResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkStory-all')")
     @ApiOperation(value = "批量处理[解除关联需求]", tags = {"产品计划" },  notes = "批量处理[解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/unlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/unlinkstorybatch")
     public ResponseEntity<Boolean> unlinkStoryBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.unlinkStoryBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.unlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
@@ -449,8 +464,8 @@ public class ProductPlanResource {
 
     @ApiOperation(value = "根据产品获取产品计划草稿", tags = {"产品计划" },  notes = "根据产品获取产品计划草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/getdraft")
-    public ResponseEntity<ProductPlanDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        ProductPlan domain = new ProductPlan();
+    public ResponseEntity<ProductPlanDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, ProductPlanDTO dto) {
+        ProductPlan domain = productplanMapping.toDomain(dto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(productplanMapping.toDto(productplanService.getDraft(domain)));
     }
@@ -466,9 +481,11 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
     @ApiOperation(value = "批量处理[根据产品产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/batchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/batchunlinkbugbatch")
     public ResponseEntity<Boolean> batchUnlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.batchUnlinkBugBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.batchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-BatchUnlinkStory-all')")
     @ApiOperation(value = "根据产品产品计划", tags = {"产品计划" },  notes = "根据产品产品计划")
@@ -481,9 +498,11 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
     @ApiOperation(value = "批量处理[根据产品产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/batchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/batchunlinkstorybatch")
     public ResponseEntity<Boolean> batchUnlinkStoryByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.batchUnlinkStoryBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.batchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据产品检查产品计划", tags = {"产品计划" },  notes = "根据产品检查产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/checkkey")
@@ -502,9 +521,11 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
     @ApiOperation(value = "批量处理[根据产品产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/importplantempletbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/importplantempletbatch")
     public ResponseEntity<Boolean> importPlanTempletByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.importPlanTempletBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.importPlanTempletBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkBug-all')")
     @ApiOperation(value = "根据产品产品计划", tags = {"产品计划" },  notes = "根据产品产品计划")
@@ -517,9 +538,11 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
     @ApiOperation(value = "批量处理[根据产品产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/linkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/linkbugbatch")
     public ResponseEntity<Boolean> linkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.linkBugBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.linkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-LinkStory-all')")
     @ApiOperation(value = "根据产品产品计划", tags = {"产品计划" },  notes = "根据产品产品计划")
@@ -532,9 +555,11 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
     @ApiOperation(value = "批量处理[根据产品产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.linkStoryBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-MobProductPlanCounter-all')")
     @ApiOperation(value = "根据产品产品计划", tags = {"产品计划" },  notes = "根据产品产品计划")
@@ -578,9 +603,11 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
     @ApiOperation(value = "批量处理[根据产品产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/unlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/unlinkbugbatch")
     public ResponseEntity<Boolean> unlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.unlinkBugBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.unlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-UnlinkStory-all')")
     @ApiOperation(value = "根据产品产品计划", tags = {"产品计划" },  notes = "根据产品产品计划")
@@ -593,9 +620,11 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
     @ApiOperation(value = "批量处理[根据产品产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/unlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/unlinkstorybatch")
     public ResponseEntity<Boolean> unlinkStoryByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productplanService.unlinkStoryBatch(productplanMapping.toDomain(productplandtos)));
+        List<ProductPlan> domains = productplanMapping.toDomain(productplandtos);
+        boolean result = productplanService.unlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "根据产品获取CurProductPlan", tags = {"产品计划" } ,notes = "根据产品获取CurProductPlan")

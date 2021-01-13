@@ -111,8 +111,9 @@ public class IbzAgentResource {
 
     @ApiOperation(value = "获取代理草稿", tags = {"代理" },  notes = "获取代理草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzagents/getdraft")
-    public ResponseEntity<IbzAgentDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzagentMapping.toDto(ibzagentService.getDraft(new IbzAgent())));
+    public ResponseEntity<IbzAgentDTO> getDraft(IbzAgentDTO dto) {
+        IbzAgent domain = ibzagentMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzagentMapping.toDto(ibzagentService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查代理", tags = {"代理" },  notes = "检查代理")

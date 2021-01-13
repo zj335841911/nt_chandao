@@ -110,8 +110,9 @@ public class ProjectModuleResource {
 
     @ApiOperation(value = "获取任务模块草稿", tags = {"任务模块" },  notes = "获取任务模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectmodules/getdraft")
-    public ResponseEntity<ProjectModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(projectmoduleService.getDraft(new ProjectModule())));
+    public ResponseEntity<ProjectModuleDTO> getDraft(ProjectModuleDTO dto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(projectmoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查任务模块", tags = {"任务模块" },  notes = "检查任务模块")
@@ -385,8 +386,8 @@ public class ProjectModuleResource {
 
     @ApiOperation(value = "根据项目获取任务模块草稿", tags = {"任务模块" },  notes = "根据项目获取任务模块草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectmodules/getdraft")
-    public ResponseEntity<ProjectModuleDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        ProjectModule domain = new ProjectModule();
+    public ResponseEntity<ProjectModuleDTO> getDraftByProject(@PathVariable("project_id") Long project_id, ProjectModuleDTO dto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(dto);
         domain.setRoot(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(projectmoduleService.getDraft(domain)));
     }

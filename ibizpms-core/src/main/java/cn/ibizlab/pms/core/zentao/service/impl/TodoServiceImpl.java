@@ -56,9 +56,6 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITodoResetBeginEndLogic resetbeginendLogic;
-    @Autowired
-    @Lazy
-    ITodoService proxyService;
 
     protected int batchSize = 500;
 
@@ -212,7 +209,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -229,10 +226,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -250,10 +247,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -383,6 +380,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
 
 
+
+    public ITodoService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

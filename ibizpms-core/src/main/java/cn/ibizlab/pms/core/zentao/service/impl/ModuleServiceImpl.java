@@ -68,9 +68,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
-    @Autowired
-    @Lazy
-    IModuleService proxyService;
 
     protected int batchSize = 500;
 
@@ -169,7 +166,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -187,10 +184,10 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -209,10 +206,10 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -370,6 +367,10 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
 
+
+    public IModuleService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

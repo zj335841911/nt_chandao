@@ -104,8 +104,9 @@ public class ProductLineResource {
 
     @ApiOperation(value = "获取产品线草稿", tags = {"产品线" },  notes = "获取产品线草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productlines/getdraft")
-    public ResponseEntity<ProductLineDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productlineMapping.toDto(productlineService.getDraft(new ProductLine())));
+    public ResponseEntity<ProductLineDTO> getDraft(ProductLineDTO dto) {
+        ProductLine domain = productlineMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productlineMapping.toDto(productlineService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品线", tags = {"产品线" },  notes = "检查产品线")

@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("ImClientServiceImpl")
 public class ImClientServiceImpl extends ServiceImpl<ImClientMapper, ImClient> implements IImClientService {
 
-    @Autowired
-    @Lazy
-    IImClientService proxyService;
 
     protected int batchSize = 500;
 
@@ -136,7 +133,7 @@ public class ImClientServiceImpl extends ServiceImpl<ImClientMapper, ImClient> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -153,10 +150,10 @@ public class ImClientServiceImpl extends ServiceImpl<ImClientMapper, ImClient> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -174,10 +171,10 @@ public class ImClientServiceImpl extends ServiceImpl<ImClientMapper, ImClient> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -226,6 +223,10 @@ public class ImClientServiceImpl extends ServiceImpl<ImClientMapper, ImClient> i
 
 
 
+
+    public IImClientService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

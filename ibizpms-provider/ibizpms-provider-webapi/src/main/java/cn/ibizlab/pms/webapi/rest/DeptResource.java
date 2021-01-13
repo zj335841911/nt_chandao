@@ -110,8 +110,9 @@ public class DeptResource {
 
     @ApiOperation(value = "获取部门草稿", tags = {"部门" },  notes = "获取部门草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/depts/getdraft")
-    public ResponseEntity<DeptDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(deptMapping.toDto(deptService.getDraft(new Dept())));
+    public ResponseEntity<DeptDTO> getDraft(DeptDTO dto) {
+        Dept domain = deptMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(deptMapping.toDto(deptService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查部门", tags = {"部门" },  notes = "检查部门")

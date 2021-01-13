@@ -110,8 +110,9 @@ public class IBZProProductResource {
 
     @ApiOperation(value = "获取平台产品草稿", tags = {"平台产品" },  notes = "获取平台产品草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzproproducts/getdraft")
-    public ResponseEntity<IBZProProductDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductMapping.toDto(ibzproproductService.getDraft(new IBZProProduct())));
+    public ResponseEntity<IBZProProductDTO> getDraft(IBZProProductDTO dto) {
+        IBZProProduct domain = ibzproproductMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductMapping.toDto(ibzproproductService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查平台产品", tags = {"平台产品" },  notes = "检查平台产品")

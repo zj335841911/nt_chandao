@@ -110,8 +110,9 @@ public class TestModuleResource {
 
     @ApiOperation(value = "获取测试模块草稿", tags = {"测试模块" },  notes = "获取测试模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testmodules/getdraft")
-    public ResponseEntity<TestModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(testmoduleService.getDraft(new TestModule())));
+    public ResponseEntity<TestModuleDTO> getDraft(TestModuleDTO dto) {
+        TestModule domain = testmoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(testmoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试模块", tags = {"测试模块" },  notes = "检查测试模块")
@@ -363,8 +364,8 @@ public class TestModuleResource {
 
     @ApiOperation(value = "根据产品获取测试模块草稿", tags = {"测试模块" },  notes = "根据产品获取测试模块草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testmodules/getdraft")
-    public ResponseEntity<TestModuleDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        TestModule domain = new TestModule();
+    public ResponseEntity<TestModuleDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, TestModuleDTO dto) {
+        TestModule domain = testmoduleMapping.toDomain(dto);
         domain.setRoot(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(testmoduleService.getDraft(domain)));
     }

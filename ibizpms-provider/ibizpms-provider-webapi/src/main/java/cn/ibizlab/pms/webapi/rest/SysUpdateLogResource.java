@@ -111,8 +111,9 @@ public class SysUpdateLogResource {
 
     @ApiOperation(value = "获取更新日志草稿", tags = {"更新日志" },  notes = "获取更新日志草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysupdatelogs/getdraft")
-    public ResponseEntity<SysUpdateLogDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogMapping.toDto(sysupdatelogService.getDraft(new SysUpdateLog())));
+    public ResponseEntity<SysUpdateLogDTO> getDraft(SysUpdateLogDTO dto) {
+        SysUpdateLog domain = sysupdatelogMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogMapping.toDto(sysupdatelogService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查更新日志", tags = {"更新日志" },  notes = "检查更新日志")
@@ -133,9 +134,11 @@ public class SysUpdateLogResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysUpdateLog-GetLastUpdateInfo-all')")
     @ApiOperation(value = "批量处理[获取最新更新信息]", tags = {"更新日志" },  notes = "批量处理[获取最新更新信息]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/sysupdatelogs/{sysupdatelog_id}/getlastupdateinfobatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/sysupdatelogs/getlastupdateinfobatch")
     public ResponseEntity<Boolean> getLastUpdateInfoBatch(@RequestBody List<SysUpdateLogDTO> sysupdatelogdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogService.getLastUpdateInfoBatch(sysupdatelogMapping.toDomain(sysupdatelogdtos)));
+        List<SysUpdateLog> domains = sysupdatelogMapping.toDomain(sysupdatelogdtos);
+        boolean result = sysupdatelogService.getLastUpdateInfoBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.sysupdatelogMapping.toDomain(#sysupdatelogdto),'pms-SysUpdateLog-Save')")

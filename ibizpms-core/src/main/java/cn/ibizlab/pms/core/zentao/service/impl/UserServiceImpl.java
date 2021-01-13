@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("UserServiceImpl")
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
-    @Autowired
-    @Lazy
-    IUserService proxyService;
 
     protected int batchSize = 500;
 
@@ -143,7 +140,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -160,10 +157,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -181,10 +178,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -302,6 +299,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
 
+
+    public IUserService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

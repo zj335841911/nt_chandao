@@ -111,8 +111,9 @@ public class SysUpdateFeaturesResource {
 
     @ApiOperation(value = "获取系统更新功能草稿", tags = {"系统更新功能" },  notes = "获取系统更新功能草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysupdatefeatures/getdraft")
-    public ResponseEntity<SysUpdateFeaturesDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(sysupdatefeaturesService.getDraft(new SysUpdateFeatures())));
+    public ResponseEntity<SysUpdateFeaturesDTO> getDraft(SysUpdateFeaturesDTO dto) {
+        SysUpdateFeatures domain = sysupdatefeaturesMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(sysupdatefeaturesService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统更新功能", tags = {"系统更新功能" },  notes = "检查系统更新功能")
@@ -233,8 +234,8 @@ public class SysUpdateFeaturesResource {
 
     @ApiOperation(value = "根据更新日志获取系统更新功能草稿", tags = {"系统更新功能" },  notes = "根据更新日志获取系统更新功能草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/sysupdatelogs/{sysupdatelog_id}/sysupdatefeatures/getdraft")
-    public ResponseEntity<SysUpdateFeaturesDTO> getDraftBySysUpdateLog(@PathVariable("sysupdatelog_id") String sysupdatelog_id) {
-        SysUpdateFeatures domain = new SysUpdateFeatures();
+    public ResponseEntity<SysUpdateFeaturesDTO> getDraftBySysUpdateLog(@PathVariable("sysupdatelog_id") String sysupdatelog_id, SysUpdateFeaturesDTO dto) {
+        SysUpdateFeatures domain = sysupdatefeaturesMapping.toDomain(dto);
         domain.setSysupdatelogid(sysupdatelog_id);
         return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(sysupdatefeaturesService.getDraft(domain)));
     }

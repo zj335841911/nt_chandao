@@ -111,8 +111,9 @@ public class SysDepartmentResource {
 
     @ApiOperation(value = "获取部门草稿", tags = {"部门" },  notes = "获取部门草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysdepartments/getdraft")
-    public ResponseEntity<SysDepartmentDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysdepartmentMapping.toDto(sysdepartmentService.getDraft(new SysDepartment())));
+    public ResponseEntity<SysDepartmentDTO> getDraft(SysDepartmentDTO dto) {
+        SysDepartment domain = sysdepartmentMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysdepartmentMapping.toDto(sysdepartmentService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查部门", tags = {"部门" },  notes = "检查部门")

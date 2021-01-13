@@ -123,8 +123,9 @@ public class TaskResource {
 
     @ApiOperation(value = "获取任务草稿", tags = {"任务" },  notes = "获取任务草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/tasks/getdraft")
-    public ResponseEntity<TaskDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(taskMapping.toDto(taskService.getDraft(new Task())));
+    public ResponseEntity<TaskDTO> getDraft(TaskDTO dto) {
+        Task domain = taskMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(taskMapping.toDto(taskService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Activate-all')")
@@ -139,9 +140,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Activate-all')")
     @ApiOperation(value = "批量处理[激活]", tags = {"任务" },  notes = "批量处理[激活]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/activatebatch")
     public ResponseEntity<Boolean> activateBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.activateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
@@ -156,9 +159,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "批量处理[指派/转交]", tags = {"任务" },  notes = "批量处理[指派/转交]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/assigntobatch")
     public ResponseEntity<Boolean> assignToBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.assignToBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
@@ -173,9 +178,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "批量处理[取消]", tags = {"任务" },  notes = "批量处理[取消]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/cancelbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/cancelbatch")
     public ResponseEntity<Boolean> cancelBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.cancelBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.cancelBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @ApiOperation(value = "检查任务", tags = {"任务" },  notes = "检查任务")
@@ -196,9 +203,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Close-all')")
     @ApiOperation(value = "批量处理[关闭]", tags = {"任务" },  notes = "批量处理[关闭]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/closebatch")
     public ResponseEntity<Boolean> closeBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.closeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-ConfirmStoryChange-all')")
@@ -213,9 +222,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-ConfirmStoryChange-all')")
     @ApiOperation(value = "批量处理[需求变更确认]", tags = {"任务" },  notes = "批量处理[需求变更确认]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmStoryChangeBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.confirmStoryChangeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.confirmStoryChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
@@ -230,9 +241,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "批量处理[删除工时]", tags = {"任务" },  notes = "批量处理[删除工时]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/deleteestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/deleteestimatebatch")
     public ResponseEntity<Boolean> deleteEstimateBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.deleteEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.deleteEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
@@ -247,9 +260,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "批量处理[编辑工时]", tags = {"任务" },  notes = "批量处理[编辑工时]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/editestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/editestimatebatch")
     public ResponseEntity<Boolean> editEstimateBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.editEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.editEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
@@ -264,9 +279,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "批量处理[完成]", tags = {"任务" },  notes = "批量处理[完成]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/finishbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/finishbatch")
     public ResponseEntity<Boolean> finishBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.finishBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.finishBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetNextTeamUser-all')")
@@ -281,9 +298,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetNextTeamUser-all')")
     @ApiOperation(value = "批量处理[获取下一个团队成员(完成)]", tags = {"任务" },  notes = "批量处理[获取下一个团队成员(完成)]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/getnextteamuserbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/getnextteamuserbatch")
     public ResponseEntity<Boolean> getNextTeamUserBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getNextTeamUserBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getNextTeamUserBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
@@ -298,9 +317,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
     @ApiOperation(value = "批量处理[获取团队成员剩余工时（激活）]", tags = {"任务" },  notes = "批量处理[获取团队成员剩余工时（激活）]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/getteamuserleftactivitybatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/getteamuserleftactivitybatch")
     public ResponseEntity<Boolean> getTeamUserLeftActivityBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftActivityBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftActivityBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
@@ -315,9 +336,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
     @ApiOperation(value = "批量处理[获取团队成员剩余工时（开始或继续）]", tags = {"任务" },  notes = "批量处理[获取团队成员剩余工时（开始或继续）]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/getteamuserleftstartbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/getteamuserleftstartbatch")
     public ResponseEntity<Boolean> getTeamUserLeftStartBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftStartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftStartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetUsernames-all')")
@@ -343,9 +366,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "批量处理[其他更新]", tags = {"任务" },  notes = "批量处理[其他更新]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/otherupdatebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/otherupdatebatch")
     public ResponseEntity<Boolean> otherUpdateBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.otherUpdateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.otherUpdateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
@@ -360,9 +385,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "批量处理[暂停]", tags = {"任务" },  notes = "批量处理[暂停]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/pausebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/pausebatch")
     public ResponseEntity<Boolean> pauseBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.pauseBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.pauseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
@@ -377,9 +404,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "批量处理[工时录入]", tags = {"任务" },  notes = "批量处理[工时录入]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/recordestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/recordestimatebatch")
     public ResponseEntity<Boolean> recordEstimateBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.recordEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.recordEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
@@ -394,9 +423,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "批量处理[继续]", tags = {"任务" },  notes = "批量处理[继续]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/restartbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/restartbatch")
     public ResponseEntity<Boolean> restartBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.restartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.restartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
@@ -426,9 +457,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMessage-all')")
     @ApiOperation(value = "批量处理[行为]", tags = {"任务" },  notes = "批量处理[行为]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMessageBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
@@ -443,9 +476,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
     @ApiOperation(value = "批量处理[发送消息前置处理]", tags = {"任务" },  notes = "批量处理[发送消息前置处理]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMsgPreProcessBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
@@ -460,9 +495,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "批量处理[开始]", tags = {"任务" },  notes = "批量处理[开始]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/startbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/startbatch")
     public ResponseEntity<Boolean> startBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.startBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.startBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskFavorites-all')")
@@ -488,9 +525,11 @@ public class TaskResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskForward-all')")
     @ApiOperation(value = "批量处理[检查多人任务操作权限]", tags = {"任务" },  notes = "批量处理[检查多人任务操作权限]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/taskforwardbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/taskforwardbatch")
     public ResponseEntity<Boolean> taskForwardBatch(@RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.taskForwardBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.taskForwardBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskNFavorites-all')")
@@ -1291,8 +1330,8 @@ public class TaskResource {
 
     @ApiOperation(value = "根据需求获取任务草稿", tags = {"任务" },  notes = "根据需求获取任务草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/tasks/getdraft")
-    public ResponseEntity<TaskDTO> getDraftByStory(@PathVariable("story_id") Long story_id) {
-        Task domain = new Task();
+    public ResponseEntity<TaskDTO> getDraftByStory(@PathVariable("story_id") Long story_id, TaskDTO dto) {
+        Task domain = taskMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(taskMapping.toDto(taskService.getDraft(domain)));
     }
@@ -1308,9 +1347,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/activatebatch")
     public ResponseEntity<Boolean> activateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.activateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1323,9 +1364,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/assigntobatch")
     public ResponseEntity<Boolean> assignToByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.assignToBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1338,9 +1381,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/cancelbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/cancelbatch")
     public ResponseEntity<Boolean> cancelByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.cancelBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.cancelBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据需求检查任务", tags = {"任务" },  notes = "根据需求检查任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/checkkey")
@@ -1359,9 +1404,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/closebatch")
     public ResponseEntity<Boolean> closeByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.closeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-ConfirmStoryChange-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1374,9 +1421,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmStoryChangeByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.confirmStoryChangeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.confirmStoryChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1389,9 +1438,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/deleteestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/deleteestimatebatch")
     public ResponseEntity<Boolean> deleteEstimateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.deleteEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.deleteEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1404,9 +1455,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/editestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/editestimatebatch")
     public ResponseEntity<Boolean> editEstimateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.editEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.editEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1419,9 +1472,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/finishbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/finishbatch")
     public ResponseEntity<Boolean> finishByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.finishBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.finishBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetNextTeamUser-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1434,9 +1489,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/getnextteamuserbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/getnextteamuserbatch")
     public ResponseEntity<Boolean> getNextTeamUserByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getNextTeamUserBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getNextTeamUserBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1449,9 +1506,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/getteamuserleftactivitybatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/getteamuserleftactivitybatch")
     public ResponseEntity<Boolean> getTeamUserLeftActivityByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftActivityBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftActivityBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1464,9 +1523,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/getteamuserleftstartbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/getteamuserleftstartbatch")
     public ResponseEntity<Boolean> getTeamUserLeftStartByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftStartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftStartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetUsernames-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1489,9 +1550,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/otherupdatebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/otherupdatebatch")
     public ResponseEntity<Boolean> otherUpdateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.otherUpdateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.otherUpdateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1504,9 +1567,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/pausebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/pausebatch")
     public ResponseEntity<Boolean> pauseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.pauseBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.pauseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1519,9 +1584,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/recordestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/recordestimatebatch")
     public ResponseEntity<Boolean> recordEstimateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.recordEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.recordEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1534,9 +1601,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/restartbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/restartbatch")
     public ResponseEntity<Boolean> restartByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.restartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.restartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
     @ApiOperation(value = "根据需求保存任务", tags = {"任务" },  notes = "根据需求保存任务")
@@ -1570,9 +1639,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMessageBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1585,9 +1656,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMsgPreProcessBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1600,9 +1673,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/startbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/startbatch")
     public ResponseEntity<Boolean> startByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.startBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.startBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskFavorites-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -1625,9 +1700,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/taskforwardbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/taskforwardbatch")
     public ResponseEntity<Boolean> taskForwardByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.taskForwardBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.taskForwardBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskNFavorites-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -2456,8 +2533,8 @@ public class TaskResource {
 
     @ApiOperation(value = "根据项目获取任务草稿", tags = {"任务" },  notes = "根据项目获取任务草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/tasks/getdraft")
-    public ResponseEntity<TaskDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        Task domain = new Task();
+    public ResponseEntity<TaskDTO> getDraftByProject(@PathVariable("project_id") Long project_id, TaskDTO dto) {
+        Task domain = taskMapping.toDomain(dto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(taskMapping.toDto(taskService.getDraft(domain)));
     }
@@ -2473,9 +2550,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/activatebatch")
     public ResponseEntity<Boolean> activateByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.activateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2488,9 +2567,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/assigntobatch")
     public ResponseEntity<Boolean> assignToByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.assignToBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2503,9 +2584,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/cancelbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/cancelbatch")
     public ResponseEntity<Boolean> cancelByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.cancelBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.cancelBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据项目检查任务", tags = {"任务" },  notes = "根据项目检查任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/checkkey")
@@ -2524,9 +2607,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/closebatch")
     public ResponseEntity<Boolean> closeByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.closeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-ConfirmStoryChange-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2539,9 +2624,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmStoryChangeByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.confirmStoryChangeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.confirmStoryChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2554,9 +2641,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/deleteestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/deleteestimatebatch")
     public ResponseEntity<Boolean> deleteEstimateByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.deleteEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.deleteEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2569,9 +2658,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/editestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/editestimatebatch")
     public ResponseEntity<Boolean> editEstimateByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.editEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.editEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2584,9 +2675,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/finishbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/finishbatch")
     public ResponseEntity<Boolean> finishByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.finishBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.finishBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetNextTeamUser-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2599,9 +2692,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/getnextteamuserbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/getnextteamuserbatch")
     public ResponseEntity<Boolean> getNextTeamUserByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getNextTeamUserBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getNextTeamUserBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2614,9 +2709,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/getteamuserleftactivitybatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/getteamuserleftactivitybatch")
     public ResponseEntity<Boolean> getTeamUserLeftActivityByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftActivityBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftActivityBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2629,9 +2726,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/getteamuserleftstartbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/getteamuserleftstartbatch")
     public ResponseEntity<Boolean> getTeamUserLeftStartByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftStartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftStartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetUsernames-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2654,9 +2753,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/otherupdatebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/otherupdatebatch")
     public ResponseEntity<Boolean> otherUpdateByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.otherUpdateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.otherUpdateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2669,9 +2770,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/pausebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/pausebatch")
     public ResponseEntity<Boolean> pauseByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.pauseBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.pauseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2684,9 +2787,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/recordestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/recordestimatebatch")
     public ResponseEntity<Boolean> recordEstimateByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.recordEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.recordEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2699,9 +2804,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/restartbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/restartbatch")
     public ResponseEntity<Boolean> restartByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.restartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.restartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
     @ApiOperation(value = "根据项目保存任务", tags = {"任务" },  notes = "根据项目保存任务")
@@ -2735,9 +2842,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMessageBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2750,9 +2859,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMsgPreProcessBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2765,9 +2876,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/startbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/startbatch")
     public ResponseEntity<Boolean> startByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.startBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.startBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskFavorites-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -2790,9 +2903,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/taskforwardbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/taskforwardbatch")
     public ResponseEntity<Boolean> taskForwardByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.taskForwardBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.taskForwardBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskNFavorites-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -3621,8 +3736,8 @@ public class TaskResource {
 
     @ApiOperation(value = "根据产品需求获取任务草稿", tags = {"任务" },  notes = "根据产品需求获取任务草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/tasks/getdraft")
-    public ResponseEntity<TaskDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id) {
-        Task domain = new Task();
+    public ResponseEntity<TaskDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, TaskDTO dto) {
+        Task domain = taskMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(taskMapping.toDto(taskService.getDraft(domain)));
     }
@@ -3638,9 +3753,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/activatebatch")
     public ResponseEntity<Boolean> activateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.activateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-AssignTo-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3653,9 +3770,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/assigntobatch")
     public ResponseEntity<Boolean> assignToByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.assignToBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Cancel-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3668,9 +3787,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/cancelbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/cancelbatch")
     public ResponseEntity<Boolean> cancelByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.cancelBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.cancelBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据产品需求检查任务", tags = {"任务" },  notes = "根据产品需求检查任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/checkkey")
@@ -3689,9 +3810,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/closebatch")
     public ResponseEntity<Boolean> closeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.closeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-ConfirmStoryChange-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3704,9 +3827,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmStoryChangeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.confirmStoryChangeBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.confirmStoryChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-DeleteEstimate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3719,9 +3844,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/deleteestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/deleteestimatebatch")
     public ResponseEntity<Boolean> deleteEstimateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.deleteEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.deleteEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3734,9 +3861,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/editestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/editestimatebatch")
     public ResponseEntity<Boolean> editEstimateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.editEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.editEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Finish-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3749,9 +3878,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/finishbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/finishbatch")
     public ResponseEntity<Boolean> finishByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.finishBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.finishBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetNextTeamUser-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3764,9 +3895,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/getnextteamuserbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/getnextteamuserbatch")
     public ResponseEntity<Boolean> getNextTeamUserByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getNextTeamUserBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getNextTeamUserBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3779,9 +3912,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/getteamuserleftactivitybatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/getteamuserleftactivitybatch")
     public ResponseEntity<Boolean> getTeamUserLeftActivityByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftActivityBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftActivityBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3794,9 +3929,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/getteamuserleftstartbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/getteamuserleftstartbatch")
     public ResponseEntity<Boolean> getTeamUserLeftStartByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTeamUserLeftStartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.getTeamUserLeftStartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetUsernames-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3819,9 +3956,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/otherupdatebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/otherupdatebatch")
     public ResponseEntity<Boolean> otherUpdateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.otherUpdateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.otherUpdateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Pause-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3834,9 +3973,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/pausebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/pausebatch")
     public ResponseEntity<Boolean> pauseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.pauseBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.pauseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RecordEstimate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3849,9 +3990,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/recordestimatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/recordestimatebatch")
     public ResponseEntity<Boolean> recordEstimateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.recordEstimateBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.recordEstimateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Restart-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3864,9 +4007,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/restartbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/restartbatch")
     public ResponseEntity<Boolean> restartByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.restartBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.restartBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
     @ApiOperation(value = "根据产品需求保存任务", tags = {"任务" },  notes = "根据产品需求保存任务")
@@ -3900,9 +4045,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMessageBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3915,9 +4062,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.sendMsgPreProcessBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Start-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3930,9 +4079,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/startbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/startbatch")
     public ResponseEntity<Boolean> startByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.startBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.startBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskFavorites-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -3955,9 +4106,11 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskforwardbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/taskforwardbatch")
     public ResponseEntity<Boolean> taskForwardByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.taskForwardBatch(taskMapping.toDomain(taskdtos)));
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.taskForwardBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskNFavorites-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")

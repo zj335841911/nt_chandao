@@ -110,8 +110,9 @@ public class ProjectStatsResource {
 
     @ApiOperation(value = "获取项目统计草稿", tags = {"项目统计" },  notes = "获取项目统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectstats/getdraft")
-    public ResponseEntity<ProjectStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectstatsMapping.toDto(projectstatsService.getDraft(new ProjectStats())));
+    public ResponseEntity<ProjectStatsDTO> getDraft(ProjectStatsDTO dto) {
+        ProjectStats domain = projectstatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectstatsMapping.toDto(projectstatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目统计", tags = {"项目统计" },  notes = "检查项目统计")

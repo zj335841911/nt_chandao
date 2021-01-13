@@ -86,9 +86,6 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetTestReportProjectLogic gettestreportprojectLogic;
-    @Autowired
-    @Lazy
-    ITestReportService proxyService;
 
     protected int batchSize = 500;
 
@@ -220,7 +217,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -238,10 +235,10 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -260,10 +257,10 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -356,6 +353,10 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
 
 
+
+    public ITestReportService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

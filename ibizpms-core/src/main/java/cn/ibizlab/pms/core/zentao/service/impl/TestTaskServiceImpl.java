@@ -71,9 +71,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskMobTestTaskCounterLogic mobtesttaskcounterLogic;
-    @Autowired
-    @Lazy
-    ITestTaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -217,7 +214,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -235,10 +232,10 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -257,10 +254,10 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -408,6 +405,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
 
+    public ITestTaskService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 
     @Value("${ibiz.syncImportLimit:1000}")
     private int syncImportLimit;
@@ -541,7 +541,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public JSONObject importData(List<TestTask> entities, int batchSize, boolean isIgnoreError) {
         if (entities.size() > syncImportLimit) {
-            proxyService.asyncImportData(entities, batchSize, isIgnoreError);
+            getProxyService().asyncImportData(entities, batchSize, isIgnoreError);
             JSONObject rs = new JSONObject();
             rs.put("rst", 0);
             rs.put("msg", String.format("当前导入数据已超过同步导入数量上限[%s]，系统正在进行异步导入，请稍后!", syncImportLimit));
@@ -617,12 +617,13 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             }
         }
         if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
+            getProxyService().updateBatch(_update);
         }
         if (_create.size() > 0) {
-            proxyService.createBatch(_create);
+            getProxyService().createBatch(_create);
         }
     }
+
 
 
 

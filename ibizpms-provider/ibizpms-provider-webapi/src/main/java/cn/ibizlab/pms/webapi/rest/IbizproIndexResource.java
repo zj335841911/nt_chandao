@@ -110,8 +110,9 @@ public class IbizproIndexResource {
 
     @ApiOperation(value = "获取索引检索草稿", tags = {"索引检索" },  notes = "获取索引检索草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproindices/getdraft")
-    public ResponseEntity<IbizproIndexDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproindexMapping.toDto(ibizproindexService.getDraft(new IbizproIndex())));
+    public ResponseEntity<IbizproIndexDTO> getDraft(IbizproIndexDTO dto) {
+        IbizproIndex domain = ibizproindexMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproindexMapping.toDto(ibizproindexService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查索引检索", tags = {"索引检索" },  notes = "检查索引检索")

@@ -111,8 +111,9 @@ public class IbzTopResource {
 
     @ApiOperation(value = "获取置顶草稿", tags = {"置顶" },  notes = "获取置顶草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibztops/getdraft")
-    public ResponseEntity<IbzTopDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibztopMapping.toDto(ibztopService.getDraft(new IbzTop())));
+    public ResponseEntity<IbzTopDTO> getDraft(IbzTopDTO dto) {
+        IbzTop domain = ibztopMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibztopMapping.toDto(ibztopService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查置顶", tags = {"置顶" },  notes = "检查置顶")

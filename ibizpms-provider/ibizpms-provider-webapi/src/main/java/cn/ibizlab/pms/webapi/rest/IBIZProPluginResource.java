@@ -111,8 +111,9 @@ public class IBIZProPluginResource {
 
     @ApiOperation(value = "获取系统插件草稿", tags = {"系统插件" },  notes = "获取系统插件草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproplugins/getdraft")
-    public ResponseEntity<IBIZProPluginDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpropluginMapping.toDto(ibizpropluginService.getDraft(new IBIZProPlugin())));
+    public ResponseEntity<IBIZProPluginDTO> getDraft(IBIZProPluginDTO dto) {
+        IBIZProPlugin domain = ibizpropluginMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizpropluginMapping.toDto(ibizpropluginService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统插件", tags = {"系统插件" },  notes = "检查系统插件")

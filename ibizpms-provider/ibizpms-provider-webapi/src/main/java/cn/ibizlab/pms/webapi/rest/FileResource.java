@@ -110,8 +110,9 @@ public class FileResource {
 
     @ApiOperation(value = "获取附件草稿", tags = {"附件" },  notes = "获取附件草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/files/getdraft")
-    public ResponseEntity<FileDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(fileMapping.toDto(fileService.getDraft(new File())));
+    public ResponseEntity<FileDTO> getDraft(FileDTO dto) {
+        File domain = fileMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(fileMapping.toDto(fileService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查附件", tags = {"附件" },  notes = "检查附件")

@@ -110,8 +110,9 @@ public class DocResource {
 
     @ApiOperation(value = "获取文档草稿", tags = {"文档" },  notes = "获取文档草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/docs/getdraft")
-    public ResponseEntity<DocDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(docMapping.toDto(docService.getDraft(new Doc())));
+    public ResponseEntity<DocDTO> getDraft(DocDTO dto) {
+        Doc domain = docMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(docMapping.toDto(docService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-ByVersionUpdateContext-all')")
@@ -126,9 +127,11 @@ public class DocResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-ByVersionUpdateContext-all')")
     @ApiOperation(value = "批量处理[根据版本更新正文信息]", tags = {"文档" },  notes = "批量处理[根据版本更新正文信息]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/docs/{doc_id}/byversionupdatecontextbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/docs/byversionupdatecontextbatch")
     public ResponseEntity<Boolean> byVersionUpdateContextBatch(@RequestBody List<DocDTO> docdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(docService.byVersionUpdateContextBatch(docMapping.toDomain(docdtos)));
+        List<Doc> domains = docMapping.toDomain(docdtos);
+        boolean result = docService.byVersionUpdateContextBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @ApiOperation(value = "检查文档", tags = {"文档" },  notes = "检查文档")
@@ -149,9 +152,11 @@ public class DocResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-Collect-all')")
     @ApiOperation(value = "批量处理[收藏]", tags = {"文档" },  notes = "批量处理[收藏]")
-	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/collectbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/collectbatch")
     public ResponseEntity<Boolean> collectBatch(@RequestBody List<DocDTO> docdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(docService.collectBatch(docMapping.toDomain(docdtos)));
+        List<Doc> domains = docMapping.toDomain(docdtos);
+        boolean result = docService.collectBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-GetDocStatus-all')")
@@ -166,9 +171,11 @@ public class DocResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-GetDocStatus-all')")
     @ApiOperation(value = "批量处理[行为]", tags = {"文档" },  notes = "批量处理[行为]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/docs/{doc_id}/getdocstatusbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/docs/getdocstatusbatch")
     public ResponseEntity<Boolean> getDocStatusBatch(@RequestBody List<DocDTO> docdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(docService.getDocStatusBatch(docMapping.toDomain(docdtos)));
+        List<Doc> domains = docMapping.toDomain(docdtos);
+        boolean result = docService.getDocStatusBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-OnlyCollectDoc-all')")
@@ -183,9 +190,11 @@ public class DocResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-OnlyCollectDoc-all')")
     @ApiOperation(value = "批量处理[仅收藏文档]", tags = {"文档" },  notes = "批量处理[仅收藏文档]")
-	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/onlycollectdocbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/onlycollectdocbatch")
     public ResponseEntity<Boolean> onlyCollectDocBatch(@RequestBody List<DocDTO> docdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(docService.onlyCollectDocBatch(docMapping.toDomain(docdtos)));
+        List<Doc> domains = docMapping.toDomain(docdtos);
+        boolean result = docService.onlyCollectDocBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-OnlyUnCollectDoc-all')")
@@ -200,9 +209,11 @@ public class DocResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-OnlyUnCollectDoc-all')")
     @ApiOperation(value = "批量处理[仅取消收藏文档]", tags = {"文档" },  notes = "批量处理[仅取消收藏文档]")
-	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/onlyuncollectdocbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/onlyuncollectdocbatch")
     public ResponseEntity<Boolean> onlyUnCollectDocBatch(@RequestBody List<DocDTO> docdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(docService.onlyUnCollectDocBatch(docMapping.toDomain(docdtos)));
+        List<Doc> domains = docMapping.toDomain(docdtos);
+        boolean result = docService.onlyUnCollectDocBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-Save-all')")
@@ -232,9 +243,11 @@ public class DocResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-UnCollect-all')")
     @ApiOperation(value = "批量处理[取消收藏]", tags = {"文档" },  notes = "批量处理[取消收藏]")
-	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/uncollectbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/uncollectbatch")
     public ResponseEntity<Boolean> unCollectBatch(@RequestBody List<DocDTO> docdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(docService.unCollectBatch(docMapping.toDomain(docdtos)));
+        List<Doc> domains = docMapping.toDomain(docdtos);
+        boolean result = docService.unCollectBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchChildDocLibDoc-all')")

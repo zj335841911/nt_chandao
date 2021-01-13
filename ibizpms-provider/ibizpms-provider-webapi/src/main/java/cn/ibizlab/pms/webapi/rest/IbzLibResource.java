@@ -111,8 +111,9 @@ public class IbzLibResource {
 
     @ApiOperation(value = "获取用例库草稿", tags = {"用例库" },  notes = "获取用例库草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzlibs/getdraft")
-    public ResponseEntity<IbzLibDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzlibMapping.toDto(ibzlibService.getDraft(new IbzLib())));
+    public ResponseEntity<IbzLibDTO> getDraft(IbzLibDTO dto) {
+        IbzLib domain = ibzlibMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzlibMapping.toDto(ibzlibService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用例库", tags = {"用例库" },  notes = "检查用例库")

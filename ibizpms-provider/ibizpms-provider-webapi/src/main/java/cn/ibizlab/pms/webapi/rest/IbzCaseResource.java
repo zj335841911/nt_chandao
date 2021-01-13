@@ -116,8 +116,9 @@ public class IbzCaseResource {
 
     @ApiOperation(value = "获取测试用例草稿", tags = {"测试用例" },  notes = "获取测试用例草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzcases/getdraft")
-    public ResponseEntity<IbzCaseDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(ibzcaseService.getDraft(new IbzCase())));
+    public ResponseEntity<IbzCaseDTO> getDraft(IbzCaseDTO dto) {
+        IbzCase domain = ibzcaseMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(ibzcaseService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试用例", tags = {"测试用例" },  notes = "检查测试用例")
@@ -237,8 +238,8 @@ public class IbzCaseResource {
 
     @ApiOperation(value = "根据用例库获取测试用例草稿", tags = {"测试用例" },  notes = "根据用例库获取测试用例草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/ibzlibs/{ibzlib_id}/ibzcases/getdraft")
-    public ResponseEntity<IbzCaseDTO> getDraftByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id) {
-        IbzCase domain = new IbzCase();
+    public ResponseEntity<IbzCaseDTO> getDraftByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id, IbzCaseDTO dto) {
+        IbzCase domain = ibzcaseMapping.toDomain(dto);
         domain.setLib(ibzlib_id);
         return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(ibzcaseService.getDraft(domain)));
     }

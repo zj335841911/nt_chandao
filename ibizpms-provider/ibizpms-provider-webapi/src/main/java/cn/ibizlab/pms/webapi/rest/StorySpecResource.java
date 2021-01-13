@@ -110,8 +110,9 @@ public class StorySpecResource {
 
     @ApiOperation(value = "获取需求描述草稿", tags = {"需求描述" },  notes = "获取需求描述草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/storyspecs/getdraft")
-    public ResponseEntity<StorySpecDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(new StorySpec())));
+    public ResponseEntity<StorySpecDTO> getDraft(StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查需求描述", tags = {"需求描述" },  notes = "检查需求描述")
@@ -253,8 +254,8 @@ public class StorySpecResource {
 
     @ApiOperation(value = "根据需求获取需求描述草稿", tags = {"需求描述" },  notes = "根据需求获取需求描述草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/storyspecs/getdraft")
-    public ResponseEntity<StorySpecDTO> getDraftByStory(@PathVariable("story_id") Long story_id) {
-        StorySpec domain = new StorySpec();
+    public ResponseEntity<StorySpecDTO> getDraftByStory(@PathVariable("story_id") Long story_id, StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }
@@ -405,8 +406,8 @@ public class StorySpecResource {
 
     @ApiOperation(value = "根据产品需求获取需求描述草稿", tags = {"需求描述" },  notes = "根据产品需求获取需求描述草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/storyspecs/getdraft")
-    public ResponseEntity<StorySpecDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id) {
-        StorySpec domain = new StorySpec();
+    public ResponseEntity<StorySpecDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }

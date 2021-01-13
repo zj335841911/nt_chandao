@@ -54,9 +54,6 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
-    @Autowired
-    @Lazy
-    IBurnService proxyService;
 
     protected int batchSize = 500;
 
@@ -162,7 +159,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -180,10 +177,10 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -202,10 +199,10 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -299,6 +296,10 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
 
 
+
+    public IBurnService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

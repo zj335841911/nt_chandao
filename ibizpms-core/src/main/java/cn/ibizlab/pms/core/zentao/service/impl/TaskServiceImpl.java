@@ -103,9 +103,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateStoryVersion__MSDenyLogic updatestoryversion__msdenyLogic;
-    @Autowired
-    @Lazy
-    ITaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -418,7 +415,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -436,10 +433,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -458,10 +455,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -989,6 +986,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
 
+
+    public ITaskService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

@@ -144,9 +144,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductProductTopLogic producttopLogic;
-    @Autowired
-    @Lazy
-    IProductService proxyService;
 
     protected int batchSize = 500;
 
@@ -266,7 +263,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -284,10 +281,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -306,10 +303,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -485,6 +482,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
 
 
+
+    public IProductService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

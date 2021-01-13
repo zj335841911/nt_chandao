@@ -110,8 +110,9 @@ public class PRODUCTTEAMResource {
 
     @ApiOperation(value = "获取产品团队草稿", tags = {"产品团队" },  notes = "获取产品团队草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productteams/getdraft")
-    public ResponseEntity<PRODUCTTEAMDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(productteamService.getDraft(new PRODUCTTEAM())));
+    public ResponseEntity<PRODUCTTEAMDTO> getDraft(PRODUCTTEAMDTO dto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(productteamService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品团队", tags = {"产品团队" },  notes = "检查产品团队")
@@ -275,8 +276,8 @@ public class PRODUCTTEAMResource {
 
     @ApiOperation(value = "根据产品获取产品团队草稿", tags = {"产品团队" },  notes = "根据产品获取产品团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productteams/getdraft")
-    public ResponseEntity<PRODUCTTEAMDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        PRODUCTTEAM domain = new PRODUCTTEAM();
+    public ResponseEntity<PRODUCTTEAMDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, PRODUCTTEAMDTO dto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(dto);
         domain.setRoot(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(productteamService.getDraft(domain)));
     }

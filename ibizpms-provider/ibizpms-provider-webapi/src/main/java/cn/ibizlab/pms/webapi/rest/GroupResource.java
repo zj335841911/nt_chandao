@@ -110,8 +110,9 @@ public class GroupResource {
 
     @ApiOperation(value = "获取群组草稿", tags = {"群组" },  notes = "获取群组草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/groups/getdraft")
-    public ResponseEntity<GroupDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(groupMapping.toDto(groupService.getDraft(new Group())));
+    public ResponseEntity<GroupDTO> getDraft(GroupDTO dto) {
+        Group domain = groupMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(groupMapping.toDto(groupService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查群组", tags = {"群组" },  notes = "检查群组")

@@ -110,8 +110,9 @@ public class IbzproProjectUserTaskResource {
 
     @ApiOperation(value = "获取项目汇报用户任务草稿", tags = {"项目汇报用户任务" },  notes = "获取项目汇报用户任务草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzproprojectusertasks/getdraft")
-    public ResponseEntity<IbzproProjectUserTaskDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzproprojectusertaskMapping.toDto(ibzproprojectusertaskService.getDraft(new IbzproProjectUserTask())));
+    public ResponseEntity<IbzproProjectUserTaskDTO> getDraft(IbzproProjectUserTaskDTO dto) {
+        IbzproProjectUserTask domain = ibzproprojectusertaskMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproprojectusertaskMapping.toDto(ibzproprojectusertaskService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目汇报用户任务", tags = {"项目汇报用户任务" },  notes = "检查项目汇报用户任务")

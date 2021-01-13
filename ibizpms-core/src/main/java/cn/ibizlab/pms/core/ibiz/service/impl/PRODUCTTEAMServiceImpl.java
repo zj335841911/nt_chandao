@@ -51,9 +51,6 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
-    @Autowired
-    @Lazy
-    IPRODUCTTEAMService proxyService;
 
     protected int batchSize = 500;
 
@@ -139,7 +136,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -156,10 +153,10 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -177,10 +174,10 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -194,6 +191,9 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
         this.remove(new QueryWrapper<PRODUCTTEAM>().eq("root", id));
     }
 
+    public IPRODUCTTEAMService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
     @Override
     public void saveByRoot(Long id, List<PRODUCTTEAM> list) {
         if (list == null) {
@@ -218,13 +218,13 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
             }
         }
         if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
+            getProxyService().updateBatch(_update);
         }
         if (_create.size() > 0) {
-            proxyService.createBatch(_create);
+            getProxyService().createBatch(_create);
         }
         if (delIds.size() > 0) {
-            proxyService.removeBatch(delIds);
+            getProxyService().removeBatch(delIds);
         }
     }
 
@@ -285,6 +285,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
 
 
 

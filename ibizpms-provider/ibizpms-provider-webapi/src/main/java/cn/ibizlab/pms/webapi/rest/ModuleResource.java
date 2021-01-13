@@ -110,8 +110,9 @@ public class ModuleResource {
 
     @ApiOperation(value = "获取模块草稿", tags = {"模块" },  notes = "获取模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/modules/getdraft")
-    public ResponseEntity<ModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(moduleMapping.toDto(moduleService.getDraft(new Module())));
+    public ResponseEntity<ModuleDTO> getDraft(ModuleDTO dto) {
+        Module domain = moduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(moduleMapping.toDto(moduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查模块", tags = {"模块" },  notes = "检查模块")
@@ -132,9 +133,11 @@ public class ModuleResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Fix-all')")
     @ApiOperation(value = "批量处理[重建模块路径]", tags = {"模块" },  notes = "批量处理[重建模块路径]")
-	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fixbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/modules/fixbatch")
     public ResponseEntity<Boolean> fixBatch(@RequestBody List<ModuleDTO> moduledtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(moduleService.fixBatch(moduleMapping.toDomain(moduledtos)));
+        List<Module> domains = moduleMapping.toDomain(moduledtos);
+        boolean result = moduleService.fixBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.moduleMapping.toDomain(#moduledto),'pms-Module-Save')")

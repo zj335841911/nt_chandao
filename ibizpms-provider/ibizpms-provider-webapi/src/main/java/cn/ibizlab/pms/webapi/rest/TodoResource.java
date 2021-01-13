@@ -110,8 +110,9 @@ public class TodoResource {
 
     @ApiOperation(value = "获取待办草稿", tags = {"待办" },  notes = "获取待办草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/todos/getdraft")
-    public ResponseEntity<TodoDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(todoMapping.toDto(todoService.getDraft(new Todo())));
+    public ResponseEntity<TodoDTO> getDraft(TodoDTO dto) {
+        Todo domain = todoMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(todoMapping.toDto(todoService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Activate-all')")
@@ -126,9 +127,11 @@ public class TodoResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Activate-all')")
     @ApiOperation(value = "批量处理[Activate]", tags = {"待办" },  notes = "批量处理[Activate]")
-	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/activatebatch")
     public ResponseEntity<Boolean> activateBatch(@RequestBody List<TodoDTO> tododtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(todoService.activateBatch(todoMapping.toDomain(tododtos)));
+        List<Todo> domains = todoMapping.toDomain(tododtos);
+        boolean result = todoService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-AssignTo-all')")
@@ -143,9 +146,11 @@ public class TodoResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-AssignTo-all')")
     @ApiOperation(value = "批量处理[AssignTo]", tags = {"待办" },  notes = "批量处理[AssignTo]")
-	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/assigntobatch")
     public ResponseEntity<Boolean> assignToBatch(@RequestBody List<TodoDTO> tododtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(todoService.assignToBatch(todoMapping.toDomain(tododtos)));
+        List<Todo> domains = todoMapping.toDomain(tododtos);
+        boolean result = todoService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @ApiOperation(value = "检查待办", tags = {"待办" },  notes = "检查待办")
@@ -166,9 +171,11 @@ public class TodoResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Close-all')")
     @ApiOperation(value = "批量处理[Close]", tags = {"待办" },  notes = "批量处理[Close]")
-	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/closebatch")
     public ResponseEntity<Boolean> closeBatch(@RequestBody List<TodoDTO> tododtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(todoService.closeBatch(todoMapping.toDomain(tododtos)));
+        List<Todo> domains = todoMapping.toDomain(tododtos);
+        boolean result = todoService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-CreateCycle-all')")
@@ -183,9 +190,11 @@ public class TodoResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-CreateCycle-all')")
     @ApiOperation(value = "批量处理[定时创建周期]", tags = {"待办" },  notes = "批量处理[定时创建周期]")
-	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/createcyclebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/createcyclebatch")
     public ResponseEntity<Boolean> createCycleBatch(@RequestBody List<TodoDTO> tododtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(todoService.createCycleBatch(todoMapping.toDomain(tododtos)));
+        List<Todo> domains = todoMapping.toDomain(tododtos);
+        boolean result = todoService.createCycleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Finish-all')")
@@ -200,9 +209,11 @@ public class TodoResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Finish-all')")
     @ApiOperation(value = "批量处理[Finish]", tags = {"待办" },  notes = "批量处理[Finish]")
-	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/finishbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/finishbatch")
     public ResponseEntity<Boolean> finishBatch(@RequestBody List<TodoDTO> tododtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(todoService.finishBatch(todoMapping.toDomain(tododtos)));
+        List<Todo> domains = todoMapping.toDomain(tododtos);
+        boolean result = todoService.finishBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Save-all')")
@@ -232,9 +243,11 @@ public class TodoResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-SendMessage-all')")
     @ApiOperation(value = "批量处理[行为]", tags = {"待办" },  notes = "批量处理[行为]")
-	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageBatch(@RequestBody List<TodoDTO> tododtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(todoService.sendMessageBatch(todoMapping.toDomain(tododtos)));
+        List<Todo> domains = todoMapping.toDomain(tododtos);
+        boolean result = todoService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-SendMsgPreProcess-all')")
@@ -249,9 +262,11 @@ public class TodoResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-SendMsgPreProcess-all')")
     @ApiOperation(value = "批量处理[发送消息前置处理]", tags = {"待办" },  notes = "批量处理[发送消息前置处理]")
-	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessBatch(@RequestBody List<TodoDTO> tododtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(todoService.sendMsgPreProcessBatch(todoMapping.toDomain(tododtos)));
+        List<Todo> domains = todoMapping.toDomain(tododtos);
+        boolean result = todoService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchDefault-all')")

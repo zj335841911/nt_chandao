@@ -110,8 +110,9 @@ public class ProductStatsResource {
 
     @ApiOperation(value = "获取产品统计草稿", tags = {"产品统计" },  notes = "获取产品统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productstats/getdraft")
-    public ResponseEntity<ProductStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productstatsMapping.toDto(productstatsService.getDraft(new ProductStats())));
+    public ResponseEntity<ProductStatsDTO> getDraft(ProductStatsDTO dto) {
+        ProductStats domain = productstatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productstatsMapping.toDto(productstatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品统计", tags = {"产品统计" },  notes = "检查产品统计")

@@ -59,9 +59,11 @@ public class ProjectTeamResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
     @ApiOperation(value = "批量处理[获取成员角色]", tags = {"项目团队" },  notes = "批量处理[获取成员角色]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/{projectteam_id}/getuserrolebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/getuserrolebatch")
     public ResponseEntity<Boolean> getUserRoleBatch(@RequestBody List<ProjectTeamDTO> projectteamdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.getUserRoleBatch(projectteamMapping.toDomain(projectteamdtos)));
+        List<ProjectTeam> domains = projectteamMapping.toDomain(projectteamdtos);
+        boolean result = projectteamService.getUserRoleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
@@ -127,8 +129,9 @@ public class ProjectTeamResource {
 
     @ApiOperation(value = "获取项目团队草稿", tags = {"项目团队" },  notes = "获取项目团队草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectteams/getdraft")
-    public ResponseEntity<ProjectTeamDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(projectteamService.getDraft(new ProjectTeam())));
+    public ResponseEntity<ProjectTeamDTO> getDraft(ProjectTeamDTO dto) {
+        ProjectTeam domain = projectteamMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(projectteamService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目团队", tags = {"项目团队" },  notes = "检查项目团队")
@@ -230,9 +233,11 @@ public class ProjectTeamResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectteamdto);
     }
     @ApiOperation(value = "批量处理[根据项目项目团队]", tags = {"项目团队" },  notes = "批量处理[根据项目项目团队]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrolebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/getuserrolebatch")
     public ResponseEntity<Boolean> getUserRoleByProject(@PathVariable("project_id") Long project_id, @RequestBody List<ProjectTeamDTO> projectteamdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.getUserRoleBatch(projectteamMapping.toDomain(projectteamdtos)));
+        List<ProjectTeam> domains = projectteamMapping.toDomain(projectteamdtos);
+        boolean result = projectteamService.getUserRoleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
     @ApiOperation(value = "根据项目建立项目团队", tags = {"项目团队" },  notes = "根据项目建立项目团队")
@@ -307,8 +312,8 @@ public class ProjectTeamResource {
 
     @ApiOperation(value = "根据项目获取项目团队草稿", tags = {"项目团队" },  notes = "根据项目获取项目团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectteams/getdraft")
-    public ResponseEntity<ProjectTeamDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        ProjectTeam domain = new ProjectTeam();
+    public ResponseEntity<ProjectTeamDTO> getDraftByProject(@PathVariable("project_id") Long project_id, ProjectTeamDTO dto) {
+        ProjectTeam domain = projectteamMapping.toDomain(dto);
         domain.setRoot(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(projectteamService.getDraft(domain)));
     }

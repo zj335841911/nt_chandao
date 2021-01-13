@@ -50,9 +50,6 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
 
     protected cn.ibizlab.pms.core.zentao.service.IDeptService deptService = this;
-    @Autowired
-    @Lazy
-    IDeptService proxyService;
 
     protected int batchSize = 500;
 
@@ -143,7 +140,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -161,10 +158,10 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -183,10 +180,10 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -269,6 +266,10 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
 
 
+
+    public IDeptService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

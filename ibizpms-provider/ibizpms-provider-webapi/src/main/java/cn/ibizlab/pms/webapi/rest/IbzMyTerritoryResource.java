@@ -110,8 +110,9 @@ public class IbzMyTerritoryResource {
 
     @ApiOperation(value = "获取我的地盘草稿", tags = {"我的地盘" },  notes = "获取我的地盘草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzmyterritories/getdraft")
-    public ResponseEntity<IbzMyTerritoryDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryMapping.toDto(ibzmyterritoryService.getDraft(new IbzMyTerritory())));
+    public ResponseEntity<IbzMyTerritoryDTO> getDraft(IbzMyTerritoryDTO dto) {
+        IbzMyTerritory domain = ibzmyterritoryMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryMapping.toDto(ibzmyterritoryService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查我的地盘", tags = {"我的地盘" },  notes = "检查我的地盘")

@@ -110,8 +110,9 @@ public class IbzLibModuleResource {
 
     @ApiOperation(value = "获取用例库模块草稿", tags = {"用例库模块" },  notes = "获取用例库模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzlibmodules/getdraft")
-    public ResponseEntity<IbzLibModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzlibmoduleMapping.toDto(ibzlibmoduleService.getDraft(new IbzLibModule())));
+    public ResponseEntity<IbzLibModuleDTO> getDraft(IbzLibModuleDTO dto) {
+        IbzLibModule domain = ibzlibmoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzlibmoduleMapping.toDto(ibzlibmoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用例库模块", tags = {"用例库模块" },  notes = "检查用例库模块")
@@ -253,8 +254,8 @@ public class IbzLibModuleResource {
 
     @ApiOperation(value = "根据用例库获取用例库模块草稿", tags = {"用例库模块" },  notes = "根据用例库获取用例库模块草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/ibzlibs/{ibzlib_id}/ibzlibmodules/getdraft")
-    public ResponseEntity<IbzLibModuleDTO> getDraftByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id) {
-        IbzLibModule domain = new IbzLibModule();
+    public ResponseEntity<IbzLibModuleDTO> getDraftByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id, IbzLibModuleDTO dto) {
+        IbzLibModule domain = ibzlibmoduleMapping.toDomain(dto);
         domain.setRoot(ibzlib_id);
         return ResponseEntity.status(HttpStatus.OK).body(ibzlibmoduleMapping.toDto(ibzlibmoduleService.getDraft(domain)));
     }

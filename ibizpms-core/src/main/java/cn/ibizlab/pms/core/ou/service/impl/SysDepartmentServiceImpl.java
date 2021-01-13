@@ -198,9 +198,9 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     }
 
 
-    @Autowired
-    @Lazy
-    ISysDepartmentService proxyService;
+    public ISysDepartmentService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
     @Override
     public void saveByOrgid(String orgid, List<SysDepartment> list) {
         if (list == null) {

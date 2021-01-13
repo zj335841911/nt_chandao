@@ -111,8 +111,9 @@ public class IbzReportResource {
 
     @ApiOperation(value = "获取汇报汇总草稿", tags = {"汇报汇总" },  notes = "获取汇报汇总草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzreports/getdraft")
-    public ResponseEntity<IbzReportDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportMapping.toDto(ibzreportService.getDraft(new IbzReport())));
+    public ResponseEntity<IbzReportDTO> getDraft(IbzReportDTO dto) {
+        IbzReport domain = ibzreportMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportMapping.toDto(ibzreportService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查汇报汇总", tags = {"汇报汇总" },  notes = "检查汇报汇总")

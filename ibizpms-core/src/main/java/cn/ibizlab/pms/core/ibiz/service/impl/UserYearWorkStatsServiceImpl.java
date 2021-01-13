@@ -68,9 +68,6 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsUpdateInfoLogic updateinfoLogic;
-    @Autowired
-    @Lazy
-    IUserYearWorkStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -193,7 +190,7 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -210,10 +207,10 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -231,10 +228,10 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -326,6 +323,10 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
 
 
 
+
+    public IUserYearWorkStatsService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
 
 

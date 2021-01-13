@@ -110,8 +110,9 @@ public class IBZProStoryResource {
 
     @ApiOperation(value = "获取需求草稿", tags = {"需求" },  notes = "获取需求草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzprostories/getdraft")
-    public ResponseEntity<IBZProStoryDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprostoryMapping.toDto(ibzprostoryService.getDraft(new IBZProStory())));
+    public ResponseEntity<IBZProStoryDTO> getDraft(IBZProStoryDTO dto) {
+        IBZProStory domain = ibzprostoryMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzprostoryMapping.toDto(ibzprostoryService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查需求", tags = {"需求" },  notes = "检查需求")
@@ -147,9 +148,11 @@ public class IBZProStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-SyncFromIBIZ-all')")
     @ApiOperation(value = "批量处理[同步Ibz平台需求]", tags = {"需求" },  notes = "批量处理[同步Ibz平台需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostories/{ibzprostory_id}/syncfromibizbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostories/syncfromibizbatch")
     public ResponseEntity<Boolean> syncFromIBIZBatch(@RequestBody List<IBZProStoryDTO> ibzprostorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprostoryService.syncFromIBIZBatch(ibzprostoryMapping.toDomain(ibzprostorydtos)));
+        List<IBZProStory> domains = ibzprostoryMapping.toDomain(ibzprostorydtos);
+        boolean result = ibzprostoryService.syncFromIBIZBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-searchDefault-all')")

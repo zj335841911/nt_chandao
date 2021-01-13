@@ -111,8 +111,9 @@ public class PSSysSFPubResource {
 
     @ApiOperation(value = "获取后台服务架构草稿", tags = {"后台服务架构" },  notes = "获取后台服务架构草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/pssyssfpubs/getdraft")
-    public ResponseEntity<PSSysSFPubDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubMapping.toDto(pssyssfpubService.getDraft(new PSSysSFPub())));
+    public ResponseEntity<PSSysSFPubDTO> getDraft(PSSysSFPubDTO dto) {
+        PSSysSFPub domain = pssyssfpubMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubMapping.toDto(pssyssfpubService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查后台服务架构", tags = {"后台服务架构" },  notes = "检查后台服务架构")
