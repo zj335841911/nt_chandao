@@ -225,13 +225,13 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
             }
         }
         if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
+            getProxyService().updateBatch(_update);
         }
         if (_create.size() > 0) {
-            proxyService.createBatch(_create);
+            getProxyService().createBatch(_create);
         }
         if (delIds.size() > 0) {
-            proxyService.removeBatch(delIds);
+            getProxyService().removeBatch(delIds);
         }
     }
 
