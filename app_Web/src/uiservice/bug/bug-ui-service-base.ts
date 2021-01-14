@@ -1082,7 +1082,7 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{MODULENAME:"%modulename%"});
+        Object.assign(context,{MODULENAME:"%modulename1%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { bug: '%bug%' });

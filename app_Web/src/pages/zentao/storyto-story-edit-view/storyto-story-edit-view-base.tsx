@@ -66,20 +66,6 @@ export class StorytoStoryEditViewBase extends EditViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StorytoStoryEditViewBase
-	 */
-    protected customViewParams: any = {
-        'moudlename': {
-            isRawValue: false,
-            value: 'moudlename',
-        }
-    };
-
     /**
      * 是否显示信息栏
      *
