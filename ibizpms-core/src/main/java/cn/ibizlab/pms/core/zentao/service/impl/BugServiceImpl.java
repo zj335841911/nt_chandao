@@ -1053,6 +1053,9 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
                 ztstory = majorEntity;
             }
             et.setStoryname(ztstory.getTitle());
+            // 父关系等价
+            et.setProduct(ztstory.getProduct());
+            et.setProductname(ztstory.getProductname());
         }
         //实体关系[DER1N_ZT_BUG_ZT_TASK_TASK]
         if (!ObjectUtils.isEmpty(et.getTask())) {
