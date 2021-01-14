@@ -67,6 +67,9 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     StoryHelper storyHelper;
 
     @Autowired
+    CaseHelper caseHelper;
+
+    @Autowired
     BugHelper bugHelper;
 
     /**
@@ -95,7 +98,22 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         // 发送待阅提醒
         send(noticeusers, et);
         // 保存文件
-        fileHelper.updateObjectID(et.getObjectid(), et.getObjecttype(), files, "0");//更新附件
+        String extra = "0";
+        if(files != null) {
+            if (StaticDict.Action__object_type.STORY.getValue().equals(et.getObjecttype())) {
+                Story story = storyHelper.get(et.getObjectid());
+                if (story != null && story.getVersion() != null) {
+                    extra = String.valueOf(story.getVersion());
+                }
+            } else if (StaticDict.Action__object_type.CASE.getValue().equals(et.getObjecttype())) {
+                Case case1 = caseHelper.get(et.getObjectid());
+                if (case1 != null && case1.getVersion() != null) {
+                    extra = String.valueOf(case1.getVersion());
+                }
+            }
+        }
+        //更新附件
+        fileHelper.updateObjectID(et.getObjectid(), et.getObjecttype(), files, extra);
         return true;
     }
 
