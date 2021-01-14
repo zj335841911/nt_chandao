@@ -69,34 +69,6 @@ export class BugGridViewBase extends GridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof BugGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'MODULENAME': {
-            isRawValue: false,
-            value: 'modulename',
-        }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof BugGridViewBase
-	 */
-    protected customViewParams: any = {
-        'modulename': {
-            isRawValue: false,
-            value: 'modulename',
-        }
-    };
-
     /**
      * 视图模型数据
      *
@@ -472,20 +444,12 @@ export class BugGridViewBase extends GridViewBase {
      * @memberof BugGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = {MODULENAME:"%modulename%"};
-        const localViewParam: any ={modulename:"%modulename%"};
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
             Object.assign(tempContext,args[0]);
-        }
-        if(localContext && Object.keys(localContext).length >0){
-            let _context:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localContext);
-            Object.assign(tempContext,_context);
-        }
-        if(localViewParam && Object.keys(localViewParam).length >0){
-            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
-            Object.assign(data,_param);
         }
         let deResParameters: any[] = [];
         if(tempContext.product && true){

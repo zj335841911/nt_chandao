@@ -434,7 +434,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         tostory: {name: 'tostory', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_TOSTORY_BUT', uiaction: { tag: 'toStory', target: 'SINGLEKEY' } },
         buildusecase: {name: 'buildusecase', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CREATECASE_BUT', uiaction: { tag: 'BuildUseCase', target: 'SINGLEKEY' } },
         delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
-        batchdownload: {name: 'batchdownload', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'SINGLEKEY' } },
+        batchdownload: {name: 'batchdownload', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'SINGLEKEY' } },
     }
 
     /**
