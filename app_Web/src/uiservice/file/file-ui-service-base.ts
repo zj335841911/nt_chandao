@@ -264,7 +264,7 @@ export default class FileUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
+        const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { file: '%file%' });
         Object.assign(params, { id: '%file%' });
         Object.assign(params, { title: '%title%' });
@@ -304,10 +304,7 @@ export default class FileUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { file: '%file%' });
-        Object.assign(params, { id: '%file%' });
-        Object.assign(params, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }

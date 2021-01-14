@@ -126,9 +126,9 @@ export class FileProductGridViewBase extends GridViewBase {
      * @memberof FileProductGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: 'entities.file.productgridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.file.productgridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'SINGLEKEY', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.file.productgridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.file.productgridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'MULTIKEY', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: 'entities.file.productgridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.file.productgridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'AllDownload', target: 'SINGLEKEY', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.file.productgridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.file.productgridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'AllDownload', target: 'NONE', class: '' } },
 
     };
 
