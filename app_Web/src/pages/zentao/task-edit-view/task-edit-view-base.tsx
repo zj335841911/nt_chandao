@@ -104,10 +104,6 @@ export class TaskEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'story',
         },
-        'modulename': {
-            isRawValue: false,
-            value: 'modulename',
-        },
         'module': {
             isRawValue: false,
             value: 'module',

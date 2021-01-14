@@ -234,6 +234,235 @@ POST
 
 ### 根据建立任务团队
 #### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskTeamDTO](#TaskTeamDTO)：任务团队实体传输对象 |
+
+### 根据批量建立任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteamdtos | List<[TaskTeamDTO](#TaskTeamDTO)> | 任务团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据更新任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteam_id | Long | 任务团队主键ID |
+| 4 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskTeamDTO](#TaskTeamDTO)：任务团队实体传输对象 |
+
+### 根据批量更新任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteamdtos | List<[TaskTeamDTO](#TaskTeamDTO)> | 任务团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据删除任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteam_id | Long | 任务团队主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量删除任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | ids | List<Long> | 任务团队主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteam_id | Long | 任务团队主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskTeamDTO](#TaskTeamDTO)：任务团队实体传输对象 |
+
+### 根据检查任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据保存任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量保存任务团队
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | taskteamdtos | List<[TaskTeamDTO](#TaskTeamDTO)> | 任务团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取DEFAULT
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskTeamSearchContext](#TaskTeamSearchContext) | 任务团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TaskTeamDTO](#TaskTeamDTO)>：任务团队实体传输对象列表 |
+
+### 根据查询DEFAULT
+#### 访问路径
+/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | projectmodule_id | Long | 任务模块主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskTeamSearchContext](#TaskTeamSearchContext) | 任务团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TaskTeamDTO](#TaskTeamDTO)>：任务团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据建立任务团队
+#### 访问路径
 /stories/{story_id}/tasks/{task_id}/taskteams
 
 #### 请求方法
@@ -1140,6 +1369,235 @@ POST
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
 | 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskTeamSearchContext](#TaskTeamSearchContext) | 任务团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TaskTeamDTO](#TaskTeamDTO)>：任务团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据建立任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskTeamDTO](#TaskTeamDTO)：任务团队实体传输对象 |
+
+### 根据批量建立任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteamdtos | List<[TaskTeamDTO](#TaskTeamDTO)> | 任务团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据更新任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteam_id | Long | 任务团队主键ID |
+| 5 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskTeamDTO](#TaskTeamDTO)：任务团队实体传输对象 |
+
+### 根据批量更新任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteamdtos | List<[TaskTeamDTO](#TaskTeamDTO)> | 任务团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据删除任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteam_id | Long | 任务团队主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量删除任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | ids | List<Long> | 任务团队主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/{taskteam_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteam_id | Long | 任务团队主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskTeamDTO](#TaskTeamDTO)：任务团队实体传输对象 |
+
+### 根据检查任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据保存任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteamdto | [TaskTeamDTO](#TaskTeamDTO) | 任务团队实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量保存任务团队
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | taskteamdtos | List<[TaskTeamDTO](#TaskTeamDTO)> | 任务团队实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取DEFAULT
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskTeamSearchContext](#TaskTeamSearchContext) | 任务团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TaskTeamDTO](#TaskTeamDTO)>：任务团队实体传输对象列表 |
+
+### 根据查询DEFAULT
+#### 访问路径
+/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskteams/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | projectmodule_id | Long | 任务模块主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
 | 4 | context | [TaskTeamSearchContext](#TaskTeamSearchContext) | 任务团队查询条件对象 |
 
 #### 返回说明

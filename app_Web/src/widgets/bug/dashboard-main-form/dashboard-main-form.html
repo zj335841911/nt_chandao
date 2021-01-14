@@ -884,7 +884,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
   valueitem='task' 
   :value="data.taskname"  
   editortype="linkonly" 
-  :linkview="{ viewname: 'TaskMainDashboardView', title: $t('entities.task.views.maindashboardview.title'), deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ], parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 1400, height: 850, placement: 'DRAWER_TOP', isRedirectView: false }" 
+  :linkview="{ viewname: 'TaskMainDashboardView', title: $t('entities.task.views.maindashboardview.title'), deResParameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, ], parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 1400, height: 850, placement: 'DRAWER_TOP', isRedirectView: false }" 
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>

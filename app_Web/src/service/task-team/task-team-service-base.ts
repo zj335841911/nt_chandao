@@ -54,6 +54,11 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.project && context.projectmodule && context.task && context.taskteam){
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}/select`,isloading);
+            
+            return res;
+        }
         if(context.productmodule && context.story && context.task && context.taskteam){
             let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/select`,isloading);
             
@@ -71,6 +76,11 @@ export default class TaskTeamServiceBase extends EntityService {
         }
         if(context.story && context.task && context.taskteam){
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/select`,isloading);
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskteam){
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}/select`,isloading);
             
             return res;
         }
@@ -102,6 +112,20 @@ export default class TaskTeamServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.projectmodule && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams`,data,isloading);
             
             return res;
         }
@@ -161,6 +185,20 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.projectmodule && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams`,data,isloading);
+            
+            return res;
+        }
         if(context.task && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -194,6 +232,13 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.project && context.projectmodule && context.task && context.taskteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}`,data,isloading);
+            
+            return res;
+        }
         if(context.productmodule && context.story && context.task && context.taskteam){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -222,6 +267,13 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.projectmodule && context.task && context.taskteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}`,data,isloading);
+            
+            return res;
+        }
         if(context.task && context.taskteam){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -245,6 +297,10 @@ export default class TaskTeamServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
             return res;
         }
+        if(context.project && context.projectmodule && context.task && context.taskteam){
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
+            return res;
+        }
         if(context.productmodule && context.story && context.task && context.taskteam){
             let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
             return res;
@@ -259,6 +315,10 @@ export default class TaskTeamServiceBase extends EntityService {
         }
         if(context.story && context.task && context.taskteam){
             let res:any = Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskteam){
+            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
             return res;
         }
         if(context.task && context.taskteam){
@@ -282,6 +342,11 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.project && context.projectmodule && context.task && context.taskteam){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
+            
+            return res;
+        }
         if(context.productmodule && context.story && context.task && context.taskteam){
             let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
             
@@ -299,6 +364,11 @@ export default class TaskTeamServiceBase extends EntityService {
         }
         if(context.story && context.task && context.taskteam){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
+            
+            return res;
+        }
+        if(context.projectmodule && context.task && context.taskteam){
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
             
             return res;
         }
@@ -321,6 +391,12 @@ export default class TaskTeamServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule && context.story && context.task && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            res.data.taskteam = data.taskteam;
+            
+            return res;
+        }
+        if(context.project && context.projectmodule && context.task && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/getdraft`,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
@@ -349,6 +425,12 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.projectmodule && context.task && true){
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            res.data.taskteam = data.taskteam;
+            
+            return res;
+        }
         if(context.task && true){
             let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskteams/getdraft`,isloading);
             res.data.taskteam = data.taskteam;
@@ -371,6 +453,13 @@ export default class TaskTeamServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/checkkey`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.projectmodule && context.task && context.taskteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}/checkkey`,data,isloading);
             
             return res;
         }
@@ -402,6 +491,13 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.projectmodule && context.task && context.taskteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}/checkkey`,data,isloading);
+            
+            return res;
+        }
         if(context.task && context.taskteam){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -425,6 +521,13 @@ export default class TaskTeamServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/save`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.projectmodule && context.task && context.taskteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}/save`,data,isloading);
             
             return res;
         }
@@ -456,6 +559,13 @@ export default class TaskTeamServiceBase extends EntityService {
             
             return res;
         }
+        if(context.projectmodule && context.task && context.taskteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/${context.taskteam}/save`,data,isloading);
+            
+            return res;
+        }
         if(context.task && context.taskteam){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -480,6 +590,11 @@ export default class TaskTeamServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
             return res;
         }
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
+            return res;
+        }
         if(context.productmodule && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
@@ -498,6 +613,11 @@ export default class TaskTeamServiceBase extends EntityService {
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.task && true){
@@ -521,6 +641,10 @@ export default class TaskTeamServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/searchdefault`,tempData,isloading);
         }
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/searchdefault`,tempData,isloading);
+        }
         if(context.productmodule && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/tasks/${context.task}/taskteams/searchdefault`,tempData,isloading);
@@ -536,6 +660,10 @@ export default class TaskTeamServiceBase extends EntityService {
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskteams/searchdefault`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/searchdefault`,tempData,isloading);
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
