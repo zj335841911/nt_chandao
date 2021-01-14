@@ -1,4 +1,7 @@
-import { Vue } from 'vue-property-decorator';
+import { Prop, Provide, Vue } from 'vue-property-decorator';
+import ZentaoModel from './zentao-appmenu-model';
+import AuthService from '@/authservice/auth-service';
+import { Subject, Subscription } from 'rxjs';
 
 /**
  * 应用菜单基类
@@ -12,6 +15,165 @@ export class ZentaoBase extends Vue {
      */
     get context(): any {
         return this.$appService.contextStore.appContext || {};
+    }
+
+    /**
+     * 名称
+     *
+     * @type {string}
+     * @memberof ZentaoBase
+     */
+    @Prop() public name?: string;
+
+    /**
+     * 视图通讯对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof ZentaoBase
+     */
+    @Prop() public viewState!: Subject<ViewState>;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof ZentaoBase
+     */
+    @Prop() public viewparams!: any;
+
+    /**
+     * 视图状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof ZentaoBase
+     */
+    public viewStateEvent: Subscription | undefined;
+
+    /**
+     * 获取部件类型
+     *
+     * @returns {string}
+     * @memberof ZentaoBase
+     */
+    public getControlType(): string {
+        return 'APPMENU'
+    }
+
+    /**
+     * 菜单模型
+     *
+     * @public
+     * @type {ZentaoModel}
+     * @memberof ZentaoBase
+     */
+    public menuMode: ZentaoModel = new ZentaoModel();
+
+    /**
+     * 菜单数据
+     *
+     * @public
+     * @type {any[]}
+     * @memberof ZentaoBase
+     */
+    @Provide()
+    public menus: any[] = [];
+
+    /**
+     * 建构权限服务对象
+     *
+     * @type {AuthService}
+     * @memberof ZentaoBase
+     */
+    public authService:AuthService = new AuthService({ $store: this.$store });
+
+    /**
+     * vue  生命周期
+     *
+     * @memberof ZentaoBase
+     */
+    public created() {
+        this.afterCreated();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     *  @memberof ZentaoBase
+     */    
+    public afterCreated(){
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(tag, this.name)) {
+                    return;
+                }
+                this.load(data);
+            });
+        }
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof ZentaoBase
+     */
+    public destroyed() {
+        this.afterDestroy();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     *
+     * @memberof ZentaoBase
+     */
+    public afterDestroy() {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 获取菜单项数据
+     *
+     * @public
+     * @param {any[]} items
+     * @param {string} name
+     * @returns
+     * @memberof ZentaoBase
+     */
+    public compute(items: any[], name: string) {
+        const item: any = {};
+        items.some((_item: any) => {
+            if (name && Object.is(_item.name, name)) {
+                Object.assign(item, _item);
+                return true;
+            }
+            if (_item.items && Array.isArray(_item.items)) {
+                const subItem = this.compute(_item.items, name);
+                if (Object.keys(subItem).length > 0) {
+                    Object.assign(item, subItem);
+                    return true;
+                }
+            }
+            return false;
+        });
+        return item;
+    }
+
+    /**
+     * 菜单项选中处理
+     *
+     * @param {*} index
+     * @param {any[]} indexs
+     * @returns
+     * @memberof ZentaoBase
+     */
+    public select(index: any, indexs: any[]) {
+        let item = this.compute(this.menus, index);
+        if (Object.keys(item).length === 0) {
+            return;
+        }
+        this.click(item);
     }
 
     /**
@@ -646,6 +808,46 @@ export class ZentaoBase extends Vue {
         appdrawer.subscribe((result: any) => {
             console.log(result);
         });
+    }
+
+    /**
+     * 数据加载
+     *
+     * @param {*} data
+     * @memberof ZentaoBase
+     */
+    public load(data: any) {
+        this.handleMenusResource(this.menuMode.getAppMenuItems());
+    }
+
+    /**
+     * 通过统一资源标识计算菜单
+     *
+     * @param {*} data
+     * @memberof ZentaoBase
+     */
+    public handleMenusResource(inputMenus:Array<any>){
+        if(this.$store.getters['authresource/getEnablePermissionValid']){
+            this.computedEffectiveMenus(inputMenus);
+        }
+        this.menus = inputMenus;
+    }
+
+    /**
+     * 计算有效菜单项
+     *
+     * @param {*} inputMenus
+     * @memberof ZentaoBase
+     */
+    public computedEffectiveMenus(inputMenus:Array<any>){
+        inputMenus.forEach((_item:any) =>{
+            if(!this.authService.getMenusPermission(_item)){
+                _item.hidden = true;
+                if (_item.items && _item.items.length > 0) {
+                    this.computedEffectiveMenus(_item.items);
+                }
+            }
+        })
     }
 
     /**
