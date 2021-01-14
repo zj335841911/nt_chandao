@@ -288,6 +288,7 @@ function getLocaleResourceBase(){
 			},
 			bugtostory_form: {
 				details: {
+					grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
 					group1: commonLogic.appcommonhandle("需求基本信息",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
