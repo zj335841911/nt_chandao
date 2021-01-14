@@ -116,6 +116,10 @@ export class BugStoryTOBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'product',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'project': {
             isRawValue: false,
             value: 'project',
