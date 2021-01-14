@@ -88,6 +88,14 @@ function getLocaleResourceBase(){
 			projectgridviewfiletoolbar_toolbar: {
 			},
 			productgridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("批量下载",null),
+					tip: commonLogic.appcommonhandle("批量下载",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("全部下载",null),
+					tip: commonLogic.appcommonhandle("全部下载",null),
+				},
 			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
