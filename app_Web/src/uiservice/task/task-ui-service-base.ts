@@ -2446,8 +2446,8 @@ export default class TaskUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{MAILTO:"%mailto%",ASSIGNEDTO:"%assignedto%",TASK:"%task%",MODULE:"%module%",CURPROJECT:"%project%",STORY:"%story%",PROJECT:"%project%",COLOR:"%color%",BRANCH:"0",TITLE:"%name%"});
-        Object.assign(params,{mailto:"%mailto%",story:"%story%",assignedto:"%assignedto%",project:"%project%",title:"%name%",module:"%module%",curproject:"%project%",color:"%color%",task:"%task%",branch:"0"});
+        Object.assign(context,{MAILTO:"%mailto%",ASSIGNEDTO:"%assignedto%",TASK:"%task%",STORYNAME:"%storyname%",MODULE:"%module%",CURPROJECT:"%project%",STORY:"%story%",PROJECT:"%project%",MODULENAME:"%modulename%",COLOR:"%color%",BRANCH:"0",TITLE:"%name%"});
+        Object.assign(params,{mailto:"%mailto%",modulename:"%modulename%",story:"%story%",assignedto:"%assignedto%",project:"%project%",title:"%name%",module:"%module%",curproject:"%project%",color:"%color%",task:"%task%",branch:"0",storyname:"%storyname%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { task: '%task%' });
