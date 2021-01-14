@@ -1285,7 +1285,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         TaskEstimate taskEstimate = new TaskEstimate();
         taskEstimate.setTask(newTask.getId());
         taskEstimate.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
-        taskEstimate.setDate(ZTDateUtil.now());
+        taskEstimate.setDate(et.getFinisheddate() == null ? ZTDateUtil.now() : et.getFinisheddate());
         taskEstimate.setLeft(0.0);
         taskEstimate.setConsumed(consumed == 0 ? et.getCurrentconsumed() : consumed);
 
