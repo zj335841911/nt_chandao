@@ -67,6 +67,7 @@ export default class BugUIService extends BugUIServiceBase {
             branchname: response.data.branchname,
             assignedto: response.data.assignedto,
             mailto: response.data.mailto,
+            modulename: response.data.modulename,
             ...parentObj
         });
 
