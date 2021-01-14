@@ -104,6 +104,7 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
         sourcenote: null,
         reviewedby: null,
         assignedto: null,
+        neednotreview: null,
         title: null,
         pri: null,
         storypoints: null,
@@ -304,6 +305,13 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        neednotreview: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         title: new FormItemModel({
     caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:true,
@@ -384,6 +392,18 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof BugToStoryEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): void {
+        if (Object.is(name, 'neednotreview')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
+    }
+
+    /**
      * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
@@ -392,6 +412,7 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 
@@ -461,6 +482,9 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('assignedto')) {
             this.data['assignedto'] = this.viewparams['assignedto'];
+        }
+        if (this.data.hasOwnProperty('neednotreview')) {
+            this.data['neednotreview'] = '1';
         }
         if (this.data.hasOwnProperty('title')) {
             this.data['title'] = this.viewparams['srfmajortext'];

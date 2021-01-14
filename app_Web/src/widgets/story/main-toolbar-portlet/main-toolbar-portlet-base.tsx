@@ -270,6 +270,34 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet3_batchdownload_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_BatchDownload(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet3_u2eccee8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -375,6 +403,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         assigntodash: {name: 'assigntodash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_ASS_BUT', uiaction: { tag: 'AssignToDash', target: 'SINGLEKEY' } },
         closestorydash: {name: 'closestorydash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_CLOSED_BUT', uiaction: { tag: 'CloseStoryDash', target: 'SINGLEKEY' } },
         substorycz: {name: 'substorycz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_XQXF_BUT', uiaction: { tag: 'SubStoryCz', target: 'SINGLEKEY' } },
+        batchdownload: {name: 'batchdownload', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'SINGLEKEY' } },
         openbaseinfoc: {name: 'openbaseinfoc', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_EDIT_BUT', uiaction: { tag: 'OpenBaseInfoC', target: 'SINGLEKEY' } },
         delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
     }
@@ -455,6 +484,15 @@ export class MainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
+        { viewlogicname:"dashboard_sysportlet3_batchdownload_click",
+        text: "下载",
+        iconcls: null,
+        icon: null,
+        noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
+        visible:true,
+        disabled:false
+        },
         { viewlogicname:"dashboard_sysportlet3_u2eccee8_click",
         text: "编辑",
         iconcls: "fa fa-edit",
@@ -503,6 +541,9 @@ export class MainToolbarPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet3_ub9b8ba7_click')){
             this.dashboard_sysportlet3_ub9b8ba7_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet3_batchdownload_click')){
+            this.dashboard_sysportlet3_batchdownload_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet3_u2eccee8_click')){
             this.dashboard_sysportlet3_u2eccee8_click(null);

@@ -1660,6 +1660,7 @@ function getLocaleResourceBase(){
 					bug_tostory: commonLogic.appcommonhandle("提需求",null),
 					bug_buildusecase: commonLogic.appcommonhandle("建用例",null),
 					bug_delete: commonLogic.appcommonhandle("删除",null),
+					bug_batchdownload: commonLogic.appcommonhandle("下载",null),
 				},
 			},
 			maindashboardviewdashboard_container3_portlet: {
