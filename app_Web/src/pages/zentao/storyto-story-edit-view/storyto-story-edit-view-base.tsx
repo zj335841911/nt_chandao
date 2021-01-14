@@ -74,9 +74,9 @@ export class StorytoStoryEditViewBase extends EditViewBase {
 	 * @memberof StorytoStoryEditViewBase
 	 */
     protected customViewParams: any = {
-        'moudle': {
+        'moudlename': {
             isRawValue: false,
-            value: 'module',
+            value: 'moudlename',
         }
     };
 
