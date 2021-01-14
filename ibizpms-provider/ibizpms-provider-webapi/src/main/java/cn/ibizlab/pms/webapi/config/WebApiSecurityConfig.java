@@ -13,6 +13,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.core.GrantedAuthorityDefaults;
@@ -21,6 +22,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.web.firewall.StrictHttpFirewall;
 
 /**
  * @author huhai
@@ -64,6 +66,10 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.previewpath:ibizutil/preview}")
     private String previewpath;
 
+    @Value("${ibiz.file.previewopenpath:ibizutilpms/openview}")
+    private String previewopenpath;
+
+
     // 白名单处理类
     @Autowired
     private SecurityWhitelistHandler whitelistHandler;
@@ -75,6 +81,18 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoderBean());
     }
+
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        StrictHttpFirewall firewall = new StrictHttpFirewall();
+        //去掉";"黑名单
+        firewall.setAllowSemicolon(true);
+        //加入自定义的防火墙
+        web.httpFirewall(firewall);
+        super.configure(web);
+    }
+
 
     @Bean
     GrantedAuthorityDefaults grantedAuthorityDefaults() {
@@ -129,23 +147,33 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/**"
                 ).permitAll()
                 // 放行登录请求
-                .antMatchers( HttpMethod.POST, "/" + loginPath).permitAll()
+                .antMatchers(HttpMethod.POST, "/" + loginPath).permitAll()
                 // 放行注销请求
-                .antMatchers( HttpMethod.GET, "/" + logoutPath).permitAll()
+                .antMatchers(HttpMethod.GET, "/" + logoutPath).permitAll()
                 // 文件操作
                 .antMatchers("/" + downloadpath + "/**").permitAll()
                 .antMatchers("/" + ztdownloadpath + "/**").permitAll()
                 .antMatchers("/" + uploadpath).permitAll()
                 .antMatchers("/" + ztuploadpath).permitAll()
                 .antMatchers("/" + previewpath + "/**").permitAll()
-               //开放ZT API登录接口
-               .antMatchers("/ztlogin").permitAll()
-               //开放账号名查询接口
-               .antMatchers("/ztusers/uaaloginname").permitAll()
-               .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
-               .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
-               .antMatchers("/uaa/dingtalk/jsapi/sign").permitAll()
-               .antMatchers("/recordloginlog").permitAll()
+                .antMatchers("/" + previewopenpath + "/**").permitAll()
+                .antMatchers("/" + "sm" + "/**").permitAll()
+                .antMatchers("/" + "abc" + "/**").permitAll()
+                .antMatchers("/" + "pdfjs" + "/**").permitAll()
+                .antMatchers("/" + "images" + "/**").permitAll()
+                .antMatchers("/" + "app/file" + "/**").permitAll()
+                //开放ZT API登录接口
+                .antMatchers("/ztlogin").permitAll()
+                //开放账号名查询接口
+                .antMatchers("/ztusers/uaaloginname").permitAll()
+                .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
+                .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
+                .antMatchers("/uaa/dingtalk/jsapi/sign").permitAll()
+                .antMatchers("/recordloginlog").permitAll()
+                .antMatchers("/ibizutilpms/ztbatchdownload/**").permitAll()
+                .antMatchers("/ibizutilpms/ztfilesbatchdownload/**").permitAll()
+                .antMatchers("/ibizutilpms/ztallfilesdownload/**").permitAll()
+
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域

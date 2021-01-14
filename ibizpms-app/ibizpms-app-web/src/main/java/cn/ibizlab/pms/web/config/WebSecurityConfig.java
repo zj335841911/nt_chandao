@@ -132,6 +132,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/" + uploadpath).permitAll()
                 .antMatchers("/" + ztuploadpath).permitAll()
                 .antMatchers("/" + previewpath + "/**").permitAll()
+                .antMatchers("/ibizutilpms/ztbatchdownload/**").permitAll()
                 .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
                 .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
                 .antMatchers("/uaa/dingtalk/jsapi/sign").permitAll()
