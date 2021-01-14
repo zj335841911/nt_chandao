@@ -248,25 +248,6 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Download-all')")
-    @ApiOperation(value = "下载", tags = {"任务" },  notes = "下载")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/download")
-    public ResponseEntity<TaskDTO> download(@PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
-        Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
-        domain = taskService.download(domain);
-        taskdto = taskMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
-    }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Download-all')")
-    @ApiOperation(value = "批量处理[下载]", tags = {"任务" },  notes = "批量处理[下载]")
-	@RequestMapping(method = RequestMethod.POST, value = "/tasks/downloadbatch")
-    public ResponseEntity<Boolean> downloadBatch(@RequestBody List<TaskDTO> taskdtos) {
-        List<Task> domains = taskMapping.toDomain(taskdtos);
-        boolean result = taskService.downloadBatch(domains);
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "编辑工时", tags = {"任务" },  notes = "编辑工时")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/editestimate")
@@ -1461,23 +1442,6 @@ public class TaskResource {
     public ResponseEntity<Boolean> deleteEstimateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
         List<Task> domains = taskMapping.toDomain(taskdtos);
         boolean result = taskService.deleteEstimateBatch(domains);
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Download-all')")
-    @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/download")
-    public ResponseEntity<TaskDTO> downloadByStory(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
-        Task domain = taskMapping.toDomain(taskdto);
-        domain.setStory(story_id);
-        domain = taskService.download(domain) ;
-        taskdto = taskMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
-    }
-    @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/downloadbatch")
-    public ResponseEntity<Boolean> downloadByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        List<Task> domains = taskMapping.toDomain(taskdtos);
-        boolean result = taskService.downloadBatch(domains);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
@@ -2683,23 +2647,6 @@ public class TaskResource {
         boolean result = taskService.deleteEstimateBatch(domains);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Download-all')")
-    @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/download")
-    public ResponseEntity<TaskDTO> downloadByProject(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
-        Task domain = taskMapping.toDomain(taskdto);
-        domain.setProject(project_id);
-        domain = taskService.download(domain) ;
-        taskdto = taskMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
-    }
-    @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/downloadbatch")
-    public ResponseEntity<Boolean> downloadByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
-        List<Task> domains = taskMapping.toDomain(taskdtos);
-        boolean result = taskService.downloadBatch(domains);
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/editestimate")
@@ -3901,23 +3848,6 @@ public class TaskResource {
     public ResponseEntity<Boolean> deleteEstimateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
         List<Task> domains = taskMapping.toDomain(taskdtos);
         boolean result = taskService.deleteEstimateBatch(domains);
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Download-all')")
-    @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/download")
-    public ResponseEntity<TaskDTO> downloadByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
-        Task domain = taskMapping.toDomain(taskdto);
-        domain.setStory(story_id);
-        domain = taskService.download(domain) ;
-        taskdto = taskMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
-    }
-    @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/downloadbatch")
-    public ResponseEntity<Boolean> downloadByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        List<Task> domains = taskMapping.toDomain(taskdtos);
-        boolean result = taskService.downloadBatch(domains);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
@@ -5123,23 +5053,6 @@ public class TaskResource {
         boolean result = taskService.deleteEstimateBatch(domains);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Download-all')")
-    @ApiOperation(value = "根据需求模块需求任务", tags = {"任务" },  notes = "根据需求模块需求任务")
-	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/tasks/{task_id}/download")
-    public ResponseEntity<TaskDTO> downloadByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
-        Task domain = taskMapping.toDomain(taskdto);
-        domain.setStory(story_id);
-        domain = taskService.download(domain) ;
-        taskdto = taskMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
-    }
-    @ApiOperation(value = "批量处理[根据需求模块需求任务]", tags = {"任务" },  notes = "批量处理[根据需求模块需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/tasks/downloadbatch")
-    public ResponseEntity<Boolean> downloadByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        List<Task> domains = taskMapping.toDomain(taskdtos);
-        boolean result = taskService.downloadBatch(domains);
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")
     @ApiOperation(value = "根据需求模块需求任务", tags = {"任务" },  notes = "根据需求模块需求任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/tasks/{task_id}/editestimate")
@@ -6341,23 +6254,6 @@ public class TaskResource {
     public ResponseEntity<Boolean> deleteEstimateByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
         List<Task> domains = taskMapping.toDomain(taskdtos);
         boolean result = taskService.deleteEstimateBatch(domains);
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Download-all')")
-    @ApiOperation(value = "根据产品需求模块需求任务", tags = {"任务" },  notes = "根据产品需求模块需求任务")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/tasks/{task_id}/download")
-    public ResponseEntity<TaskDTO> downloadByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
-        Task domain = taskMapping.toDomain(taskdto);
-        domain.setStory(story_id);
-        domain = taskService.download(domain) ;
-        taskdto = taskMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
-    }
-    @ApiOperation(value = "批量处理[根据产品需求模块需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求模块需求任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/tasks/downloadbatch")
-    public ResponseEntity<Boolean> downloadByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
-        List<Task> domains = taskMapping.toDomain(taskdtos);
-        boolean result = taskService.downloadBatch(domains);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-EditEstimate-all')")

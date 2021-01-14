@@ -56,8 +56,6 @@ public interface ITaskService extends IService<Task> {
     boolean confirmStoryChangeBatch(List<Task> etList);
     Task deleteEstimate(Task et);
     boolean deleteEstimateBatch(List<Task> etList);
-    Task download(Task et);
-    boolean downloadBatch(List<Task> etList);
     Task editEstimate(Task et);
     boolean editEstimateBatch(List<Task> etList);
     Task finish(Task et);
