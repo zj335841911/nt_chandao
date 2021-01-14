@@ -69,6 +69,34 @@ export class BugGridViewBase extends GridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'MODULENAME': {
+            isRawValue: false,
+            value: 'modulename',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugGridViewBase
+	 */
+    protected customViewParams: any = {
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        }
+    };
+
     /**
      * 视图模型数据
      *
