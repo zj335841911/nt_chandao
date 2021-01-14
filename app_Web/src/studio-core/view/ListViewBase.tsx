@@ -17,6 +17,7 @@ export class ListViewBase extends MDViewBase {
     protected onSearch(): void {
         const list: any = this.$refs.list;
         if (list) {
+            list.curPage = 1;
             list.load(this.context, true);
         }
     }

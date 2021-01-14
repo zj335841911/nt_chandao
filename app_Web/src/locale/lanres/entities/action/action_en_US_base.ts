@@ -90,6 +90,7 @@ function getLocaleResourceBase(){
 					comment: commonLogic.appcommonhandle("备注",null), 
 					files: commonLogic.appcommonhandle("文件",null), 
 					noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
+					extra: commonLogic.appcommonhandle("附加值",null), 
 					id: commonLogic.appcommonhandle("id",null), 
 				},
 				uiactions: {

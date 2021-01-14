@@ -130,34 +130,6 @@ export class DocLibLGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u622dcfa_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:FileUIService  = new FileUIService();
-        curUIService.File_PreviewFile(datas,contextJO, paramJO,  $event, xData,this,"File");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public grid_uagridcolumn1_u45b9da2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -188,7 +160,6 @@ export class DocLibLGridBase extends GridControlBase {
     public ActionModel: any = {
         Look: { name: 'Look',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         ibzdownload: { name: 'ibzdownload',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DOWNLOAD_BUT', actiontarget: 'SINGLEKEY'},
-        PreviewFile: { name: 'PreviewFile',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         delete: { name: 'delete',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
@@ -500,7 +471,7 @@ export class DocLibLGridBase extends GridControlBase {
             },
             {
                 name: 'addedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -525,9 +496,6 @@ export class DocLibLGridBase extends GridControlBase {
         }
         if(Object.is('ibzdownload', tag)) {
             this.grid_uagridcolumn1_ue0442cd_click(row, tag, $event);
-        }
-        if(Object.is('PreviewFile', tag)) {
-            this.grid_uagridcolumn1_u622dcfa_click(row, tag, $event);
         }
         if(Object.is('delete', tag)) {
             this.grid_uagridcolumn1_u45b9da2_click(row, tag, $event);
@@ -640,9 +608,6 @@ export class DocLibLGridBase extends GridControlBase {
                 ibzdownload:{
                     visible: false
                 },
-                PreviewFile:{
-                    visible: false
-                },
                 delete:{
                     visible: false
                 },
@@ -681,9 +646,6 @@ export class DocLibLGridBase extends GridControlBase {
             addedby:'',
             addeddate:'',
             ibzdownload:{
-                visible: false
-            },
-            PreviewFile:{
                 visible: false
             },
             delete:{
@@ -760,9 +722,6 @@ export class DocLibLGridBase extends GridControlBase {
                 addedby:'',
                 addeddate:'',
                 ibzdownload:{
-                    visible: false
-                },
-                PreviewFile:{
                     visible: false
                 },
                 delete:{

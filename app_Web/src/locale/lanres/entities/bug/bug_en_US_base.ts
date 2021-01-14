@@ -754,6 +754,7 @@ function getLocaleResourceBase(){
 					branch: commonLogic.appcommonhandle("平台/分支",null), 
 					branchname: commonLogic.appcommonhandle("平台/分支",null), 
 					modulename1: commonLogic.appcommonhandle("模块名称",null), 
+					module: commonLogic.appcommonhandle("所属模块",null), 
 					plan: commonLogic.appcommonhandle("所属计划",null), 
 					type: commonLogic.appcommonhandle("Bug类型",null), 
 					severity: commonLogic.appcommonhandle("严重程度",null), 
@@ -1660,6 +1661,7 @@ function getLocaleResourceBase(){
 				bug_tostory: commonLogic.appcommonhandle("提需求",null),
 				bug_buildusecase: commonLogic.appcommonhandle("建用例",null),
 				bug_delete: commonLogic.appcommonhandle("删除",null),
+				bug_batchdownload: commonLogic.appcommonhandle("下载",null),
 				},
 			},
 			maindashboardviewdashboard_container3_portlet: {

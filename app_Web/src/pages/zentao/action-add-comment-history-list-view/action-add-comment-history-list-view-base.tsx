@@ -98,6 +98,10 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
         'objectid': {
             isRawValue: false,
             value: 'srfparentkey',
+        },
+        'version': {
+            isRawValue: false,
+            value: 'version',
         }
     };
 

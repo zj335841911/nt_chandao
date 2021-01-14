@@ -288,6 +288,7 @@ function getLocaleResourceBase(){
 			},
 			bugtostory_form: {
 				details: {
+					grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
 					group1: commonLogic.appcommonhandle("需求基本信息",null), 
 					formpage1: commonLogic.appcommonhandle("基本信息",null), 
 					srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
@@ -309,6 +310,7 @@ function getLocaleResourceBase(){
 					sourcenote: commonLogic.appcommonhandle("来源备注",null), 
 					reviewedby: commonLogic.appcommonhandle("由谁评审",null), 
 					assignedto: commonLogic.appcommonhandle("由谁评审",null), 
+					neednotreview: commonLogic.appcommonhandle("",null), 
 					title: commonLogic.appcommonhandle("需求名称",null), 
 					pri: commonLogic.appcommonhandle("优先级",null), 
 					storypoints: commonLogic.appcommonhandle("故事点",null), 
@@ -1612,6 +1614,7 @@ function getLocaleResourceBase(){
 					story_closestorydash: commonLogic.appcommonhandle("关闭",null),
 					story_substorycz: commonLogic.appcommonhandle("细分",null),
 					story_openbaseinfoc: commonLogic.appcommonhandle("编辑",null),
+					story_batchdownload: commonLogic.appcommonhandle("下载",null),
 					story_delete: commonLogic.appcommonhandle("删除",null),
 					story_returnedit: commonLogic.appcommonhandle("退出",null),
 				},

@@ -98,6 +98,7 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
         branch: null,
         branchname: null,
         modulename1: null,
+        module: null,
         plan: null,
         type: null,
         severity: null,
@@ -257,6 +258,13 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
 
         modulename1: new FormItemModel({
     caption: '模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        module: new FormItemModel({
+    caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -477,6 +485,7 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 
