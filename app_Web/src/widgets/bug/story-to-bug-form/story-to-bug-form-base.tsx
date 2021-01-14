@@ -560,7 +560,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      */
     public createDefault() {                    
         if (this.data.hasOwnProperty('branch')) {
-            this.data['branch'] = this.viewparams['branchname'];
+            this.data['branch'] = this.viewparams['branch'];
         }
         if (this.data.hasOwnProperty('product')) {
             this.data['product'] = this.viewparams['product'];
