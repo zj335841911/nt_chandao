@@ -487,6 +487,34 @@ export class ToolbarPortletBase extends MainControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet2_batchdownload_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_BatchDownload(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
      * 返回
      *
      * @param {any[]} args 当前数据
@@ -551,6 +579,7 @@ export class ToolbarPortletBase extends MainControlBase {
         maineditdash: {name: 'maineditdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_EDIT_BUT', uiaction: { tag: 'MainEditDash', target: 'SINGLEKEY' } },
         closetaskdash: {name: 'closetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CLOSE_BUT', uiaction: { tag: 'CloseTaskDash', target: 'SINGLEKEY' } },
         delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+        batchdownload: {name: 'batchdownload', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -708,6 +737,15 @@ export class ToolbarPortletBase extends MainControlBase {
         actiontarget:'SINGLEKEY',
         visible:true,
         disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet2_batchdownload_click",
+        text: "下载",
+        iconcls: "download",
+        icon: "",
+        noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
+        visible:true,
+        disabled:false
         }
     ];
 
@@ -761,6 +799,9 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet2_uf7c7e04_click')){
             this.dashboard_sysportlet2_uf7c7e04_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_batchdownload_click')){
+            this.dashboard_sysportlet2_batchdownload_click(null);
         }
     }
 

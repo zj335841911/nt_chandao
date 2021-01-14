@@ -5400,6 +5400,2740 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据建立测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据批量建立测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 测试用例实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据更新测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据批量更新测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 测试用例实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据删除测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量删除测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | ids | List<Long> | 测试用例主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 行为
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/casefavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### CaseNFavorite
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/casenfavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据检查测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 确认用例变更
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/confirmchange
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 确认需求变更
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据测试单获取或者状态
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/getbytesttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 获取测试单执行结果
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/gettesttaskcntrun
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 测试单关联测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/linkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 移动端关联需求
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/moblinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 执行测试
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/runcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### runCases
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/runcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据保存测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量保存测试用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 测试用例实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 执行测试
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/testruncase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### testRunCases
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/testruncases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 套件关联
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/testsuitelinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 移除用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### unlinkCases
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinkcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 移除用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinksuitecase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### unlinkSuiteCases
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinksuitecases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据获取批量新建用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchbatchnew
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询批量新建用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchbatchnew
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取累计创建的用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchcuropenedcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询累计创建的用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchcuropenedcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取套件关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchcursuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询套件关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchcursuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试单关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试单关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取DEFAULT
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询DEFAULT
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取ES批量的导入
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmodulereportcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmodulereportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联-按模块-条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmodulereportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联-按模块-条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmodulereportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联-按模块
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmodulereportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联-按模块
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmodulereportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取我的收藏
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmyfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询我的收藏
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmyfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取套件关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchnotcurtestsuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询套件关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchnotcurtestsuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试单关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchnotcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试单关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchnotcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试单关联用例（项目关联）
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchnotcurtesttaskproject
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试单关联用例（项目关联）
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchnotcurtesttaskproject
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例-条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchreportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例-条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchreportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联用例-关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联用例-关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联-执行人
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunerreportcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联-执行人
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunerreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联-执行人-条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunerreportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联-执行人-条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunerreportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联-执行人
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunerreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联-执行人
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunerreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunreportcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联--执行结果条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunreportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联--执行结果条目
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunreportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productmodule_id | Long | 需求模块主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据建立测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据批量建立测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 测试用例实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据更新测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据批量更新测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 测试用例实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据删除测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量删除测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | ids | List<Long> | 测试用例主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 行为
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/casefavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### CaseNFavorite
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/casenfavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据检查测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 确认用例变更
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/confirmchange
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 确认需求变更
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据测试单获取或者状态
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/getbytesttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 获取测试单执行结果
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/gettesttaskcntrun
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 测试单关联测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/linkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 移动端关联需求
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/moblinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 执行测试
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/runcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### runCases
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/runcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据保存测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量保存测试用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 测试用例实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 执行测试
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/testruncase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### testRunCases
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/testruncases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 套件关联
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/testsuitelinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 移除用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### unlinkCases
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinkcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 移除用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinksuitecase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### unlinkSuiteCases
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/{case_id}/unlinksuitecases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | case_id | Long | 测试用例主键ID |
+| 5 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 根据获取批量新建用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchbatchnew
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询批量新建用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchbatchnew
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取累计创建的用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchcuropenedcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询累计创建的用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchcuropenedcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取套件关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchcursuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询套件关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchcursuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试单关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试单关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取DEFAULT
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询DEFAULT
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取ES批量的导入
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchesbulk
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询ES批量的导入
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchesbulk
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmodulereportcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmodulereportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联-按模块-条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmodulereportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联-按模块-条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmodulereportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联-按模块
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmodulereportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联-按模块
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmodulereportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取我的收藏
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchmyfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询我的收藏
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchmyfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取套件关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchnotcurtestsuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询套件关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchnotcurtestsuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试单关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchnotcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试单关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchnotcurtesttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试单关联用例（项目关联）
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchnotcurtesttaskproject
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试单关联用例（项目关联）
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchnotcurtesttaskproject
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例-条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchreportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例-条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchreportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联用例-关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联用例-关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联-执行人
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunerreportcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联-执行人
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunerreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联-执行人-条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunerreportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联-执行人-条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunerreportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联-执行人
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunerreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联-执行人
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunerreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunreportcase
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联用例
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunreportcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试报告关联--执行结果条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunreportcaseentry
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询测试报告关联--执行结果条目
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunreportcaseentry
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[CaseDTO](#CaseDTO)>：测试用例实体传输对象列表 |
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productmodule_id | Long | 需求模块主键ID |/r/n| 3 | story_id | Long | 需求主键ID |
+| 4 | context | [CaseSearchContext](#CaseSearchContext) | 测试用例查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[CaseDTO](#CaseDTO)>：测试用例实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### CaseDTO

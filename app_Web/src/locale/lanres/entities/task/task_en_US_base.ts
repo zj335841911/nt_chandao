@@ -1785,6 +1785,7 @@ function getLocaleResourceBase(){
 				task_maineditdash: commonLogic.appcommonhandle("编辑",null),
 				task_closetaskdash: commonLogic.appcommonhandle("关闭",null),
 				task_delete: commonLogic.appcommonhandle("删除",null),
+				task_batchdownload: commonLogic.appcommonhandle("下载",null),
 				},
 			},
 			maindashboardviewdashboard_container3_portlet: {

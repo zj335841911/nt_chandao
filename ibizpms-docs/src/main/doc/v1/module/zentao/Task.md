@@ -5416,25 +5416,26 @@ String
 | 21 | [关闭](#实体行为-关闭（Close）) | Close | 用户自定义 | 后台及前台 |
 | 22 | [需求变更确认](#实体行为-需求变更确认（ConfirmStoryChange）) | ConfirmStoryChange | 用户自定义 | 后台及前台 |
 | 23 | [删除工时](#实体行为-删除工时（DeleteEstimate）) | DeleteEstimate | 用户自定义 | 后台及前台 |
-| 24 | [编辑工时](#实体行为-编辑工时（EditEstimate）) | EditEstimate | 用户自定义 | 后台及前台 |
-| 25 | [完成](#实体行为-完成（Finish）) | Finish | 用户自定义 | 后台及前台 |
-| 26 | [获取下一个团队成员(完成)](#实体行为-获取下一个团队成员(完成)（GetNextTeamUser）) | GetNextTeamUserFinish | 用户自定义 | 后台及前台 |
-| 27 | [获取团队成员剩余工时（激活）](#实体行为-获取团队成员剩余工时（激活）（GetTeamUserLeftActivity）) | GetTeamUserLeftActivity | 用户自定义 | 后台及前台 |
-| 28 | [获取团队成员剩余工时（开始或继续）](#实体行为-获取团队成员剩余工时（开始或继续）（GetTeamUserLeftStart）) | GetTeamUserLeftStart | 用户自定义 | 后台及前台 |
-| 29 | [获取联系人](#实体行为-获取联系人（GetUserConcat）) | GetUserConcat | 实体处理逻辑 | 前台 |
-| 30 | [获取团队成员](#实体行为-获取团队成员（GetUsernames）) | getUsernames | 实体处理逻辑 | 后台 |
-| 31 | [其他更新](#实体行为-其他更新（OtherUpdate）) | OtherUpdate | 用户自定义 | 后台及前台 |
-| 32 | [暂停](#实体行为-暂停（Pause）) | Pause | 用户自定义 | 后台及前台 |
-| 33 | [工时录入](#实体行为-工时录入（RecordEstimate）) | RecordEstimate | 用户自定义 | 后台及前台 |
-| 34 | [继续](#实体行为-继续（Restart）) | Restart | 用户自定义 | 后台及前台 |
-| 35 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 36 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
-| 37 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
-| 38 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
-| 39 | [任务收藏](#实体行为-任务收藏（TaskFavorites）) | TaskFavorites | 实体处理逻辑 | 后台 |
-| 40 | [检查多人任务操作权限](#实体行为-检查多人任务操作权限（TaskForward）) | taskForward | 用户自定义 | 后台及前台 |
-| 41 | [任务收藏](#实体行为-任务收藏（TaskNFavorites）) | TaskNFavorites | 实体处理逻辑 | 后台 |
-| 42 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | updateStoryVersion | 实体处理逻辑 | 后台 |
+| 24 | [下载](#实体行为-下载（Download）) | Download | 用户自定义 | 后台及前台 |
+| 25 | [编辑工时](#实体行为-编辑工时（EditEstimate）) | EditEstimate | 用户自定义 | 后台及前台 |
+| 26 | [完成](#实体行为-完成（Finish）) | Finish | 用户自定义 | 后台及前台 |
+| 27 | [获取下一个团队成员(完成)](#实体行为-获取下一个团队成员(完成)（GetNextTeamUser）) | GetNextTeamUserFinish | 用户自定义 | 后台及前台 |
+| 28 | [获取团队成员剩余工时（激活）](#实体行为-获取团队成员剩余工时（激活）（GetTeamUserLeftActivity）) | GetTeamUserLeftActivity | 用户自定义 | 后台及前台 |
+| 29 | [获取团队成员剩余工时（开始或继续）](#实体行为-获取团队成员剩余工时（开始或继续）（GetTeamUserLeftStart）) | GetTeamUserLeftStart | 用户自定义 | 后台及前台 |
+| 30 | [获取联系人](#实体行为-获取联系人（GetUserConcat）) | GetUserConcat | 实体处理逻辑 | 前台 |
+| 31 | [获取团队成员](#实体行为-获取团队成员（GetUsernames）) | getUsernames | 实体处理逻辑 | 后台 |
+| 32 | [其他更新](#实体行为-其他更新（OtherUpdate）) | OtherUpdate | 用户自定义 | 后台及前台 |
+| 33 | [暂停](#实体行为-暂停（Pause）) | Pause | 用户自定义 | 后台及前台 |
+| 34 | [工时录入](#实体行为-工时录入（RecordEstimate）) | RecordEstimate | 用户自定义 | 后台及前台 |
+| 35 | [继续](#实体行为-继续（Restart）) | Restart | 用户自定义 | 后台及前台 |
+| 36 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 37 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
+| 38 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
+| 39 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
+| 40 | [任务收藏](#实体行为-任务收藏（TaskFavorites）) | TaskFavorites | 实体处理逻辑 | 后台 |
+| 41 | [检查多人任务操作权限](#实体行为-检查多人任务操作权限（TaskForward）) | taskForward | 用户自定义 | 后台及前台 |
+| 42 | [任务收藏](#实体行为-任务收藏（TaskNFavorites）) | TaskNFavorites | 实体处理逻辑 | 后台 |
+| 43 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | updateStoryVersion | 实体处理逻辑 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -5717,6 +5718,18 @@ CheckKey
 ### 实体行为-删除工时（DeleteEstimate）
 #### 说明
 删除工时
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-下载（Download）
+#### 说明
+下载
 
 - 行为类型
 用户自定义

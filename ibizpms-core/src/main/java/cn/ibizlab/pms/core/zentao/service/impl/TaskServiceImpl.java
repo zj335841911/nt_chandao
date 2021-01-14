@@ -258,6 +258,21 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 	 	 return true;
     }
 
+    @Override
+    @Transactional
+    public Task download(Task et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean downloadBatch(List<Task> etList) {
+        for(Task et : etList) {
+            download(et);
+        }
+        return true;
+    }
+
        @Override
     @Transactional
     public Task editEstimate(Task et) {

@@ -485,5 +485,309 @@ public class StorySpecResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
+    @ApiOperation(value = "根据需求模块需求建立需求描述", tags = {"需求描述" },  notes = "根据需求模块需求建立需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs")
+    public ResponseEntity<StorySpecDTO> createByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+        StorySpec domain = storyspecMapping.toDomain(storyspecdto);
+        domain.setStory(story_id);
+		storyspecService.create(domain);
+        StorySpecDTO dto = storyspecMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
+    @ApiOperation(value = "根据需求模块需求批量建立需求描述", tags = {"需求描述" },  notes = "根据需求模块需求批量建立需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/batch")
+    public ResponseEntity<Boolean> createBatchByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<StorySpecDTO> storyspecdtos) {
+        List<StorySpec> domainlist=storyspecMapping.toDomain(storyspecdtos);
+        for(StorySpec domain:domainlist){
+            domain.setStory(story_id);
+        }
+        storyspecService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Update-all')")
+    @ApiOperation(value = "根据需求模块需求更新需求描述", tags = {"需求描述" },  notes = "根据需求模块需求更新需求描述")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/{storyspec_id}")
+    public ResponseEntity<StorySpecDTO> updateByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("storyspec_id") String storyspec_id, @RequestBody StorySpecDTO storyspecdto) {
+        StorySpec domain = storyspecMapping.toDomain(storyspecdto);
+        domain.setStory(story_id);
+        domain.setId(storyspec_id);
+		storyspecService.update(domain);
+        StorySpecDTO dto = storyspecMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Update-all')")
+    @ApiOperation(value = "根据需求模块需求批量更新需求描述", tags = {"需求描述" },  notes = "根据需求模块需求批量更新需求描述")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/batch")
+    public ResponseEntity<Boolean> updateBatchByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<StorySpecDTO> storyspecdtos) {
+        List<StorySpec> domainlist=storyspecMapping.toDomain(storyspecdtos);
+        for(StorySpec domain:domainlist){
+            domain.setStory(story_id);
+        }
+        storyspecService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Remove-all')")
+    @ApiOperation(value = "根据需求模块需求删除需求描述", tags = {"需求描述" },  notes = "根据需求模块需求删除需求描述")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/{storyspec_id}")
+    public ResponseEntity<Boolean> removeByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("storyspec_id") String storyspec_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(storyspecService.remove(storyspec_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Remove-all')")
+    @ApiOperation(value = "根据需求模块需求批量删除需求描述", tags = {"需求描述" },  notes = "根据需求模块需求批量删除需求描述")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/batch")
+    public ResponseEntity<Boolean> removeBatchByProductModuleStory(@RequestBody List<String> ids) {
+        storyspecService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Get-all')")
+    @ApiOperation(value = "根据需求模块需求获取需求描述", tags = {"需求描述" },  notes = "根据需求模块需求获取需求描述")
+	@RequestMapping(method = RequestMethod.GET, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/{storyspec_id}")
+    public ResponseEntity<StorySpecDTO> getByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("storyspec_id") String storyspec_id) {
+        StorySpec domain = storyspecService.get(storyspec_id);
+        StorySpecDTO dto = storyspecMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据需求模块需求获取需求描述草稿", tags = {"需求描述" },  notes = "根据需求模块需求获取需求描述草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/getdraft")
+    public ResponseEntity<StorySpecDTO> getDraftByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
+        domain.setStory(story_id);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据需求模块需求检查需求描述", tags = {"需求描述" },  notes = "根据需求模块需求检查需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(storyspecService.checkKey(storyspecMapping.toDomain(storyspecdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
+    @ApiOperation(value = "根据需求模块需求保存需求描述", tags = {"需求描述" },  notes = "根据需求模块需求保存需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/save")
+    public ResponseEntity<Boolean> saveByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+        StorySpec domain = storyspecMapping.toDomain(storyspecdto);
+        domain.setStory(story_id);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
+    @ApiOperation(value = "根据需求模块需求批量保存需求描述", tags = {"需求描述" },  notes = "根据需求模块需求批量保存需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<StorySpecDTO> storyspecdtos) {
+        List<StorySpec> domainlist=storyspecMapping.toDomain(storyspecdtos);
+        for(StorySpec domain:domainlist){
+             domain.setStory(story_id);
+        }
+        storyspecService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
+	@ApiOperation(value = "根据需求模块需求获取DEFAULT", tags = {"需求描述" } ,notes = "根据需求模块需求获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/fetchdefault")
+	public ResponseEntity<List<StorySpecDTO>> fetchStorySpecDefaultByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id,StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchDefault(context) ;
+        List<StorySpecDTO> list = storyspecMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
+	@ApiOperation(value = "根据需求模块需求查询DEFAULT", tags = {"需求描述" } ,notes = "根据需求模块需求查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/searchdefault")
+	public ResponseEntity<Page<StorySpecDTO>> searchStorySpecDefaultByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据需求模块需求获取版本", tags = {"需求描述" } ,notes = "根据需求模块需求获取版本")
+    @RequestMapping(method= RequestMethod.GET , value="/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/fetchversion")
+	public ResponseEntity<List<StorySpecDTO>> fetchStorySpecVersionByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id,StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+        List<StorySpecDTO> list = storyspecMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据需求模块需求查询版本", tags = {"需求描述" } ,notes = "根据需求模块需求查询版本")
+    @RequestMapping(method= RequestMethod.POST , value="/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/searchversion")
+	public ResponseEntity<Page<StorySpecDTO>> searchStorySpecVersionByProductModuleStory(@PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
+    @ApiOperation(value = "根据产品需求模块需求建立需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求建立需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs")
+    public ResponseEntity<StorySpecDTO> createByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+        StorySpec domain = storyspecMapping.toDomain(storyspecdto);
+        domain.setStory(story_id);
+		storyspecService.create(domain);
+        StorySpecDTO dto = storyspecMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
+    @ApiOperation(value = "根据产品需求模块需求批量建立需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求批量建立需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/batch")
+    public ResponseEntity<Boolean> createBatchByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<StorySpecDTO> storyspecdtos) {
+        List<StorySpec> domainlist=storyspecMapping.toDomain(storyspecdtos);
+        for(StorySpec domain:domainlist){
+            domain.setStory(story_id);
+        }
+        storyspecService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Update-all')")
+    @ApiOperation(value = "根据产品需求模块需求更新需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求更新需求描述")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/{storyspec_id}")
+    public ResponseEntity<StorySpecDTO> updateByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("storyspec_id") String storyspec_id, @RequestBody StorySpecDTO storyspecdto) {
+        StorySpec domain = storyspecMapping.toDomain(storyspecdto);
+        domain.setStory(story_id);
+        domain.setId(storyspec_id);
+		storyspecService.update(domain);
+        StorySpecDTO dto = storyspecMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Update-all')")
+    @ApiOperation(value = "根据产品需求模块需求批量更新需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求批量更新需求描述")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/batch")
+    public ResponseEntity<Boolean> updateBatchByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<StorySpecDTO> storyspecdtos) {
+        List<StorySpec> domainlist=storyspecMapping.toDomain(storyspecdtos);
+        for(StorySpec domain:domainlist){
+            domain.setStory(story_id);
+        }
+        storyspecService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Remove-all')")
+    @ApiOperation(value = "根据产品需求模块需求删除需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求删除需求描述")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/{storyspec_id}")
+    public ResponseEntity<Boolean> removeByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("storyspec_id") String storyspec_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(storyspecService.remove(storyspec_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Remove-all')")
+    @ApiOperation(value = "根据产品需求模块需求批量删除需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求批量删除需求描述")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/batch")
+    public ResponseEntity<Boolean> removeBatchByProductProductModuleStory(@RequestBody List<String> ids) {
+        storyspecService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Get-all')")
+    @ApiOperation(value = "根据产品需求模块需求获取需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求获取需求描述")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/{storyspec_id}")
+    public ResponseEntity<StorySpecDTO> getByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @PathVariable("storyspec_id") String storyspec_id) {
+        StorySpec domain = storyspecService.get(storyspec_id);
+        StorySpecDTO dto = storyspecMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品需求模块需求获取需求描述草稿", tags = {"需求描述" },  notes = "根据产品需求模块需求获取需求描述草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/getdraft")
+    public ResponseEntity<StorySpecDTO> getDraftByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
+        domain.setStory(story_id);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据产品需求模块需求检查需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求检查需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(storyspecService.checkKey(storyspecMapping.toDomain(storyspecdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
+    @ApiOperation(value = "根据产品需求模块需求保存需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求保存需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/save")
+    public ResponseEntity<Boolean> saveByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+        StorySpec domain = storyspecMapping.toDomain(storyspecdto);
+        domain.setStory(story_id);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
+    @ApiOperation(value = "根据产品需求模块需求批量保存需求描述", tags = {"需求描述" },  notes = "根据产品需求模块需求批量保存需求描述")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody List<StorySpecDTO> storyspecdtos) {
+        List<StorySpec> domainlist=storyspecMapping.toDomain(storyspecdtos);
+        for(StorySpec domain:domainlist){
+             domain.setStory(story_id);
+        }
+        storyspecService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
+	@ApiOperation(value = "根据产品需求模块需求获取DEFAULT", tags = {"需求描述" } ,notes = "根据产品需求模块需求获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/fetchdefault")
+	public ResponseEntity<List<StorySpecDTO>> fetchStorySpecDefaultByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id,StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchDefault(context) ;
+        List<StorySpecDTO> list = storyspecMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
+	@ApiOperation(value = "根据产品需求模块需求查询DEFAULT", tags = {"需求描述" } ,notes = "根据产品需求模块需求查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/searchdefault")
+	public ResponseEntity<Page<StorySpecDTO>> searchStorySpecDefaultByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据产品需求模块需求获取版本", tags = {"需求描述" } ,notes = "根据产品需求模块需求获取版本")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/fetchversion")
+	public ResponseEntity<List<StorySpecDTO>> fetchStorySpecVersionByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id,StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+        List<StorySpecDTO> list = storyspecMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据产品需求模块需求查询版本", tags = {"需求描述" } ,notes = "根据产品需求模块需求查询版本")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productmodules/{productmodule_id}/stories/{story_id}/storyspecs/searchversion")
+	public ResponseEntity<Page<StorySpecDTO>> searchStorySpecVersionByProductProductModuleStory(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

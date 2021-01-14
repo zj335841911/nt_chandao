@@ -49,6 +49,16 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && context.testresult){
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
+            
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && context.testresult){
+            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.case && context.testresult){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
             
@@ -84,6 +94,34 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults`,data,isloading);
+            
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.case && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -164,6 +202,20 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && context.testresult){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,data,isloading);
+            
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && context.testresult){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.case && context.testresult){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -209,6 +261,14 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && context.testresult){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && context.testresult){
+            let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            return res;
+        }
         if(context.product && context.story && context.case && context.testresult){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
             return res;
@@ -239,6 +299,16 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && context.testresult){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && context.testresult){
+            let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.case && context.testresult){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
             
@@ -274,6 +344,18 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/getdraft`,isloading);
+            res.data.testresult = data.testresult;
+            
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && true){
+            let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/getdraft`,isloading);
+            res.data.testresult = data.testresult;
+            
+            return res;
+        }
         if(context.product && context.story && context.case && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/getdraft`,isloading);
             res.data.testresult = data.testresult;
@@ -314,6 +396,20 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && context.testresult){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/checkkey`,data,isloading);
+            
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && context.testresult){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/checkkey`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.case && context.testresult){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -356,6 +452,20 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && context.testresult){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/save`,data,isloading);
+            
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && context.testresult){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/save`,data,isloading);
+            
+            return res;
+        }
         if(context.product && context.story && context.case && context.testresult){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -401,6 +511,16 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async FetchCurTestRun(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
+            return res;
+        }
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
@@ -436,6 +556,14 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async searchCurTestRun(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/searchcurtestrun`,tempData,isloading);
+        }
+        if(context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/searchcurtestrun`,tempData,isloading);
+        }
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/searchcurtestrun`,tempData,isloading);
@@ -466,6 +594,16 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
+            return res;
+        }
+        if(context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
+            return res;
+        }
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
@@ -501,6 +639,14 @@ export default class TestResultServiceBase extends EntityService {
      * @memberof TestResultServiceBase
      */
     public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/searchdefault`,tempData,isloading);
+        }
+        if(context.productmodule && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/cases/${context.case}/testresults/searchdefault`,tempData,isloading);
+        }
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/searchdefault`,tempData,isloading);
