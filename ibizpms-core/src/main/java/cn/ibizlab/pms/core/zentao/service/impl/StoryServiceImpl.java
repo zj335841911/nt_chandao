@@ -1099,8 +1099,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
             et.setPath(ibzproductmodule.getPath());
             et.setModulename(ibzproductmodule.getName());
             // 父关系等价
-            et.setModule(ibzproductmodule.getRoot());
-            et.setModulename(ibzproductmodule.getRootname());
+            et.setProduct(ibzproductmodule.getRoot());
+            et.setProductname(ibzproductmodule.getRootname());
         }
         //实体关系[DER1N_ZT_STORY_ZT_BRANCH_BRANCH]
         if (!ObjectUtils.isEmpty(et.getBranch())) {
