@@ -573,9 +573,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public createDefault() {                    
-        if (this.data.hasOwnProperty('modulename')) {
-            this.data['modulename'] = this.viewparams[''];
-        }
         if (this.data.hasOwnProperty('allmodules')) {
             this.data['allmodules'] = '1';
         }

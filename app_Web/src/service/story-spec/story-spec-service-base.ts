@@ -49,16 +49,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && context.storyspec){
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}/select`,isloading);
-            
-            return res;
-        }
-        if(context.productmodule && context.story && context.storyspec){
-            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}/select`,isloading);
-            
-            return res;
-        }
         if(context.product && context.story && context.storyspec){
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/select`,isloading);
             
@@ -84,34 +74,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs`,data,isloading);
-            
-            return res;
-        }
-        if(context.productmodule && context.story && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs`,data,isloading);
-            
-            return res;
-        }
         if(context.product && context.story && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -164,20 +126,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}`,data,isloading);
-            
-            return res;
-        }
-        if(context.productmodule && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}`,data,isloading);
-            
-            return res;
-        }
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -209,14 +157,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && context.storyspec){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            return res;
-        }
-        if(context.productmodule && context.story && context.storyspec){
-            let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            return res;
-        }
         if(context.product && context.story && context.storyspec){
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
             return res;
@@ -239,16 +179,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && context.storyspec){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            
-            return res;
-        }
-        if(context.productmodule && context.story && context.storyspec){
-            let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            
-            return res;
-        }
         if(context.product && context.story && context.storyspec){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
             
@@ -274,18 +204,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/getdraft`,isloading);
-            res.data.storyspec = data.storyspec;
-            
-            return res;
-        }
-        if(context.productmodule && context.story && true){
-            let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/getdraft`,isloading);
-            res.data.storyspec = data.storyspec;
-            
-            return res;
-        }
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/getdraft`,isloading);
             res.data.storyspec = data.storyspec;
@@ -314,20 +232,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-            
-            return res;
-        }
-        if(context.productmodule && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-            
-            return res;
-        }
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -356,20 +260,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
-            
-            return res;
-        }
-        if(context.productmodule && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
-            
-            return res;
-        }
         if(context.product && context.story && context.storyspec){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -401,16 +291,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/fetchdefault`,tempData,isloading);
-            return res;
-        }
-        if(context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/fetchdefault`,tempData,isloading);
-            return res;
-        }
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/fetchdefault`,tempData,isloading);
@@ -436,14 +316,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/searchdefault`,tempData,isloading);
-        }
-        if(context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/searchdefault`,tempData,isloading);
-        }
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/searchdefault`,tempData,isloading);
@@ -466,16 +338,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async FetchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
-            return res;
-        }
-        if(context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
-            return res;
-        }
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
@@ -501,14 +363,6 @@ export default class StorySpecServiceBase extends EntityService {
      * @memberof StorySpecServiceBase
      */
     public async searchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/searchversion`,tempData,isloading);
-        }
-        if(context.productmodule && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return await Http.getInstance().post(`/productmodules/${context.productmodule}/stories/${context.story}/storyspecs/searchversion`,tempData,isloading);
-        }
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/searchversion`,tempData,isloading);

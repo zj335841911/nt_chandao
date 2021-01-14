@@ -609,6 +609,9 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('storyname')) {
             this.data['storyname'] = this.viewparams['storyname'];
         }
+        if (this.data.hasOwnProperty('taskname')) {
+            this.data['taskname'] = this.viewparams['title'];
+        }
         if (this.data.hasOwnProperty('mailto')) {
             this.data['mailto'] = this.viewparams['mailto'];
         }
