@@ -124,6 +124,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'mailto',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'story': {
             isRawValue: false,
             value: 'story',

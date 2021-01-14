@@ -161,6 +161,11 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'consumed',
           prop: 'consumed',
           dataType: 'FLOAT',
