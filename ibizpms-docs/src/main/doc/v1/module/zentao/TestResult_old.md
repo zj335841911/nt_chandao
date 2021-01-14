@@ -33,6 +33,7 @@ hide members
 |所属模块|MODULE|PICKUPDATA|&nbsp;|
 |所属产品|PRODUCT|PICKUPTEXT|&nbsp;|
 |前置条件|PRECONDITION|PICKUPDATA|&nbsp;|
+|所属模块|MODULENAME|PICKUPDATA|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -55,6 +56,7 @@ hide members
 |所属模块|默认规则|默认规则|
 |所属产品|默认规则|默认规则|
 |前置条件|默认规则|内容长度必须小于等于[65535]|
+|所属模块|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 

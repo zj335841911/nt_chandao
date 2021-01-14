@@ -21,6 +21,7 @@ function getLocaleResourceBase(){
 			module: commonLogic.appcommonhandle("所属模块",null),
 			product: commonLogic.appcommonhandle("所属产品",null),
 			precondition: commonLogic.appcommonhandle("前置条件",null),
+			modulename: commonLogic.appcommonhandle("所属模块",null),
 		},
 			views: {
 				editview: {
@@ -66,6 +67,7 @@ function getLocaleResourceBase(){
 					formitem: commonLogic.appcommonhandle("",null), 
 					title: commonLogic.appcommonhandle("用例名称",null), 
 					module: commonLogic.appcommonhandle("所属模块",null), 
+					modulename: commonLogic.appcommonhandle("所属模块",null), 
 					job: commonLogic.appcommonhandle("构建任务",null), 
 					precondition: commonLogic.appcommonhandle("前置条件",null), 
 					story: commonLogic.appcommonhandle("相关需求",null), 

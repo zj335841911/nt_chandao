@@ -274,6 +274,7 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
             et.setModule(ztcase.getModule());
             et.setProduct(ztcase.getProduct());
             et.setPrecondition(ztcase.getPrecondition());
+            et.setModulename(ztcase.getModulename());
         }
     }
 

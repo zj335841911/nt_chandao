@@ -199140,6 +199140,7 @@ CREATE TABLE `zt_testreport`(
 | PRODUCT        | 所属产品  |       |   8   | &nbsp; |
 | STEPRESULTS        | 步骤结果  | CLOB      |   65,535   | &nbsp; |
 | COMPILE        | 代码编译  |       |   -1   | &nbsp; |
+| MODULENAME        | 所属模块  | VARCHAR      |   60   | &nbsp; |
 | DATE        | 测试时间  | DATETIME      |   -1   | &nbsp; |
 | JOB        | 构建任务  |       |   -1   | &nbsp; |
 | RUN        | 测试执行  |       |   8   | &nbsp; |

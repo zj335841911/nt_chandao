@@ -19389,16 +19389,17 @@ t1.`ID`,
 t1.`JOB`,
 t1.`LASTRUNNER`,
 t11.`MODULE`,
+t21.`NAME` AS `MODULENAME`,
 t11.`PRODUCT`,
 t1.`RUN`,
 t11.`STORY`,
-t11.`TITLE`,
 t1.`VERSION`
 FROM `zt_testresult` t1 
 LEFT JOIN zt_case t11 ON t1.CASE = t11.ID 
-RIGHT JOIN zt_testrun t21 ON t1.RUN = t21.ID 
+LEFT JOIN zt_module t21 ON t11.MODULE = t21.ID 
+RIGHT JOIN zt_testrun t31 ON t1.RUN = t31.ID 
 
-WHERE ( t21.`TASK` = ${srfwebcontext('task','{"defname":"TASK","dename":"ZT_TESTRUN"}')} ) 
+WHERE ( t31.`TASK` = ${srfwebcontext('task','{"defname":"TASK","dename":"ZT_TESTRUN"}')} ) 
 
 ```
 ### DEFAULT(DEFAULT)<div id="TestResult_Default"></div>
@@ -19413,13 +19414,14 @@ t1.`ID`,
 t1.`JOB`,
 t1.`LASTRUNNER`,
 t11.`MODULE`,
+t21.`NAME` AS `MODULENAME`,
 t11.`PRODUCT`,
 t1.`RUN`,
 t11.`STORY`,
-t11.`TITLE`,
 t1.`VERSION`
 FROM `zt_testresult` t1 
 LEFT JOIN zt_case t11 ON t1.CASE = t11.ID 
+LEFT JOIN zt_module t21 ON t11.MODULE = t21.ID 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="TestResult_View"></div>
@@ -19434,16 +19436,17 @@ t1.`ID`,
 t1.`JOB`,
 t1.`LASTRUNNER`,
 t11.`MODULE`,
+t21.`NAME` AS `MODULENAME`,
 t11.`PRECONDITION`,
 t11.`PRODUCT`,
 t1.`RUN`,
 t1.`STEPRESULTS`,
 t11.`STORY`,
-t11.`TITLE`,
 t1.`VERSION`,
 t1.`XML`
 FROM `zt_testresult` t1 
 LEFT JOIN zt_case t11 ON t1.CASE = t11.ID 
+LEFT JOIN zt_module t21 ON t11.MODULE = t21.ID 
 
 ```
 

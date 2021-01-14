@@ -145,6 +145,7 @@ export class MainEditFormBase extends EditFormControlBase {
         formitem: null,
         title: null,
         module: null,
+        modulename: null,
         job: null,
         precondition: null,
         story: null,
@@ -310,6 +311,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        modulename: new FormItemModel({
+    caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         job: new FormItemModel({
     caption: '构建任务', detailType: 'FORMITEM', name: 'job', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -376,6 +384,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
 
 
 

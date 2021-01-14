@@ -43151,6 +43151,24 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MODULENAME" ,
+    "codename":"ModuleName",
+    "field_logic_name":"所属模块",
+    "entity_name":"ZT_TESTRESULT",
+    "ref_de":"ZT_CASE",
+    "ref_field_name":"MODULENAME",
+    "relation_name":"DER1N_ZT_TESTRESULT_ZT_CASE_CASE",
+    "relation_codename":"ZTCase",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

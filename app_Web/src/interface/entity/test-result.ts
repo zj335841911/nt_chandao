@@ -149,4 +149,12 @@ export interface TestResult {
      * @memberof TestResult
      */
     precondition?: any;
+
+    /**
+     * 所属模块
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    modulename?: any;
 }

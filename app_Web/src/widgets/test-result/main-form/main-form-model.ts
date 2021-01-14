@@ -84,6 +84,11 @@ export default class MainModel {
         dataType: 'PICKUPDATA',
       },
       {
+        name: 'modulename',
+        prop: 'modulename',
+        dataType: 'PICKUPDATA',
+      },
+      {
         name: 'job',
         prop: 'job',
         dataType: 'PICKUP',

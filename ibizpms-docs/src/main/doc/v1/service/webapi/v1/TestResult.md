@@ -1347,7 +1347,8 @@ POST
 | 16 | module | Long | 允许 | 所属模块 |
 | 17 | product | Long | 允许 | 所属产品 |
 | 18 | precondition | String | 允许 | 前置条件 |
-| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 19 | modulename | String | 允许 | 所属模块 |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TestResultSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -179,6 +179,13 @@ public class TestResult extends EntityMP implements Serializable {
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
     private String precondition;
+    /**
+     * 所属模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
 
     /**
      * 
