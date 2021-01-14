@@ -155,6 +155,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
         'branch': {
             isRawValue: false,
             value: 'branch',
+        },
+        'storyname': {
+            isRawValue: false,
+            value: 'storyname',
         }
     };
 
