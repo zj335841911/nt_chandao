@@ -15,8 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +23,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.constraints.Size;
 import java.io.*;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -345,10 +342,6 @@ public class IBZZTFileController {
         throw new InternalServerErrorException("文件未找到");
     }
 
-    @Cacheable(value = "file", key = "'authcode:'+#p0")
-    public String getAuthCode(String fileId) {
-        return IdWorker.getIdStr();
-    }
 
     //获取本机ip
     public static String getIpAddress() {
