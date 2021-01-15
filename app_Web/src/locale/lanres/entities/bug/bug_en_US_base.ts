@@ -471,6 +471,7 @@ function getLocaleResourceBase(){
 					mailtopk: commonLogic.appcommonhandle("抄送给",null), 
 					comment: commonLogic.appcommonhandle("备注",null), 
 					project: commonLogic.appcommonhandle("所属项目",null), 
+					product: commonLogic.appcommonhandle("所属产品",null), 
 					id: commonLogic.appcommonhandle("Bug编号",null), 
 				},
 				uiactions: {

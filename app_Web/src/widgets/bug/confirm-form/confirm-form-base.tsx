@@ -110,6 +110,7 @@ export class ConfirmEditFormBase extends EditFormControlBase {
         mailtopk: null,
         comment: null,
         project: null,
+        product: null,
         id: null,
         bug: null,
     };
@@ -269,6 +270,13 @@ export class ConfirmEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        product: new FormItemModel({
+    caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         id: new FormItemModel({
     caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -287,6 +295,7 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 
