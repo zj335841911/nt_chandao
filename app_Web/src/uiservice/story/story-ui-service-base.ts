@@ -891,8 +891,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%"});
-        Object.assign(params,{project:"%project%",story:"%id%",module:"%module%",curproject:"%project%"});
+        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",TITLE:"%title%"});
+        Object.assign(params,{modulename:"%modulename%",project:"%project%",story:"%id%",module:"%module%",title:"%title%",curproject:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
@@ -2319,8 +2319,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%"});
-        Object.assign(params,{project:"%project%",story:"%id%",module:"%module%",curproject:"%project%"});
+        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",TITLE:"%title%"});
+        Object.assign(params,{modulename:"%modulename%",project:"%project%",story:"%id%",module:"%module%",title:"%title%",curproject:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });

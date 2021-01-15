@@ -530,6 +530,12 @@ export class StorySubTaskNewGridBase extends GridControlBase {
         if (row.hasOwnProperty('parent')) {
             row['parent'] = 0;
         }
+        if (row.hasOwnProperty('storyname')) {
+            row['storyname'] = this.viewparams['title'];
+        }
+        if (row.hasOwnProperty('modulename')) {
+            row['modulename'] = this.viewparams['modulename'];
+        }
         if (row.hasOwnProperty('story')) {
             row['story'] = this.viewparams['story'];
         }

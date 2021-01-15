@@ -99,6 +99,14 @@ export class TaskStorySubTaskNewViewBase extends GridViewBase {
             isRawValue: false,
             value: 'story',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
+        'title': {
+            isRawValue: false,
+            value: 'title',
+        },
         'module': {
             isRawValue: false,
             value: 'module',
