@@ -27,10 +27,7 @@ import java.io.*;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -48,7 +45,6 @@ public class IBZZTFileController {
 
     @Autowired
     public IFileService ifileService;
-
 
 
     @PostMapping(value = "${zentao.file.uploadpath:ibizutilpms/ztupload}")
@@ -69,10 +65,10 @@ public class IBZZTFileController {
         this.sendRespose(response, file.getFile());
     }
 
-    //批量下载
+    //需求/任务/bug附件批量下载
     @GetMapping(value = "${zentao.file.downloadpath:ibizutilpms/ztbatchdownload/" + "{id}" + "/{type}" + "}")
     @ResponseStatus(HttpStatus.OK)
-    public void download(@PathVariable("id") String id,@PathVariable("type") String objectType,  HttpServletResponse response, HttpServletRequest request) {
+    public void download(@PathVariable("id") String id, @PathVariable("type") String objectType, HttpServletResponse response, HttpServletRequest request) {
         List<File> fileList = fileService.getFileByObjectIdAndType(id, objectType);
         //生成zip的缓存路径
         String zipPath = this.fileRoot + "testBatchDownload" + System.currentTimeMillis() + ".zip";
@@ -82,11 +78,11 @@ public class IBZZTFileController {
         this.sendRespose(response, file);
     }
 
-    //批量下载
-    @GetMapping(value = "${zentao.file.filesbatchdownloadpath:ibizutilpms/ztfilesbatchdownload/" + "{ids}" + "/{types}" + "}")
+    //项目/产品的附件库批量下载
+    @GetMapping(value = "${zentao.file.filesbatchdownloadpath:ibizutilpms/ztfilesbatchdownload/" + "{ids}" + "}")
     @ResponseStatus(HttpStatus.OK)
-    public void batchDownload(@PathVariable("ids") String ids, @PathVariable("types") String objectTypes, HttpServletResponse response, HttpServletRequest request) {
-        List<File> fileList=new ArrayList<>();
+    public void batchDownload(@PathVariable("ids") String ids,  HttpServletResponse response, HttpServletRequest request) {
+        List<File> fileList = new ArrayList<>();
         String[] idList = ids.split(",");
         for (String id : idList) {
             ZTDownloadFile ztFile = fileService.getFile(id);
@@ -100,12 +96,16 @@ public class IBZZTFileController {
         this.sendRespose(response, file);
     }
 
-    //产品文档库附件全部下载
-    @GetMapping(value = "${zentao.file.AllFilesdownloadpath:ibizutilpms/ztallfilesdownload"+"/{types}"+"}")
+    //项目/产品文档库附件全部下载
+    @GetMapping(value = "${zentao.file.AllFilesdownloadpath:ibizutilpms/ztallfilesdownload/" + "{id}" + "}")
     @ResponseStatus(HttpStatus.OK)
-    public void AllFilesdownload(FileSearchContext context,@PathVariable("types") String objectTypes, HttpServletResponse response, HttpServletRequest request) {
+    public void AllFilesdownload(@PathVariable("id") String id,  HttpServletResponse response, HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("srfparentkey", id);
+        FileSearchContext context = new FileSearchContext();
+        context.setParams(params);
         context.setSize(1000);
-        Page<cn.ibizlab.pms.core.zentao.domain.File> domains = ifileService.searchProductDocLibFile(context) ;
+        Page<cn.ibizlab.pms.core.zentao.domain.File> domains = ifileService.searchProductDocLibFile(context);
         List<cn.ibizlab.pms.core.zentao.domain.File> list = domains.getContent();
         List<File> fileList = modifyFileDtoToFile(list);
         //生成zip的缓存路径
@@ -116,53 +116,12 @@ public class IBZZTFileController {
         this.sendRespose(response, file);
     }
 
-    /**
-     * 将FileDto转换成File类型
-     * @param list
-     * @return
-     */
-    public List<File> modifyFileDtoToFile(List<cn.ibizlab.pms.core.zentao.domain.File> list){
-        List<File> downloadFiles = new ArrayList<>();
-        String filePath = this.fileRoot;
-        if (filePath == null) {
-            filePath = "";
-        }
-        filePath = filePath.replaceAll("\\\\", File.separator);
-        if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += File.separator;
-        }
-        for (cn.ibizlab.pms.core.zentao.domain.File fileDto:list) {
-            String relationPath = fileDto.getPathname();
-            File file = new File(filePath + relationPath);
-            if (!file.exists()) {
-                if (relationPath.lastIndexOf(".") >= 0) {
-                    relationPath = relationPath.substring(0, relationPath.lastIndexOf("."));
-                    file = new File(filePath + relationPath);
-                    if (!file.exists()) {
-                        throw new InternalServerErrorException("文件不存在");
-                    }
-                } else {
-                    throw new InternalServerErrorException("文件不存在");
-                }
-            }
-            cn.ibizlab.pms.core.zentao.domain.File ztFile=new cn.ibizlab.pms.core.zentao.domain.File();
-            ztFile.setId(fileDto.getId());
-            //设置该附件的下载次数
-            ztFile.setDownloads((ztFile.getDownloads() != null ? ztFile.getDownloads() : 0) + 1);
-            ifileService.update(ztFile);
-            downloadFiles.add(file);
-        }
-        return downloadFiles;
-    }
-
-
 
     @GetMapping(value = {"ibizutilpms/openview/file/{id}/{name}"})
     @ResponseStatus(HttpStatus.OK)
     public void open(@PathVariable("id") String id, @PathVariable("name") String name,
                      @RequestHeader(value = "authcode", required = false) String authcode,
                      @RequestParam(value = "authcode", required = false) String checkcode, HttpServletRequest request, HttpServletResponse response) {
-        log.info("******");
         File file = getFile(id, StringUtils.isEmpty(authcode) ? checkcode : authcode);
         String type = getType(getExtensionName(file.getName()));
         response.setContentType(type);
@@ -368,6 +327,45 @@ public class IBZZTFileController {
         return "";
     }
 
+    /**
+     * 将FileDto转换成File类型
+     *
+     * @param list
+     * @return
+     */
+    public List<File> modifyFileDtoToFile(List<cn.ibizlab.pms.core.zentao.domain.File> list) {
+        List<File> downloadFiles = new ArrayList<>();
+        String filePath = this.fileRoot;
+        if (filePath == null) {
+            filePath = "";
+        }
+        filePath = filePath.replaceAll("\\\\", File.separator);
+        if (!filePath.isEmpty() && !filePath.endsWith("/")) {
+            filePath += File.separator;
+        }
+        for (cn.ibizlab.pms.core.zentao.domain.File fileDto : list) {
+            String relationPath = fileDto.getPathname();
+            File file = new File(filePath + relationPath);
+            if (!file.exists()) {
+                if (relationPath.lastIndexOf(".") >= 0) {
+                    relationPath = relationPath.substring(0, relationPath.lastIndexOf("."));
+                    file = new File(filePath + relationPath);
+                    if (!file.exists()) {
+                        throw new InternalServerErrorException("文件不存在");
+                    }
+                } else {
+                    throw new InternalServerErrorException("文件不存在");
+                }
+            }
+            cn.ibizlab.pms.core.zentao.domain.File ztFile = new cn.ibizlab.pms.core.zentao.domain.File();
+            ztFile.setId(fileDto.getId());
+            //设置该附件的下载次数
+            ztFile.setDownloads((ztFile.getDownloads() != null ? ztFile.getDownloads() : 0) + 1);
+            ifileService.update(ztFile);
+            downloadFiles.add(file);
+        }
+        return downloadFiles;
+    }
 
     /**
      * 压缩文件
