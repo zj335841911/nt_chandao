@@ -56,7 +56,7 @@ export default class StoryUIService extends StoryUIServiceBase {
         Object.assign(context,parentObj);
         // 自定义实体界面行为
         // actionContext.$Notice.warning({ title: '错误', desc: '下载 未实现' });
-        let url = "../ibizutilpms/ztbatchdownload/" + context.srfparentkey+"/"+context.objecttype + "/tttt";
+        let url = "../ibizutilpms/ztbatchdownload/" + context.srfparentkey+"/"+context.objecttype ;
         window.open(url);
     }
 
