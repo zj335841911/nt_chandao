@@ -159,6 +159,9 @@ export class ProdMobTabExpViewtabviewpanel6Model {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

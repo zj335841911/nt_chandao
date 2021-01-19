@@ -49,6 +49,7 @@ export default {
     mdeptid: "部门标识",
     ibiz_id: "IBIZ标识",
     supproreport: "支持产品汇报",
+    productclass: "产品分类",
   },
 	views: {
 		prodmobtabexpview: {

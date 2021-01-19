@@ -159,6 +159,9 @@ export class ProductStatusChartMobModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

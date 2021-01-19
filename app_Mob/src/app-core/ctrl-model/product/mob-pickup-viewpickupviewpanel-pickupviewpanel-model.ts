@@ -159,6 +159,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'productclass',
+      },
     ]
   }
 

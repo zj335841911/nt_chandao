@@ -114,6 +114,7 @@
 | 74 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 | 75 | [项目团队成员](#属性-项目团队成员（PROJECTTEAMS）) | PROJECTTEAMS | 一对多关系数据集合 | 否 | 是 | 是 |
 | 76 | [支持项目汇报](#属性-支持项目汇报（SUPPROREPORT）) | SUPPROREPORT | 单项选择(文本值) | 否 | 是 | 是 |
+| 77 | [项目立项信息](#属性-项目立项信息（PMSEEPROJECTINFO）) | PMSEEPROJECTINFO | 长文本，没有长度限制 | 否 | 是 | 是 |
 
 ### 属性-当前系统版本（OPENEDVERSION）
 #### 属性说明
@@ -3367,6 +3368,47 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-项目立项信息（PMSEEPROJECTINFO）
+#### 属性说明
+项目立项信息
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+长文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [项目状态](#属性-项目状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -4514,8 +4556,8 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
-LEFT OUTER JOIN zt_projectproduct t21 ON t1.ID = t21.PROJECT 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
+LEFT OUTER JOIN `zt_projectproduct` t21 ON t1.`ID` = t21.`PROJECT` 
 
 ```
 ### 数据查询-当前项目（CurProduct）
@@ -4576,7 +4618,7 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 ### 数据查询-当前用户项目（CurUser）
@@ -4749,7 +4791,7 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 ### 数据查询-ES批量的导入（ESBulk）
@@ -5194,6 +5236,7 @@ t1.`ORGID`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
 t1.`PM`,
+t1.`PMSEEPROJECTINFO`,
 t1.`PO`,
 t1.`PRI`,
 t1.`QD`,
@@ -5213,7 +5256,7 @@ t1.`TEAM`,
 t1.`TYPE`,
 t1.`WHITELIST`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 

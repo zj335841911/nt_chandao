@@ -243,6 +243,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

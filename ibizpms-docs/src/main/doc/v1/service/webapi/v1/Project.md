@@ -945,8 +945,9 @@ POST
 | 73 | orgid | String | 允许 | 组织标识 |
 | 74 | mdeptid | String | 允许 | 部门标识 |
 | 75 | supproreport | String | 允许 | 支持项目汇报 |
-| 76 | ibzprojectteams | List<[IBZPROJECTTEAMDTO}](#IBZPROJECTTEAMDTO})> | 允许 | 项目团队 |
-| 77 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 76 | pmseeprojectinfo | String | 允许 | 项目立项信息 |
+| 77 | ibzprojectteams | List<[IBZPROJECTTEAMDTO}](#IBZPROJECTTEAMDTO})> | 允许 | 项目团队 |
+| 78 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZPROJECTTEAMDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

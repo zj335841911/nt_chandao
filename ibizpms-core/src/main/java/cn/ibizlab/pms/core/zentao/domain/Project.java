@@ -605,6 +605,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "supproreport")
     @JsonProperty("supproreport")
     private String supproreport;
+    /**
+     * 项目立项信息
+     */
+    @TableField(value = "`pmseeprojectinfo`")
+    @JSONField(name = "pmseeprojectinfo")
+    @JsonProperty("pmseeprojectinfo")
+    private String pmseeprojectinfo;
 
     /**
      * 
@@ -886,6 +893,14 @@ public class Project extends EntityMP implements Serializable {
     public void setSupproreport(String supproreport) {
         this.supproreport = supproreport;
         this.modify("supproreport", supproreport);
+    }
+
+    /**
+     * 设置 [项目立项信息]
+     */
+    public void setPmseeprojectinfo(String pmseeprojectinfo) {
+        this.pmseeprojectinfo = pmseeprojectinfo;
+        this.modify("pmseeprojectinfo", pmseeprojectinfo);
     }
 
 

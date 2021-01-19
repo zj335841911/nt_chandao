@@ -1114,6 +1114,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
                   },
                   {
                       type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                  {
+                      type:"SIMPLE",
                       condOP:"GTANDEQ",
                       ruleInfo:"截至日期必须大于等于预计开始", 
                       isKeyCond:false,

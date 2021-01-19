@@ -77,6 +77,7 @@ export default {
     mdeptid: "部门标识",
     projectteams: "项目团队成员",
     supproreport: "支持项目汇报",
+    pmseeprojectinfo: "项目立项信息",
   },
 	views: {
 		mobchartview: {

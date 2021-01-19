@@ -243,6 +243,9 @@ export class MobTabExpViewtabviewpanel6Model {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

@@ -108,6 +108,7 @@ hide members
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |项目团队成员|PROJECTTEAMS|ONE2MANYDATA|&nbsp;|
 |支持项目汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
+|项目立项信息|PMSEEPROJECTINFO|LONGTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -190,6 +191,7 @@ hide members
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |项目团队成员|默认规则|内容长度必须小于等于[1048576]|
 |支持项目汇报|默认规则|内容长度必须小于等于[60]|
+|项目立项信息|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 

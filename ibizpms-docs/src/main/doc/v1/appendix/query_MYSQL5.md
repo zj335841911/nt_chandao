@@ -13773,8 +13773,8 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
-LEFT OUTER JOIN zt_projectproduct t21 ON t1.ID = t21.PROJECT 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
+LEFT OUTER JOIN `zt_projectproduct` t21 ON t1.`ID` = t21.`PROJECT` 
 
 WHERE ( ( ${srfwebcontext('product','{"defname":"PRODUCT","dename":"ZT_PROJECTPRODUCT"}')} is null  OR  t21.`PRODUCT` = ${srfwebcontext('product','{"defname":"PRODUCT","dename":"ZT_PROJECTPRODUCT"}')} ) ) 
 t1.DELETED = '0' 
@@ -13827,11 +13827,11 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
-WHERE EXISTS(SELECT * FROM zt_projectproduct t21 
+WHERE EXISTS(SELECT * FROM `zt_projectproduct` t21 
  WHERE 
- t1.ID = t21.PROJECT  AND  ( t21.`PRODUCT` = ${srfdatacontext('n_product_eq','{"defname":"PRODUCT","dename":"ZT_PROJECTPRODUCT"}')} ) ) 
+ t1.`ID` = t21.`PROJECT`  AND  ( t21.`PRODUCT` = ${srfdatacontext('n_product_eq','{"defname":"PRODUCT","dename":"ZT_PROJECTPRODUCT"}')} ) ) 
 t1.DELETED = '0' 
 
 ```
@@ -13985,7 +13985,7 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 WHERE t1.DELETED = '0' 
 ( t1.`ORGID` =  ${srfsessioncontext('srforgid','{"defname":"ORGID","dename":"ZT_PROJECT"}')} ) 
@@ -14360,6 +14360,7 @@ t1.`ORGID`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
 t1.`PM`,
+t1.`PMSEEPROJECTINFO`,
 t1.`PO`,
 t1.`PRI`,
 t1.`QD`,
@@ -14379,7 +14380,7 @@ t1.`TEAM`,
 t1.`TYPE`,
 t1.`WHITELIST`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 WHERE t1.DELETED = '0' 
 

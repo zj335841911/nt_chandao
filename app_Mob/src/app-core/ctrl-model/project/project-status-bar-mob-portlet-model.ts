@@ -243,6 +243,9 @@ export class ProjectStatusBarMobModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

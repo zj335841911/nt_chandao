@@ -678,6 +678,15 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String supproreport;
 
+    /**
+     * 属性 [PMSEEPROJECTINFO]
+     *
+     */
+    @JSONField(name = "pmseeprojectinfo")
+    @JsonProperty("pmseeprojectinfo")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String pmseeprojectinfo;
+
 
     /**
      * 设置 [OPENEDVERSION]
@@ -901,6 +910,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     public void setSupproreport(String  supproreport){
         this.supproreport = supproreport ;
         this.modify("supproreport",supproreport);
+    }
+
+    /**
+     * 设置 [PMSEEPROJECTINFO]
+     */
+    public void setPmseeprojectinfo(String  pmseeprojectinfo){
+        this.pmseeprojectinfo = pmseeprojectinfo ;
+        this.modify("pmseeprojectinfo",pmseeprojectinfo);
     }
 
 

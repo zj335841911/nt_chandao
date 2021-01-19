@@ -49,6 +49,7 @@ export default {
     mdeptId:  commonLogic.appcommonhandle("部门标识",null),
     iBIZ_ID:  commonLogic.appcommonhandle("IBIZ标识",null),
     supproreport:  commonLogic.appcommonhandle("支持产品汇报",null),
+    productclass:  commonLogic.appcommonhandle("产品分类",null),
   },
 	views: {
 		prodmobtabexpview: {
