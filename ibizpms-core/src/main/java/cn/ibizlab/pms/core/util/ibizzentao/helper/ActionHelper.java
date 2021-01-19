@@ -424,6 +424,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     }
 
     public Action managePmsEe(Action et){
+        et.setId(null);
         String actor = et.getActor();
         String objectType = et.getObjecttype();
         if (actor == null) {
