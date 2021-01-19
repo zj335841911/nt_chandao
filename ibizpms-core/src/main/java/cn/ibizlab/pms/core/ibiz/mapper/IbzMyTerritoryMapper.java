@@ -22,6 +22,7 @@ public interface IbzMyTerritoryMapper extends BaseMapper<IbzMyTerritory> {
     Page<IbzMyTerritory> searchDefault(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchMyWork(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchMyWorkMob(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
+    Page<IbzMyTerritory> searchMyWorkPm(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchPersonInfo(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchWelcome(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     @Override

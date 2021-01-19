@@ -8760,6 +8760,21 @@ GROUP BY
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
+### 我的工作（项目经理）(MyWorkPm)<div id="IbzMyTerritory_MyWorkPm"></div>
+```sql
+SELECT
+	t1.`ACCOUNT`,
+	(select count(1) as projects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' ) and tt.pm = t1.account) as  projects,
+	concat('已延期 ', (select count(1) as eprojects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' ) and tt.`end` < DATE_FORMAT(now(),'%Y-%m-%d') and tt.pm = t1.account) ) as  eprojects,
+	(select count(1) as LEFTLCBCNT from T_PMSEE_MILESTONE tt left JOIN t_pmsee_project t2 on t2.PMSEE_PROJECTID = tt.projectid and tt.version = t2.MILESTONEVERSION where t2.deleted = '0' and tt.`status` = '0' and t2.PMO = t1.account) as LEFTLCBCNT,
+	concat('今日里程碑 ',(select count(1) as LEFTLCBJZCNT from T_PMSEE_MILESTONE tt left JOIN t_pmsee_project t2 on t2.PMSEE_PROJECTID = tt.projectid and tt.version = t2.MILESTONEVERSION where t2.deleted = '0' and DATE_FORMAT(now(),'%Y-%m-%d') = DATE_FORMAT(tt.`end`,'%Y-%m-%d') and t2.PMO = t1.account)) as LEFTLCBJZCNT,
+	(select count(1) as PROJECTTEAMCNT from (select t2.pm,tt.account from zt_team tt left join zt_project t2 on tt.root = t2.id where tt.type = 'project' and t2.PM is not null and t2.pm <> '' GROUP BY t2.PM, tt.account) tt where tt.pm = t1.account) as PROJECTTEAMCNT,
+	concat('今日离场 ',(select count(1) as PROJECTTEAMJZCNT  from (select t2.pm,tt.account from zt_team tt left join zt_project t2 on tt.root = t2.id where DATE_FORMAT(now(),'%Y-%m-%d') = DATE_FORMAT(DATE_ADD(tt.`join`, INTERVAL tt.days day),'%Y-%m-%d')  and tt.type = 'project' and t2.PM is not null and t2.pm <> '' GROUP BY t2.PM, tt.account) tt where tt.pm = t1.account)) as PROJECTTEAMJZCNT,
+	(select count(1) as MYTODOCNT from zt_todo t where t.`status` in( 'doing', 'wait') and t.type = 'custom' and t.cycle = '0' and t.account = t1.account) as MYTODOCNT,
+	concat('今日截止 ',(select count(1) as MYTODOCNTJZ from zt_todo t where t.`status` in( 'doing', 'wait') and t.type = 'custom' and t.cycle = '0' and DATE_FORMAT(now(),'%Y-%m-%d') >= t.date and t.account = t1.account)) as MYTODOCNTJZ
+FROM
+	(select DISTINCT t1.actor as account from zt_action t1 where t1.actor <> '' and t1.actor is not null) t1
+```
 ### 个人信息-个人贡献(PersonInfo)<div id="IbzMyTerritory_PersonInfo"></div>
 ```sql
 SELECT #{srf.sessioncontext.srfloginname} as account, (SELECT count(1) from zt_todo where account = #{srf.sessioncontext.srfloginname} ) as mytodocnt,(SELECT count(1) from zt_story where deleted = '0' and openedBy = #{srf.sessioncontext.srfloginname}) as mystorys, (SELECT count(1) from zt_task where deleted = '0' and (`status` = 'done' or (`status` = 'closed' and closedReason = 'done') ) and parent >= 0 and ((finishedBy = #{srf.sessioncontext.srfloginname} and not EXISTS (SELECT 1 from zt_team t where t.root = id and t.type = 'task')) 
@@ -15564,20 +15579,102 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
 t1.`ESTIMATE`,
+DATE_ADD(t1.`join`, INTERVAL t1.days day) AS `EXITDATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,
+t11.`PM`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
+LEFT JOIN `zt_project` t11 ON t1.`ROOT` = t11.`ID` 
 
 WHERE ( t1.`TYPE` = 'project' ) 
+
+```
+### 项目成员（项目经理）(ProjectTeamPm)<div id="ProjectTeam_ProjectTeamPm"></div>
+```sql
+SELECT
+	t1.account,
+	t1.days,
+	t1.hours,
+	t1.id,
+	t1.`join`,
+	t1.limited,
+	t1.`order`,
+	t1.role,
+	t1.root,
+	( t1.days * t1.hours ) AS total,
+	t1.type,
+	( SELECT t.realname FROM zt_user t WHERE t.account = t1.account ) AS username,
+	(
+SELECT
+	count( t2.id ) 
+FROM
+	zt_task t2 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND (
+	t2.assignedTo = t1.account 
+	OR t2.finishedBy = t1.account 
+	OR t2.id IN ( SELECT t.root FROM zt_team t WHERE t.type = 'task' AND t.account = t1.account ) 
+	) 
+	) AS taskcnt,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.LEFT IS NOT NULL THEN tt.LEFT ELSE t2.LEFT END ), 1) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS `left`,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ), 1)
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS `estimate`,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ), 1)
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS consumed ,
+	t11.`PM`,
+t11.`NAME` AS `PROJECTNAME`,
+DATE_ADD(t1.`join`, INTERVAL t1.days day) as Exitdate
+FROM
+	zt_team t1 
+	LEFT JOIN `zt_project` t11 ON t1.`ROOT` = t11.`ID`
+WHERE ( t11.`PM` =  ${srfsessioncontext('srfloginname','{"defname":"PM","dename":"ZT_PROJECT"}')} ) 
 
 ```
 ### 行编辑查询(RowEditDefault)<div id="ProjectTeam_RowEditDefault"></div>
@@ -15735,18 +15832,22 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
 t1.`ESTIMATE`,
+DATE_ADD(t1.`join`, INTERVAL t1.days day) AS `EXITDATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,
+t11.`PM`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
+LEFT JOIN `zt_project` t11 ON t1.`ROOT` = t11.`ID` 
 
 WHERE ( t1.`TYPE` = 'project' ) 
 

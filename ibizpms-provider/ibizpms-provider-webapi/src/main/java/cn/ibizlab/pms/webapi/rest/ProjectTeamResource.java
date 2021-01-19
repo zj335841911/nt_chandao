@@ -177,6 +177,28 @@ public class ProjectTeamResource {
                 .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "获取项目成员（项目经理）", tags = {"项目团队" } ,notes = "获取项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.GET , value="/projectteams/fetchprojectteampm")
+	public ResponseEntity<List<ProjectTeamDTO>> fetchProjectTeamPm(ProjectTeamSearchContext context) {
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
+        List<ProjectTeamDTO> list = projectteamMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "查询项目成员（项目经理）", tags = {"项目团队" } ,notes = "查询项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.POST , value="/projectteams/searchprojectteampm")
+	public ResponseEntity<Page<ProjectTeamDTO>> searchProjectTeamPm(@RequestBody ProjectTeamSearchContext context) {
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchRowEditDefault-all')")
 	@ApiOperation(value = "获取行编辑查询", tags = {"项目团队" } ,notes = "获取行编辑查询")
     @RequestMapping(method= RequestMethod.GET , value="/projectteams/fetchroweditdefault")
@@ -365,6 +387,29 @@ public class ProjectTeamResource {
 	public ResponseEntity<Page<ProjectTeamDTO>> searchProjectTeamDefaultByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectTeamSearchContext context) {
         context.setN_root_eq(project_id);
         Page<ProjectTeam> domains = projectteamService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "根据项目获取项目成员（项目经理）", tags = {"项目团队" } ,notes = "根据项目获取项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectteams/fetchprojectteampm")
+	public ResponseEntity<List<ProjectTeamDTO>> fetchProjectTeamProjectTeamPmByProject(@PathVariable("project_id") Long project_id,ProjectTeamSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
+        List<ProjectTeamDTO> list = projectteamMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "根据项目查询项目成员（项目经理）", tags = {"项目团队" } ,notes = "根据项目查询项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectteams/searchprojectteampm")
+	public ResponseEntity<Page<ProjectTeamDTO>> searchProjectTeamProjectTeamPmByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectTeamSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

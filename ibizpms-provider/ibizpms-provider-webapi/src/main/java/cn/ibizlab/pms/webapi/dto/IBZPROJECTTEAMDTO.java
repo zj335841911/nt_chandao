@@ -165,6 +165,33 @@ public class IBZPROJECTTEAMDTO extends DTOBase implements Serializable {
     @JsonProperty("taskcnt")
     private Integer taskcnt;
 
+    /**
+     * 属性 [PM]
+     *
+     */
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String pm;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
+
+    /**
+     * 属性 [EXITDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "exitdate" , format="yyyy-MM-dd")
+    @JsonProperty("exitdate")
+    private Timestamp exitdate;
+
 
     /**
      * 设置 [JOIN]

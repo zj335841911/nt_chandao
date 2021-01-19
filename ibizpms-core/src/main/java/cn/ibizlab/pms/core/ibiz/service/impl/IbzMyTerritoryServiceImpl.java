@@ -241,6 +241,15 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     }
 
     /**
+     * 查询集合 我的工作（项目经理）
+     */
+    @Override
+    public Page<IbzMyTerritory> searchMyWorkPm(IbzMyTerritorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWorkPm(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 个人信息-个人贡献
      */
     @Override

@@ -968,7 +968,10 @@ POST
 | 14 | root | Long | 允许 | 项目编号 |
 | 15 | username | String | 允许 | 用户 |
 | 16 | taskcnt | Integer | 允许 | 任务数 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | pm | String | 允许 | 项目经理 |
+| 18 | projectname | String | 允许 | 所属项目 |
+| 19 | exitdate | Timestamp | 允许 | 退场时间<br>时间格式：yyyy-MM-dd |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

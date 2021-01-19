@@ -57,6 +57,11 @@
 |我收藏的任务|MYFAVORITETASKS|INT|&nbsp;|
 |我的收藏|MYFAVORITES|INT|&nbsp;|
 |我的地盘|MYTERRITORYCNT|INT|&nbsp;|
+|今日截止待办|MYTODOCNTJZ|TEXT|&nbsp;|
+|剩余里程碑|LEFTLCBCNT|INT|&nbsp;|
+|剩余里程碑（今日到期）|LEFTLCBJZCNT|TEXT|&nbsp;|
+|项目成员|PROJECTTEAMCNT|INT|&nbsp;|
+|项目成员（今日截止）|PROJECTTEAMJZCNT|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -109,6 +114,11 @@
 |我收藏的任务|默认规则|默认规则|
 |我的收藏|默认规则|默认规则|
 |我的地盘|默认规则|默认规则|
+|今日截止待办|默认规则|内容长度必须小于等于[100]|
+|剩余里程碑|默认规则|默认规则|
+|剩余里程碑（今日到期）|默认规则|内容长度必须小于等于[100]|
+|项目成员|默认规则|默认规则|
+|项目成员（今日截止）|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -205,6 +215,7 @@ hide footbox
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_Default))|否|&nbsp;|
 |MyWork|我的工作([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_MyWork))|否|&nbsp;|
 |MyWorkMob|我的工作([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_MyWorkMob))|否|&nbsp;|
+|MyWorkPm|我的工作（项目经理）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_MyWorkPm))|否|&nbsp;|
 |PersonInfo|个人信息-个人贡献([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_PersonInfo))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_View))|否|&nbsp;|
 |welcome|欢迎([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_Welcome))|否|&nbsp;|
@@ -216,6 +227,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |MyWork|我的工作|MyWork|否|&nbsp;|
 |MyWorkMob|我的工作|MyWorkMob|否|&nbsp;|
+|MyWorkPm|我的工作（项目经理）|MyWorkPm|否|&nbsp;|
 |PersonInfo|个人信息-个人贡献|PersonInfo|否|&nbsp;|
 |welcome|欢迎|welcome|否|&nbsp;|
 

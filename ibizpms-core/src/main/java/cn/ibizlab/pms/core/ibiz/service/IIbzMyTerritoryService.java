@@ -52,6 +52,7 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory> {
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context);
     Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context);
     Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context);
+    Page<IbzMyTerritory> searchMyWorkPm(IbzMyTerritorySearchContext context);
     Page<IbzMyTerritory> searchPersonInfo(IbzMyTerritorySearchContext context);
     Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context);
     /**

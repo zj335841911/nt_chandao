@@ -61,6 +61,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public boolean create(ProjectTeam et) {
+        fillParentData(et);
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -71,12 +72,14 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public void createBatch(List<ProjectTeam> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectTeam et) {
+        fillParentData(et);
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
@@ -87,6 +90,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public void updateBatch(List<ProjectTeam> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list, batchSize);
     }
 
@@ -118,6 +122,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Override
     public ProjectTeam getDraft(ProjectTeam et) {
+        fillParentData(et);
         getprojectdaysLogic.execute(et);
         return et;
     }
@@ -163,6 +168,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProjectTeam> list) {
+        list.forEach(item->fillParentData(item));
         List<ProjectTeam> create = new ArrayList<>();
         List<ProjectTeam> update = new ArrayList<>();
         for (ProjectTeam et : list) {
@@ -184,6 +190,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public void saveBatch(List<ProjectTeam> list) {
+        list.forEach(item -> fillParentData(item));
         List<ProjectTeam> create = new ArrayList<>();
         List<ProjectTeam> update = new ArrayList<>();
         for (ProjectTeam et : list) {
@@ -259,6 +266,15 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     }
 
     /**
+     * 查询集合 项目成员（项目经理）
+     */
+    @Override
+    public Page<ProjectTeam> searchProjectTeamPm(ProjectTeamSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchProjectTeamPm(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 行编辑查询
      */
     @Override
@@ -278,6 +294,23 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(ProjectTeam et){
+        //实体关系[DER1N_IBZ_PROJECTTEAM_ZT_PROJECT_ROOT]
+        if (!ObjectUtils.isEmpty(et.getRoot())) {
+            cn.ibizlab.pms.core.zentao.domain.Project projectteam=et.getProjectteam();
+            if (ObjectUtils.isEmpty(projectteam)) {
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getRoot());
+                et.setProjectteam(majorEntity);
+                projectteam = majorEntity;
+            }
+            et.setPm(projectteam.getPm());
+            et.setProjectname(projectteam.getName());
+        }
+    }
 
 
 

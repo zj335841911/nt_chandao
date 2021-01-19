@@ -239,6 +239,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取项目成员（项目经理）
+#### 访问路径
+/projectteams/fetchprojectteampm
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象列表 |
+
+### 查询项目成员（项目经理）
+#### 访问路径
+/projectteams/searchprojectteampm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取行编辑查询
 #### 访问路径
 /projectteams/fetchroweditdefault
@@ -560,6 +596,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取项目成员（项目经理）
+#### 访问路径
+/projects/{project_id}/projectteams/fetchprojectteampm
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象列表 |
+
+### 根据查询项目成员（项目经理）
+#### 访问路径
+/projects/{project_id}/projectteams/searchprojectteampm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取行编辑查询
 #### 访问路径
 /projects/{project_id}/projectteams/fetchroweditdefault
@@ -657,7 +731,10 @@ POST
 | 14 | root | Long | 允许 | 项目编号 |
 | 15 | username | String | 允许 | 用户 |
 | 16 | taskcnt | Integer | 允许 | 任务数 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | pm | String | 允许 | 项目经理 |
+| 18 | projectname | String | 允许 | 所属项目 |
+| 19 | exitdate | Timestamp | 允许 | 退场时间<br>时间格式：yyyy-MM-dd |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectTeamSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -667,10 +744,12 @@ POST
 | 3 | n_limited_eq | String | 允许 | 条件字段：limited<br>条件组合方式：`=` |
 | 4 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 5 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
-| 6 | customcond | String | 允许 | 自定义查询条件 |
-| 7 | customparams | String | 允许 | 自定义查询参数 |
-| 8 | query | String | 允许 | 快速搜索 |
-| 9 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 10 | page | int | 允许 | 当前页数<br>默认值0 |
-| 11 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 12 | sort | String | 允许 | 排序 |
+| 6 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 7 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 8 | customcond | String | 允许 | 自定义查询条件 |
+| 9 | customparams | String | 允许 | 自定义查询参数 |
+| 10 | query | String | 允许 | 快速搜索 |
+| 11 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 12 | page | int | 允许 | 当前页数<br>默认值0 |
+| 13 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 14 | sort | String | 允许 | 排序 |

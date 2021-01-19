@@ -28,6 +28,9 @@ hide members
 |项目编号|ROOT|PICKUP|&nbsp;|
 |用户|USERNAME|TEXT|&nbsp;|
 |任务数|TASKCNT|INT|&nbsp;|
+|项目经理|PM|PICKUPDATA|&nbsp;|
+|所属项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
+|退场时间|EXITDATE|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -49,6 +52,9 @@ hide members
 |项目编号|默认规则|默认规则|
 |用户|默认规则|内容长度必须小于等于[200]|
 |任务数|默认规则|默认规则|
+|项目经理|默认规则|内容长度必须小于等于[30]|
+|所属项目|默认规则|内容长度必须小于等于[90]|
+|退场时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -120,6 +126,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_Default))|否|&nbsp;|
+|ProjectTeamPm|项目成员（项目经理）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_ProjectTeamPm))|否|&nbsp;|
 |RowEditDefault|行编辑查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_RowEditDefault))|否|&nbsp;|
 |TaskCntEstimateConsumedLeft|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_TaskCntEstimateConsumedLeft))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_View))|否|&nbsp;|
@@ -129,6 +136,7 @@ hide footbox
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|ProjectTeamPm|项目成员（项目经理）|ProjectTeamPm|否|&nbsp;|
 |RowEditDefault|行编辑查询|RowEditDefault|否|&nbsp;|
 |TaskCntEstimateConsumedLeft|数据查询|TaskCntEstimateConsumedLeft|否|&nbsp;|
 
@@ -140,6 +148,8 @@ hide footbox
 |受限用户(LIMITED)|EQ|
 |团队类型(TYPE)|EQ|
 |项目编号(ROOT)|EQ|
+|所属项目(PROJECTNAME)|EQ|
+|所属项目(PROJECTNAME)|LIKE|
 
 ## 导入模式
 无

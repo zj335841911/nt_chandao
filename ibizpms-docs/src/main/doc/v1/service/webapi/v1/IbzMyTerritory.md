@@ -340,6 +340,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取我的工作（项目经理）
+#### 访问路径
+/ibzmyterritories/fetchmyworkpm
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象列表 |
+
+### 查询我的工作（项目经理）
+#### 访问路径
+/ibzmyterritories/searchmyworkpm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取个人信息-个人贡献
 #### 访问路径
 /ibzmyterritories/fetchpersoninfo
@@ -465,7 +501,12 @@ POST
 | 46 | myfavoritetasks | Integer | 允许 | 我收藏的任务 |
 | 47 | myfavorites | Integer | 允许 | 我的收藏 |
 | 48 | myterritorycnt | Integer | 允许 | 我的地盘 |
-| 49 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 49 | mytodocntjz | String | 允许 | 今日截止待办 |
+| 50 | leftlcbcnt | Integer | 允许 | 剩余里程碑 |
+| 51 | leftlcbjzcnt | String | 允许 | 剩余里程碑（今日到期） |
+| 52 | projectteamcnt | Integer | 允许 | 项目成员 |
+| 53 | projectteamjzcnt | String | 允许 | 项目成员（今日截止） |
+| 54 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzMyTerritorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

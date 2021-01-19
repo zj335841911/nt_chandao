@@ -153526,12 +153526,15 @@ CREATE TABLE `zt_project`(
 | ESTIMATE        | 最初预计  | DOUBLE      |   -1   | &nbsp; |
 | DAYS        | 可用工日  | INTEGER      |   5   | &nbsp; |
 | TYPE        | 团队类型  | VARCHAR      |   7   | &nbsp; |
+| PM        | 项目经理  | VARCHAR      |   30   | &nbsp; |
 | ROLE        | 角色  | VARCHAR      |   30   | &nbsp; |
 | USERNAME        | 用户  | VARCHAR      |   200   | &nbsp; |
 | ROOT        | 项目编号  |       |   8   | &nbsp; |
 | LEFT        | 预计剩余  | DOUBLE      |   -1   | &nbsp; |
 | JOIN        | 加盟日  | DATETIME      |   -1   | &nbsp; |
 | CONSUMED        | 总计消耗  | DOUBLE      |   -1   | &nbsp; |
+| EXITDATE        | 退场时间  | DATETIME      |   -1   | &nbsp; |
+| PROJECTNAME        | 所属项目  | VARCHAR      |   90   | &nbsp; |
 | LIMITED        | 受限用户  | VARCHAR      |   8   | &nbsp; |
 
 
