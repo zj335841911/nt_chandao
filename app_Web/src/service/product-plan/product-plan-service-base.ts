@@ -247,6 +247,27 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * GetOldPlanName接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async GetOldPlanName(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/getoldplanname`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/getoldplanname`,data,isloading);
+            return res;
+    }
+
+    /**
      * ImportPlanTemplet接口方法
      *
      * @param {*} [context={}]

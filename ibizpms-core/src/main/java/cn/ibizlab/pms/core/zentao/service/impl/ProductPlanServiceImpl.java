@@ -170,6 +170,13 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
     @Override
     @Transactional
+    public ProductPlan getOldPlanName(ProductPlan et) {
+        getoldplannameLogic.execute(et);
+         return et;
+    }
+
+    @Override
+    @Transactional
     public ProductPlan importPlanTemplet(ProductPlan et) {
         //自定义代码
         return et;

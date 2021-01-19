@@ -140,6 +140,21 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
     @Override
     @Transactional
+    public Action managePmsEe(Action et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean managePmsEeBatch(List<Action> etList) {
+        for(Action et : etList) {
+            managePmsEe(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(Action et) {
         if (!saveOrUpdate(et)) {
             return false;

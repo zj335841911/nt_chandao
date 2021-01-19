@@ -1101,14 +1101,15 @@ String
 | 6 | [批量解除关联Bug](#实体行为-批量解除关联Bug（BatchUnlinkBug）) | BatchUnlinkBug | 用户自定义 | 后台及前台 |
 | 7 | [批量解除关联需求](#实体行为-批量解除关联需求（BatchUnlinkStory）) | BatchUnlinkStory | 用户自定义 | 后台及前台 |
 | 8 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 9 | [计算计划结束时间](#实体行为-计算计划结束时间（GetPlanEnd）) | GetPlanEnd | 用户自定义 | 前台 |
-| 10 | [导入计划模板](#实体行为-导入计划模板（ImportPlanTemplet）) | ImportPlanTemplet | 用户自定义 | 后台及前台 |
-| 11 | [关联Bug](#实体行为-关联Bug（LinkBug）) | LinkBug | 用户自定义 | 后台及前台 |
-| 12 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
-| 13 | [移动端产品计划计数器](#实体行为-移动端产品计划计数器（MobProductPlanCounter）) | MobProductPlanCounter | 实体处理逻辑 | 后台 |
-| 14 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 15 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
-| 16 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
+| 9 | [获取上一个计划的名称](#实体行为-获取上一个计划的名称（GetOldPlanName）) | GetOldPlanName | 实体处理逻辑 | 后台 |
+| 10 | [计算计划结束时间](#实体行为-计算计划结束时间（GetPlanEnd）) | GetPlanEnd | 用户自定义 | 前台 |
+| 11 | [导入计划模板](#实体行为-导入计划模板（ImportPlanTemplet）) | ImportPlanTemplet | 用户自定义 | 后台及前台 |
+| 12 | [关联Bug](#实体行为-关联Bug（LinkBug）) | LinkBug | 用户自定义 | 后台及前台 |
+| 13 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
+| 14 | [移动端产品计划计数器](#实体行为-移动端产品计划计数器（MobProductPlanCounter）) | MobProductPlanCounter | 实体处理逻辑 | 后台 |
+| 15 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 16 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
+| 17 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1207,6 +1208,18 @@ CheckKey
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-获取上一个计划的名称（GetOldPlanName）
+#### 说明
+获取上一个计划的名称
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无

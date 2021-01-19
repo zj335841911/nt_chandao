@@ -48,6 +48,7 @@ public interface IProductPlanService extends IService<ProductPlan> {
     ProductPlan batchUnlinkStory(ProductPlan et);
     boolean batchUnlinkStoryBatch(List<ProductPlan> etList);
     boolean checkKey(ProductPlan et);
+    ProductPlan getOldPlanName(ProductPlan et);
     ProductPlan importPlanTemplet(ProductPlan et);
     boolean importPlanTempletBatch(List<ProductPlan> etList);
     ProductPlan linkBug(ProductPlan et);

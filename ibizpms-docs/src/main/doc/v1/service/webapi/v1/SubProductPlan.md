@@ -196,6 +196,26 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 获取上一个计划的名称
+#### 访问路径
+/productplans/{productplan_id}/subproductplans/{subproductplan_id}/getoldplanname
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | subproductplan_id | Long | 产品计划主键ID |
+| 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
+
 ### 导入计划模板
 #### 访问路径
 /productplans/{productplan_id}/subproductplans/{subproductplan_id}/importplantemplet
@@ -736,6 +756,26 @@ POST
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取上一个计划的名称
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/getoldplanname
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | subproductplan_id | Long | 产品计划主键ID |
+| 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
 ### 导入计划模板
 #### 访问路径
