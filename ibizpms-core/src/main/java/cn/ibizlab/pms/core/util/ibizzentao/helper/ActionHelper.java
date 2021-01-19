@@ -423,5 +423,8 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         return et;
     }
 
+    public Action managePmsEe(Action et){
+        return null;
+    }
 
 }
